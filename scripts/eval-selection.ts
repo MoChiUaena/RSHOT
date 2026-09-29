@@ -3,16 +3,15 @@
 // --models, the two scores deciding against the source tier's threshold — and is compared with your
 // decision. A threshold sweep shows what another threshold would have done. The format of the gold file
 // is in docs/selection.md (industry/gold.example.jsonl has two made-up cases).
-// Usage: node --env-file=.env scripts/eval-selection.ts --gold .data/gold.jsonl [--models default,deepseek-flash] [--n 200] [--label "..."]
+// Usage: node scripts/run-with-model.ts scripts/eval-selection.ts --live --gold .data/gold.jsonl [--models default,deepseek-flash] [--n 200] [--label "..."]
 // Receipts make re-runs free; "either" cases are excluded from decisive metrics. Each run is also
 // imported into SelectBench (admin → SelectBench) with every case, unless --no-import is given.
 import { readFileSync, writeFileSync, mkdirSync } from "node:fs";
 import path from "node:path";
 import { parseArgs } from "node:util";
-import { REPO_ROOT } from "@aihot/backend/config";
-import { closeDb, sql } from "@aihot/backend/db";
-import { ANALYZE_PROMPT_VERSION, normalizeAnalysis, runAnalysis, type AnalyzeInputArticle } from "@aihot/backend/editorial/analyze";
-import { importSelectBenchRun } from "@aihot/backend/admin/selectbench";
+import { projectRoot as REPO_ROOT } from "./lib/local-model.ts";
+import type { AnalyzeInputArticle } from "@aihot/backend/editorial/analyze";
+import { parseGoldRows, type GoldRow } from "@aihot/backend/editorial/gold";
 
 const { values } = parseArgs({
   options: {
@@ -24,20 +23,15 @@ const { values } = parseArgs({
     seed: { type: "string", default: "7" },
     label: { type: "string" },
     "no-import": { type: "boolean", default: false },
+    live: { type: "boolean", default: false },
   },
 });
 
-interface GoldRow {
-  caseId: string;
-  material: { title: string; originalTitle: string | null; publishedAt: string | null; sourceName: string; bodyZh: string | null; bodyOriginal: string | null };
-  sourceFacts: { sourceKind: string; sourceTier?: string; firstParty?: boolean; language?: string | null };
-  /** Optional: a split (e.g. development / holdout) and a stratum for reading the mistakes. */
-  samplingContext?: { benchmarkSplit?: string; samplingStratum?: string };
-  gold: { decision: "select" | "reject" | "either" };
-}
-
-const rows: GoldRow[] = readFileSync(path.resolve(REPO_ROOT, values.gold!), "utf8")
-  .split("\n").filter((l) => l.trim() && !l.trim().startsWith("//")).map((l) => JSON.parse(l));
+const rows = parseGoldRows(readFileSync(path.resolve(REPO_ROOT, values.gold!), "utf8"));
+const count = Number(values.n);
+const concurrency = Number(values.concurrency);
+if (!Number.isInteger(count) || count < 1 || count > 200) throw new Error("评测数量必须为1–200");
+if (!Number.isInteger(concurrency) || concurrency < 1 || concurrency > 6) throw new Error("并发数必须为1–6");
 
 // Deterministic stratified sample.
 function rng(seed: number) {
@@ -47,7 +41,17 @@ function rng(seed: number) {
 const rand = rng(Number(values.seed));
 const pool = values.split === "all" ? rows : rows.filter((r) => r.samplingContext?.benchmarkSplit === values.split);
 const shuffled = pool.map((r) => ({ r, k: rand() })).sort((a, b) => a.k - b.k).map((x) => x.r);
-const sample = shuffled.slice(0, Number(values.n));
+const sample = shuffled.slice(0, count);
+if (!sample.length) throw new Error("指定分组没有可评测样本");
+if (!values.live) {
+  console.log(JSON.stringify({ status: "ready_for_evaluation", cases: sample.length, requestsSent: 0 }));
+  process.exit(0);
+}
+// The explicit live flag enables calls for this evaluation process only.
+process.env.MODEL_CALLS_ENABLED = "true";
+const { closeDb, sql } = await import("@aihot/backend/db");
+const { ANALYZE_PROMPT_VERSION, normalizeAnalysis, runAnalysis } = await import("@aihot/backend/editorial/analyze");
+const { importSelectBenchRun } = await import("@aihot/backend/admin/selectbench");
 
 function toInput(r: GoldRow): AnalyzeInputArticle {
   const m = r.material;
@@ -84,7 +88,7 @@ async function pmap<T, R>(items: T[], limit: number, fn: (t: T) => Promise<R>): 
 const report: Record<string, unknown> = {};
 for (const model of values.models!.split(",")) {
   const started = Date.now();
-  const results = await pmap(sample, Number(values.concurrency), async (r) => {
+  const results = await pmap(sample, concurrency, async (r) => {
     try {
       const res = await runAnalysis(toInput(r), { scoreModel: model, stages: "selection" });
       const out = normalizeAnalysis(res);

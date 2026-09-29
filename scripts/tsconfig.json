@@ -1,0 +1,15 @@
+{
+  "extends": "../tsconfig.base.json",
+  "include": [
+    "lib/**/*.ts",
+    "check-secrets.ts",
+    "install-hooks.ts",
+    "prepare-model.ts",
+    "run-with-model.ts",
+    "probe-model.ts",
+    "pilot.ts",
+    "prepare-labeling.ts",
+    "eval-selection.ts",
+    "collect-review.ts"
+  ]
+}

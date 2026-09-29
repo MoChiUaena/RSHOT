@@ -64,13 +64,17 @@ pwsh -NoProfile -File scripts/start-local.ps1
 
 ## 启用自动采集与精选
 
-1. 在 `.env` 设置 `LLM_BASE_URL`、`LLM_API_KEY`、`LLM_MODEL`，按服务商调整 `LLM_EXTRA_JSON`；不要提交密钥。
+1. 本机先运行 `npm run model:prepare`，将模型配置填进仓库外的 `models.env`。用连接测试与 1–5 条资料试运行核对接口、输出与 token 开销，见 [模型配置与试运行](docs/model-setup.md)。Docker 部署通过服务器私有环境注入模型配置。
 2. 运行 `node --env-file=.env scripts/check-sources.ts`，确认部署机器能读取信源。需要网络代理时设置 `EGRESS_PROXY_URL`；本机现有配置不适合直接复制到云服务器。
 3. 用 100–200 条自己标注的遥感内容校准筛选标准。当前门槛仍沿用上游，编辑包和示例样本都不是已经完成人工标注的校准集，见 [精选与校准](docs/selection.md)。
 4. 将采集和模型开关设为 `true`，重启 API 并启动 worker，或用 `docker compose up -d --build` 部署完整服务。
 5. 公开发布前填写运营主体、联系方式与域名，并确认 `industry/pages/` 中的使用规则和隐私草案。
 
 付费调用在 worker 中完成，读者打开页面不触发模型调用。每日预算可在后台设置。热点榜衡量 48 小时内的多来源讨论；单一来源的重要成果仍可进入精选与日报。
+
+## 密钥与 GitHub
+
+模型密钥保存在仓库外，`.env` 与 `.data/` 保持忽略。安装依赖后运行 `npm run setup:hooks`，启用提交前和推送前检查；GitHub CI 也会检查文件与提交历史。检查只报告位置与规则，不打印密钥。详见 [配置与发布保护](docs/model-setup.md)。
 
 ## 检查与维护
 

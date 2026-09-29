@@ -1,6 +1,16 @@
 .env
 .env.*
+*.env
 !.env.example
+credentials/
+.secrets/
+.local/
+*.key
+*.pem
+*.p12
+*.pfx
+*.jks
+*.sql.gz
 node_modules/
 dist/
 .cache/

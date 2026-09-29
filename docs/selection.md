@@ -45,6 +45,8 @@ export const SELECTION = {
 
 `industry/gold.example.jsonl` 有两条示例。
 
+RSHOT 可用 `node scripts/prepare-labeling.ts` 从本地采集材料生成 `.data/calibration/pending.jsonl`，按原文身份去重并固定分组。复制为 `.data/gold.jsonl` 后填写 `gold.decision`；重新准备会覆盖待标注文件。空标签不会自动变成模型标签，评测前会检查是否完成。
+
 几条建议：
 
 - 多放**难例**：差一点就该选、差一点就不该选的。一眼就能判断的放太多，准确率会虚高。
@@ -54,8 +56,11 @@ export const SELECTION = {
 ### 2. 跑评测
 
 ```bash
-node --env-file=.env scripts/eval-selection.ts --gold .data/gold.jsonl --split development --label "第一版评分标准"
+node scripts/eval-selection.ts --gold .data/gold.jsonl --split development
+node scripts/run-with-model.ts scripts/eval-selection.ts --live --gold .data/gold.jsonl --split development --n 5 --concurrency 1 --label "首批已标注材料"
 ```
+
+第一条只验证格式与样本数量，不调用模型。第二条通过 [仓库外模型配置](model-setup.md) 做 5 条实测，只在当前进程开启模型调用。核对用量与错例后，再安排剩余样本；`--n` 范围为 1–200，并发为 1–6。
 
 对每条样本跑一遍预筛和两次评分，输出：
 

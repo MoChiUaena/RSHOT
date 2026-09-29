@@ -111,6 +111,14 @@ export interface ChatJsonResult<T> {
 
 export class ModelOutputError extends Error {}
 
+/** GPT-6 Sol uses the reasoning-model output limit. Other configured providers retain their schema. */
+export function completionParameters(model: string, maxTokens: number, temperature: number, extra: Record<string, unknown> = {}): Record<string, unknown> {
+  if (model !== "gpt-6-sol") return { temperature, max_tokens: maxTokens, ...extra };
+  const { max_tokens: _legacyLimit, ...parameters } = extra;
+  const effort = parameters.reasoning_effort ?? "none";
+  return { max_completion_tokens: maxTokens, reasoning_effort: effort, ...(effort === "none" ? { temperature } : {}), ...parameters };
+}
+
 function extractJson(text: string): unknown {
   let t = text.trim();
   const fence = /^```(?:json)?\s*([\s\S]*?)\s*```$/i.exec(t);
@@ -162,6 +170,7 @@ export async function chatJson<S extends z.ZodType>(opts: ChatJsonOptions<S>): P
   const temperature = opts.temperature ?? 0.2;
   const maxTokens = Math.max(opts.maxTokens ?? 1500, 512) + (spec.key.endsWith("-think") ? 4000 : 0);
   const userText = typeof opts.user === "string" ? opts.user : JSON.stringify(opts.user);
+  const parameters = completionParameters(spec.model, maxTokens, temperature, spec.extra);
   const body: Record<string, unknown> = {
     model: spec.model,
     messages: [
@@ -170,10 +179,8 @@ export async function chatJson<S extends z.ZodType>(opts: ChatJsonOptions<S>): P
       // Multimodal parts go through as parts; plain objects are sent as JSON text.
       { role: "user", content: typeof opts.user === "string" || Array.isArray(opts.user) ? opts.user : userText },
     ],
-    temperature,
-    max_tokens: maxTokens,
     ...(spec.jsonMode && opts.json !== false ? { response_format: { type: "json_object" } } : {}),
-    ...(spec.extra ?? {}),
+    ...parameters,
   };
 
   const receipt = await paidRequest(
@@ -182,7 +189,8 @@ export async function chatJson<S extends z.ZodType>(opts: ChatJsonOptions<S>): P
       model: spec.model,
       purpose: opts.purpose,
       subject: opts.subject,
-      identity: { model: spec.model, promptVersion: opts.promptVersion, system: sha256(opts.system), user: sha256(userText), temperature, maxTokens, extra: spec.extra ?? null },
+      identity: { model: spec.model, promptVersion: opts.promptVersion, system: sha256(opts.system), user: sha256(userText), temperature, maxTokens,
+        extra: spec.extra ?? null, ...(spec.model === "gpt-6-sol" ? { parameters } : {}) },
       requestSummary: { promptVersion: opts.promptVersion, systemHash: sha256(opts.system), userHash: sha256(userText), userChars: userText.length, temperature, maxTokens },
       attemptTag: opts.attemptTag,
     },
