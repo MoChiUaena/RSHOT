@@ -1,0 +1,170 @@
+{
+  "scope": "Read-only checks using production parsers; no model calls. A successful check is a dated snapshot, not an uptime guarantee.",
+  "sources": [
+    {
+      "id": "arxiv-rs",
+      "name": "arXiv · 遥感与地球观测预印本",
+      "kind": "rss",
+      "url": "https://export.arxiv.org/api/query?search_query=all:%22remote%20sensing%22%20OR%20all:%22earth%20observation%22%20OR%20all:%22satellite%20imagery%22&sortBy=submittedDate&sortOrder=descending&max_results=60",
+      "enabled": true,
+      "status": "read-verified",
+      "checkedAt": "2026-09-29T06:40:20.353Z",
+      "entries": 60,
+      "datedEntries": 60
+    },
+    {
+      "id": "esa-earth",
+      "name": "ESA · 对地观测",
+      "kind": "rss",
+      "url": "https://www.esa.int/rssfeed/Our_Activities/Observing_the_Earth",
+      "enabled": true,
+      "status": "read-verified",
+      "checkedAt": "2026-09-29T06:40:10.034Z",
+      "entries": 15,
+      "datedEntries": 15
+    },
+    {
+      "id": "copernicus-data-space",
+      "name": "Copernicus Data Space · 数据与平台动态",
+      "kind": "rss",
+      "url": "https://dataspace.copernicus.eu/rss.xml",
+      "enabled": true,
+      "status": "read-verified",
+      "checkedAt": "2026-09-29T06:40:10.041Z",
+      "entries": 50,
+      "datedEntries": 30
+    },
+    {
+      "id": "google-earth",
+      "name": "Google Earth 与 Earth Engine · 官方博客",
+      "kind": "rss",
+      "url": "https://medium.com/feed/google-earth",
+      "enabled": true,
+      "status": "read-verified",
+      "checkedAt": "2026-09-29T06:40:12.934Z",
+      "entries": 10,
+      "datedEntries": 10
+    },
+    {
+      "id": "aircas-research",
+      "name": "中国科学院空天院 · 科研动态",
+      "kind": "web_list",
+      "url": "https://aircas.cas.cn/dtxw/kydt/",
+      "enabled": true,
+      "status": "read-verified",
+      "checkedAt": "2026-09-29T06:40:21.619Z",
+      "entries": 15,
+      "datedEntries": 15
+    },
+    {
+      "id": "essd-papers",
+      "name": "Earth System Science Data · 数据论文与讨论稿",
+      "kind": "web_list",
+      "url": "https://essd.copernicus.org/",
+      "enabled": true,
+      "status": "read-verified",
+      "checkedAt": "2026-09-29T06:40:29.524Z",
+      "entries": 100,
+      "datedEntries": 100
+    },
+    {
+      "id": "github-torchgeo",
+      "name": "TorchGeo · 发布订阅（待网络复核）",
+      "kind": "rss",
+      "url": "https://github.com/torchgeo/torchgeo/releases.atom",
+      "enabled": false,
+      "status": "paused-pending-verification",
+      "checkedAt": null,
+      "entries": null,
+      "datedEntries": null
+    },
+    {
+      "id": "github-terratorch",
+      "name": "TerraTorch · 稳定版本发布",
+      "kind": "rss",
+      "url": "https://github.com/torchgeo/terratorch/releases.atom",
+      "enabled": true,
+      "status": "read-verified",
+      "checkedAt": "2026-09-29T06:40:31.614Z",
+      "entries": 10,
+      "datedEntries": 10
+    },
+    {
+      "id": "github-gdal",
+      "name": "GDAL · 稳定版本发布",
+      "kind": "rss",
+      "url": "https://github.com/OSGeo/gdal/releases.atom",
+      "enabled": true,
+      "status": "read-verified",
+      "checkedAt": "2026-09-29T06:40:57.298Z",
+      "entries": 10,
+      "datedEntries": 6
+    },
+    {
+      "id": "github-rasterio",
+      "name": "Rasterio · 稳定版本发布",
+      "kind": "rss",
+      "url": "https://github.com/rasterio/rasterio/releases.atom",
+      "enabled": true,
+      "status": "read-verified",
+      "checkedAt": "2026-09-29T06:47:58.905Z",
+      "entries": 10,
+      "datedEntries": 6
+    },
+    {
+      "id": "github-geemap",
+      "name": "geemap · 稳定版本发布",
+      "kind": "rss",
+      "url": "https://github.com/gee-community/geemap/releases.atom",
+      "enabled": true,
+      "status": "read-verified",
+      "checkedAt": "2026-09-29T06:41:06.092Z",
+      "entries": 10,
+      "datedEntries": 6
+    },
+    {
+      "id": "github-earthengine-api",
+      "name": "Earth Engine API · 稳定版本发布",
+      "kind": "rss",
+      "url": "https://github.com/google/earthengine-api/releases.atom",
+      "enabled": true,
+      "status": "read-verified",
+      "checkedAt": "2026-09-29T06:40:56.560Z",
+      "entries": 10,
+      "datedEntries": 4
+    },
+    {
+      "id": "github-pystac",
+      "name": "PySTAC · 稳定版本发布",
+      "kind": "rss",
+      "url": "https://github.com/stac-utils/pystac/releases.atom",
+      "enabled": true,
+      "status": "read-verified",
+      "checkedAt": "2026-09-29T06:41:29.802Z",
+      "entries": 10,
+      "datedEntries": 10
+    },
+    {
+      "id": "github-openeo-python-client",
+      "name": "openEO Python Client · 稳定版本发布",
+      "kind": "rss",
+      "url": "https://github.com/Open-EO/openeo-python-client/releases.atom",
+      "enabled": true,
+      "status": "read-verified",
+      "checkedAt": "2026-09-29T06:41:26.966Z",
+      "entries": 10,
+      "datedEntries": 10
+    },
+    {
+      "id": "nasa-earthdata",
+      "name": "NASA Earthdata · 科学数据与工具",
+      "kind": "rss",
+      "url": "https://www.earthdata.nasa.gov/rss.xml",
+      "enabled": true,
+      "status": "read-verified",
+      "checkedAt": "2026-09-29T06:41:21.831Z",
+      "entries": 10,
+      "datedEntries": 10
+    }
+  ]
+}

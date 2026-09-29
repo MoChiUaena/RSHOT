@@ -1,5 +1,6 @@
 // Names, dates and grouping for daily, weekly and monthly reports.
 import type { ReportNavigationEntry, ReportKind } from "@aihot/contracts/site";
+import { SITE, withSubject } from "@aihot/industry/site";
 import { beijingWeekday } from "../../lib/format";
 
 export const KINDS: ReportKind[] = ["daily", "weekly", "monthly"];
@@ -35,9 +36,9 @@ export function monthRange(key: string): [string, string] {
 
 /** "这一天的 4 件 AI 大事" / "本周的 12 件 AI 大事" / "8 月的 20 件 AI 大事". */
 export function headline(kind: ReportKind, key: string, count: number): string {
-  if (kind === "daily") return `这一天的 ${count} 件 AI 大事`;
-  if (kind === "weekly") return `本周的 ${count} 件 AI 大事`;
-  return `${Number(key.slice(5, 7))} 月的 ${count} 件 AI 大事`;
+  if (kind === "daily") return `这一天的 ${count} 条${withSubject("动态")}`;
+  if (kind === "weekly") return `本周的 ${count} 条${withSubject("动态")}`;
+  return `${Number(key.slice(5, 7))} 月的 ${count} 条${withSubject("动态")}`;
 }
 
 /** "09.16" for a story inside a week or month. */
@@ -129,10 +130,10 @@ export const EDITION: Record<ReportKind, string> = { daily: "每天 08:00 出刊
 
 /** The masthead's figures, in the order a reader wants them; zero model releases is left out. */
 const METRICS: Array<[key: string, unit: string]> = [
-  ["totalEvents", "件大事"],
-  ["totalStories", "件大事"],
+  ["totalEvents", "条内容"],
+  ["totalStories", "条内容"],
   ["sourcesCount", "个来源"],
-  ["firstPartyEvents", "件一手发布"],
+  ["firstPartyEvents", "条一手资料"],
   ["modelsReleased", "个新模型"],
   ["selectedCount", "条精选"],
   ["reportsCovered", "期日报"],
@@ -164,7 +165,7 @@ export function dateLine(kind: ReportKind, key: string): string {
 }
 
 /** What each kind is, under its nameplate. */
-export const MOTTO: Record<ReportKind, string> = { daily: "人工智能 · 每日要闻", weekly: "人工智能 · 每周综述", monthly: "人工智能 · 每月盘点" };
+export const MOTTO: Record<ReportKind, string> = { daily: `${SITE.subject} · 每日要闻`, weekly: `${SITE.subject} · 每周综述`, monthly: `${SITE.subject} · 每月观察` };
 
 export interface PeriodCell {
   key: string | null;

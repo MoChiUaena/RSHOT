@@ -1,0 +1,960 @@
+{
+  "id": "rshot-2026-09-29",
+  "reviewedAt": "2026-09-29T07:18:01.862268+00:00",
+  "title": "RSHOT 首批遥感科研与工程编辑资料",
+  "note": "由助手核对公开来源并整理中文摘要，供使用者复核。论文摘要与讨论稿明确标注，不含站点模型评分。",
+  "items": [
+    {
+      "key": "rs-001",
+      "sourceId": "arxiv-rs",
+      "url": "https://arxiv.org/abs/2609.35612v1",
+      "publishedAt": "2026-09-28T16:55:27.000Z",
+      "originalTitle": "Remote Sensing Sparse-View 3D Gaussian Splatting via Depth Image-Based Rendering",
+      "title": "DIBR-GS 用深度渲染辅助稀疏视角遥感三维重建",
+      "category": "paper",
+      "tags": [
+        "论文/研究",
+        "摄影测量",
+        "光学遥感",
+        "开源/仓库"
+      ],
+      "subjects": [],
+      "summary": "基于论文摘要，DIBR-GS 将单目深度先验与稀疏 SfM 对齐，并用深度图像渲染生成伪视角，约束三维高斯表示。作者在仅使用 3 个输入视角的实验中报告 PSNR 提升 6.83 dB，摘要提供代码链接；这是 arXiv 预印本。",
+      "selected": true,
+      "materialScope": "abstract",
+      "publicationStage": "preprint"
+    },
+    {
+      "key": "rs-002",
+      "sourceId": "arxiv-rs",
+      "url": "https://arxiv.org/abs/2609.35507v1",
+      "publishedAt": "2026-09-28T16:05:47.000Z",
+      "originalTitle": "ReVA: A Scene-Centric Dataset Beyond Repetition for Remote Sensing Video Question Answering",
+      "title": "ReVA 收录 2438 段无人机视频，用于遥感视频问答评估",
+      "category": "data",
+      "tags": [
+        "数据集/基准",
+        "多模态",
+        "城市",
+        "开源/仓库"
+      ],
+      "subjects": [],
+      "summary": "基于论文摘要，ReVA 包含来自 18 座城市的 2438 段无人机视频、约 58 万帧和 2.2 万组问答，覆盖 11 类任务。作者评估了 23 个视频模型，希望减少模板重复并检验时间推理能力；摘要提供代码与数据入口，研究仍为预印本。",
+      "selected": true,
+      "materialScope": "abstract",
+      "publicationStage": "preprint"
+    },
+    {
+      "key": "rs-003",
+      "sourceId": "arxiv-rs",
+      "url": "https://arxiv.org/abs/2609.35410v1",
+      "publishedAt": "2026-09-28T15:28:31.000Z",
+      "originalTitle": "Spectral Super-Resolution using Spatial-Spectral Residual Operator Networks",
+      "title": "SSRON 用连续算子学习研究卫星影像光谱超分辨率",
+      "category": "paper",
+      "tags": [
+        "论文/研究",
+        "高光谱",
+        "光学遥感"
+      ],
+      "subjects": [],
+      "summary": "基于论文摘要，SSRON 将光谱超分辨率建模为函数到函数的映射，学习从类似 Sentinel-2A 的多光谱输入重建 EMIT 光谱。作者报告了未见波段的零样本预测能力；这些结果来自文中实验，不能直接等同于新传感器的真实观测。",
+      "selected": true,
+      "materialScope": "abstract",
+      "publicationStage": "preprint"
+    },
+    {
+      "key": "rs-004",
+      "sourceId": "arxiv-rs",
+      "url": "https://arxiv.org/abs/2609.34602v1",
+      "publishedAt": "2026-09-28T08:35:15.000Z",
+      "originalTitle": "When local gains fail to transfer: Frozen Earth-observation embeddings across wildfires",
+      "title": "冻结遥感嵌入在野火区域内的优势未必能迁移到新区域",
+      "category": "paper",
+      "tags": [
+        "论文/研究",
+        "泛化/迁移",
+        "灾害监测",
+        "遥感基础模型"
+      ],
+      "subjects": [],
+      "summary": "基于论文摘要，研究比较 TESSERA、AlphaEarth 与光谱指数在希腊和西班牙六场野火中的表现。嵌入的区域内优势在跨区域测试中明显下降，目标区域少量标注可恢复优势；作者建议评估时报告独立留出区域，而不只看区域内空间交叉验证。",
+      "selected": true,
+      "materialScope": "abstract",
+      "publicationStage": "preprint"
+    },
+    {
+      "key": "rs-005",
+      "sourceId": "arxiv-rs",
+      "url": "https://arxiv.org/abs/2609.34596v1",
+      "publishedAt": "2026-09-28T08:31:29.000Z",
+      "originalTitle": "Temporal Modelling for Burn Scars on Sentinel-3",
+      "title": "Sentinel-3 火烧迹地研究比较时序模型与波段配置",
+      "category": "paper",
+      "tags": [
+        "论文/研究",
+        "灾害监测",
+        "时序分析",
+        "语义分割"
+      ],
+      "subjects": [],
+      "summary": "基于论文摘要，研究构建覆盖 2016—2025 年 246 次野火事件的 Sentinel-3 OLCI 时相配对数据，并比较三类分割骨干。时序建模的收益依赖火灾前影像输入，5 波段配置可匹配文中完整 21 波段配置；结果为预印本实验结论。",
+      "selected": true,
+      "materialScope": "abstract",
+      "publicationStage": "preprint"
+    },
+    {
+      "key": "rs-006",
+      "sourceId": "arxiv-rs",
+      "url": "https://arxiv.org/abs/2609.34333v1",
+      "publishedAt": "2026-09-28T05:10:04.000Z",
+      "originalTitle": "Stacked Intelligent Metasurface-Diffractive Deep Neural Networks for Onboard Terrain Classification from SAR Level-0 Raw Data",
+      "title": "SIM-D²NN 探索直接从 SAR Level-0 原始数据进行地形分类",
+      "category": "paper",
+      "tags": [
+        "论文/研究",
+        "SAR",
+        "部署/工程"
+      ],
+      "subjects": [],
+      "summary": "基于论文摘要，SIM-D²NN 利用堆叠智能超表面与物理波传播进行特征映射，探索星上 SAR 原始数据分类。作者报告真实原始 SAR 数据二分类实验中约 90% 的指标表现；摘要说明的是方法与实验设置，在轨使用情况需另行核实。",
+      "selected": true,
+      "materialScope": "abstract",
+      "publicationStage": "preprint"
+    },
+    {
+      "key": "rs-007",
+      "sourceId": "arxiv-rs",
+      "url": "https://arxiv.org/abs/2609.33088v1",
+      "publishedAt": "2026-09-27T01:48:37.000Z",
+      "originalTitle": "QSCP: Beyond Class-Name Prompts for Query-Guided Semantic Change Parsing",
+      "title": "QSCP 根据自然语言查询解析遥感地物的语义变化",
+      "category": "paper",
+      "tags": [
+        "论文/研究",
+        "变化检测",
+        "多模态",
+        "开源/仓库"
+      ],
+      "subjects": [],
+      "summary": "基于论文摘要，QSCP 支持类别名、同义词和带意图的句子，返回查询对应的变化掩膜及前后时相语义图。研究在 SECOND 和 WHU-CDC 上评估查询表达与跨数据集迁移，并提供代码入口；它关注具体的地物转变，而不只是是否变化。",
+      "selected": true,
+      "materialScope": "abstract",
+      "publicationStage": "preprint"
+    },
+    {
+      "key": "rs-008",
+      "sourceId": "arxiv-rs",
+      "url": "https://arxiv.org/abs/2609.32856v1",
+      "publishedAt": "2026-09-26T18:31:13.000Z",
+      "originalTitle": "PolyTopoBench: A Benchmark for Complex Vector Polygon Generation from Remote Sensing Imagery",
+      "title": "PolyTopoBench 评估带孔洞和多环的遥感矢量多边形生成",
+      "category": "data",
+      "tags": [
+        "数据集/基准",
+        "摄影测量",
+        "语义分割",
+        "城市",
+        "开源/仓库"
+      ],
+      "subjects": [],
+      "summary": "基于论文摘要，PolyTopoBench 在两个遥感数据集上比较 11 种方法，覆盖建筑、道路、植被和裸地的复杂多边形。评估同时关注外环、内环与拓扑，指出现有方法在孔洞和多环结构上的困难；摘要提供代码和数据入口。",
+      "selected": true,
+      "materialScope": "abstract",
+      "publicationStage": "preprint"
+    },
+    {
+      "key": "rs-009",
+      "sourceId": "arxiv-rs",
+      "url": "https://arxiv.org/abs/2609.32756v1",
+      "publishedAt": "2026-09-26T16:21:53.000Z",
+      "originalTitle": "Reuse or Relearn? A Spectral View of Earth Observation Foundation Models",
+      "title": "遥感基础模型研究用谱诊断区分预训练复用与重新学习",
+      "category": "paper",
+      "tags": [
+        "论文/研究",
+        "遥感基础模型",
+        "泛化/迁移"
+      ],
+      "subjects": [],
+      "summary": "基于论文摘要，研究用主奇异子空间、更新秩和权重变化幅度分析模型微调。文中评估设置下，EO 模型较自然图像模型发生更大、更高秩的更新，部分参数适配是否接近全量微调也与预训练结构保留程度有关。",
+      "selected": true,
+      "materialScope": "abstract",
+      "publicationStage": "preprint"
+    },
+    {
+      "key": "rs-010",
+      "sourceId": "arxiv-rs",
+      "url": "https://arxiv.org/abs/2609.32716v1",
+      "publishedAt": "2026-09-26T15:29:25.000Z",
+      "originalTitle": "Region-Local Copula Evidence Fusion for Heterogeneous Remote Sensing Change Detection",
+      "title": "局部 Copula 证据融合研究异源遥感变化检测的边界定位",
+      "category": "paper",
+      "tags": [
+        "论文/研究",
+        "变化检测",
+        "数据融合"
+      ],
+      "subjects": [],
+      "summary": "基于论文摘要，该方法将区域置信度与局部依赖异常结合，改善混合超像素内的变化定位。Lake 与 UK 数据实验显示校准和门控收益具有场景差异，固定门控并非在所有场景都有同等收益；摘要给出空间验证设置。",
+      "selected": true,
+      "materialScope": "abstract",
+      "publicationStage": "preprint"
+    },
+    {
+      "key": "rs-011",
+      "sourceId": "arxiv-rs",
+      "url": "https://arxiv.org/abs/2609.32529v1",
+      "publishedAt": "2026-09-26T12:11:39.000Z",
+      "originalTitle": "SetOPD: From Few Visual Exemplars to Multimodal Candidate Sets for Remote-Sensing Open-Prompt Detection",
+      "title": "SetOPD 在候选集合层融合遥感目标的文本与视觉提示",
+      "category": "paper",
+      "tags": [
+        "论文/研究",
+        "目标检测",
+        "多模态"
+      ],
+      "subjects": [],
+      "summary": "基于论文摘要，SetOPD 为少量视觉样例保留独立解码状态，并在形成候选后进行文本与视觉协作。方法强调场景上下文、基础与残差支持信息以及成对候选仲裁；当前摘要主要描述设计，未据此扩写性能或开源结论。",
+      "selected": true,
+      "materialScope": "abstract",
+      "publicationStage": "preprint"
+    },
+    {
+      "key": "rs-012",
+      "sourceId": "arxiv-rs",
+      "url": "https://arxiv.org/abs/2609.31507v1",
+      "publishedAt": "2026-09-25T16:48:44.000Z",
+      "originalTitle": "SatNav: A Scalable Benchmark for Long-Horizon UAV Vision-Language Navigation from Satellite Imagery",
+      "title": "SatNav 用卫星影像构建城市级无人机视觉语言导航基准",
+      "category": "data",
+      "tags": [
+        "数据集/基准",
+        "多模态",
+        "城市"
+      ],
+      "subjects": [],
+      "summary": "基于论文摘要，SatNav 从 18 座城市的 59 个场景构建约 11.8 万个导航回合，平均轨迹长 379 m。基准关注边界、地标和路线任务，并用卫星裁剪近似无人机俯视观测；作者还报告卫星到真实飞行观测的迁移实验。",
+      "selected": true,
+      "materialScope": "abstract",
+      "publicationStage": "preprint"
+    },
+    {
+      "key": "rs-013",
+      "sourceId": "arxiv-rs",
+      "url": "https://arxiv.org/abs/2609.31234v1",
+      "publishedAt": "2026-09-25T13:13:11.000Z",
+      "originalTitle": "WeaveAgent: A Two-Stage Tool-Routing Agent for Ultra-High-Resolution Remote Sensing Imagery",
+      "title": "WeaveAgent 将超高分辨率遥感的工具路由与视觉感知分开",
+      "category": "paper",
+      "tags": [
+        "论文/研究",
+        "多模态",
+        "部署/工程"
+      ],
+      "subjects": [],
+      "summary": "基于论文摘要，WeaveAgent 先训练工具路由，再按问题类型调用视觉回答或原分辨率图像工具。文中报告监督微调改善外部工具路由，但训练后的 2B 系统总体未超过零样本 8B 基线；代码、数据和评估协议被描述为后续发布。",
+      "selected": true,
+      "materialScope": "abstract",
+      "publicationStage": "preprint"
+    },
+    {
+      "key": "rs-014",
+      "sourceId": "arxiv-rs",
+      "url": "https://arxiv.org/abs/2609.31199v1",
+      "publishedAt": "2026-09-25T12:35:01.000Z",
+      "originalTitle": "Enhancing Photogrammetric Digital Surface Models with Pretrained Diffusion Models and Multimodal Conditioning",
+      "title": "扩散模型结合影像与 DSM，研究摄影测量高程误差修正",
+      "category": "paper",
+      "tags": [
+        "论文/研究",
+        "摄影测量",
+        "LiDAR"
+      ],
+      "subjects": [],
+      "summary": "基于论文摘要，研究以摄影测量 DSM 和 Pléiades 影像作为条件，使用修改的 Stable Diffusion 3 架构及逐块归一化。法国城市实验中，作者报告稠密城区高程 RMSE 降低，并在留出城市 Bordeaux 评估迁移；结果的适用范围以原文设置为准。",
+      "selected": true,
+      "materialScope": "abstract",
+      "publicationStage": "preprint"
+    },
+    {
+      "key": "rs-015",
+      "sourceId": "arxiv-rs",
+      "url": "https://arxiv.org/abs/2609.29864v1",
+      "publishedAt": "2026-09-24T14:23:59.000Z",
+      "originalTitle": "Efficient Continuous DEM Reconstruction under Limited Target-Resolution Supervision",
+      "title": "SCOPE 用连续地形表示降低 DEM 高密度查询开销",
+      "category": "paper",
+      "tags": [
+        "论文/研究",
+        "摄影测量",
+        "泛化/迁移"
+      ],
+      "subjects": [],
+      "summary": "基于论文摘要，SCOPE 在低分辨率网格预测系数场，复用局部傅里叶残差函数构建更密集的高程输出。研究评估未见尺度与外部海域，报告九倍输出密度只使统计乘加运算增加约 2%；理论运算量不等同于所有部署环境的实际耗时。",
+      "selected": true,
+      "materialScope": "abstract",
+      "publicationStage": "preprint"
+    },
+    {
+      "key": "rs-016",
+      "sourceId": "arxiv-rs",
+      "url": "https://arxiv.org/abs/2609.29151v1",
+      "publishedAt": "2026-09-24T07:29:06.000Z",
+      "originalTitle": "Recoverable Geographic Location Information in Earth-Observation Embeddings",
+      "title": "TESSERA 与 AlphaEarth 嵌入可恢复地理位置信息",
+      "category": "paper",
+      "tags": [
+        "论文/研究",
+        "遥感基础模型",
+        "泛化/迁移"
+      ],
+      "subjects": [],
+      "summary": "基于论文摘要，研究以 2024 年欧洲 284 个经质量检查的太阳能电站，测试能否从 EO 嵌入预测地理坐标。三种嵌入均含可恢复的位置线索，作者建议将地理信息含量作为额外审计维度；这有助于解释位置相关应用与跨区域评估。",
+      "selected": true,
+      "materialScope": "abstract",
+      "publicationStage": "preprint"
+    },
+    {
+      "key": "rs-017",
+      "sourceId": "arxiv-rs",
+      "url": "https://arxiv.org/abs/2609.28230v2",
+      "publishedAt": "2026-09-23T14:54:46.000Z",
+      "originalTitle": "A Unified Framework and Dataset for Oriented Object Visual Grounding in Remote Sensing",
+      "title": "O²-VG 与 DIOR-R-RSVG 面向遥感旋转目标视觉定位",
+      "category": "data",
+      "tags": [
+        "数据集/基准",
+        "目标检测",
+        "多模态",
+        "开源/仓库"
+      ],
+      "subjects": [],
+      "summary": "基于论文摘要，O²-VG 提供判别式 Transformer、通用旋转候选与生成式视觉语言模型三种设计，并构建图像、文本和旋转框三元组数据集 DIOR-R-RSVG。该条目对应 arXiv v2 修订稿，摘要列出代码入口。",
+      "selected": true,
+      "materialScope": "abstract",
+      "publicationStage": "preprint"
+    },
+    {
+      "key": "rs-018",
+      "sourceId": "arxiv-rs",
+      "url": "https://arxiv.org/abs/2609.28192v1",
+      "publishedAt": "2026-09-23T14:32:01.000Z",
+      "originalTitle": "From Change Captions to Change Detection: Semantic-Appearance Agreement Framework for Remote Sensing Change Detection",
+      "title": "SAAF 用变化描述作为遥感变化检测的任务监督",
+      "category": "paper",
+      "tags": [
+        "论文/研究",
+        "变化检测",
+        "语义分割",
+        "多模态",
+        "开源/仓库"
+      ],
+      "subjects": [],
+      "summary": "基于论文摘要，SAAF 使用变化文本描述生成受控双时相影像，并联合语义响应与 RGB 差异学习变化掩膜。作者在 Flair-RSGen 和 WHU-CDC 上比较有限监督方法；摘要提供代码链接，但结论仍受所评估协议约束。",
+      "selected": true,
+      "materialScope": "abstract",
+      "publicationStage": "preprint"
+    },
+    {
+      "key": "rs-019",
+      "sourceId": "arxiv-rs",
+      "url": "https://arxiv.org/abs/2609.27442v1",
+      "publishedAt": "2026-09-23T07:07:31.000Z",
+      "originalTitle": "SatUnreal: A High-Precision Synthetic Dataset for Satellite Stereo Matching via Unreal Engine",
+      "title": "SatUnreal 提供 1 万对合成卫星立体影像与遮挡标签",
+      "category": "data",
+      "tags": [
+        "数据集/基准",
+        "摄影测量",
+        "城市",
+        "开源/仓库"
+      ],
+      "subjects": [],
+      "summary": "基于论文摘要，SatUnreal 通过 Unreal Engine 模拟卫星轨道、基线和方位，生成 1 万对 0.3 m GSD 的立体影像，并给出遮挡掩膜。作者在 US3D 与 WHU-Stereo 上测试合成到真实迁移，摘要提供代码与数据入口；合成分辨率需与真实传感器能力区分。",
+      "selected": true,
+      "materialScope": "abstract",
+      "publicationStage": "preprint"
+    },
+    {
+      "key": "rs-020",
+      "sourceId": "arxiv-rs",
+      "url": "https://arxiv.org/abs/2609.27238v1",
+      "publishedAt": "2026-09-23T02:14:54.000Z",
+      "originalTitle": "Strip Convolution and Direction-Aware Exclusion Loss for Oriented Ship Detection",
+      "title": "条带卷积与方向排斥损失用于遥感旋转船舶检测",
+      "category": "paper",
+      "tags": [
+        "论文/研究",
+        "目标检测",
+        "海洋"
+      ],
+      "subjects": [],
+      "summary": "基于论文摘要，研究用正交条带卷积建模细长船体，并以类别、方向和置信度抑制冗余预测。作者在 HRSC2016 与 DIOR-R 上报告 mAP50:95，模型约 2.91M 参数；两个数据集的结果不应混作同一评测条件。",
+      "selected": true,
+      "materialScope": "abstract",
+      "publicationStage": "preprint"
+    },
+    {
+      "key": "rs-021",
+      "sourceId": "essd-papers",
+      "url": "https://essd.copernicus.org/preprints/essd-2026-635/",
+      "publishedAt": "2026-09-28T00:00:00.000Z",
+      "originalTitle": "Extension of the Japan Aerospace Exploration Agency long-term Northern Hemisphere snow cover extent product beyond half a century",
+      "title": "JAXA 延长北半球积雪范围的长期卫星观测记录",
+      "category": "data",
+      "tags": [
+        "数据集/基准",
+        "光学遥感",
+        "气候",
+        "JAXA"
+      ],
+      "subjects": [
+        "jaxa"
+      ],
+      "summary": "基于讨论稿摘要，JAXA 在长期积雪范围产品中纳入 VIIRS 与 SGLI，使用与 MODIS 重叠观测进行辐射和几何一致性校正。作者报告 1982—2024 年验证中的稳定精度与季节偏差，旨在衔接 MODIS 后续观测；讨论稿不等于完成同行评审。",
+      "selected": true,
+      "materialScope": "abstract",
+      "publicationStage": "preprint"
+    },
+    {
+      "key": "rs-022",
+      "sourceId": "essd-papers",
+      "url": "https://essd.copernicus.org/preprints/essd-2026-719/",
+      "publishedAt": "2026-09-28T00:00:00.000Z",
+      "originalTitle": "ChinaTidalVSC: a 10 m wall-to-wall dataset of vegetation structural complexity in China’s tidal wetlands derived from LiDAR-based relative entropy and AlphaEarth Foundation data",
+      "title": "ChinaTidalVSC 提供中国滨海湿地 10 米植被结构复杂度图",
+      "category": "data",
+      "tags": [
+        "数据集/基准",
+        "LiDAR",
+        "森林/生态",
+        "遥感基础模型"
+      ],
+      "subjects": [],
+      "summary": "基于讨论稿摘要，研究提出植被结构相对熵 VSRE，并结合 1337 个 LiDAR 样本、AlphaEarth 表征及深度学习，构建 2017—2025 年中国滨海湿地的 10 米结构复杂度图。作者报告 R² 为 0.92；详细验证划分与数据许可需查看原文。",
+      "selected": true,
+      "materialScope": "abstract",
+      "publicationStage": "preprint"
+    },
+    {
+      "key": "rs-023",
+      "sourceId": "essd-papers",
+      "url": "https://essd.copernicus.org/articles/18/7071/2026/",
+      "publishedAt": "2026-09-25T00:00:00.000Z",
+      "originalTitle": "Global 30 m annual cropland extent dynamics (2000–2024): a harmonized baseline of structural evolution and regional disparities",
+      "title": "GACED30 发布 2000—2024 年全球 30 米年度耕地范围记录",
+      "category": "data",
+      "tags": [
+        "数据集/基准",
+        "农业",
+        "光学遥感",
+        "时序分析"
+      ],
+      "subjects": [],
+      "summary": "基于已发表论文摘要，GACED30 使用统一观测、样本和建模协议构建 2000—2024 年全球 30 米年度耕地范围。独立稳定样点评估给出 OA 0.965、F1 0.844，同时指出转变检测绝对分数仍有限；论文提供公开数据 DOI。",
+      "selected": true,
+      "materialScope": "abstract",
+      "publicationStage": "published"
+    },
+    {
+      "key": "rs-024",
+      "sourceId": "essd-papers",
+      "url": "https://essd.copernicus.org/articles/18/7043/2026/",
+      "publishedAt": "2026-09-25T00:00:00.000Z",
+      "originalTitle": "META4.0: a new global mesoscale eddy network atlas derived from altimetry",
+      "title": "META4.0 用卫星测高重建全球中尺度涡旋交互网络",
+      "category": "data",
+      "tags": [
+        "数据集/基准",
+        "海洋",
+        "时序分析"
+      ],
+      "subjects": [],
+      "summary": "基于已发表论文摘要，META4.0 在涡旋检测和轨迹之外，显式识别合并与分裂事件，将涡旋生命周期组织为交互网络。研究使用独立叶绿素资料与粒子平流检验部分事件，并提供 AVISO 数据 DOI，可用于海洋输运与涡旋网络分析。",
+      "selected": true,
+      "materialScope": "abstract",
+      "publicationStage": "published"
+    },
+    {
+      "key": "rs-025",
+      "sourceId": "essd-papers",
+      "url": "https://essd.copernicus.org/articles/18/6973/2026/",
+      "publishedAt": "2026-09-23T00:00:00.000Z",
+      "originalTitle": "Extending daily river discharge records across China using satellite-derived river widths",
+      "title": "CDR2 将卫星河宽与测站约束结合，延长中国日径流记录",
+      "category": "data",
+      "tags": [
+        "数据集/基准",
+        "定量反演",
+        "光学遥感"
+      ],
+      "subjects": [],
+      "summary": "基于已发表论文摘要，CDR2 利用 Landsat、Sentinel-2 河宽时序与测站水力几何关系，重建和延长 310 个测站的 1990—2024 年日径流记录。作者报告验证中位 KGE 为 0.66，并提供数据 DOI；河宽变化与水力敏感性会影响估算表现。",
+      "selected": true,
+      "materialScope": "abstract",
+      "publicationStage": "published"
+    },
+    {
+      "key": "rs-026",
+      "sourceId": "essd-papers",
+      "url": "https://essd.copernicus.org/preprints/essd-2026-677/",
+      "publishedAt": "2026-09-23T00:00:00.000Z",
+      "originalTitle": "A dataset of high–spatiotemporal–resolution dust and non–dust aerosol mass concentration profiles from ground–based remote sensing in central China (2018–2024)",
+      "title": "寿县偏振激光雷达资料区分沙尘与非沙尘气溶胶廓线",
+      "category": "data",
+      "tags": [
+        "数据集/基准",
+        "LiDAR",
+        "定量反演",
+        "气候"
+      ],
+      "subjects": [],
+      "summary": "基于讨论稿摘要，该数据集覆盖 2018—2024 年寿县连续地基偏振激光雷达观测，统一到 15 分钟和 7.5 m 分辨率。产品区分沙尘、非沙尘与总气溶胶质量浓度，并提供逐点检索质量指数，可用于卫星验证及模型评估。",
+      "selected": true,
+      "materialScope": "abstract",
+      "publicationStage": "preprint"
+    },
+    {
+      "key": "rs-027",
+      "sourceId": "essd-papers",
+      "url": "https://essd.copernicus.org/preprints/essd-2026-632/",
+      "publishedAt": "2026-09-22T00:00:00.000Z",
+      "originalTitle": "TEMPL: a Multi-Platform LiDAR Dataset of a Temperate Forest in the Eastern United States",
+      "title": "TEMPL 对齐机载、无人机与背包森林 LiDAR 点云",
+      "category": "data",
+      "tags": [
+        "数据集/基准",
+        "LiDAR",
+        "森林/生态"
+      ],
+      "subjects": [],
+      "summary": "基于讨论稿摘要，TEMPL 为美国东部温带森林九个样地提供多平台配准点云，包括对应 231 棵树的 838 份单木点云及树属性。数据覆盖 16 个树种和枯立木类别，并提供数据 DOI，适合跨平台算法与森林结构研究。",
+      "selected": true,
+      "materialScope": "abstract",
+      "publicationStage": "preprint"
+    },
+    {
+      "key": "rs-028",
+      "sourceId": "essd-papers",
+      "url": "https://essd.copernicus.org/articles/18/6913/2026/",
+      "publishedAt": "2026-09-21T00:00:00.000Z",
+      "originalTitle": "SPAMS10: an InSAR-derived soil motion parameter dataset to model relative peat surface elevation changes",
+      "title": "SPAMS10 将 InSAR 泥炭地形变转换为可复用模型参数",
+      "category": "data",
+      "tags": [
+        "数据集/基准",
+        "InSAR",
+        "SAR",
+        "森林/生态"
+      ],
+      "subjects": [],
+      "summary": "基于已发表论文摘要，SPAMS10 提供地块尺度的四个土壤位移模型参数和六个方差协方差项，并附土壤类型等上下文信息。使用者可重建泥炭地表相对高程变化模型；论文明确数据以 CC BY 4.0 许可发布。",
+      "selected": true,
+      "materialScope": "abstract",
+      "publicationStage": "published"
+    },
+    {
+      "key": "rs-029",
+      "sourceId": "essd-papers",
+      "url": "https://essd.copernicus.org/preprints/essd-2026-700/",
+      "publishedAt": "2026-09-21T00:00:00.000Z",
+      "originalTitle": "Gaussian-process fusion of ICESat-2 and SMOS/SMAP data for daily estimates of Arctic sea ice thickness and volume",
+      "title": "ICESat-2 与 SMOS/SMAP 融合形成逐日北极海冰厚度数据",
+      "category": "data",
+      "tags": [
+        "数据集/基准",
+        "数据融合",
+        "海洋",
+        "气候"
+      ],
+      "subjects": [],
+      "summary": "基于讨论稿摘要，IS2SMGPSIT-V1 用高斯过程融合 ICESat-2 激光测高与 SMOS/SMAP L 波段观测，输出 25 km 网格的逐日海冰厚度和体积。产品覆盖 2018—2025 年七个冬季生长期，观测时空采样及融合不确定性以原文为准。",
+      "selected": true,
+      "materialScope": "abstract",
+      "publicationStage": "preprint"
+    },
+    {
+      "key": "rs-030",
+      "sourceId": "essd-papers",
+      "url": "https://essd.copernicus.org/preprints/essd-2026-712/",
+      "publishedAt": "2026-09-21T00:00:00.000Z",
+      "originalTitle": "SDUST2025_SWOT: Global marine deflection of the vertical and gravity anomaly datasets derived from SWOT/KaRIn wide-swath altimetry using local geoid fitting",
+      "title": "SDUST2025_SWOT 从宽幅测高生成海洋重力相关数据产品",
+      "category": "data",
+      "tags": [
+        "数据集/基准",
+        "海洋",
+        "定量反演"
+      ],
+      "subjects": [],
+      "summary": "基于讨论稿，SDUST2025_SWOT 利用 SWOT/KaRIn 宽幅测高和局部大地水准面拟合，形成全球海洋垂线偏差与重力异常数据产品。该条目提供方法与数据产品索引，空间覆盖、质量验证和获取条件请按原文核实。",
+      "selected": true,
+      "materialScope": "abstract",
+      "publicationStage": "preprint"
+    },
+    {
+      "key": "rs-031",
+      "sourceId": "essd-papers",
+      "url": "https://essd.copernicus.org/preprints/essd-2026-606/",
+      "publishedAt": "2026-09-18T00:00:00.000Z",
+      "originalTitle": "A high spatiotemporal resolution atmospheric motion vector dataset from Fengyun-4B Geostationary High-speed Imager observations for 15 tropical cyclones over the western North Pacific and South China Sea (2022–2025)",
+      "title": "风云四号 B 星高速成像仪资料用于 15 次台风大气运动矢量数据集",
+      "category": "data",
+      "tags": [
+        "数据集/基准",
+        "灾害监测",
+        "时序分析"
+      ],
+      "subjects": [],
+      "summary": "基于讨论稿，研究利用风云四号 B 星地球静止轨道高速成像仪观测，整理西北太平洋和南海 2022—2025 年 15 次热带气旋的大气运动矢量。数据面向高时空分辨率台风观测分析，具体算法、波段与验证条件以原文为准。",
+      "selected": true,
+      "materialScope": "abstract",
+      "publicationStage": "preprint"
+    },
+    {
+      "key": "rs-032",
+      "sourceId": "essd-papers",
+      "url": "https://essd.copernicus.org/articles/18/6885/2026/",
+      "publishedAt": "2026-09-16T00:00:00.000Z",
+      "originalTitle": "GloSVeT: a global 0.05° monthly mean surface soil and vegetation component temperature dataset (2003–2023)",
+      "title": "GloSVeT 分离全球地表土壤与植被组分温度",
+      "category": "data",
+      "tags": [
+        "数据集/基准",
+        "热红外",
+        "数据融合",
+        "气候"
+      ],
+      "subjects": [],
+      "summary": "基于已发表论文摘要，GloSVeT 融合 MODIS 多时相观测与 ERA5-Land，提供 2003—2023 年 0.05° 的土壤和植被组分温度。研究使用 72 个通量塔站点及三重配对等方法验证，并提供公开数据入口；它区别于混合像元地表温度产品。",
+      "selected": true,
+      "materialScope": "abstract",
+      "publicationStage": "published"
+    },
+    {
+      "key": "rs-033",
+      "sourceId": "google-earth",
+      "url": "https://medium.com/google-earth/introducing-classification-in-google-earth-1254ea21fe86",
+      "publishedAt": "2026-09-28T16:22:33.000Z",
+      "originalTitle": "Introducing classification in Google Earth",
+      "title": "Google Earth 试验性分类工具支持无代码制作专题地图",
+      "category": "rs-tools",
+      "tags": [
+        "工具更新",
+        "Google Earth Engine",
+        "遥感基础模型",
+        "分类识别"
+      ],
+      "subjects": [
+        "google"
+      ],
+      "summary": "官方博客介绍 Google Earth 网页端的试验性分类工具：用户设定区域、类别和样点后，系统用随机森林处理年度 AlphaEarth 卫星嵌入。底层表征为 10 米尺度，可导出样点开展精度评估；底图更细的视觉细节不等同于分类产品分辨率。",
+      "selected": true,
+      "materialScope": "feed-content",
+      "publicationStage": "announcement"
+    },
+    {
+      "key": "rs-034",
+      "sourceId": "github-earthengine-api",
+      "url": "https://github.com/google/earthengine-api/releases/tag/v1.7.46",
+      "publishedAt": "2026-09-29T00:46:30.000Z",
+      "originalTitle": "v1.7.46",
+      "title": "Earth Engine API 1.7.46 扩展客户端字节参数支持",
+      "category": "rs-tools",
+      "tags": [
+        "工具更新",
+        "Google Earth Engine",
+        "部署/工程"
+      ],
+      "subjects": [
+        "google"
+      ],
+      "summary": "基于官方发布说明，Earth Engine API 1.7.46 允许向需要字节参数的算法传递相应参数，并调整 batch.py 实现。该版本记录仅涉及客户端库，后端服务变化需查看另行发布的 Earth Engine Release Notes。",
+      "selected": false,
+      "materialScope": "feed-content",
+      "publicationStage": "release"
+    },
+    {
+      "key": "rs-035",
+      "sourceId": "github-geemap",
+      "url": "https://github.com/gee-community/geemap/releases/tag/v0.38.8",
+      "publishedAt": "2026-09-24T19:01:59.000Z",
+      "originalTitle": "v0.38.8",
+      "title": "geemap 0.38.8 更新依赖与颜色工具测试",
+      "category": "rs-tools",
+      "tags": [
+        "工具更新",
+        "Google Earth Engine",
+        "部署/工程"
+      ],
+      "subjects": [],
+      "summary": "基于官方发布说明，geemap 0.38.8 主要更新依赖、发布流程和 rgb_to_hex、get_colorbar 等测试。说明未宣称遥感分析能力升级，因此作为版本动态保留，不将维护更新写成重大功能发布。",
+      "selected": false,
+      "materialScope": "feed-content",
+      "publicationStage": "release"
+    },
+    {
+      "key": "rs-036",
+      "sourceId": "github-terratorch",
+      "url": "https://github.com/torchgeo/terratorch/releases/tag/v1.2.12",
+      "publishedAt": "2026-09-16T08:14:58.000Z",
+      "originalTitle": "v1.2.12",
+      "title": "TerraTorch 1.2.12 加入分块推理接口与嵌入分类组件",
+      "category": "rs-tools",
+      "tags": [
+        "工具更新",
+        "遥感基础模型",
+        "TorchGeo",
+        "部署/工程",
+        "开源/仓库"
+      ],
+      "subjects": [
+        "torchgeo"
+      ],
+      "summary": "基于官方发布说明，TerraTorch 1.2.12 加入用于超内存推理的可插拔 source/sink API、随机森林解码器与嵌入分类数据模块，并修复 Clay 1.5、PrithviMAE 及部分依赖问题。实际可用性与版本约束以发布记录为准。",
+      "selected": true,
+      "materialScope": "feed-content",
+      "publicationStage": "release"
+    },
+    {
+      "key": "rs-037",
+      "sourceId": "copernicus-data-space",
+      "url": "https://dataspace.copernicus.eu/news/2026-9-25-new-openeo-community-example-generate-terramind-embeddings-sentinel-1-and-sentinel-2",
+      "publishedAt": "2026-09-25T06:58:43.000Z",
+      "originalTitle": "New openEO Community Example: Generate TerraMind Embeddings from Sentinel-1 and Sentinel-2",
+      "title": "openEO 示例演示从 Sentinel-1/2 生成 TerraMind 嵌入",
+      "category": "tip",
+      "tags": [
+        "教程/实践",
+        "遥感基础模型",
+        "云端处理",
+        "Copernicus"
+      ],
+      "subjects": [
+        "copernicus"
+      ],
+      "summary": "官方示例在 openEO 中加载 Sentinel-1 GRD 与 Sentinel-2 L2A，进行云掩膜、时序合成和多传感器组织，再用 ONNX TerraMind 1.0 编码器生成 768 维 patch 嵌入。原文明确这是一份概念验证 notebook，尚非充分优化的生产流程。",
+      "selected": true,
+      "materialScope": "article-text",
+      "publicationStage": "announcement"
+    },
+    {
+      "key": "rs-038",
+      "sourceId": "copernicus-data-space",
+      "url": "https://dataspace.copernicus.eu/news/2026-9-25-new-openeo-community-example-generate-tessera-pixel-embeddings-sentinel-1-and",
+      "publishedAt": "2026-09-25T06:47:21.000Z",
+      "originalTitle": "New openEO Community Example: Generate TESSERA Pixel Embeddings from Sentinel-1 and Sentinel-2",
+      "title": "openEO 示例生成可复用的 TESSERA 像元嵌入",
+      "category": "tip",
+      "tags": [
+        "教程/实践",
+        "遥感基础模型",
+        "云端处理",
+        "Copernicus"
+      ],
+      "subjects": [
+        "copernicus"
+      ],
+      "summary": "官方示例使用 Sentinel-1 升降轨与 Sentinel-2 数据，在 openEO UDF 中运行 TESSERA v2 student encoder，输出 128 波段像元嵌入。数据访问、预处理和推理在云端衔接；原文将其定位为概念验证示例，并说明生产优化仍需研究。",
+      "selected": true,
+      "materialScope": "article-text",
+      "publicationStage": "announcement"
+    },
+    {
+      "key": "rs-039",
+      "sourceId": "copernicus-data-space",
+      "url": "https://dataspace.copernicus.eu/news/2026-9-17-new-sentinel-5p-level-2-collections-available-openeo-cdse",
+      "publishedAt": "2026-09-17T13:07:26.000Z",
+      "originalTitle": "New Sentinel-5P Level-2 collections available in openEO on CDSE",
+      "title": "CDSE 的 openEO 新增九类 Sentinel-5P Level-2 数据集合",
+      "category": "data",
+      "tags": [
+        "数据集/基准",
+        "云端处理",
+        "气候",
+        "Copernicus"
+      ],
+      "subjects": [
+        "copernicus"
+      ],
+      "summary": "官方说明新增 CO、NO₂、CH₄、SO₂、HCHO、O₃、气溶胶层高、气溶胶指数和云产品九类集合，支持使用 qa_value 进行质量筛选。原文同时提示部分旧产品仍缺失、质量与一致性检查持续进行，使用前需检查时间覆盖。",
+      "selected": true,
+      "materialScope": "article-text",
+      "publicationStage": "announcement"
+    },
+    {
+      "key": "rs-040",
+      "sourceId": "copernicus-data-space",
+      "url": "https://dataspace.copernicus.eu/news/2026-9-15-activation-copernicus-sentinel-2-processing-baseline-0513-21-september-2026",
+      "publishedAt": "2026-09-15T10:15:57.000Z",
+      "originalTitle": "Activation of Copernicus Sentinel-2 Processing Baseline 05.13 on 21 September 2026",
+      "title": "Sentinel-2 Processing Baseline 05.13 公布切换观测批次",
+      "category": "satellite",
+      "tags": [
+        "卫星/传感器",
+        "光学遥感",
+        "数据质量",
+        "Copernicus"
+      ],
+      "subjects": [
+        "copernicus",
+        "esa"
+      ],
+      "summary": "ESA 的业务说明列出计划于 2026 年 9 月 21 日切换 Processing Baseline 05.13 的 Sentinel-2A、2B、2C 首批 Datatake 与起始时刻。跨批次分析时应保留处理基线元数据；这份通知本身没有证明某项算法精度提升。",
+      "selected": true,
+      "materialScope": "article-text",
+      "publicationStage": "announcement"
+    },
+    {
+      "key": "rs-041",
+      "sourceId": "esa-earth",
+      "url": "https://www.esa.int/Applications/Observing_the_Earth/FutureEO/Three_Earth_Explorer_candidates_go_forward",
+      "publishedAt": "2026-09-25T12:20:00.000Z",
+      "originalTitle": "Three Earth Explorer candidates go forward",
+      "title": "ESA 将三项 Earth Explorer 12 候选任务推进至下一阶段",
+      "category": "satellite",
+      "tags": [
+        "卫星/传感器",
+        "ESA",
+        "气候"
+      ],
+      "subjects": [
+        "esa"
+      ],
+      "summary": "根据 ESA 公告，Keystone、CryoRad 与 ECO 分别涉及中高层大气、冰盖与积雪，以及植被荧光和温室气体观测，将进入下一轮可行性研究。它们仍是候选任务，后续仍将从三项中选出一项任务，公告不代表卫星已发射或数据已开放。",
+      "selected": true,
+      "materialScope": "article-text",
+      "publicationStage": "announcement"
+    },
+    {
+      "key": "rs-042",
+      "sourceId": "esa-earth",
+      "url": "https://www.esa.int/Applications/Observing_the_Earth/ESA_awards_contracts_for_Europe_s_EOGS_blueprint",
+      "publishedAt": "2026-09-17T12:16:00.000Z",
+      "originalTitle": "ESA awards contracts for Europe’s EOGS blueprint",
+      "title": "ESA 为欧洲政府对地观测服务架构研究授出两份合同",
+      "category": "industry",
+      "tags": [
+        "行业动态",
+        "ESA",
+        "卫星/传感器"
+      ],
+      "subjects": [
+        "esa"
+      ],
+      "summary": "ESA 公告分别向 ICEYE 和 Leonardo 授出欧洲未来 Earth Observation Governmental Service 的并行架构研究合同。项目由欧盟委员会资助，属于 ERS-EO 计划相关活动；当前阶段是架构研究，不能写成已投入业务运行的观测系统。",
+      "selected": true,
+      "materialScope": "feed-summary",
+      "publicationStage": "announcement"
+    },
+    {
+      "key": "rs-043",
+      "sourceId": "esa-earth",
+      "url": "https://www.esa.int/Applications/Observing_the_Earth/FutureEO/Faster-flowing_glaciers_fuel_decades_of_polar_ice_loss",
+      "publishedAt": "2026-09-16T09:00:00.000Z",
+      "originalTitle": "Faster-flowing glaciers fuel decades of polar ice loss",
+      "title": "长期卫星记录研究冰川加速流动与极地冰量损失",
+      "category": "tip",
+      "tags": [
+        "应用案例",
+        "气候",
+        "时序分析",
+        "ESA"
+      ],
+      "subjects": [
+        "esa"
+      ],
+      "summary": "ESA 的研究解读介绍长期冰盖变化卫星记录，报告格陵兰与南极洲自 1970 年代以来累计损失约 11 万亿吨冰。文章强调除表面消融外，排泄冰川加速向海洋输送冰体也很重要；具体方法和时间覆盖应结合原文研究核对。",
+      "selected": true,
+      "materialScope": "feed-summary",
+      "publicationStage": "announcement"
+    },
+    {
+      "key": "rs-044",
+      "sourceId": "aircas-research",
+      "url": "https://aircas.cas.cn/dtxw/kydt/202609/t20260924_8286797.html",
+      "publishedAt": "2026-09-23T16:00:00.000Z",
+      "originalTitle": "空天院研究团队提出一种基于GEDI与机载激光雷达模拟波形差分的森林冠层高度变化估算方法",
+      "title": "空天院用 GEDI 与机载模拟波形估算森林冠层高度变化",
+      "category": "paper",
+      "tags": [
+        "论文/研究",
+        "LiDAR",
+        "森林/生态",
+        "中国科学院空天院"
+      ],
+      "subjects": [
+        "aircas"
+      ],
+      "summary": "空天院介绍发表于 TGRS 的 CSDWC 方法：以两阶段定位校正和跨源波形协同，减少 GEDI 与历史机载激光雷达观测差异。官方报道相较传统高度差分方法，RMSE 降低 1.92 m；原文提供 DOI，适用条件与误差来源需结合论文评估。",
+      "selected": true,
+      "materialScope": "article-text",
+      "publicationStage": "announcement"
+    },
+    {
+      "key": "rs-045",
+      "sourceId": "aircas-research",
+      "url": "https://aircas.cas.cn/dtxw/kydt/202609/t20260924_8286846.html",
+      "publishedAt": "2026-09-23T16:00:00.000Z",
+      "originalTitle": "东北地区10米分辨率玉米单产数据集对外发布",
+      "title": "空天院开放东北地区 2019—2024 年 10 米玉米单产数据",
+      "category": "data",
+      "tags": [
+        "数据集/基准",
+        "农业",
+        "中国科学院空天院"
+      ],
+      "subjects": [
+        "aircas"
+      ],
+      "summary": "空天院团队结合 WOFOST 与 GRU 构建东北地区 2019—2024 年 10 米玉米单产图。官方报道训练不依赖田间实测单产标签，并使用 458 个样方独立验证，报告 R² 0.69、RMSE 1.21 t/ha；提供论文和数据 DOI。",
+      "selected": true,
+      "materialScope": "article-text",
+      "publicationStage": "announcement"
+    },
+    {
+      "key": "rs-046",
+      "sourceId": "nasa-earthdata",
+      "url": "https://www.earthdata.nasa.gov/news/worldview-image-archive/potent-hurricane-polo-eastern-pacific",
+      "publishedAt": "2026-09-25T19:13:06.000Z",
+      "originalTitle": "Potent Hurricane Polo in the Eastern Pacific",
+      "title": "NASA 用 VIIRS 夜间影像解读东太平洋飓风 Polo",
+      "category": "tip",
+      "tags": [
+        "应用案例",
+        "灾害监测",
+        "NASA"
+      ],
+      "subjects": [
+        "nasa"
+      ],
+      "summary": "NASA Earthdata 使用 Suomi NPP 上 VIIRS 获取的 2026 年 9 月 25 日 Black Marble 夜间蓝黄合成影像展示飓风 Polo 的眼区。文中的风速与路径预测对应当时的 NOAA 资料，历史解读不应当作当前实时预警。",
+      "selected": true,
+      "materialScope": "feed-summary",
+      "publicationStage": "announcement"
+    },
+    {
+      "key": "rs-047",
+      "sourceId": "nasa-earthdata",
+      "url": "https://www.earthdata.nasa.gov/news/worldview-image-archive/nusantara-future-capital-indonesia",
+      "publishedAt": "2026-09-18T14:57:49.000Z",
+      "originalTitle": "Nusantara, Future Capital of Indonesia",
+      "title": "NASA 用 Sentinel-2 与 OPERA 对比努山塔拉建设变化",
+      "category": "tip",
+      "tags": [
+        "应用案例",
+        "变化检测",
+        "城市",
+        "NASA"
+      ],
+      "subjects": [
+        "nasa"
+      ],
+      "summary": "NASA Earthdata 以 Sentinel-2B MSI 真彩色影像对比 2022 年与 2026 年努山塔拉建设范围，并展示 2023—2025 年 OPERA 年度植被扰动产品。示例说明如何结合影像与确认扰动记录追踪城市开发，年度汇总与实时扰动产品需区分。",
+      "selected": true,
+      "materialScope": "feed-summary",
+      "publicationStage": "announcement"
+    }
+  ]
+}

@@ -207,6 +207,6 @@ test("noise words match whatever their case", () => {
 test("dates in yyyymmdd and in JSON-LD are read", async () => {
   const days = await fetchJsonList({ id: "test-json", config: { url: `${site}/days.json`, itemsPath: "data.list", titlePaths: ["ttl"], urlTemplate: "https://example.org/blog/view?seq={seq}", publishedAtPath: "day", publishedAtUnit: "yyyymmdd" } } as never);
   assert.deepEqual(days.map((c) => c.publishedAt?.toISOString() ?? null), ["2026-09-22T00:00:00.000Z", null], "February 30 is no date");
-  const got = await fetchDetail(`${site}/ld-post`, { id: "test-feed", config: { detail: { maxFetches: 20 } } } as never, { date: true, title: false, summary: false, body: false });
+  const got = await fetchDetail(`${site}/ld-post`, { id: "test-feed", config: { detail: { maxFetches: 20, publishedAtUtcOffset: "+00:00" } } } as never, { date: true, title: false, summary: false, body: false });
   assert.equal(got.publishedAt?.toISOString(), "2026-09-24T00:00:00.000Z");
 });

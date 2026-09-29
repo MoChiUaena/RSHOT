@@ -13,10 +13,13 @@ export function parseLooseDate(value: string | null | undefined, utcOffset = "+0
   if (!value) return null;
   const v = value.trim();
   if (!v) return null;
-  const direct = Date.parse(v);
-  if (Number.isFinite(direct) && /\d{4}/.test(v)) return new Date(direct);
+  // Explicit zones are authoritative; date-only and zone-less strings must not use the host TZ.
+  if (/(?:Z|[+-]\d{2}:?\d{2})$|\b(?:GMT|UTC|PST|PDT|EST|EDT|CST|CDT|MST|MDT)\b/i.test(v)) {
+    const direct = Date.parse(v);
+    return Number.isFinite(direct) ? new Date(direct) : null;
+  }
   // 2026-09-26 / 2026/09/26 / 2026年9月26日 (+ optional time), interpreted in the given offset.
-  const m = /(\d{4})[-/.年](\d{1,2})[-/.月](\d{1,2})日?(?:\s*(\d{1,2}):(\d{2})(?::(\d{2}))?)?/.exec(v);
+  const m = /(\d{4})[-/.年](\d{1,2})[-/.月](\d{1,2})日?(?:[T\s]*(\d{1,2}):(\d{2})(?::(\d{2}))?)?/.exec(v);
   if (m) {
     const [, y, mo, d, h = "00", mi = "00", s = "00"] = m;
     const iso = `${y}-${mo!.padStart(2, "0")}-${d!.padStart(2, "0")}T${h.padStart(2, "0")}:${mi}:${s}${utcOffset}`;
@@ -24,8 +27,11 @@ export function parseLooseDate(value: string | null | undefined, utcOffset = "+0
     return Number.isFinite(t) ? new Date(t) : null;
   }
   // "Sep 26, 2026"
-  const en = Date.parse(v.replace(/(\d)(st|nd|rd|th)/, "$1"));
-  return Number.isFinite(en) ? new Date(en) : null;
+  const en = Date.parse(`${v.replace(/(\d)(st|nd|rd|th)/, "$1")} UTC`);
+  if (!Number.isFinite(en)) return null;
+  const local = new Date(en).toISOString().replace(/Z$/, utcOffset);
+  const result = Date.parse(local);
+  return Number.isFinite(result) ? new Date(result) : null;
 }
 
 /** The datePublished of the page's structured data (JSON-LD, also inside @graph or embedded app state). */
@@ -314,6 +320,7 @@ export interface DetailNeed {
  */
 export async function fetchDetail(url: string, source: SourceRow, need: DetailNeed): Promise<{ publishedAt: Date | null; title: string | null; summary: string | null; body: ExtractedBody | null }> {
   const d = source.config.detail ?? {};
+  const dateOffset = d.publishedAtUtcOffset ?? source.config.publishedAtUtcOffset;
   const jinaListing = String(source.config.url ?? "").startsWith(JINA_PREFIX);
   const dateInJina = need.date && jinaListing && !!d.publishedAtRegex;
   const titleInJina = need.title && jinaListing && !!d.titleRegex;
@@ -337,15 +344,15 @@ export async function fetchDetail(url: string, source: SourceRow, need: DetailNe
   if (need.date && dateText !== null) {
     if ($ && !dateInJina && d.publishedAtSelector) {
       const el = $(d.publishedAtSelector).first();
-      publishedAt = parseLooseDate(el.attr("datetime") ?? el.attr("title") ?? el.text(), d.publishedAtUtcOffset);
+      publishedAt = parseLooseDate(el.attr("datetime") ?? el.attr("title") ?? el.text(), dateOffset);
     }
-    if (!publishedAt && d.publishedAtRegex) publishedAt = parseLooseDate(new RegExp(d.publishedAtRegex).exec(dateText)?.[1], d.publishedAtUtcOffset);
+    if (!publishedAt && d.publishedAtRegex) publishedAt = parseLooseDate(new RegExp(d.publishedAtRegex).exec(dateText)?.[1], dateOffset);
     // An authoritative rule is the only source of the date: when its byline is missing, no other
     // timestamp on the page (an update time, a related post) stands in for it.
     const authoritative = d.publishedAtAuthoritative === true && !!(d.publishedAtSelector || d.publishedAtRegex);
     if (!publishedAt && $ && !dateInJina && !authoritative) {
       const meta = $('meta[property="article:published_time"], meta[name="pubdate"], meta[itemprop="datePublished"]').attr("content");
-      publishedAt = parseLooseDate(meta) ?? parseLooseDate(jsonLdPublished($, html!)) ?? parseLooseDate($("time[datetime]").first().attr("datetime"));
+      publishedAt = parseLooseDate(meta, dateOffset) ?? parseLooseDate(jsonLdPublished($, html!), dateOffset) ?? parseLooseDate($("time[datetime]").first().attr("datetime"), dateOffset);
     }
   }
 
@@ -360,6 +367,10 @@ export async function fetchDetail(url: string, source: SourceRow, need: DetailNe
   if (need.summary && $) {
     const el = $(d.summarySelector).first();
     summary = collapseWhitespace(el.attr("content") ?? el.text()) || null;
+    // Explicit abstract sources must not let Readability replace the abstract with dense references.
+    if (need.body && d.summaryIsBody === true && summary && summary.length >= 200) {
+      body = { html: `<p>资料摘要</p>${sanitizeBody(el.html() ?? summary, url)}`, text: `资料摘要：${summary}`, images: [], via: "readability" };
+    }
   }
   return { publishedAt, title, summary, body };
 }

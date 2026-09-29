@@ -11,6 +11,8 @@ import { stopBoss } from "@aihot/backend/jobs/queue";
 import { extractArticleBody, readable } from "@aihot/backend/content/extract";
 import { collectSource } from "@aihot/backend/sources/collect";
 import { updateSource } from "@aihot/backend/admin/sources";
+import { fetchDetail } from "@aihot/backend/sources/web-list";
+import type { SourceRow } from "@aihot/backend/sources/types";
 
 const T = tag();
 const LONG = `${"A card label that swallowed the summary of the article it links to, ".repeat(2)}${T}`;
@@ -20,6 +22,7 @@ const pageReads = new Map<string, number>();
 const ARTICLE_BODY = "A complete article with enough material to preserve the same extraction result without downloading it twice. ".repeat(6);
 const html = (head: string, body: string) => `<html><head>${head}</head><body>${body}</body></html>`;
 const pages: Record<string, (base: string) => string> = {
+  "/abstract.html": () => html("", `<div id="abstract"><p>${"Satellite measurements with independent validation. ".repeat(10)}</p></div><article><h1>References</h1>${"<p>Bibliography of unrelated work.</p>".repeat(100)}</article>`),
   "/feed.xml": () =>
     `<?xml version="1.0"?><rss version="2.0"><channel><title>t</title>` +
     ["news/a", "business/b"].map((p) => `<item><title>Entry ${p} ${T}</title><link>https://example.org/rules-${T}/${p}</link><pubDate>${new Date().toUTCString()}</pubDate></item>`).join("") +
@@ -52,6 +55,14 @@ const base = `http://127.0.0.1:${(server.address() as { port: number }).port}`;
 config.allowPrivateNetworkFetch = true;
 process.env.JINA_BASE_URL = base;
 process.env.JINA_API_KEY = "test-key";
+
+test("an explicitly configured abstract is used instead of a dense bibliography", async () => {
+  const source: SourceRow = { id: `abstract-${T}`, name: "Journal abstracts", kind: "web_list", config: { detail: { summarySelector: "#abstract", summaryIsBody: true } }, tier: "T1", participation_mode: "editorial", first_party: true, interval_minutes: 180, enabled: true, cursor: null, fail_count: 0 };
+  const got = await fetchDetail(base + "/abstract.html", source, { date: false, title: false, summary: true, body: true });
+  assert.ok(got.body?.text.startsWith("资料摘要："));
+  assert.ok(got.body?.text.includes("independent validation"));
+  assert.ok(!got.body?.text.includes("Bibliography"));
+});
 
 const SOURCES = {
   unsupported: { kind: "rss", config: { feedUrl: `${base}/feed.xml`, adapter: "feed_cards" } },

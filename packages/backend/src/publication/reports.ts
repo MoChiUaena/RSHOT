@@ -10,6 +10,7 @@ import { SITE, withSubject } from "@aihot/industry/site";
 export type { ReportKind };
 
 interface ReportRow {
+  origin: "manual" | "model" | "imported";
   kind: ReportKind;
   key: string;
   window_start: Date;
@@ -196,7 +197,7 @@ async function neighbors(kind: ReportKind, key: string): Promise<{ prev: string 
 }
 
 export async function loadReport(kind: ReportKind, key: string): Promise<ReportDetail | null> {
-  const [r] = await sql<ReportRow[]>`SELECT kind, key, window_start, window_end, content, generated_at, revision FROM reports WHERE kind = ${kind} AND key = ${key}`;
+  const [r] = await sql<ReportRow[]>`SELECT kind, key, window_start, window_end, content, generated_at, revision, origin FROM reports WHERE kind = ${kind} AND key = ${key}`;
   if (!r) return null;
   const c = r.content;
   const rawItems: Array<Record<string, any>> = [
@@ -232,6 +233,7 @@ export async function loadReport(kind: ReportKind, key: string): Promise<ReportD
   return {
     kind,
     key,
+    editorialMode: r.origin,
     title,
     windowStart: r.window_start.toISOString(),
     windowEnd: r.window_end.toISOString(),

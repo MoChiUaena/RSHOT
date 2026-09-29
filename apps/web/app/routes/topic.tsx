@@ -85,7 +85,9 @@ export default function TopicPage() {
       </div>
       {items.length === 0 ? (
         <div className="lg:card">
-          <EmptyState title="这个主题暂时还没有精选内容" />
+          <EmptyState title="这个方向还在积累资料">
+            已收录内容尚未覆盖这个主题。可以先<Link to="/topics" className="text-accent underline">查看有内容的主题</Link>，或<Link to="/all" className="text-accent underline">浏览全部遥感动态</Link>。
+          </EmptyState>
         </div>
       ) : (
         <DayList items={items} />

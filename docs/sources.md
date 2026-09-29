@@ -36,6 +36,7 @@
 ```
 
 - `parseMode`：`html`（默认，用选择器）、`markdown`（经 Jina 渲染后按 Markdown 读）、`docusaurus_changelog`。
+- `detail.summaryIsBody`：明确以摘要作为判断材料时设为 `true`，例如 ESSD 的 `#abstract .abstract-content`，避免正文解析误选参考文献。
 - `detail`：列表缺日期、标题或摘要时抓详情页补齐（`publishedAtSelector`、`titleSelector`、`summarySelector` 等）。
 - `allowUrlPrefixes` / `denyUrlPrefixes`：只收某些路径下的文章。
 

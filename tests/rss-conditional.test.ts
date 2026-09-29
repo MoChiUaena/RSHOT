@@ -7,6 +7,8 @@ import { sql, closeDb } from '@aihot/backend/db';
 import { stopBoss } from '@aihot/backend/jobs/queue';
 import { collectSource } from '@aihot/backend/sources/collect';
 import { previewSource } from '@aihot/backend/admin/sources';
+import { fetchRss } from '@aihot/backend/sources/rss';
+import type { SourceRow } from '@aihot/backend/sources/types';
 
 const T = tag();
 let version = 1;
@@ -17,6 +19,11 @@ const modified = 'Mon, 28 Sep 2026 10:00:00 GMT';
 const server = http.createServer((req, res) => {
   const path = req.url ?? '/';
   requests.push({ path, etag: req.headers['if-none-match'], modified: req.headers['if-modified-since'] });
+  if (path === '/atom.xml') {
+    res.writeHead(200, { 'content-type': 'application/atom+xml' });
+    res.end(`<feed xmlns="http://www.w3.org/2005/Atom"><title>Research abstracts</title><entry><title>Satellite observations</title><link href="https://example.org/paper"/><published>2026-09-28T10:00:00Z</published><summary>${'Satellite observations with independent spatial validation. '.repeat(20)}</summary></entry></feed>`);
+    return;
+  }
   if (path === '/redirect') { res.writeHead(302, { location: redirectNew ? '/new.xml' : '/old.xml' }); res.end(); return; }
   const etag = path === '/modified.xml' ? undefined : path === '/feed.xml' ? `"v${version}"` : '"shared"';
   if ((etag && req.headers['if-none-match'] === etag) || (!etag && req.headers['if-modified-since'] === modified)) {
@@ -36,6 +43,18 @@ async function source(id: string, path: string, initialized = true) {
     VALUES (${id},'RSS conditional test','rss',${sql.json({ feedUrl: base + path })},'T1','editorial',${initialized ? sql.json({ initializedAt: new Date().toISOString() }) : null},'2100-01-01')`;
 }
 const cursor = async (id: string) => (await sql`SELECT cursor FROM sources WHERE id=${id}`)[0]!.cursor;
+
+test('Atom abstract feeds provide usable text only when the source opts into summaryIsBody', async () => {
+  const s: SourceRow = { id: `atom-${T}`, name: 'Research abstracts', kind: 'rss', config: { feedUrl: base + '/atom.xml' }, tier: 'T1', participation_mode: 'editorial', first_party: true, interval_minutes: 180, enabled: true, cursor: null, fail_count: 0 };
+  const ordinary = (await fetchRss(s)).candidates[0]!;
+  assert.equal(ordinary.bodyStatus, 'pending');
+  assert.equal(ordinary.bodyText, null);
+  const abstract = (await fetchRss({ ...s, config: { ...s.config, summaryIsBody: true } })).candidates[0]!;
+  assert.equal(abstract.bodyStatus, 'ok');
+  assert.ok(abstract.bodyText?.includes('independent spatial validation'));
+  assert.equal(abstract.excerpt, ordinary.excerpt);
+  assert.equal(abstract.publishedAt?.toISOString(), '2026-09-28T10:00:00.000Z');
+});
 
 test('RSS first backfill, ordinary window, 304, revision and config edits preserve collection behavior', async () => {
   const id = `rss-conditional-${T}`;

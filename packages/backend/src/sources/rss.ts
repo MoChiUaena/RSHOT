@@ -185,7 +185,8 @@ export async function fetchRss(source: SourceRow, opts: { force?: boolean } = {}
       if (!link || !title) continue;
       const content = text(e.content);
       const summary = text(e.summary);
-      const bodyHtml = content ? sanitizeBody(content, link) : null;
+      const bodyHtmlRaw = content || (summaryIsBody ? summary : "");
+      const bodyHtml = bodyHtmlRaw ? sanitizeBody(bodyHtmlRaw, link) : null;
       const entryUrl = new URL(link, url).toString();
       out.push({
         url: entryUrl,
@@ -195,7 +196,7 @@ export async function fetchRss(source: SourceRow, opts: { force?: boolean } = {}
         publishedAt: parseDate(text(e.published) || text(e.updated)),
         sourceUpdatedAt: parseDate(text(e.updated)),
         ...feedText(bodyHtml, summary, source),
-        media: content ? imagesFrom(content, link) : [],
+        media: bodyHtmlRaw ? imagesFrom(bodyHtmlRaw, link) : [],
         categories: arr(e.category).map((c: any) => c?.["@term"] ?? text(c)).filter(Boolean),
         raw: { id: text(e.id) || null },
       });

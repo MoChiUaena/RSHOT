@@ -11,6 +11,16 @@ import { config } from "@aihot/backend/config";
 import { closeDb, sql } from "@aihot/backend/db";
 import { stopBoss } from "@aihot/backend/jobs/queue";
 import { collectSource } from "@aihot/backend/sources/collect";
+import { parseLooseDate } from "@aihot/backend/sources/web-list";
+
+test("date-only listings use the source timezone while explicit timestamps retain their offset", () => {
+  assert.equal(parseLooseDate("28 Sep 2026", "+00:00")?.toISOString(), "2026-09-28T00:00:00.000Z");
+  assert.equal(parseLooseDate("Sep 28, 2026", "+08:00")?.toISOString(), "2026-09-27T16:00:00.000Z");
+  assert.equal(parseLooseDate("2026-09-28", "+08:00")?.toISOString(), "2026-09-27T16:00:00.000Z");
+  assert.equal(parseLooseDate("2026/09/28 09:15", "+08:00")?.toISOString(), "2026-09-28T01:15:00.000Z");
+  assert.equal(parseLooseDate("2026-09-28T09:15:00+02:00", "+08:00")?.toISOString(), "2026-09-28T07:15:00.000Z");
+  assert.equal(parseLooseDate("not a date"), null);
+});
 
 const T = tag();
 const DUP_SOURCE = `test-rss-dup-${T}`;

@@ -14,11 +14,12 @@ interface TopicSummary {
 }
 
 export async function loader({ request }: { request: Request }) {
-  return apiGet<{ topics: TopicSummary[] }>("/api/site/topics", { signal: request.signal });
+  const data = await apiGet<{ topics: TopicSummary[] }>("/api/site/topics", { signal: request.signal });
+  return { ...data, showAll: new URL(request.url).searchParams.get("all") === "1" };
 }
 
 export function meta() {
-  return pageMeta({ title: "主题", description: "按公司与模型、技术方向、内容形态聚合的 AI 主题页：OpenAI、Anthropic、Agent、多模态、论文与教程等 38 个方向。", path: "/topics", image: "/og/pages/topics.png" });
+  return pageMeta({ title: "主题", description: "按机构与平台、遥感方向和内容形态浏览论文、数据、卫星与工程实践。", path: "/topics", image: "/og/pages/topics.png" });
 }
 
 export function headers() {
@@ -26,22 +27,24 @@ export function headers() {
 }
 
 const GROUPS = [
-  { key: "company", name: "公司与模型", blurb: "按厂商与模型系追踪：谁发了什么、又赢了哪一局" },
-  { key: "field", name: "技术方向", blurb: "按技术领域深挖：Agent、多模态、具身智能……" },
+  { key: "company", name: "机构与平台", blurb: "追踪机构、观测计划与开源平台的进展" },
+  { key: "field", name: "技术方向", blurb: "按遥感方向浏览：SAR、高光谱、LiDAR、变化检测……" },
   { key: "genre", name: "内容形态", blurb: "按内容类型浏览：论文、教程、观点、政策……" },
 ] as const;
 
 export default function TopicsPage() {
-  const { topics } = useLoaderData<typeof loader>();
+  const { topics, showAll } = useLoaderData<typeof loader>();
+  const visible = showAll ? topics : topics.filter((t) => t.total > 0);
   return (
     <div className="pb-10">
       <header className="pb-2 pt-5 lg:pt-1">
-        <h1 className="text-[24px] font-semibold leading-[1.3] text-ink">按主题看 AI</h1>
+        <h1 className="text-[24px] font-semibold leading-[1.3] text-ink">按主题看遥感</h1>
         <p className="mt-1.5 text-[13px] leading-relaxed text-ink-3">
-          按公司与模型、技术方向、内容形态浏览 <span className="num">{topics.length}</span> 个主题，持续汇集近期焦点与精选。
+          按机构与平台、技术方向、内容形态浏览，当前 <span className="num">{topics.filter((t) => t.total > 0).length}</span> 个主题已有内容。
         </p>
+        <Link to={showAll ? "/topics" : "/topics?all=1"} className="mt-3 inline-block text-[12.5px] font-medium text-accent">{showAll ? "查看已收录主题" : `查看全部 ${topics.length} 个主题（含待收录方向）`}</Link>
       </header>
-      {GROUPS.map((g) => (
+      {GROUPS.filter((g) => visible.some((t) => t.group === g.key)).map((g) => (
         <section key={g.key} aria-labelledby={`topics-${g.key}`} className="pt-8">
           <div className="flex flex-wrap items-baseline gap-x-3 gap-y-0.5">
             <h2 id={`topics-${g.key}`} className="text-[15px] font-bold text-ink">
@@ -50,7 +53,7 @@ export default function TopicsPage() {
             <p className="text-[12px] text-ink-4">{g.blurb}</p>
           </div>
           <ul className="mt-3.5 grid gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-            {topics
+            {visible
               .filter((t) => t.group === g.key)
               .map((t) => (
                 <li key={t.slug}>
@@ -63,7 +66,7 @@ export default function TopicsPage() {
                     <span className="text-[15px] font-bold text-ink transition-colors group-hover:text-accent">{t.name}</span>
                     <span className="mt-1.5 line-clamp-2 flex-1 text-[12.5px] leading-[1.7] text-ink-3">{t.definition}</span>
                     <span className="mono mt-3 text-[11.5px] text-accent">
-                      查看 {t.total} 条精选 <span className="inline-block transition-transform duration-200 group-hover:translate-x-0.5">→</span>
+                      {t.total ? `查看 ${t.total} 条精选` : "待收录 · 查看方向介绍"} <span className="inline-block transition-transform duration-200 group-hover:translate-x-0.5">→</span>
                     </span>
                   </Link>
                 </li>

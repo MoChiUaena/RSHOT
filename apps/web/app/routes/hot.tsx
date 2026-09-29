@@ -1,6 +1,6 @@
 import { SITE, withSubject } from "@aihot/industry/site";
 import { Link, useLoaderData } from "react-router";
-import type { HotEntryView, HotResponse } from "@aihot/contracts/site";
+import type { HotEntryView, HotResponse, TimelineResponse } from "@aihot/contracts/site";
 import { loadOr404 } from "../lib/api.server";
 import { pageMeta } from "../lib/seo";
 import { monthDayTime, shortSourceName } from "../lib/format";
@@ -10,15 +10,18 @@ import { IconChevronDown, IconInfo } from "../components/icons";
 import { Sparkline } from "../features/hot/Sparkline";
 import { Faces } from "../features/hot/Faces";
 import { Delta } from "../features/hot/Delta";
+import { DayList } from "../features/feed/DayList";
 
 export async function loader({ request }: { request: Request }) {
-  return { hot: await loadOr404<HotResponse>("/api/site/hot", { signal: request.signal }) };
+  const hot = await loadOr404<HotResponse>("/api/site/hot", { signal: request.signal });
+  const recent = hot.entries.length ? [] : (await loadOr404<TimelineResponse>("/api/site/timeline?limit=6", { signal: request.signal })).cards.map((c) => c.item);
+  return { hot, recent };
 }
 
 export function meta() {
   return pageMeta({
     title: withSubject("热点榜"),
-    description: "过去 48 小时 AI 圈讨论最多的 10 个事件：热度指数、趋势与组成热度的公开来源。",
+    description: "过去 48 小时遥感领域多来源关注的事件：热度指数、趋势与组成热度的公开来源。",
     path: "/hot",
     image: "/og/pages/hot.png",
   });
@@ -222,7 +225,7 @@ function Row({ e }: { e: HotEntryView }) {
 }
 
 export default function HotPage() {
-  const { hot } = useLoaderData<typeof loader>();
+  const { hot, recent } = useLoaderData<typeof loader>();
   const [lead, ...rest] = hot.entries;
   const runners = rest.slice(0, 2);
   const others = rest.slice(2);
@@ -238,7 +241,7 @@ export default function HotPage() {
             实时热度
           </div>
           <h1 className="mt-1.5 text-[24px] font-bold leading-[1.3] tracking-[-0.01em] text-ink lg:text-[26px]">{withSubject("热点榜")}</h1>
-          <p className="mt-1.5 text-[13.5px] text-ink-3">过去 {hot.windowHours} 小时，AI 圈讨论最多的 {hot.entries.length || 10} 件事</p>
+          <p className="mt-1.5 text-[13.5px] text-ink-3">{hot.entries.length ? `过去 ${hot.windowHours} 小时，遥感领域多来源关注的 ${hot.entries.length} 件事` : "观察近期多来源共同关注的遥感事件"}</p>
         </div>
         {hot.computedAt && (
           <p className="text-[12px] text-ink-4">
@@ -248,8 +251,15 @@ export default function HotPage() {
       </header>
 
       {!lead ? (
-        <div className="card rounded-sheet">
-          <EmptyState title="暂时没有热点">还没有足够多来源共同讨论的事件。</EmptyState>
+        <div>
+          <div className="card rounded-sheet">
+            <EmptyState title="当前还没有形成多来源热点">近 48 小时内尚未收录至少两个独立主体报道的同一事件。重要的一手研究与数据发布可以先从近期精选阅读。</EmptyState>
+          </div>
+          {recent.length > 0 && <section className="mt-7" aria-label="近期精选">
+            <h2 className="text-[18px] font-bold text-ink">近期值得读</h2>
+            <p className="mt-1 text-[12.5px] text-ink-3">以下是编辑精选，不附讨论排名或热度。</p>
+            <DayList items={recent} />
+          </section>}
         </div>
       ) : (
         <>
@@ -294,7 +304,7 @@ export default function HotPage() {
         </summary>
         <div className="max-w-[760px] space-y-2 pb-2 pl-[21px] pt-2 leading-[1.75] text-ink-3">
           <p>热度来自参与同一事件的独立账号与机构，重复采集只算一次，并按 24 小时半衰期衰减。它衡量讨论活跃程度，不是报道质量评分。</p>
-          <p>榜单统计过去 48 小时。趋势只比较持续覆盖的同一组信源；它反映我们的监测范围，不代表全网人数。缺少可比历史时，不展示趋势线。</p>
+          <p>榜单统计过去 48 小时，至少需要两个独立主体；单一来源发布的成果仍可进入精选与日报。趋势只比较持续覆盖的同一组信源；它反映我们的监测范围，不代表全网人数。缺少可比历史时，不展示趋势线。</p>
           <p>
             信源名单只展示可公开阅读的报道来源；讨论参与者还包括只计入热度的账号与机构。同一机构的多个渠道可能合并计数，因此参与者不一定多于信源数。点击事件可查看各方报道与观点。
           </p>

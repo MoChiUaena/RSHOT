@@ -1,388 +1,393 @@
 {
-  "$comment": "示范信源：首次启动时导入（scripts/seed.ts），已存在的不会被覆盖。之后在后台“信源”里增删改。字段说明见 docs/customize.md。",
+  "$comment": "RSHOT 首批信源。每个入口均需通过 scripts/check-sources.ts 读取验证；初始回灌最多4条，不将历史资料伪装成今日动态。全文展示关闭。",
   "sources": [
     {
-      "id": "rss-openai-news",
-      "name": "OpenAI News",
-      "kind": "rss",
-      "config": {
-        "feedUrl": "https://openai.com/news/rss.xml",
-        "_aihot": {
-          "initialBackfillLimit": 8
-        }
-      },
       "tier": "T1",
       "first_party": true,
-      "owner_entity_id": "openai",
-      "participation_mode": "editorial",
-      "interval_minutes": 120,
-      "tags": [
-        "官方"
-      ],
-      "site_fulltext": false,
-      "syndicate_fulltext": false
-    },
-    {
-      "id": "rss-google-deepmind",
-      "name": "Google DeepMind",
-      "kind": "rss",
-      "config": {
-        "feedUrl": "https://deepmind.google/blog/rss.xml",
-        "_aihot": {
-          "initialBackfillLimit": 8
-        }
-      },
-      "tier": "T1",
-      "first_party": true,
-      "owner_entity_id": "google",
-      "participation_mode": "editorial",
-      "interval_minutes": 120,
-      "tags": [
-        "官方"
-      ],
-      "site_fulltext": false,
-      "syndicate_fulltext": false
-    },
-    {
-      "id": "rss-google-research",
-      "name": "Google Research",
-      "kind": "rss",
-      "config": {
-        "feedUrl": "https://research.google/blog/rss/",
-        "_aihot": {
-          "initialBackfillLimit": 8
-        }
-      },
-      "tier": "T1",
-      "first_party": true,
-      "owner_entity_id": "google",
-      "participation_mode": "editorial",
-      "interval_minutes": 120,
-      "tags": [
-        "官方",
-        "研究"
-      ],
-      "site_fulltext": false,
-      "syndicate_fulltext": false
-    },
-    {
-      "id": "rss-hugging-face",
-      "name": "Hugging Face Blog",
-      "kind": "rss",
-      "config": {
-        "feedUrl": "https://huggingface.co/blog/feed.xml",
-        "_aihot": {
-          "initialBackfillLimit": 8
-        }
-      },
-      "tier": "T1",
-      "first_party": true,
-      "owner_entity_id": "hugging-face",
-      "participation_mode": "editorial",
-      "interval_minutes": 120,
-      "tags": [
-        "官方",
-        "开源"
-      ],
-      "site_fulltext": false,
-      "syndicate_fulltext": false
-    },
-    {
-      "id": "rss-microsoft-research",
-      "name": "Microsoft Research",
-      "kind": "rss",
-      "config": {
-        "feedUrl": "https://www.microsoft.com/en-us/research/feed/",
-        "_aihot": {
-          "initialBackfillLimit": 8
-        }
-      },
-      "tier": "T1",
-      "first_party": true,
-      "owner_entity_id": "microsoft",
-      "participation_mode": "editorial",
-      "interval_minutes": 120,
-      "tags": [
-        "官方",
-        "研究"
-      ],
-      "site_fulltext": false,
-      "syndicate_fulltext": false
-    },
-    {
-      "id": "rss-nvidia-blog",
-      "name": "NVIDIA Blog",
-      "kind": "rss",
-      "config": {
-        "feedUrl": "https://blogs.nvidia.com/feed/",
-        "_aihot": {
-          "initialBackfillLimit": 8
-        }
-      },
-      "tier": "T1",
-      "first_party": true,
-      "owner_entity_id": "nvidia",
-      "participation_mode": "editorial",
-      "interval_minutes": 120,
-      "tags": [
-        "官方"
-      ],
-      "site_fulltext": false,
-      "syndicate_fulltext": false
-    },
-    {
-      "id": "rss-aws-ml",
-      "name": "AWS Machine Learning Blog",
-      "kind": "rss",
-      "config": {
-        "feedUrl": "https://aws.amazon.com/blogs/machine-learning/feed/",
-        "_aihot": {
-          "initialBackfillLimit": 8
-        }
-      },
-      "tier": "T1",
-      "first_party": true,
-      "owner_entity_id": null,
-      "participation_mode": "editorial",
-      "interval_minutes": 120,
-      "tags": [
-        "官方",
-        "教程"
-      ],
-      "site_fulltext": false,
-      "syndicate_fulltext": false
-    },
-    {
-      "id": "rss-github-ai",
-      "name": "GitHub Blog · AI & ML",
-      "kind": "rss",
-      "config": {
-        "feedUrl": "https://github.blog/ai-and-ml/feed/",
-        "_aihot": {
-          "initialBackfillLimit": 8
-        }
-      },
-      "tier": "T1",
-      "first_party": true,
-      "owner_entity_id": null,
-      "participation_mode": "editorial",
-      "interval_minutes": 120,
-      "tags": [
-        "官方"
-      ],
-      "site_fulltext": false,
-      "syndicate_fulltext": false
-    },
-    {
-      "id": "rss-mistral",
-      "name": "Mistral AI",
-      "kind": "rss",
-      "config": {
-        "feedUrl": "https://mistral.ai/rss.xml",
-        "_aihot": {
-          "initialBackfillLimit": 8
-        }
-      },
-      "tier": "T1",
-      "first_party": true,
-      "owner_entity_id": null,
-      "participation_mode": "editorial",
-      "interval_minutes": 120,
-      "tags": [
-        "官方"
-      ],
-      "site_fulltext": false,
-      "syndicate_fulltext": false
-    },
-    {
-      "id": "rss-bair",
-      "name": "Berkeley AI Research",
-      "kind": "rss",
-      "config": {
-        "feedUrl": "https://bair.berkeley.edu/blog/feed.xml",
-        "_aihot": {
-          "initialBackfillLimit": 8
-        }
-      },
-      "tier": "T1",
-      "first_party": true,
-      "owner_entity_id": null,
       "participation_mode": "editorial",
       "interval_minutes": 180,
-      "tags": [
-        "研究"
-      ],
       "site_fulltext": false,
-      "syndicate_fulltext": false
-    },
-    {
-      "id": "rss-the-verge-ai",
-      "name": "The Verge · AI",
+      "syndicate_fulltext": false,
+      "enabled": true,
+      "id": "arxiv-rs",
+      "name": "arXiv · 遥感与地球观测预印本",
       "kind": "rss",
       "config": {
-        "feedUrl": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml",
+        "feedUrl": "https://export.arxiv.org/api/query?search_query=all:%22remote%20sensing%22%20OR%20all:%22earth%20observation%22%20OR%20all:%22satellite%20imagery%22&sortBy=submittedDate&sortOrder=descending&max_results=60",
+        "summaryIsBody": true,
         "_aihot": {
-          "initialBackfillLimit": 8
+          "initialBackfillLimit": 4
         }
       },
-      "tier": "T2",
-      "first_party": false,
-      "owner_entity_id": null,
-      "participation_mode": "editorial",
-      "interval_minutes": 60,
-      "tags": [
-        "媒体"
-      ],
-      "site_fulltext": false,
-      "syndicate_fulltext": false
+      "owner_entity_id": null
     },
     {
-      "id": "rss-techcrunch-ai",
-      "name": "TechCrunch · AI",
-      "kind": "rss",
-      "config": {
-        "feedUrl": "https://techcrunch.com/category/artificial-intelligence/feed/",
-        "_aihot": {
-          "initialBackfillLimit": 8
-        }
-      },
-      "tier": "T2",
-      "first_party": false,
-      "owner_entity_id": null,
-      "participation_mode": "editorial",
-      "interval_minutes": 60,
-      "tags": [
-        "媒体"
-      ],
-      "site_fulltext": false,
-      "syndicate_fulltext": false
-    },
-    {
-      "id": "rss-ars-technica-ai",
-      "name": "Ars Technica · AI",
-      "kind": "rss",
-      "config": {
-        "feedUrl": "https://arstechnica.com/ai/feed/",
-        "_aihot": {
-          "initialBackfillLimit": 8
-        }
-      },
-      "tier": "T2",
-      "first_party": false,
-      "owner_entity_id": null,
-      "participation_mode": "editorial",
-      "interval_minutes": 60,
-      "tags": [
-        "媒体"
-      ],
-      "site_fulltext": false,
-      "syndicate_fulltext": false
-    },
-    {
-      "id": "rss-mit-tech-review-ai",
-      "name": "MIT Technology Review · AI",
-      "kind": "rss",
-      "config": {
-        "feedUrl": "https://www.technologyreview.com/topic/artificial-intelligence/feed",
-        "_aihot": {
-          "initialBackfillLimit": 8
-        }
-      },
-      "tier": "T2",
-      "first_party": false,
-      "owner_entity_id": null,
-      "participation_mode": "editorial",
-      "interval_minutes": 120,
-      "tags": [
-        "媒体"
-      ],
-      "site_fulltext": false,
-      "syndicate_fulltext": false
-    },
-    {
-      "id": "rss-the-decoder",
-      "name": "The Decoder",
-      "kind": "rss",
-      "config": {
-        "feedUrl": "https://the-decoder.com/feed/",
-        "_aihot": {
-          "initialBackfillLimit": 8
-        }
-      },
-      "tier": "T2",
-      "first_party": false,
-      "owner_entity_id": null,
-      "participation_mode": "editorial",
-      "interval_minutes": 60,
-      "tags": [
-        "媒体"
-      ],
-      "site_fulltext": false,
-      "syndicate_fulltext": false
-    },
-    {
-      "id": "rss-simon-willison",
-      "name": "Simon Willison",
-      "kind": "rss",
-      "config": {
-        "feedUrl": "https://simonwillison.net/atom/everything/",
-        "_aihot": {
-          "initialBackfillLimit": 8
-        }
-      },
-      "tier": "T2",
-      "first_party": false,
-      "owner_entity_id": null,
-      "participation_mode": "editorial",
-      "interval_minutes": 120,
-      "tags": [
-        "个人"
-      ],
-      "site_fulltext": false,
-      "syndicate_fulltext": false
-    },
-    {
-      "id": "rss-import-ai",
-      "name": "Import AI",
-      "kind": "rss",
-      "config": {
-        "feedUrl": "https://importai.substack.com/feed",
-        "_aihot": {
-          "initialBackfillLimit": 8
-        }
-      },
-      "tier": "T2",
-      "first_party": false,
-      "owner_entity_id": null,
+      "tier": "T1",
+      "first_party": true,
       "participation_mode": "editorial",
       "interval_minutes": 180,
-      "tags": [
-        "个人",
-        "周刊"
-      ],
       "site_fulltext": false,
-      "syndicate_fulltext": false
-    },
-    {
-      "id": "rss-latent-space",
-      "name": "Latent Space",
+      "syndicate_fulltext": false,
+      "enabled": true,
+      "id": "esa-earth",
+      "name": "ESA · 对地观测",
       "kind": "rss",
       "config": {
-        "feedUrl": "https://www.latent.space/feed",
+        "feedUrl": "https://www.esa.int/rssfeed/Our_Activities/Observing_the_Earth",
         "_aihot": {
-          "initialBackfillLimit": 8
+          "initialBackfillLimit": 4
         }
       },
-      "tier": "T2",
-      "first_party": false,
-      "owner_entity_id": null,
+      "owner_entity_id": "esa"
+    },
+    {
+      "tier": "T1",
+      "first_party": true,
       "participation_mode": "editorial",
       "interval_minutes": 180,
-      "tags": [
-        "个人"
-      ],
       "site_fulltext": false,
-      "syndicate_fulltext": false
+      "syndicate_fulltext": false,
+      "enabled": true,
+      "id": "copernicus-data-space",
+      "name": "Copernicus Data Space · 数据与平台动态",
+      "kind": "rss",
+      "config": {
+        "feedUrl": "https://dataspace.copernicus.eu/rss.xml",
+        "ingestNoiseFilter": {
+          "dropMarkersTitleOnly": [
+            "unavailability notice",
+            "manoeuvre",
+            "maintenance"
+          ]
+        },
+        "_aihot": {
+          "initialBackfillLimit": 4
+        }
+      },
+      "owner_entity_id": "copernicus"
+    },
+    {
+      "tier": "T1",
+      "first_party": true,
+      "participation_mode": "editorial",
+      "interval_minutes": 180,
+      "site_fulltext": false,
+      "syndicate_fulltext": false,
+      "enabled": true,
+      "id": "google-earth",
+      "name": "Google Earth 与 Earth Engine · 官方博客",
+      "kind": "rss",
+      "config": {
+        "feedUrl": "https://medium.com/feed/google-earth",
+        "_aihot": {
+          "initialBackfillLimit": 4
+        }
+      },
+      "owner_entity_id": "google"
+    },
+    {
+      "tier": "T1",
+      "first_party": true,
+      "participation_mode": "editorial",
+      "interval_minutes": 180,
+      "site_fulltext": false,
+      "syndicate_fulltext": false,
+      "enabled": true,
+      "id": "aircas-research",
+      "name": "中国科学院空天院 · 科研动态",
+      "kind": "web_list",
+      "config": {
+        "url": "https://aircas.cas.cn/dtxw/kydt/",
+        "itemSelector": "li:has(a[title])",
+        "linkSelector": "a[title]",
+        "titleSelector": "a[title]",
+        "publishedAtSelector": "span",
+        "publishedAtUtcOffset": "+08:00",
+        "allowUrlPrefixes": [
+          "https://aircas.cas.cn/dtxw/kydt/"
+        ],
+        "_aihot": {
+          "initialBackfillLimit": 4
+        }
+      },
+      "owner_entity_id": "aircas"
+    },
+    {
+      "tier": "T1",
+      "first_party": true,
+      "participation_mode": "editorial",
+      "interval_minutes": 180,
+      "site_fulltext": false,
+      "syndicate_fulltext": false,
+      "enabled": true,
+      "id": "essd-papers",
+      "name": "Earth System Science Data · 数据论文与讨论稿",
+      "kind": "web_list",
+      "config": {
+        "url": "https://essd.copernicus.org/",
+        "itemSelector": ".grid-85:has(a.article-title)",
+        "linkSelector": "a.article-title",
+        "titleSelector": "a.article-title",
+        "publishedAtSelector": ".published-date",
+        "publishedAtUtcOffset": "+00:00",
+        "allowUrlPrefixes": [
+          "https://essd.copernicus.org/articles/",
+          "https://essd.copernicus.org/preprints/"
+        ],
+        "sortByPublishedAt": true,
+        "_aihot": {
+          "initialBackfillLimit": 4
+        },
+        "detail": {
+          "summarySelector": "#abstract .abstract-content",
+          "maxFetches": 6,
+          "summaryIsBody": true
+        }
+      },
+      "owner_entity_id": null
+    },
+    {
+      "tier": "T1",
+      "first_party": true,
+      "participation_mode": "editorial",
+      "interval_minutes": 180,
+      "site_fulltext": false,
+      "syndicate_fulltext": false,
+      "enabled": false,
+      "id": "github-torchgeo",
+      "name": "TorchGeo · 发布订阅（待网络复核）",
+      "kind": "rss",
+      "config": {
+        "feedUrl": "https://github.com/torchgeo/torchgeo/releases.atom",
+        "ingestNoiseFilter": {
+          "dropMarkersTitleOnly": [
+            "rc0",
+            "rc1",
+            "-rc",
+            "alpha",
+            "beta"
+          ]
+        },
+        "_aihot": {
+          "initialBackfillLimit": 4
+        }
+      },
+      "owner_entity_id": "torchgeo"
+    },
+    {
+      "tier": "T1",
+      "first_party": true,
+      "participation_mode": "editorial",
+      "interval_minutes": 180,
+      "site_fulltext": false,
+      "syndicate_fulltext": false,
+      "enabled": true,
+      "id": "github-terratorch",
+      "name": "TerraTorch · 稳定版本发布",
+      "kind": "rss",
+      "config": {
+        "feedUrl": "https://github.com/torchgeo/terratorch/releases.atom",
+        "ingestNoiseFilter": {
+          "dropMarkersTitleOnly": [
+            "rc0",
+            "rc1",
+            "-rc",
+            "alpha",
+            "beta"
+          ]
+        },
+        "_aihot": {
+          "initialBackfillLimit": 4
+        }
+      },
+      "owner_entity_id": "torchgeo"
+    },
+    {
+      "tier": "T1",
+      "first_party": true,
+      "participation_mode": "editorial",
+      "interval_minutes": 180,
+      "site_fulltext": false,
+      "syndicate_fulltext": false,
+      "enabled": true,
+      "id": "github-gdal",
+      "name": "GDAL · 稳定版本发布",
+      "kind": "rss",
+      "config": {
+        "feedUrl": "https://github.com/OSGeo/gdal/releases.atom",
+        "ingestNoiseFilter": {
+          "dropMarkersTitleOnly": [
+            "rc0",
+            "rc1",
+            "-rc",
+            "alpha",
+            "beta"
+          ]
+        },
+        "_aihot": {
+          "initialBackfillLimit": 4
+        }
+      },
+      "owner_entity_id": "osgeo"
+    },
+    {
+      "tier": "T1",
+      "first_party": true,
+      "participation_mode": "editorial",
+      "interval_minutes": 180,
+      "site_fulltext": false,
+      "syndicate_fulltext": false,
+      "enabled": true,
+      "id": "github-rasterio",
+      "name": "Rasterio · 稳定版本发布",
+      "kind": "rss",
+      "config": {
+        "feedUrl": "https://github.com/rasterio/rasterio/releases.atom",
+        "ingestNoiseFilter": {
+          "dropMarkersTitleOnly": [
+            "rc0",
+            "rc1",
+            "-rc",
+            "alpha",
+            "beta"
+          ]
+        },
+        "_aihot": {
+          "initialBackfillLimit": 4
+        }
+      },
+      "owner_entity_id": null
+    },
+    {
+      "tier": "T1",
+      "first_party": true,
+      "participation_mode": "editorial",
+      "interval_minutes": 180,
+      "site_fulltext": false,
+      "syndicate_fulltext": false,
+      "enabled": true,
+      "id": "github-geemap",
+      "name": "geemap · 稳定版本发布",
+      "kind": "rss",
+      "config": {
+        "feedUrl": "https://github.com/gee-community/geemap/releases.atom",
+        "ingestNoiseFilter": {
+          "dropMarkersTitleOnly": [
+            "rc0",
+            "rc1",
+            "-rc",
+            "alpha",
+            "beta"
+          ]
+        },
+        "_aihot": {
+          "initialBackfillLimit": 4
+        }
+      },
+      "owner_entity_id": null
+    },
+    {
+      "tier": "T1",
+      "first_party": true,
+      "participation_mode": "editorial",
+      "interval_minutes": 180,
+      "site_fulltext": false,
+      "syndicate_fulltext": false,
+      "enabled": true,
+      "id": "github-earthengine-api",
+      "name": "Earth Engine API · 稳定版本发布",
+      "kind": "rss",
+      "config": {
+        "feedUrl": "https://github.com/google/earthengine-api/releases.atom",
+        "ingestNoiseFilter": {
+          "dropMarkersTitleOnly": [
+            "rc0",
+            "rc1",
+            "-rc",
+            "alpha",
+            "beta"
+          ]
+        },
+        "_aihot": {
+          "initialBackfillLimit": 4
+        }
+      },
+      "owner_entity_id": "google"
+    },
+    {
+      "tier": "T1",
+      "first_party": true,
+      "participation_mode": "editorial",
+      "interval_minutes": 180,
+      "site_fulltext": false,
+      "syndicate_fulltext": false,
+      "enabled": true,
+      "id": "github-pystac",
+      "name": "PySTAC · 稳定版本发布",
+      "kind": "rss",
+      "config": {
+        "feedUrl": "https://github.com/stac-utils/pystac/releases.atom",
+        "ingestNoiseFilter": {
+          "dropMarkersTitleOnly": [
+            "rc0",
+            "rc1",
+            "-rc",
+            "alpha",
+            "beta"
+          ]
+        },
+        "_aihot": {
+          "initialBackfillLimit": 4
+        }
+      },
+      "owner_entity_id": null
+    },
+    {
+      "tier": "T1",
+      "first_party": true,
+      "participation_mode": "editorial",
+      "interval_minutes": 180,
+      "site_fulltext": false,
+      "syndicate_fulltext": false,
+      "enabled": true,
+      "id": "github-openeo-python-client",
+      "name": "openEO Python Client · 稳定版本发布",
+      "kind": "rss",
+      "config": {
+        "feedUrl": "https://github.com/Open-EO/openeo-python-client/releases.atom",
+        "ingestNoiseFilter": {
+          "dropMarkersTitleOnly": [
+            "rc0",
+            "rc1",
+            "-rc",
+            "alpha",
+            "beta"
+          ]
+        },
+        "_aihot": {
+          "initialBackfillLimit": 4
+        }
+      },
+      "owner_entity_id": null
+    },
+    {
+      "tier": "T1",
+      "first_party": true,
+      "participation_mode": "editorial",
+      "interval_minutes": 180,
+      "site_fulltext": false,
+      "syndicate_fulltext": false,
+      "enabled": true,
+      "id": "nasa-earthdata",
+      "name": "NASA Earthdata · 科学数据与工具",
+      "kind": "rss",
+      "config": {
+        "feedUrl": "https://www.earthdata.nasa.gov/rss.xml",
+        "_aihot": {
+          "initialBackfillLimit": 4
+        }
+      },
+      "owner_entity_id": "nasa"
     }
   ]
 }

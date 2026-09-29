@@ -317,6 +317,8 @@ export interface ReportCitation {
 }
 
 export interface ReportDetail {
+  /** Distinguishes a reviewed editorial issue from automatic model generation. */
+  editorialMode?: "manual" | "model" | "imported";
   kind: ReportKind;
   key: string;
   title: string;
