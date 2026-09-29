@@ -112,5 +112,6 @@ export async function exportCalibrationLabels(id: string): Promise<{ count: numb
   const batch = await calibrationBatch(id);
   if (!batch) return null;
   const rows = await sql<StoredCase[]>`SELECT input,decision,notes,labelled_at FROM calibration_cases WHERE batch_id=${id} AND decision IS NOT NULL ORDER BY position`;
-  return { count: rows.length, text: rows.map((row) => JSON.stringify({ ...row.input, gold: { decision: row.decision }, annotation: { notes: row.notes, labelledAt: row.labelled_at?.toISOString() } })).join("\n") + (rows.length ? "\n" : "") };
+  return { count: rows.length, text: rows.map((row) => JSON.stringify({ ...row.input, gold: { decision: row.decision }, referenceKind: "preference",
+    annotation: { notes: row.notes, labelledAt: row.labelled_at?.toISOString() } })).join("\n") + (rows.length ? "\n" : "") };
 }

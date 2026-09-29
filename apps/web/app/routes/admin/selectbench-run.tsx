@@ -17,7 +17,7 @@ interface Decision {
   receiptId: number | null;
 }
 interface Data {
-  run: { id: string; label: string; split: string | null; sample_size: number; prompt_version: string | null; models: string[]; summary: Record<string, Record<string, number>>; created_at: string };
+  run: { id: string; label: string; reference_kind: "gold" | "preference"; split: string | null; sample_size: number; prompt_version: string | null; models: string[]; summary: Record<string, Record<string, number>>; created_at: string };
   rows: Array<{ case_id: string; title: string; stratum: string | null; gold: "select" | "reject" | "either"; by_model: Record<string, Decision> }>;
   strata: Array<{ stratum: string | null; n: number }>;
 }
@@ -30,13 +30,13 @@ export const meta: Route.MetaFunction = ({ loaderData }) => [{ title: `${loaderD
 
 const GOLD: Record<string, [string, "accent" | "muted" | "info"]> = { select: ["应入选", "accent"], reject: ["不选", "muted"], either: ["两可", "info"] };
 
-function verdict(d: Decision | undefined, gold: string) {
+function verdict(d: Decision | undefined, gold: string, preference: boolean) {
   if (!d) return <span className="text-ink-4">—</span>;
   if (d.decision === null) return <Badge tone="bad" title={d.error ?? undefined}>失败</Badge>;
   const right = gold === "either" || d.decision === gold;
   return (
     <span className="inline-flex items-center gap-1.5">
-      <Badge tone={right ? (d.decision === "select" ? "ok" : "muted") : "bad"}>{d.decision === "select" ? "入选" : "不选"}</Badge>
+      <Badge tone={preference ? (d.decision === "select" ? "accent" : "muted") : right ? (d.decision === "select" ? "ok" : "muted") : "bad"}>{d.decision === "select" ? "入选" : "不选"}</Badge>
       <span className="num text-[12px] text-ink-3">{d.score ?? "—"}</span>
     </span>
   );
@@ -47,6 +47,7 @@ export default function SelectBenchRun({ loaderData: d }: Route.ComponentProps) 
   const navigate = useNavigate();
   const [open, setOpen] = useState<string | null>(null);
   const model = sp.get("model") ?? d.run.models[0]!;
+  const preference = d.run.reference_kind === "preference";
   const set = (k: string, v: string | null) => {
     const next = new URLSearchParams(sp);
     if (v) next.set(k, v);
@@ -58,15 +59,16 @@ export default function SelectBenchRun({ loaderData: d }: Route.ComponentProps) 
       title={d.run.label}
       subtitle={<>{bj(d.run.created_at, true)} · {d.run.split ?? "—"} · {num(d.run.sample_size)} 条 · 提示 {d.run.prompt_version ?? "未记录"} · <Link className="text-accent" to="/admin/selectbench">全部运行</Link></>}
     >
+      {preference && <div className="mb-4 rounded-panel bg-accent-soft p-4 text-[13px] text-accent">参考是个人阅读偏好，以下指标仅表示一致程度。方向兴趣造成的分歧需结合来源和贡献审阅。</div>}
       <div className="mb-5 grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
         {d.run.models.map((m) => {
           const s = d.run.summary[m] ?? {};
           return (
             <button key={m} onClick={() => set("model", m)} className={`rounded-panel p-4 text-left ring-1 transition-colors ${m === model ? "bg-accent-softer ring-accent/40" : "bg-surface ring-line hover:bg-bg-sunk/60"}`}>
               <div className="text-[13.5px] font-semibold text-ink">{m}</div>
-              <div className="num mt-1.5 text-[22px] font-semibold tracking-tight text-ink">F1 {pct(s.f1)}</div>
-              <div className="num mt-0.5 text-[12px] text-ink-3">准确 {pct(s.accuracy)} · 精确 {pct(s.precision)} · 召回 {pct(s.recall)}</div>
-              <div className="num mt-0.5 text-[12px] text-ink-4">误选 {s.fp ?? "—"} · 漏选 {s.fn ?? "—"} · 失败 {s.errors ?? 0}</div>
+              <div className="num mt-1.5 text-[22px] font-semibold tracking-tight text-ink">{preference ? "参考 F1" : "F1"} {pct(s.f1)}</div>
+              <div className="num mt-0.5 text-[12px] text-ink-3">{preference ? "一致" : "准确"} {pct(s.accuracy)} · {preference ? "入选匹配" : "精确"} {pct(s.precision)} · {preference ? "参考覆盖" : "召回"} {pct(s.recall)}</div>
+              <div className="num mt-0.5 text-[12px] text-ink-4">{preference ? "模型选/个人不选" : "误选"} {s.fp ?? "—"} · {preference ? "模型不选/个人选" : "漏选"} {s.fn ?? "—"} · 失败 {s.errors ?? 0}</div>
             </button>
           );
         })}
@@ -76,10 +78,10 @@ export default function SelectBenchRun({ loaderData: d }: Route.ComponentProps) 
           param="outcome"
           options={[
             { value: "", label: "全部" },
-            { value: "fp", label: "误选" },
-            { value: "fn", label: "漏选" },
-            { value: "tp", label: "选对" },
-            { value: "tn", label: "正确不选" },
+            { value: "fp", label: preference ? "模型选/个人不选" : "误选" },
+            { value: "fn", label: preference ? "模型不选/个人选" : "漏选" },
+            { value: "tp", label: preference ? "都入选" : "选对" },
+            { value: "tn", label: preference ? "都不选" : "正确不选" },
             { value: "either", label: "两可" },
             { value: "error", label: "失败" },
           ]}
@@ -101,7 +103,7 @@ export default function SelectBenchRun({ loaderData: d }: Route.ComponentProps) 
               <thead>
                 <tr className="border-b border-line text-left text-[12px] text-ink-3">
                   <th className="px-3 py-2 font-medium">样本</th>
-                  <th className="px-3 py-2 font-medium">金标</th>
+                  <th className="px-3 py-2 font-medium">{preference ? "个人判断" : "金标"}</th>
                   {d.run.models.map((m) => <th key={m} className="px-3 py-2 font-medium">{m}</th>)}
                 </tr>
               </thead>
@@ -113,8 +115,8 @@ export default function SelectBenchRun({ loaderData: d }: Route.ComponentProps) 
                         <div className="line-clamp-2 text-ink">{r.title}</div>
                         <div className="mt-0.5 text-[11.5px] text-ink-4">{r.stratum ?? "—"} · {r.case_id}</div>
                       </td>
-                      <td className="px-3 py-2.5"><Badge tone={GOLD[r.gold]?.[1] ?? "muted"}>{GOLD[r.gold]?.[0] ?? r.gold}</Badge></td>
-                      {d.run.models.map((m) => <td key={m} className="px-3 py-2.5">{verdict(r.by_model[m], r.gold)}</td>)}
+                      <td className="px-3 py-2.5"><Badge tone={GOLD[r.gold]?.[1] ?? "muted"}>{preference ? (r.gold === "select" ? "个人选" : r.gold === "reject" ? "个人不选" : "拿不准") : GOLD[r.gold]?.[0] ?? r.gold}</Badge></td>
+                      {d.run.models.map((m) => <td key={m} className="px-3 py-2.5">{verdict(r.by_model[m], r.gold, preference)}</td>)}
                     </tr>
                     {open === r.case_id && (
                       <tr className="border-b border-line/70 bg-bg-sunk/40">

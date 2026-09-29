@@ -33,7 +33,8 @@ export async function importSelectBenchRun(report: unknown, label: string, actor
   if (!names.length) throw new Error("report has no model summaries");
   const meta = r.meta ?? {};
   const id = `sb-${new Date().toISOString().slice(0, 10).replaceAll("-", "")}-${randomBytes(3).toString("hex")}`;
-  const summary = Object.fromEntries(names.map((m) => [m, { ...models[m]!.summary, sweep: models[m]!.sweep ?? [] }]));
+  const referenceKind = meta.referenceKind === "preference" ? "preference" : "gold";
+  const summary = Object.fromEntries(names.map((m) => [m, { ...models[m]!.summary, referenceKind, sweep: models[m]!.sweep ?? [] }]));
   const sampleSize = Number(meta.n ?? (models[names[0]!]!.summary as { n?: number }).n ?? 0);
   await sql.begin(async (tx) => {
     await tx`
@@ -68,6 +69,7 @@ export async function importSelectBenchRun(report: unknown, label: string, actor
 export async function listSelectBenchRuns() {
   return sql`
     SELECT r.id, r.label, r.split, r.sample_size, r.prompt_version, r.models,
+           coalesce((r.summary->r.models[1])->>'referenceKind','gold') AS reference_kind,
            (SELECT coalesce(jsonb_object_agg(key, value - 'sweep'), '{}'::jsonb) FROM jsonb_each(r.summary)) AS summary,
            r.created_at, r.imported_by,
            (SELECT count(*)::int FROM selectbench_results x WHERE x.run_id = r.id) AS cases
@@ -75,7 +77,7 @@ export async function listSelectBenchRuns() {
 }
 
 export async function selectBenchRun(id: string, f: { model?: string; outcome?: string; stratum?: string; disagree?: boolean }) {
-  const [run] = await sql`SELECT * FROM selectbench_runs WHERE id = ${id}`;
+  const [run] = await sql`SELECT *,coalesce((summary->models[1])->>'referenceKind','gold') AS reference_kind FROM selectbench_runs WHERE id = ${id}`;
   if (!run) return null;
   const outcome = f.outcome ?? null;
   // One row per case with every model's decision, so disagreements are visible side by side.

@@ -42,6 +42,7 @@ test("human decisions survive reimport, reject stale changes and export only com
   const exported = await exportCalibrationLabels(batchId);
   assert.equal(parseGoldRows(exported!.text).length, 1);
   assert.equal(parseGoldRows(exported!.text)[0]!.gold.decision, "select");
+  assert.equal(parseGoldRows(exported!.text)[0]!.referenceKind, "preference");
   await assert.rejects(importCalibrationBatch({ id: batchId, label: "Changed", cases: [{ ...cases[0], material: { ...cases[0]!.material, title: "Changed evidence" } }, ...cases.slice(1)] }), { code: "conflict" });
   await saveCalibrationLabel(batchId, cases[0]!.caseId, { decision: null, notes: "reconsider", version: 1 }, "test-editor");
   assert.equal((await calibrationBatch(batchId))!.summary.completed, 0);

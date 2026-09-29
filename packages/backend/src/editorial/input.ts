@@ -3,6 +3,7 @@ import { beijingDate, beijingTime } from "@aihot/contracts/time";
 import { sql } from "../db.ts";
 import { collapseWhitespace, truncate } from "../lib/text.ts";
 import { produceImage } from "../media/images.ts";
+import { sha256 } from "../lib/ids.ts";
 import type { ContentPart } from "../providers/llm.ts";
 
 export interface AnalyzeInputArticle {
@@ -32,6 +33,8 @@ export interface AnalyzeInputArticle {
   };
   /** Stored Chinese translation of the body (e.g. a full post whose original was truncated). */
   translationZh?: string | null;
+  /** Explicit captured scope, valid only while its body fingerprint still matches. */
+  materialScope?: string;
 }
 
 /**
@@ -49,15 +52,18 @@ export async function loadAnalyzeInput(articleId: string): Promise<AnalyzeInputA
     id: string; revision: number; title: string; url: string; author: string | null; published_at: Date | null; discovered_at: Date;
     body_text: string | null; excerpt: string | null; body_status: string; x_post: Record<string, any> | null; x_article: { title?: string; text?: string } | null;
     media: Array<Record<string, any>>; source_name: string; source_kind: string; tier: string; first_party: boolean; source_tags: string[]; owner_entity_id: string | null;
-    config: Record<string, any>; translation_zh: string | null;
+    config: Record<string, any>; translation_zh: string | null; capture: { materialScope?: string; scopeBodyHash?: string } | null;
   }[]>`
     SELECT a.id, a.revision, a.title, a.url, a.author, a.published_at, a.discovered_at, a.body_text, a.excerpt, a.body_status, a.x_post, a.x_article, a.media,
            s.name AS source_name, s.kind AS source_kind, s.tier, s.first_party, s.tags AS source_tags, s.owner_entity_id, s.config,
-           tr.body_text AS translation_zh
+           tr.body_text AS translation_zh,a.raw->'rshot' AS capture
     FROM articles a JOIN sources s ON s.id = a.source_id
     LEFT JOIN translations tr ON tr.article_id = a.id AND tr.lang = 'zh' AND tr.revision >= a.revision
     WHERE a.id = ${articleId}`;
   if (!row) return null;
+  const capture = row.capture;
+  const scope = capture?.scopeBodyHash === sha256(collapseWhitespace(row.body_text ?? row.excerpt ?? ""))
+    && ["abstract", "article-text", "feed-content", "feed-summary", "listing-title"].includes(capture?.materialScope ?? "") ? capture!.materialScope : undefined;
   return {
     id: row.id, revision: row.revision, title: row.title, url: row.url, author: row.author, publishedAt: row.published_at, discoveredAt: row.discovered_at,
     bodyText: row.body_text, excerpt: row.excerpt, bodyStatus: row.body_status, xPost: withXArticle(row.x_post, row.x_article), media: row.media,
@@ -66,6 +72,7 @@ export async function loadAnalyzeInput(articleId: string): Promise<AnalyzeInputA
       fetchesBody: row.config?.fetchPublicContent === true || !!row.config?.detail || row.source_kind === "web_list",
     },
     translationZh: row.translation_zh,
+    materialScope: scope,
   };
 }
 
@@ -81,6 +88,7 @@ export function buildMaterial(a: AnalyzeInputArticle): string {
   lines.push(`类型：${KIND_LABEL[a.source.kind] ?? a.source.kind}；分级：${a.source.tier}；一手来源：${a.source.firstParty ? "是" : "否"}`);
   lines.push("</source>");
   lines.push("<material>");
+  if (a.materialScope) lines.push(`材料范围：${a.materialScope === "abstract" ? "论文摘要" : a.materialScope === "feed-summary" ? "订阅摘要" : a.materialScope}`);
   if (a.publishedAt) lines.push(`发布时间：${beijingDate(a.publishedAt)} ${beijingTime(a.publishedAt)}（北京时间）`);
   if (a.author) lines.push(`作者：${a.author}`);
   if (a.xPost) {

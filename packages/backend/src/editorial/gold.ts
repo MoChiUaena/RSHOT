@@ -7,6 +7,9 @@ export const GoldRowSchema = z.object({
   sourceFacts: z.object({ sourceKind: z.string().min(1), sourceTier: z.string().optional(), firstParty: z.boolean().optional(), language: z.string().nullable().optional() }),
   samplingContext: z.object({ benchmarkSplit: z.string().optional(), samplingStratum: z.string().optional() }).optional(),
   gold: z.object({ decision: z.enum(["select", "reject", "either"]) }),
+  referenceKind: z.enum(["gold", "preference"]).optional(),
+  review: z.object({ sourceUrl: z.string().url().refine((s) => { const url = new URL(s); return url.protocol === "https:" && !url.username && !url.password; }),
+    materialScope: z.enum(["abstract", "article-text", "feed-content", "feed-summary", "listing-title"]).optional() }).optional(),
 });
 export type GoldRow = z.infer<typeof GoldRowSchema>;
 export function parseGoldRows(text: string): GoldRow[] {

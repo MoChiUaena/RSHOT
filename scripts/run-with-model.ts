@@ -6,7 +6,7 @@ import { spawn } from "node:child_process";
 import { projectRoot, readLocalModel } from "./lib/local-model.ts";
 
 const [target, ...args] = process.argv.slice(2);
-const targets = new Set(["scripts/probe-model.ts", "scripts/eval-selection.ts", "scripts/pilot.ts", "apps/api/src/main.ts", "apps/worker/src/main.ts"]);
+const targets = new Set(["scripts/probe-model.ts", "scripts/eval-selection.ts", "scripts/pilot.ts", "scripts/process-review-batch.ts", "apps/api/src/main.ts", "apps/worker/src/main.ts"]);
 if (!target || !targets.has(target.replaceAll("\\", "/"))) throw new Error("指定允许的后端脚本，例如 scripts/probe-model.ts");
 const model = readLocalModel();
 if (!model.ready) {

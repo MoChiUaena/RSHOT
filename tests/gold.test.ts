@@ -11,6 +11,9 @@ test("unlabelled and duplicate gold cases are rejected before model evaluation",
   assert.throws(() => parseGoldRows([JSON.stringify(row), JSON.stringify(row)].join("\n")), /重复/);
   assert.throws(() => parseGoldRows(""), /为空/);
   assert.equal(parseGoldRows(JSON.stringify(row))[0]!.material.bodyOriginal, null);
+  const sourced = parseGoldRows(JSON.stringify({ ...row, referenceKind: "preference", review: { sourceUrl: "https://arxiv.org/abs/2609.10001", materialScope: "abstract" } }))[0]!;
+  assert.equal(sourced.referenceKind, "preference");
+  assert.equal(sourced.review!.sourceUrl, "https://arxiv.org/abs/2609.10001");
 });
 test("evaluation without --live validates labels without loading database or model providers", () => {
   const directory = mkdtempSync(path.join(tmpdir(), "rshot-gold-"));
@@ -22,6 +25,11 @@ test("evaluation without --live validates labels without loading database or mod
       env: { ...process.env, MODEL_CALLS_ENABLED: "true", DATABASE_URL: "postgres://127.0.0.1:1/unreachable_test" },
     });
     assert.deepEqual(JSON.parse(output), { status: "ready_for_evaluation", cases: 1, requestsSent: 0 });
+    writeFileSync(file, JSON.stringify({ ...row, referenceKind: "preference" }));
+    const preferred = execFileSync(process.execPath, ["scripts/eval-selection.ts", "--gold", file], {
+      cwd: path.resolve(import.meta.dirname, ".."), encoding: "utf8", env: { ...process.env, DATABASE_URL: "postgres://127.0.0.1:1/unreachable_test" },
+    });
+    assert.equal(JSON.parse(preferred).referenceKind, "preference", "personal labels cannot silently become objective accuracy targets");
   } finally {
     const parent = path.resolve(tmpdir()); const actual = path.resolve(directory);
     if (!actual.startsWith(parent + path.sep) || !path.basename(actual).startsWith("rshot-gold-")) throw new Error("Unsafe test cleanup path");

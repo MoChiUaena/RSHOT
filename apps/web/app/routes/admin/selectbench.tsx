@@ -9,6 +9,7 @@ import { AdminPage, Badge, Button, Card, Empty } from "../../features/admin/ui";
 import { toast } from "../../features/admin/toast";
 
 interface RunRow {
+  reference_kind: "gold" | "preference";
   id: string;
   label: string;
   split: string | null;
@@ -33,7 +34,7 @@ export default function SelectBench({ loaderData }: Route.ComponentProps) {
   return (
     <AdminPage
       title="SelectBench"
-      subtitle="精选判断的模型对比：同一批人工金标样本，逐条比较各模型的入选决定。运行由 scripts/eval-selection.ts 产生并自动导入；也可以上传报告文件。"
+      subtitle="比较模型与参考判断的差异。个人偏好参照只衡量一致程度；按明确标准核验的样本可用于质量评测。"
       actions={
         <>
           <input
@@ -64,7 +65,7 @@ export default function SelectBench({ loaderData }: Route.ComponentProps) {
             return (
               <Card
                 key={r.id}
-                title={<Link to={`/admin/selectbench/${r.id}`} className="hover:text-accent">{r.label}</Link>}
+                title={<Link to={`/admin/selectbench/${r.id}`} className="hover:text-accent">{r.label} {r.reference_kind === "preference" && <Badge tone="info">个人偏好参照</Badge>}</Link>}
                 right={<span>{bj(r.created_at, true)} · {r.split ?? "—"} · {num(r.sample_size)} 条 · {r.prompt_version ?? "提示版本未记录"}</span>}
                 pad={false}
               >
@@ -72,7 +73,7 @@ export default function SelectBench({ loaderData }: Route.ComponentProps) {
                   <table className="w-full min-w-[720px] text-[13px]">
                     <thead>
                       <tr className="border-b border-line text-left text-[12px] text-ink-3">
-                        {["模型", "准确率", "精确率", "召回率", "F1", "入选比例", "金标入选", "失败", "平均耗时", "输入/输出 tokens"].map((h) => <th key={h} className="px-3 py-2 font-medium">{h}</th>)}
+                        {(r.reference_kind === "preference" ? ["模型", "判断一致率", "入选匹配率", "参考入选覆盖", "参考 F1", "模型入选", "个人入选", "失败", "平均耗时", "输入/输出 tokens"] : ["模型", "准确率", "精确率", "召回率", "F1", "入选比例", "金标入选", "失败", "平均耗时", "输入/输出 tokens"]).map((h) => <th key={h} className="px-3 py-2 font-medium">{h}</th>)}
                       </tr>
                     </thead>
                     <tbody>

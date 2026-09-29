@@ -22,6 +22,7 @@ import { pageFetchable } from "../content/extract.ts";
 import { shutdownSignal } from "../jobs/queue.ts";
 import {
   buildArticlePrompt, buildLongTweetPrompt, buildShortTweetPrompt, finalizeCopy, isShortTweetInput, looksZh, MAX_BODY_CHARS, missingEvidence,
+  scopeAwareSummary,
   needsShortTweetTranslation, parseTranslateOutput, PREFILTER_SYSTEM, prefilterUser, translateInputOf, UNDERSTAND_SYSTEM, understandUser,
   type IdentityGuard,
 } from "./writing.ts";
@@ -81,8 +82,8 @@ export function scoreInputTime(at: Date): string {
 }
 
 /**
- * The score input: no source facts (the prompt forbids guessing them), the publication time, the
- * original title (items are scored before any Chinese copy exists) and the whole body.
+ * Score on the original material and traceable source context; omit tiers, previous scores and
+ * selection thresholds. A source host contains neither URL credentials nor query parameters.
  */
 export function buildScoreInput(a: AnalyzeInputArticle): string {
   let body: string;
@@ -94,11 +95,15 @@ export function buildScoreInput(a: AnalyzeInputArticle): string {
   }
   if (!body) body = a.title;
   const at = a.publishedAt ?? a.discoveredAt ?? null;
+  let host: string | null = null;
+  try { const parsed = new URL(a.url); if (!parsed.hostname.endsWith(".invalid")) host = parsed.hostname; } catch { }
   return [
     "请按系统规则评估以下单篇材料所代表的事件。只输出 attentionScore。",
+    `【来源信息】\n${JSON.stringify({ name: a.source.name, kind: a.source.kind, firstParty: a.source.firstParty, host })}`,
+    ...(a.materialScope ? [`【材料范围】\n${a.materialScope === "abstract" ? "论文摘要" : a.materialScope}`] : []),
     `【发布时间（北京时间）】\n${at ? scoreInputTime(at) : ""}`,
     `【标题】\n${a.title.trim()}`,
-    `【完整正文】\n${body.length > MAX_BODY_CHARS ? body.slice(0, MAX_BODY_CHARS) : body}`,
+    `【来源材料】\n${body.length > MAX_BODY_CHARS ? body.slice(0, MAX_BODY_CHARS) : body}`,
   ].join("\n\n");
 }
 
@@ -353,6 +358,7 @@ export async function runAnalysis(a: AnalyzeInputArticle, opts: StepOpts & { sta
     const sum = scores && !scores.refused && scores.values.length === SCORE_CALLS ? scores.values.reduce((total, v) => total + v, 0) : null;
     const near = sum !== null && (sum >= scores!.threshold * SCORE_CALLS || sum > UNDERSTAND_FLOOR * SCORE_CALLS);
     const writing = (near ? await runUnderstand(a, opts) : null) ?? (await runSummarize(a, opts));
+    writing.summaryZh = scopeAwareSummary(writing.summaryZh, a.materialScope);
     const s = await structure;
     if ("error" in s) throw s.error;
     return { prefilter, scores, writing, structure: s.value };

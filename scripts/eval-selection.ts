@@ -24,10 +24,14 @@ const { values } = parseArgs({
     label: { type: "string" },
     "no-import": { type: "boolean", default: false },
     live: { type: "boolean", default: false },
+    reference: { type: "string" },
+    fast: { type: "boolean", default: false },
   },
 });
 
 const rows = parseGoldRows(readFileSync(path.resolve(REPO_ROOT, values.gold!), "utf8"));
+const referenceKind = values.reference ?? (rows.some((r) => r.referenceKind === "preference") ? "preference" : "gold");
+if (referenceKind !== "gold" && referenceKind !== "preference") throw new Error("reference 必须为 gold 或 preference");
 const count = Number(values.n);
 const concurrency = Number(values.concurrency);
 if (!Number.isInteger(count) || count < 1 || count > 200) throw new Error("评测数量必须为1–200");
@@ -44,14 +48,19 @@ const shuffled = pool.map((r) => ({ r, k: rand() })).sort((a, b) => a.k - b.k).m
 const sample = shuffled.slice(0, count);
 if (!sample.length) throw new Error("指定分组没有可评测样本");
 if (!values.live) {
-  console.log(JSON.stringify({ status: "ready_for_evaluation", cases: sample.length, requestsSent: 0 }));
+  console.log(JSON.stringify({ status: "ready_for_evaluation", cases: sample.length, requestsSent: 0, ...(referenceKind === "preference" ? { referenceKind } : {}) }));
   process.exit(0);
 }
 // The explicit live flag enables calls for this evaluation process only.
 process.env.MODEL_CALLS_ENABLED = "true";
+if (values.fast) {
+  if (!/^qwen/i.test(process.env.LLM_MODEL ?? "") || values.models !== "default") throw new Error("--fast 仅用于支持思考开关的默认千问模型");
+  process.env.LLM_EXTRA_JSON = JSON.stringify({ ...JSON.parse(process.env.LLM_EXTRA_JSON || "{}"), enable_thinking: false });
+}
 const { closeDb, sql } = await import("@aihot/backend/db");
 const { ANALYZE_PROMPT_VERSION, normalizeAnalysis, runAnalysis } = await import("@aihot/backend/editorial/analyze");
 const { importSelectBenchRun } = await import("@aihot/backend/admin/selectbench");
+const { completeReceipt } = await import("@aihot/backend/providers/receipts");
 
 function toInput(r: GoldRow): AnalyzeInputArticle {
   const m = r.material;
@@ -62,10 +71,10 @@ function toInput(r: GoldRow): AnalyzeInputArticle {
     revision: 1,
     bodyStatus: "ok",
     title: m.originalTitle || m.title,
-    url: "https://example.invalid/" + r.caseId,
+    url: r.review?.sourceUrl ?? "https://example.invalid/" + r.caseId,
     author: null,
     publishedAt: m.publishedAt ? new Date(m.publishedAt) : null,
-    bodyText: isX ? null : body,
+    bodyText: isX ? null : (r.review?.materialScope === "abstract" && body ? `论文摘要：${body}` : body),
     excerpt: null,
     xPost: isX ? { authorName: m.sourceName, handle: "", text: body ?? m.title } : null,
     media: [],
@@ -92,7 +101,9 @@ for (const model of values.models!.split(",")) {
     try {
       const res = await runAnalysis(toInput(r), { scoreModel: model, stages: "selection" });
       const out = normalizeAnalysis(res);
-      return { r, out, receiptIds: [res.prefilter.receiptId, ...(res.scores?.receiptIds ?? [])], error: null as string | null };
+      const receiptIds = [res.prefilter.receiptId, ...(res.scores?.receiptIds ?? [])];
+      for (const id of receiptIds) await completeReceipt(sql, id);
+      return { r, out, receiptIds, error: null as string | null };
     } catch (error) {
       return { r, out: null, receiptIds: [] as number[], error: String(error).slice(0, 200) };
     }
@@ -120,7 +131,7 @@ for (const model of values.models!.split(",")) {
   const recall = tp / Math.max(1, tp + fn);
   const f1 = (2 * precision * recall) / Math.max(1e-9, precision + recall);
   const summary = {
-    model, n: sample.length, decisive: tp + fp + fn + tn, either, errors, tp, fp, fn, tn,
+    model, referenceKind, n: sample.length, decisive: tp + fp + fn + tn, either, errors, tp, fp, fn, tn,
     accuracy: +((tp + tn) / Math.max(1, tp + fp + fn + tn)).toFixed(3),
     precision: +precision.toFixed(3), recall: +recall.toFixed(3), f1: +f1.toFixed(3),
     selectedRate: +((tp + fp) / Math.max(1, tp + fp + fn + tn)).toFixed(3),
@@ -161,7 +172,7 @@ for (const model of values.models!.split(",")) {
 const outDir = path.join(REPO_ROOT, ".data/eval");
 mkdirSync(outDir, { recursive: true });
 const file = path.join(outDir, `selection-${values.split}-${values.n}-${Date.now()}.json`);
-const meta = { split: values.split, n: sample.length, seed: Number(values.seed), promptVersion: ANALYZE_PROMPT_VERSION, createdAt: new Date().toISOString() };
+const meta = { split: values.split, n: sample.length, seed: Number(values.seed), referenceKind, thinkingDisabled: values.fast, promptVersion: ANALYZE_PROMPT_VERSION, createdAt: new Date().toISOString() };
 writeFileSync(file, JSON.stringify({ meta, models: report }, null, 2));
 console.log(`report: ${file}`);
 if (!values["no-import"]) {

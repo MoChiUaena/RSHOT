@@ -110,6 +110,7 @@ export function renderContext(a: AnalyzeInputArticle, opts: { annotateQuoted?: b
     }
   }
   lines.push("");
+  if (a.materialScope) lines.push(`【材料范围】${a.materialScope === "abstract" ? "论文摘要" : a.materialScope}`);
   lines.push(opts.annotateQuoted && quoted ? "【正文（作者自己的内容）】" : "【正文】");
   lines.push(capBody(a.xPost ? String(a.xPost.text ?? a.title) : (a.bodyText ?? a.excerpt ?? "(无正文)")));
   lines.push("");
@@ -127,6 +128,11 @@ export function missingEvidence(a: AnalyzeInputArticle): boolean {
 
 export const understandUser = (a: AnalyzeInputArticle) =>
   ["请按系统规则理解以下单篇材料，一次返回全部六个字段。", renderContext(a, { annotateQuoted: true })].join("\n\n");
+
+/** Scope must remain visible even when copy shortening removes a model's qualifier. */
+export function scopeAwareSummary(text: string, scope?: string): string {
+  return scope === "abstract" && text.trim() && !/论文摘要|基于摘要|根据摘要/.test(text) ? `基于论文摘要，${text}` : text;
+}
 
 // ── Identity context and guard ────────────────────────────────────────────────────────────────
 
