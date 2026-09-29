@@ -40,7 +40,7 @@ export interface Candidate extends ReportEntry {
 }
 
 function roleOf(kind: string, firstParty: boolean): string {
-  if (firstParty) return kind === "x_search" ? "X·官方" : "官方";
+  if (firstParty) return kind === "x_search" ? "X·一手" : "一手";
   if (kind === "x_search") return "X·KOL";
   if (kind === "mp_account") return "公众号";
   return "媒体";
@@ -110,8 +110,9 @@ async function writeLead(kind: string, key: string, entries: ReportEntry[], mode
 
 async function saveReport(kind: "daily" | "weekly" | "monthly", key: string, start: Date, end: Date, content: Record<string, unknown>, reason: string, model: string) {
   await sql.begin(async (tx) => {
-    const [existing] = await tx<{ id: number; revision: number; content: unknown; generated_at: Date }[]>`
-      SELECT id, revision, content, generated_at FROM reports WHERE kind = ${kind} AND key = ${key} FOR UPDATE`;
+    const [existing] = await tx<{ id: number; revision: number; content: unknown; generated_at: Date; origin: string }[]>`
+      SELECT id, revision, content, generated_at, origin FROM reports WHERE kind = ${kind} AND key = ${key} FOR UPDATE`;
+    if (existing && ["scheduled", "catch-up"].includes(reason)) return;
     if (existing) {
       await tx`INSERT INTO report_revisions (report_id, revision, content, generated_at, reason)
                VALUES (${existing.id}, ${existing.revision}, ${tx.json(existing.content as never)}, ${existing.generated_at}, ${reason}) ON CONFLICT DO NOTHING`;
@@ -124,10 +125,22 @@ async function saveReport(kind: "daily" | "weekly" | "monthly", key: string, sta
   });
 }
 
+async function existingScheduledReport(kind: string, key: string, reason: string) {
+  if (!["scheduled", "catch-up"].includes(reason)) return null;
+  const [row] = await sql`SELECT content FROM reports WHERE kind=${kind} AND key=${key}`;
+  if (!row) return null;
+  const content = row.content as Record<string, any>;
+  return { key, entries: (content.sections ?? []).reduce((n: number, s: { items?: unknown[] }) => n + (s.items?.length ?? 0), 0), skipped: "existing" as const };
+}
+
 /** Daily report for Beijing date D covers [D-1 08:00, D 08:00) Beijing time. */
-export async function composeDaily(date: string, reason = "scheduled"): Promise<{ key: string; entries: number }> {
-  const end = new Date(beijingMidnight(date).getTime() + 8 * 3600 * 1000);
-  const start = new Date(end.getTime() - 86400000);
+export async function composeDaily(date: string, reason = "scheduled", options: { preview?: boolean } = {}): Promise<{ key: string; entries: number; content?: Record<string, unknown> }> {
+  const existing = options.preview ? null : await existingScheduledReport("daily", date, reason);
+  if (existing) return existing;
+  const scheduledEnd = new Date(beijingMidnight(date).getTime() + 8 * 3600 * 1000);
+  if (!options.preview && scheduledEnd > new Date() && ["scheduled", "catch-up"].includes(reason)) return { key: date, entries: 0 };
+  const start = new Date(scheduledEnd.getTime() - 86400000);
+  const end = options.preview ? new Date(Math.min(Date.now(), scheduledEnd.getTime())) : scheduledEnd;
   const covered = await recentlyCovered("daily", date);
   const all = await candidates(start, end);
   const fresh = all.filter((c) => !covered.has(c.factKey) && !covered.has(`a:${c.itemId}`));
@@ -146,7 +159,7 @@ export async function composeDaily(date: string, reason = "scheduled"): Promise<
   }));
   const ordered = sections.flatMap((s) => s.items).sort((a, b) => (b.score ?? 0) - (a.score ?? 0));
   const model = await modelFor("report");
-  const lead = ordered.length ? await writeLead("daily", date, ordered, model) : null;
+  const lead = ordered.length ? await writeLead(options.preview ? "daily-preview" : "daily", date, ordered, model) : null;
   const content = {
     date,
     lead: lead?.lead ?? null,
@@ -161,11 +174,11 @@ export async function composeDaily(date: string, reason = "scheduled"): Promise<
     },
     windowStart: start.toISOString(),
     windowEnd: end.toISOString(),
-    generator: { version: REPORT_VERSION, model, repeatsSuppressed: all.length - fresh.length },
+    generator: { version: REPORT_VERSION, model, repeatsSuppressed: all.length - fresh.length, ...(options.preview ? { preview: true } : {}) },
   };
-  await saveReport("daily", date, start, end, content, reason, model);
+  if (!options.preview) await saveReport("daily", date, start, end, content, reason, model);
   if (lead) await completeReceipt(sql, lead.receiptId);
-  return { key: date, entries: ordered.length };
+  return { key: date, entries: ordered.length, ...(options.preview ? { content } : {}) };
 }
 
 export const PeriodSchema = z.object({
@@ -189,8 +202,11 @@ export function periodPrompt(kind: "weekly" | "monthly", startDate: string, endD
 }
 
 async function composePeriod(kind: "weekly" | "monthly", key: string, startDate: string, endDateInclusive: string, reason: string) {
+  const existing = await existingScheduledReport(kind, key, reason);
+  if (existing) return existing;
   const start = beijingMidnight(startDate);
   const end = beijingMidnight(addDays(endDateInclusive, 1));
+  if (end > new Date() && ["scheduled", "catch-up"].includes(reason)) return { key, entries: 0 };
   const all = await candidates(start, end);
   const top = all.slice(0, kind === "weekly" ? 40 : 60);
   const dailyCount = (await sql<{ n: number }[]>`SELECT count(*) AS n FROM reports WHERE kind = 'daily' AND key >= ${startDate} AND key <= ${endDateInclusive}`)[0]?.n ?? 0;

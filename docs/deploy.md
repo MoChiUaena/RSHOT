@@ -1,110 +1,156 @@
-# 部署
+# 部署 RSHOT
 
-## 用 Docker（推荐）
+首版推荐一台 2 核、4 GB 内存、至少 50 GB 磁盘的 Linux 云服务器，使用 Docker Compose。平台比较见 [部署平台选择](deployment-options.md)。模型费用、域名和备份另计。
 
-需要一台装了 Docker（带 Compose）的机器。云服务器建议至少 2 核、4 GB 内存，构建镜像时要用到。
+## 1. 先启动网页预览
+
+需要 Git、Node.js 24.11+、Docker Engine 与 Compose 插件。以下命令在服务器上的部署用户下执行：
 
 ```bash
-git clone https://github.com/KKKKhazix/AIHOT.git myhot
-cd myhot
-node scripts/init-env.ts --llm-key <你的模型 API Key>
-docker compose up -d --build
+git clone https://github.com/MoChiUaena/RSHOT.git
+cd RSHOT
+node scripts/init-env.ts --preview
+docker compose up -d --build db setup api web
+docker compose exec -T api node scripts/seed-curated.ts --apply
 ```
 
-`init-env.ts` 会生成 `.env`，填好随机密钥和管理员密码，并把密码打印一次。机器上没有 Node 的话，把 `.env.example` 复制成 `.env`，自己填 `ADMIN_PASSWORD`（至少 12 位）、`SESSION_SECRET`、`IMG_PROXY_SIGN_SECRET`、`POSTGRES_PASSWORD`（各用 `openssl rand -hex 32` 生成）和 `LLM_API_KEY`。
+`init-env.ts` 生成忽略的 `.env`，其中包含随机数据库密码、签名密钥和管理员密码；自动采集与模型调用默认关闭。管理员密码会显示一次，请保存在自己的密码管理工具中。已有 `.env` 不会覆盖。
 
-启动后打开 `http://服务器地址:3000`，后台在 `/admin`，用管理员密码登录。第一次启动会导入示范信源，一两分钟后开始出现内容；第一次导入的一百多条资料大约半小时处理完（每条都要预筛、评分，入选的还要写标题摘要）。
+网页在 `http://服务器地址:3000`，后台在 `/admin`。编辑包只导入可追溯的历史资料，不复制本机数据库、私人标注或模型回执。
 
-`docker compose` 会起五个容器：`db`（PostgreSQL 17）、`setup`（每次启动先跑数据库迁移和种子数据，然后退出）、`api`、`worker`（抓取、模型处理、定时任务）、`web`（网页）。
+Compose 包含 `db`（PostgreSQL 17）、`setup`（迁移、种子与采集限额初始化后退出）、`api`、`web`；后续启用 `worker` 负责持续更新。生产数据库沿用框架内部名称 `aihot`。数据库端口不对外暴露。
 
-### 在中国大陆的服务器上
+`setup` 会在首次部署时建立最近 48 小时的采集窗口、明确的信源名单，以及每轮 2 条、每小时 4 条、每天 10 条、每信源每天 3 条的滚动限额。模型请求最多每分钟 20 次、每小时 60 次、每天 200 次。已有策略、暂停状态和更低或为零的模型预算会保留；配置无效时部署准备失败。详见 [自动更新](automatic-updates.md)。
 
-- 构建时 npm 走国内镜像：`docker compose build --build-arg NPM_REGISTRY=https://registry.npmmirror.com`，然后 `docker compose up -d`。
-- 拉取 Docker 镜像慢，先给 Docker 配置镜像加速。
-- 海外信源抓不到时，在 `.env` 里设置 `EGRESS_PROXY_URL`：抓信源、图片和模型榜数据时走这个代理，调用模型接口不走。
-- 对外提供网站服务需要先完成 ICP 备案，备案号填在 `industry/site.ts` 的 `icp`。
+## 2. 给 worker 注入仓库外的模型配置
 
-### 配域名和 HTTPS
-
-先把域名解析到服务器，然后在 `.env` 里设置：
+在服务器上创建部署用户可读取的私有配置目录，用编辑器填写文件：
 
 ```bash
+mkdir -p ~/.config/RSHOT
+chmod 700 ~/.config/RSHOT
+nano ~/.config/RSHOT/models.env
+chmod 600 ~/.config/RSHOT/models.env
+```
+
+文件包含以下字段，密钥只填在服务器本地文件中：
+
+```dotenv
+LLM_BASE_URL=https://dashscope.aliyuncs.com/compatible-mode/v1
+LLM_MODEL=
+LLM_API_KEY=
+LLM_EXTRA_JSON={"enable_thinking":false}
+COLLECT_ENABLED=true
+MODEL_CALLS_ENABLED=true
+ANALYZE_CONCURRENCY=1
+FETCH_CONCURRENCY=2
+FEISHU_CONTENT_PUSH_ENABLED=false
+FEISHU_INTERNAL_ENABLED=false
+INDEXNOW_SUBMIT_ENABLED=false
+```
+
+地址、区域、模型标识和密钥必须对应同一服务。`enable_thinking:false` 仅用于已经验证支持该参数的千问模型；其他模型改为 `{}`。服务器可使用单独的受限密钥，配置后先做连接与少量内容验证，见 [模型配置](model-setup.md)。
+
+在项目的 `.env` 中增加 `RSHOT_MODEL_ENV_FILE`，值为这个文件的实际绝对路径，例如 `/home/deployer/.config/RSHOT/models.env`，不要写 `~`。保持项目 `.env` 中的 `COLLECT_ENABLED=false`、`MODEL_CALLS_ENABLED=false`，模型密钥保持空值。Compose 只向 worker 叠加私有文件，网页和 API 不接收其中的模型密钥。
+
+核对配置并启动 worker：
+
+```bash
+docker compose config --quiet
+docker compose up -d worker
+docker compose exec -T api node scripts/updates-status.ts
+```
+
+状态命令不调用模型。`docker compose config --quiet` 只验证格式；完整的 `docker compose config`、`docker inspect` 或环境变量输出可能含凭据，不应粘贴到聊天、Issue 或公开日志中。
+
+worker 使用 `restart: unless-stopped`，服务器启动 Docker 后可恢复；有序退出允许最多 4 分钟完成正在执行的请求。停止与恢复：
+
+```bash
+docker compose stop worker
+docker compose up -d worker
+```
+
+`npm run updates:stop` 用于本机启动器。Compose 运行时请使用上面的停止命令，避免容器的自动重启策略把 worker 再次拉起。
+
+## 3. 配置域名和 HTTPS
+
+将域名的 DNS 指向服务器，在 `.env` 中设置读者实际访问的地址：
+
+```dotenv
 SITE_URL=https://example.com
 SITE_DOMAIN=example.com
-PORT=127.0.0.1:3000        # 3000 端口只给本机的 Caddy 用，不直接对外
-TRUST_PROXY=true           # 访客地址从 Caddy 转来的请求头里读
+PORT=127.0.0.1:3000
+TRUST_PROXY=true
 ```
 
-再用带 HTTPS 的方式启动，Caddy 会自动申请和续期证书：
+服务器防火墙开放 TCP 80/443，SSH 仅向自己的管理入口开放。3000 绑定本机，3001 与数据库只在 Compose 内部使用。然后执行：
 
 ```bash
+docker compose --profile https up -d
+docker compose run --rm --no-deps --entrypoint node setup scripts/smoke.ts --base https://example.com
+```
+
+Caddy 自动申请并续期证书。已有 Nginx 时，可反向代理到 `http://127.0.0.1:3000` 并传递 `X-Forwarded-For`，保持 `TRUST_PROXY=true`。
+
+公开上线前，需要运营者确认 `industry/pages/` 的使用规则和隐私模板，填写运营主体、联系邮箱及域名；此要求来自项目 `AGENTS.md`。中国大陆服务器对外提供网站服务需办理适用的 ICP 备案，在 `industry/site.ts` 填入备案号。其他地域也需按服务商和所在地的要求上线。
+
+## 4. 网络与维护
+
+在目标服务器运行 `docker compose exec -T api node scripts/check-sources.ts`，核对信源可达性。需要出站代理时，在私有配置中填写 `EGRESS_PROXY_URL`；本机的 `127.0.0.1` 代理不能直接用于云服务器。模型请求使用模型自身地址，不走信源出站代理。
+
+中国大陆机器构建时可按需要切换 npm 镜像：
+
+```bash
+docker compose build --build-arg NPM_REGISTRY=https://registry.npmmirror.com
+docker compose up -d
+```
+
+更新代码前先备份，再拉取并重建；`setup` 自动执行增量迁移并保留已有采集策略和预算：
+
+```bash
+git pull --ff-only
 docker compose --profile https up -d --build
 ```
 
-已经有 Nginx 的话，不用 Caddy，把站点反向代理到 `http://127.0.0.1:3000`，带上 `proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;`，并在 `.env` 里设 `TRUST_PROXY=true`。`SITE_URL` 一定要写成读者实际访问的地址：生成的链接、RSS、分享图和 MCP 都用它。
+日报于北京时间 08:00 生成已完成统计窗口的内容。自动任务保留已有日报，不覆盖人工编辑版。后台“运行”和“信源”页面可查看任务与读取状况。
 
-### 更新
-
-```bash
-git pull
-docker compose up -d --build
-```
-
-数据库迁移只做向后兼容的增量，更新时自动执行。
-
-### 备份
-
-在 `.env` 里配置 `DB_BACKUP_STORE_*`（任何 S3 兼容的对象存储），每天 04:10 自动备份到那里。也可以手动导出：
+查看日志：
 
 ```bash
-docker compose exec -T db pg_dump -U aihot aihot | gzip > myhot-$(date +%F).sql.gz
+docker compose logs --tail 100 api worker web
 ```
 
-数据都在三个 Docker 卷里：`db`（数据库）、`data`（上传的图片、图片缓存、本地备份）、`caddy`（证书）。`docker compose down` 不会删除它们；`docker compose down -v` 会。
+日志保留在服务器本地；服务商报错正文也可能含敏感内容，分享前只摘取状态、任务和已清理的错误说明。
 
-### 看日志
+## 5. 备份
+
+数据库、媒体与本地缓存、Caddy 证书分别存放在 `db`、`data`、`caddy` Docker 卷。`docker compose down` 保留卷；`docker compose down -v` 会删除数据。
+
+用部署用户私有目录保存手动数据库备份：
 
 ```bash
-docker compose logs -f --tail 100 api worker web
+mkdir -p ~/.local/share/RSHOT/backups
+chmod 700 ~/.local/share/RSHOT/backups
+umask 077
+docker compose exec -T db pg_dump -U aihot aihot | gzip > ~/.local/share/RSHOT/backups/rshot-$(date +%F-%H%M%S).sql.gz
 ```
 
-后台的“运行”页能看到每个定时任务最近的结果，“信源”页能看到每个信源的抓取状况。
-
-## 花多少钱
-
-- **模型**：每条新资料至少预筛一次；可能入选的再评分两次，入选的还要写标题摘要、打标签、归组，另外还有日报和事件综述。我们用示范信源在本地试跑，第一次导入的 152 条资料一共用了大约 930 次模型调用。之后每天用多少，取决于你的信源每天更新多少条。后台“模型与评测”页能看到每一步的调用次数和输入输出 token 数。
-- **付费采集**（X、公众号、Jina）：按请求计费，默认不启用，填了 key 才会用。
-- 所有付费服务都有每分钟、每小时、每天的调用上限（后台“设置 → 预算”），超过就暂停，不会一夜之间刷爆账单。填 0 表示立即停用这个服务。
+备份包含私有数据和后台设置，请放在仓库外，并保留异地副本。自动 S3 兼容备份的 `DB_BACKUP_STORE_*` 字段放入 worker 的私有文件；配置和恢复方式见框架运维文档。服务器快照与数据库备份的费用不含在基础实例价格中。
 
 ## 不用 Docker
 
-需要 Node.js 24.11 以上和 PostgreSQL 16 或 17。
+需要 Node.js 24.11+、PostgreSQL 16/17，以及 systemd 或其他进程管理器。先安装依赖、生成关闭安全阀的 `.env`、设置 `DATABASE_URL` 和 `API_BASE_URL`，然后依次运行：
 
 ```bash
 npm ci
-node scripts/init-env.ts --llm-key <你的模型 API Key>
-createdb myhot
-```
-
-在 `.env` 里加上：
-
-```bash
-DATABASE_URL=postgres://你的用户名@127.0.0.1:5432/myhot
-API_BASE_URL=http://127.0.0.1:3001
-```
-
-然后：
-
-```bash
 node --env-file=.env scripts/migrate.ts
 node --env-file=.env scripts/seed.ts
+node --env-file=.env scripts/prepare-collection.ts --apply
 npm run build -w @aihot/web
-
-node --env-file=.env apps/api/src/main.ts          # 接口，3001 端口
-node --env-file=.env apps/worker/src/main.ts       # 后台任务
-cd apps/web && NODE_ENV=production node --env-file=../../.env server.ts   # 网页，3000 端口
+node --env-file=.env apps/api/src/main.ts
+# 在另一个服务进程中启动网页：
+cd apps/web
+NODE_ENV=production node --env-file=../../.env server.ts
 ```
 
-三个进程要一直运行，生产环境用 systemd 或 pm2 守护。
-
-开发时用带热更新的方式：`npm run dev:api`、`npm run dev:worker`、`npm run dev:web`。开发时想免登录进后台，在 `.env` 里设 `DEV_AUTH_ROLE=admin`（生产环境会拒绝启动）。
+worker 的服务配置单独注入仓库外的模型文件，启动 `apps/worker/src/main.ts`，并设置至少 4 分钟的停止等待时间。生产环境不要设置 `DEV_AUTH_ROLE`。本机开发流程见 README 与 [自动更新说明](automatic-updates.md)。

@@ -35,11 +35,11 @@ services:
       timeout: 5s
       retries: 30
 
-  # Applies the database migrations and seeds the topics and demo sources, then exits.
+  # Applies migrations, seeds the industry pack and prepares bounded collection before any worker starts.
   setup:
     <<: *app
     restart: "no"
-    command: ["sh", "-c", "node scripts/migrate.ts && node scripts/seed.ts"]
+    command: ["sh", "-c", "node scripts/migrate.ts && node scripts/seed.ts && node scripts/prepare-collection.ts --apply"]
 
   api:
     <<: *app
@@ -54,7 +54,11 @@ services:
 
   worker:
     <<: *app
+    env_file:
+      - .env
+      - ${RSHOT_MODEL_ENV_FILE:-.env}
     command: ["node", "apps/worker/src/main.ts"]
+    stop_grace_period: 4m
     depends_on:
       setup:
         condition: service_completed_successfully

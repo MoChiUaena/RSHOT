@@ -82,14 +82,13 @@ node scripts/prepare-labeling.ts
 
 支持思考开关的千问模型可添加 `--fast`，只调整本次进程。处理完的结果仍需核对贡献、摘要与来源，不将批次执行成功视为全站质量已经校准。
 
-已有历史编辑包应在采集与模型开关关闭时重新导入一次，修复旧的待处理状态；确认后台处理状态和首次采集窗口后，再由后端加载外部配置：
+已有历史编辑包应在采集与模型开关关闭时重新导入一次，修复旧的待处理状态；确认后台处理状态后，按 [自动更新](automatic-updates.md) 为受限 worker 加载外部配置：
 
 ```powershell
-node scripts/run-with-model.ts apps/api/src/main.ts
-node scripts/run-with-model.ts apps/worker/src/main.ts
+node scripts/start-updates.ts --live
 ```
 
-这两条遵循 `.env` 中的开关，不会自行开启采集。Docker 部署使用服务器私有环境或凭据目录，外部配置文件不会打包进镜像。
+启动器只为本机 worker 开启受限采集与模型调用；网页和 API 的安全阀保持关闭。Docker 部署先由 setup 初始化采集限额，使用仓库外私有文件仅向 worker 注入模型配置，见 [部署流程](deploy.md)。外部配置文件不会打包进镜像。
 
 ## 5. 提交和推送保护
 

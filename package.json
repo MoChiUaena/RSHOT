@@ -22,7 +22,13 @@
     "model:prepare": "node scripts/prepare-model.ts",
     "model:check": "node scripts/probe-model.ts",
     "review:prepare": "node --env-file=.env scripts/prepare-review.ts",
-    "review:export": "node --env-file=.env scripts/export-labels.ts"
+    "review:export": "node --env-file=.env scripts/export-labels.ts",
+    "updates:check": "node scripts/start-updates.ts",
+    "updates:status": "node --env-file=.env scripts/updates-status.ts",
+    "updates:stop": "node --env-file=.env scripts/stop-updates.ts",
+    "preview:export": "node scripts/export-preview.ts",
+    "preview:build": "node scripts/build-preview.ts",
+    "preview:serve": "node scripts/serve-preview.ts"
   },
   "devDependencies": {
     "@modelcontextprotocol/client": "2.1.0",

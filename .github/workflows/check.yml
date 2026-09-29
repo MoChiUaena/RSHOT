@@ -89,7 +89,7 @@ jobs:
           package-manager-cache: false
       - name: Configure a throwaway site
         run: |
-          node scripts/init-env.ts --llm-key ci-not-a-real-key
+          node scripts/init-env.ts --preview
           # No outside calls in CI: nothing is collected and no model is asked.
           sed -i 's/^COLLECT_ENABLED=.*/COLLECT_ENABLED=false/; s/^MODEL_CALLS_ENABLED=.*/MODEL_CALLS_ENABLED=false/' .env
           # The smoke check reaches the site by its compose service name.
@@ -103,6 +103,7 @@ jobs:
           docker compose run --rm --no-deps --entrypoint node setup scripts/smoke.ts --base http://web:3000
           expected=$(node -p "require('./industry/sources.json').sources.length")
           docker compose exec -T db psql -U aihot -d aihot -Atc "select count(*) from sources" | grep -qx "$expected"
+          docker compose exec -T db psql -U aihot -d aihot -Atc "select (value->>'perDay')::int from settings where key='collection.policy'" | grep -qx 10
       - name: Logs
         if: failure()
         run: docker compose logs --tail 80

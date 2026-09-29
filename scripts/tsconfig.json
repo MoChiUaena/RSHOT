@@ -12,6 +12,14 @@
     "prepare-review.ts",
     "export-labels.ts",
     "process-review-batch.ts",
+    "start-updates.ts",
+    "prepare-collection.ts",
+    "export-preview.ts",
+    "build-preview.ts",
+    "serve-preview.ts",
+    "preview-report.ts",
+    "updates-status.ts",
+    "stop-updates.ts",
     "eval-selection.ts",
     "collect-review.ts"
   ]

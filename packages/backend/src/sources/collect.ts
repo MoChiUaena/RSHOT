@@ -11,6 +11,7 @@ import { unsupportedConfig } from "./config-keys.ts";
 import { fetchJsonList } from "./json-list.ts";
 import { fetchXSearch, planXShards, readXSearch, shardHandle, shardQuery, SHARDABLE_SQL, tweetToCandidate, type XBacklog, type XRead } from "./x.ts";
 import { FetchError, type Candidate, type SourceRow } from "./types.ts";
+import { collectionPolicy, storeControlled, withinCollectionWindow } from "./admission.ts";
 
 export interface CollectResult {
   sourceId: string;
@@ -85,6 +86,9 @@ export async function collectSource(sourceId: string, opts: { force?: boolean } 
   const source = await loadSource(sourceId);
   if (!source) return { sourceId, status: "skipped", found: 0, created: 0, revised: 0, error: "missing" };
   if (!source.enabled && !opts.force) return { sourceId, status: "skipped", found: 0, created: 0, revised: 0, error: "paused" };
+  const policy = await collectionPolicy();
+  if (policy && (!policy.enabled || !policy.sourceIds.includes(sourceId) || !["rss", "web_list", "json_list"].includes(source.kind)))
+    return { sourceId, status: "skipped", found: 0, created: 0, revised: 0, error: "outside controlled collection" };
   if (source.kind === "mp_account" || source.kind === "external") {
     // WeChat accounts are reconciled by the mp job; external sources only receive reports.
     return { sourceId, status: "skipped", found: 0, created: 0, revised: 0 };
@@ -103,7 +107,7 @@ export async function collectSource(sourceId: string, opts: { force?: boolean } 
     let nextCursor: Record<string, unknown> = { ...(source.cursor ?? {}) };
     let detail: Record<string, unknown> | null = null;
     if (source.kind === "rss") {
-      const rss = await fetchRss(source, opts);
+      const rss = await fetchRss(source, { ...opts, force: opts.force || (!!policy && !source.cursor?.controlledBaselineAt) });
       candidates = rss.candidates;
       // The first import has a smaller backfill cap than later runs: allow the next run to read
       // the ordinary window before accepting 304s. Persist validators only after store succeeds.
@@ -129,7 +133,10 @@ export async function collectSource(sourceId: string, opts: { force?: boolean } 
     // First import of a new source: bounded, and archived by source time (never "today", never pushed).
     const backfillLimit = Number(source.config._aihot?.initialBackfillLimit ?? 30);
     const backfillMonths = Number(source.config._aihot?.initialBackfillMonths ?? 12);
-    if (firstImport) {
+    if (policy) {
+      // Do not let known items use up the initial slice before new items can be considered.
+      candidates = candidates.filter((c) => source.config.detail?.publishedAtAuthoritative === true || withinCollectionWindow(c, policy)).slice(0, MAX_ITEMS_PER_RUN);
+    } else if (firstImport) {
       const cutoff = Date.now() - backfillMonths * 30 * 86400000;
       candidates = candidates.filter((c) => !c.publishedAt || c.publishedAt.getTime() >= cutoff).slice(0, backfillLimit);
     } else if (source.kind !== "x_search") {
@@ -179,7 +186,14 @@ export async function collectSource(sourceId: string, opts: { force?: boolean } 
       }
     }
 
-    ({ created, revised } = await store(sourceId, candidates, firstImport ? "first-import" : null));
+    if (policy) {
+      const admitted = await storeControlled(source, candidates, policy);
+      ({ created, revised } = admitted);
+      detail = { ...detail, admission: admitted };
+      nextCursor.controlledBaselineAt ??= new Date().toISOString();
+      // Items withheld by a quota must remain fetchable even if the feed's ETag stays the same.
+      if (admitted.limited > 0) delete nextCursor.rss;
+    } else ({ created, revised } = await store(sourceId, candidates, firstImport ? "first-import" : null));
 
     if (firstImport) nextCursor.initializedAt = new Date().toISOString();
     nextCursor.lastOkAt = new Date().toISOString();

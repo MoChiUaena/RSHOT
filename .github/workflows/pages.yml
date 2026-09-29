@@ -1,0 +1,40 @@
+name: Preview Pages
+on:
+  push:
+    branches: [main]
+    paths: ["apps/preview/**", "industry/preview/**", "industry/brand/**", "scripts/build-preview.ts", "scripts/lib/public-preview.ts", ".github/workflows/pages.yml", "package*.json"]
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: rshot-preview-pages
+  cancel-in-progress: false
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: 24
+          package-manager-cache: false
+      - run: node scripts/check-secrets.ts --tracked
+      - run: npm ci --no-audit --no-fund
+      - run: node --test tests/preview-export.test.ts
+      - run: npm run preview:build
+      - uses: actions/upload-pages-artifact@7b1f4a764d45c48632c6b24a0339c27f5614fb0b # v4
+        with:
+          path: dist/preview
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy preview
+        id: deployment
+        uses: actions/deploy-pages@d6db90164ac5ed86f2b6aed7e0febac5b3c0c03e # v4

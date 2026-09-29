@@ -16,6 +16,8 @@
 
 ## 快速预览（Docker）
 
+先在线浏览免费只读预览：**[RSHOT GitHub Pages](https://mochiuaena.github.io/RSHOT/)**。包括公开精选、摘要、搜索分类、日报与简报；页面标明导出时间。采集和模型处理仍在本机，见 [免费预览说明](docs/pages-preview.md)。
+
 需要 Docker 与 Node.js 24.11+，无需模型 API 密钥。
 
 ```bash
@@ -66,10 +68,12 @@ pwsh -NoProfile -File scripts/start-local.ps1
 
 ## 启用自动采集与精选
 
+本机可按 [自动更新说明](docs/automatic-updates.md) 启动受限 worker，控制首次采集窗口、每轮数量与滚动限额，并保护已有编辑内容。
+
 1. 本机先运行 `npm run model:prepare`，将模型配置填进仓库外的 `models.env`。用连接测试与 1–5 条资料试运行核对接口、输出与 token 开销，见 [模型配置与试运行](docs/model-setup.md)。Docker 部署通过服务器私有环境注入模型配置。
 2. 运行 `node --env-file=.env scripts/check-sources.ts`，确认部署机器能读取信源。需要网络代理时设置 `EGRESS_PROXY_URL`；本机现有配置不适合直接复制到云服务器。
 3. 用 100–200 条自己标注的遥感内容校准筛选标准。当前门槛仍沿用上游，编辑包和示例样本都不是已经完成人工标注的校准集，见 [精选与校准](docs/selection.md)。
-4. 将采集和模型开关设为 `true`，重启 API 并启动 worker，或用 `docker compose up -d --build` 部署完整服务。
+4. 本机用 `scripts/start-updates.ts --live` 为 worker 单独启用采集与模型；Docker 的 `setup` 初始化同样的限额，再按 [部署流程](docs/deploy.md) 给 worker 注入仓库外配置。网页与 API 的开关保持关闭。
 5. 公开发布前填写运营主体、联系方式与域名，并确认 `industry/pages/` 中的使用规则和隐私草案。
 
 付费调用在 worker 中完成，读者打开页面不触发模型调用。每日预算可在后台设置。热点榜衡量 48 小时内的多来源讨论；单一来源的重要成果仍可进入精选与日报。
@@ -107,6 +111,6 @@ node --env-file=.env scripts/check-sources.ts
 - 修改站点与编辑标准：`industry/`。
 - 更新信源：后台管理；`sources.json` 只导入尚不存在的信源，避免覆盖人工配置。
 - 重新生成品牌资源：`node scripts/rshot-brand.ts`（字体来自仓库，保留原有许可）。
-- 框架架构与部署：[架构](docs/architecture.md)、[部署](docs/deploy.md)。
+- 框架架构与部署：[架构](docs/architecture.md)、[部署](docs/deploy.md)、[平台选择与费用](docs/deployment-options.md)。
 - 收集待编辑材料：`node --env-file=.env scripts/collect-review.ts`，只读取公开来源，结果在 `.data/`，不会发布或调模型。
 - 原项目说明：[上游 README](docs/upstream-readme.md)、[LICENSE](LICENSE)、[NOTICE](NOTICE)。内部 `@aihot/*` 包名保留以兼容框架代码。

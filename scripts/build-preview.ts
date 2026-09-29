@@ -1,0 +1,14 @@
+import { copyFileSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
+import path from "node:path";
+import { PublicPreviewSchema } from "./lib/public-preview.ts";
+const root=path.resolve(import.meta.dirname,"..");
+const data=PublicPreviewSchema.parse(JSON.parse(readFileSync(path.join(root,"industry/preview/snapshot.json"),"utf8")));
+const out=path.join(root,"dist/preview");mkdirSync(out,{recursive:true});
+for(const file of ["app.js","style.css"]) copyFileSync(path.join(root,"apps/preview",file),path.join(out,file));
+copyFileSync(path.join(root,"industry/brand/icon.png"),path.join(out,"icon.png"));
+writeFileSync(path.join(out,"snapshot.json"),JSON.stringify(data));
+const escape=(value:string)=>value.replace(/[&<>"']/g,(char)=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[char]!));
+const initial=data.items.filter((item)=>item.selected).slice(0,24).map((item)=>`<article class="news-card"><div class="card-meta">${escape(item.source.name)} · ${escape((item.publishedAt??item.timelineAt).slice(0,10))}</div><h2><a href="#item/${encodeURIComponent(item.id)}">${escape(item.title)}</a></h2><p>${escape(item.summary??"")}</p></article>`).join("\n");
+const html=readFileSync(path.join(root,"apps/preview/index.html"),"utf8").replace("<!--INITIAL_FEED-->",initial);
+writeFileSync(path.join(out,"index.html"),html);writeFileSync(path.join(out,".nojekyll"),"");
+console.log(JSON.stringify({status:"built",path:"dist/preview",items:data.items.length,generatedAt:data.generatedAt}));
