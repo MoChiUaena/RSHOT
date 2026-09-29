@@ -24,4 +24,6 @@ test("static preview excludes private fields, local links and unavailable report
   assert.doesNotThrow(()=>PublicPreviewSchema.parse(snapshot));
   assert.throws(()=>PublicPreviewSchema.parse({...snapshot,settings:{password:'private'}}));
   assert.throws(()=>PublicPreviewSchema.parse({...snapshot,items:[{...item,adminNote:'private'}]}));
+  assert.throws(()=>PublicPreviewSchema.parse({...snapshot,topics:[{slug:'sar',name:'SAR',group:'field',definition:'Public',itemIds:[],adminNote:'private'}]}));
+  assert.throws(()=>PublicPreviewSchema.parse({...snapshot,hot:{computedAt:null,windowHours:48,entries:[],credentials:'private'}}));
 });

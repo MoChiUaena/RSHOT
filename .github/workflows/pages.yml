@@ -2,7 +2,7 @@ name: Preview Pages
 on:
   push:
     branches: [main]
-    paths: ["apps/preview/**", "industry/preview/**", "industry/brand/**", "scripts/build-preview.ts", "scripts/lib/public-preview.ts", ".github/workflows/pages.yml", "package*.json"]
+    paths: ["apps/preview/**", "apps/web/app/components/shell/nav-data.ts", "apps/web/app/app.css", "industry/preview/**", "industry/brand/**", "industry/changelog.json", "scripts/build-preview.ts", "scripts/lib/public-preview.ts", ".github/workflows/pages.yml", "package*.json"]
   workflow_dispatch:
 permissions:
   contents: read

@@ -3,7 +3,8 @@ import { mkdirSync, writeFileSync } from "node:fs";
 import path from "node:path";
 import { parseArgs } from "node:util";
 import { CATEGORIES } from "@aihot/industry/taxonomy";
-import type { ItemSummary, ReportDetail, ReportIndexEntry, SiteStats } from "@aihot/contracts/site";
+import type { HotResponse, ItemSummary, ReportDetail, ReportIndexEntry, SiteStats } from "@aihot/contracts/site";
+import type { TopicPage, TopicSummary } from "@aihot/backend/publication/topics";
 import { PublicPreviewSchema, publicItem, publicReport } from "./lib/public-preview.ts";
 import { inspectSecrets } from "./lib/secret-guard.ts";
 import { localSecretValues } from "./lib/local-secrets.ts";
@@ -45,9 +46,25 @@ for(const kind of ["daily","weekly","monthly"] as const) {
   }
 }
 const stats=await read<SiteStats>("/api/site/stats");
+const topics=[];
+const topicIndex=await read<{topics:TopicSummary[]}>("/api/site/topics");
+for(const topic of topicIndex.topics) {
+  const itemIds=new Set<string>();
+  let pageCount=1;
+  for(let topicPage=1;topicPage<=pageCount;topicPage++) {
+    const content=await read<TopicPage>(`/api/site/topics/${encodeURIComponent(topic.slug)}?page=${topicPage}`);
+    if(content.pageCount>250) throw new Error("主题内容超过预览范围");
+    pageCount=content.pageCount;
+    content.items.forEach((item)=>{if(ids.has(item.id))itemIds.add(item.id);});
+  }
+  topics.push({slug:topic.slug,name:topic.name,group:topic.group,definition:topic.definition,itemIds:[...itemIds]});
+}
+const hot=await read<HotResponse>("/api/site/hot");
 const snapshot=PublicPreviewSchema.parse({schemaVersion:1,generatedAt:new Date().toISOString(),
   categories:CATEGORIES.map(({key,label})=>({key,label})),sources:stats.sampleSources.map(({name,kind})=>({name,kind})),
-  items:items.sort((a,b)=>b.timelineAt.localeCompare(a.timelineAt)),reports});
+  items:items.sort((a,b)=>b.timelineAt.localeCompare(a.timelineAt)),reports,topics,
+  hot:{computedAt:hot.computedAt,windowHours:hot.windowHours,entries:hot.entries.map((entry)=>({rank:entry.rank,title:entry.story.title,
+    heat:entry.heat,sourceCount:entry.sourceCount,sourceNames:entry.sourceNames,summary:entry.summary,itemId:entry.representative?.id??null}))}});
 const output="industry/preview/snapshot.json";
 const content=JSON.stringify(snapshot,null,2)+"\n";
 const findings=inspectSecrets(output,content,localSecretValues(root));

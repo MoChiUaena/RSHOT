@@ -12,9 +12,13 @@ const Citation = z.object({itemId:z.string().nullable(),title:z.string(),summary
 const Report = z.object({ kind:z.enum(["daily","weekly","monthly"]),key:z.string(),title:z.string(),generatedAt:z.string(),
   editorialMode:z.enum(["manual","model","imported"]).nullable(),lead:z.object({title:z.string(),leadParagraph:z.string()}).strict().nullable(),
   overview:z.string().nullable(),sections:z.array(z.object({label:z.string(),summary:z.string().nullable(),items:z.array(Citation)}).strict()) }).strict();
+const Topic = z.object({slug:z.string(),name:z.string(),group:z.enum(["company","field","genre"]),definition:z.string(),itemIds:z.array(z.string())}).strict();
+const Hot = z.object({computedAt:z.string().nullable(),windowHours:z.number(),entries:z.array(z.object({rank:z.number(),title:z.string(),heat:z.number(),
+  sourceCount:z.number(),sourceNames:z.array(z.string()),summary:z.string().nullable(),itemId:z.string().nullable()}).strict())}).strict();
 export const PublicPreviewSchema = z.object({ schemaVersion:z.literal(1),generatedAt:z.string().datetime(),
   categories:z.array(z.object({key:z.string(),label:z.string()}).strict()),
-  sources:z.array(z.object({name:z.string(),kind:z.string()}).strict()),items:z.array(Item),reports:z.array(Report) }).strict();
+  sources:z.array(z.object({name:z.string(),kind:z.string()}).strict()),items:z.array(Item),reports:z.array(Report),
+  topics:z.array(Topic).default([]),hot:Hot.default({computedAt:null,windowHours:48,entries:[]}) }).strict();
 export type PublicPreview = z.infer<typeof PublicPreviewSchema>;
 
 export function publicLink(value: string | null | undefined): string | null {

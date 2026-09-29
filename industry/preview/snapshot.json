@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-29T14:46:05.477Z",
+  "generatedAt": "2026-09-29T15:06:01.871Z",
   "categories": [
     {
       "key": "paper",
@@ -2656,5 +2656,367 @@
         }
       ]
     }
-  ]
+  ],
+  "topics": [
+    {
+      "slug": "nasa",
+      "name": "NASA",
+      "group": "company",
+      "definition": "NASA 的遥感研究、观测数据与工程动态。",
+      "itemIds": [
+        "wfsw59u57kt591xhx138wlkkq",
+        "pd9ogz0oai2skdxykba7bzymi"
+      ]
+    },
+    {
+      "slug": "esa",
+      "name": "ESA",
+      "group": "company",
+      "definition": "ESA 的遥感研究、观测数据与工程动态。",
+      "itemIds": [
+        "wezhx5xk6gsimqeo7irthqp2j",
+        "gzolrxrpu1wfos8snkmt3zpcf",
+        "dppgfiwplnw7fzgf9wzd570sl",
+        "ag1rbrf9ozfj4gflp6vyr5ev4"
+      ]
+    },
+    {
+      "slug": "copernicus",
+      "name": "Copernicus",
+      "group": "company",
+      "definition": "Copernicus 的遥感研究、观测数据与工程动态。",
+      "itemIds": [
+        "u8apq419zzwq61uwg5741g3uk",
+        "ix86l1hfdxof6otboaxyx0wsm",
+        "nbzsvoar9nz2386vnpw29cr5s",
+        "ag1rbrf9ozfj4gflp6vyr5ev4"
+      ]
+    },
+    {
+      "slug": "aircas",
+      "name": "中国科学院空天院",
+      "group": "company",
+      "definition": "中国科学院空天院 的遥感研究、观测数据与工程动态。",
+      "itemIds": [
+        "wetwj260tlvv5owayi3xd3d4l",
+        "tot69cti4mmhv14h9cq9qeqe5"
+      ]
+    },
+    {
+      "slug": "google",
+      "name": "Google Earth Engine",
+      "group": "company",
+      "definition": "Google Earth Engine 的遥感研究、观测数据与工程动态。",
+      "itemIds": [
+        "mgvlgulwciwrpd2nd7nkou1eb"
+      ]
+    },
+    {
+      "slug": "torchgeo",
+      "name": "TorchGeo / TerraTorch",
+      "group": "company",
+      "definition": "TorchGeo / TerraTorch 的遥感研究、观测数据与工程动态。",
+      "itemIds": [
+        "eouhfb8zubaye37bjqy5a47qe"
+      ]
+    },
+    {
+      "slug": "osgeo",
+      "name": "OSGeo / GDAL",
+      "group": "company",
+      "definition": "OSGeo / GDAL 的遥感研究、观测数据与工程动态。",
+      "itemIds": []
+    },
+    {
+      "slug": "sar",
+      "name": "SAR 与 InSAR",
+      "group": "field",
+      "definition": "追踪SAR 与 InSAR的研究方法、数据、工具与应用实践。",
+      "itemIds": [
+        "uqwxxax67xb6hiduqyy4v7bq2",
+        "m4tv4f8k7delp5do9vq6vqna9"
+      ]
+    },
+    {
+      "slug": "insar",
+      "name": "干涉测量",
+      "group": "field",
+      "definition": "追踪干涉测量的研究方法、数据、工具与应用实践。",
+      "itemIds": [
+        "m4tv4f8k7delp5do9vq6vqna9"
+      ]
+    },
+    {
+      "slug": "hyperspectral",
+      "name": "高光谱",
+      "group": "field",
+      "definition": "追踪高光谱的研究方法、数据、工具与应用实践。",
+      "itemIds": [
+        "fo0dlax2jigiqe059ml1cxq4w",
+        "wwr6wn7f6fna6shopuoe75gnn"
+      ]
+    },
+    {
+      "slug": "lidar",
+      "name": "LiDAR",
+      "group": "field",
+      "definition": "追踪LiDAR的研究方法、数据、工具与应用实践。",
+      "itemIds": [
+        "akatawgify310aboeajv94yd4",
+        "z335gzoecu3nax6s720spo1j7",
+        "tot69cti4mmhv14h9cq9qeqe5",
+        "kau7osm79n5i3d7rh227gzu6x",
+        "kcsflhx91ghdkbtixxo1yrcgr"
+      ]
+    },
+    {
+      "slug": "optical",
+      "name": "光学遥感",
+      "group": "field",
+      "definition": "追踪光学遥感的研究方法、数据、工具与应用实践。",
+      "itemIds": [
+        "w50vtz3cw1i1m9f0hsudcmep0",
+        "wwr6wn7f6fna6shopuoe75gnn",
+        "e2fiur4mpovoisuvagqi2uk1k",
+        "nbf1cg9xw4ajprnmzm0rrw2zm",
+        "d6yg3cbzfsa0inh6c4foyzxlz",
+        "ag1rbrf9ozfj4gflp6vyr5ev4"
+      ]
+    },
+    {
+      "slug": "thermal",
+      "name": "热红外",
+      "group": "field",
+      "definition": "追踪热红外的研究方法、数据、工具与应用实践。",
+      "itemIds": [
+        "wkgq0s4ty7v8g4ce3jp7o0m1u"
+      ]
+    },
+    {
+      "slug": "change-detection",
+      "name": "变化检测",
+      "group": "field",
+      "definition": "追踪变化检测的研究方法、数据、工具与应用实践。",
+      "itemIds": [
+        "uymsya7xd3tus9dcsc2k39o6p",
+        "bgt197u8lsaqqxxptc5s03e9w",
+        "ztny8iu8lguyf55gwe3r6abxn",
+        "pd9ogz0oai2skdxykba7bzymi"
+      ]
+    },
+    {
+      "slug": "object-detection",
+      "name": "目标检测",
+      "group": "field",
+      "definition": "追踪目标检测的研究方法、数据、工具与应用实践。",
+      "itemIds": [
+        "jpwz9bgntjt4885vrtou1wvmi",
+        "lepydmxhqqr0t13o61knq9zpg",
+        "fdn50sjot2oa38v38g6slhbw0"
+      ]
+    },
+    {
+      "slug": "segmentation",
+      "name": "语义分割",
+      "group": "field",
+      "definition": "追踪语义分割的研究方法、数据、工具与应用实践。",
+      "itemIds": [
+        "vn45n3xlaau84p3ttgnvw4u1r",
+        "jf1b3rwgroucwa9xw0v9snhxb",
+        "ti0hvp2tindvub1tuuvd9njyb",
+        "ztny8iu8lguyf55gwe3r6abxn"
+      ]
+    },
+    {
+      "slug": "inversion",
+      "name": "定量反演",
+      "group": "field",
+      "definition": "追踪定量反演的研究方法、数据、工具与应用实践。",
+      "itemIds": [
+        "kau7osm79n5i3d7rh227gzu6x",
+        "d6yg3cbzfsa0inh6c4foyzxlz",
+        "cesplmo150ovn98o8cuo5pqer"
+      ]
+    },
+    {
+      "slug": "foundation-models",
+      "name": "遥感基础模型",
+      "group": "field",
+      "definition": "追踪遥感基础模型的研究方法、数据、工具与应用实践。",
+      "itemIds": [
+        "o3h6p5qukk3psrw68l4pbiewl",
+        "vn45n3xlaau84p3ttgnvw4u1r",
+        "mgvlgulwciwrpd2nd7nkou1eb",
+        "g103xoho9pee2j5uo4q74a13z",
+        "akatawgify310aboeajv94yd4",
+        "kysmad78ukt9xnc4cf3kjwv62",
+        "u8apq419zzwq61uwg5741g3uk",
+        "ix86l1hfdxof6otboaxyx0wsm",
+        "yed5wisc9p9wih275l6ccix0v",
+        "eouhfb8zubaye37bjqy5a47qe"
+      ]
+    },
+    {
+      "slug": "generalization",
+      "name": "泛化与迁移",
+      "group": "field",
+      "definition": "追踪泛化与迁移的研究方法、数据、工具与应用实践。",
+      "itemIds": [
+        "g103xoho9pee2j5uo4q74a13z",
+        "kysmad78ukt9xnc4cf3kjwv62",
+        "o2xctzlxelb023m511owyezo4",
+        "yed5wisc9p9wih275l6ccix0v"
+      ]
+    },
+    {
+      "slug": "cloud-processing",
+      "name": "云端处理",
+      "group": "field",
+      "definition": "追踪云端处理的研究方法、数据、工具与应用实践。",
+      "itemIds": [
+        "u8apq419zzwq61uwg5741g3uk",
+        "ix86l1hfdxof6otboaxyx0wsm",
+        "nbzsvoar9nz2386vnpw29cr5s"
+      ]
+    },
+    {
+      "slug": "disasters",
+      "name": "灾害监测",
+      "group": "field",
+      "definition": "追踪灾害监测的研究方法、数据、工具与应用实践。",
+      "itemIds": [
+        "obchfpcekgmrwyht0ihawhrcy",
+        "g103xoho9pee2j5uo4q74a13z",
+        "jf1b3rwgroucwa9xw0v9snhxb",
+        "wfsw59u57kt591xhx138wlkkq",
+        "ijm3047njpiw247d9oovxr3mb"
+      ]
+    },
+    {
+      "slug": "agriculture",
+      "name": "农业",
+      "group": "field",
+      "definition": "追踪农业的研究方法、数据、工具与应用实践。",
+      "itemIds": [
+        "nbf1cg9xw4ajprnmzm0rrw2zm",
+        "wetwj260tlvv5owayi3xd3d4l"
+      ]
+    },
+    {
+      "slug": "ecology",
+      "name": "森林与生态",
+      "group": "field",
+      "definition": "追踪森林与生态的研究方法、数据、工具与应用实践。",
+      "itemIds": [
+        "akatawgify310aboeajv94yd4",
+        "tot69cti4mmhv14h9cq9qeqe5",
+        "kcsflhx91ghdkbtixxo1yrcgr",
+        "m4tv4f8k7delp5do9vq6vqna9"
+      ]
+    },
+    {
+      "slug": "papers",
+      "name": "论文与研究",
+      "group": "genre",
+      "definition": "值得关注的遥感论文与研究，保留原文入口与适用条件。",
+      "itemIds": [
+        "o3h6p5qukk3psrw68l4pbiewl",
+        "vn45n3xlaau84p3ttgnvw4u1r",
+        "fo0dlax2jigiqe059ml1cxq4w",
+        "w50vtz3cw1i1m9f0hsudcmep0",
+        "wwr6wn7f6fna6shopuoe75gnn",
+        "g103xoho9pee2j5uo4q74a13z",
+        "jf1b3rwgroucwa9xw0v9snhxb",
+        "uqwxxax67xb6hiduqyy4v7bq2",
+        "uymsya7xd3tus9dcsc2k39o6p",
+        "kysmad78ukt9xnc4cf3kjwv62",
+        "bgt197u8lsaqqxxptc5s03e9w",
+        "jpwz9bgntjt4885vrtou1wvmi",
+        "ghogtcatdce0wtej9cu8kts8n",
+        "z335gzoecu3nax6s720spo1j7",
+        "o2xctzlxelb023m511owyezo4",
+        "yed5wisc9p9wih275l6ccix0v",
+        "tot69cti4mmhv14h9cq9qeqe5",
+        "ztny8iu8lguyf55gwe3r6abxn",
+        "fdn50sjot2oa38v38g6slhbw0"
+      ]
+    },
+    {
+      "slug": "datasets",
+      "name": "数据集与基准",
+      "group": "genre",
+      "definition": "值得关注的遥感数据集与基准，保留原文入口与适用条件。",
+      "itemIds": [
+        "obchfpcekgmrwyht0ihawhrcy",
+        "cat4s20nkkzk4cfk080k317e6",
+        "e2fiur4mpovoisuvagqi2uk1k",
+        "akatawgify310aboeajv94yd4",
+        "ti0hvp2tindvub1tuuvd9njyb",
+        "xwaz0n0ogvmqjgaizl1gohvbt",
+        "z8j5q5bhkjaj3ays4ehaxbuxy",
+        "nbf1cg9xw4ajprnmzm0rrw2zm",
+        "wetwj260tlvv5owayi3xd3d4l",
+        "lepydmxhqqr0t13o61knq9zpg",
+        "amb367cyudhkxkbufn6hgorlg",
+        "kau7osm79n5i3d7rh227gzu6x",
+        "d6yg3cbzfsa0inh6c4foyzxlz",
+        "kcsflhx91ghdkbtixxo1yrcgr",
+        "m4tv4f8k7delp5do9vq6vqna9",
+        "j0v7w2ltc83ajdevfwcja1ov1",
+        "cesplmo150ovn98o8cuo5pqer",
+        "ijm3047njpiw247d9oovxr3mb",
+        "nbzsvoar9nz2386vnpw29cr5s",
+        "wkgq0s4ty7v8g4ce3jp7o0m1u"
+      ]
+    },
+    {
+      "slug": "open-source",
+      "name": "开源工具与代码",
+      "group": "genre",
+      "definition": "值得关注的遥感开源工具与代码，保留原文入口与适用条件。",
+      "itemIds": [
+        "w50vtz3cw1i1m9f0hsudcmep0",
+        "cat4s20nkkzk4cfk080k317e6",
+        "uymsya7xd3tus9dcsc2k39o6p",
+        "ti0hvp2tindvub1tuuvd9njyb",
+        "lepydmxhqqr0t13o61knq9zpg",
+        "ztny8iu8lguyf55gwe3r6abxn",
+        "amb367cyudhkxkbufn6hgorlg",
+        "eouhfb8zubaye37bjqy5a47qe"
+      ]
+    },
+    {
+      "slug": "satellites",
+      "name": "卫星与传感器",
+      "group": "genre",
+      "definition": "值得关注的遥感卫星与传感器，保留原文入口与适用条件。",
+      "itemIds": [
+        "wezhx5xk6gsimqeo7irthqp2j",
+        "gzolrxrpu1wfos8snkmt3zpcf",
+        "ag1rbrf9ozfj4gflp6vyr5ev4"
+      ]
+    },
+    {
+      "slug": "tutorials",
+      "name": "教程与实践",
+      "group": "genre",
+      "definition": "值得关注的遥感教程与实践，保留原文入口与适用条件。",
+      "itemIds": [
+        "u8apq419zzwq61uwg5741g3uk",
+        "ix86l1hfdxof6otboaxyx0wsm"
+      ]
+    },
+    {
+      "slug": "policy",
+      "name": "政策与标准",
+      "group": "genre",
+      "definition": "值得关注的遥感政策与标准，保留原文入口与适用条件。",
+      "itemIds": []
+    }
+  ],
+  "hot": {
+    "computedAt": "2026-09-29T15:05:17.405Z",
+    "windowHours": 48,
+    "entries": []
+  }
 }

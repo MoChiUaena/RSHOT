@@ -1,34 +1,56 @@
 <!doctype html>
 <html lang="zh-CN">
 <head>
-  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <title>RSHOT — 遥感科研与工程动态 · 测试预览</title>
   <meta name="description" content="遥感论文、数据基准、模型工具与卫星动态的中文摘要和原文索引。RSHOT 公开只读测试预览。">
-  <meta name="robots" content="noindex"><meta name="theme-color" content="#16665e">
-  <link rel="icon" href="./icon.png"><link rel="stylesheet" href="./style.css">
+  <meta name="robots" content="noindex"><meta name="theme-color" content="#faf9f6">
+  <link rel="icon" href="./icon.png"><link rel="stylesheet" href="./theme.css"><link rel="stylesheet" href="./style.css">
   <script src="./app.js" defer></script>
 </head>
 <body>
-<a class="skip" href="#content">跳到内容</a>
-<header class="topbar"><div class="topbar-inner">
-  <a class="brand" href="#selected"><img src="./icon.png" width="34" height="34" alt=""><span>RSHOT<small>遥感科研与工程动态</small></span></a>
-  <nav aria-label="主导航"><a href="#selected">精选</a><a href="#all">全部动态</a><a href="#reports">日报与简报</a><a href="#sources">信源</a></nav>
-  <a class="github" href="https://github.com/MoChiUaena/RSHOT" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
-</div></header>
-<div class="preview-notice"><strong>只读测试预览</strong><span id="updated">正在读取导出时间…</span><span>内容由本地站点导出，采集与模型处理在本机运行。</span></div>
-<main id="content" class="layout">
-  <section class="feed-panel">
-    <div class="section-top"><div><p class="eyebrow">REMOTE SENSING · EARTH OBSERVATION · GEOAI</p><h1 id="page-title">每日精选</h1><p id="page-description" class="muted">关注可靠出处、方法实质创新与工具新增能力。</p></div><span id="result-count" class="count"></span></div>
-    <div id="filters" class="filters"><label class="search"><span class="visually-hidden">搜索标题、摘要、信源与标签</span><input id="search" type="search" placeholder="搜索标题、摘要、信源与标签" autocomplete="off"></label><div id="categories" class="category-tabs" aria-label="内容分类"></div></div>
-    <div id="feed"><!--INITIAL_FEED--></div>
-    <button id="load-more" class="load-more" hidden>加载更多</button>
-    <noscript><p>启用 JavaScript 后可搜索、筛选与打开简报；原文链接和完整开源代码可在 GitHub 仓库查看。</p></noscript>
-  </section>
-  <aside class="sidebar">
-    <section class="side-card"><p class="eyebrow">RSHOT OBSERVATORY</p><h2>让有用的信息<br>更容易找到。</h2><p>连接遥感研究与工程实践，保留来源、贡献与证据范围。</p><div id="stats" class="stats"></div></section>
-    <section id="latest-report" class="side-card"></section>
-    <section class="side-card selection-note"><h2>我们如何精选</h2><p>先核对出处与证据，再看方法和工具带来的实际贡献。</p><p>arXiv 与 GitHub 的收录本身不代表同行评审或权威背书。摘要会保留预印本、材料范围与复用条件。</p><a href="https://github.com/MoChiUaena/RSHOT/blob/main/docs/editorial-policy.md" target="_blank" rel="noopener noreferrer">查看精选依据 ↗</a></section>
+<svg class="icon-defs" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><defs>
+  <symbol id="icon-bolt" viewBox="0 0 24 24"><path d="M13 2.5L4.5 13.5H11l-1 8L19.5 10.5H13z"/></symbol>
+  <symbol id="icon-list" viewBox="0 0 24 24"><path d="M8 6h13M8 12h13M8 18h13"/><circle cx="3.5" cy="6" r="1"/><circle cx="3.5" cy="12" r="1"/><circle cx="3.5" cy="18" r="1"/></symbol>
+  <symbol id="icon-flame" viewBox="0 0 24 24"><path d="M12 22c4 0 7-2.7 7-7 0-3.6-2.4-6.2-4-8-.5 2-1.6 3.4-3 4 .3-3-1-6-4-8 0 4-4 6.5-4 11 0 4.3 3 8 8 8z"/></symbol>
+  <symbol id="icon-doc" viewBox="0 0 24 24"><rect x="5" y="3.5" width="14" height="17" rx="2"/><path d="M8.5 8h7M8.5 12h7M8.5 16h4"/></symbol>
+  <symbol id="icon-grid" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="3.5" y="13.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="13.5" width="7" height="7" rx="1.5"/></symbol>
+  <symbol id="icon-bookmark" viewBox="0 0 24 24"><path d="M6 3.5h12v17l-6-4-6 4z"/></symbol>
+  <symbol id="icon-chart" viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></symbol>
+  <symbol id="icon-history" viewBox="0 0 24 24"><path d="M3.5 12a8.5 8.5 0 102.5-6M3.5 4v4h4M12 8v4l2.5 2"/></symbol>
+  <symbol id="icon-plug" viewBox="0 0 24 24"><path d="M9 3v5M15 3v5M7 8h10v3a5 5 0 01-10 0zM12 16v5"/></symbol>
+  <symbol id="icon-heart" viewBox="0 0 24 24"><path d="M12 20s-7.5-4.6-7.5-10.2A4.3 4.3 0 0112 7.3a4.3 4.3 0 017.5 2.5C19.5 15.4 12 20 12 20z"/></symbol>
+  <symbol id="icon-message" viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z"/></symbol>
+  <symbol id="icon-apps" viewBox="0 0 24 24"><rect x="4" y="4" width="6.5" height="6.5" rx="1.2"/><rect x="13.5" y="4" width="6.5" height="6.5" rx="1.2"/><rect x="4" y="13.5" width="6.5" height="6.5" rx="1.2"/><rect x="13.5" y="13.5" width="6.5" height="6.5" rx="1.2"/></symbol>
+  <symbol id="icon-moon" viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 019.5 4a8 8 0 1010.5 10.5z"/></symbol>
+  <symbol id="icon-monitor" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></symbol>
+  <symbol id="icon-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2M12 19.5v2M4.6 4.6l1.4 1.4M18 18l1.4 1.4M2.5 12h2M19.5 12h2M4.6 19.4L6 18M18 6l1.4-1.4"/></symbol>
+  <symbol id="icon-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="M20 20l-4.2-4.2"/></symbol>
+</defs></svg>
+<a class="skip" href="#content">跳到正文</a>
+<div class="site-shell">
+  <aside class="site-sidebar">
+    <a class="wordmark" href="#selected" aria-label="RSHOT 首页"><span class="brand-dot"></span>RSHOT</a>
+    <nav class="site-nav" aria-label="主导航"><!--SIDEBAR_NAV--></nav>
+    <div class="theme-switch" role="radiogroup" aria-label="外观">
+      <button data-theme-choice="dark" role="radio" aria-checked="false" aria-label="深色" title="深色"><svg class="icon" aria-hidden="true"><use href="#icon-moon"></use></svg></button>
+      <button data-theme-choice="system" role="radio" aria-checked="true" aria-label="跟随系统" title="跟随系统"><svg class="icon" aria-hidden="true"><use href="#icon-monitor"></use></svg></button>
+      <button data-theme-choice="light" role="radio" aria-checked="false" aria-label="浅色" title="浅色"><svg class="icon" aria-hidden="true"><use href="#icon-sun"></use></svg></button>
+    </div>
   </aside>
-</main>
-<footer><span>RSHOT · 摘要与原文索引，原文版权归各来源所有。</span><span>测试预览 · GitHub Pages</span></footer>
+  <div class="main-column">
+    <header class="mobile-header"><a class="wordmark" href="#selected"><span class="brand-dot"></span>RSHOT</a><span>遥感科研与工程动态</span></header>
+    <main id="content">
+      <div class="section-top"><h1 id="page-title">精选</h1><span id="result-count" class="count"></span></div>
+      <p id="page-description" class="page-description" hidden></p>
+      <div id="filters" class="filters"><div id="categories" class="category-tabs" aria-label="筛选"></div><label class="search"><span class="visually-hidden">搜索标题、摘要、信源与标签</span><svg class="icon" aria-hidden="true"><use href="#icon-search"></use></svg><input id="search" aria-label="搜索标题、摘要、信源与标签" type="search" placeholder="搜索标题、摘要…" autocomplete="off"><kbd aria-hidden="true">/</kbd></label></div>
+      <div id="feed"><!--INITIAL_FEED--></div>
+      <button id="load-more" class="load-more" hidden>加载更多</button>
+      <p id="reader-status" class="muted" role="status"></p>
+      <noscript><p>启用 JavaScript 后可搜索、筛选与打开简报；基础摘要仍可阅读。</p></noscript>
+    </main>
+    <footer><strong>只读测试预览</strong><span id="updated">正在读取导出时间…</span><span>采集与模型处理在本机运行，网页展示公开导出内容。</span><a href="https://github.com/MoChiUaena/RSHOT" target="_blank" rel="noopener noreferrer">GitHub ↗</a></footer>
+  </div>
+</div>
+<nav class="mobile-tabbar" aria-label="底部导航"><!--MOBILE_NAV--></nav>
 </body></html>
