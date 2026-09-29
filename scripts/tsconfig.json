@@ -9,6 +9,8 @@
     "probe-model.ts",
     "pilot.ts",
     "prepare-labeling.ts",
+    "prepare-review.ts",
+    "export-labels.ts",
     "eval-selection.ts",
     "collect-review.ts"
   ]

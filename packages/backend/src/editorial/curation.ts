@@ -6,7 +6,7 @@ import { addDays, beijingDate, beijingMidnight, isoWeekLabel, isoWeekRange } fro
 import { SITE } from "@aihot/industry/site";
 import { sql } from "../db.ts";
 import { upsertMaterial } from "../content/materials.ts";
-import { publishArticle } from "../publication/publish.ts";
+import { publishArticleTx } from "../publication/publish.ts";
 import { sha256, stableJson } from "../lib/ids.ts";
 
 const knownTags = new Set<string>([...CATEGORY_TAGS, ...TOPIC_TAGS, ...ENTITY_TAGS]);
@@ -60,19 +60,24 @@ export async function importCuratedBundle(input: unknown): Promise<{ items: numb
     const found = await upsertMaterial({ sourceId: item.sourceId, url: item.url, title: item.originalTitle, language: /[一-鿿]/.test(item.originalTitle) ? "zh" : "en",
       publishedAt: new Date(item.publishedAt), bodyStatus: "none", via: "import", backfill: "curated-history",
       raw: { rshot: { edition: bundle.id, materialScope: item.materialScope, publicationStage: item.publicationStage, reviewedAt: bundle.reviewedAt } } });
-    const [article] = await sql<{ revision: number }[]>`SELECT revision FROM articles WHERE id=${found.articleId}`;
-    const [latest] = await sql<{ origin: string; model: string | null; prompt_version: string | null }[]>`SELECT origin,model,prompt_version FROM analyses WHERE article_id=${found.articleId} ORDER BY input_revision DESC,id DESC LIMIT 1`;
-    const overrides = await sql`SELECT 1 FROM editorial_overrides WHERE article_id=${found.articleId}`;
-    if (overrides.length || (latest && (latest.origin !== "rule" || latest.model))) { preserved += 1; continue; }
-    const version = `rshot-curated:${bundle.id}@${sha256(stableJson(item)).slice(0, 16)}`;
-    const reason = `编辑整理 · ${item.materialScope === "abstract" ? "依据论文摘要" : item.materialScope === "listing-title" ? "依据来源列表标题" : "依据原文材料"}；${item.publicationStage === "preprint" ? "预印本或讨论稿，" : ""}无模型评分。`;
-    if (!latest || latest.prompt_version !== version) await sql`
+    const imported = await sql.begin(async (tx) => {
+      const [article] = await tx<{ revision: number }[]>`SELECT revision FROM articles WHERE id=${found.articleId} FOR UPDATE`;
+      const [latest] = await tx<{ origin: string; model: string | null; prompt_version: string | null; input_revision: number }[]>`SELECT origin,model,prompt_version,input_revision FROM analyses WHERE article_id=${found.articleId} ORDER BY input_revision DESC,id DESC LIMIT 1`;
+      const overrides = await tx`SELECT 1 FROM editorial_overrides WHERE article_id=${found.articleId}`;
+      if (overrides.length || (latest && (latest.origin !== "rule" || latest.model))) return false;
+      const version = `rshot-curated:${bundle.id}@${sha256(stableJson(item)).slice(0, 16)}`;
+      const reason = `编辑整理 · ${item.materialScope === "abstract" ? "依据论文摘要" : item.materialScope === "listing-title" ? "依据来源列表标题" : "依据原文材料"}；${item.publicationStage === "preprint" ? "预印本或讨论稿，" : ""}无模型评分。`;
+      if (!latest || latest.prompt_version !== version || latest.input_revision !== article!.revision) await tx`
       INSERT INTO analyses (article_id,input_revision,origin,prompt_version,relevance,category,tags,subjects,title_zh,summary_zh,reason_zh,score,selected,output)
       VALUES (${found.articleId},${article!.revision},'rule',${version},'pass',${item.category},${item.tags},${item.subjects},${item.title},${item.summary},${reason},NULL,${item.selected},
-        ${sql.json({ curation: { edition: bundle.id, reviewedAt: bundle.reviewedAt, materialScope: item.materialScope, publicationStage: item.publicationStage } } as never)})`;
-    // History is displayed by original date and never becomes a new-content push.
-    await sql`UPDATE articles SET timeline_at=published_at,backfill=true,backfill_reason='curated-history' WHERE id=${found.articleId} AND published_at IS NOT NULL`;
-    await publishArticle(found.articleId, { releasedAt: new Date() });
+        ${tx.json({ curation: { edition: bundle.id, reviewedAt: bundle.reviewedAt, materialScope: item.materialScope, publicationStage: item.publicationStage } } as never)})`;
+      // Commit the manual judgement, completion state and public projection together.
+      await tx`UPDATE articles SET timeline_at=coalesce(published_at,timeline_at),backfill=true,backfill_reason='curated-history',
+        processing_state='analyzed',processing_error=NULL,processing_attempts=0,processing_retry_at=NULL,processing_queued_at=NULL WHERE id=${found.articleId}`;
+      await publishArticleTx(tx, found.articleId, { releasedAt: new Date() });
+      return true;
+    });
+    if (!imported) { preserved += 1; continue; }
     const source = sourceMap.get(item.sourceId)!;
     refs.push({ item, citation: { itemId: found.articleId, title: item.title, summary: item.summary, sourceId: source.id, sourceName: source.name, sourceUrl: item.url,
       firstParty: source.first_party, role: "编辑整理", publishedAt: item.publishedAt, score: null, factId: null, storyPublicId: null } });

@@ -76,6 +76,20 @@ pwsh -NoProfile -File scripts/start-local.ps1
 
 模型密钥保存在仓库外，`.env` 与 `.data/` 保持忽略。安装依赖后运行 `npm run setup:hooks`，启用提交前和推送前检查；GitHub CI 也会检查文件与提交历史。检查只报告位置与规则，不打印密钥。详见 [配置与发布保护](docs/model-setup.md)。
 
+## 人工标注页面
+
+后台 `/admin/calibration` 用于标注精选偏好：查看来源材料和中文导读，选择“值得精选 / 不精选 / 拿不准”，填写可选备注。进度保存在私有数据库，刷新后可以继续；页面不调用模型，也不发布这些判断。
+
+先从本地材料生成待标注样本，再准备首批 20 条（科研与工程各半，只取开发集，并轮流取不同信源）：
+
+```powershell
+node --env-file=.env scripts/migrate.ts
+node scripts/prepare-labeling.ts
+npm run review:prepare
+```
+
+同一批次重复准备会保留人工判断；来源材料变化时生成新批次。已标注样本可在页面下载，或用 `npm run review:export` 导出到忽略的 `.data/calibration/`，见 [标注与校准](docs/selection.md)。
+
 ## 检查与维护
 
 ```powershell

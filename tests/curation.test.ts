@@ -6,6 +6,9 @@ import { sql, closeDb } from "@aihot/backend/db";
 import { stopBoss } from "@aihot/backend/jobs/queue";
 import { publishArticle } from "@aihot/backend/publication/publish";
 import { overrideFields } from "@aihot/backend/admin/content";
+import { processArticle } from "@aihot/backend/jobs/content";
+import { upsertMaterial } from "@aihot/backend/content/materials";
+import { config } from "@aihot/backend/config";
 
 const T = tag();
 const sourceId = `curation-${T}`;
@@ -36,6 +39,12 @@ test("an edition is repeatable, retains source dates, and preserves subsequent h
     assert.equal(row.backfill, true);
   }
   const ids = rows.map((r) => r.article_id);
+  const states = await sql`SELECT processing_state,processing_queued_at FROM articles WHERE id=ANY(${ids}::text[])`;
+  assert.ok(states.every((r) => r.processing_state === "analyzed" && r.processing_queued_at === null), "curated history is complete, not a new model task");
+  const previousValve = config.modelCallsEnabled;
+  config.modelCallsEnabled = false;
+  try { assert.deepEqual(await processArticle(ids[0]!), { state: "analyzed" }, "a stale automatic job needs no model call"); }
+  finally { config.modelCallsEnabled = previousValve; }
   const count = async () => Number((await sql`SELECT count(*) AS n FROM analyses WHERE article_id=ANY(${ids}::text[])`)[0]!.n);
   const before = await count();
   await importCuratedBundle(bundle);
@@ -49,4 +58,15 @@ test("an edition is repeatable, retains source dates, and preserves subsequent h
   assert.equal(rerun.preserved, 2);
   const titles = await sql<{ title: string }[]>`SELECT title FROM publications WHERE source_id=${sourceId} ORDER BY url`;
   assert.deepEqual(titles.map((r) => r.title), ["保留人工修改", "保留模型结果"]);
+});
+test("new source evidence after curation still becomes a new revision for analysis", async () => {
+  const changedSource = `${sourceId}-changed`;
+  await sql`INSERT INTO sources (id,name,kind,tier,participation_mode,next_fetch_at) VALUES (${changedSource},'Changed local source','rss','T1','editorial','2100-01-01')`;
+  const item = { ...bundle.items[0]!, key: "changed", sourceId: changedSource, url: `https://example.org/changed-${T}` };
+  await importCuratedBundle({ ...bundle, id: `${bundle.id}-changed`, items: [item] });
+  const revised = await upsertMaterial({ sourceId: changedSource, url: item.url, title: item.originalTitle, bodyStatus: "ok", bodyText: "A new source correction with revised remote sensing evidence.", via: "fetch" });
+  assert.equal(revised.revised, true);
+  const [row] = await sql`SELECT revision,processing_state FROM articles WHERE id=${revised.articleId}`;
+  assert.equal(row!.revision, 2);
+  assert.equal(row!.processing_state, "new", "a manual edition does not freeze future evidence");
 });

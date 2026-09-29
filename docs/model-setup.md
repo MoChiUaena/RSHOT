@@ -70,7 +70,9 @@ node scripts/prepare-labeling.ts
 
 按 [精选与校准](selection.md) 验证已标注文件。评测脚本在任何付费调用前拒绝空标签、重复编号和格式错误；不带 `--live` 只做本地验证。先评测小批量，再根据用量安排完整评测，保持留出集独立。评分门槛不因两条成功样例而调整。
 
-持续采集前还需检查历史编辑条目的处理状态，安排首次采集窗口，避免重算整批历史内容。确认运行设置后，再由后端加载外部配置：
+使用 `npm run review:prepare` 可将首批开发样本导入后台 `/admin/calibration`，通过点选保存判断。完成后用 `npm run review:export` 导出已标注文件，再将实际导出路径传给评测的 `--gold`；标注与导出不产生模型调用。
+
+已有历史编辑包应在采集与模型开关关闭时重新导入一次，修复旧的待处理状态；确认后台处理状态和首次采集窗口后，再由后端加载外部配置：
 
 ```powershell
 node scripts/run-with-model.ts apps/api/src/main.ts

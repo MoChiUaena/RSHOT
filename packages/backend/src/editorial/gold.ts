@@ -1,6 +1,6 @@
 // Validate human decisions before any paid evaluation can start.
 import { z } from "zod";
-const GoldRowSchema = z.object({
+export const GoldRowSchema = z.object({
   caseId: z.string().min(1),
   material: z.object({ title: z.string().min(1), originalTitle: z.string().nullable().optional().default(null), publishedAt: z.string().nullable().optional().default(null),
     sourceName: z.string().min(1), bodyZh: z.string().nullable().optional().default(null), bodyOriginal: z.string().nullable().optional().default(null) }),

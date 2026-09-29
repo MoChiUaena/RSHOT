@@ -99,6 +99,11 @@ export async function processArticle(articleId: string, opts: { attemptTag?: str
     SELECT s.participation_mode, a.processing_state, a.revision, a.backfill, a.published_at, a.discovered_at FROM articles a JOIN sources s ON s.id = a.source_id WHERE a.id = ${articleId}`;
   if (!found) return { state: "missing" };
   const row = { ...found, historical: isHistorical(found) };
+  if (!opts.attemptTag && row.processing_state === "analyzed") {
+    const [latest] = await sql`SELECT origin,model,prompt_version,input_revision FROM analyses WHERE article_id=${articleId} ORDER BY input_revision DESC,id DESC LIMIT 1`;
+    // A stale automatic job must not buy another analysis of a settled editorial edition.
+    if (latest?.origin === "rule" && !latest.model && latest.input_revision === row.revision && latest.prompt_version?.startsWith("rshot-curated:")) return { state: "analyzed" };
+  }
   if (row.participation_mode !== "editorial") {
     // Normally queued straight for grouping (queueProcessing); an explicit re-evaluation lands here.
     const { group } = await settleNonEditorial(articleId);

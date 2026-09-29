@@ -47,6 +47,19 @@ export const SELECTION = {
 
 RSHOT 可用 `node scripts/prepare-labeling.ts` 从本地采集材料生成 `.data/calibration/pending.jsonl`，按原文身份去重并固定分组。复制为 `.data/gold.jsonl` 后填写 `gold.decision`；重新准备会覆盖待标注文件。空标签不会自动变成模型标签，评测前会检查是否完成。
 
+也可在后台点选标注：
+
+```powershell
+node --env-file=.env scripts/migrate.ts
+npm run review:prepare
+```
+
+打开 `/admin/calibration`，使用正常管理员登录。首批默认 20 条，科研与工程各半，并轮流取不同来源的有正文或摘要的开发样本；留出集不参与这批筛选。中文导读来自已有编辑包，明确标注为助手整理，不预填判断或展示模型评分。原始材料和链接保留，判断依据由使用者自行核验。
+
+点选后自动保存，备注可选；可返回修改或清除判断。数据在私有数据库的 `calibration_*` 表内，修改有版本校验和审计记录。同一批次重新导入保留人工判断，材料变化时使用新批次。标注页面、导出和准备脚本不调用模型，不更改网站内容。
+
+页面“下载已标注样本”只下载已完成判断的行；或运行 `npm run review:export` 将它们写入 `.data/calibration/gold-<批次编号>.jsonl`。`either` 计入完成进度，评测时不计入准确率。首批用于发现标准不清楚的地方，后续仍需扩充到有代表性的 100–200 条样本。
+
 几条建议：
 
 - 多放**难例**：差一点就该选、差一点就不该选的。一眼就能判断的放太多，准确率会虚高。

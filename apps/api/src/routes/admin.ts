@@ -3,6 +3,7 @@
 import { readFile } from "node:fs/promises";
 import type { FastifyInstance, FastifyReply, FastifyRequest } from "fastify";
 import { actorOf } from "@aihot/backend/admin/auth";
+import { calibrationBatch, exportCalibrationLabels, listCalibrationBatches, saveCalibrationLabel } from "@aihot/backend/admin/calibration";
 
 import { importSelectBenchRun, listSelectBenchRuns, selectBenchRun } from "@aihot/backend/admin/selectbench";
 import { modelsOverview, switchModel } from "@aihot/backend/admin/models";
@@ -33,6 +34,15 @@ function decodeImage(dataUrl: unknown): Buffer {
 }
 
 export function registerAdmin(app: FastifyInstance) {
+  app.get("/api/admin/calibration", adminHandler(async () => ({ batches: await listCalibrationBatches() })));
+  app.get("/api/admin/calibration/:id/export", adminHandler(async (req, reply) => {
+    const result = await exportCalibrationLabels(param(req, "id"));
+    if (!result) return notFound(req, reply);
+    return reply.type("application/x-ndjson").header("Content-Disposition", `attachment; filename="rshot-${param(req, "id")}-gold.jsonl"`).send(result.text);
+  }));
+  app.get("/api/admin/calibration/:id", adminHandler(async (req, reply) => orNotFound(req, reply, await calibrationBatch(param(req, "id")))));
+  app.patch("/api/admin/calibration/:id/cases/:caseId", adminHandler(async (req, reply, admin) =>
+    orNotFound(req, reply, await saveCalibrationLabel(param(req, "id"), param(req, "caseId"), body(req), actorOf(admin)))));
   // Sources (F18)
   app.get("/api/admin/sources", adminHandler(async (req) => {
     const f = q(req);

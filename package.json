@@ -20,7 +20,9 @@
     "check:secrets": "node scripts/check-secrets.ts --tracked",
     "setup:hooks": "node scripts/install-hooks.ts",
     "model:prepare": "node scripts/prepare-model.ts",
-    "model:check": "node scripts/probe-model.ts"
+    "model:check": "node scripts/probe-model.ts",
+    "review:prepare": "node --env-file=.env scripts/prepare-review.ts",
+    "review:export": "node --env-file=.env scripts/export-labels.ts"
   },
   "devDependencies": {
     "@modelcontextprotocol/client": "2.1.0",
