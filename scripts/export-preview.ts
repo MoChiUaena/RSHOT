@@ -39,7 +39,10 @@ for(const id of ids) items.push(publicItem(await read<ItemSummary>(`/api/site/it
 const reports=[];
 for(const kind of ["daily","weekly","monthly"] as const) {
   const index=await read<{items:ReportIndexEntry[]}>(`/api/site/reports/${kind}`);
-  for(const entry of index.items) reports.push(publicReport(await read<ReportDetail>(`/api/site/reports/${kind}/${encodeURIComponent(entry.key)}`)));
+  for(const entry of index.items) {
+    const report=publicReport(await read<ReportDetail>(`/api/site/reports/${kind}/${encodeURIComponent(entry.key)}`));
+    if(report.sections.some((section)=>section.items.length>0)) reports.push(report);
+  }
 }
 const stats=await read<SiteStats>("/api/site/stats");
 const snapshot=PublicPreviewSchema.parse({schemaVersion:1,generatedAt:new Date().toISOString(),
