@@ -28,7 +28,8 @@
     "updates:stop": "node --env-file=.env scripts/stop-updates.ts",
     "preview:export": "node scripts/export-preview.ts",
     "preview:build": "node scripts/build-preview.ts",
-    "preview:serve": "node scripts/serve-preview.ts"
+    "preview:serve": "node scripts/serve-preview.ts",
+    "preview:publish": "node scripts/publish-preview.ts"
   },
   "devDependencies": {
     "@modelcontextprotocol/client": "2.1.0",

@@ -31,6 +31,29 @@ npm run check:secrets
 
 公开数据为 `industry/preview/snapshot.json`。脚本写入前检查已知本地密钥及常见凭据格式；提交前 hooks、推送前 hooks 和 CI 继续检查。模型文件、`.env`、`.data/` 与数据库导出保持私有；GitHub Actions **不需要模型密钥或数据库密码**。
 
+### 本机每日自动发布
+
+Windows 用户可在已配置本机 worker、数据库和网页服务后，安装当前用户的计划任务：
+
+```powershell
+npm run preview:publish
+pwsh -NoProfile -File scripts/install-preview-task.ps1
+pwsh -NoProfile -File scripts/install-preview-task.ps1 -Apply
+```
+
+第一条与第二条只检查、显示计划，不推送。任务每天北京时间 08:30 启动；若当期日报还没生成，会等待至多 150 分钟。它要求电脑运行、用户已登录、本机服务可用，且当前 Git 分支跟踪 `origin/main`。如果电脑关机或用户退出登录，Pages 保留上次快照；重新登录后，Windows 会尽量补运行错过的任务，但本机 worker 仍需按 [自动更新说明](automatic-updates.md) 恢复。
+
+发布器先确认仓库干净且与远端 `main` 完全一致，再从匿名公开接口导出。只有公开内容实际变化时才暂存 `industry/preview/snapshot.json`，运行暂存内容的密钥检查，创建提交并正常推送；它不会覆盖其他修改、强推或把模型文件放进 Git。如果有人编辑工作区、报告未完成、密钥检查失败或推送失败，任务会停止并在忽略的 `.data/preview-publication/` 记录阶段与原因。若只有导出时间改变，不创建提交。部署完成还会确认 Pages workflow 对应提交成功。
+
+同目录的 `monitor/YYYY-MM-DD.json` 每天记录 worker 心跳、14 个信源的读取健康、准入数量和当期日报条数，供一周观察。查看任务和最新结果：
+
+```powershell
+Get-ScheduledTask -TaskName RSHOT-Publish-Preview
+Get-Content .data/preview-publication/latest.json
+```
+
+需要停用时使用 `Disable-ScheduledTask -TaskName RSHOT-Publish-Preview`；不会删除已发布网页或本机记录。
+
 确认导出的内容后，将公开快照和代码提交并推送 `main`，`Preview Pages` workflow 构建 `dist/preview` 并发布。首次在仓库 Settings → Pages 将 Source 设为 GitHub Actions。此仓库已由维护流程设置；无需购买域名。
 
 预览资源均使用相对路径，页面导航使用 hash 路由，支持 `/RSHOT/` 项目子路径。浏览器直接刷新日报和条目地址也会读取同一个入口。
