@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-30T03:12:22.223Z",
+  "generatedAt": "2026-09-30T03:16:03.803Z",
   "categories": [
     {
       "key": "paper",
@@ -159,7 +159,7 @@
       "id": "jdsfict3t0zbxk2t3rwp162db",
       "title": "日本夜间灯光强度与多种社会经济统计指标的相关性研究",
       "originalTitle": "Correlation Between Nighttime Light and Various Statistical Indicators in Japan",
-      "summary": "基于论文摘要，该研究基于日本案例，分析了城市级卫星观测夜间灯光强度与国内生产总值、就业率等社会经济指标的关联。结果显示，夜间灯光强度可作为这些多样化指标的有效代理变量。此外，文章探讨了利用夜间灯光数据在突发社会中断期间进行快速经济影响评估的潜力。",
+      "summary": "基于 arXiv 摘要，这份 2026 年上传的稿件是作者 2021 年日文论文的英文翻译和扩展版。作者以日本都道府县与市町村为尺度计算夜间灯光强度，并考察其与 GDP、就业率等公开社会经济指标的关联；作者认为夜间灯光可作为这些指标的代理，并讨论社会突发中断期间快速评估经济影响的可能性。",
       "reason": null,
       "source": {
         "name": "arXiv · 遥感与地球观测预印本",
@@ -3127,7 +3127,7 @@
     }
   ],
   "hot": {
-    "computedAt": "2026-09-30T03:10:17.864Z",
+    "computedAt": "2026-09-30T03:15:17.828Z",
     "windowHours": 48,
     "entries": []
   }
