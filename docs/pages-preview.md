@@ -43,6 +43,8 @@ pwsh -NoProfile -File scripts/install-preview-task.ps1 -Apply
 
 第一条与第二条只检查、显示计划，不推送。任务每天北京时间 08:30 启动；若当期日报还没生成，会等待至多 150 分钟。它要求电脑运行、用户已登录、本机服务可用，且当前 Git 分支跟踪 `origin/main`。如果电脑关机或用户退出登录，Pages 保留上次快照；重新登录后，Windows 会尽量补运行错过的任务，但本机 worker 仍需按 [自动更新说明](automatic-updates.md) 恢复。
 
+任务调用 Windows 自带的 PowerShell，并仅对这个任务进程使用 `RemoteSigned` 来运行本仓库的本地脚本；不会修改系统或用户的执行策略。
+
 发布器先确认仓库干净且与远端 `main` 完全一致，再从匿名公开接口导出。只有公开内容实际变化时才暂存 `industry/preview/snapshot.json`，运行暂存内容的密钥检查，创建提交并正常推送；它不会覆盖其他修改、强推或把模型文件放进 Git。如果有人编辑工作区、报告未完成、密钥检查失败或推送失败，任务会停止并在忽略的 `.data/preview-publication/` 记录阶段与原因。若只有导出时间改变，不创建提交。部署完成还会确认 Pages workflow 对应提交成功。
 
 在本机的 `127.0.0.1:7897` 代理可用时，发布器使用它连接 GitHub；否则尝试直接连接。代理只用于 Git，不用于模型调用，也不携带密钥参数。
