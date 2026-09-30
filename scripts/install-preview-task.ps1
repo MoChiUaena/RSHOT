@@ -4,7 +4,7 @@ if (-not $IsWindows) { throw '此安装器只支持 Windows Task Scheduler。' }
 $taskRoot = Split-Path -Parent $PSScriptRoot
 $taskName = 'RSHOT-Publish-Preview'
 $taskFile = Join-Path $PSScriptRoot 'run-preview-task.ps1'
-$taskPwsh = (Get-Command pwsh -ErrorAction Stop).Source
+$taskPwsh = (Get-Command powershell.exe -ErrorAction Stop).Source
 $taskUser = [Security.Principal.WindowsIdentity]::GetCurrent().Name
 $taskOffset = [TimeZoneInfo]::Local.GetUtcOffset([DateTime]::Now).TotalHours
 if ($taskOffset -ne 8) { throw '本机时区不是北京时间；请先设置正确时区，再安装每日 08:30 的任务。' }
@@ -12,10 +12,22 @@ $taskArgument = '-NoProfile -NonInteractive -WindowStyle Hidden -File "' + $task
 $taskExisting = Get-ScheduledTask -TaskName $taskName -ErrorAction SilentlyContinue
 if ($taskExisting) {
     $taskAction = @($taskExisting.Actions)[0]
-    if ($taskAction.Execute -ne $taskPwsh -or $taskAction.Arguments -ne $taskArgument -or $taskAction.WorkingDirectory -ne $taskRoot) {
+    $taskOwners = @($taskUser, [Environment]::UserName, [Security.Principal.WindowsIdentity]::GetCurrent().User.Value)
+    if ($taskAction.Arguments -ne $taskArgument -or $taskAction.WorkingDirectory -ne $taskRoot -or
+        $taskExisting.Principal.UserId -notin $taskOwners) {
         throw '已有同名任务但配置不同；请先人工核对，不会覆盖。'
     }
-    Write-Output 'RSHOT 预览发布任务已经存在，未改动。'
+    if ($taskAction.Execute -eq $taskPwsh) {
+        Write-Output 'RSHOT 预览发布任务已经存在，未改动。'
+        exit 0
+    }
+    if (-not $Apply) {
+        Write-Output '已有本项目任务；准备把执行程序改为 Windows 自带的 PowerShell，不会运行发布。'
+        exit 0
+    }
+    $taskUpdatedAction = New-ScheduledTaskAction -Execute $taskPwsh -Argument $taskArgument -WorkingDirectory $taskRoot
+    Set-ScheduledTask -TaskName $taskName -Action $taskUpdatedAction | Out-Null
+    Write-Output "已更新 $taskName；下次计划运行时间：$((Get-ScheduledTaskInfo -TaskName $taskName).NextRunTime.ToString('o'))"
     exit 0
 }
 if (-not $Apply) {
