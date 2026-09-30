@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-29T15:06:01.871Z",
+  "generatedAt": "2026-09-30T02:17:57.068Z",
   "categories": [
     {
       "key": "paper",
@@ -29,31 +29,15 @@
   ],
   "sources": [
     {
-      "name": "Copernicus Data Space · 数据与平台动态",
+      "name": "Rasterio · 稳定版本发布",
       "kind": "rss"
     },
     {
-      "name": "arXiv · 遥感与地球观测预印本",
+      "name": "PySTAC · 稳定版本发布",
       "kind": "rss"
     },
     {
-      "name": "中国科学院空天院 · 科研动态",
-      "kind": "web_list"
-    },
-    {
-      "name": "Earth Engine API · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "TerraTorch · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "geemap · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "ESA · 对地观测",
+      "name": "GDAL · 稳定版本发布",
       "kind": "rss"
     },
     {
@@ -65,7 +49,19 @@
       "kind": "rss"
     },
     {
-      "name": "PySTAC · 稳定版本发布",
+      "name": "ESA · 对地观测",
+      "kind": "rss"
+    },
+    {
+      "name": "geemap · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "Copernicus Data Space · 数据与平台动态",
+      "kind": "rss"
+    },
+    {
+      "name": "TerraTorch · 稳定版本发布",
       "kind": "rss"
     },
     {
@@ -73,19 +69,69 @@
       "kind": "rss"
     },
     {
+      "name": "Earth Engine API · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
       "name": "openEO Python Client · 稳定版本发布",
       "kind": "rss"
     },
     {
-      "name": "GDAL · 稳定版本发布",
+      "name": "arXiv · 遥感与地球观测预印本",
       "kind": "rss"
     },
     {
-      "name": "Rasterio · 稳定版本发布",
-      "kind": "rss"
+      "name": "中国科学院空天院 · 科研动态",
+      "kind": "web_list"
     }
   ],
   "items": [
+    {
+      "id": "ggc32079347hcrldc4wrbskbe",
+      "title": "从野火严重程度到积雪持久性：2020年Creek Fire的多源GeoAI研究",
+      "originalTitle": "From Wildfire Severity to Snow Persistence: A Multisource GeoAI Study of the 2020 Creek Fire",
+      "summary": "基于论文摘要，该研究开发了一个可解释的地理空间人工智能框架，结合多源地球观测、气象信息和匹配的前后对比，以考察2020年加州内华达山脉Creek Fire后的季节性积雪持久性。",
+      "reason": "原文提出结合匹配前后对比与可解释GeoAI的框架，用于区分火灾扰动效应与环境预测能力，并给出了具体的实验设置和结果。",
+      "source": {
+        "name": "arXiv · 遥感与地球观测预印本",
+        "kind": "rss",
+        "firstParty": true
+      },
+      "originalUrl": "https://arxiv.org/abs/2609.36345v1",
+      "publishedAt": "2026-09-28T22:28:33.000Z",
+      "timelineAt": "2026-09-30T01:54:56.649Z",
+      "category": "paper",
+      "tags": [
+        "论文/研究",
+        "光学遥感",
+        "数据融合",
+        "灾害监测"
+      ],
+      "score": 78,
+      "selected": true
+    },
+    {
+      "id": "e4ntmsaa0nfelvtofn1eu4o18",
+      "title": "GOCO2025s：仅基于卫星数据的全球重力场模型",
+      "originalTitle": "The satellite-only gravity field model GOCO2025s",
+      "summary": "基于论文摘要，GOCO2025s是一个最高至300阶次的全球重力场模型，包含最高至200阶次的受约束长期、年变和半年变项。该模型基于23年的卫星数据推导，融合了GOCE、GRACE、GRACE-FO任务以及18颗低轨卫星的运动学轨道和9颗无源大地测量卫星的卫星激光测距观测。",
+      "reason": "该模型整合了23年的多源卫星重力观测数据，并在法方程层面进行组合，其中GRACE-FO的LRI数据对70至200阶球谐系数的估计贡献最大。",
+      "source": {
+        "name": "Earth System Science Data · 数据论文与讨论稿",
+        "kind": "web_list",
+        "firstParty": true
+      },
+      "originalUrl": "https://essd.copernicus.org/preprints/essd-2026-639/",
+      "publishedAt": "2026-09-29T00:00:00.000Z",
+      "timelineAt": "2026-09-29T16:56:36.815Z",
+      "category": "data",
+      "tags": [
+        "论文/研究",
+        "定量反演"
+      ],
+      "score": 82,
+      "selected": true
+    },
     {
       "id": "obchfpcekgmrwyht0ihawhrcy",
       "title": "2000-2024年空间与时间细分的全球内陆洪水数据集及洪水指标发布",
@@ -1336,6 +1382,67 @@
     }
   ],
   "reports": [
+    {
+      "kind": "daily",
+      "key": "2026-09-30",
+      "title": "遥感日报 · 2026-09-30",
+      "generatedAt": "2026-09-30T01:54:51.186Z",
+      "editorialMode": "model",
+      "lead": {
+        "title": "GOCO2025s发布：基于23年卫星数据的全球重力场模型",
+        "leadParagraph": "GOCO2025s利用GOCE、GRACE等任务及低轨卫星数据，构建了最高300阶次的全球重力场模型。同期发布的2000-2024年全球内陆洪水数据集将事件细化至行政一级与月度尺度，并整合了人口密度数据以评估直接暴露风险。此外，针对星载高维数据处理的NE-LoRA参数高效适配方法也取得进展，旨在解决上行带宽受限下的模型更新难题。"
+      },
+      "overview": null,
+      "sections": [
+        {
+          "label": "论文与方法",
+          "summary": null,
+          "items": [
+            {
+              "itemId": "vn45n3xlaau84p3ttgnvw4u1r",
+              "title": "基于提示分歧的偏好引导开放词汇语义分割适配方法",
+              "summary": "基于论文摘要，该研究利用不同提示模板的分割分歧构造局部偏好监督，通过区域局部偏好优化（RLPO）与一致性正则化适配开放词汇分割。作者在 MESS 基准报告跨骨干的一致提升；无需密集像素标注，代码链接已提供。",
+              "sourceName": "arXiv · 遥感与地球观测预印本",
+              "originalUrl": "https://arxiv.org/abs/2609.34528v1"
+            },
+            {
+              "itemId": "fo0dlax2jigiqe059ml1cxq4w",
+              "title": "面向星载高维数据的资源感知参数高效模型适配方法 NE-LoRA",
+              "summary": "该研究提出了名为 NE-LoRA 的参数高效适配框架，用于解决低轨卫星受限于上行带宽而难以频繁更新星载高光谱模型的问题。基于论文摘要，该方法结合了主低秩分支与非线性辅助分支，并引入了针对多矩阵适配器的差异化训练策略。",
+              "sourceName": "arXiv · 遥感与地球观测预印本",
+              "originalUrl": "https://arxiv.org/abs/2609.33687v1"
+            },
+            {
+              "itemId": "o3h6p5qukk3psrw68l4pbiewl",
+              "title": "面向星地协同推理系统的联合DNN切分与资源分配方法",
+              "summary": "该研究针对遥感信息处理的星地协同推理系统，提出了联合优化DNN切分、星地计算资源、带宽分配及发射功率的算法，以最小化平均任务完成时延。基于论文摘要，作者设计了两层优化算法：内层通过闭式更新和嵌套二分搜索处理连续资源变量，外层采用随机重启坐标下降法优化离散的DNN切分决策。仿真结果表明，该方法相比传统的二元卸载策略能有效降低任务完成时延。",
+              "sourceName": "arXiv · 遥感与地球观测预印本",
+              "originalUrl": "https://arxiv.org/abs/2609.34543v1"
+            }
+          ]
+        },
+        {
+          "label": "数据集与基准",
+          "summary": null,
+          "items": [
+            {
+              "itemId": "e4ntmsaa0nfelvtofn1eu4o18",
+              "title": "GOCO2025s：仅基于卫星数据的全球重力场模型",
+              "summary": "基于论文摘要，GOCO2025s是一个最高至300阶次的全球重力场模型，包含最高至200阶次的受约束长期、年变和半年变项。该模型基于23年的卫星数据推导，融合了GOCE、GRACE、GRACE-FO任务以及18颗低轨卫星的运动学轨道和9颗无源大地测量卫星的卫星激光测距观测。",
+              "sourceName": "Earth System Science Data · 数据论文与讨论稿",
+              "originalUrl": "https://essd.copernicus.org/preprints/essd-2026-639/"
+            },
+            {
+              "itemId": "obchfpcekgmrwyht0ihawhrcy",
+              "title": "2000-2024年空间与时间细分的全球内陆洪水数据集及洪水指标发布",
+              "summary": "基于论文摘要，作者构建了2000-2024年全球内陆洪水数据集，将4,073个洪水事件细化至行政一级与月度尺度（admin1-month），并整合MODIS地表反射率影像与人口密度数据计算洪泛面积和直接暴露人口。最终数据集包含177个国家、2,375个行政区域的23,334条记录，且基于卫星的洪泛人口估计与报告的影响指标具有相关性。该论文目前处于ESSD期刊审稿阶段，代码和数据可用性未说明。",
+              "sourceName": "Earth System Science Data · 数据论文与讨论稿",
+              "originalUrl": "https://essd.copernicus.org/preprints/essd-2026-577/"
+            }
+          ]
+        }
+      ]
+    },
     {
       "kind": "daily",
       "key": "2026-09-29",
@@ -2775,6 +2882,7 @@
       "group": "field",
       "definition": "追踪光学遥感的研究方法、数据、工具与应用实践。",
       "itemIds": [
+        "ggc32079347hcrldc4wrbskbe",
         "w50vtz3cw1i1m9f0hsudcmep0",
         "wwr6wn7f6fna6shopuoe75gnn",
         "e2fiur4mpovoisuvagqi2uk1k",
@@ -2833,6 +2941,7 @@
       "group": "field",
       "definition": "追踪定量反演的研究方法、数据、工具与应用实践。",
       "itemIds": [
+        "e4ntmsaa0nfelvtofn1eu4o18",
         "kau7osm79n5i3d7rh227gzu6x",
         "d6yg3cbzfsa0inh6c4foyzxlz",
         "cesplmo150ovn98o8cuo5pqer"
@@ -2885,6 +2994,7 @@
       "group": "field",
       "definition": "追踪灾害监测的研究方法、数据、工具与应用实践。",
       "itemIds": [
+        "ggc32079347hcrldc4wrbskbe",
         "obchfpcekgmrwyht0ihawhrcy",
         "g103xoho9pee2j5uo4q74a13z",
         "jf1b3rwgroucwa9xw0v9snhxb",
@@ -2920,6 +3030,8 @@
       "group": "genre",
       "definition": "值得关注的遥感论文与研究，保留原文入口与适用条件。",
       "itemIds": [
+        "ggc32079347hcrldc4wrbskbe",
+        "e4ntmsaa0nfelvtofn1eu4o18",
         "o3h6p5qukk3psrw68l4pbiewl",
         "vn45n3xlaau84p3ttgnvw4u1r",
         "fo0dlax2jigiqe059ml1cxq4w",
@@ -3015,7 +3127,7 @@
     }
   ],
   "hot": {
-    "computedAt": "2026-09-29T15:05:17.405Z",
+    "computedAt": "2026-09-30T02:15:16.011Z",
     "windowHours": 48,
     "entries": []
   }
