@@ -1,4 +1,4 @@
-$ErrorActionPreference = 'Stop'
+﻿$ErrorActionPreference = 'Stop'
 $taskRoot = Split-Path -Parent $PSScriptRoot
 Set-Location -LiteralPath $taskRoot
 if (-not (Test-Path -LiteralPath (Join-Path $taskRoot '.env'))) { throw '先运行 node scripts/init-env.ts 并配置本地数据库。' }
@@ -16,7 +16,7 @@ $taskReady = $false
 while ([DateTime]::UtcNow -lt $taskDeadline) {
     $taskApi.Refresh(); $taskWeb.Refresh()
     if ($taskApi.HasExited -or $taskWeb.HasExited) { throw '服务已退出，请查看 .data/logs/ 中的错误日志。' }
-    try { $taskResponse = Invoke-WebRequest -Uri 'http://127.0.0.1:3000/api/health' -TimeoutSec 2; if ($taskResponse.StatusCode -eq 200) { $taskReady = $true; break } } catch { }
+    try { $taskResponse = Invoke-WebRequest -UseBasicParsing -Uri 'http://127.0.0.1:3000/api/health' -TimeoutSec 2; if ($taskResponse.StatusCode -eq 200) { $taskReady = $true; break } } catch { }
     Start-Sleep -Milliseconds 200
 }
 if (-not $taskReady) { throw '启动未在20秒内就绪，请查看 .data/logs/。' }

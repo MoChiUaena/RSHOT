@@ -41,7 +41,20 @@ npm run updates:stop
 
 状态命令只读取 worker 心跳、准入数、信源健康与预算，不调用模型或显示凭据。停止命令请求 worker 有序结束，网页和数据库继续运行。可以用相同启动命令恢复，已有基线、限额与回执保留。
 
-本机可使用后台进程启动，Windows 的后台启动需加 `-WindowStyle Hidden`，日志放在忽略的 `.data/logs/`。本启动器的运行记录为 `.data/updates-worker.json`，其中只有进程信息、限制和参数模式，没有密钥。它不安装开机服务；重启或关闭电脑后需重新启动。
+本机可使用后台进程启动，Windows 的后台启动需加 `-WindowStyle Hidden`，日志放在忽略的 `.data/logs/`。本启动器的运行记录为 `.data/updates-worker.json`，其中只有进程信息、限制和参数模式，没有密钥。
+
+Windows 可安装当前用户登录后的本机恢复任务：
+
+```powershell
+pwsh -NoProfile -File scripts/prepare-resume-model.ps1
+pwsh -NoProfile -File scripts/prepare-resume-model.ps1 -Apply
+pwsh -NoProfile -File scripts/install-resume-task.ps1
+pwsh -NoProfile -File scripts/install-resume-task.ps1 -Apply
+```
+
+登录任务的进程看不到原 AppData 模型目录，因此准备工具会把同一配置复制到工作区内、**Git 仓库外**的 `RSHOT-private/models.env`，并将目录与文件权限限制给当前用户及 SYSTEM；任务只保存该文件路径，不保存密钥内容。更新原 AppData 中的 API 配置后，重新运行 `prepare-resume-model.ps1 -Apply` 同步副本。
+
+任务仅核对并恢复 `rshot-dev-db`、属于本项目的 3000/3001 端口服务，以及有采集与模型调用限额的 worker。已运行的服务不会重复启动；端口属于其他进程或 worker 状态不明时停止并在 `.data/logs/local-resume-events.log` 记录。任务运行依赖 Docker Desktop 已在用户登录后启动；它会在失败时按计划任务配置重试。本地服务在电脑关机和用户退出登录期间仍不能运行，Pages 保留最后一次公开快照。
 
 ## 简报
 
