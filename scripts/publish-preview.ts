@@ -20,7 +20,7 @@ const state:Record<string,unknown>={day,startedAt:new Date().toISOString(),statu
 function save(){writeFileSync(path.join(privateDir,"latest.json"),JSON.stringify(state,null,2));
   writeFileSync(path.join(privateDir,`${day}.json`),JSON.stringify(state,null,2));}
 function git(args:string[],code:string):string {
-  try {return execFileSync("git",["-C",root,...args],{encoding:"utf8",stdio:["ignore","pipe","pipe"],timeout:60000,maxBuffer:1024*1024}).trim();}
+  try {return execFileSync("git",["-C",root,...args],{encoding:"utf8",stdio:["ignore","pipe","pipe"],timeout:60000,maxBuffer:1024*1024}).trimEnd();}
   catch {throw new Error(code);}
 }
 function processOut(command:string,args:string[],code:string,timeout=120000):string {
