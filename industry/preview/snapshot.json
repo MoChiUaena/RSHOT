@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-30T02:17:57.068Z",
+  "generatedAt": "2026-09-30T02:24:31.388Z",
   "categories": [
     {
       "key": "paper",
@@ -3127,7 +3127,7 @@
     }
   ],
   "hot": {
-    "computedAt": "2026-09-30T02:15:16.011Z",
+    "computedAt": "2026-09-30T02:20:16.128Z",
     "windowHours": 48,
     "entries": []
   }
