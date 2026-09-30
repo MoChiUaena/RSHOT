@@ -45,6 +45,8 @@ pwsh -NoProfile -File scripts/install-preview-task.ps1 -Apply
 
 发布器先确认仓库干净且与远端 `main` 完全一致，再从匿名公开接口导出。只有公开内容实际变化时才暂存 `industry/preview/snapshot.json`，运行暂存内容的密钥检查，创建提交并正常推送；它不会覆盖其他修改、强推或把模型文件放进 Git。如果有人编辑工作区、报告未完成、密钥检查失败或推送失败，任务会停止并在忽略的 `.data/preview-publication/` 记录阶段与原因。若只有导出时间改变，不创建提交。部署完成还会确认 Pages workflow 对应提交成功。
 
+在本机的 `127.0.0.1:7897` 代理可用时，发布器使用它连接 GitHub；否则尝试直接连接。代理只用于 Git，不用于模型调用，也不携带密钥参数。
+
 同目录的 `monitor/YYYY-MM-DD.json` 每天记录 worker 心跳、14 个信源的读取健康、准入数量和当期日报条数，供一周观察。查看任务和最新结果：
 
 ```powershell

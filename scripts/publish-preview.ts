@@ -1,6 +1,7 @@
 // Unattended local publication of the anonymous snapshot. Never loads or sends model credentials.
 import { execFileSync } from "node:child_process";
 import { closeSync, existsSync, mkdirSync, openSync, readFileSync, unlinkSync, writeFileSync } from "node:fs";
+import { connect } from "node:net";
 import path from "node:path";
 import { setTimeout as delay } from "node:timers/promises";
 import { beijingDate } from "@aihot/contracts/time";
@@ -27,6 +28,15 @@ function processOut(command:string,args:string[],code:string,timeout=120000):str
   try {return execFileSync(command,args,{cwd:root,encoding:"utf8",stdio:["ignore","pipe","pipe"],timeout,maxBuffer:2*1024*1024,
     env:{...process.env,COLLECT_ENABLED:"false",MODEL_CALLS_ENABLED:"false"}}).trim();}
   catch {throw new Error(code);}
+}
+function localGitTransport():Promise<string[]> {
+  return new Promise((resolve)=>{
+    const socket=connect({host:"127.0.0.1",port:7897});
+    socket.setTimeout(1000);
+    socket.once("connect",()=>{socket.end();resolve(["-c","http.sslBackend=openssl","-c","http.proxy=http://127.0.0.1:7897"]);});
+    socket.once("error",()=>resolve(["-c","http.sslBackend=openssl"]));
+    socket.once("timeout",()=>{socket.destroy();resolve(["-c","http.sslBackend=openssl"]);});
+  });
 }
 function assertOrigin(){
   const raw=git(["remote","get-url","origin"],"origin-unavailable");
@@ -101,7 +111,9 @@ async function publish(){
   if(!live){const report=await latestReport();console.log(JSON.stringify({status:"ready",day,report,modelRequests:0,writes:0}));return;}
   acquireLock();save();
   stage="fetch";state.stage=stage;save();
-  git(["-c","http.sslBackend=openssl","fetch","origin","main"],"git-fetch-failed");
+  const transport=await localGitTransport();
+  state.gitTransport=transport.length>2?"local-proxy":"direct";save();
+  git([...transport,"fetch","origin","main"],"git-fetch-failed");
   if(git(["rev-parse","HEAD"],"local-head-unavailable")!==git(["rev-parse","refs/remotes/origin/main"],"remote-main-unavailable"))
     throw new Error("branch-diverged-from-main");
   const report=await waitForReport();state.report=report;
@@ -132,7 +144,7 @@ async function publish(){
     "commit","-m",`Refresh RSHOT public preview ${day}`],"git-commit-failed");
   const sha=git(["rev-parse","HEAD"],"commit-sha-unavailable");state.commit=sha;save();
   stage="push";state.stage=stage;save();
-  git(["-c","http.sslBackend=openssl","push","origin","HEAD:main"],"git-push-failed");
+  git([...transport,"push","origin","HEAD:main"],"git-push-failed");
   stage="pages";state.stage=stage;save();
   await waitForPages(sha);
   state.status="published";state.stage="complete";state.finishedAt=new Date().toISOString();save();
