@@ -56,6 +56,8 @@ pwsh -NoProfile -File scripts/install-resume-task.ps1 -Apply
 
 任务仅核对并恢复 `rshot-dev-db`、属于本项目的 3000/3001 端口服务，以及有采集与模型调用限额的 worker。已运行的服务不会重复启动；端口属于其他进程或 worker 状态不明时停止并在 `.data/logs/local-resume-events.log` 记录。任务运行依赖 Docker Desktop 已在用户登录后启动；它会在失败时按计划任务配置重试。本地服务在电脑关机和用户退出登录期间仍不能运行，Pages 保留最后一次公开快照。
 
+需要持续暂停采集时，先运行 `Disable-ScheduledTask -TaskName RSHOT-Resume-Local`，再运行 `npm run updates:stop`。只停止当前 worker，下一次登录仍会自动恢复。重新启用登录恢复可运行 `Enable-ScheduledTask -TaskName RSHOT-Resume-Local`；每日公开快照由独立的 `RSHOT-Publish-Preview` 任务控制。
+
 ## 简报
 
 日报在北京时间 08:00 生成上一日 08:00 到当日 08:00 的内容；周报与月报保留框架原计划。自动任务跳过已存在的简报，保留编辑版；主动重写需单独明确调用。
