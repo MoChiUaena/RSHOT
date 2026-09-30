@@ -5,7 +5,7 @@ import { connect } from "node:net";
 import path from "node:path";
 import { setTimeout as delay } from "node:timers/promises";
 import { beijingDate } from "@aihot/contracts/time";
-import { PublicPreviewSchema } from "./lib/public-preview.ts";
+import { PublicPreviewSchema, type PublicPreview } from "./lib/public-preview.ts";
 
 const root=path.resolve(import.meta.dirname,"..");
 const snapshotPath="industry/preview/snapshot.json";
@@ -91,6 +91,20 @@ function recordHealth(report:{date:string|null;entries:number}){
   writeFileSync(path.join(monitorDir,`${day}.json`),JSON.stringify(monitor,null,2));
   return {workerActive:value.worker.active,healthySources:monitor.healthySources,totalSources:value.sources.length,admittedDay:value.admitted.day};
 }
+function recordEditorialSample(snapshot:PublicPreview){
+  // Daily issue D covers [D-1 08:00, D 08:00) Beijing time, or [D-1 00:00, D 00:00) UTC.
+  const end=Date.parse(`${day}T00:00:00.000Z`);
+  const articles=snapshot.items.filter((item)=>{
+    const at=Date.parse(item.timelineAt);
+    return at>=end-86400000&&at<end;
+  }).slice(0,100).map((item)=>({id:item.id,title:item.title,source:item.source,category:item.category,selected:item.selected,
+    score:item.score,originalUrl:item.originalUrl,publishedAt:item.publishedAt,timelineAt:item.timelineAt,summary:item.summary,reason:item.reason}));
+  const file=path.join(privateDir,"monitor",`${day}.json`);
+  const current=JSON.parse(readFileSync(file,"utf8")) as Record<string,unknown>;
+  writeFileSync(file,JSON.stringify({...current,auditWindowStart:new Date(end-86400000).toISOString(),
+    auditWindowEnd:new Date(end).toISOString(),auditItems:articles},null,2));
+  state.auditItems=articles.length;
+}
 async function waitForPages(sha:string){
   const deadline=Date.now()+8*60000;
   while(Date.now()<deadline){
@@ -125,9 +139,12 @@ async function publish(){
   if(result.status!=="exported")throw new Error("public-export-invalid");
   state.export={items:result.items,selected:result.selected,reports:result.reports,sources:result.sources};
   const after=PublicPreviewSchema.parse(JSON.parse(readFileSync(path.join(root,snapshotPath),"utf8")));
+  recordEditorialSample(after);save();
   const {generatedAt:_,...oldContent}=prior;
   const {generatedAt:__,...newContent}=after;
-  if(JSON.stringify(oldContent)===JSON.stringify(newContent)){
+  // An hourly hot ranking recomputation can change only its timestamp. That is not new public information.
+  if(JSON.stringify({...oldContent,hot:{...oldContent.hot,computedAt:null}})===
+     JSON.stringify({...newContent,hot:{...newContent.hot,computedAt:null}})){
     writeFileSync(path.join(root,snapshotPath),before);
     state.status="unchanged";state.stage="complete";state.finishedAt=new Date().toISOString();save();
     console.log(JSON.stringify({status:"unchanged",day,modelRequests:0,commits:0}));return;
