@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-09-30T03:16:03.803Z",
+  "generatedAt": "2026-10-01T02:30:40.580Z",
   "categories": [
     {
       "key": "paper",
@@ -29,7 +29,7 @@
   ],
   "sources": [
     {
-      "name": "Rasterio · 稳定版本发布",
+      "name": "Earth Engine API · 稳定版本发布",
       "kind": "rss"
     },
     {
@@ -37,27 +37,19 @@
       "kind": "rss"
     },
     {
-      "name": "GDAL · 稳定版本发布",
+      "name": "Copernicus Data Space · 数据与平台动态",
       "kind": "rss"
-    },
-    {
-      "name": "Earth System Science Data · 数据论文与讨论稿",
-      "kind": "web_list"
     },
     {
       "name": "NASA Earthdata · 科学数据与工具",
       "kind": "rss"
     },
     {
-      "name": "ESA · 对地观测",
+      "name": "Rasterio · 稳定版本发布",
       "kind": "rss"
     },
     {
-      "name": "geemap · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "Copernicus Data Space · 数据与平台动态",
+      "name": "arXiv · 遥感与地球观测预印本",
       "kind": "rss"
     },
     {
@@ -69,23 +61,169 @@
       "kind": "rss"
     },
     {
-      "name": "Earth Engine API · 稳定版本发布",
+      "name": "geemap · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "ESA · 对地观测",
+      "kind": "rss"
+    },
+    {
+      "name": "Earth System Science Data · 数据论文与讨论稿",
+      "kind": "web_list"
+    },
+    {
+      "name": "中国科学院空天院 · 科研动态",
+      "kind": "web_list"
+    },
+    {
+      "name": "GDAL · 稳定版本发布",
       "kind": "rss"
     },
     {
       "name": "openEO Python Client · 稳定版本发布",
       "kind": "rss"
-    },
-    {
-      "name": "arXiv · 遥感与地球观测预印本",
-      "kind": "rss"
-    },
-    {
-      "name": "中国科学院空天院 · 科研动态",
-      "kind": "web_list"
     }
   ],
   "items": [
+    {
+      "id": "dkhncpmrjakdxztgg4umdmfcv",
+      "title": "SHELDA：欧洲亚小时级质量控制海平面数据集发布",
+      "originalTitle": "SHELDA: sub-hourly European quality controlled sea level dataset",
+      "summary": "基于论文摘要，SHELDA数据集发布了257条欧洲及周边地区潮位计记录，采样间隔为1至15分钟，并包含去除潮汐分量后的残差时间序列。数据以NetCDF格式提供，单条记录时长介于1个月至13年之间，采用CC BY 4.0许可协议开放获取。论文详细说明了包括异常值剔除、自动尖峰检测和人工目视检查在内的质量控制流程，同时指出未实施基准面偏移校正。",
+      "reason": "该数据集填补了欧洲沿海高频（1-15分钟）且经过严格质量控制的海平面观测数据空白，支持从分钟级到季节尺度的海平面变化分析。",
+      "source": {
+        "name": "Earth System Science Data · 数据论文与讨论稿",
+        "kind": "web_list",
+        "firstParty": true
+      },
+      "originalUrl": "https://essd.copernicus.org/articles/18/7143/2026/",
+      "publishedAt": "2026-09-30T00:00:00.000Z",
+      "timelineAt": "2026-10-01T01:51:32.724Z",
+      "category": "data",
+      "tags": [
+        "数据集/基准",
+        "海洋"
+      ],
+      "score": 78,
+      "selected": true
+    },
+    {
+      "id": "y4pplxibxj8g81eqekmdpbyzk",
+      "title": "MHW-MAD：基于卫星海表温度数据的全球多定义海洋热浪与冷事件数据库",
+      "originalTitle": "Marine Heat Waves and Cold Spells – Multiple Analysis/Definitions (MHW-MAD): A Multi-Definition Global Marine Heatwave Database from Satellite Sea Surface Temperature Data",
+      "summary": "基于论文摘要，作者发布了一个包含每日海洋热浪（MHW）和海洋冷事件（MCS）指标的全球数据库。该数据库基于1982–2024年的ESA SST CCI及iCDR数据，在0.05°网格上提供多种基线气候、不同百分位阈值（如90th, 95th, 99th）以及去趋势后的SST异常值。数据产品还包括最小持续时间为5天、10天和30天的二值化MHW标志及严重程度分类指数，支持跨时空的极端海洋事件监测与模型评估。",
+      "reason": "该数据库基于ESA SST CCI数据，通过并行提供多种基线气候、百分位阈值和持续时间标准，为评估方法学选择对海洋热浪特征的影响提供了统一的对比基础。",
+      "source": {
+        "name": "Earth System Science Data · 数据论文与讨论稿",
+        "kind": "web_list",
+        "firstParty": true
+      },
+      "originalUrl": "https://essd.copernicus.org/articles/18/7181/2026/",
+      "publishedAt": "2026-09-30T00:00:00.000Z",
+      "timelineAt": "2026-10-01T01:51:32.149Z",
+      "category": "data",
+      "tags": [
+        "数据集/基准",
+        "海洋",
+        "时序分析",
+        "ESA"
+      ],
+      "score": 83,
+      "selected": true
+    },
+    {
+      "id": "v8c8na0khi2zxw524d8wanamk",
+      "title": "HaPi：1860至2020年陆地生态系统人为磷输入历史数据集",
+      "originalTitle": "History of anthropogenic Phosphorus inputs (HaPi) to the terrestrial biosphere from 1860 to 2020",
+      "summary": "基于论文摘要，本研究发布了涵盖1860年至2020年的全球人为磷（P）输入历史数据集（HaPi），空间分辨率为5角分（约10公里），时间步长为年。该数据集整合了化肥、畜禽粪便及大气沉降等七项磷通量组分。",
+      "reason": "该数据集填补了全球人为磷输入历史时空动态的量化空白，为地球系统生物地球化学模型提供了关键的强迫数据。",
+      "source": {
+        "name": "Earth System Science Data · 数据论文与讨论稿",
+        "kind": "web_list",
+        "firstParty": true
+      },
+      "originalUrl": "https://essd.copernicus.org/articles/18/7125/2026/",
+      "publishedAt": "2026-09-30T00:00:00.000Z",
+      "timelineAt": "2026-09-30T13:59:17.366Z",
+      "category": "data",
+      "tags": [
+        "数据集/基准",
+        "定量反演",
+        "农业"
+      ],
+      "score": 85,
+      "selected": true
+    },
+    {
+      "id": "sqogcqmjoqwzqmgss9j4c0lzd",
+      "title": "RS-OPSD：面向超高分辨率遥感视觉问答的可靠特权在线策略自蒸馏方法",
+      "originalTitle": "RS-OPSD: Reliable Privileged On-Policy-Self-Distillation for Ultra-High-Resolution Remote Sensing VQA",
+      "summary": "基于论文摘要，该研究提出RS-OPSD框架，旨在将放大视觉特权内化到模型中，以解决超高分辨率遥感视觉问答（UHR VQA）中小目标视觉证据解析的问题。作者构建了包含6,750个样本、覆盖七个任务类别且带有证据区域标注的GeoEvidence-6K数据集，并提出上下文保留视觉特权（CPVP）与正确性对齐蒸馏（CAD）机制。",
+      "reason": "提出将放大视觉特权内化到模型中的自蒸馏框架，并构建了带证据区域标注的GeoEvidence-6K数据集，在多个UHR遥感VQA基准上报告了性能提升。",
+      "source": {
+        "name": "arXiv · 遥感与地球观测预印本",
+        "kind": "rss",
+        "firstParty": true
+      },
+      "originalUrl": "https://arxiv.org/abs/2609.38072v1",
+      "publishedAt": "2026-09-29T17:34:12.000Z",
+      "timelineAt": "2026-09-30T13:57:47.461Z",
+      "category": "paper",
+      "tags": [
+        "论文/研究",
+        "遥感基础模型",
+        "多模态"
+      ],
+      "score": 82,
+      "selected": true
+    },
+    {
+      "id": "a564xeo15mysgpi7xkexa0iqx",
+      "title": "PAtteRNS：用于卫星影像时序数据作物分割的并行维度注意力网络",
+      "originalTitle": "Cropland PAtteRNS: Parallel Dimensional Attention Networks and Attention to Dataset Disparity for Crop Segmentation in Satellite Imagery Time Series Data",
+      "summary": "基于论文摘要，作者提出混合Transformer-卷积模型 PAtteRNS，首次将自注意力机制分别应用于 Sentinel-2 多光谱 SITS 数据的时间、光谱和空间维度。",
+      "reason": "提出针对时间、光谱和空间维度的并行解耦自注意力机制，并指出不同瓦片尺寸数据集间的结果不可直接比较。",
+      "source": {
+        "name": "arXiv · 遥感与地球观测预印本",
+        "kind": "rss",
+        "firstParty": true
+      },
+      "originalUrl": "https://arxiv.org/abs/2609.38165v1",
+      "publishedAt": "2026-09-29T17:59:29.000Z",
+      "timelineAt": "2026-09-30T13:57:45.760Z",
+      "category": "paper",
+      "tags": [
+        "论文/研究",
+        "语义分割",
+        "时序分析",
+        "光学遥感"
+      ],
+      "score": 78,
+      "selected": true
+    },
+    {
+      "id": "cfqgk4vki1fnlx0jfcmnw7yhp",
+      "title": "Rasterio 1.5.2 发布",
+      "originalTitle": "1.5.2",
+      "summary": "Rasterio 1.5.2 版本发布，Wheels 包含 GDAL 3.12.2、netCDF 4.10.1、cURL 8.20.0 和 PROJ 9.8.1。",
+      "reason": null,
+      "source": {
+        "name": "Rasterio · 稳定版本发布",
+        "kind": "rss",
+        "firstParty": true
+      },
+      "originalUrl": "https://github.com/rasterio/rasterio/releases/tag/1.5.2",
+      "publishedAt": "2026-09-30T13:38:05.000Z",
+      "timelineAt": "2026-09-30T13:57:35.189Z",
+      "category": "rs-tools",
+      "tags": [
+        "工具更新",
+        "开源生态"
+      ],
+      "score": 28,
+      "selected": false
+    },
     {
       "id": "ggc32079347hcrldc4wrbskbe",
       "title": "从野火严重程度到积雪持久性：2020年Creek Fire的多源GeoAI研究",
@@ -1382,6 +1520,60 @@
     }
   ],
   "reports": [
+    {
+      "kind": "daily",
+      "key": "2026-10-01",
+      "title": "遥感日报 · 2026-10-01",
+      "generatedAt": "2026-10-01T01:51:31.200Z",
+      "editorialMode": "model",
+      "lead": {
+        "title": "发布1860-2020年全球人为磷输入历史数据集",
+        "leadParagraph": "今日遥感领域迎来多项重要进展。其中，涵盖1860至2020年、空间分辨率约10公里的人为磷输入历史数据集（HaPi）正式发布，整合了化肥等七项磷通量组分。此外，针对超高分辨率遥感视觉问答的RS-OPSD框架及用于作物分割的PAtteRNS网络也相继提出，提升了复杂场景下的解析与分割能力。"
+      },
+      "overview": null,
+      "sections": [
+        {
+          "label": "论文与方法",
+          "summary": null,
+          "items": [
+            {
+              "itemId": "sqogcqmjoqwzqmgss9j4c0lzd",
+              "title": "RS-OPSD：面向超高分辨率遥感视觉问答的可靠特权在线策略自蒸馏方法",
+              "summary": "基于论文摘要，该研究提出RS-OPSD框架，旨在将放大视觉特权内化到模型中，以解决超高分辨率遥感视觉问答（UHR VQA）中小目标视觉证据解析的问题。作者构建了包含6,750个样本、覆盖七个任务类别且带有证据区域标注的GeoEvidence-6K数据集，并提出上下文保留视觉特权（CPVP）与正确性对齐蒸馏（CAD）机制。",
+              "sourceName": "arXiv · 遥感与地球观测预印本",
+              "originalUrl": "https://arxiv.org/abs/2609.38072v1"
+            },
+            {
+              "itemId": "a564xeo15mysgpi7xkexa0iqx",
+              "title": "PAtteRNS：用于卫星影像时序数据作物分割的并行维度注意力网络",
+              "summary": "基于论文摘要，作者提出混合Transformer-卷积模型 PAtteRNS，首次将自注意力机制分别应用于 Sentinel-2 多光谱 SITS 数据的时间、光谱和空间维度。",
+              "sourceName": "arXiv · 遥感与地球观测预印本",
+              "originalUrl": "https://arxiv.org/abs/2609.38165v1"
+            },
+            {
+              "itemId": "ggc32079347hcrldc4wrbskbe",
+              "title": "从野火严重程度到积雪持久性：2020年Creek Fire的多源GeoAI研究",
+              "summary": "基于论文摘要，该研究开发了一个可解释的地理空间人工智能框架，结合多源地球观测、气象信息和匹配的前后对比，以考察2020年加州内华达山脉Creek Fire后的季节性积雪持久性。",
+              "sourceName": "arXiv · 遥感与地球观测预印本",
+              "originalUrl": "https://arxiv.org/abs/2609.36345v1"
+            }
+          ]
+        },
+        {
+          "label": "数据集与基准",
+          "summary": null,
+          "items": [
+            {
+              "itemId": "v8c8na0khi2zxw524d8wanamk",
+              "title": "HaPi：1860至2020年陆地生态系统人为磷输入历史数据集",
+              "summary": "基于论文摘要，本研究发布了涵盖1860年至2020年的全球人为磷（P）输入历史数据集（HaPi），空间分辨率为5角分（约10公里），时间步长为年。该数据集整合了化肥、畜禽粪便及大气沉降等七项磷通量组分。",
+              "sourceName": "Earth System Science Data · 数据论文与讨论稿",
+              "originalUrl": "https://essd.copernicus.org/articles/18/7125/2026/"
+            }
+          ]
+        }
+      ]
+    },
     {
       "kind": "daily",
       "key": "2026-09-30",
@@ -2781,6 +2973,7 @@
       "group": "company",
       "definition": "ESA 的遥感研究、观测数据与工程动态。",
       "itemIds": [
+        "y4pplxibxj8g81eqekmdpbyzk",
         "wezhx5xk6gsimqeo7irthqp2j",
         "gzolrxrpu1wfos8snkmt3zpcf",
         "dppgfiwplnw7fzgf9wzd570sl",
@@ -2882,6 +3075,7 @@
       "group": "field",
       "definition": "追踪光学遥感的研究方法、数据、工具与应用实践。",
       "itemIds": [
+        "a564xeo15mysgpi7xkexa0iqx",
         "ggc32079347hcrldc4wrbskbe",
         "w50vtz3cw1i1m9f0hsudcmep0",
         "wwr6wn7f6fna6shopuoe75gnn",
@@ -2929,6 +3123,7 @@
       "group": "field",
       "definition": "追踪语义分割的研究方法、数据、工具与应用实践。",
       "itemIds": [
+        "a564xeo15mysgpi7xkexa0iqx",
         "vn45n3xlaau84p3ttgnvw4u1r",
         "jf1b3rwgroucwa9xw0v9snhxb",
         "ti0hvp2tindvub1tuuvd9njyb",
@@ -2941,6 +3136,7 @@
       "group": "field",
       "definition": "追踪定量反演的研究方法、数据、工具与应用实践。",
       "itemIds": [
+        "v8c8na0khi2zxw524d8wanamk",
         "e4ntmsaa0nfelvtofn1eu4o18",
         "kau7osm79n5i3d7rh227gzu6x",
         "d6yg3cbzfsa0inh6c4foyzxlz",
@@ -2953,6 +3149,7 @@
       "group": "field",
       "definition": "追踪遥感基础模型的研究方法、数据、工具与应用实践。",
       "itemIds": [
+        "sqogcqmjoqwzqmgss9j4c0lzd",
         "o3h6p5qukk3psrw68l4pbiewl",
         "vn45n3xlaau84p3ttgnvw4u1r",
         "mgvlgulwciwrpd2nd7nkou1eb",
@@ -3008,6 +3205,7 @@
       "group": "field",
       "definition": "追踪农业的研究方法、数据、工具与应用实践。",
       "itemIds": [
+        "v8c8na0khi2zxw524d8wanamk",
         "nbf1cg9xw4ajprnmzm0rrw2zm",
         "wetwj260tlvv5owayi3xd3d4l"
       ]
@@ -3030,6 +3228,8 @@
       "group": "genre",
       "definition": "值得关注的遥感论文与研究，保留原文入口与适用条件。",
       "itemIds": [
+        "sqogcqmjoqwzqmgss9j4c0lzd",
+        "a564xeo15mysgpi7xkexa0iqx",
         "ggc32079347hcrldc4wrbskbe",
         "e4ntmsaa0nfelvtofn1eu4o18",
         "o3h6p5qukk3psrw68l4pbiewl",
@@ -3059,6 +3259,9 @@
       "group": "genre",
       "definition": "值得关注的遥感数据集与基准，保留原文入口与适用条件。",
       "itemIds": [
+        "dkhncpmrjakdxztgg4umdmfcv",
+        "y4pplxibxj8g81eqekmdpbyzk",
+        "v8c8na0khi2zxw524d8wanamk",
         "obchfpcekgmrwyht0ihawhrcy",
         "cat4s20nkkzk4cfk080k317e6",
         "e2fiur4mpovoisuvagqi2uk1k",
@@ -3127,7 +3330,7 @@
     }
   ],
   "hot": {
-    "computedAt": "2026-09-30T03:15:17.828Z",
+    "computedAt": "2026-10-01T02:30:25.709Z",
     "windowHours": 48,
     "entries": []
   }
