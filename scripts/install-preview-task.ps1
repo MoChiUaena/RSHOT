@@ -18,16 +18,20 @@ if ($taskExisting) {
         $taskExisting.Principal.UserId -notin $taskOwners) {
         throw '已有同名任务但配置不同；请先人工核对，不会覆盖。'
     }
-    if ($taskAction.Execute -eq $taskPwsh -and $taskAction.Arguments -eq $taskArgument) {
+    if ($taskAction.Execute -eq $taskPwsh -and $taskAction.Arguments -eq $taskArgument -and
+        $taskExisting.Settings.RestartCount -eq 3 -and $taskExisting.Settings.RestartInterval -eq 'PT15M') {
         Write-Output 'RSHOT 预览发布任务已经存在，未改动。'
         exit 0
     }
     if (-not $Apply) {
-        Write-Output '已有本项目任务；准备设置仅对任务进程生效的本地脚本执行模式，不会运行发布。'
+        Write-Output '已有本项目任务；准备设置本地脚本执行与失败后每隔 15 分钟重试、最多 3 次，不会运行发布。'
         exit 0
     }
     $taskUpdatedAction = New-ScheduledTaskAction -Execute $taskPwsh -Argument $taskArgument -WorkingDirectory $taskRoot
-    Set-ScheduledTask -TaskName $taskName -Action $taskUpdatedAction | Out-Null
+    $taskUpdatedSettings = $taskExisting.Settings
+    $taskUpdatedSettings.RestartCount = 3
+    $taskUpdatedSettings.RestartInterval = 'PT15M'
+    Set-ScheduledTask -TaskName $taskName -Action $taskUpdatedAction -Settings $taskUpdatedSettings | Out-Null
     Write-Output "已更新 $taskName；下次计划运行时间：$((Get-ScheduledTaskInfo -TaskName $taskName).NextRunTime.ToString('o'))"
     exit 0
 }
@@ -37,7 +41,8 @@ if (-not $Apply) {
 }
 $taskAction = New-ScheduledTaskAction -Execute $taskPwsh -Argument $taskArgument -WorkingDirectory $taskRoot
 $taskTrigger = New-ScheduledTaskTrigger -Daily -At '08:30'
-$taskSettings = New-ScheduledTaskSettingsSet -StartWhenAvailable -ExecutionTimeLimit (New-TimeSpan -Hours 3) -MultipleInstances IgnoreNew
+$taskSettings = New-ScheduledTaskSettingsSet -StartWhenAvailable -ExecutionTimeLimit (New-TimeSpan -Hours 3) -MultipleInstances IgnoreNew `
+    -RestartCount 3 -RestartInterval (New-TimeSpan -Minutes 15)
 $taskPrincipal = New-ScheduledTaskPrincipal -UserId $taskUser -LogonType Interactive -RunLevel Limited
 Register-ScheduledTask -TaskName $taskName -Action $taskAction -Trigger $taskTrigger -Settings $taskSettings -Principal $taskPrincipal `
     -Description 'RSHOT: publish the validated public Pages snapshot after the Beijing daily report' | Out-Null

@@ -1,11 +1,11 @@
 // Unattended local publication of the anonymous snapshot. Never loads or sends model credentials.
-import { execFileSync } from "node:child_process";
 import { closeSync, existsSync, mkdirSync, openSync, readFileSync, unlinkSync, writeFileSync } from "node:fs";
 import { connect } from "node:net";
 import path from "node:path";
 import { setTimeout as delay } from "node:timers/promises";
 import { beijingDate } from "@aihot/contracts/time";
 import { PublicPreviewSchema, type PublicPreview } from "./lib/public-preview.ts";
+import { PublicationCommandError, retryStatus, runPublicationCommand } from "./lib/publication-process.ts";
 
 const root=path.resolve(import.meta.dirname,"..");
 const snapshotPath="industry/preview/snapshot.json";
@@ -21,13 +21,10 @@ const state:Record<string,unknown>={day,startedAt:new Date().toISOString(),statu
 function save(){writeFileSync(path.join(privateDir,"latest.json"),JSON.stringify(state,null,2));
   writeFileSync(path.join(privateDir,`${day}.json`),JSON.stringify(state,null,2));}
 function git(args:string[],code:string):string {
-  try {return execFileSync("git",["-C",root,...args],{encoding:"utf8",stdio:["ignore","pipe","pipe"],timeout:60000,maxBuffer:1024*1024}).trimEnd();}
-  catch {throw new Error(code);}
+  return runPublicationCommand("git",["-C",root,...args],code,{cwd:root,timeoutMs:60000,maxBuffer:1024*1024});
 }
 function processOut(command:string,args:string[],code:string,timeout=120000):string {
-  try {return execFileSync(command,args,{cwd:root,encoding:"utf8",stdio:["ignore","pipe","pipe"],timeout,maxBuffer:2*1024*1024,
-    env:{...process.env,COLLECT_ENABLED:"false",MODEL_CALLS_ENABLED:"false"}}).trim();}
-  catch {throw new Error(code);}
+  return runPublicationCommand(command,args,code,{cwd:root,timeoutMs:timeout}).trim();
 }
 function localGitTransport():Promise<string[]> {
   return new Promise((resolve)=>{
@@ -80,10 +77,13 @@ async function waitForReport(){
   }while(true);
   throw new Error("today-daily-not-ready");
 }
-function recordHealth(report:{date:string|null;entries:number}){
-  const raw=processOut(process.execPath,["--env-file=.env","scripts/updates-status.ts"],"update-status-unavailable",30000);
-  const value=JSON.parse(raw) as {worker:{active:boolean;lastHeartbeat:string|null};admitted:{hour:number;day:number};
-    sources:Array<{id:string;health:string;fail_count:number;last_ok_at:string|null}>};
+async function recordHealth(report:{date:string|null;entries:number}){
+  const checks:Array<{attempt:number;reason:string;details:unknown}>=[];
+  const value=await retryStatus(()=>{
+    const raw=processOut(process.execPath,["--env-file=.env","scripts/updates-status.ts"],"update-status-unavailable",60000);
+    return JSON.parse(raw) as {worker:{active:boolean;lastHeartbeat:string|null};admitted:{hour:number;day:number};
+      sources:Array<{id:string;health:string;fail_count:number;last_ok_at:string|null}>};
+  },(failure)=>{checks.push(failure);state.healthCheckFailures=checks;save();});
   const monitor={day,recordedAt:new Date().toISOString(),worker:value.worker,admitted:value.admitted,
     sources:value.sources.map(({id,health,fail_count,last_ok_at})=>({id,health,failCount:fail_count,lastOkAt:last_ok_at})),
     healthySources:value.sources.filter((source)=>source.health==="ok").length,report};
@@ -130,8 +130,10 @@ async function publish(){
   git([...transport,"fetch","origin","main"],"git-fetch-failed");
   if(git(["rev-parse","HEAD"],"local-head-unavailable")!==git(["rev-parse","refs/remotes/origin/main"],"remote-main-unavailable"))
     throw new Error("branch-diverged-from-main");
+  stage="report";state.stage=stage;save();
   const report=await waitForReport();state.report=report;
-  state.monitor=recordHealth(report);save();
+  stage="health";state.stage=stage;save();
+  state.monitor=await recordHealth(report);save();
   stage="export";state.stage=stage;save();
   const before=readFileSync(path.join(root,snapshotPath),"utf8");
   const prior=PublicPreviewSchema.parse(JSON.parse(before));
@@ -170,7 +172,8 @@ async function publish(){
 try{await publish();}catch(error){
   const reason=error instanceof Error&&/^[a-z][a-z0-9-]{3,64}$/.test(error.message)?error.message:"unexpected-failure";
   state.status="failed";state.stage=stage;state.reason=reason;
+  if(error instanceof PublicationCommandError)state.failureDetails=error.details;
   state.finishedAt=new Date().toISOString();save();
-  console.error(JSON.stringify({status:"failed",day,stage,reason:state.reason,secretsPrinted:false}));
+  console.error(JSON.stringify({status:"failed",day,stage,reason:state.reason,failureDetails:state.failureDetails,secretsPrinted:false}));
   process.exitCode=1;
 }finally{if(lockHeld)unlinkSync(lockPath);}
