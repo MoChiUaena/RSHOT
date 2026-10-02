@@ -5,6 +5,7 @@ import { tmpdir } from 'node:os';
 import path from 'node:path';
 import { spawnSync } from 'node:child_process';
 import { createServer } from 'node:http';
+import { rootCertificates } from 'node:tls';
 import { loadProfiles, collectSocial, fixtureTransport, publicResults, operateSocial } from '../scripts/lib/free-social-reader.ts';
 
 process.env.NODE_ENV = 'test';
@@ -19,6 +20,7 @@ async function fixture() {
   const executable = path.join(root, 'twitter-venv', process.platform === 'win32' ? 'Scripts/twitter.exe' : 'bin/twitter');
   const credentialsFile = path.join(social, 'collectors.env'), wxCreds = path.join(social, 'werss.env');
   const script = path.join(root, 'child.cjs');
+  const caDirectory=path.join(root,'.rshot-social-public');await mkdir(caDirectory);await writeFile(path.join(caDirectory,'cacert.pem'),rootCertificates[0]);
   await writeFile(credentialsFile, 'TWITTER_AUTH_TOKEN=fixture-auth-secret\nTWITTER_CT0=fixture-ct0-secret\n');
   await writeFile(wxCreds, 'USERNAME=fixture-user\nPASSWORD=test-password-secret\n');
   const data = { version: 1, twitter: { executable, credentialsFile }, werss: { credentialsFile: wxCreds }, sources: [{ sourceId: xId, verified: true, verifiedAt: new Date().toISOString() }] };
@@ -71,6 +73,24 @@ test('child failures, stdout cap and timeout are bounded and discard stderr secr
       assert.equal(result[0].status, 'read-failed'); assert.deepEqual(result[0].candidates, []); assert.ok(!JSON.stringify(result).includes('fixture-auth-secret'));
     }
   } finally { await f.clean(); }
+});
+test('X unwraps twitter-cli v1 success and rejects failure or unknown wrappers', async () => {
+  const f=await fixture();
+  try {
+    for(const [input,want] of [ [{ok:true,schema_version:1,data:[post]},'ok'], [{ok:false,error:{message:'fixture-auth-secret'}},'read-failed'], [{ok:true,schema_version:2,data:[post]},'read-failed'], [{ok:true,schema_version:1,data:{post}},'read-failed'], [{ok:true,schema_version:1,data:[post],error:{message:'private failure'}},'read-failed'] ] as const) {
+      await writeFile(f.script,`process.stdout.write(${JSON.stringify(JSON.stringify(input))})`);
+      const result=await collectSocial(await loadProfiles(f.profiles),await fixtureTransport(f.root,{childScript:f.script})); assert.equal(result[0].status,want);assert.ok(!JSON.stringify(result).includes('fixture-auth-secret'));
+    }
+  } finally {await f.clean();}
+});
+test('X supplies validated public ASCII CA and only a reachable fixed-scope local proxy', async () => {
+  const f=await fixture();const server=createServer((_req,res)=>res.end('fixture proxy unused by controlled child'));await new Promise<void>(r=>server.listen(0,'127.0.0.1',r));
+  try {
+    const port=(server.address() as any).port,ca=path.join(f.root,'.rshot-social-public/cacert.pem');
+    await writeFile(f.script,`if(process.env.CURL_CA_BUNDLE!==${JSON.stringify(ca)}||process.env.SSL_CERT_FILE!==${JSON.stringify(ca)}||process.env.TWITTER_PROXY!=='http://127.0.0.1:${port}'||process.env.CURL_SSL_VERIFY==='false')process.exit(7);process.stdout.write(${JSON.stringify(JSON.stringify([post]))});`);
+    let r=await collectSocial(await loadProfiles(f.profiles),await fixtureTransport(f.root,{childScript:f.script,proxyPort:port} as any));assert.equal(r[0].status,'ok');
+    await writeFile(ca,'not a certificate');r=await collectSocial(await loadProfiles(f.profiles),await fixtureTransport(f.root,{childScript:f.script}));assert.equal(r[0].status,'needs-dependency');
+  } finally {server.closeAllConnections();await new Promise<void>(r=>server.close(()=>r()));await f.clean();}
 });
 test('WeRSS authenticates in body and uses only header token with canonical feed path', async () => {
   const f = await fixture(); const requests: any[] = [];
@@ -138,11 +158,13 @@ test('PowerShell preparation creates empty external credentials, unverified cata
   const f = await fixture();
   try {
     const prep=path.resolve('scripts/prepare-social.ps1');
-    const run=()=>spawnSync('powershell.exe',['-NoProfile','-NonInteractive','-ExecutionPolicy','RemoteSigned','-File',prep,'-PrivateRoot',f.root],{encoding:'utf8'});
+    const caSource=path.join(f.root,'twitter-venv/Lib/site-packages/certifi/cacert.pem');await mkdir(path.dirname(caSource),{recursive:true});await writeFile(caSource,rootCertificates[1]);
+    const run=()=>spawnSync('powershell.exe',['-NoProfile','-NonInteractive','-ExecutionPolicy','RemoteSigned','-File',prep,'-PrivateRoot',f.root],{encoding:'utf8',env:{...process.env,USERPROFILE:f.root}});
     // Removing fixture auth makes preparation responsible for creating completely empty files.
     await rm(f.data.twitter.credentialsFile); await rm(f.data.werss.credentialsFile); await rm(f.profiles);
     let r=run(); assert.equal(r.status,0,r.stdout + r.stderr); assert.equal(await readFile(f.data.twitter.credentialsFile,'utf8'),''); assert.equal(await readFile(f.data.werss.credentialsFile,'utf8'),'');
     const p=JSON.parse(await readFile(f.profiles,'utf8')); assert.equal(p.sources.length,12); assert.ok(p.sources.every((s:any)=>s.verified===false));
+    assert.equal(await readFile(path.join(f.root,'.rshot-social-public/cacert.pem'),'utf8'),rootCertificates[1]);
     await writeFile(f.data.twitter.credentialsFile,'private-existing-bytes'); r=run(); assert.equal(r.status,0,r.stdout+r.stderr); assert.equal(await readFile(f.data.twitter.credentialsFile,'utf8'),'private-existing-bytes'); assert.ok(!r.stdout.includes(f.root));
     const acl=spawnSync('powershell.exe',['-NoProfile','-NonInteractive','-Command',`$a=[IO.File]::GetAccessControl('${f.data.twitter.credentialsFile.replaceAll("'","''")}'); @($a.Access | ForEach-Object {$_.IdentityReference.Translate([Security.Principal.SecurityIdentifier]).Value}) | ConvertTo-Json -Compress`],{encoding:'utf8'});
     assert.equal(acl.status,0,acl.stderr); const principals=JSON.parse(acl.stdout); assert.equal(principals.length,2); assert.ok(principals.includes('S-1-5-18'));
@@ -171,18 +193,19 @@ test('installer emits twice-daily current-user action, is idempotent and refuses
     const taskFile=path.join(f.root,'scheduler.json'), counter=path.join(f.root,'register-count.json'), harness=path.join(f.root,'scheduler.ps1');
     const quote=(s:string)=>s.replaceAll("'","''");
     // Replace only the OS write boundary; the installer, native Node readiness and profile validation run unchanged.
-    await writeFile(harness,`\uFEFFfunction Get-ScheduledTask { param($TaskName) if(Test-Path -LiteralPath '${quote(taskFile)}'){Get-Content -LiteralPath '${quote(taskFile)}' -Raw|ConvertFrom-Json} }
+    await writeFile(harness,`\uFEFFfunction Get-ScheduledTask { param($TaskName) if(Test-Path -LiteralPath '${quote(taskFile)}'){Get-Content -LiteralPath '${quote(taskFile)}' -Encoding UTF8 -Raw|ConvertFrom-Json} }
 function New-ScheduledTaskAction {param($Execute,$Argument,$WorkingDirectory) @{Execute=$Execute;Arguments=$Argument;WorkingDirectory=$WorkingDirectory}}
 function New-ScheduledTaskTrigger {param([switch]$Daily,$At) @{StartBoundary=('2026-10-02T'+$At+':00');DaysInterval=1}}
 function New-ScheduledTaskSettingsSet {param([switch]$Hidden,[switch]$StartWhenAvailable,$ExecutionTimeLimit,$MultipleInstances) @{Hidden=[bool]$Hidden;MultipleInstances=$MultipleInstances}}
 function New-ScheduledTaskPrincipal {param($UserId,$LogonType,$RunLevel) @{UserId=$UserId;LogonType=$LogonType;RunLevel=$RunLevel}}
-function Register-ScheduledTask {param($TaskName,$Action,$Trigger,$Settings,$Principal,$Description) @{TaskName=$TaskName;Actions=@($Action);Triggers=$Trigger;Settings=$Settings;Principal=$Principal}|ConvertTo-Json -Depth 10|Set-Content -LiteralPath '${quote(taskFile)}'; '1'|Set-Content -LiteralPath '${quote(counter)}'}
+function Register-ScheduledTask {param($TaskName,$Action,$Trigger,$Settings,$Principal,$Description) @{TaskName=$TaskName;Actions=@($Action);Triggers=$Trigger;Settings=$Settings;Principal=$Principal}|ConvertTo-Json -Depth 10|Set-Content -Encoding UTF8 -LiteralPath '${quote(taskFile)}'; '1'|Set-Content -LiteralPath '${quote(counter)}'}
 & '${quote(path.resolve('scripts/install-social-task.ps1'))}' -Apply -Profiles '${quote(f.profiles)}'
 exit $LASTEXITCODE
 `);
-    const run=()=>spawnSync('powershell.exe',['-NoProfile','-NonInteractive','-ExecutionPolicy','RemoteSigned','-File',harness],{encoding:'utf8'});
+    const run=()=>spawnSync('powershell.exe',['-NoProfile','-NonInteractive','-ExecutionPolicy','RemoteSigned','-File',harness],{encoding:'utf8',env:{...process.env,USERPROFILE:f.root}});
     let r=run();assert.equal(r.status,0,r.stdout+r.stderr); const task=JSON.parse((await readFile(taskFile,'utf8')).replace(/^\uFEFF/,'')); assert.equal(task.TaskName,'RSHOT-Collect-Social'); assert.deepEqual(task.Triggers.map((t:any)=>t.StartBoundary.slice(11,16)),['06:30','18:30']);assert.equal(task.Principal.LogonType,'Interactive');assert.equal(task.Principal.RunLevel,'Limited');assert.equal(task.Settings.Hidden,true);assert.ok(task.Actions[0].Arguments.includes('-WindowStyle Hidden'));assert.ok(!JSON.stringify(task).includes('fixture-auth-secret'));
     await writeFile(counter,'unchanged');r=run();assert.equal(r.status,0,r.stdout+r.stderr);assert.ok(r.stdout.includes('already-installed'));assert.equal(await readFile(counter,'utf8'),'unchanged');
+    task.Triggers[0].DaysInterval=2;await writeFile(taskFile,JSON.stringify(task));r=run();assert.equal(r.status,1);assert.equal(await readFile(counter,'utf8'),'unchanged');task.Triggers[0].DaysInterval=1;
     task.Principal.UserId='fixture-other-user';await writeFile(taskFile,JSON.stringify(task));r=run();assert.equal(r.status,1);assert.equal(await readFile(counter,'utf8'),'unchanged');
   } finally {await f.clean();}
 });

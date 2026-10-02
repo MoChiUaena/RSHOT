@@ -2,7 +2,9 @@ import { readFile, realpath, stat, mkdir, writeFile } from 'node:fs/promises';
 import { spawn } from 'node:child_process';
 import { parseEnv } from 'node:util';
 import path from 'node:path';
-import { tmpdir } from 'node:os';
+import { tmpdir, homedir } from 'node:os';
+import { X509Certificate } from 'node:crypto';
+import { createConnection } from 'node:net';
 import { approvedSocialSources, normalizeXPosts, normalizeWechatFeed, ingestFreeSocial } from '../../packages/backend/src/sources/free-social.ts';
 import type { Candidate } from '../../packages/backend/src/sources/types.ts';
 import { CollectionPolicySchema } from '../../packages/backend/src/sources/collection-policy.ts';
@@ -18,7 +20,7 @@ export interface ReadResult { sourceId: string; status: 'unverified' | 'needs-au
 const privateProfiles = new WeakMap<LoadedProfiles, Profiles>();
 const currentSamples = new WeakMap<ReadResult[], { profiles: LoadedProfiles; signature: string }>();
 function sampleSignature(results: ReadResult[]): string { return JSON.stringify(results.map(r=>({sourceId:r.sourceId,status:r.status,candidates:r.candidates}))); }
-interface Transport { root: string; childScript?: string; childTimeoutMs?: number; port?: number }
+interface Transport { root: string; childScript?: string; childTimeoutMs?: number; port?: number; proxyPort?: number }
 const fixtures = new WeakMap<object, Transport>();
 function inside(file: string, root: string): boolean { const rel = path.relative(root, file); return !!rel && !rel.startsWith('..') && !path.isAbsolute(rel); }
 function same(a: string, b: string): boolean { return process.platform === 'win32' ? a.toLowerCase() === b.toLowerCase() : a === b; }
@@ -68,10 +70,11 @@ export async function loadProfiles(file: string): Promise<LoadedProfiles> {
 
 // Explicit fixture capability: valid only in test processes, with scripts/profiles under a real temp directory.
 export async function fixtureTransport(root: string, options: Omit<Transport,'root'>): Promise<object> {
-  if (process.env.NODE_ENV !== 'test' || process.env.SOCIAL_READER_TEST !== '1' || !keys(options,['childScript','childTimeoutMs','port']) || !inside(root,tmpdir()) || !path.basename(root).startsWith('rshot-social-reader-')) throw new Error('fixture-only');
+  if (process.env.NODE_ENV !== 'test' || process.env.SOCIAL_READER_TEST !== '1' || !keys(options,['childScript','childTimeoutMs','port','proxyPort']) || !inside(root,tmpdir()) || !path.basename(root).startsWith('rshot-social-reader-')) throw new Error('fixture-only');
   await safePath(root);
   if (options.childScript) { if (!inside(options.childScript,root) || !options.childScript.endsWith('.cjs')) throw new Error('fixture-only'); await safePath(options.childScript); }
   if (options.port !== undefined && (!Number.isInteger(options.port) || options.port < 1024 || options.port > 65535 || options.port === 8041)) throw new Error('fixture-only');
+  if (options.proxyPort !== undefined && (!Number.isInteger(options.proxyPort) || options.proxyPort < 1024 || options.proxyPort > 65535 || options.proxyPort === 7897)) throw new Error('fixture-only');
   if (options.childTimeoutMs !== undefined && (options.childTimeoutMs < 1 || options.childTimeoutMs > 60000)) throw new Error('fixture-only');
   const capability = {}; fixtures.set(capability,{ ...options,root }); return capability;
 }
@@ -111,6 +114,28 @@ function childEnvironment(auth: Record<string,string>): Record<string,string> {
   for (const k of ['SystemRoot','WINDIR','TEMP','TMP','PATH','HOME','USERPROFILE','APPDATA','LOCALAPPDATA']) if (process.env[k]) env[k] = process.env[k]!;
   return { ...env,...auth,...disabledSocialFlags,PYTHONUTF8:'1',PYTHONIOENCODING:'utf-8' };
 }
+async function publicCa(root = homedir()): Promise<string | null> {
+  const file=path.join(root,'.rshot-social-public/cacert.pem');
+  try {
+    if (!/^[\x20-\x7e]+$/.test(file)) return null;
+    await safePath(file); const info=await stat(file); if (!info.isFile() || info.size>CAP) return null;
+    const text=await readFile(file,'utf8'), first=text.match(/-----BEGIN CERTIFICATE-----[\s\S]+?-----END CERTIFICATE-----/);
+    if (!first || !new X509Certificate(first[0]).ca) return null; return file;
+  } catch {return null;}
+}
+async function localProxy(port: number | undefined): Promise<string | null> {
+  if (!port) return null;
+  return new Promise(resolve=>{
+    const socket=createConnection({host:'127.0.0.1',port});
+    const finish=(ready:boolean)=>{socket.destroy();resolve(ready?`http://127.0.0.1:${port}`:null);};
+    socket.setTimeout(300);socket.once('connect',()=>finish(true));socket.once('error',()=>finish(false));socket.once('timeout',()=>finish(false));
+  });
+}
+function xPayload(input: unknown): unknown[] {
+  if (Array.isArray(input)) return input;
+  if (!obj(input) || !keys(input,['ok','schema_version','data']) || input.ok!==true || input.schema_version!==1 || !Array.isArray(input.data)) throw new Error('child-read-failed');
+  return input.data;
+}
 export async function collectSocial(loaded: LoadedProfiles, capability?: object): Promise<ReadResult[]> {
   const profiles = privateProfiles.get(loaded); if (!profiles) return [];
   const fixture = capability ? fixtures.get(capability) : undefined;
@@ -128,9 +153,12 @@ export async function collectSocial(loaded: LoadedProfiles, capability?: object)
         const exe = profiles.twitter!.executable; await safePath(exe);
         if (fixture?.childScript) await safePath(fixture.childScript);
         if (!fixture?.childScript) { try { if (!(await stat(exe)).isFile()) throw new Error(); } catch { result.status = 'needs-dependency'; continue; } }
+        const ca=await publicCa(fixture?.root); if (!ca) {result.status='needs-dependency';continue;}
+        const proxy=await localProxy(fixture?fixture.proxyPort:7897);
+        const env={...childEnvironment(auth),CURL_CA_BUNDLE:ca,SSL_CERT_FILE:ca,...(proxy?{TWITTER_PROXY:proxy}:{})};
         const args = ['user-posts',source.handle!,'-n','5','--json'];
-        const input = await childJson(fixture?.childScript ? process.execPath : exe, fixture?.childScript ? [fixture.childScript,...args] : args, childEnvironment(auth),fixture?.childTimeoutMs ?? 60000);
-        result.candidates = normalizeXPosts(input,source);
+        const input = await childJson(fixture?.childScript ? process.execPath : exe, fixture?.childScript ? [fixture.childScript,...args] : args, env,fixture?.childTimeoutMs ?? 60000);
+        result.candidates = normalizeXPosts(xPayload(input),source);
       } else {
         if (!entry.feedId || !FEED_ID.test(entry.feedId)) { result.status = 'needs-dependency'; continue; }
         const base = `http://127.0.0.1:${fixture?.port ?? 8041}`;
@@ -152,7 +180,7 @@ export async function socialReadiness(loaded: LoadedProfiles): Promise<boolean> 
   const p = privateProfiles.get(loaded); if (!p || !p.sources.some(s=>s.verified)) return false;
   for (const s of p.sources.filter(s=>s.verified)) {
     const source = approvedSocialSources().find(a=>a.id===s.sourceId)!;
-    if (source.platform==='x') { if (!await credentials(p.twitter?.credentialsFile,['TWITTER_AUTH_TOKEN','TWITTER_CT0'])) return false; try { await safePath(p.twitter!.executable); if (!(await stat(p.twitter!.executable)).isFile()) return false; } catch { return false; } }
+    if (source.platform==='x') { if (!await credentials(p.twitter?.credentialsFile,['TWITTER_AUTH_TOKEN','TWITTER_CT0']) || !await publicCa()) return false; try { await safePath(p.twitter!.executable); if (!(await stat(p.twitter!.executable)).isFile()) return false; } catch { return false; } }
     else if (!s.feedId || !await credentials(p.werss?.credentialsFile,['USERNAME','PASSWORD'])) return false;
   }
   return true;

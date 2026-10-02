@@ -51,5 +51,29 @@ try {
         foreach ($taskSid in @($taskUserSid, $taskSystemSid)) { $taskFileAcl.AddAccessRule((New-Object Security.AccessControl.FileSystemAccessRule($taskSid, 'FullControl', 'Allow'))) }
         [IO.File]::SetAccessControl($taskFile, $taskFileAcl)
     }
+    # certifi is public CA material. Move its bytes to a fixed ASCII home path for curl_cffi on Windows.
+    $taskCaSource = Join-Path $taskPrivate 'twitter-venv/Lib/site-packages/certifi/cacert.pem'
+    if (Test-Path -LiteralPath $taskCaSource) {
+        $taskCaDirectory = Join-Path $env:USERPROFILE '.rshot-social-public'
+        $taskCaTarget = Join-Path $taskCaDirectory 'cacert.pem'
+        if ($taskCaTarget -match '[^\x20-\x7e]' -or $taskCaTarget.StartsWith($taskRepo + '\', [StringComparison]::OrdinalIgnoreCase)) { throw 'unsafe' }
+        foreach ($taskCaPath in @($taskCaSource,$taskCaTarget)) {
+            $taskCursor = $taskCaPath
+            while ($taskCursor) {
+                if ((Test-Path -LiteralPath $taskCursor) -and ((Get-Item -LiteralPath $taskCursor -Force).Attributes -band [IO.FileAttributes]::ReparsePoint)) { throw 'unsafe' }
+                $taskParent = Split-Path -Parent $taskCursor; if ($taskParent -eq $taskCursor) {break}; $taskCursor=$taskParent
+            }
+        }
+        $taskCaBytes = [IO.File]::ReadAllBytes($taskCaSource)
+        if ($taskCaBytes.Length -gt 2097152) { throw 'unsafe' }
+        $taskCaMatch = [regex]::Match([Text.Encoding]::UTF8.GetString($taskCaBytes), '-----BEGIN CERTIFICATE-----([\s\S]+?)-----END CERTIFICATE-----')
+        if (-not $taskCaMatch.Success) {throw 'unsafe'}
+        $taskCertificate = [Security.Cryptography.X509Certificates.X509Certificate2]::new([Convert]::FromBase64String($taskCaMatch.Groups[1].Value))
+        $taskCertificate.Dispose()
+        New-Item -ItemType Directory -Path $taskCaDirectory -Force | Out-Null
+        [IO.Directory]::SetAccessControl($taskCaDirectory, $taskAcl)
+        [IO.File]::WriteAllBytes($taskCaTarget,$taskCaBytes)
+        [IO.File]::SetAccessControl($taskCaTarget,$taskFileAcl)
+    }
     Write-Output '{"status":"prepared","verified":false}'
 } catch { Write-Output '{"status":"failed","reason":"social-preparation-rejected"}'; exit 1 }

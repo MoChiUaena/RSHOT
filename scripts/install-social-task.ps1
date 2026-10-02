@@ -26,7 +26,8 @@ try {
             $taskAction[0].WorkingDirectory -ne $taskRoot -or $taskExisting.Principal.UserId -notin $taskOwners -or
             $taskExisting.Principal.LogonType -ne 'Interactive' -or $taskExisting.Principal.RunLevel -ne 'Limited') { throw 'existing-task-mismatch' }
         $taskTimes = @($taskExisting.Triggers | ForEach-Object { ([DateTime]$_.StartBoundary).ToString('HH:mm') } | Sort-Object)
-        if (($taskTimes -join ',') -ne '06:30,18:30' -or -not $taskExisting.Settings.Hidden -or $taskExisting.Settings.MultipleInstances -ne 'IgnoreNew') { throw 'existing-task-mismatch' }
+        if (($taskTimes -join ',') -ne '06:30,18:30' -or @($taskExisting.Triggers | Where-Object { $_.DaysInterval -ne 1 }).Count -gt 0 -or
+            -not $taskExisting.Settings.Hidden -or $taskExisting.Settings.MultipleInstances -ne 'IgnoreNew') { throw 'existing-task-mismatch' }
         Write-Output '{"status":"already-installed"}'; exit 0
     }
     if (-not $Apply) { Write-Output '{"status":"ready-to-install","times":["06:30","18:30"]}'; exit 0 }
