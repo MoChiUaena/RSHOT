@@ -187,17 +187,21 @@ export async function ingestFreeSocial(sourceId: string, candidates: Candidate[]
     if (source.platform === "wechat" && ![source.name,...source.aliases].includes(c.author ?? "")) throw new Error("invalid social candidate");
     if (c.xPost && (source.platform !== "x" || c.xPost.handle !== source.handle || xUrl(c.xPost.tweetId, source) !== url || c.xPost.quoted)) throw new Error("invalid social candidate");
     const bodyHtml = c.bodyHtml ? sanitizeBody(c.bodyHtml, url) : undefined;
-    if (bodyHtml && (bodyHtml.length > MAX_BODY || stripTags(bodyHtml) !== collapseWhitespace(c.bodyText))) throw new Error("invalid social candidate");
+    if (bodyHtml && (bodyHtml.length > MAX_BODY || !safeText(bodyHtml) || stripTags(bodyHtml) !== collapseWhitespace(c.bodyText))) throw new Error("invalid social candidate");
     safe.push({ url, title: c.title, author: source.platform === "wechat" ? source.name : c.author, language: c.language,
       publishedAt, bodyText: c.bodyText, bodyHtml, bodyStatus: "ok", excerpt: c.excerpt,
       ...(source.platform === "x" ? { xPost: { tweetId: url.split("/").at(-1)!, handle: source.handle!, authorName: c.author ?? source.name, text: c.bodyText, lang: c.language ?? null } } : {}),
       raw: { platform: source.platform, ownerEntityId: source.ownerEntityId } });
   }
-  const { sql } = await import("../db.ts");
-  const { collectionPolicy, storeControlled } = await import("./admission.ts");
   let registered: SourceRow | undefined;
-  try { [registered] = await sql<SourceRow[]>`SELECT * FROM sources WHERE id=${sourceId}`; }
+  let admission: typeof import("./admission.ts");
+  try {
+    const { sql } = await import("../db.ts");
+    admission = await import("./admission.ts");
+    [registered] = await sql<SourceRow[]>`SELECT * FROM sources WHERE id=${sourceId}`;
+  }
   catch { throw new Error("social database unavailable"); }
+  const { collectionPolicy, storeControlled } = admission;
   if (!registered || !registered.enabled || registered.kind !== "external" || registered.participation_mode !== "editorial") throw new Error("social source unavailable");
   let policy;
   try { policy = await collectionPolicy(); } catch { throw new Error("social collection unavailable"); }

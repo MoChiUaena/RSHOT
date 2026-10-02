@@ -124,6 +124,33 @@ test("ingestion rejects unknown source and invalid material before initializing 
   await assert.rejects(ingestFreeSocial(mp.id, [{ ...w, author: "Wrong account" }]), /^Error: invalid social candidate$/);
 });
 
+test("ingestion rejects credentials introduced by relative HTML resolution before DB initialization", () => {
+  const candidate = { url: "https://mp.weixin.qq.com/s/publicArticle_1", title: "GeoAI 方法更新", author: mp.name, language: "zh", bodyStatus: "ok",
+    bodyText: `${method.trim()} Tool`, bodyHtml: `<p>${method.trim()}</p><p><a href="/tool?ticket=synthetic-relative-marker">Tool</a></p>` };
+  const script = `import {ingestFreeSocial} from './packages/backend/src/sources/free-social.ts';
+    try { await ingestFreeSocial(${JSON.stringify(mp.id)}, [{...${JSON.stringify(candidate)}, publishedAt: new Date()}]); console.log(JSON.stringify({resolved: true})); }
+    catch (error) { console.log(JSON.stringify({name: error.name, message: error.message})); }`;
+  const child = spawnSync(process.execPath, ["--input-type=module", "-e", script], { cwd: process.cwd(), timeout: 10000,
+    env: { ...process.env, DATABASE_URL: "invalid", API_PORT: "invalid-before-db-guard", AIHOT_CREDENTIALS_DIR: "/nonexistent-test-credentials", MODEL_CALLS_ENABLED: "false", COLLECT_ENABLED: "false" }, encoding: "utf8" });
+  assert.equal(child.status, 0, child.stderr);
+  assert.deepEqual(JSON.parse(child.stdout), {name: "Error", message: "invalid social candidate"});
+});
+
+test("ingestion sanitizes dynamic DB import failures without retaining malformed URL credentials", () => {
+  const marker = "synthetic-import-marker";
+  const candidate = { url: "https://x.com/giswqs/status/197000000000000001", title: "Tiled segmentation", author: "Qiusheng Wu", language: "en", bodyStatus: "ok", bodyText: method.trim() };
+  const script = `import {ingestFreeSocial} from './packages/backend/src/sources/free-social.ts';
+    try { await ingestFreeSocial(${JSON.stringify(x.id)}, [{...${JSON.stringify(candidate)}, publishedAt: new Date()}]); console.log(JSON.stringify({resolved: true})); }
+    catch (error) { const serialized = JSON.stringify(error, Object.getOwnPropertyNames(error));
+      console.log(JSON.stringify({name: error.name, message: error.message, hasMarker: serialized.includes(${JSON.stringify(marker)}), hasCause: Object.hasOwn(error, 'cause'), hasInput: Object.hasOwn(error, 'input')})); }`;
+  const child = spawnSync(process.execPath, ["--input-type=module", "-e", script], { cwd: process.cwd(), timeout: 10000,
+    env: { ...process.env, DATABASE_URL: `postgres://synthetic-user:${marker}@[`, API_PORT: "3001", AIHOT_CREDENTIALS_DIR: "/nonexistent-test-credentials", MODEL_CALLS_ENABLED: "false", COLLECT_ENABLED: "false" }, encoding: "utf8" });
+  assert.equal(child.status, 0, child.stderr);
+  const result = JSON.parse(child.stdout);
+  assert.equal(result.hasMarker, false, "safe errors must not retain connection URL credentials");
+  assert.deepEqual(result, {name: "Error", message: "social database unavailable", hasMarker: false, hasCause: false, hasInput: false});
+});
+
 test("isolated DB: fail-closed source/policy, controlled quotas, duplicate identity and queued processing", { skip: !databaseEnabled }, async () => {
   await import("./setup.ts");
   const { sql, closeDb } = await import("../packages/backend/src/db.ts");
