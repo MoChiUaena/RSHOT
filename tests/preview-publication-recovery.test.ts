@@ -74,7 +74,7 @@ test("Windows task wrapper retains publisher stderr and its exit code", { skip: 
   } finally { clean(root); }
 });
 
-test("installer applies bounded failure retries to an existing owned task", { skip: process.platform !== "win32" }, () => {
+test("installer applies 10:30 schedule and bounded failure retries to an existing owned task", { skip: process.platform !== "win32" }, () => {
   const root = temporary();
   const capture = path.join(root, "settings.json");
   const installer = path.resolve("scripts/install-preview-task.ps1");
@@ -87,11 +87,11 @@ test("installer applies bounded failure retries to an existing owned task", { sk
       $taskRepo=${quote(process.cwd())}
       $taskArgs='-NoProfile -NonInteractive -WindowStyle Hidden -ExecutionPolicy RemoteSigned -File "'+(Join-Path $taskRepo 'scripts/run-preview-task.ps1')+'"'
       [pscustomobject]@{Actions=@([pscustomobject]@{Execute=(Get-Command powershell.exe).Source;Arguments=$taskArgs;WorkingDirectory=$taskRepo});
-        Principal=[pscustomobject]@{UserId=[Environment]::UserName};Settings=[pscustomobject]@{RestartCount=0;RestartInterval=$null;Priority=7}}
+        Triggers=@([pscustomobject]@{StartBoundary='2026-10-02T08:30:00';DaysInterval=1});Principal=[pscustomobject]@{UserId=[Environment]::UserName};Settings=[pscustomobject]@{RestartCount=0;RestartInterval=$null;Priority=7}}
     }
     function Set-ScheduledTask {
-      param($TaskName,$Action,$Settings)
-      $Settings | Select-Object RestartCount,RestartInterval,Priority | ConvertTo-Json | Set-Content -LiteralPath $taskCapture -Encoding utf8
+      param($TaskName,$Action,$Settings,$Trigger)
+      [pscustomobject]@{RestartCount=$Settings.RestartCount;RestartInterval=$Settings.RestartInterval;Priority=$Settings.Priority;Triggers=@($Trigger | Select-Object StartBoundary,DaysInterval)} | ConvertTo-Json -Depth 5 | Set-Content -LiteralPath $taskCapture -Encoding utf8
     }
     function Get-ScheduledTaskInfo { [pscustomobject]@{NextRunTime=[datetime]'2026-10-02T08:30:00'} }
     & ${quote(installer)} -Apply
@@ -104,5 +104,7 @@ test("installer applies bounded failure retries to an existing owned task", { sk
     assert.equal(settings.RestartCount, 3);
     assert.equal(settings.RestartInterval, "PT15M");
     assert.equal(settings.Priority, 7);
+    assert.deepEqual(settings.Triggers.map((trigger: {StartBoundary: string}) => new Date(trigger.StartBoundary).toLocaleTimeString("en-GB", {timeZone: "Asia/Shanghai", hour: "2-digit", minute: "2-digit"})), ['10:30']);
+    assert.ok(settings.Triggers.every((trigger: {DaysInterval: number}) => trigger.DaysInterval === 1));
   } finally { clean(root); }
 });

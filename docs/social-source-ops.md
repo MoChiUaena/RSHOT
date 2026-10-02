@@ -43,7 +43,7 @@ WeRSS 服务曾固定为 `http://127.0.0.1:8041`。读取器向 `/api/v1/wx/auth
 
 显式入库使用 `npm run social:apply`。仅已核验且读取成功的来源进入现有受控 admission；来源和策略还须在数据库启用。失败不会删除已有文章。适配器关闭模型、通用采集和付费推送开关，只排入现有 worker 处理队列。处理队列的实际运行由既有 worker 管理。只有 apply/register 在被忽略的 `.data/social-source-runs/` 写来源健康、检查日期、最近成功日期和数量。
 
-安装计划任务前先 `--check` 验证实际读取，再运行 `powershell.exe -NoProfile -ExecutionPolicy RemoteSigned -File scripts/install-social-task.ps1` 预览，添加 `-Apply` 安装。依赖、凭据和至少一个已核验来源缺一都会拒绝安装。任务名 `RSHOT-Collect-Social`，每天本机时间 06:30、18:30，当前用户登录时 Interactive/Limited/Hidden 执行 Windows PowerShell 5.1 wrapper。重复安装匹配原配置时不修改；同名任务 owner/action/时间或设置不匹配时拒绝覆盖。参数仅含脚本与可选 profile 路径。wrapper 并发排空 stdout/stderr、保留 Node 退出码；日志只保存固定状态、退出码及两条流的字节数，不保存原始输出或错误正文。
+安装计划任务前先 `--check` 验证实际读取，再运行 `powershell.exe -NoProfile -ExecutionPolicy RemoteSigned -File scripts/install-social-task.ps1` 预览，添加 `-Apply` 安装。依赖、凭据和至少一个已核验来源缺一都会拒绝安装。任务名 `RSHOT-Collect-Social`，每天本机时间 10:30（每天一次），当前用户登录时 Interactive/Limited/Hidden 执行 Windows PowerShell 5.1 wrapper。重复安装匹配原配置时不修改；同名任务 owner/action/时间或设置不匹配时拒绝覆盖。参数仅含脚本与可选 profile 路径。wrapper 并发排空 stdout/stderr、保留 Node 退出码；日志只保存固定状态、退出码及两条流的字节数，不保存原始输出或错误正文。
 
 边界测试：`node --test tests/free-social-reader.test.ts`，默认不使用数据库或外部服务。可选登记/入库测试必须显式 `FREE_SOCIAL_READER_DB_TEST=true`，且仅接受一次性本机 `rshot_social_test`；测试只用临时凭据、真实受控子进程、本机 HTTP fake server。fixture transport 仅在测试环境且临时目录内生效，生产 endpoint 不接受配置。
 

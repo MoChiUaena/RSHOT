@@ -26,15 +26,15 @@ try {
             $taskAction[0].WorkingDirectory -ne $taskRoot -or $taskExisting.Principal.UserId -notin $taskOwners -or
             $taskExisting.Principal.LogonType -ne 'Interactive' -or $taskExisting.Principal.RunLevel -ne 'Limited') { throw 'existing-task-mismatch' }
         $taskTimes = @($taskExisting.Triggers | ForEach-Object { ([DateTime]$_.StartBoundary).ToString('HH:mm') } | Sort-Object)
-        if (($taskTimes -join ',') -ne '06:30,18:30' -or @($taskExisting.Triggers | Where-Object { $_.DaysInterval -ne 1 }).Count -gt 0 -or
+        if (($taskTimes -join ',') -ne '10:30' -or @($taskExisting.Triggers | Where-Object { $_.DaysInterval -ne 1 }).Count -gt 0 -or
             -not $taskExisting.Settings.Hidden -or $taskExisting.Settings.MultipleInstances -ne 'IgnoreNew') { throw 'existing-task-mismatch' }
         Write-Output '{"status":"already-installed"}'; exit 0
     }
-    if (-not $Apply) { Write-Output '{"status":"ready-to-install","times":["06:30","18:30"]}'; exit 0 }
+    if (-not $Apply) { Write-Output '{"status":"ready-to-install","times":["10:30"]}'; exit 0 }
     $taskAction = New-ScheduledTaskAction -Execute $taskPwsh -Argument $taskArgument -WorkingDirectory $taskRoot
-    $taskTriggers = @((New-ScheduledTaskTrigger -Daily -At '06:30'), (New-ScheduledTaskTrigger -Daily -At '18:30'))
+    $taskTriggers = @((New-ScheduledTaskTrigger -Daily -At '10:30'))
     $taskSettings = New-ScheduledTaskSettingsSet -Hidden -StartWhenAvailable -ExecutionTimeLimit (New-TimeSpan -Minutes 30) -MultipleInstances IgnoreNew
     $taskPrincipal = New-ScheduledTaskPrincipal -UserId $taskUser -LogonType Interactive -RunLevel Limited
     Register-ScheduledTask -TaskName $taskName -Action $taskAction -Trigger $taskTriggers -Settings $taskSettings -Principal $taskPrincipal -Description 'RSHOT read-only verified social sources; existing worker processes queued material' | Out-Null
-    Write-Output '{"status":"installed","times":["06:30","18:30"]}'
+    Write-Output '{"status":"installed","times":["10:30"]}'
 } catch { Write-Output '{"status":"failed","reason":"social-task-install-rejected"}'; exit 1 }

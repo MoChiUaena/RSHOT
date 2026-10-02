@@ -41,7 +41,7 @@ pwsh -NoProfile -File scripts/install-preview-task.ps1
 pwsh -NoProfile -File scripts/install-preview-task.ps1 -Apply
 ```
 
-第一条与第二条只检查、显示计划，不推送。任务每天北京时间 08:30 启动；若当期日报还没生成，会等待至多 150 分钟。它要求电脑运行、用户已登录、本机服务可用，且当前 Git 分支跟踪 `origin/main`。如果电脑关机或用户退出登录，Pages 保留上次快照；重新登录后，Windows 会尽量补运行错过的任务，但本机 worker 仍需按 [自动更新说明](automatic-updates.md) 恢复。
+第一条与第二条只检查、显示计划，不推送。任务每天北京时间 10:30 启动；若当期日报还没生成，会等待至多 150 分钟。它要求电脑运行、用户已登录、本机服务可用，且当前 Git 分支跟踪 `origin/main`。如果电脑关机或用户退出登录，Pages 保留上次快照；重新登录后，Windows 会尽量补运行错过的任务，但本机 worker 仍需按 [自动更新说明](automatic-updates.md) 恢复。
 
 任务调用 Windows 自带的 PowerShell，并仅对这个任务进程使用 `RemoteSigned` 来运行本仓库的本地脚本；不会修改系统或用户的执行策略。
 

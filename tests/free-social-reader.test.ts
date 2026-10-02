@@ -393,7 +393,7 @@ test('installer rejects no verified source before accessing Task Scheduler', {sk
   try { f.data.sources=[];await f.save(); const result=spawnSync('powershell.exe',['-NoProfile','-NonInteractive','-ExecutionPolicy','RemoteSigned','-File',path.resolve('scripts/install-social-task.ps1'),'-Profiles',f.profiles],{encoding:'utf8'}); assert.equal(result.status,1,result.stderr); assert.ok(result.stdout.includes('social-task-install-rejected')); assert.ok(!result.stdout.includes(f.root)); }
   finally {await f.clean();}
 });
-test('installer emits twice-daily current-user action, is idempotent and refuses mismatched owners', {skip:process.platform!=='win32'}, async () => {
+test('installer emits daily 10:30 current-user action, is idempotent and refuses mismatched owners', {skip:process.platform!=='win32'}, async () => {
   const f=await fixture();
   try {
     await mkdir(path.dirname(f.data.twitter.executable),{recursive:true}); await writeFile(f.data.twitter.executable,'fixture dependency only; never executed');
@@ -410,7 +410,7 @@ function Register-ScheduledTask {param($TaskName,$Action,$Trigger,$Settings,$Pri
 exit $LASTEXITCODE
 `);
     const run=()=>spawnSync('powershell.exe',['-NoProfile','-NonInteractive','-ExecutionPolicy','RemoteSigned','-File',harness],{encoding:'utf8',env:{...process.env,USERPROFILE:f.root}});
-    let r=run();assert.equal(r.status,0,r.stdout+r.stderr); const task=JSON.parse((await readFile(taskFile,'utf8')).replace(/^\uFEFF/,'')); assert.equal(task.TaskName,'RSHOT-Collect-Social'); assert.deepEqual(task.Triggers.map((t:any)=>t.StartBoundary.slice(11,16)),['06:30','18:30']);assert.equal(task.Principal.LogonType,'Interactive');assert.equal(task.Principal.RunLevel,'Limited');assert.equal(task.Settings.Hidden,true);assert.ok(task.Actions[0].Arguments.includes('-WindowStyle Hidden'));assert.ok(!JSON.stringify(task).includes('fixture-auth-secret'));
+    let r=run();assert.equal(r.status,0,r.stdout+r.stderr); const task=JSON.parse((await readFile(taskFile,'utf8')).replace(/^\uFEFF/,'')); assert.equal(task.TaskName,'RSHOT-Collect-Social'); assert.deepEqual(task.Triggers.map((t:any)=>t.StartBoundary.slice(11,16)),['10:30']);assert.equal(task.Principal.LogonType,'Interactive');assert.equal(task.Principal.RunLevel,'Limited');assert.equal(task.Settings.Hidden,true);assert.ok(task.Actions[0].Arguments.includes('-WindowStyle Hidden'));assert.ok(!JSON.stringify(task).includes('fixture-auth-secret'));
     await writeFile(counter,'unchanged');r=run();assert.equal(r.status,0,r.stdout+r.stderr);assert.ok(r.stdout.includes('already-installed'));assert.equal(await readFile(counter,'utf8'),'unchanged');
     task.Triggers[0].DaysInterval=2;await writeFile(taskFile,JSON.stringify(task));r=run();assert.equal(r.status,1);assert.equal(await readFile(counter,'utf8'),'unchanged');task.Triggers[0].DaysInterval=1;
     task.Principal.UserId='fixture-other-user';await writeFile(taskFile,JSON.stringify(task));r=run();assert.equal(r.status,1);assert.equal(await readFile(counter,'utf8'),'unchanged');
