@@ -5,7 +5,7 @@ import path from 'node:path';
 import { tmpdir, homedir } from 'node:os';
 import { X509Certificate } from 'node:crypto';
 import { createConnection } from 'node:net';
-import { approvedSocialSources, normalizeXPosts, normalizeWechatFeed, ingestFreeSocial } from '../../packages/backend/src/sources/free-social.ts';
+import { approvedSocialSources, normalizeXPosts, normalizeWechatFeed, ingestFreeSocial, type FreeSocialSource } from '../../packages/backend/src/sources/free-social.ts';
 import type { Candidate } from '../../packages/backend/src/sources/types.ts';
 import { CollectionPolicySchema } from '../../packages/backend/src/sources/collection-policy.ts';
 
@@ -20,7 +20,7 @@ export interface ReadResult { sourceId: string; status: 'unverified' | 'needs-au
 const privateProfiles = new WeakMap<LoadedProfiles, Profiles>();
 const currentSamples = new WeakMap<ReadResult[], { profiles: LoadedProfiles; signature: string }>();
 function sampleSignature(results: ReadResult[]): string { return JSON.stringify(results.map(r=>({sourceId:r.sourceId,status:r.status,candidates:r.candidates}))); }
-interface Transport { root: string; childScript?: string; childTimeoutMs?: number; port?: number; proxyPort?: number }
+interface Transport { root: string; childScript?: string; childTimeoutMs?: number; port?: number; proxyPort?: number; werssRefreshTimeoutMs?: number; werssPollIntervalMs?: number }
 const fixtures = new WeakMap<object, Transport>();
 function inside(file: string, root: string): boolean { const rel = path.relative(root, file); return !!rel && !rel.startsWith('..') && !path.isAbsolute(rel); }
 function same(a: string, b: string): boolean { return process.platform === 'win32' ? a.toLowerCase() === b.toLowerCase() : a === b; }
@@ -70,12 +70,14 @@ export async function loadProfiles(file: string): Promise<LoadedProfiles> {
 
 // Explicit fixture capability: valid only in test processes, with scripts/profiles under a real temp directory.
 export async function fixtureTransport(root: string, options: Omit<Transport,'root'>): Promise<object> {
-  if (process.env.NODE_ENV !== 'test' || process.env.SOCIAL_READER_TEST !== '1' || !keys(options,['childScript','childTimeoutMs','port','proxyPort']) || !inside(root,tmpdir()) || !path.basename(root).startsWith('rshot-social-reader-')) throw new Error('fixture-only');
+  if (process.env.NODE_ENV !== 'test' || process.env.SOCIAL_READER_TEST !== '1' || !keys(options,['childScript','childTimeoutMs','port','proxyPort','werssRefreshTimeoutMs','werssPollIntervalMs']) || !inside(root,tmpdir()) || !path.basename(root).startsWith('rshot-social-reader-')) throw new Error('fixture-only');
   await safePath(root);
   if (options.childScript) { if (!inside(options.childScript,root) || !options.childScript.endsWith('.cjs')) throw new Error('fixture-only'); await safePath(options.childScript); }
   if (options.port !== undefined && (!Number.isInteger(options.port) || options.port < 1024 || options.port > 65535 || options.port === 8041)) throw new Error('fixture-only');
   if (options.proxyPort !== undefined && (!Number.isInteger(options.proxyPort) || options.proxyPort < 1024 || options.proxyPort > 65535 || options.proxyPort === 7897)) throw new Error('fixture-only');
   if (options.childTimeoutMs !== undefined && (options.childTimeoutMs < 1 || options.childTimeoutMs > 60000)) throw new Error('fixture-only');
+  if (options.werssRefreshTimeoutMs !== undefined && (!Number.isInteger(options.werssRefreshTimeoutMs) || options.werssRefreshTimeoutMs < 1 || options.werssRefreshTimeoutMs > 60000)) throw new Error('fixture-only');
+  if (options.werssPollIntervalMs !== undefined && (!Number.isInteger(options.werssPollIntervalMs) || options.werssPollIntervalMs < 1 || options.werssPollIntervalMs > 1000)) throw new Error('fixture-only');
   const capability = {}; fixtures.set(capability,{ ...options,root }); return capability;
 }
 async function credentials(file: string | undefined, names: string[]): Promise<Record<string,string> | null> {
@@ -136,6 +138,13 @@ function xPayload(input: unknown): unknown[] {
   if (!obj(input) || !keys(input,['ok','schema_version','data']) || input.ok!==true || (input.schema_version!=='1' && input.schema_version!==1) || !Array.isArray(input.data)) throw new Error('child-read-failed');
   return input.data;
 }
+function wechatSyncTime(input: unknown, feedId: string, source: FreeSocialSource): number {
+  if (!obj(input) || input.code !== 0 || !obj(input.data) || input.data.id !== feedId ||
+      typeof input.data.mp_name !== 'string' || ![source.name,...source.aliases].includes(input.data.mp_name) ||
+      typeof input.data.sync_time !== 'number' || !Number.isSafeInteger(input.data.sync_time) || input.data.sync_time < 0 ||
+      input.data.sync_time > Math.floor(Date.now() / 1000) + 60) throw new Error('local-read-failed');
+  return input.data.sync_time;
+}
 export async function collectSocial(loaded: LoadedProfiles, capability?: object): Promise<ReadResult[]> {
   const profiles = privateProfiles.get(loaded); if (!profiles) return [];
   const fixture = capability ? fixtures.get(capability) : undefined;
@@ -165,10 +174,23 @@ export async function collectSocial(loaded: LoadedProfiles, capability?: object)
         const login: unknown = JSON.parse(await boundedFetch(`${base}/api/v1/wx/auth/login`,{ method:'POST',headers:{'content-type':'application/x-www-form-urlencoded'},body:new URLSearchParams({ username:auth.USERNAME,password:auth.PASSWORD }) }));
         const token = obj(login) ? (obj(login.data) ? login.data.access_token ?? login.access_token : login.access_token) : undefined;
         if (typeof token !== 'string' || !token || token.length > 8192 || /[\r\n\0]/.test(token)) throw new Error('local-read-failed');
-        const refresh: unknown = JSON.parse(await boundedFetch(`${base}/api/v1/wx/mps/update/${entry.feedId}?start_page=0&end_page=1`,{ headers:{ authorization:`Bearer ${token}` } },60000));
+        const headers = { authorization:`Bearer ${token}` };
+        const syncTime = async (timeoutMs = 10000) => wechatSyncTime(JSON.parse(await boundedFetch(`${base}/api/v1/wx/mps/${entry.feedId}`,{ headers },timeoutMs)),entry.feedId!,source);
+        const baseline = await syncTime(), startedAt = Date.now();
+        const deadline = startedAt + (fixture?.werssRefreshTimeoutMs ?? 60000);
+        const remaining = () => { const milliseconds = deadline - Date.now(); if (milliseconds <= 0) throw new Error('local-read-failed'); return milliseconds; };
+        const refresh: unknown = JSON.parse(await boundedFetch(`${base}/api/v1/wx/mps/update/${entry.feedId}?start_page=0&end_page=1`,{ headers },remaining()));
         const refreshCode = obj(refresh) ? refresh.code : undefined;
         if (refreshCode !== 0 && refreshCode !== 40402) throw new Error('local-read-failed');
-        const xml = await boundedFetch(`${base}/rss/${entry.feedId}`,{ headers:{ authorization:`Bearer ${token}` } });
+        if (refreshCode === 0) {
+          while (true) {
+            const current = await syncTime(Math.min(10000,remaining()));
+            remaining();
+            if (current > baseline && current >= Math.floor(startedAt / 1000)) break;
+            await new Promise<void>(resolve => setTimeout(resolve,Math.min(fixture?.werssPollIntervalMs ?? 1000,remaining())));
+          }
+        } else if (await syncTime(Math.min(10000,remaining())) < Math.floor(Date.now() / 1000) - 60) throw new Error('local-read-failed');
+        const xml = await boundedFetch(`${base}/rss/${entry.feedId}?is_update=true`,{ headers });
         result.candidates = normalizeWechatFeed(xml,source);
         if (refreshCode === 40402 && result.candidates.length === 0) throw new Error('local-read-failed');
       }

@@ -92,8 +92,101 @@ test('X supplies validated public ASCII CA and only a reachable fixed-scope loca
     await writeFile(ca,'not a certificate');r=await collectSocial(await loadProfiles(f.profiles),await fixtureTransport(f.root,{childScript:f.script}));assert.equal(r[0].status,'needs-dependency');
   } finally {server.closeAllConnections();await new Promise<void>(r=>server.close(()=>r()));await f.clean();}
 });
+test('WeRSS accepted async refresh with unchanged marker never reads cached RSS', async () => {
+  const f = await fixture(); const requests: string[] = []; let mode = 'unchanged';
+  const syncTime = Math.floor(Date.now() / 1000) - 120;
+  const xml = `<rss><channel><title>GIS前沿</title><item><title>Cached GeoAI 方法</title><link>https://mp.weixin.qq.com/s/cachedArticle_1</link><pubDate>${new Date().toUTCString()}</pubDate><description>${body.repeat(3)}</description></item></channel></rss>`;
+  const server = createServer((req, res) => {
+    requests.push(req.url!);
+    if (req.url === '/api/v1/wx/auth/login') res.end('{"access_token":"test-access-secret"}');
+    else if (req.url === '/api/v1/wx/mps/MP_WXS_123') res.end(JSON.stringify({ code: 0, data: { id: 'MP_WXS_123', mp_name: 'GIS前沿', sync_time: mode === 'behind-request' && requests.length > 2 ? syncTime + 30 : syncTime, update_time: Math.floor(Date.now() / 1000) } }));
+    else if (req.url === '/api/v1/wx/mps/update/MP_WXS_123?start_page=0&end_page=1') res.end('{"code":0}');
+    else res.end(xml);
+  });
+  await new Promise<void>(resolve => server.listen(0, '127.0.0.1', resolve));
+  try {
+    f.data.sources = [{ sourceId: mpId, verified: true, verifiedAt: new Date().toISOString(), feedId: 'MP_WXS_123' } as any]; await f.save();
+    const transport = await fixtureTransport(f.root, { port: (server.address() as any).port, werssRefreshTimeoutMs: 120, werssPollIntervalMs: 10 });
+    for (mode of ['unchanged', 'behind-request']) {
+      requests.length = 0;
+      const result = await collectSocial(await loadProfiles(f.profiles), transport);
+      assert.equal(result[0].status, 'read-failed', mode); assert.deepEqual(result[0].candidates, []);
+      assert.ok(requests.filter(url => url === '/api/v1/wx/mps/MP_WXS_123').length >= 2);
+      assert.ok(!requests.some(url => url.startsWith('/rss/')));
+    }
+  } finally { server.closeAllConnections(); await new Promise<void>(resolve => server.close(() => resolve())); await f.clean(); }
+});
+test('WeRSS waits for delayed marker advancement and reads only refreshed long HTML', async () => {
+  const f = await fixture(); const requests: string[] = []; let detailReads = 0;
+  const baseline = Math.floor(Date.now() / 1000) - 120;
+  const layout = '<span></span>'.repeat(8500);
+  const xml = (fresh: boolean) => `<rss><channel><title>GIS前沿</title><item><title>GeoAI 方法</title><link>https://mp.weixin.qq.com/s/${fresh ? 'freshArticle_1' : 'cachedArticle_1'}</link><pubDate>${new Date().toUTCString()}</pubDate><description><![CDATA[<p>${layout}${body.repeat(3)}</p>]]></description></item></channel></rss>`;
+  const server = createServer((req, res) => {
+    requests.push(req.url!);
+    if (req.url === '/api/v1/wx/auth/login') res.end('{"access_token":"test-access-secret"}');
+    else if (req.url === '/api/v1/wx/mps/MP_WXS_123') {
+      detailReads++;
+      const syncTime = detailReads < 3 ? baseline : Math.floor(Date.now() / 1000);
+      res.end(JSON.stringify({ code: 0, data: { id: 'MP_WXS_123', mp_name: 'GIS前沿', sync_time: syncTime, update_time: syncTime } }));
+    } else if (req.url === '/api/v1/wx/mps/update/MP_WXS_123?start_page=0&end_page=1') res.end('{"code":0}');
+    else res.end(xml(detailReads >= 3 && req.url === '/rss/MP_WXS_123?is_update=true'));
+  });
+  await new Promise<void>(resolve => server.listen(0, '127.0.0.1', resolve));
+  try {
+    f.data.sources = [{ sourceId: mpId, verified: true, verifiedAt: new Date().toISOString(), feedId: 'MP_WXS_123' } as any]; await f.save();
+    const result = await collectSocial(await loadProfiles(f.profiles), await fixtureTransport(f.root, { port: (server.address() as any).port, werssRefreshTimeoutMs: 500, werssPollIntervalMs: 10 }));
+    assert.equal(result[0].status, 'ok'); assert.equal(result[0].candidates[0].url, 'https://mp.weixin.qq.com/s/freshArticle_1');
+    assert.equal(result[0].candidates[0].bodyText, body.repeat(3).trim()); assert.ok(result[0].candidates[0].bodyHtml!.length > 100000);
+    assert.deepEqual(requests, ['/api/v1/wx/auth/login', '/api/v1/wx/mps/MP_WXS_123', '/api/v1/wx/mps/update/MP_WXS_123?start_page=0&end_page=1', '/api/v1/wx/mps/MP_WXS_123', '/api/v1/wx/mps/MP_WXS_123', '/rss/MP_WXS_123?is_update=true']);
+  } finally { server.closeAllConnections(); await new Promise<void>(resolve => server.close(() => resolve())); await f.clean(); }
+});
+test('WeRSS validates marker shape and exact identity before refresh and during polling', async () => {
+  const f = await fixture(); const requests: string[] = []; let invalid: unknown, phase = 'baseline', detailReads = 0;
+  const detail = (syncTime: number) => ({ code: 0, data: { id: 'MP_WXS_123', mp_name: 'GIS前沿', sync_time: syncTime, update_time: syncTime } });
+  const xml = `<rss><channel><title>GIS前沿</title><item><title>GeoAI 方法</title><link>https://mp.weixin.qq.com/s/publicArticle_1</link><pubDate>${new Date().toUTCString()}</pubDate><description>${body.repeat(3)}</description></item></channel></rss>`;
+  const server = createServer((req, res) => {
+    requests.push(req.url!);
+    if (req.url === '/api/v1/wx/auth/login') res.end('{"access_token":"test-access-secret"}');
+    else if (req.url === '/api/v1/wx/mps/MP_WXS_123') res.end(JSON.stringify(phase === 'baseline' || ++detailReads > 1 ? invalid : detail(0)));
+    else if (req.url === '/api/v1/wx/mps/update/MP_WXS_123?start_page=0&end_page=1') res.end('{"code":0}');
+    else res.end(xml);
+  });
+  await new Promise<void>(resolve => server.listen(0, '127.0.0.1', resolve));
+  try {
+    f.data.sources = [{ sourceId: mpId, verified: true, verifiedAt: new Date().toISOString(), feedId: 'MP_WXS_123' } as any]; await f.save();
+    const transport = await fixtureTransport(f.root, { port: (server.address() as any).port, werssRefreshTimeoutMs: 120, werssPollIntervalMs: 10 });
+    const valid = detail(Math.floor(Date.now() / 1000));
+    for (phase of ['baseline', 'poll']) for (invalid of [
+      { ...valid, code: 50002 }, { code: 0 }, { ...valid, data: { ...valid.data, id: 'MP_WXS_124' } },
+      { ...valid, data: { ...valid.data, mp_name: 'wrong account' } }, { ...valid, data: { ...valid.data, mp_name: ' GIS前沿 ' } },
+      ...[undefined, null, '123', -1, 0.5, 1e100, Math.floor(Date.now() / 1000) + 120].map(syncTime => ({ ...valid, data: { ...valid.data, sync_time: syncTime } })),
+    ]) {
+      requests.length = 0; detailReads = 0;
+      const result = await collectSocial(await loadProfiles(f.profiles), transport);
+      assert.equal(result[0].status, 'read-failed', `${phase}: ${JSON.stringify(invalid)}`); assert.deepEqual(result[0].candidates, []);
+      assert.ok(!requests.some(url => url.startsWith('/rss/')));
+      assert.equal(requests.some(url => url.includes('/mps/update/')), phase === 'poll');
+    }
+  } finally { server.closeAllConnections(); await new Promise<void>(resolve => server.close(() => resolve())); await f.clean(); }
+});
+test('WeRSS polling requests cannot outlive the refresh deadline', async () => {
+  const f = await fixture(); const requests: string[] = []; let detailReads = 0;
+  const server = createServer((req, res) => {
+    requests.push(req.url!);
+    if (req.url === '/api/v1/wx/auth/login') res.end('{"access_token":"test-access-secret"}');
+    else if (req.url === '/api/v1/wx/mps/MP_WXS_123' && ++detailReads === 1) res.end(JSON.stringify({ code: 0, data: { id: 'MP_WXS_123', mp_name: 'GIS前沿', sync_time: 0, update_time: 0 } }));
+    else if (req.url === '/api/v1/wx/mps/update/MP_WXS_123?start_page=0&end_page=1') res.end('{"code":0}');
+  });
+  await new Promise<void>(resolve => server.listen(0, '127.0.0.1', resolve));
+  try {
+    f.data.sources = [{ sourceId: mpId, verified: true, verifiedAt: new Date().toISOString(), feedId: 'MP_WXS_123' } as any]; await f.save();
+    const transport = await fixtureTransport(f.root, { port: (server.address() as any).port, werssRefreshTimeoutMs: 120, werssPollIntervalMs: 10 });
+    const started = Date.now(), result = await collectSocial(await loadProfiles(f.profiles), transport);
+    assert.equal(result[0].status, 'read-failed'); assert.ok(Date.now() - started < 1000); assert.ok(!requests.some(url => url.startsWith('/rss/')));
+  } finally { server.closeAllConnections(); await new Promise<void>(resolve => server.close(() => resolve())); await f.clean(); }
+});
 test('WeRSS authenticates in body and uses only header token with canonical feed path', async () => {
-  const f = await fixture(); const requests: any[] = [];
+  const f = await fixture(); const requests: any[] = []; let detailReads = 0;
   const xml = `<rss version="2.0"><channel><title>GIS前沿</title><item><title>GeoAI 方法</title><link>https://mp.weixin.qq.com/s/publicArticle_1</link><pubDate>${new Date().toUTCString()}</pubDate><description>${body.repeat(3)}</description></item></channel></rss>`;
   const server = createServer(async (req, res) => {
     let raw = ''; for await (const c of req) raw += c;
@@ -107,7 +200,10 @@ test('WeRSS authenticates in body and uses only header token with canonical feed
       }
       res.end(JSON.stringify({ data: { access_token: 'test-access-secret' } }));
     }
-    else if (req.url === '/api/v1/wx/mps/update/MP_WXS_123?start_page=0&end_page=1') res.end(JSON.stringify({ code: 0 }));
+    else if (req.url === '/api/v1/wx/mps/MP_WXS_123') {
+      const syncTime = ++detailReads === 1 ? 0 : Math.floor(Date.now() / 1000);
+      res.end(JSON.stringify({ code: 0, data: { id: 'MP_WXS_123', mp_name: 'GIS前沿', sync_time: syncTime, update_time: syncTime } }));
+    } else if (req.url === '/api/v1/wx/mps/update/MP_WXS_123?start_page=0&end_page=1') res.end(JSON.stringify({ code: 0 }));
     else res.end(xml);
   });
   await new Promise<void>(r => server.listen(0, '127.0.0.1', r));
@@ -115,36 +211,52 @@ test('WeRSS authenticates in body and uses only header token with canonical feed
     f.data.sources = [{ sourceId: mpId, verified: true, verifiedAt: new Date().toISOString(), feedId: 'MP_WXS_123' } as any]; await f.save();
     const result = await collectSocial(await loadProfiles(f.profiles), await fixtureTransport(f.root, { port: (server.address() as any).port }));
     assert.equal(result[0].status, 'ok'); assert.equal(result[0].candidates[0].url, 'https://mp.weixin.qq.com/s/publicArticle_1');
-    assert.deepEqual(requests, [{ method: 'POST', url: '/api/v1/wx/auth/login', auth: undefined, contentType: 'application/x-www-form-urlencoded', body: 'username=fixture-user&password=test-password-secret' }, { method: 'GET', url: '/api/v1/wx/mps/update/MP_WXS_123?start_page=0&end_page=1', auth: 'Bearer test-access-secret', contentType: undefined, body: '' }, { method: 'GET', url: '/rss/MP_WXS_123', auth: 'Bearer test-access-secret', contentType: undefined, body: '' }]);
+    assert.deepEqual(requests, [{ method: 'POST', url: '/api/v1/wx/auth/login', auth: undefined, contentType: 'application/x-www-form-urlencoded', body: 'username=fixture-user&password=test-password-secret' }, ...['/api/v1/wx/mps/MP_WXS_123', '/api/v1/wx/mps/update/MP_WXS_123?start_page=0&end_page=1', '/api/v1/wx/mps/MP_WXS_123', '/rss/MP_WXS_123?is_update=true'].map(url => ({ method: 'GET', url, auth: 'Bearer test-access-secret', contentType: undefined, body: '' }))]);
     assert.ok(!JSON.stringify(result).includes('test-access-secret'));
   } finally { server.closeAllConnections(); await new Promise<void>(r => server.close(() => r())); await f.clean(); }
 });
 test('WeRSS rejects redirects, over-limit response and bad identity; failed source is isolated', async () => {
-  const f = await fixture(); let mode = 'redirect', hits = 0;
-  const server = createServer((req, res) => { hits++; if(req.url?.endsWith('login')) { res.end('{"access_token":"test-access-secret"}'); return; } if(req.url?.includes('/mps/update/')) { res.end('{"code":0}'); return; } if(mode === 'redirect') { res.writeHead(302, { location: '/secret' }); res.end(); } else if(mode==='cap') res.end('x'.repeat(2097153)); else res.end('<rss><channel><title>wrong account</title></channel></rss>'); });
+  const f = await fixture(); let mode = 'redirect', hits = 0, detailReads = 0;
+  const server = createServer((req, res) => {
+    hits++;
+    if (req.url?.endsWith('login')) { res.end('{"access_token":"test-access-secret"}'); return; }
+    if (req.url === '/api/v1/wx/mps/MP_WXS_123') {
+      const syncTime = ++detailReads === 1 ? 0 : Math.floor(Date.now() / 1000);
+      res.end(JSON.stringify({ code: 0, data: { id: 'MP_WXS_123', mp_name: 'GIS前沿', sync_time: syncTime, update_time: syncTime } })); return;
+    }
+    if (req.url?.includes('/mps/update/')) { res.end('{"code":0}'); return; }
+    if (mode === 'redirect') { res.writeHead(302, { location: '/secret' }); res.end(); }
+    else if (mode === 'cap') res.end('x'.repeat(2097153));
+    else res.end('<rss><channel><title>wrong account</title></channel></rss>');
+  });
   await new Promise<void>(r=>server.listen(0,'127.0.0.1',r));
   try {
     f.data.sources = [{ sourceId: mpId, verified: true, verifiedAt: new Date().toISOString(), feedId: 'MP_WXS_123' } as any, { sourceId: xId, verified: true, verifiedAt: new Date().toISOString() }]; await f.save();
     await writeFile(f.script, `process.stdout.write(${JSON.stringify(JSON.stringify([post]))})`);
-    for (mode of ['redirect','cap','identity']) { const r=await collectSocial(await loadProfiles(f.profiles),await fixtureTransport(f.root,{childScript:f.script,port:(server.address() as any).port})); assert.equal(r[0].status,mode==='identity'?'empty':'read-failed'); assert.equal(r[1].status,'ok'); }
-    assert.equal(hits, 9);
+    for (mode of ['redirect','cap','identity']) { detailReads = 0; const r=await collectSocial(await loadProfiles(f.profiles),await fixtureTransport(f.root,{childScript:f.script,port:(server.address() as any).port})); assert.equal(r[0].status,mode==='identity'?'empty':'read-failed'); assert.equal(r[1].status,'ok'); }
+    assert.equal(hits, 15);
     (f.data.sources[0] as any).feedId = 'MP_WXS_123?token=secret'; await f.save(); assert.equal((await loadProfiles(f.profiles)).status,'invalid-profile');
   } finally { server.closeAllConnections(); await new Promise<void>(r=>server.close(()=>r())); await f.clean(); }
 });
 
-test('WeRSS refresh failure never accepts cached RSS; recent update requires a valid existing feed', async () => {
+test('WeRSS refresh failure never accepts cached RSS; recent update requires a recent marker and valid recent feed', async () => {
   const f = await fixture(); let mode = 'server-error'; const requests: string[] = [];
-  const xml = `<rss><channel><title>GIS前沿</title><item><title>GeoAI 方法</title><link>https://mp.weixin.qq.com/s/publicArticle_1</link><pubDate>${new Date().toUTCString()}</pubDate><description>${body.repeat(3)}</description></item></channel></rss>`;
+  const publishedAt = new Date().toUTCString();
+  const xml = `<rss><channel><title>GIS前沿</title><item><title>GeoAI 方法</title><link>https://mp.weixin.qq.com/s/publicArticle_1</link><pubDate>${publishedAt}</pubDate><description>${body.repeat(3)}</description></item></channel></rss>`;
   const server = createServer((req, res) => {
     requests.push(req.url!);
     if (req.url === '/api/v1/wx/auth/login') { res.end('{"access_token":"test-access-secret"}'); return; }
+    if (req.url === '/api/v1/wx/mps/MP_WXS_123') {
+      const syncTime = Math.floor(Date.now() / 1000) - (mode === 'recent-stale-marker' ? 120 : 30);
+      res.end(JSON.stringify({ code: 0, data: { id: 'MP_WXS_123', mp_name: 'GIS前沿', sync_time: syncTime, update_time: Math.floor(Date.now() / 1000) } })); return;
+    }
     if (req.url?.includes('/mps/update/')) {
       if (mode === 'redirect') { res.writeHead(302, { location: '/secret' }); res.end(); }
       else if (mode === 'cap') res.end('x'.repeat(2097153));
-      else res.end(JSON.stringify({ code: mode === 'recent' || mode === 'recent-empty' ? 40402 : mode === 'not-found' ? 40401 : 50002, message: 'fixture-private-error' }));
+      else res.end(JSON.stringify({ code: mode.startsWith('recent') ? 40402 : mode === 'not-found' ? 40401 : 50002, message: 'fixture-private-error' }));
       return;
     }
-    res.end(mode === 'recent-empty' ? '<rss><channel><title>GIS前沿</title></channel></rss>' : xml);
+    res.end(mode === 'recent-empty' ? '<rss><channel><title>GIS前沿</title></channel></rss>' : mode === 'recent-old-rss' ? xml.replace(publishedAt, new Date(Date.now() - 72 * 3600000).toUTCString()) : xml);
   });
   await new Promise<void>(r => server.listen(0, '127.0.0.1', r));
   try {
@@ -155,20 +267,50 @@ test('WeRSS refresh failure never accepts cached RSS; recent update requires a v
       const result = await collectSocial(await loadProfiles(f.profiles), transport);
       assert.equal(result[0].status, 'read-failed', mode);
       assert.deepEqual(result[0].candidates, []);
-      assert.deepEqual(requests, ['/api/v1/wx/auth/login', '/api/v1/wx/mps/update/MP_WXS_123?start_page=0&end_page=1']);
+      assert.deepEqual(requests, ['/api/v1/wx/auth/login', '/api/v1/wx/mps/MP_WXS_123', '/api/v1/wx/mps/update/MP_WXS_123?start_page=0&end_page=1']);
       assert.ok(!JSON.stringify(result).includes('fixture-private-error'));
     }
-    for (mode of ['recent', 'recent-empty']) {
+    for (mode of ['recent', 'recent-empty', 'recent-old-rss', 'recent-stale-marker']) {
       requests.length = 0;
       const result = await collectSocial(await loadProfiles(f.profiles), transport);
       assert.equal(result[0].status, mode === 'recent' ? 'ok' : 'read-failed');
-      assert.deepEqual(requests, ['/api/v1/wx/auth/login', '/api/v1/wx/mps/update/MP_WXS_123?start_page=0&end_page=1', '/rss/MP_WXS_123']);
+      assert.deepEqual(requests, ['/api/v1/wx/auth/login', '/api/v1/wx/mps/MP_WXS_123', '/api/v1/wx/mps/update/MP_WXS_123?start_page=0&end_page=1', '/api/v1/wx/mps/MP_WXS_123', ...(mode === 'recent-stale-marker' ? [] : ['/rss/MP_WXS_123?is_update=true'])]);
     }
   } finally { server.closeAllConnections(); await new Promise<void>(r => server.close(() => r())); await f.clean(); }
 });
+test('WeRSS successful sync preserves valid empty status and approved account aliases', async () => {
+  const f = await fixture(); let mode = 'empty', detailReads = 0;
+  const server = createServer((req, res) => {
+    const name = mode === 'alias' ? '遥感图像图形' : 'GIS前沿';
+    if (req.url === '/api/v1/wx/auth/login') res.end('{"access_token":"test-access-secret"}');
+    else if (req.url === '/api/v1/wx/mps/MP_WXS_123') {
+      const syncTime = ++detailReads === 1 ? 0 : Math.floor(Date.now() / 1000);
+      res.end(JSON.stringify({ code: 0, data: { id: 'MP_WXS_123', mp_name: name, sync_time: syncTime, update_time: syncTime } }));
+    } else if (req.url?.includes('/mps/update/')) res.end('{"code":0}');
+    else res.end(`<rss><channel><title>${name}</title>${mode === 'empty' ? '' : `<item><title>GeoAI 方法</title><link>https://mp.weixin.qq.com/s/publicArticle_1</link><pubDate>${new Date().toUTCString()}</pubDate><description>${body.repeat(3)}</description></item>`}</channel></rss>`);
+  });
+  await new Promise<void>(resolve => server.listen(0, '127.0.0.1', resolve));
+  try {
+    for (mode of ['empty', 'alias']) {
+      detailReads = 0;
+      f.data.sources = [{ sourceId: mode === 'alias' ? 'free-mp-ygxb' : mpId, verified: true, verifiedAt: new Date().toISOString(), feedId: 'MP_WXS_123' } as any]; await f.save();
+      const result = await collectSocial(await loadProfiles(f.profiles), await fixtureTransport(f.root, { port: (server.address() as any).port }));
+      assert.equal(result[0].status, mode === 'empty' ? 'empty' : 'ok'); assert.equal(detailReads, 2);
+      if (mode === 'alias') assert.equal(result[0].candidates[0].author, '遥感学报');
+    }
+  } finally { server.closeAllConnections(); await new Promise<void>(resolve => server.close(() => resolve())); await f.clean(); }
+});
 test('fixture overrides require test context and temporary scope', async () => {
   const f = await fixture();
-  try { process.env.SOCIAL_READER_TEST='0'; await assert.rejects(fixtureTransport(f.root, { port: 8041 })); process.env.SOCIAL_READER_TEST='1'; await assert.rejects(fixtureTransport(path.resolve('.'), { port: 1234 })); await assert.rejects(fixtureTransport(f.root, { childScript: path.resolve('package.json') })); }
+  try {
+    process.env.SOCIAL_READER_TEST='0'; await assert.rejects(fixtureTransport(f.root, { port: 8041 })); await assert.rejects(fixtureTransport(f.root, { werssRefreshTimeoutMs: 120, werssPollIntervalMs: 10 }));
+    process.env.SOCIAL_READER_TEST='1'; await assert.rejects(fixtureTransport(path.resolve('.'), { port: 1234 })); await assert.rejects(fixtureTransport(f.root, { childScript: path.resolve('package.json') }));
+    for (const options of [
+      ...[0, -1, NaN, Infinity, 0.5, 60001].map(werssRefreshTimeoutMs => ({ werssRefreshTimeoutMs })),
+      ...[0, -1, NaN, Infinity, 0.5, 1001].map(werssPollIntervalMs => ({ werssPollIntervalMs })),
+    ]) await assert.rejects(fixtureTransport(f.root, options));
+    await assert.rejects(collectSocial(await loadProfiles(f.profiles), { werssRefreshTimeoutMs: 1, werssPollIntervalMs: 1 }));
+  }
   finally { process.env.SOCIAL_READER_TEST='1'; await f.clean(); }
 });
 test('private profile directory junction escape fails before any child or HTTP request', async () => {
