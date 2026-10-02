@@ -25,7 +25,11 @@
 
 twitter-cli 0.8.5 的实际 JSON 是 `{ok:true,schema_version:"1",data:[...]}`；读取器严格校验后解包 `data`，也兼容数字 `1` 和裸数组。失败包装、未知版本及混入错误字段均拒绝。在 Windows 中文 venv 路径下，curl_cffi 会出现 curl77；准备器从该 venv 的 `Lib/site-packages/certifi/cacert.pem` 复制公开 CA 到固定 `os.homedir()/.rshot-social-public/cacert.pem`，验证证书及 ASCII 路径，拒绝 symlink/junction。CA 不含密钥，更新不会触及认证文件。读取器校验 CA 后同时设置 `CURL_CA_BUNDLE` 和 `SSL_CERT_FILE`，保留 TLS 校验。有效来源缺少可用 CA 时为 `needs-dependency`。X 可使用固定已有本机代理 `http://127.0.0.1:7897`：仅端口可连接时传入 `TWITTER_PROXY`，不接受 profile 中的代理 URL，不继承任意代理环境变量。
 
-WeRSS 服务固定为 `http://127.0.0.1:8041`。读取器向 `/api/v1/wx/auth/login` POST `application/x-www-form-urlencoded` 的 `username`/`password` 表单，只在内存中使用 `data.access_token`（兼容顶层 `access_token`）。登录后先 GET `/api/v1/wx/mps/update/<feedId>?start_page=0&end_page=1` 同步刷新已批准公众号，再 GET `/rss/<feedId>`；token 只放在 Authorization 请求头。刷新返回 `code:0` 才正常继续；`code:40402`（刚更新过）仅在既有 RSS 仍有合格文章时继续；其他代码及 HTTP 失败均停止该来源，不把旧 RSS 当作本次成功。`feedId` 必须匹配 `MP_WXS_` 加数字，禁止 URL、任意路径和查询。三种请求均拒绝重定向、流式限制 2 MiB；登录和 RSS 超时 10 秒，单次同步刷新超时 60 秒。RSS 的频道名称和公众号原文地址由统一解析器校验。保持 WeRSS 默认高频 JOB 关闭；定时任务每次只发起这一次固定范围同步刷新，不读书架或划线。
+WeRSS 服务固定为 `http://127.0.0.1:8041`。读取器向 `/api/v1/wx/auth/login` POST `application/x-www-form-urlencoded` 的 `username`/`password` 表单，只在内存中使用 `data.access_token`（兼容顶层 `access_token`）；token 只放在 Authorization 请求头。`feedId` 必须匹配 `MP_WXS_` 加数字，禁止 URL、任意路径和查询。先 GET `/api/v1/wx/mps/<feedId>` 验证账号名称、ID 和数字 `sync_time`，再触发 `/api/v1/wx/mps/update/<feedId>?start_page=0&end_page=1`。`code:0` 只表示后台任务启动：在总计 60 秒内每秒核对同步标记，必须比基线增大且不早于本次触发，才读取 `/rss/<feedId>?is_update=true`，避免缓存竞态。`code:40402` 仅在已证实最近 60 秒有成功标记且仍有合格近期条目时继续。超时或异常清空本次结果，不能拿缓存当作刷新完成。
+
+当前微信读书 cover 模式把采集时刻写成 RSS 日期，不能直接证明 48 小时资格。RSS 通过统一身份与正文校验后，每个来源至多核验 3 条：向固定 `/api/v1/wx/mps/by_article?url=<已验证的微信原文>` POST，无请求正文，header token；核对原文 `mp_id`、批准名称/别名、标题、秒级发布日期、无抓取错误及完整正文。核验通过后使用原文日期和原文正文，标记 `dateProvenance:wechat-original`；旧于 48 小时的原文为空，其他核验失败拒收。原文解析器缺日期时也可能返回当前时间，因此落在本次原文请求开始前 60 秒以来的日期一律拒绝；真实刚发布内容在后续运行重新核验。每条 45 秒、原文证明总计 120 秒；所有请求拒绝重定向，流式限制 2 MiB，不记录原始错误。
+
+保留 WeRSS 默认高频 JOB 关闭、每天两次计划任务及原有 admission/模型额度。当前通道只能保证可读 cover，不保证公众号所有当天文章；文章列表需有效微信读书授权再实测。只调用已批准公众号公开文章与身份接口，不读书架、阅读进度、划线或笔记，不自动订阅。各候选核验结果见 [社交信源核验](social-source-verification.md)。
 
 确认账号身份及可读依赖后，把相应条目标记为 `verified:true`；登记前再填入 ISO 格式 `verifiedAt`。默认 `node scripts/free-social.ts` 是 dry-run：只读样本，不初始化数据库，也不写运行状态。没有任何已核验来源时不调用网络或子进程。`--check` 输出来源状态、合格数量、标题、日期和原文公开链接，省略正文与会话资料。来源失败互相隔离。
 

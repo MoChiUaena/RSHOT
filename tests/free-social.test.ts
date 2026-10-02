@@ -253,3 +253,11 @@ test("isolated DB: fail-closed source/policy, controlled quotas, duplicate ident
     await stopBoss(); await closeDb();
   }
 });
+
+test('verified institutional aliases preserve exact publisher matching',()=>{
+  const aircas=sources.find(s=>s.id==='free-mp-aircas')!;
+  const lab=sources.find(s=>s.id==='free-mp-liesmars')!;
+  assert.equal(normalizeWechatFeed(feed(item(),'空天信息'),aircas,now).length,1);
+  assert.equal(normalizeWechatFeed(feed(item(),'测绘遥感全国重点实验室'),lab,now).length,1);
+  assert.equal(normalizeWechatFeed(feed(item(),'武大空间智能研究所'),lab,now).length,0);
+});
