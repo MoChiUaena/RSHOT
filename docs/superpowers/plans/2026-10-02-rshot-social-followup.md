@@ -19,9 +19,18 @@
 - [x] 证明 update code0 异步以及缓存竞态；TDD 修复 sync_time 轮询及 is_update=true。
 - [x] 实测文章列表返回 -2012；封面接口成功，列表多篇未通过。不得宣称已完成多篇覆盖。
 - [x] 对既有两公众号与候选核对原文日期；发现 RSS 使用采集日期。
-- [ ] 在 reader 测试复现旧文被当新文的问题，观察失败。
-- [ ] 新建 scripts/lib/wechat-original.ts，复用统一 normalizer；严格验证 mp_id、账号、标题、秒级日期、fetch_error、正文。
-- [ ] 修改 reader，原文证明通过后才使用候选；失败清空并隔离来源；过期原文为空。
-- [ ] 离线回归：原始日期、正文、身份、缺失/未来/畸形值、超限、token 边界及 X 隔离。
-- [ ] 记录各来源结果与免费多篇限制，更新操作文档。
+- [x] 在 reader 测试复现旧文被当新文的问题，观察失败。
+- [x] 新建 scripts/lib/wechat-original.ts，复用统一 normalizer；严格验证 mp_id、账号、标题、秒级日期、fetch_error、正文。
+- [x] 修改 reader，原文证明通过后才使用候选；失败清空并隔离来源；过期原文为空。
+- [x] 离线回归：原始日期、正文、身份、缺失/未来/畸形值、超限、token 边界及 X 隔离。
+- [x] 记录各来源结果与免费多篇限制，更新操作文档。
 - [ ] 跑 AGENTS.md 必需 gates、独立 review、secret 检查；合并、推送、验证 CI/Pages；安全部署主 checkout。
+
+## Verification / remaining authorization
+
+- Independent review Important (empty cover prevented original fetch) resolved at 7566037; scoped re-review clean.
+- Latest code gates: Windows typecheck pass, focused 51 pass/2 optional DB skip; web build and 11 tests pass; local smoke 30 pass. Offline Linux full suite 213 total, 207 pass, 6 platform/optional skips, zero failure, including dedicated social registration/admission DB tests. Test providers are local fakes and the Docker network blocks external access.
+- Real read check: 4 X + YGXB ok, GIS-frontier empty because original is older than 48h. Public source count remains20.
+- Existing preview services and worker recovered through RSHOT-Resume-Local (exit0); source and model budgets unchanged.
+- Multiarticle lookup on both approved WHU and YGXB feeds still returns-2012, including attempted token renewal. No multiarticle implementation/complete-day coverage claimed.
+- Local QR verifier now tests an approved public YGXB list only; offline checks5/5. User must reauthorize before another protected-list probe; fresh QR will be displayed after release.
