@@ -162,7 +162,7 @@ export async function collectSocial(loaded: LoadedProfiles, capability?: object)
       } else {
         if (!entry.feedId || !FEED_ID.test(entry.feedId)) { result.status = 'needs-dependency'; continue; }
         const base = `http://127.0.0.1:${fixture?.port ?? 8041}`;
-        const login: unknown = JSON.parse(await boundedFetch(`${base}/api/v1/wx/auth/login`,{ method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({ username:auth.USERNAME,password:auth.PASSWORD }) }));
+        const login: unknown = JSON.parse(await boundedFetch(`${base}/api/v1/wx/auth/login`,{ method:'POST',headers:{'content-type':'application/x-www-form-urlencoded'},body:new URLSearchParams({ username:auth.USERNAME,password:auth.PASSWORD }) }));
         const token = obj(login) ? (obj(login.data) ? login.data.access_token ?? login.access_token : login.access_token) : undefined;
         if (typeof token !== 'string' || !token || token.length > 8192 || /[\r\n\0]/.test(token)) throw new Error('local-read-failed');
         const refresh: unknown = JSON.parse(await boundedFetch(`${base}/api/v1/wx/mps/update/${entry.feedId}?start_page=0&end_page=1`,{ headers:{ authorization:`Bearer ${token}` } },60000));
@@ -212,7 +212,7 @@ export async function operateSocial(loaded: LoadedProfiles,results: ReadResult[]
         await tx`INSERT INTO sources(id,name,kind,config,tier,owner_entity_id,participation_mode,enabled,site_fulltext,syndicate_fulltext,next_fetch_at)
           VALUES(${source.id},${source.name},'external',${tx.json({})},${source.tier},${source.ownerEntityId},'editorial',true,false,false,'2100-01-01') ON CONFLICT(id) DO NOTHING`;
         const [existing] = await tx`SELECT * FROM sources WHERE id=${source.id} FOR UPDATE`;
-        if (!existing?.enabled || existing.kind!=='external' || existing.participation_mode!=='editorial' || existing.name!==source.name || existing.tier!==source.tier || existing.owner_entity_id!==source.ownerEntityId || Object.keys(existing.config ?? {}).length) throw new Error('operation-rejected');
+        if (!existing?.enabled || existing.kind!=='external' || existing.participation_mode!=='editorial' || existing.name!==source.name || existing.tier!==source.tier || existing.owner_entity_id!==source.ownerEntityId || existing.site_fulltext!==false || existing.syndicate_fulltext!==false || Object.keys(existing.config ?? {}).length) throw new Error('operation-rejected');
         const updated = CollectionPolicySchema.parse({ ...policy,sourceIds:[...new Set([...policy.sourceIds,source.id])] });
         await tx`UPDATE settings SET value=${tx.json(updated)},updated_by='free-social-register',updated_at=now() WHERE key='collection.policy'`;
       });

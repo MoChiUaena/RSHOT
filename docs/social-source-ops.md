@@ -25,7 +25,7 @@
 
 twitter-cli 0.8.5 的实际 JSON 是 `{ok:true,schema_version:"1",data:[...]}`；读取器严格校验后解包 `data`，也兼容数字 `1` 和裸数组。失败包装、未知版本及混入错误字段均拒绝。在 Windows 中文 venv 路径下，curl_cffi 会出现 curl77；准备器从该 venv 的 `Lib/site-packages/certifi/cacert.pem` 复制公开 CA 到固定 `os.homedir()/.rshot-social-public/cacert.pem`，验证证书及 ASCII 路径，拒绝 symlink/junction。CA 不含密钥，更新不会触及认证文件。读取器校验 CA 后同时设置 `CURL_CA_BUNDLE` 和 `SSL_CERT_FILE`，保留 TLS 校验。有效来源缺少可用 CA 时为 `needs-dependency`。X 可使用固定已有本机代理 `http://127.0.0.1:7897`：仅端口可连接时传入 `TWITTER_PROXY`，不接受 profile 中的代理 URL，不继承任意代理环境变量。
 
-WeRSS 服务固定为 `http://127.0.0.1:8041`。读取器向 `/api/v1/wx/auth/login` POST JSON `username`/`password`，只在内存中使用 `data.access_token`（兼容顶层 `access_token`）。登录后先 GET `/api/v1/wx/mps/update/<feedId>?start_page=0&end_page=1` 同步刷新已批准公众号，再 GET `/rss/<feedId>`；token 只放在 Authorization 请求头。刷新返回 `code:0` 才正常继续；`code:40402`（刚更新过）仅在既有 RSS 仍有合格文章时继续；其他代码及 HTTP 失败均停止该来源，不把旧 RSS 当作本次成功。`feedId` 必须匹配 `MP_WXS_` 加数字，禁止 URL、任意路径和查询。三种请求均拒绝重定向、流式限制 2 MiB；登录和 RSS 超时 10 秒，单次同步刷新超时 60 秒。RSS 的频道名称和公众号原文地址由统一解析器校验。保持 WeRSS 默认高频 JOB 关闭；定时任务每次只发起这一次固定范围同步刷新，不读书架或划线。
+WeRSS 服务固定为 `http://127.0.0.1:8041`。读取器向 `/api/v1/wx/auth/login` POST `application/x-www-form-urlencoded` 的 `username`/`password` 表单，只在内存中使用 `data.access_token`（兼容顶层 `access_token`）。登录后先 GET `/api/v1/wx/mps/update/<feedId>?start_page=0&end_page=1` 同步刷新已批准公众号，再 GET `/rss/<feedId>`；token 只放在 Authorization 请求头。刷新返回 `code:0` 才正常继续；`code:40402`（刚更新过）仅在既有 RSS 仍有合格文章时继续；其他代码及 HTTP 失败均停止该来源，不把旧 RSS 当作本次成功。`feedId` 必须匹配 `MP_WXS_` 加数字，禁止 URL、任意路径和查询。三种请求均拒绝重定向、流式限制 2 MiB；登录和 RSS 超时 10 秒，单次同步刷新超时 60 秒。RSS 的频道名称和公众号原文地址由统一解析器校验。保持 WeRSS 默认高频 JOB 关闭；定时任务每次只发起这一次固定范围同步刷新，不读书架或划线。
 
 确认账号身份及可读依赖后，把相应条目标记为 `verified:true`；登记前再填入 ISO 格式 `verifiedAt`。默认 `node scripts/free-social.ts` 是 dry-run：只读样本，不初始化数据库，也不写运行状态。没有任何已核验来源时不调用网络或子进程。`--check` 输出来源状态、合格数量、标题、日期和原文公开链接，省略正文与会话资料。来源失败互相隔离。
 
@@ -33,6 +33,6 @@ WeRSS 服务固定为 `http://127.0.0.1:8041`。读取器向 `/api/v1/wx/auth/lo
 
 显式入库使用 `npm run social:apply`。仅已核验且读取成功的来源进入现有受控 admission；来源和策略还须在数据库启用。失败不会删除已有文章。适配器关闭模型、通用采集和付费推送开关，只排入现有 worker 处理队列。处理队列的实际运行由既有 worker 管理。只有 apply/register 在被忽略的 `.data/social-source-runs/` 写来源健康、检查日期、最近成功日期和数量。
 
-安装计划任务前先 `--check` 验证实际读取，再运行 `powershell.exe -NoProfile -ExecutionPolicy RemoteSigned -File scripts/install-social-task.ps1` 预览，添加 `-Apply` 安装。依赖、凭据和至少一个已核验来源缺一都会拒绝安装。任务名 `RSHOT-Collect-Social`，每天本机时间 06:30、18:30，当前用户登录时 Interactive/Limited/Hidden 执行 Windows PowerShell 5.1 wrapper。重复安装匹配原配置时不修改；同名任务 owner/action/时间或设置不匹配时拒绝覆盖。参数仅含脚本与可选 profile 路径。wrapper 并发排空 stdout/stderr、保留 Node 退出码，适配器日志只含安全结果。
+安装计划任务前先 `--check` 验证实际读取，再运行 `powershell.exe -NoProfile -ExecutionPolicy RemoteSigned -File scripts/install-social-task.ps1` 预览，添加 `-Apply` 安装。依赖、凭据和至少一个已核验来源缺一都会拒绝安装。任务名 `RSHOT-Collect-Social`，每天本机时间 06:30、18:30，当前用户登录时 Interactive/Limited/Hidden 执行 Windows PowerShell 5.1 wrapper。重复安装匹配原配置时不修改；同名任务 owner/action/时间或设置不匹配时拒绝覆盖。参数仅含脚本与可选 profile 路径。wrapper 并发排空 stdout/stderr、保留 Node 退出码；日志只保存固定状态、退出码及两条流的字节数，不保存原始输出或错误正文。
 
 边界测试：`node --test tests/free-social-reader.test.ts`，默认不使用数据库或外部服务。可选登记/入库测试必须显式 `FREE_SOCIAL_READER_DB_TEST=true`，且仅接受一次性本机 `rshot_social_test`；测试只用临时凭据、真实受控子进程、本机 HTTP fake server。fixture transport 仅在测试环境且临时目录内生效，生产 endpoint 不接受配置。

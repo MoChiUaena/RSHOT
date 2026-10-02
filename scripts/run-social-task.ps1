@@ -26,10 +26,15 @@ try {
     $taskOutput = $taskProcess.StandardOutput.ReadToEndAsync()
     $taskError = $taskProcess.StandardError.ReadToEndAsync()
     $taskProcess.WaitForExit()
-    foreach ($taskStream in @($taskOutput, $taskError)) {
-        $taskText = $taskStream.GetAwaiter().GetResult()
-        if ($taskText) { Add-Content -LiteralPath $taskLog -Value $taskText.TrimEnd() -Encoding utf8 }
-    }
+    $taskStdout = $taskOutput.GetAwaiter().GetResult()
+    $taskStderr = $taskError.GetAwaiter().GetResult()
+    $taskSummary = @{
+        status = if ($taskProcess.ExitCode -eq 0) { 'completed' } else { 'failed' }
+        exitCode = $taskProcess.ExitCode
+        stdoutBytes = [Text.Encoding]::UTF8.GetByteCount($taskStdout)
+        stderrBytes = [Text.Encoding]::UTF8.GetByteCount($taskStderr)
+    } | ConvertTo-Json -Compress
+    Add-Content -LiteralPath $taskLog -Value $taskSummary -Encoding utf8
     exit $taskProcess.ExitCode
 } catch {
     if (Test-Path -LiteralPath (Split-Path -Parent $taskLog)) { Add-Content -LiteralPath $taskLog -Value '{"status":"failed","reason":"social-task-wrapper-failed"}' -Encoding utf8 }

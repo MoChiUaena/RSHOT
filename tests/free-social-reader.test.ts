@@ -97,8 +97,16 @@ test('WeRSS authenticates in body and uses only header token with canonical feed
   const xml = `<rss version="2.0"><channel><title>GIS前沿</title><item><title>GeoAI 方法</title><link>https://mp.weixin.qq.com/s/publicArticle_1</link><pubDate>${new Date().toUTCString()}</pubDate><description>${body.repeat(3)}</description></item></channel></rss>`;
   const server = createServer(async (req, res) => {
     let raw = ''; for await (const c of req) raw += c;
-    requests.push({ method: req.method, url: req.url, auth: req.headers.authorization, body: raw });
-    if (req.url === '/api/v1/wx/auth/login') res.end(JSON.stringify({ data: { access_token: 'test-access-secret' } }));
+    requests.push({ method: req.method, url: req.url, auth: req.headers.authorization, contentType: req.headers['content-type'], body: raw });
+    if (req.url === '/api/v1/wx/auth/login') {
+      const form = new URLSearchParams(raw);
+      if (req.headers['content-type'] !== 'application/x-www-form-urlencoded' ||
+          [...form.keys()].sort().join(',') !== 'password,username' ||
+          form.get('username') !== 'fixture-user' || form.get('password') !== 'test-password-secret') {
+        res.writeHead(422); res.end('{"detail":"fixture-login-rejected"}'); return;
+      }
+      res.end(JSON.stringify({ data: { access_token: 'test-access-secret' } }));
+    }
     else if (req.url === '/api/v1/wx/mps/update/MP_WXS_123?start_page=0&end_page=1') res.end(JSON.stringify({ code: 0 }));
     else res.end(xml);
   });
@@ -107,7 +115,7 @@ test('WeRSS authenticates in body and uses only header token with canonical feed
     f.data.sources = [{ sourceId: mpId, verified: true, verifiedAt: new Date().toISOString(), feedId: 'MP_WXS_123' } as any]; await f.save();
     const result = await collectSocial(await loadProfiles(f.profiles), await fixtureTransport(f.root, { port: (server.address() as any).port }));
     assert.equal(result[0].status, 'ok'); assert.equal(result[0].candidates[0].url, 'https://mp.weixin.qq.com/s/publicArticle_1');
-    assert.deepEqual(requests, [{ method: 'POST', url: '/api/v1/wx/auth/login', auth: undefined, body: '{"username":"fixture-user","password":"test-password-secret"}' }, { method: 'GET', url: '/api/v1/wx/mps/update/MP_WXS_123?start_page=0&end_page=1', auth: 'Bearer test-access-secret', body: '' }, { method: 'GET', url: '/rss/MP_WXS_123', auth: 'Bearer test-access-secret', body: '' }]);
+    assert.deepEqual(requests, [{ method: 'POST', url: '/api/v1/wx/auth/login', auth: undefined, contentType: 'application/x-www-form-urlencoded', body: 'username=fixture-user&password=test-password-secret' }, { method: 'GET', url: '/api/v1/wx/mps/update/MP_WXS_123?start_page=0&end_page=1', auth: 'Bearer test-access-secret', contentType: undefined, body: '' }, { method: 'GET', url: '/rss/MP_WXS_123', auth: 'Bearer test-access-secret', contentType: undefined, body: '' }]);
     assert.ok(!JSON.stringify(result).includes('test-access-secret'));
   } finally { server.closeAllConnections(); await new Promise<void>(r => server.close(() => r())); await f.clean(); }
 });
@@ -207,14 +215,19 @@ test('PowerShell preparation creates empty external credentials, unverified cata
     const rejected=spawnSync('powershell.exe',['-NoProfile','-NonInteractive','-ExecutionPolicy','RemoteSigned','-File',prep,'-PrivateRoot',path.resolve('.data/unsafe-social-prep')],{encoding:'utf8'}); assert.equal(rejected.status,1);
   } finally { await f.clean(); }
 });
-test('PowerShell wrapper preserves native stderr and exit, with adapter flags false', {skip:process.platform!=='win32'}, async () => {
+test('PowerShell wrapper preserves native exit and logs only safe stream metadata', {skip:process.platform!=='win32'}, async () => {
   const f=await fixture();
   try {
     const scripts=path.join(f.root,'scripts'); await mkdir(scripts);
     await copyFile('scripts/run-social-task.ps1',path.join(scripts,'run-social-task.ps1'));
-    await writeFile(path.join(scripts,'free-social.ts'),`if(['MODEL_CALLS_ENABLED','COLLECT_ENABLED','FEISHU_CONTENT_PUSH_ENABLED','INDEXNOW_SUBMIT_ENABLED'].some(k=>process.env[k]!=='false'))process.exit(8); console.log('safe-native-output');console.error('safe-native-stderr');process.exit(3);`);
+    await writeFile(path.join(scripts,'free-social.ts'),`if(['MODEL_CALLS_ENABLED','COLLECT_ENABLED','FEISHU_CONTENT_PUSH_ENABLED','INDEXNOW_SUBMIT_ENABLED'].some(k=>process.env[k]!=='false'))process.exit(8); console.log('fixture-secret-stdout');console.error('fixture-secret-stderr');process.exit(3);`);
     const result=spawnSync('powershell.exe',['-NoProfile','-NonInteractive','-ExecutionPolicy','RemoteSigned','-File',path.join(scripts,'run-social-task.ps1')],{encoding:'utf8'});
-    assert.equal(result.status,3,result.stderr); const log=await readFile(path.join(f.root,'.data/logs/social-collection.log'),'utf8'); assert.ok(log.includes('safe-native-output')); assert.ok(log.includes('safe-native-stderr'));
+    assert.equal(result.status,3,result.stderr); const log=await readFile(path.join(f.root,'.data/logs/social-collection.log'),'utf8');
+    assert.ok(!log.includes('fixture-secret-stdout')); assert.ok(!log.includes('fixture-secret-stderr'));
+    const metadata=JSON.parse(log.replace(/^\uFEFF/,''));
+    assert.deepEqual(Object.keys(metadata).sort(),['exitCode','status','stderrBytes','stdoutBytes']);
+    assert.equal(metadata.status,'failed'); assert.equal(metadata.exitCode,3);
+    assert.ok(metadata.stdoutBytes>0); assert.ok(metadata.stderrBytes>0);
   } finally { await f.clean(); }
 });
 test('installer rejects no verified source before accessing Task Scheduler', {skip:process.platform!=='win32'}, async () => {
@@ -265,6 +278,16 @@ test('real test DB register preserves disabled/tight policy and manual rows; app
     await policy(tight);
     await sql`INSERT INTO sources(id,name,kind,config,tier,participation_mode,enabled,next_fetch_at) VALUES(${xId},'Manual source','external',${sql.json({manual:true})},'T2','editorial',true,'2100-01-01')`;
     r=await sample(); await operateSocial(p,r,'register'); assert.equal(r[0].operation,'operation-rejected'); const [manual]=await sql`SELECT name,config FROM sources WHERE id=${xId}`; assert.equal(manual.name,'Manual source'); assert.deepEqual(manual.config,{manual:true});
+    await sql`DELETE FROM sources WHERE id=${xId}`;
+    await sql`INSERT INTO sources(id,name,kind,config,tier,participation_mode,enabled,site_fulltext,syndicate_fulltext,next_fetch_at) VALUES(${xId},'Qiusheng Wu · giswqs','external',${sql.json({})},'T1_5','editorial',true,false,false,'2100-01-01')`;
+    for (const flags of [{ site: true, syndicate: false }, { site: false, syndicate: true }]) {
+      await sql`UPDATE sources SET site_fulltext=${flags.site},syndicate_fulltext=${flags.syndicate} WHERE id=${xId}`;
+      r=await sample(); await operateSocial(p,r,'register'); assert.equal(r[0].operation,'operation-rejected');
+      const [preserved]=await sql`SELECT name,site_fulltext,syndicate_fulltext FROM sources WHERE id=${xId}`;
+      assert.deepEqual(preserved,{name:'Qiusheng Wu · giswqs',site_fulltext:flags.site,syndicate_fulltext:flags.syndicate});
+      const [unchanged]=await sql`SELECT value FROM settings WHERE key='collection.policy'`;
+      assert.deepEqual(unchanged.value,tight);
+    }
     await sql`DELETE FROM sources WHERE id=${xId}`;
     r=await sample(); await operateSocial(p,r,'register'); assert.equal(r[0].operation,'registered');
     const [registered]=await sql`SELECT kind,config,tier,participation_mode,enabled,site_fulltext,syndicate_fulltext FROM sources WHERE id=${xId}`;
