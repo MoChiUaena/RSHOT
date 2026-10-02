@@ -261,3 +261,16 @@ test('verified institutional aliases preserve exact publisher matching',()=>{
   assert.equal(normalizeWechatFeed(feed(item(),'测绘遥感全国重点实验室'),lab,now).length,1);
   assert.equal(normalizeWechatFeed(feed(item(),'武大空间智能研究所'),lab,now).length,0);
 });
+
+test('WeChat cover references preserve empty bodies for independent original verification',async()=>{
+  const {wechatFeedReferences}=await import('../packages/backend/src/sources/free-social.ts');
+  const cover=feed(item('https://mp.weixin.qq.com/s/publicArticle_1','',new Date(now.getTime()-72*3600000).toUTCString()));
+  assert.deepEqual(wechatFeedReferences(cover,mp),[{url:'https://mp.weixin.qq.com/s/publicArticle_1',title:'GeoAI 方法更新'}]);
+  assert.deepEqual(wechatFeedReferences(cover.replace('GIS前沿','wrong publisher'),mp),[]);
+  assert.deepEqual(wechatFeedReferences(feed(item().replace('</item>','<dc:creator>wrong publisher</dc:creator></item>')),mp),[]);
+  for(const link of ['https://evil.example/s/a','https://mp.weixin.qq.com/s/a?token=secret','https://weread.qq.com/reviewdetail/a','https://mp.weixin.qq.com/s/'+ 'a'.repeat(129)])assert.deepEqual(wechatFeedReferences(feed(item(link,'')),mp),[]);
+  assert.throws(()=>wechatFeedReferences('<rss',mp));
+  assert.throws(()=>wechatFeedReferences('<!DOCTYPE rss [<!ENTITY secret SYSTEM "file:///private">]>'+cover,mp));
+  assert.throws(()=>wechatFeedReferences(feed(item().repeat(101)),mp));
+  assert.throws(()=>wechatFeedReferences(cover+'x'.repeat(2097153),mp));
+});

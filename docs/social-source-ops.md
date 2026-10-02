@@ -27,7 +27,7 @@ twitter-cli 0.8.5 的实际 JSON 是 `{ok:true,schema_version:"1",data:[...]}`�
 
 WeRSS 服务固定为 `http://127.0.0.1:8041`。读取器向 `/api/v1/wx/auth/login` POST `application/x-www-form-urlencoded` 的 `username`/`password` 表单，只在内存中使用 `data.access_token`（兼容顶层 `access_token`）；token 只放在 Authorization 请求头。`feedId` 必须匹配 `MP_WXS_` 加数字，禁止 URL、任意路径和查询。先 GET `/api/v1/wx/mps/<feedId>` 验证账号名称、ID 和数字 `sync_time`，再触发 `/api/v1/wx/mps/update/<feedId>?start_page=0&end_page=1`。`code:0` 只表示后台任务启动：在总计 60 秒内每秒核对同步标记，必须比基线增大且不早于本次触发，才读取 `/rss/<feedId>?is_update=true`，避免缓存竞态。`code:40402` 仅在已证实最近 60 秒有成功标记且仍有合格近期条目时继续。超时或异常清空本次结果，不能拿缓存当作刷新完成。
 
-当前微信读书 cover 模式把采集时刻写成 RSS 日期，不能直接证明 48 小时资格。RSS 通过统一身份与正文校验后，每个来源至多核验 3 条：向固定 `/api/v1/wx/mps/by_article?url=<已验证的微信原文>` POST，无请求正文，header token；核对原文 `mp_id`、批准名称/别名、标题、秒级发布日期、无抓取错误及完整正文。核验通过后使用原文日期和原文正文，标记 `dateProvenance:wechat-original`；旧于 48 小时的原文为空，其他核验失败拒收。原文解析器缺日期时也可能返回当前时间，因此落在本次原文请求开始前 60 秒以来的日期一律拒绝；真实刚发布内容在后续运行重新核验。每条 45 秒、原文证明总计 120 秒；所有请求拒绝重定向，流式限制 2 MiB，不记录原始错误。
+当前微信读书 cover 模式把采集时刻写成 RSS 日期，不能直接证明 48 小时资格。RSS 仅提供经校验的频道身份、标题和微信原文入口；空正文和采集日期不承担内容或时效证明。每个来源至多核验 3 条：向固定 `/api/v1/wx/mps/by_article?url=<已验证的微信原文>` POST，无请求正文，header token；核对原文 `mp_id`、批准名称/别名、标题、秒级发布日期、无抓取错误及完整正文。核验通过后使用原文日期和原文正文，标记 `dateProvenance:wechat-original`；旧于 48 小时的原文为空，其他核验失败拒收。原文解析器缺日期时也可能返回当前时间，因此落在本次原文请求开始前 60 秒以来的日期一律拒绝；真实刚发布内容在后续运行重新核验。每条 45 秒、原文证明总计 120 秒；所有请求拒绝重定向，流式限制 2 MiB，不记录原始错误。
 
 保留 WeRSS 默认高频 JOB 关闭、每天两次计划任务及原有 admission/模型额度。当前通道只能保证可读 cover，不保证公众号所有当天文章；文章列表需有效微信读书授权再实测。只调用已批准公众号公开文章与身份接口，不读书架、阅读进度、划线或笔记，不自动订阅。各候选核验结果见 [社交信源核验](social-source-verification.md)。
 
@@ -40,3 +40,5 @@ WeRSS 服务固定为 `http://127.0.0.1:8041`。读取器向 `/api/v1/wx/auth/lo
 安装计划任务前先 `--check` 验证实际读取，再运行 `powershell.exe -NoProfile -ExecutionPolicy RemoteSigned -File scripts/install-social-task.ps1` 预览，添加 `-Apply` 安装。依赖、凭据和至少一个已核验来源缺一都会拒绝安装。任务名 `RSHOT-Collect-Social`，每天本机时间 06:30、18:30，当前用户登录时 Interactive/Limited/Hidden 执行 Windows PowerShell 5.1 wrapper。重复安装匹配原配置时不修改；同名任务 owner/action/时间或设置不匹配时拒绝覆盖。参数仅含脚本与可选 profile 路径。wrapper 并发排空 stdout/stderr、保留 Node 退出码；日志只保存固定状态、退出码及两条流的字节数，不保存原始输出或错误正文。
 
 边界测试：`node --test tests/free-social-reader.test.ts`，默认不使用数据库或外部服务。可选登记/入库测试必须显式 `FREE_SOCIAL_READER_DB_TEST=true`，且仅接受一次性本机 `rshot_social_test`；测试只用临时凭据、真实受控子进程、本机 HTTP fake server。fixture transport 仅在测试环境且临时目录内生效，生产 endpoint 不接受配置。
+
+本机 WeRSS 的扫码凭据验证已改为只访问已批准“遥感学报”的公开文章列表，不调用默认的 `/web/shelf/sync`。该限制仅在当前本机服务中应用；重新创建或更新上游容器后，应重新核对扫码 verifier，不能使用书架/笔记接口验证 RSHOT 的公众号授权。登录与文章列表授权是独立的实测门槛；扫码成功不能代替指定公众号列表读取成功。

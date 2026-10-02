@@ -133,8 +133,7 @@ export function normalizeXPosts(input: unknown, source: FreeSocialSource, now = 
   return out;
 }
 
-export function normalizeWechatFeed(xml: string, source: FreeSocialSource, now = new Date()): Candidate[] {
-  const verified = approved(source, "wechat");
+function wechatItems(xml: string, verified: FreeSocialSource): unknown[] {
   if (typeof xml !== "string") throw new Error("invalid social feed");
   if (Buffer.byteLength(xml, "utf8") > MAX_INPUT_BYTES) throw new Error("social input limit");
   if (/<!DOCTYPE|<!ENTITY/i.test(xml) || XMLValidator.validate(xml) !== true) throw new Error("invalid social feed");
@@ -146,6 +145,26 @@ export function normalizeWechatFeed(xml: string, source: FreeSocialSource, now =
   if (![verified.name, ...verified.aliases].includes(xmlText(channel.title).trim())) return [];
   const items = array(channel.item);
   if (items.length > MAX_ITEMS) throw new Error("social input limit");
+  return items;
+}
+
+// References carry no content or publication proof; callers must fetch and validate the original.
+export function wechatFeedReferences(xml: string, source: FreeSocialSource): Array<Pick<Candidate, "url" | "title">> {
+  const verified=approved(source,"wechat"),seen=new Set<string>(),out:Array<Pick<Candidate,"url" | "title">>=[];
+  for(const value of wechatItems(xml,verified)) {
+    const p=record(value); if(!p)continue;
+    const url=wechatUrl(xmlText(p.link)),title=collapseWhitespace(stripTags(xmlText(p.title)));
+    const creator=xmlText(p["dc:creator"]) || xmlText(p.author);
+    if(!url || !/^https:\/\/mp\.weixin\.qq\.com\/s\/[A-Za-z0-9_-]{1,128}$/.test(url) || !title || title.length>1000 || !safeText(title) || seen.has(url) ||
+      creator && ![verified.name,...verified.aliases].includes(creator.trim()))continue;
+    seen.add(url);out.push({url,title});
+  }
+  return out;
+}
+
+export function normalizeWechatFeed(xml: string, source: FreeSocialSource, now = new Date()): Candidate[] {
+  const verified = approved(source, "wechat");
+  const items=wechatItems(xml,verified);
   const seen = new Set<string>(), out: Candidate[] = [];
   for (const value of items) {
     const p = record(value);

@@ -5,7 +5,7 @@ function object(value: unknown): value is Record<string, unknown> { return value
 function escape(value: string): string { return value.replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;'); }
 
 // WeRead cover RSS dates are collection times. Only an independently fetched original proves publication.
-export function normalizeWechatOriginal(candidate: Candidate, payload: unknown, feedId: string, source: FreeSocialSource, now = new Date(), requestStartedAt = now): Candidate | null {
+export function normalizeWechatOriginal(candidate: Pick<Candidate, "url" | "title">, payload: unknown, feedId: string, source: FreeSocialSource, now = new Date(), requestStartedAt = now): Candidate | null {
   try {
     if (source.platform !== 'wechat' || !/^MP_WXS_[0-9]+$/.test(feedId) ||
       !/^https:\/\/mp\.weixin\.qq\.com\/s\/[A-Za-z0-9_-]+$/.test(candidate.url) || !object(payload) || payload.code !== 0 || !object(payload.data)) throw new Error();
