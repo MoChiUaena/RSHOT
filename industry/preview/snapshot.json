@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-02T01:59:45.270Z",
+  "generatedAt": "2026-10-02T10:28:14.050Z",
   "categories": [
     {
       "key": "paper",
@@ -33,6 +33,10 @@
       "kind": "rss"
     },
     {
+      "name": "Copernicus",
+      "kind": "external"
+    },
+    {
       "name": "Copernicus Data Space · 数据与平台动态",
       "kind": "rss"
     },
@@ -45,8 +49,20 @@
       "kind": "rss"
     },
     {
+      "name": "Qiusheng Wu · giswqs",
+      "kind": "external"
+    },
+    {
       "name": "Earth System Science Data · 数据论文与讨论稿",
       "kind": "web_list"
+    },
+    {
+      "name": "Copernicus EMS",
+      "kind": "external"
+    },
+    {
+      "name": "USGS Landsat",
+      "kind": "external"
     },
     {
       "name": "ESA · 对地观测",
@@ -57,8 +73,16 @@
       "kind": "rss"
     },
     {
+      "name": "GIS前沿",
+      "kind": "external"
+    },
+    {
       "name": "Google Earth 与 Earth Engine · 官方博客",
       "kind": "rss"
+    },
+    {
+      "name": "遥感学报",
+      "kind": "external"
     },
     {
       "name": "Rasterio · 稳定版本发布",
@@ -86,6 +110,78 @@
     }
   ],
   "items": [
+    {
+      "id": "vr9o2ltcomst76qdrb1lky3pt",
+      "title": "USGS 提供基于 Landsat 的全球农田蒸散发 (ET) 按需数据服务",
+      "originalTitle": "How much water is an agricultural field using? Find out with Landsat. 🌾💧 Water evaporates from soil and open water, and plants release water through their leaves, called transpiration. Together, this process is called evapotranspiration,",
+      "summary": "USGS EROS 提供全球、临时的 Landsat 蒸散发 (ET) 数据按需访问服务，可估算自 1982 年至今（Landsat 4 至 9）的作物与景观用水。该免费数据以即用格式提供，便于集成到 GIS 和分析工作流中，且近期出版物显示其在不同地区和气候下表现一致。自 2020 年 6 月至 2026 年 8 月，用户已通过 ESPA 请求超过 160 万景 Landsat ET 图像。",
+      "reason": "该推文介绍了 USGS EROS 提供的全球 Landsat ET（蒸散发）按需数据服务，支持从 1982 年至今的 Landsat 4-9 影像，并提及了近期评估其跨景观和气候一致性的出版物。",
+      "source": {
+        "name": "USGS Landsat",
+        "kind": "external",
+        "firstParty": false
+      },
+      "originalUrl": "https://x.com/USGSLandsat/status/2105674247011963219",
+      "publishedAt": "2026-10-01T15:00:36.000Z",
+      "timelineAt": "2026-10-02T10:08:19.893Z",
+      "category": "data",
+      "tags": [
+        "工具更新",
+        "定量反演",
+        "农业",
+        "USGS"
+      ],
+      "score": 78,
+      "selected": true
+    },
+    {
+      "id": "yr74orfri7d1sqob9wb9mmchl",
+      "title": "意大利 IRIDE 计划完成 Eaglet II 星座部署",
+      "originalTitle": "Italy’s IRIDE completes Eaglet II constellation",
+      "summary": "意大利 IRIDE 地球观测计划的最后一批 Eaglet II 卫星已成功入轨，使该星座的 24 颗卫星全部就位。此次发射于 10 月 1 日通过 SpaceX Transporter-18 拼车任务进行，搭载 Falcon 9 火箭从加州范登堡太空军基地升空。",
+      "reason": "该事件标志着意大利 IRIDE 计划 Eaglet II 星座的部署完成，为后续多光谱与 AIS 数据的常态化业务化运行提供了硬件基础。",
+      "source": {
+        "name": "ESA · 对地观测",
+        "kind": "rss",
+        "firstParty": true
+      },
+      "originalUrl": "https://www.esa.int/Applications/Observing_the_Earth/IRIDE/Italy_s_IRIDE_completes_Eaglet_II_constellation",
+      "publishedAt": "2026-10-02T07:00:00.000Z",
+      "timelineAt": "2026-10-02T09:50:37.157Z",
+      "category": "satellite",
+      "tags": [
+        "行业动态",
+        "光学遥感",
+        "ESA"
+      ],
+      "score": 62,
+      "selected": true
+    },
+    {
+      "id": "yw50qm49g1uucayaomm9lcklr",
+      "title": "Copernicus Sentinel-1 雷达影像揭示台风 Surigae 海面状况",
+      "originalTitle": "Earth from Space: Typhoon Surigae",
+      "summary": "Copernicus Sentinel-1 于 2026 年 9 月 28 日获取假彩色极化雷达影像，穿透云层展示台风 Surigae 下方的海面状况。图像中橙黄色环带对应强风与粗糙海面，风暴眼处海水相对平静呈深蓝色。当时台风最大阵风达 240 km/h，海浪高达 7 m，随后减弱为热带低压。",
+      "reason": null,
+      "source": {
+        "name": "ESA · 对地观测",
+        "kind": "rss",
+        "firstParty": true
+      },
+      "originalUrl": "https://www.esa.int/ESA_Multimedia/Images/2026/10/Earth_from_Space_Typhoon_Surigae",
+      "publishedAt": "2026-10-02T09:00:00.000Z",
+      "timelineAt": "2026-10-02T09:50:37.111Z",
+      "category": "tip",
+      "tags": [
+        "应用案例",
+        "SAR",
+        "灾害监测",
+        "ESA",
+        "Copernicus"
+      ],
+      "score": 18,
+      "selected": false
+    },
     {
       "id": "w9gc9h4ly96z69g18pchbvd6q",
       "title": "西非大坝与水库协调数据集发布",
@@ -3159,6 +3255,7 @@
       "group": "company",
       "definition": "ESA 的遥感研究、观测数据与工程动态。",
       "itemIds": [
+        "yr74orfri7d1sqob9wb9mmchl",
         "byrnkcxoy2da7fakzivdi7lyr",
         "y4pplxibxj8g81eqekmdpbyzk",
         "wezhx5xk6gsimqeo7irthqp2j",
@@ -3264,6 +3361,7 @@
       "group": "field",
       "definition": "追踪光学遥感的研究方法、数据、工具与应用实践。",
       "itemIds": [
+        "yr74orfri7d1sqob9wb9mmchl",
         "a564xeo15mysgpi7xkexa0iqx",
         "ggc32079347hcrldc4wrbskbe",
         "w50vtz3cw1i1m9f0hsudcmep0",
@@ -3326,6 +3424,7 @@
       "group": "field",
       "definition": "追踪定量反演的研究方法、数据、工具与应用实践。",
       "itemIds": [
+        "vr9o2ltcomst76qdrb1lky3pt",
         "v8c8na0khi2zxw524d8wanamk",
         "e4ntmsaa0nfelvtofn1eu4o18",
         "kau7osm79n5i3d7rh227gzu6x",
@@ -3396,6 +3495,7 @@
       "group": "field",
       "definition": "追踪农业的研究方法、数据、工具与应用实践。",
       "itemIds": [
+        "vr9o2ltcomst76qdrb1lky3pt",
         "uq9cdnxc82eqy8sp8k787i0oq",
         "v8c8na0khi2zxw524d8wanamk",
         "nbf1cg9xw4ajprnmzm0rrw2zm",
@@ -3529,7 +3629,7 @@
     }
   ],
   "hot": {
-    "computedAt": "2026-10-01T18:00:21.399Z",
+    "computedAt": "2026-10-02T10:25:39.689Z",
     "windowHours": 48,
     "entries": []
   }
