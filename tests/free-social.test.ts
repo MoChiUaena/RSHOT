@@ -96,6 +96,35 @@ test("WeChat RSS matches verified name/known alias and keeps complete public art
   assert.equal(normalizeWechatFeed(feed(item("https://weread.qq.com/reviewdetail/123abc")), mp, now).length, 1);
 });
 
+test("WeChat retains complete text when verbose layout HTML exceeds 100,000 characters", () => {
+  const body = method.repeat(3);
+  const layout = `<span data-layout="${"x".repeat(120)}"></span>`.repeat(850);
+  const [candidate] = normalizeWechatFeed(feed(item(undefined, `${layout}${body}`)), mp, now);
+  assert.equal(candidate?.bodyText, body.trim());
+  assert.equal(candidate?.bodyStatus, "ok");
+});
+
+test("WeChat accepts sanitized HTML above 100,000 characters with short complete text", async () => {
+  const body = method.repeat(3);
+  const layout = "<span></span>".repeat(8500);
+  const [candidate] = normalizeWechatFeed(feed(item(undefined, `<p>${layout}${body}</p>`)), mp, now);
+  assert.ok(candidate!.bodyHtml!.length > 100000);
+  assert.equal(candidate!.bodyText, body.trim());
+  if (!databaseEnabled) {
+    await assert.rejects(ingestFreeSocial(mp.id, [{ ...candidate!, publishedAt: new Date() }]), /^Error: social database unavailable$/);
+  }
+});
+
+test("WeChat rejects sanitized HTML expanded beyond 2 MiB", () => {
+  const html = '<a href="/x">a</a>'.repeat(52000);
+  assert.deepEqual(normalizeWechatFeed(feed(item(undefined, html)), mp, now), []);
+});
+
+test("WeChat counts UTF-8 bytes when sanitized HTML expands past 2 MiB", () => {
+  const html = '<a href="/x">中</a>'.repeat(49000);
+  assert.equal(normalizeWechatFeed(feed(item(undefined, html)), mp, now).length, 0);
+});
+
 test("WeChat rejects books, notebooks, other domains, auth links and untraceable or incomplete entries", () => {
   for (const url of ["https://weread.qq.com/", "https://weread.qq.com/web/bookDetail/123", "https://weread.qq.com/notebook/123", "https://weread.qq.com/bookshelf", "https://weread.qq.com/reviewdetail/123?token=private", "https://mp.weixin.qq.com/s/abc?ticket=private", "https://mp.weixin.qq.com/s/abc?auth=private", "https://mp.weixin.qq.com/s?__biz=123&mid=1", "http://mp.weixin.qq.com/s/abc", "https://mp.weixin.qq.com.evil.org/s/abc", "https://user:secret@mp.weixin.qq.com/s/abc", "https://example.org/s/abc"])
     assert.deepEqual(normalizeWechatFeed(feed(item(url)), mp, now), [], url);

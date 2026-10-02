@@ -17,6 +17,7 @@ export interface FreeSocialSource {
 const MAX_INPUT_BYTES = 2 * 1024 * 1024;
 const MAX_ITEMS = 100;
 const MAX_BODY = 100000;
+const MAX_HTML = MAX_INPUT_BYTES;
 const MAX_AGE = 48 * 3600000;
 const FUTURE_TOLERANCE = 3600000;
 const SECRET_PARAM = /(?:token|auth|ticket|cookie|session|password|passwd|secret|credential|signature|api[_-]?key|^key$|^ct0$|^code$)/i;
@@ -153,11 +154,11 @@ export function normalizeWechatFeed(xml: string, source: FreeSocialSource, now =
     const title = collapseWhitespace(stripTags(xmlText(p.title)));
     const publishedAt = date(xmlText(p.pubDate) || xmlText(p["dc:date"]), now);
     const original = xmlText(p["content:encoded"]) || xmlText(p.description);
-    if (!url || !title || title.length > 1000 || !safeText(title) || !publishedAt || seen.has(url) || original.length > MAX_BODY || !safeText(original)) continue;
+    if (!url || !title || title.length > 1000 || !safeText(title) || !publishedAt || seen.has(url) || Buffer.byteLength(original, "utf8") > MAX_HTML || !safeText(original)) continue;
     const creator = xmlText(p["dc:creator"]) || xmlText(p.author);
     if (creator && ![verified.name, ...verified.aliases].includes(creator.trim())) continue;
     const bodyHtml = sanitizeBody(original, url), bodyText = stripTags(bodyHtml);
-    if (!useful(bodyText, 100) || !safeText(bodyHtml)) continue;
+    if (!useful(bodyText, 100) || Buffer.byteLength(bodyHtml, "utf8") > MAX_HTML || !safeText(bodyHtml)) continue;
     seen.add(url);
     out.push({ url, title, author: verified.name, language: "zh", publishedAt, bodyHtml, bodyText, bodyStatus: "ok",
       excerpt: bodyText.slice(0, 2000), raw: { platform: "wechat", ownerEntityId: verified.ownerEntityId } });
@@ -181,13 +182,13 @@ export async function ingestFreeSocial(sourceId: string, candidates: Candidate[]
     if (!r || !url || !publishedAt || typeof c.title !== "string" || !c.title.trim() || c.title.length > 1000 ||
         typeof c.bodyText !== "string" || !useful(c.bodyText, source.platform === "x" ? 40 : 100) || c.bodyStatus !== "ok" ||
         [c.title,c.bodyText,c.bodyHtml ?? "",c.excerpt ?? "",c.author ?? ""].some(v => typeof v !== "string" || !safeText(v)) ||
-        (c.bodyHtml?.length ?? 0) > MAX_BODY || (c.excerpt?.length ?? 0) > 2000 || (c.author?.length ?? 0) > 200 ||
+        Buffer.byteLength(c.bodyHtml ?? "", "utf8") > MAX_HTML || (c.excerpt?.length ?? 0) > 2000 || (c.author?.length ?? 0) > 200 ||
         (c.language != null && (typeof c.language !== "string" || !LANGUAGE.test(c.language))) ||
         ["identityKey","id","backfill","sourceUpdatedAt","discoveredAt"].some(k => r[k] !== undefined)) throw new Error("invalid social candidate");
     if (source.platform === "wechat" && ![source.name,...source.aliases].includes(c.author ?? "")) throw new Error("invalid social candidate");
     if (c.xPost && (source.platform !== "x" || c.xPost.handle !== source.handle || xUrl(c.xPost.tweetId, source) !== url || c.xPost.quoted)) throw new Error("invalid social candidate");
     const bodyHtml = c.bodyHtml ? sanitizeBody(c.bodyHtml, url) : undefined;
-    if (bodyHtml && (bodyHtml.length > MAX_BODY || !safeText(bodyHtml) || stripTags(bodyHtml) !== collapseWhitespace(c.bodyText))) throw new Error("invalid social candidate");
+    if (bodyHtml && (Buffer.byteLength(bodyHtml, "utf8") > MAX_HTML || !safeText(bodyHtml) || stripTags(bodyHtml) !== collapseWhitespace(c.bodyText))) throw new Error("invalid social candidate");
     safe.push({ url, title: c.title, author: source.platform === "wechat" ? source.name : c.author, language: c.language,
       publishedAt, bodyText: c.bodyText, bodyHtml, bodyStatus: "ok", excerpt: c.excerpt,
       ...(source.platform === "x" ? { xPost: { tweetId: url.split("/").at(-1)!, handle: source.handle!, authorName: c.author ?? source.name, text: c.bodyText, lang: c.language ?? null } } : {}),

@@ -77,7 +77,7 @@ test('child failures, stdout cap and timeout are bounded and discard stderr secr
 test('X unwraps twitter-cli v1 success and rejects failure or unknown wrappers', async () => {
   const f=await fixture();
   try {
-    for(const [input,want] of [ [{ok:true,schema_version:1,data:[post]},'ok'], [{ok:false,error:{message:'fixture-auth-secret'}},'read-failed'], [{ok:true,schema_version:2,data:[post]},'read-failed'], [{ok:true,schema_version:1,data:{post}},'read-failed'], [{ok:true,schema_version:1,data:[post],error:{message:'private failure'}},'read-failed'] ] as const) {
+    for(const [input,want] of [ [{ok:true,schema_version:'1',data:[post]},'ok'], [{ok:true,schema_version:1,data:[post]},'ok'], [{ok:false,error:{message:'fixture-auth-secret'}},'read-failed'], [{ok:true,schema_version:2,data:[post]},'read-failed'], [{ok:true,schema_version:'2',data:[post]},'read-failed'], [{ok:true,schema_version:1,data:{post}},'read-failed'], [{ok:true,schema_version:1,data:[post],error:{message:'private failure'}},'read-failed'] ] as const) {
       await writeFile(f.script,`process.stdout.write(${JSON.stringify(JSON.stringify(input))})`);
       const result=await collectSocial(await loadProfiles(f.profiles),await fixtureTransport(f.root,{childScript:f.script})); assert.equal(result[0].status,want);assert.ok(!JSON.stringify(result).includes('fixture-auth-secret'));
     }
@@ -99,6 +99,7 @@ test('WeRSS authenticates in body and uses only header token with canonical feed
     let raw = ''; for await (const c of req) raw += c;
     requests.push({ method: req.method, url: req.url, auth: req.headers.authorization, body: raw });
     if (req.url === '/api/v1/wx/auth/login') res.end(JSON.stringify({ data: { access_token: 'test-access-secret' } }));
+    else if (req.url === '/api/v1/wx/mps/update/MP_WXS_123?start_page=0&end_page=1') res.end(JSON.stringify({ code: 0 }));
     else res.end(xml);
   });
   await new Promise<void>(r => server.listen(0, '127.0.0.1', r));
@@ -106,21 +107,56 @@ test('WeRSS authenticates in body and uses only header token with canonical feed
     f.data.sources = [{ sourceId: mpId, verified: true, verifiedAt: new Date().toISOString(), feedId: 'MP_WXS_123' } as any]; await f.save();
     const result = await collectSocial(await loadProfiles(f.profiles), await fixtureTransport(f.root, { port: (server.address() as any).port }));
     assert.equal(result[0].status, 'ok'); assert.equal(result[0].candidates[0].url, 'https://mp.weixin.qq.com/s/publicArticle_1');
-    assert.deepEqual(requests, [{ method: 'POST', url: '/api/v1/wx/auth/login', auth: undefined, body: '{"username":"fixture-user","password":"test-password-secret"}' }, { method: 'GET', url: '/rss/MP_WXS_123', auth: 'Bearer test-access-secret', body: '' }]);
+    assert.deepEqual(requests, [{ method: 'POST', url: '/api/v1/wx/auth/login', auth: undefined, body: '{"username":"fixture-user","password":"test-password-secret"}' }, { method: 'GET', url: '/api/v1/wx/mps/update/MP_WXS_123?start_page=0&end_page=1', auth: 'Bearer test-access-secret', body: '' }, { method: 'GET', url: '/rss/MP_WXS_123', auth: 'Bearer test-access-secret', body: '' }]);
     assert.ok(!JSON.stringify(result).includes('test-access-secret'));
   } finally { server.closeAllConnections(); await new Promise<void>(r => server.close(() => r())); await f.clean(); }
 });
 test('WeRSS rejects redirects, over-limit response and bad identity; failed source is isolated', async () => {
   const f = await fixture(); let mode = 'redirect', hits = 0;
-  const server = createServer((req, res) => { hits++; if(req.url?.endsWith('login')) { res.end('{"access_token":"test-access-secret"}'); return; } if(mode === 'redirect') { res.writeHead(302, { location: '/secret' }); res.end(); } else if(mode==='cap') res.end('x'.repeat(2097153)); else res.end('<rss><channel><title>wrong account</title></channel></rss>'); });
+  const server = createServer((req, res) => { hits++; if(req.url?.endsWith('login')) { res.end('{"access_token":"test-access-secret"}'); return; } if(req.url?.includes('/mps/update/')) { res.end('{"code":0}'); return; } if(mode === 'redirect') { res.writeHead(302, { location: '/secret' }); res.end(); } else if(mode==='cap') res.end('x'.repeat(2097153)); else res.end('<rss><channel><title>wrong account</title></channel></rss>'); });
   await new Promise<void>(r=>server.listen(0,'127.0.0.1',r));
   try {
     f.data.sources = [{ sourceId: mpId, verified: true, verifiedAt: new Date().toISOString(), feedId: 'MP_WXS_123' } as any, { sourceId: xId, verified: true, verifiedAt: new Date().toISOString() }]; await f.save();
     await writeFile(f.script, `process.stdout.write(${JSON.stringify(JSON.stringify([post]))})`);
     for (mode of ['redirect','cap','identity']) { const r=await collectSocial(await loadProfiles(f.profiles),await fixtureTransport(f.root,{childScript:f.script,port:(server.address() as any).port})); assert.equal(r[0].status,mode==='identity'?'empty':'read-failed'); assert.equal(r[1].status,'ok'); }
-    assert.equal(hits, 6);
+    assert.equal(hits, 9);
     (f.data.sources[0] as any).feedId = 'MP_WXS_123?token=secret'; await f.save(); assert.equal((await loadProfiles(f.profiles)).status,'invalid-profile');
   } finally { server.closeAllConnections(); await new Promise<void>(r=>server.close(()=>r())); await f.clean(); }
+});
+
+test('WeRSS refresh failure never accepts cached RSS; recent update requires a valid existing feed', async () => {
+  const f = await fixture(); let mode = 'server-error'; const requests: string[] = [];
+  const xml = `<rss><channel><title>GIS前沿</title><item><title>GeoAI 方法</title><link>https://mp.weixin.qq.com/s/publicArticle_1</link><pubDate>${new Date().toUTCString()}</pubDate><description>${body.repeat(3)}</description></item></channel></rss>`;
+  const server = createServer((req, res) => {
+    requests.push(req.url!);
+    if (req.url === '/api/v1/wx/auth/login') { res.end('{"access_token":"test-access-secret"}'); return; }
+    if (req.url?.includes('/mps/update/')) {
+      if (mode === 'redirect') { res.writeHead(302, { location: '/secret' }); res.end(); }
+      else if (mode === 'cap') res.end('x'.repeat(2097153));
+      else res.end(JSON.stringify({ code: mode === 'recent' || mode === 'recent-empty' ? 40402 : mode === 'not-found' ? 40401 : 50002, message: 'fixture-private-error' }));
+      return;
+    }
+    res.end(mode === 'recent-empty' ? '<rss><channel><title>GIS前沿</title></channel></rss>' : xml);
+  });
+  await new Promise<void>(r => server.listen(0, '127.0.0.1', r));
+  try {
+    f.data.sources = [{ sourceId: mpId, verified: true, verifiedAt: new Date().toISOString(), feedId: 'MP_WXS_123' } as any]; await f.save();
+    const transport = await fixtureTransport(f.root, { port: (server.address() as any).port });
+    for (mode of ['server-error', 'not-found', 'redirect', 'cap']) {
+      requests.length = 0;
+      const result = await collectSocial(await loadProfiles(f.profiles), transport);
+      assert.equal(result[0].status, 'read-failed', mode);
+      assert.deepEqual(result[0].candidates, []);
+      assert.deepEqual(requests, ['/api/v1/wx/auth/login', '/api/v1/wx/mps/update/MP_WXS_123?start_page=0&end_page=1']);
+      assert.ok(!JSON.stringify(result).includes('fixture-private-error'));
+    }
+    for (mode of ['recent', 'recent-empty']) {
+      requests.length = 0;
+      const result = await collectSocial(await loadProfiles(f.profiles), transport);
+      assert.equal(result[0].status, mode === 'recent' ? 'ok' : 'read-failed');
+      assert.deepEqual(requests, ['/api/v1/wx/auth/login', '/api/v1/wx/mps/update/MP_WXS_123?start_page=0&end_page=1', '/rss/MP_WXS_123']);
+    }
+  } finally { server.closeAllConnections(); await new Promise<void>(r => server.close(() => r())); await f.clean(); }
 });
 test('fixture overrides require test context and temporary scope', async () => {
   const f = await fixture();

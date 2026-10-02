@@ -23,9 +23,9 @@
 
 用户只在私有 `collectors.env` 填写 `TWITTER_AUTH_TOKEN`、`TWITTER_CT0`；只在私有 `werss.env` 填写本机服务的 `USERNAME`、`PASSWORD`。不要把值放到命令行、聊天、公开配置或 Git。X 子进程只收到必要的运行环境和这两项显式认证，固定执行 `user-posts <目录内handle> -n 5 --json`。不完整认证产生 `needs-auth`，不会启动子进程；超时 60 秒、输出上限 2 MiB，stderr 直接丢弃。
 
-twitter-cli 0.8.5 的实际 JSON 是 `{ok:true,schema_version:1,data:[...]}`；读取器严格校验后解包 `data`，也兼容裸数组。失败包装、未知版本及混入错误字段均拒绝。在 Windows 中文 venv 路径下，curl_cffi 会出现 curl77；准备器从该 venv 的 `Lib/site-packages/certifi/cacert.pem` 复制公开 CA 到固定 `os.homedir()/.rshot-social-public/cacert.pem`，验证证书及 ASCII 路径，拒绝 symlink/junction。CA 不含密钥，更新不会触及认证文件。读取器校验 CA 后同时设置 `CURL_CA_BUNDLE` 和 `SSL_CERT_FILE`，保留 TLS 校验。有效来源缺少可用 CA 时为 `needs-dependency`。X 可使用固定已有本机代理 `http://127.0.0.1:7897`：仅端口可连接时传入 `TWITTER_PROXY`，不接受 profile 中的代理 URL，不继承任意代理环境变量。
+twitter-cli 0.8.5 的实际 JSON 是 `{ok:true,schema_version:"1",data:[...]}`；读取器严格校验后解包 `data`，也兼容数字 `1` 和裸数组。失败包装、未知版本及混入错误字段均拒绝。在 Windows 中文 venv 路径下，curl_cffi 会出现 curl77；准备器从该 venv 的 `Lib/site-packages/certifi/cacert.pem` 复制公开 CA 到固定 `os.homedir()/.rshot-social-public/cacert.pem`，验证证书及 ASCII 路径，拒绝 symlink/junction。CA 不含密钥，更新不会触及认证文件。读取器校验 CA 后同时设置 `CURL_CA_BUNDLE` 和 `SSL_CERT_FILE`，保留 TLS 校验。有效来源缺少可用 CA 时为 `needs-dependency`。X 可使用固定已有本机代理 `http://127.0.0.1:7897`：仅端口可连接时传入 `TWITTER_PROXY`，不接受 profile 中的代理 URL，不继承任意代理环境变量。
 
-WeRSS 服务固定为 `http://127.0.0.1:8041`。读取器向 `/api/v1/wx/auth/login` POST JSON `username`/`password`，只在内存中使用 `data.access_token`（兼容顶层 `access_token`）。随后 GET `/rss/<feedId>`，token 只放在 Authorization 请求头。`feedId` 必须匹配 `MP_WXS_` 加数字，禁止 URL、任意路径和查询。两种请求均拒绝重定向、超时 10 秒、流式限制 2 MiB。RSS 的频道名称和公众号原文地址由统一解析器校验。本机实际版本的登录和 RSS 路由须在部署时验证。
+WeRSS 服务固定为 `http://127.0.0.1:8041`。读取器向 `/api/v1/wx/auth/login` POST JSON `username`/`password`，只在内存中使用 `data.access_token`（兼容顶层 `access_token`）。登录后先 GET `/api/v1/wx/mps/update/<feedId>?start_page=0&end_page=1` 同步刷新已批准公众号，再 GET `/rss/<feedId>`；token 只放在 Authorization 请求头。刷新返回 `code:0` 才正常继续；`code:40402`（刚更新过）仅在既有 RSS 仍有合格文章时继续；其他代码及 HTTP 失败均停止该来源，不把旧 RSS 当作本次成功。`feedId` 必须匹配 `MP_WXS_` 加数字，禁止 URL、任意路径和查询。三种请求均拒绝重定向、流式限制 2 MiB；登录和 RSS 超时 10 秒，单次同步刷新超时 60 秒。RSS 的频道名称和公众号原文地址由统一解析器校验。保持 WeRSS 默认高频 JOB 关闭；定时任务每次只发起这一次固定范围同步刷新，不读书架或划线。
 
 确认账号身份及可读依赖后，把相应条目标记为 `verified:true`；登记前再填入 ISO 格式 `verifiedAt`。默认 `node scripts/free-social.ts` 是 dry-run：只读样本，不初始化数据库，也不写运行状态。没有任何已核验来源时不调用网络或子进程。`--check` 输出来源状态、合格数量、标题、日期和原文公开链接，省略正文与会话资料。来源失败互相隔离。
 

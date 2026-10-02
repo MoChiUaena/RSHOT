@@ -100,8 +100,8 @@ async function childJson(executable: string, args: string[], env: Record<string,
     child.on('close',code => { clearTimeout(timer); if (failed) return; if (code !== 0) { fail(); return; } try { resolve(JSON.parse(Buffer.concat(chunks).toString('utf8'))); } catch { fail(); } });
   });
 }
-async function boundedFetch(url: string, options: RequestInit): Promise<string> {
-  const response = await fetch(url,{ ...options, redirect: 'error', signal: AbortSignal.timeout(10000) });
+async function boundedFetch(url: string, options: RequestInit, timeoutMs = 10000): Promise<string> {
+  const response = await fetch(url,{ ...options, redirect: 'error', signal: AbortSignal.timeout(timeoutMs) });
   if (!response.ok || !response.body) { await response.body?.cancel(); throw new Error('local-read-failed'); }
   const reader = response.body.getReader(); let bytes = 0; const chunks: Uint8Array[] = [];
   try { while (true) { const { done,value } = await reader.read(); if (done) break; bytes += value.byteLength; if (bytes > CAP) { await reader.cancel(); throw new Error('local-read-failed'); } chunks.push(value); } }
@@ -133,7 +133,7 @@ async function localProxy(port: number | undefined): Promise<string | null> {
 }
 function xPayload(input: unknown): unknown[] {
   if (Array.isArray(input)) return input;
-  if (!obj(input) || !keys(input,['ok','schema_version','data']) || input.ok!==true || input.schema_version!==1 || !Array.isArray(input.data)) throw new Error('child-read-failed');
+  if (!obj(input) || !keys(input,['ok','schema_version','data']) || input.ok!==true || (input.schema_version!=='1' && input.schema_version!==1) || !Array.isArray(input.data)) throw new Error('child-read-failed');
   return input.data;
 }
 export async function collectSocial(loaded: LoadedProfiles, capability?: object): Promise<ReadResult[]> {
@@ -165,8 +165,12 @@ export async function collectSocial(loaded: LoadedProfiles, capability?: object)
         const login: unknown = JSON.parse(await boundedFetch(`${base}/api/v1/wx/auth/login`,{ method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify({ username:auth.USERNAME,password:auth.PASSWORD }) }));
         const token = obj(login) ? (obj(login.data) ? login.data.access_token ?? login.access_token : login.access_token) : undefined;
         if (typeof token !== 'string' || !token || token.length > 8192 || /[\r\n\0]/.test(token)) throw new Error('local-read-failed');
+        const refresh: unknown = JSON.parse(await boundedFetch(`${base}/api/v1/wx/mps/update/${entry.feedId}?start_page=0&end_page=1`,{ headers:{ authorization:`Bearer ${token}` } },60000));
+        const refreshCode = obj(refresh) ? refresh.code : undefined;
+        if (refreshCode !== 0 && refreshCode !== 40402) throw new Error('local-read-failed');
         const xml = await boundedFetch(`${base}/rss/${entry.feedId}`,{ headers:{ authorization:`Bearer ${token}` } });
         result.candidates = normalizeWechatFeed(xml,source);
+        if (refreshCode === 40402 && result.candidates.length === 0) throw new Error('local-read-failed');
       }
       result.status = result.candidates.length ? 'ok' : 'empty';
     } catch { result.candidates = []; result.status = 'read-failed'; }
