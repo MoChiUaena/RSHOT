@@ -24,7 +24,7 @@
 - [x] 修改 reader，原文证明通过后才使用候选；失败清空并隔离来源；过期原文为空。
 - [x] 离线回归：原始日期、正文、身份、缺失/未来/畸形值、超限、token 边界及 X 隔离。
 - [x] 记录各来源结果与免费多篇限制，更新操作文档。
-- [ ] 跑 AGENTS.md 必需 gates、独立 review、secret 检查；合并、推送、验证 CI/Pages；安全部署主 checkout。
+- [x] 跑 AGENTS.md 必需 gates、独立 review、secret 检查；合并、推送、验证 CI 与线上快照；安全部署主 checkout。
 
 ## Verification / remaining authorization
 
@@ -34,3 +34,10 @@
 - Existing preview services and worker recovered through RSHOT-Resume-Local (exit0); source and model budgets unchanged.
 - Multiarticle lookup on both approved WHU and YGXB feeds still returns-2012, including attempted token renewal. No multiarticle implementation/complete-day coverage claimed.
 - Local QR verifier now tests an approved public YGXB list only; offline checks5/5. User must reauthorize before another protected-list probe; fresh QR will be displayed after release.
+
+## Release checkpoint
+
+- 主 checkout 已 fast-forward 合入，GitHub main 的 6096043 Check 两项（check/docker）成功。
+- 更新后的 RSHOT-Collect-Social 手动实跑 exit0：4 X 与遥感学报 ok，GIS前沿原文超期而 empty；未绕过预算。
+- RSHOT-Publish-Preview exit0/unchanged：69 条公开内容、62 条精选、18 期日报、20 个来源；线上 snapshot 与本地一致，没有制造空更新。
+- 免费多篇读取仍待用户重新扫码及第一页实测，当前未新增来源。
