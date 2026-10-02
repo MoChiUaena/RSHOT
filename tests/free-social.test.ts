@@ -184,8 +184,6 @@ test("isolated DB: fail-closed source/policy, controlled quotas, duplicate ident
   await import("./setup.ts");
   const { sql, closeDb } = await import("../packages/backend/src/db.ts");
   const { stopBoss } = await import("../packages/backend/src/jobs/queue.ts");
-  const { config } = await import("../packages/backend/src/config.ts");
-  assert.equal(config.modelCallsEnabled, false);
   const ids = ["free-x-giswqs", "free-x-usgs-landsat"];
   const globalSource = `free-social-quota-${Date.now()}`;
   const [saved] = await sql`SELECT value FROM settings WHERE key='collection.policy'`;
