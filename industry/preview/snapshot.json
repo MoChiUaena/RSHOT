@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-02T10:28:14.050Z",
+  "generatedAt": "2026-10-02T13:25:19.007Z",
   "categories": [
     {
       "key": "paper",
@@ -73,16 +73,8 @@
       "kind": "rss"
     },
     {
-      "name": "GIS前沿",
-      "kind": "external"
-    },
-    {
       "name": "Google Earth 与 Earth Engine · 官方博客",
       "kind": "rss"
-    },
-    {
-      "name": "遥感学报",
-      "kind": "external"
     },
     {
       "name": "Rasterio · 稳定版本发布",
@@ -3629,7 +3621,7 @@
     }
   ],
   "hot": {
-    "computedAt": "2026-10-02T10:25:39.689Z",
+    "computedAt": "2026-10-02T13:25:18.097Z",
     "windowHours": 48,
     "entries": []
   }
