@@ -1,6 +1,8 @@
 # RSHOT 信源报告
 
-首版按科研与工程并重配置：**14 个已启用、读取验证通过的来源，另有 1 个暂停候选**。验证使用项目实际的 RSS/Atom、网页解析器，检查标题、原文地址和发布日期，不只检查 HTTP 200。
+首版按科研与工程并重配置，2026 年 10 月 2 日扩充后：**20 个已启用来源（原有 14 个加 4 个 X、2 个公众号）**，另保留未通过当前读取核验的候选。验证检查标题、原文地址、发布日期和完整材料，不只检查 HTTP 200。
+
+新增来源：USGS Landsat、Copernicus EMS、Copernicus EU、geemap 作者 giswqs，以及公众号遥感学报、GIS前沿。免费采集在本机运行，均登记为受限 `external/editorial`；[已确认名单与实机核验状态](social-source-plan.md)、[免费本机读取与运行说明](social-source-ops.md)。X 登录和公众号授权不随 GitHub 或 Pages 发布。
 
 ## 已接入来源
 
@@ -39,7 +41,7 @@
 - NASA Earth Observatory旧入口重定向到非Feed内容，未启用；已接入Earthdata。
 - NASA ORNL DAAC入口返回的内容未能被Feed解析器读取，PO.DAAC连接失败，未启用。
 - TGRS、RSE、ISPRS期刊与USGS更新适合后续扩充，尚未验证并配置稳定采集入口。
-- 公众号/X暂未接入，需要另外的服务与密钥。
+- 免费 X／公众号来源已接入；其余候选按真实身份和近期材料继续核验。现有付费 `x_search`／`mp_account` 入口仍可选，但本次没有启用收费采集服务。
 
 ## 重新检查
 
