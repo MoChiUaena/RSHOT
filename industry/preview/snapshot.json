@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-01T02:30:40.580Z",
+  "generatedAt": "2026-10-02T01:59:45.270Z",
   "categories": [
     {
       "key": "paper",
@@ -29,11 +29,7 @@
   ],
   "sources": [
     {
-      "name": "Earth Engine API · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "PySTAC · 稳定版本发布",
+      "name": "arXiv · 遥感与地球观测预印本",
       "kind": "rss"
     },
     {
@@ -41,31 +37,11 @@
       "kind": "rss"
     },
     {
-      "name": "NASA Earthdata · 科学数据与工具",
+      "name": "Earth Engine API · 稳定版本发布",
       "kind": "rss"
     },
     {
-      "name": "Rasterio · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "arXiv · 遥感与地球观测预印本",
-      "kind": "rss"
-    },
-    {
-      "name": "TerraTorch · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "Google Earth 与 Earth Engine · 官方博客",
-      "kind": "rss"
-    },
-    {
-      "name": "geemap · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "ESA · 对地观测",
+      "name": "openEO Python Client · 稳定版本发布",
       "kind": "rss"
     },
     {
@@ -73,19 +49,185 @@
       "kind": "web_list"
     },
     {
+      "name": "ESA · 对地观测",
+      "kind": "rss"
+    },
+    {
+      "name": "geemap · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "Google Earth 与 Earth Engine · 官方博客",
+      "kind": "rss"
+    },
+    {
+      "name": "Rasterio · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
       "name": "中国科学院空天院 · 科研动态",
       "kind": "web_list"
+    },
+    {
+      "name": "PySTAC · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "NASA Earthdata · 科学数据与工具",
+      "kind": "rss"
     },
     {
       "name": "GDAL · 稳定版本发布",
       "kind": "rss"
     },
     {
-      "name": "openEO Python Client · 稳定版本发布",
+      "name": "TerraTorch · 稳定版本发布",
       "kind": "rss"
     }
   ],
   "items": [
+    {
+      "id": "w9gc9h4ly96z69g18pchbvd6q",
+      "title": "西非大坝与水库协调数据集发布",
+      "originalTitle": "A harmonized dataset for dams and reservoirs in West Africa",
+      "summary": "基于论文摘要，Kouassi等人构建并发布了一个西非大坝与水库的协调区域数据集。该数据集包含1429个大坝和1258个水库（最小面积0.57×10⁻³ km²），总库容达2.83032×10¹¹ m³，填补了现有数据在地理参考精度和大小尺度覆盖上的不足。基于流域尺度的实地评估显示，该数据集在大尺度水库上具有强时空一致性，但小尺度基础设施仍存在系统性缺失。",
+      "reason": "该研究通过整合现有数据并补充实地验证，构建了西非地区首个包含大、小尺度水库的协调数据集，解决了既有数据地理参考不准和记录不一致的问题。",
+      "source": {
+        "name": "Earth System Science Data · 数据论文与讨论稿",
+        "kind": "web_list",
+        "firstParty": true
+      },
+      "originalUrl": "https://essd.copernicus.org/articles/18/7227/2026/",
+      "publishedAt": "2026-10-01T00:00:00.000Z",
+      "timelineAt": "2026-10-02T01:59:08.117Z",
+      "category": "data",
+      "tags": [
+        "数据集/基准",
+        "论文/研究",
+        "数据质量"
+      ],
+      "score": 78,
+      "selected": true
+    },
+    {
+      "id": "jbn61e4mqxa8r719s4l2unvbo",
+      "title": "geemap v0.38.9 发布",
+      "originalTitle": "v0.38.9",
+      "summary": "geemap 发布稳定版本 v0.38.9。该版本主要修复了 common 和 coreutils 中的 pyrefly 类型错误，并验证了报告中 geomap 入口的存在性。此外，更新包括将 github/codeql-action 从 4.38.1 升级至 4.38.2，以及将 ip-address 依赖从 10.4.0 升级至 10.7.2。",
+      "reason": null,
+      "source": {
+        "name": "geemap · 稳定版本发布",
+        "kind": "rss",
+        "firstParty": true
+      },
+      "originalUrl": "https://github.com/gee-community/geemap/releases/tag/v0.38.9",
+      "publishedAt": "2026-10-01T16:02:40.000Z",
+      "timelineAt": "2026-10-01T17:16:23.374Z",
+      "category": "rs-tools",
+      "tags": [
+        "工具更新",
+        "云端处理",
+        "开源生态",
+        "Google Earth Engine"
+      ],
+      "score": 12,
+      "selected": false
+    },
+    {
+      "id": "uq9cdnxc82eqy8sp8k787i0oq",
+      "title": "使用无人机摄影测量和异方差深度学习模型确定农业区域垂直位移",
+      "originalTitle": "Determining Vertical Displacement of Agricultural Areas Using UAV-Photogrammetry and a Heteroscedastic Deep Learning Model",
+      "summary": "基于论文摘要，该研究提出一种基于U-Net架构的算法，用于从无人机摄影测量点云中确定地表垂直位移，采用异方差回归替代传统的点云分类地面滤波方法。模型同时预测高程修正的条件期望值和修正方差的日志值，以量化每个高程修正值的不确定性。",
+      "reason": "提出基于U-Net的异方差回归方法，直接从无人机摄影测量点云预测高程修正及其不确定性，作为传统地面滤波方法的替代方案。",
+      "source": {
+        "name": "arXiv · 遥感与地球观测预印本",
+        "kind": "rss",
+        "firstParty": true
+      },
+      "originalUrl": "https://arxiv.org/abs/2609.39756v1",
+      "publishedAt": "2026-09-30T13:53:50.000Z",
+      "timelineAt": "2026-10-01T14:15:43.694Z",
+      "category": "paper",
+      "tags": [
+        "论文/研究",
+        "LiDAR",
+        "变化检测",
+        "农业"
+      ],
+      "score": 68,
+      "selected": true
+    },
+    {
+      "id": "jdx6khgou842sfra33v2brk0y",
+      "title": "Hyperspectral Image Models：统一55个高光谱遥感模型的模块化框架与技术报告",
+      "originalTitle": "Hyperspectral Image Models: Technical Report",
+      "summary": "基于论文摘要，该研究提出一个模块化框架，统一了涵盖六种范式的55个代表性高光谱遥感模型，并集成了来自Airborne、Spaceborne、UAV和Mars CRISM传感器的24个基准场景。",
+      "reason": "原文给出了具体的模型数量、传感器来源及1320次评估的实验结果，可用于比较不同深度学习范式在高光谱分类任务中的表现差异。",
+      "source": {
+        "name": "arXiv · 遥感与地球观测预印本",
+        "kind": "rss",
+        "firstParty": true
+      },
+      "originalUrl": "https://arxiv.org/abs/2609.39871v1",
+      "publishedAt": "2026-09-30T14:50:21.000Z",
+      "timelineAt": "2026-10-01T14:15:37.840Z",
+      "category": "paper",
+      "tags": [
+        "论文/研究",
+        "高光谱",
+        "数据集/基准",
+        "开源/仓库"
+      ],
+      "score": 82,
+      "selected": true
+    },
+    {
+      "id": "byrnkcxoy2da7fakzivdi7lyr",
+      "title": "EarthCARE 卫星观测 Anak Krakatau 火山喷发羽流助力航空安全",
+      "originalTitle": "EarthCARE’s view of volcanic plume boosts air safety",
+      "summary": "ESA 报告了 EarthCARE 卫星利用其大气激光雷达（ATLID）等载荷获取了 Anak Krakatau 火山喷发羽流的垂直剖面数据。这些观测数据被达尔文火山灰咨询中心（Darwin VAAC）用于验证高空火山灰分布，从而支持航空安全决策。同时，多载荷协同观测揭示了不同粒径火山灰和气溶胶的垂直分层特征，为理解火山喷发对气候系统的影响提供了新的科学依据。",
+      "reason": "展示了 EarthCARE 的 ATLID 激光雷达与 CPR 等载荷在火山灰羽流垂直结构探测中的协同应用，为航空安全预警和火山气溶胶气候影响研究提供了具体的观测案例。",
+      "source": {
+        "name": "ESA · 对地观测",
+        "kind": "rss",
+        "firstParty": true
+      },
+      "originalUrl": "https://www.esa.int/Applications/Observing_the_Earth/FutureEO/EarthCARE/EarthCARE_s_view_of_volcanic_plume_boosts_air_safety",
+      "publishedAt": "2026-10-01T07:30:00.000Z",
+      "timelineAt": "2026-10-01T07:52:51.990Z",
+      "category": "tip",
+      "tags": [
+        "行业动态",
+        "卫星/传感器",
+        "灾害监测",
+        "ESA"
+      ],
+      "score": 62,
+      "selected": true
+    },
+    {
+      "id": "m5gzgo3g7q6h7h09t1v5l2pol",
+      "title": "基于无人机可见光影像的城市化区域识别方法比较",
+      "originalTitle": "Recognition of Urbanized Areas in UAV-Derived Very-High-Resolution Visible-Light Imagery",
+      "summary": "该研究比较了基于无人机获取的RGB影像区分城市化与非城市化区域的多种分类器，包括多种植被指数（VIs）阈值法和神经网络（NNs）。基于论文摘要，作者在两个具有不同地面采样距离（10 mm和15 mm）的研究区进行了分析，结果表明神经网络的分类精度（约96%）高于表现最佳的植被指数Excess Blue（约87%），并分析了季节对VI阈值及图像块大小对NN精度的影响。",
+      "reason": null,
+      "source": {
+        "name": "arXiv · 遥感与地球观测预印本",
+        "kind": "rss",
+        "firstParty": true
+      },
+      "originalUrl": "https://arxiv.org/abs/2609.40212v1",
+      "publishedAt": "2026-09-30T17:22:28.000Z",
+      "timelineAt": "2026-10-01T04:51:35.806Z",
+      "category": "paper",
+      "tags": [
+        "论文/研究",
+        "城市",
+        "分类识别"
+      ],
+      "score": 52,
+      "selected": false
+    },
     {
       "id": "dkhncpmrjakdxztgg4umdmfcv",
       "title": "SHELDA：欧洲亚小时级质量控制海平面数据集发布",
@@ -975,29 +1117,6 @@
       "selected": true
     },
     {
-      "id": "a2bqcyxt67th0j292jcfpm23u",
-      "title": "geemap 0.38.8 更新依赖与颜色工具测试",
-      "originalTitle": "v0.38.8",
-      "summary": "基于官方发布说明，geemap 0.38.8 主要更新依赖、发布流程和 rgb_to_hex、get_colorbar 等测试。说明未宣称遥感分析能力升级，因此作为版本动态保留，不将维护更新写成重大功能发布。",
-      "reason": null,
-      "source": {
-        "name": "geemap · 稳定版本发布",
-        "kind": "rss",
-        "firstParty": true
-      },
-      "originalUrl": "https://github.com/gee-community/geemap/releases/tag/v0.38.8",
-      "publishedAt": "2026-09-24T19:01:59.000Z",
-      "timelineAt": "2026-09-24T19:01:59.000Z",
-      "category": "rs-tools",
-      "tags": [
-        "工具更新",
-        "Google Earth Engine",
-        "部署/工程"
-      ],
-      "score": null,
-      "selected": false
-    },
-    {
       "id": "o2xctzlxelb023m511owyezo4",
       "title": "SCOPE 用连续地形表示降低 DEM 高密度查询开销",
       "originalTitle": "Efficient Continuous DEM Reconstruction under Limited Target-Resolution Supervision",
@@ -1520,6 +1639,73 @@
     }
   ],
   "reports": [
+    {
+      "kind": "daily",
+      "key": "2026-10-02",
+      "title": "遥感日报 · 2026-10-02",
+      "generatedAt": "2026-10-02T01:58:29.167Z",
+      "editorialMode": "model",
+      "lead": {
+        "title": "MHW-MAD发布1982-2024全球海洋热浪与冷事件数据库",
+        "leadParagraph": "基于卫星海表温度数据，MHW-MAD数据库提供了1982至2024年全球多定义海洋热浪与冷事件的每日指标。同时，SHELDA数据集发布了欧洲亚小时级质量控制的海平面记录，而EarthCARE卫星观测助力航空安全。"
+      },
+      "overview": null,
+      "sections": [
+        {
+          "label": "论文与方法",
+          "summary": null,
+          "items": [
+            {
+              "itemId": "jdx6khgou842sfra33v2brk0y",
+              "title": "Hyperspectral Image Models：统一55个高光谱遥感模型的模块化框架与技术报告",
+              "summary": "基于论文摘要，该研究提出一个模块化框架，统一了涵盖六种范式的55个代表性高光谱遥感模型，并集成了来自Airborne、Spaceborne、UAV和Mars CRISM传感器的24个基准场景。",
+              "sourceName": "arXiv · 遥感与地球观测预印本",
+              "originalUrl": "https://arxiv.org/abs/2609.39871v1"
+            },
+            {
+              "itemId": "uq9cdnxc82eqy8sp8k787i0oq",
+              "title": "使用无人机摄影测量和异方差深度学习模型确定农业区域垂直位移",
+              "summary": "基于论文摘要，该研究提出一种基于U-Net架构的算法，用于从无人机摄影测量点云中确定地表垂直位移，采用异方差回归替代传统的点云分类地面滤波方法。模型同时预测高程修正的条件期望值和修正方差的日志值，以量化每个高程修正值的不确定性。",
+              "sourceName": "arXiv · 遥感与地球观测预印本",
+              "originalUrl": "https://arxiv.org/abs/2609.39756v1"
+            }
+          ]
+        },
+        {
+          "label": "数据集与基准",
+          "summary": null,
+          "items": [
+            {
+              "itemId": "y4pplxibxj8g81eqekmdpbyzk",
+              "title": "MHW-MAD：基于卫星海表温度数据的全球多定义海洋热浪与冷事件数据库",
+              "summary": "基于论文摘要，作者发布了一个包含每日海洋热浪（MHW）和海洋冷事件（MCS）指标的全球数据库。该数据库基于1982–2024年的ESA SST CCI及iCDR数据，在0.05°网格上提供多种基线气候、不同百分位阈值（如90th, 95th, 99th）以及去趋势后的SST异常值。数据产品还包括最小持续时间为5天、10天和30天的二值化MHW标志及严重程度分类指数，支持跨时空的极端海洋事件监测与模型评估。",
+              "sourceName": "Earth System Science Data · 数据论文与讨论稿",
+              "originalUrl": "https://essd.copernicus.org/articles/18/7181/2026/"
+            },
+            {
+              "itemId": "dkhncpmrjakdxztgg4umdmfcv",
+              "title": "SHELDA：欧洲亚小时级质量控制海平面数据集发布",
+              "summary": "基于论文摘要，SHELDA数据集发布了257条欧洲及周边地区潮位计记录，采样间隔为1至15分钟，并包含去除潮汐分量后的残差时间序列。数据以NetCDF格式提供，单条记录时长介于1个月至13年之间，采用CC BY 4.0许可协议开放获取。论文详细说明了包括异常值剔除、自动尖峰检测和人工目视检查在内的质量控制流程，同时指出未实施基准面偏移校正。",
+              "sourceName": "Earth System Science Data · 数据论文与讨论稿",
+              "originalUrl": "https://essd.copernicus.org/articles/18/7143/2026/"
+            }
+          ]
+        },
+        {
+          "label": "应用与工程实践",
+          "summary": null,
+          "items": [
+            {
+              "itemId": "byrnkcxoy2da7fakzivdi7lyr",
+              "title": "EarthCARE 卫星观测 Anak Krakatau 火山喷发羽流助力航空安全",
+              "summary": "ESA 报告了 EarthCARE 卫星利用其大气激光雷达（ATLID）等载荷获取了 Anak Krakatau 火山喷发羽流的垂直剖面数据。这些观测数据被达尔文火山灰咨询中心（Darwin VAAC）用于验证高空火山灰分布，从而支持航空安全决策。同时，多载荷协同观测揭示了不同粒径火山灰和气溶胶的垂直分层特征，为理解火山喷发对气候系统的影响提供了新的科学依据。",
+              "sourceName": "ESA · 对地观测",
+              "originalUrl": "https://www.esa.int/Applications/Observing_the_Earth/FutureEO/EarthCARE/EarthCARE_s_view_of_volcanic_plume_boosts_air_safety"
+            }
+          ]
+        }
+      ]
+    },
     {
       "kind": "daily",
       "key": "2026-10-01",
@@ -2973,6 +3159,7 @@
       "group": "company",
       "definition": "ESA 的遥感研究、观测数据与工程动态。",
       "itemIds": [
+        "byrnkcxoy2da7fakzivdi7lyr",
         "y4pplxibxj8g81eqekmdpbyzk",
         "wezhx5xk6gsimqeo7irthqp2j",
         "gzolrxrpu1wfos8snkmt3zpcf",
@@ -3052,6 +3239,7 @@
       "group": "field",
       "definition": "追踪高光谱的研究方法、数据、工具与应用实践。",
       "itemIds": [
+        "jdx6khgou842sfra33v2brk0y",
         "fo0dlax2jigiqe059ml1cxq4w",
         "wwr6wn7f6fna6shopuoe75gnn"
       ]
@@ -3062,6 +3250,7 @@
       "group": "field",
       "definition": "追踪LiDAR的研究方法、数据、工具与应用实践。",
       "itemIds": [
+        "uq9cdnxc82eqy8sp8k787i0oq",
         "akatawgify310aboeajv94yd4",
         "z335gzoecu3nax6s720spo1j7",
         "tot69cti4mmhv14h9cq9qeqe5",
@@ -3100,6 +3289,7 @@
       "group": "field",
       "definition": "追踪变化检测的研究方法、数据、工具与应用实践。",
       "itemIds": [
+        "uq9cdnxc82eqy8sp8k787i0oq",
         "uymsya7xd3tus9dcsc2k39o6p",
         "bgt197u8lsaqqxxptc5s03e9w",
         "ztny8iu8lguyf55gwe3r6abxn",
@@ -3191,6 +3381,7 @@
       "group": "field",
       "definition": "追踪灾害监测的研究方法、数据、工具与应用实践。",
       "itemIds": [
+        "byrnkcxoy2da7fakzivdi7lyr",
         "ggc32079347hcrldc4wrbskbe",
         "obchfpcekgmrwyht0ihawhrcy",
         "g103xoho9pee2j5uo4q74a13z",
@@ -3205,6 +3396,7 @@
       "group": "field",
       "definition": "追踪农业的研究方法、数据、工具与应用实践。",
       "itemIds": [
+        "uq9cdnxc82eqy8sp8k787i0oq",
         "v8c8na0khi2zxw524d8wanamk",
         "nbf1cg9xw4ajprnmzm0rrw2zm",
         "wetwj260tlvv5owayi3xd3d4l"
@@ -3228,6 +3420,9 @@
       "group": "genre",
       "definition": "值得关注的遥感论文与研究，保留原文入口与适用条件。",
       "itemIds": [
+        "w9gc9h4ly96z69g18pchbvd6q",
+        "uq9cdnxc82eqy8sp8k787i0oq",
+        "jdx6khgou842sfra33v2brk0y",
         "sqogcqmjoqwzqmgss9j4c0lzd",
         "a564xeo15mysgpi7xkexa0iqx",
         "ggc32079347hcrldc4wrbskbe",
@@ -3259,6 +3454,8 @@
       "group": "genre",
       "definition": "值得关注的遥感数据集与基准，保留原文入口与适用条件。",
       "itemIds": [
+        "w9gc9h4ly96z69g18pchbvd6q",
+        "jdx6khgou842sfra33v2brk0y",
         "dkhncpmrjakdxztgg4umdmfcv",
         "y4pplxibxj8g81eqekmdpbyzk",
         "v8c8na0khi2zxw524d8wanamk",
@@ -3290,6 +3487,7 @@
       "group": "genre",
       "definition": "值得关注的遥感开源工具与代码，保留原文入口与适用条件。",
       "itemIds": [
+        "jdx6khgou842sfra33v2brk0y",
         "w50vtz3cw1i1m9f0hsudcmep0",
         "cat4s20nkkzk4cfk080k317e6",
         "uymsya7xd3tus9dcsc2k39o6p",
@@ -3306,6 +3504,7 @@
       "group": "genre",
       "definition": "值得关注的遥感卫星与传感器，保留原文入口与适用条件。",
       "itemIds": [
+        "byrnkcxoy2da7fakzivdi7lyr",
         "wezhx5xk6gsimqeo7irthqp2j",
         "gzolrxrpu1wfos8snkmt3zpcf",
         "ag1rbrf9ozfj4gflp6vyr5ev4"
@@ -3330,7 +3529,7 @@
     }
   ],
   "hot": {
-    "computedAt": "2026-10-01T02:30:25.709Z",
+    "computedAt": "2026-10-01T18:00:21.399Z",
     "windowHours": 48,
     "entries": []
   }
