@@ -250,7 +250,7 @@ test('WeRSS rejects redirects, over-limit response and bad identity; failed sour
   } finally { server.closeAllConnections(); await new Promise<void>(r=>server.close(()=>r())); await f.clean(); }
 });
 
-test('WeRSS refresh failure never accepts cached RSS; recent update requires a recent marker and valid recent feed', async () => {
+test('WeRSS refresh failure never accepts cached RSS; recent update requires a recent marker and original proof', async () => {
   const f = await fixture(); let mode = 'server-error'; const requests: string[] = [];
   const publishedAt = new Date().toUTCString();
   const xml = `<rss><channel><title>GIS前沿</title><item><title>GeoAI 方法</title><link>https://mp.weixin.qq.com/s/publicArticle_1</link><pubDate>${publishedAt}</pubDate><description>${body.repeat(3)}</description></item></channel></rss>`;
@@ -267,8 +267,8 @@ test('WeRSS refresh failure never accepts cached RSS; recent update requires a r
       else res.end(JSON.stringify({ code: mode.startsWith('recent') ? 40402 : mode === 'not-found' ? 40401 : 50002, message: 'fixture-private-error' }));
       return;
     }
-    if (req.url === originalPath()) { res.end(JSON.stringify(originalPayload())); return; }
-    res.end(mode === 'recent-empty' ? '<rss><channel><title>GIS前沿</title></channel></rss>' : mode === 'recent-old-rss' ? xml.replace(publishedAt, new Date(Date.now() - 72 * 3600000).toUTCString()) : xml);
+    if (req.url === originalPath()) { res.end(JSON.stringify(originalPayload(mode === 'recent-old-original' ? { publish_time: Math.floor(Date.now() / 1000) - 72 * 3600 } : {}))); return; }
+    res.end(mode === 'recent-empty' ? '<rss><channel><title>GIS前沿</title></channel></rss>' : mode === 'recent-wrong-source' ? xml.replace('<title>GIS前沿</title>', '<title>Wrong account</title>') : xml);
   });
   await new Promise<void>(r => server.listen(0, '127.0.0.1', r));
   try {
@@ -282,11 +282,11 @@ test('WeRSS refresh failure never accepts cached RSS; recent update requires a r
       assert.deepEqual(requests, ['/api/v1/wx/auth/login', '/api/v1/wx/mps/MP_WXS_123', '/api/v1/wx/mps/update/MP_WXS_123?start_page=0&end_page=1']);
       assert.ok(!JSON.stringify(result).includes('fixture-private-error'));
     }
-    for (mode of ['recent', 'recent-empty', 'recent-old-rss', 'recent-stale-marker']) {
+    for (mode of ['recent', 'recent-empty', 'recent-wrong-source', 'recent-old-original', 'recent-stale-marker']) {
       requests.length = 0;
       const result = await collectSocial(await loadProfiles(f.profiles), transport);
-      assert.equal(result[0].status, mode === 'recent' ? 'ok' : 'read-failed');
-      assert.deepEqual(requests, ['/api/v1/wx/auth/login', '/api/v1/wx/mps/MP_WXS_123', '/api/v1/wx/mps/update/MP_WXS_123?start_page=0&end_page=1', '/api/v1/wx/mps/MP_WXS_123', ...(mode === 'recent-stale-marker' ? [] : ['/rss/MP_WXS_123?is_update=true']), ...(mode === 'recent' ? [originalPath()] : [])]);
+      assert.equal(result[0].status, mode === 'recent' ? 'ok' : mode === 'recent-old-original' ? 'empty' : 'read-failed');
+      assert.deepEqual(requests, ['/api/v1/wx/auth/login', '/api/v1/wx/mps/MP_WXS_123', '/api/v1/wx/mps/update/MP_WXS_123?start_page=0&end_page=1', '/api/v1/wx/mps/MP_WXS_123', ...(mode === 'recent-stale-marker' ? [] : ['/rss/MP_WXS_123?is_update=true']), ...(mode === 'recent' || mode === 'recent-old-original' ? [originalPath()] : [])]);
     }
   } finally { server.closeAllConnections(); await new Promise<void>(r => server.close(() => r())); await f.clean(); }
 });
@@ -528,7 +528,7 @@ test('WeRSS original verification attempts at most three posts and filters old o
     }
   } finally { server.closeAllConnections(); await new Promise<void>(resolve => server.close(() => resolve())); await f.clean(); }
 });
-test('WeRSS refuses reader and native query routes before original verification', async () => {
+test('WeRSS ignores reader and native query references without original requests', async () => {
   const f = await fixture(); let articleUrl = '', detailReads = 0, originalReads = 0;
   const server = createServer((req, res) => {
     if (req.url === '/api/v1/wx/auth/login') res.end('{"access_token":"test-access-secret"}');
@@ -545,7 +545,7 @@ test('WeRSS refuses reader and native query routes before original verification'
     for (articleUrl of ['https://weread.qq.com/reviewdetail/publicArticle_1', 'https://mp.weixin.qq.com/s?__biz=MjM0NDU1&mid=224748&idx=1&sn=abc123']) {
       detailReads = 0; originalReads = 0;
       const result = await collectSocial(await loadProfiles(f.profiles), await fixtureTransport(f.root, { port: (server.address() as any).port }));
-      assert.equal(result[0].status, 'read-failed'); assert.deepEqual(result[0].candidates, []); assert.equal(originalReads, 0);
+      assert.equal(result[0].status, 'empty'); assert.deepEqual(result[0].candidates, []); assert.equal(originalReads, 0);
     }
   } finally { server.closeAllConnections(); await new Promise<void>(resolve => server.close(() => resolve())); await f.clean(); }
 });
@@ -577,6 +577,42 @@ test('WeRSS original requests obey per-request and total verification deadlines'
       for (const timer of timers) clearTimeout(timer); timers.clear();
     }
   } finally { for (const timer of timers) clearTimeout(timer); server.closeAllConnections(); await new Promise<void>(resolve => server.close(() => resolve())); await f.clean(); }
+});
+test('WeRSS resolves complete originals from empty, short and stale RSS covers', async () => {
+  const f = await fixture(); let mode = 'empty-cover', detailReads = 0, originalReads = 0;
+  const originalTime = Math.floor(Date.now() / 1000) - 3600;
+  const originalBody = `Verified original method description. ${body.repeat(3)}`;
+  const server = createServer((req, res) => {
+    if (req.url === '/api/v1/wx/auth/login') res.end('{"access_token":"test-access-secret"}');
+    else if (req.url === '/api/v1/wx/mps/MP_WXS_123') {
+      const syncTime = ++detailReads === 1 ? 0 : Math.floor(Date.now() / 1000);
+      res.end(JSON.stringify({ code: 0, data: { id: 'MP_WXS_123', mp_name: 'GIS前沿', sync_time: syncTime } }));
+    } else if (req.url?.includes('/mps/update/')) res.end(JSON.stringify({ code: mode === 'recent-empty-cover' ? 40402 : 0 }));
+    else if (req.url === originalPath()) { originalReads++; res.end(JSON.stringify(originalPayload({ publish_time: originalTime, content: mode === 'empty-original' ? '' : originalBody }))); }
+    else {
+      const date = mode === 'stale-cover' ? new Date(Date.now() - 72 * 3600000).toUTCString() : new Date().toUTCString();
+      const title = mode === 'wrong-source' ? 'Wrong account' : 'GIS前沿';
+      const cover = mode === 'short-cover' ? 'Cover placeholder' : mode === 'empty-cover' || mode === 'recent-empty-cover' || mode === 'empty-original' ? '' : body.repeat(3);
+      res.end(`<rss><channel><title>${title}</title><item><title>GeoAI 方法</title><link>https://mp.weixin.qq.com/s/publicArticle_1</link><pubDate>${date}</pubDate><description>${cover}</description>${mode === 'wrong-creator' ? '<author>Wrong account</author>' : ''}</item></channel></rss>`);
+    }
+  });
+  await new Promise<void>(resolve => server.listen(0, '127.0.0.1', resolve));
+  try {
+    f.data.sources = [{ sourceId: mpId, verified: true, verifiedAt: new Date().toISOString(), feedId: 'MP_WXS_123' } as any]; await f.save();
+    for (mode of ['empty-cover', 'short-cover', 'stale-cover', 'recent-empty-cover', 'empty-original', 'wrong-source', 'wrong-creator']) {
+      detailReads = 0; originalReads = 0;
+      const result = await collectSocial(await loadProfiles(f.profiles), await fixtureTransport(f.root, { port: (server.address() as any).port }));
+      const mismatched = mode === 'wrong-source' || mode === 'wrong-creator';
+      assert.equal(result[0].status, mismatched ? 'empty' : mode === 'empty-original' ? 'read-failed' : 'ok', mode);
+      assert.equal(originalReads, mismatched ? 0 : 1, mode);
+      if (mismatched || mode === 'empty-original') assert.deepEqual(result[0].candidates, []);
+      else {
+        assert.equal(result[0].candidates.length, 1); assert.equal(result[0].candidates[0].bodyText, originalBody.trim());
+        assert.equal(result[0].candidates[0].publishedAt?.getTime(), originalTime * 1000);
+        assert.equal((result[0].candidates[0].raw as any).dateProvenance, 'wechat-original');
+      }
+    }
+  } finally { server.closeAllConnections(); await new Promise<void>(resolve => server.close(() => resolve())); await f.clean(); }
 });
 test('WeRSS rejects collection-time freshness when original article is older than 48 hours', async () => {
   const f = await fixture(); let reads = 0, originalReads = 0;

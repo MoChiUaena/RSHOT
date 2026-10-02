@@ -5,7 +5,7 @@ import path from 'node:path';
 import { tmpdir, homedir } from 'node:os';
 import { X509Certificate } from 'node:crypto';
 import { createConnection } from 'node:net';
-import { approvedSocialSources, normalizeXPosts, normalizeWechatFeed, ingestFreeSocial, type FreeSocialSource } from '../../packages/backend/src/sources/free-social.ts';
+import { approvedSocialSources, normalizeXPosts, wechatFeedReferences, ingestFreeSocial, type FreeSocialSource } from '../../packages/backend/src/sources/free-social.ts';
 import type { Candidate } from '../../packages/backend/src/sources/types.ts';
 import { CollectionPolicySchema } from '../../packages/backend/src/sources/collection-policy.ts';
 import { normalizeWechatOriginal } from './wechat-original.ts';
@@ -194,16 +194,16 @@ export async function collectSocial(loaded: LoadedProfiles, capability?: object)
           }
         } else if (await syncTime(Math.min(10000,remaining())) < Math.floor(Date.now() / 1000) - 60) throw new Error('local-read-failed');
         const xml = await boundedFetch(`${base}/rss/${entry.feedId}?is_update=true`,{ headers });
-        const rssCandidates = normalizeWechatFeed(xml,source).slice(0,3);
-        if (refreshCode === 40402 && rssCandidates.length === 0) throw new Error('local-read-failed');
+        const rssReferences = wechatFeedReferences(xml,source).slice(0,3);
+        if (refreshCode === 40402 && rssReferences.length === 0) throw new Error('local-read-failed');
         const originalDeadline = Date.now() + (fixture?.werssOriginalDeadlineMs ?? 120000);
         const originalRemaining = () => { const milliseconds = originalDeadline - Date.now(); if (milliseconds <= 0) throw new Error('local-read-failed'); return milliseconds; };
-        for (const candidate of rssCandidates) {
-          if (!/^https:\/\/mp\.weixin\.qq\.com\/s\/[A-Za-z0-9_-]{1,128}$/.test(candidate.url)) throw new Error('local-read-failed');
+        for (const reference of rssReferences) {
+          if (!/^https:\/\/mp\.weixin\.qq\.com\/s\/[A-Za-z0-9_-]{1,128}$/.test(reference.url)) throw new Error('local-read-failed');
           const originalStartedAt = new Date();
-          const payload: unknown = JSON.parse(await boundedFetch(`${base}/api/v1/wx/mps/by_article?url=${encodeURIComponent(candidate.url)}`,{ method:'POST',headers },Math.min(fixture?.werssOriginalTimeoutMs ?? 45000,originalRemaining())));
+          const payload: unknown = JSON.parse(await boundedFetch(`${base}/api/v1/wx/mps/by_article?url=${encodeURIComponent(reference.url)}`,{ method:'POST',headers },Math.min(fixture?.werssOriginalTimeoutMs ?? 45000,originalRemaining())));
           originalRemaining();
-          const original = normalizeWechatOriginal(candidate,payload,entry.feedId,source,new Date(),originalStartedAt);
+          const original = normalizeWechatOriginal(reference,payload,entry.feedId,source,new Date(),originalStartedAt);
           if (original) result.candidates.push(original);
         }
       }
