@@ -1,0 +1,17 @@
+{
+  "$comment": "用户批准的免费社交候选目录；不是身份已核验或已启用的断言。真实读取核验后才登记 enabled external/editorial 来源及 collection.policy，公开出口仅摘要和原文链接。公众号名称和别名仅取批准方案，准确账号仍需现场核验。",
+  "sources": [
+    { "id": "free-x-usgs-landsat", "name": "USGS Landsat", "platform": "x", "handle": "USGSLandsat", "aliases": [], "tier": "T1_5", "ownerEntityId": "usgs" },
+    { "id": "free-x-esa-eo", "name": "ESA Earth Observation", "platform": "x", "handle": "ESA_EO", "aliases": [], "tier": "T1_5", "ownerEntityId": "esa" },
+    { "id": "free-x-copernicus-land", "name": "Copernicus Land", "platform": "x", "handle": "CopernicusLand", "aliases": [], "tier": "T1_5", "ownerEntityId": "copernicus" },
+    { "id": "free-x-copernicus-ems", "name": "Copernicus EMS", "platform": "x", "handle": "CopernicusEMS", "aliases": [], "tier": "T1_5", "ownerEntityId": "copernicus" },
+    { "id": "free-x-copernicus-eu", "name": "Copernicus", "platform": "x", "handle": "CopernicusEU", "aliases": [], "tier": "T1_5", "ownerEntityId": "copernicus" },
+    { "id": "free-x-giswqs", "name": "Qiusheng Wu · giswqs", "platform": "x", "handle": "giswqs", "aliases": [], "tier": "T1_5", "ownerEntityId": null },
+    { "id": "free-mp-aircas", "name": "中国科学院空天信息创新研究院", "platform": "wechat", "aliases": [], "tier": "T1_5", "ownerEntityId": "aircas" },
+    { "id": "free-mp-ygxb", "name": "遥感学报", "platform": "wechat", "aliases": ["遥感图像图形"], "tier": "T1_5", "ownerEntityId": null },
+    { "id": "free-mp-whu-rsgis", "name": "武汉大学遥感信息工程学院", "platform": "wechat", "aliases": [], "tier": "T1_5", "ownerEntityId": "whu" },
+    { "id": "free-mp-liesmars", "name": "武汉大学测绘遥感信息工程全国重点实验室", "platform": "wechat", "aliases": [], "tier": "T1_5", "ownerEntityId": "whu" },
+    { "id": "free-mp-gis-frontier", "name": "GIS前沿", "platform": "wechat", "aliases": [], "tier": "T2", "ownerEntityId": null },
+    { "id": "free-mp-xuxiaoyang", "name": "走天涯徐小洋地理数据科学", "platform": "wechat", "aliases": [], "tier": "T2", "ownerEntityId": null }
+  ]
+}
