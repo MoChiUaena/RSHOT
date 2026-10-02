@@ -8,6 +8,7 @@ import { createConnection } from 'node:net';
 import { approvedSocialSources, normalizeXPosts, normalizeWechatFeed, ingestFreeSocial, type FreeSocialSource } from '../../packages/backend/src/sources/free-social.ts';
 import type { Candidate } from '../../packages/backend/src/sources/types.ts';
 import { CollectionPolicySchema } from '../../packages/backend/src/sources/collection-policy.ts';
+import { normalizeWechatOriginal } from './wechat-original.ts';
 
 const REPO = path.resolve(import.meta.dirname, '../..');
 const CAP = 2 * 1024 * 1024;
@@ -20,7 +21,7 @@ export interface ReadResult { sourceId: string; status: 'unverified' | 'needs-au
 const privateProfiles = new WeakMap<LoadedProfiles, Profiles>();
 const currentSamples = new WeakMap<ReadResult[], { profiles: LoadedProfiles; signature: string }>();
 function sampleSignature(results: ReadResult[]): string { return JSON.stringify(results.map(r=>({sourceId:r.sourceId,status:r.status,candidates:r.candidates}))); }
-interface Transport { root: string; childScript?: string; childTimeoutMs?: number; port?: number; proxyPort?: number; werssRefreshTimeoutMs?: number; werssPollIntervalMs?: number }
+interface Transport { root: string; childScript?: string; childTimeoutMs?: number; port?: number; proxyPort?: number; werssRefreshTimeoutMs?: number; werssPollIntervalMs?: number; werssOriginalTimeoutMs?: number; werssOriginalDeadlineMs?: number }
 const fixtures = new WeakMap<object, Transport>();
 function inside(file: string, root: string): boolean { const rel = path.relative(root, file); return !!rel && !rel.startsWith('..') && !path.isAbsolute(rel); }
 function same(a: string, b: string): boolean { return process.platform === 'win32' ? a.toLowerCase() === b.toLowerCase() : a === b; }
@@ -70,7 +71,7 @@ export async function loadProfiles(file: string): Promise<LoadedProfiles> {
 
 // Explicit fixture capability: valid only in test processes, with scripts/profiles under a real temp directory.
 export async function fixtureTransport(root: string, options: Omit<Transport,'root'>): Promise<object> {
-  if (process.env.NODE_ENV !== 'test' || process.env.SOCIAL_READER_TEST !== '1' || !keys(options,['childScript','childTimeoutMs','port','proxyPort','werssRefreshTimeoutMs','werssPollIntervalMs']) || !inside(root,tmpdir()) || !path.basename(root).startsWith('rshot-social-reader-')) throw new Error('fixture-only');
+  if (process.env.NODE_ENV !== 'test' || process.env.SOCIAL_READER_TEST !== '1' || !keys(options,['childScript','childTimeoutMs','port','proxyPort','werssRefreshTimeoutMs','werssPollIntervalMs','werssOriginalTimeoutMs','werssOriginalDeadlineMs']) || !inside(root,tmpdir()) || !path.basename(root).startsWith('rshot-social-reader-')) throw new Error('fixture-only');
   await safePath(root);
   if (options.childScript) { if (!inside(options.childScript,root) || !options.childScript.endsWith('.cjs')) throw new Error('fixture-only'); await safePath(options.childScript); }
   if (options.port !== undefined && (!Number.isInteger(options.port) || options.port < 1024 || options.port > 65535 || options.port === 8041)) throw new Error('fixture-only');
@@ -78,6 +79,8 @@ export async function fixtureTransport(root: string, options: Omit<Transport,'ro
   if (options.childTimeoutMs !== undefined && (options.childTimeoutMs < 1 || options.childTimeoutMs > 60000)) throw new Error('fixture-only');
   if (options.werssRefreshTimeoutMs !== undefined && (!Number.isInteger(options.werssRefreshTimeoutMs) || options.werssRefreshTimeoutMs < 1 || options.werssRefreshTimeoutMs > 60000)) throw new Error('fixture-only');
   if (options.werssPollIntervalMs !== undefined && (!Number.isInteger(options.werssPollIntervalMs) || options.werssPollIntervalMs < 1 || options.werssPollIntervalMs > 1000)) throw new Error('fixture-only');
+  if (options.werssOriginalTimeoutMs !== undefined && (!Number.isInteger(options.werssOriginalTimeoutMs) || options.werssOriginalTimeoutMs < 1 || options.werssOriginalTimeoutMs > 45000)) throw new Error('fixture-only');
+  if (options.werssOriginalDeadlineMs !== undefined && (!Number.isInteger(options.werssOriginalDeadlineMs) || options.werssOriginalDeadlineMs < 1 || options.werssOriginalDeadlineMs > 120000)) throw new Error('fixture-only');
   const capability = {}; fixtures.set(capability,{ ...options,root }); return capability;
 }
 async function credentials(file: string | undefined, names: string[]): Promise<Record<string,string> | null> {
@@ -191,8 +194,18 @@ export async function collectSocial(loaded: LoadedProfiles, capability?: object)
           }
         } else if (await syncTime(Math.min(10000,remaining())) < Math.floor(Date.now() / 1000) - 60) throw new Error('local-read-failed');
         const xml = await boundedFetch(`${base}/rss/${entry.feedId}?is_update=true`,{ headers });
-        result.candidates = normalizeWechatFeed(xml,source);
-        if (refreshCode === 40402 && result.candidates.length === 0) throw new Error('local-read-failed');
+        const rssCandidates = normalizeWechatFeed(xml,source).slice(0,3);
+        if (refreshCode === 40402 && rssCandidates.length === 0) throw new Error('local-read-failed');
+        const originalDeadline = Date.now() + (fixture?.werssOriginalDeadlineMs ?? 120000);
+        const originalRemaining = () => { const milliseconds = originalDeadline - Date.now(); if (milliseconds <= 0) throw new Error('local-read-failed'); return milliseconds; };
+        for (const candidate of rssCandidates) {
+          if (!/^https:\/\/mp\.weixin\.qq\.com\/s\/[A-Za-z0-9_-]{1,128}$/.test(candidate.url)) throw new Error('local-read-failed');
+          const originalStartedAt = new Date();
+          const payload: unknown = JSON.parse(await boundedFetch(`${base}/api/v1/wx/mps/by_article?url=${encodeURIComponent(candidate.url)}`,{ method:'POST',headers },Math.min(fixture?.werssOriginalTimeoutMs ?? 45000,originalRemaining())));
+          originalRemaining();
+          const original = normalizeWechatOriginal(candidate,payload,entry.feedId,source,new Date(),originalStartedAt);
+          if (original) result.candidates.push(original);
+        }
       }
       result.status = result.candidates.length ? 'ok' : 'empty';
     } catch { result.candidates = []; result.status = 'read-failed'; }
