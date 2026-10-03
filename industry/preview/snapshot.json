@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-02T13:25:19.007Z",
+  "generatedAt": "2026-10-03T02:30:08.289Z",
   "categories": [
     {
       "key": "paper",
@@ -29,15 +29,15 @@
   ],
   "sources": [
     {
-      "name": "arXiv · 遥感与地球观测预印本",
-      "kind": "rss"
+      "name": "Qiusheng Wu · giswqs",
+      "kind": "external"
     },
     {
       "name": "Copernicus",
       "kind": "external"
     },
     {
-      "name": "Copernicus Data Space · 数据与平台动态",
+      "name": "PySTAC · 稳定版本发布",
       "kind": "rss"
     },
     {
@@ -45,39 +45,7 @@
       "kind": "rss"
     },
     {
-      "name": "openEO Python Client · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "Qiusheng Wu · giswqs",
-      "kind": "external"
-    },
-    {
-      "name": "Earth System Science Data · 数据论文与讨论稿",
-      "kind": "web_list"
-    },
-    {
-      "name": "Copernicus EMS",
-      "kind": "external"
-    },
-    {
-      "name": "USGS Landsat",
-      "kind": "external"
-    },
-    {
-      "name": "ESA · 对地观测",
-      "kind": "rss"
-    },
-    {
       "name": "geemap · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "Google Earth 与 Earth Engine · 官方博客",
-      "kind": "rss"
-    },
-    {
-      "name": "Rasterio · 稳定版本发布",
       "kind": "rss"
     },
     {
@@ -85,11 +53,7 @@
       "kind": "web_list"
     },
     {
-      "name": "PySTAC · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "NASA Earthdata · 科学数据与工具",
+      "name": "ESA · 对地观测",
       "kind": "rss"
     },
     {
@@ -97,11 +61,138 @@
       "kind": "rss"
     },
     {
+      "name": "Google Earth 与 Earth Engine · 官方博客",
+      "kind": "rss"
+    },
+    {
       "name": "TerraTorch · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "arXiv · 遥感与地球观测预印本",
+      "kind": "rss"
+    },
+    {
+      "name": "Earth System Science Data · 数据论文与讨论稿",
+      "kind": "web_list"
+    },
+    {
+      "name": "USGS Landsat",
+      "kind": "external"
+    },
+    {
+      "name": "Copernicus EMS",
+      "kind": "external"
+    },
+    {
+      "name": "Copernicus Data Space · 数据与平台动态",
+      "kind": "rss"
+    },
+    {
+      "name": "NASA Earthdata · 科学数据与工具",
+      "kind": "rss"
+    },
+    {
+      "name": "openEO Python Client · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "Rasterio · 稳定版本发布",
       "kind": "rss"
     }
   ],
   "items": [
+    {
+      "id": "fus3g13bva5vtm9xnxelbh1zc",
+      "title": "CoEvolve：基于双向状态细化的构建到编辑视觉定位方法",
+      "originalTitle": "CoEvolve: Construct-to-Edit Visual Grounding with Bidirectional State Refinement",
+      "summary": "该研究提出 CoEvolve 框架，将视觉定位任务解耦为显式的状态构建与状态编辑两个阶段。基于论文摘要，该方法结合区域演化强化（RER）和双向去噪细化器（BDR），在自然图像和遥感数据上进行了评估；使用 9B 骨干模型时，其定位精度可与高达 241B 参数的模型相媲美，且在受控损坏条件下，单次 BDR 处理能将平均边界框重叠度提升超过 27 个百分点。项目主页已公开。",
+      "reason": "提出将视觉定位解耦为状态构建与编辑的框架，通过双向去噪细化器在受控损坏下显著提升边界框重叠度，展示了从严重定位错误中恢复的能力。",
+      "source": {
+        "name": "arXiv · 遥感与地球观测预印本",
+        "kind": "rss",
+        "firstParty": true
+      },
+      "originalUrl": "https://arxiv.org/abs/2610.01710v1",
+      "publishedAt": "2026-10-01T13:54:05.000Z",
+      "timelineAt": "2026-10-03T01:51:02.372Z",
+      "category": "paper",
+      "tags": [
+        "论文/研究",
+        "目标检测",
+        "多模态"
+      ],
+      "score": 78,
+      "selected": true
+    },
+    {
+      "id": "dcooe1pl8umoe1lyczn53y96y",
+      "title": "Copernicus Data Space 计划于 10 月 6 日升级 JupyterLab 服务",
+      "originalTitle": "Planned upgrade of JupyterLab service on 06/10/2026 from 10:00 to 15:00 CEST",
+      "summary": "Copernicus Data Space 计划于 10 月 6 日 10:00 至 15:00 CEST 对 JupyterLab 服务进行升级。在此期间，JupyterLab 服务将不可用约 4-5 小时。",
+      "reason": null,
+      "source": {
+        "name": "Copernicus Data Space · 数据与平台动态",
+        "kind": "rss",
+        "firstParty": true
+      },
+      "originalUrl": "https://dataspace.copernicus.eu/news/2026-10-2-planned-upgrade-jupyterlab-service-06102026-1000-1500-cest",
+      "publishedAt": "2026-10-02T11:36:52.000Z",
+      "timelineAt": "2026-10-02T15:51:48.582Z",
+      "category": "rs-tools",
+      "tags": [
+        "工具更新",
+        "云端处理",
+        "Copernicus"
+      ],
+      "score": 12,
+      "selected": false
+    },
+    {
+      "id": "rghkj1ufne2y0m3kqbb7terwo",
+      "title": "一种两阶段卫星星座优化方法：经典方法与QUBO建模",
+      "originalTitle": "A two-stage approach to satellite constellation optimization: classical and QUBO formulations",
+      "summary": "基于论文摘要，该论文提出了一种用于低轨（LEO）和极低轨（VLEO）地球观测卫星星座设计的两阶段优化策略，旨在最大化对指定地面目标的空间和时间分辨率。该方法将空间覆盖设计与时间分辨率优化解耦以降低计算复杂度，并开发了两种变体：第一种在空间优化阶段使用连续决策变量；第二种将这些变量离散化并重构为二次无约束二进制优化（QUBO）问题，从而兼容高效经典QUBO求解器及量子退火硬件。",
+      "reason": "提出将空间覆盖设计与时间分辨率优化分离的两阶段策略，并给出连续变量与QUBO两种变体，为利用经典求解器或量子退火硬件解决非凸星座设计问题提供了具体路径。",
+      "source": {
+        "name": "arXiv · 遥感与地球观测预印本",
+        "kind": "rss",
+        "firstParty": true
+      },
+      "originalUrl": "https://arxiv.org/abs/2610.01885v1",
+      "publishedAt": "2026-10-01T15:37:23.000Z",
+      "timelineAt": "2026-10-02T15:51:36.394Z",
+      "category": "paper",
+      "tags": [
+        "论文/研究",
+        "卫星/传感器"
+      ],
+      "score": 65,
+      "selected": true
+    },
+    {
+      "id": "p5f88xen11jwaz776l4l0oorh",
+      "title": "利用多模态混合专家模型中的领域专家实现高效适配",
+      "originalTitle": "Harnessing Domain Specialists in Multimodal Mixture-of-Experts for Efficient Adaptation",
+      "summary": "基于论文摘要，该研究提出了一种名为 ExpertLens 的无数据方法，用于从预训练模型权重中识别出具有领域专业性的专家。在数学、医学和遥感任务中，通过选择性微调相关专家，该方法在仅更新 21.7% - 47.0% 模型参数的情况下，达到了与全量微调相当或更优的性能，平均训练速度提升了 4.0 倍，并在适配性能和训练效率上优于 LoRA。",
+      "reason": "提出了一种无需数据的专家识别方法，并验证了其在遥感等特定领域的高效微调能力。",
+      "source": {
+        "name": "arXiv · 遥感与地球观测预印本",
+        "kind": "rss",
+        "firstParty": true
+      },
+      "originalUrl": "https://arxiv.org/abs/2610.02123v1",
+      "publishedAt": "2026-10-01T17:37:13.000Z",
+      "timelineAt": "2026-10-02T15:51:36.347Z",
+      "category": "paper",
+      "tags": [
+        "论文/研究",
+        "多模态",
+        "遥感基础模型"
+      ],
+      "score": 75,
+      "selected": true
+    },
     {
       "id": "vr9o2ltcomst76qdrb1lky3pt",
       "title": "USGS 提供基于 Landsat 的全球农田蒸散发 (ET) 按需数据服务",
@@ -1727,6 +1818,73 @@
     }
   ],
   "reports": [
+    {
+      "kind": "daily",
+      "key": "2026-10-03",
+      "title": "遥感日报 · 2026-10-03",
+      "generatedAt": "2026-10-03T01:51:00.330Z",
+      "editorialMode": "model",
+      "lead": {
+        "title": "USGS提供Landsat全球农田蒸散发按需数据服务",
+        "leadParagraph": "USGS EROS发布基于Landsat的全球农田蒸散发（ET）按需数据服务，支持估算1982年至今的作物与景观用水。同时，意大利IRIDE计划完成Eaglet II星座部署，24颗卫星全部就位。此外，西非大坝与水库协调数据集及多模态混合专家模型适配方法也相继发布。"
+      },
+      "overview": null,
+      "sections": [
+        {
+          "label": "论文与方法",
+          "summary": null,
+          "items": [
+            {
+              "itemId": "p5f88xen11jwaz776l4l0oorh",
+              "title": "利用多模态混合专家模型中的领域专家实现高效适配",
+              "summary": "基于论文摘要，该研究提出了一种名为 ExpertLens 的无数据方法，用于从预训练模型权重中识别出具有领域专业性的专家。在数学、医学和遥感任务中，通过选择性微调相关专家，该方法在仅更新 21.7% - 47.0% 模型参数的情况下，达到了与全量微调相当或更优的性能，平均训练速度提升了 4.0 倍，并在适配性能和训练效率上优于 LoRA。",
+              "sourceName": "arXiv · 遥感与地球观测预印本",
+              "originalUrl": "https://arxiv.org/abs/2610.02123v1"
+            },
+            {
+              "itemId": "rghkj1ufne2y0m3kqbb7terwo",
+              "title": "一种两阶段卫星星座优化方法：经典方法与QUBO建模",
+              "summary": "基于论文摘要，该论文提出了一种用于低轨（LEO）和极低轨（VLEO）地球观测卫星星座设计的两阶段优化策略，旨在最大化对指定地面目标的空间和时间分辨率。该方法将空间覆盖设计与时间分辨率优化解耦以降低计算复杂度，并开发了两种变体：第一种在空间优化阶段使用连续决策变量；第二种将这些变量离散化并重构为二次无约束二进制优化（QUBO）问题，从而兼容高效经典QUBO求解器及量子退火硬件。",
+              "sourceName": "arXiv · 遥感与地球观测预印本",
+              "originalUrl": "https://arxiv.org/abs/2610.01885v1"
+            }
+          ]
+        },
+        {
+          "label": "数据集与基准",
+          "summary": null,
+          "items": [
+            {
+              "itemId": "vr9o2ltcomst76qdrb1lky3pt",
+              "title": "USGS 提供基于 Landsat 的全球农田蒸散发 (ET) 按需数据服务",
+              "summary": "USGS EROS 提供全球、临时的 Landsat 蒸散发 (ET) 数据按需访问服务，可估算自 1982 年至今（Landsat 4 至 9）的作物与景观用水。该免费数据以即用格式提供，便于集成到 GIS 和分析工作流中，且近期出版物显示其在不同地区和气候下表现一致。自 2020 年 6 月至 2026 年 8 月，用户已通过 ESPA 请求超过 160 万景 Landsat ET 图像。",
+              "sourceName": "USGS Landsat",
+              "originalUrl": "https://x.com/USGSLandsat/status/2105674247011963219"
+            },
+            {
+              "itemId": "w9gc9h4ly96z69g18pchbvd6q",
+              "title": "西非大坝与水库协调数据集发布",
+              "summary": "基于论文摘要，Kouassi等人构建并发布了一个西非大坝与水库的协调区域数据集。该数据集包含1429个大坝和1258个水库（最小面积0.57×10⁻³ km²），总库容达2.83032×10¹¹ m³，填补了现有数据在地理参考精度和大小尺度覆盖上的不足。基于流域尺度的实地评估显示，该数据集在大尺度水库上具有强时空一致性，但小尺度基础设施仍存在系统性缺失。",
+              "sourceName": "Earth System Science Data · 数据论文与讨论稿",
+              "originalUrl": "https://essd.copernicus.org/articles/18/7227/2026/"
+            }
+          ]
+        },
+        {
+          "label": "卫星与传感器",
+          "summary": null,
+          "items": [
+            {
+              "itemId": "yr74orfri7d1sqob9wb9mmchl",
+              "title": "意大利 IRIDE 计划完成 Eaglet II 星座部署",
+              "summary": "意大利 IRIDE 地球观测计划的最后一批 Eaglet II 卫星已成功入轨，使该星座的 24 颗卫星全部就位。此次发射于 10 月 1 日通过 SpaceX Transporter-18 拼车任务进行，搭载 Falcon 9 火箭从加州范登堡太空军基地升空。",
+              "sourceName": "ESA · 对地观测",
+              "originalUrl": "https://www.esa.int/Applications/Observing_the_Earth/IRIDE/Italy_s_IRIDE_completes_Eaglet_II_constellation"
+            }
+          ]
+        }
+      ]
+    },
     {
       "kind": "daily",
       "key": "2026-10-02",
@@ -3392,6 +3550,7 @@
       "group": "field",
       "definition": "追踪目标检测的研究方法、数据、工具与应用实践。",
       "itemIds": [
+        "fus3g13bva5vtm9xnxelbh1zc",
         "jpwz9bgntjt4885vrtou1wvmi",
         "lepydmxhqqr0t13o61knq9zpg",
         "fdn50sjot2oa38v38g6slhbw0"
@@ -3430,6 +3589,7 @@
       "group": "field",
       "definition": "追踪遥感基础模型的研究方法、数据、工具与应用实践。",
       "itemIds": [
+        "p5f88xen11jwaz776l4l0oorh",
         "sqogcqmjoqwzqmgss9j4c0lzd",
         "o3h6p5qukk3psrw68l4pbiewl",
         "vn45n3xlaau84p3ttgnvw4u1r",
@@ -3512,6 +3672,9 @@
       "group": "genre",
       "definition": "值得关注的遥感论文与研究，保留原文入口与适用条件。",
       "itemIds": [
+        "fus3g13bva5vtm9xnxelbh1zc",
+        "rghkj1ufne2y0m3kqbb7terwo",
+        "p5f88xen11jwaz776l4l0oorh",
         "w9gc9h4ly96z69g18pchbvd6q",
         "uq9cdnxc82eqy8sp8k787i0oq",
         "jdx6khgou842sfra33v2brk0y",
@@ -3596,6 +3759,7 @@
       "group": "genre",
       "definition": "值得关注的遥感卫星与传感器，保留原文入口与适用条件。",
       "itemIds": [
+        "rghkj1ufne2y0m3kqbb7terwo",
         "byrnkcxoy2da7fakzivdi7lyr",
         "wezhx5xk6gsimqeo7irthqp2j",
         "gzolrxrpu1wfos8snkmt3zpcf",
@@ -3621,7 +3785,7 @@
     }
   ],
   "hot": {
-    "computedAt": "2026-10-02T13:25:18.097Z",
+    "computedAt": "2026-10-03T02:25:13.881Z",
     "windowHours": 48,
     "entries": []
   }
