@@ -1,7 +1,7 @@
 // Source administration (F18): list, detail, preview (fetch without storing), edit, create with
 // duplicate checks, pause/resume and manual collection. Every change is audited.
 import { z } from "zod";
-import { sql } from "../db.ts";
+import { sql, type Db } from "../db.ts";
 import { Conflict } from "../audit.ts";
 export { Conflict } from "../audit.ts";
 import { enqueue, QUEUES } from "../jobs/queue.ts";
@@ -13,7 +13,9 @@ import { assertSupportedConfig } from "../sources/config-keys.ts";
 import type { SourceRow } from "../sources/types.ts";
 import { fetchWebList } from "../sources/web-list.ts";
 import { fetchXSearch } from "../sources/x.ts";
-import { audit } from "./auth.ts";
+import { audit } from "../audit.ts";
+import { invalidateStoryInputs } from "../events/derived-content.ts";
+import { resumeSourceArticles } from "../jobs/content.ts";
 
 export interface SourceListFilters {
   q?: string;
@@ -102,10 +104,19 @@ const EDITABLE = z
 export async function updateSource(id: string, input: { patch: unknown; version: string; reason?: string }, actor: string) {
   const patch = EDITABLE.parse(input.patch);
   return sql.begin(async (tx) => {
+    // Creation and address edits share the lock: checking then inserting must not race.
+    if (patch.config) await tx`SELECT pg_advisory_xact_lock(hashtext('admin-source-identity'))`;
     const [before] = await tx`SELECT * FROM sources WHERE id = ${id} FOR UPDATE`;
     if (!before) return null;
     if (new Date(before.updated_at as Date).toISOString() !== input.version) throw new Conflict("信源已被其他操作修改，请刷新后再改");
-    if (patch.config) assertSupportedConfig(before.kind as SourceRow["kind"], patch.config);
+    if (patch.config) {
+      assertSupportedConfig(before.kind as SourceRow["kind"], patch.config);
+      // A changed address must not be one another source already collects from. (Sources that share a
+      // feed on purpose, with different filters, keep editing their other settings.)
+      const moved = sourceIdentity(String(before.kind), patch.config) !== sourceIdentity(String(before.kind), before.config as Record<string, unknown>);
+      const dup = moved ? await findDuplicateSource(String(before.kind), patch.config, id, tx) : null;
+      if (dup) throw new Conflict(`与已有信源重复：${dup.name}（${dup.id}）`);
+    }
     const keys = Object.keys(patch) as Array<keyof typeof patch>;
     if (!keys.length) return before;
     const values = Object.fromEntries(keys.map((k) => [k, k === "config" ? tx.json(patch.config as never) : patch[k]]));
@@ -113,7 +124,14 @@ export async function updateSource(id: string, input: { patch: unknown; version:
       health = CASE WHEN ${patch.enabled ?? null}::boolean IS FALSE THEN 'paused' WHEN ${patch.enabled ?? null}::boolean IS TRUE AND health = 'paused' THEN 'unknown' ELSE health END,
       next_fetch_at = CASE WHEN ${patch.enabled ?? null}::boolean IS TRUE THEN now() ELSE next_fetch_at END
       WHERE id = ${id} RETURNING *`;
-    await audit(actor, "source.update", `source:${id}`, input.reason ?? null, Object.fromEntries(keys.map((k) => [k, before[k]])), patch);
+    if (before.participation_mode !== "editorial" && after!.participation_mode === "editorial") {
+      await resumeSourceArticles(id, tx);
+    }
+    if (before.participation_mode === "editorial" && after!.participation_mode !== "editorial") {
+      const articles = await tx<{ id: string }[]>`SELECT id FROM articles WHERE source_id = ${id}`;
+      await invalidateStoryInputs(tx, articles.map((row) => row.id), new Date());
+    }
+    await audit(actor, "source.update", `source:${id}`, input.reason ?? null, Object.fromEntries(keys.map((k) => [k, before[k]])), patch, { db: tx });
     // What public exits show for this source's articles is derived from these fields: re-derive them
     // all (in the worker) so a revoked licence or an isolated source stops on every exit.
     if (keys.some((k) => PUBLICATION_FIELDS.includes(k) && JSON.stringify(before[k]) !== JSON.stringify(patch[k]))) {
@@ -159,26 +177,29 @@ export function sourceIdentity(kind: string, config: Record<string, unknown>): s
   }
 }
 
-export async function findDuplicateSource(kind: string, config: Record<string, unknown>) {
+export async function findDuplicateSource(kind: string, config: Record<string, unknown>, exceptId?: string, db: Db = sql) {
   const identity = sourceIdentity(kind, config);
   if (!identity) return null;
-  const rows = await sql<{ id: string; kind: string; config: Record<string, unknown>; name: string }[]>`SELECT id, kind, config, name FROM sources WHERE kind = ${kind}`;
-  return rows.find((r) => sourceIdentity(r.kind, r.config) === identity) ?? null;
+  const rows = await db<{ id: string; kind: string; config: Record<string, unknown>; name: string }[]>`SELECT id, kind, config, name FROM sources WHERE kind = ${kind}`;
+  return rows.find((r) => r.id !== exceptId && sourceIdentity(r.kind, r.config) === identity) ?? null;
 }
 
 export async function createSource(input: unknown, actor: string) {
   const s = CreateSchema.parse(input);
   assertSupportedConfig(s.kind, s.config);
-  const dup = await findDuplicateSource(s.kind, s.config);
-  if (dup) return { created: false as const, duplicate: dup };
-  const [row] = await sql`
+  return sql.begin(async (tx) => {
+    await tx`SELECT pg_advisory_xact_lock(hashtext('admin-source-identity'))`;
+    const dup = await findDuplicateSource(s.kind, s.config, undefined, tx);
+    if (dup) return { created: false as const, duplicate: dup };
+    const [row] = await tx`
     INSERT INTO sources (id, name, kind, config, tier, participation_mode, interval_minutes, first_party, tags, site_fulltext, syndicate_fulltext, next_fetch_at)
-    VALUES (${s.id}, ${s.name}, ${s.kind}, ${sql.json(s.config as never)}, ${s.tier}, ${s.participation_mode}, ${s.interval_minutes}, ${s.first_party}, ${s.tags},
+    VALUES (${s.id}, ${s.name}, ${s.kind}, ${tx.json(s.config as never)}, ${s.tier}, ${s.participation_mode}, ${s.interval_minutes}, ${s.first_party}, ${s.tags},
             ${s.site_fulltext}, ${s.syndicate_fulltext}, now())
     ON CONFLICT (id) DO NOTHING RETURNING *`;
-  if (!row) throw new Conflict(`信源 ID ${s.id} 已存在`);
-  await audit(actor, "source.create", `source:${s.id}`, null, null, s);
-  return { created: true as const, source: row };
+    if (!row) throw new Conflict(`信源 ID ${s.id} 已存在`);
+    await audit(actor, "source.create", `source:${s.id}`, null, null, s, { db: tx });
+    return { created: true as const, source: row };
+  });
 }
 
 export async function fetchNow(id: string, actor: string) {

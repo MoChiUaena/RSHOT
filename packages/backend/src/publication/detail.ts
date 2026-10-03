@@ -1,10 +1,11 @@
+import { selectedCondition, listedCondition, storyReportCondition, evidenceCondition, ownFactEvidenceCondition } from "./scope.ts";
 // Item detail and Markdown export, both behind the same visibility and licence rules.
 import type { ItemDetail, SiteItemDetail, OutlineEntry, StoryRef } from "@aihot/contracts/site";
 import TurndownService from "turndown";
 import { sql } from "../db.ts";
 import { proxyBodyImages } from "../media/imgproxy.ts";
 import { textToHtml } from "../content/sanitize.ts";
-import { ITEM_COLUMNS, ITEM_FROM, selectedCondition, toItemSummary, xView, type ItemRow } from "./items.ts";
+import { ITEM_COLUMNS, ITEM_FROM, toItemSummary, xView, type ItemRow } from "./items.ts";
 import { itemUrl } from "./links.ts";
 import { hasItemPage } from "./rules.ts";
 import { SITE } from "@aihot/industry/site";
@@ -52,7 +53,7 @@ export async function loadItemDetail(id: string, now = new Date()): Promise<Deta
   if (!row || !hasItemPage({ visibility: row.visibility, sourceMode: row.source_mode })) return { kind: "not_found" };
 
   const summary = toItemSummary(row);
-  if (row.channel === "x") summary.x = xView(row, false, true);
+  if (row.channel === "x" && row.body_mode === "full") summary.x = xView(row, false, true);
   if (row.visibility === "summary-only") {
     const detail: ItemDetail = {
       ...summary,
@@ -75,12 +76,13 @@ export async function loadItemDetail(id: string, now = new Date()): Promise<Deta
   const related = await sql<StoryRef[]>`
     SELECT DISTINCT st.public_id::text AS "publicId", st.title
     FROM fact_articles fa JOIN facts f ON f.id = fa.fact_id JOIN stories st ON st.id = f.story_id
-    WHERE fa.article_id = ${id} AND fa.role <> 'mention' AND st.merged_into IS NULL
+    JOIN publications p ON p.article_id = fa.article_id JOIN sources s ON s.id = p.source_id
+    WHERE fa.article_id = ${id} AND ${evidenceCondition()} AND ${storyReportCondition(now)} AND st.merged_into IS NULL
     LIMIT 6`;
 
   let body: ItemDetail["body"] = null;
   let outline: OutlineEntry[] = [];
-  if (row.channel === "x") {
+  if (row.channel === "x" && row.body_mode === "full") {
     const text = String(row.x_post?.text ?? row.body_text ?? "");
     body = {
       zh: summary.x?.translation ? textToHtml(summary.x.translation) : null,
@@ -107,13 +109,13 @@ export async function loadItemDetail(id: string, now = new Date()): Promise<Deta
     const [g] = await sql<{ public_id: string; reports: number; sources: number }[]>`
       SELECT f.public_id, count(p.article_id) AS reports, count(DISTINCT p.source_id) AS sources
       FROM facts f JOIN publications p ON p.fact_id = f.id
-      WHERE f.id = ${row.fact_id} AND p.visibility = 'public' AND p.eligible AND (NOT p.selected OR p.visible_after <= ${now})
+      WHERE f.id = ${row.fact_id} AND ${listedCondition(now)} AND ${ownFactEvidenceCondition()}
       GROUP BY f.public_id`;
     const [dev] = await sql<{ n: number }[]>`
       SELECT count(DISTINCT other.id) AS n FROM facts f
       JOIN facts other ON other.story_id = f.story_id AND other.id <> f.id
       JOIN publications p ON p.fact_id = other.id
-      WHERE f.id = ${row.fact_id} AND f.story_id IS NOT NULL AND ${selectedCondition(now)}`;
+      WHERE f.id = ${row.fact_id} AND f.story_id IS NOT NULL AND ${selectedCondition(now)} AND ${ownFactEvidenceCondition()}`;
     if (g) {
       group = {
         factId: g.public_id,
@@ -148,7 +150,7 @@ export function markdownAvailable(row: {
   visibility: string; source_mode: string; summary: string | null; body_mode: string; body_html?: string | null; channel: string; x_post: Record<string, any> | null;
 }): boolean {
   if (row.visibility !== "public" || !hasItemPage({ visibility: row.visibility, sourceMode: row.source_mode })) return false;
-  return !!row.summary || (row.channel === "x" && !!row.x_post?.text) || (row.body_mode === "full" && !!row.body_html);
+  return !!row.summary || (row.body_mode === "full" && ((row.channel === "x" && !!row.x_post?.text) || !!row.body_html));
 }
 
 const turndown = new TurndownService({ headingStyle: "atx", codeBlockStyle: "fenced", bulletListMarker: "-" });
@@ -165,7 +167,7 @@ export async function exportMarkdown(id: string): Promise<{ filename: string; bo
   lines.push(`- 原文：${row.url}`, "");
   if (row.summary) lines.push("## 摘要", "", row.summary, "");
   if (row.selected && row.reason) lines.push("## 推荐理由", "", row.reason, "");
-  if (row.channel === "x" && row.x_post?.text) {
+  if (row.channel === "x" && row.body_mode === "full" && row.x_post?.text) {
     lines.push("## 正文", "", String(row.x_post.text), "");
     if (row.zh_text) lines.push("## 中文译文", "", row.zh_text, "");
     const q = row.x_post.quoted as { handle?: string; text?: string; url?: string } | null | undefined;
@@ -176,7 +178,7 @@ export async function exportMarkdown(id: string): Promise<{ filename: string; bo
     if (!isZh && row.tr_html && row.tr_complete) lines.push("## 正文 · 中文译文", "", turndown.turndown(row.tr_html), "");
     lines.push(isZh ? "## 正文" : "## 正文 · 原文", "", turndown.turndown(row.body_html), "");
   }
-  return { filename: `aihot-${row.id}.md`, body: lines.join("\n").replace(/\n{3,}/g, "\n\n") };
+  return { filename: `${SITE.mcpPrefix}-${row.id}.md`, body: lines.join("\n").replace(/\n{3,}/g, "\n\n") };
 }
 
 /** Site reading projection: default text remains SSR, a second language has its own readable URL. */

@@ -1,3 +1,5 @@
+import { ownFactEvidenceCondition } from "./scope.ts";
+export { listedCondition, selectedCondition } from "./scope.ts";
 // Public read layer, item level. Every exit (site API, v1, RSS, MCP, sitemap) reads
 // items through these functions; visibility, release gate and body licences are applied here.
 import type { CategoryKey, ChannelKey } from "@aihot/contracts/taxonomy";
@@ -54,7 +56,9 @@ export interface ItemRow {
 export const ITEM_COLUMNS = sql`
   p.article_id AS id, p.revision, p.title, p.original_title, p.summary, p.reason, p.category, p.tags, p.score,
   p.selected, p.eligible, p.channel, p.url, p.published_at, p.discovered_at, p.timeline_at, p.sort_at, p.first_party, p.visibility,
-  p.body_mode, p.syndicate, p.indexable, p.visible_after, p.backfill, p.fact_id, p.story_id,
+  CASE WHEN s.site_fulltext THEN p.body_mode ELSE 'summary' END AS body_mode,
+  (p.syndicate AND s.site_fulltext AND s.syndicate_fulltext) AS syndicate,
+  p.indexable, p.visible_after, p.backfill, p.fact_id, p.story_id,
   s.id AS source_id, s.name AS source_name, s.kind AS source_kind, s.participation_mode AS source_mode, s.icon_url AS source_icon,
   a.x_post, a.author, a.language,
   st.public_id::text AS story_public_id, st.title AS story_title,
@@ -72,19 +76,9 @@ export const ITEM_FROM = sql`
   FROM publications p
   JOIN sources s ON s.id = p.source_id
   JOIN articles a ON a.id = p.article_id
-  LEFT JOIN stories st ON st.id = p.story_id AND st.merged_into IS NULL
+  LEFT JOIN stories st ON st.id = p.story_id AND ${ownFactEvidenceCondition()} AND st.merged_into IS NULL
   LEFT JOIN translations tr ON tr.article_id = p.article_id AND tr.lang = 'zh' AND tr.revision >= a.revision
   LEFT JOIN quote_translations qt ON p.channel = 'x' AND qt.tweet_id = substring(a.x_post->'quoted'->>'url' from '/status/([0-9]+)')`;
-
-/** Listed items: public, and a selected item only after its release gate. */
-export function listedCondition(now: Date) {
-  return sql`p.visibility = 'public' AND (NOT p.selected OR p.visible_after <= ${now})`;
-}
-
-/** Selected set as shown on the home timeline, v1 selected mode and RSS. */
-export function selectedCondition(now: Date) {
-  return sql`p.visibility = 'public' AND p.selected AND p.visible_after <= ${now}`;
-}
 
 export function channelCondition(channel: ChannelKey | null | undefined) {
   if (!channel || channel === "all") return sql``;
@@ -150,7 +144,7 @@ export function xView(row: Pick<ItemRow, "x_post" | "zh_text"> & Partial<Pick<It
 }
 
 export function toItemSummary(row: ItemRow): ItemSummary {
-  const x = row.channel === "x" ? xView(row, true) : null;
+  const x = row.channel === "x" && row.body_mode === "full" ? xView(row, true) : null;
   return {
     id: row.id,
     revision: row.revision,

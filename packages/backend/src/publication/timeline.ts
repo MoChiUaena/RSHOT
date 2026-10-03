@@ -1,13 +1,14 @@
+import { selectedCondition, pendingReleaseCondition, listedCondition, evidenceCondition, ownFactEvidenceCondition } from "./scope.ts";
 // Home timeline: selected items folded into reading groups (reference SELECTED_READING):
 // one card per story, per fact outside a story, or per standalone article. A card sits at its latest
 // development's first appearance, so a new development brings it back up while a representative swap
 // never moves it; the representative is the first-party pick of the story's initiating fact.
 import type { GroupInfo, TimelineCard, TimelineFilters, TimelineResponse } from "@aihot/contracts/site";
-import { beijingDate } from "@aihot/contracts/time";
+import { beijingDate, beijingMidnight } from "@aihot/contracts/time";
 import { sql } from "../db.ts";
 import { decodeCursor, encodeCursor, InvalidCursorError, queryBinding } from "../lib/cursor.ts";
 import {
-  ITEM_COLUMNS, ITEM_FROM, categoryCondition, channelCondition, selectedCondition, tagCondition, toFeedItemSummary, topicCondition,
+  ITEM_COLUMNS, ITEM_FROM, categoryCondition, channelCondition, tagCondition, toFeedItemSummary, topicCondition,
   type ItemRow,
 } from "./items.ts";
 
@@ -54,44 +55,73 @@ async function groupPool(q: TimelineQuery, now: Date, storyIds: number[], factId
     SELECT DISTINCT f.story_id, f.id AS fact_id, p.article_id, p.source_id, p.timeline_at AS at
     FROM facts f JOIN fact_articles fa ON fa.fact_id = f.id JOIN publications p ON p.article_id = fa.article_id
     WHERE (f.story_id IN ${sql(storyIds.length ? storyIds : [0])} OR f.id IN ${sql(factIds.length ? factIds : [0])})
-      AND p.visibility = 'public' AND p.eligible AND (NOT p.selected OR p.visible_after <= ${now}) ${filterSql(q)}`;
+      AND ${listedCondition(now)} AND ${evidenceCondition()} ${filterSql(q)}`;
 }
 
 /**
- * The selected set grouped into cards (fact or standalone item) with their anchor times, newest
- * first. Every timeline page, day count and "new items" probe reads this list; it is kept for five
- * seconds per filter scope (a release becomes visible at most that much later).
+ * The selected set grouped into cards, newest first. Keep anchors and their release deadline
+ * together: returning old anchors with a newer deadline could cache a missing card for a minute.
  */
-const groupedCache = new Map<string, { at: number; rows: Array<{ gk: string; anchor: number }> }>();
-const groupedPending = new Map<string, Promise<Array<{ gk: string; anchor: number }>>>();
-async function groupedAnchors(q: TimelineQuery, now: Date): Promise<Array<{ gk: string; anchor: number }>> {
+interface GroupedSnapshot {
+  rows: Array<{ gk: string; anchor: number }>;
+  refreshAt: string | null;
+}
+const groupedCache = new Map<string, { at: number; data: GroupedSnapshot }>();
+const groupedPending = new Map<string, Promise<GroupedSnapshot>>();
+async function groupedAnchors(q: TimelineQuery, now: Date): Promise<GroupedSnapshot> {
   const key = binding(q);
+  const expired = (data: GroupedSnapshot) => data.refreshAt !== null && now.getTime() >= Date.parse(data.refreshAt);
   const cached = q.now ? undefined : groupedCache.get(key);
-  if (cached && Date.now() - cached.at < 5000) return cached.rows;
+  if (cached && Date.now() - cached.at < 5000 && !expired(cached.data)) return cached.data;
   const pending = q.now ? undefined : groupedPending.get(key);
-  if (pending) return pending;
-  const load = queryGroupedAnchors(q, now);
+  if (pending) {
+    const data = await pending;
+    // A reader after the release must not inherit a still-running pre-release snapshot.
+    return expired(data) ? groupedAnchors(q, now) : data;
+  }
+  const load = Promise.all([queryGroupedAnchors(q, now), nextRelease(q, now)])
+    .then(([rows, refreshAt]) => ({ rows, refreshAt }));
   if (q.now) return load;
-  groupedPending.set(key, load);
-  try {
-    const rows = await load;
+  const work = load.then((data) => {
     if (groupedCache.size >= 50) groupedCache.delete(groupedCache.keys().next().value!);
-    groupedCache.set(key, { at: Date.now(), rows });
-    return rows;
-  } finally { groupedPending.delete(key); }
+    groupedCache.set(key, { at: Date.now(), data });
+    return data;
+  }).finally(() => { groupedPending.delete(key); });
+  groupedPending.set(key, work);
+  return work;
 }
 
 async function queryGroupedAnchors(q: TimelineQuery, now: Date) {
   const rows = (
     await sql<{ gk: string; anchor_at: Date }[]>`
       WITH base AS (
-        SELECT p.sort_at, coalesce('s' || p.story_id::text, 'f' || p.fact_id::text, 'a' || p.article_id) AS gk
+        SELECT p.sort_at, CASE WHEN ${ownFactEvidenceCondition()} THEN coalesce('s' || p.story_id::text, 'f' || p.fact_id::text) ELSE 'a' || p.article_id END AS gk
         FROM publications p
         WHERE ${selectedCondition(now)} ${filterSql(q)}
       )
       SELECT gk, max(sort_at) AS anchor_at FROM base GROUP BY gk ORDER BY anchor_at DESC, gk COLLATE "C" DESC`
   ).map((r) => ({ gk: r.gk, anchor: r.anchor_at.getTime() }));
   return rows;
+}
+
+/** Counts requested Beijing days over anchors already sorted newest first. */
+export function countTimelineDays(grouped: readonly { anchor: number }[], days: ReadonlySet<string>): Record<string, number> {
+  const firstBelow = (bound: number) => {
+    let lo = 0, hi = grouped.length;
+    while (lo < hi) {
+      const mid = Math.floor((lo + hi) / 2);
+      if (grouped[mid]!.anchor >= bound) lo = mid + 1;
+      else hi = mid;
+    }
+    return lo;
+  };
+  const counts: Record<string, number> = {};
+  for (const day of days) {
+    const start = beijingMidnight(day).getTime();
+    const count = firstBelow(start) - firstBelow(start + 86_400_000);
+    if (count) counts[day] = count;
+  }
+  return counts;
 }
 
 export async function loadTimeline(q: TimelineQuery): Promise<Omit<TimelineResponse, "hot" | "generatedAt">> {
@@ -105,10 +135,7 @@ export async function loadTimeline(q: TimelineQuery): Promise<Omit<TimelineRespo
     after = { a: c.a, g: c.g };
   }
 
-  // Independent of the page: read alongside it.
-  const refreshAtRead = nextRelease(q, now);
-  refreshAtRead.catch(() => {});
-  const grouped = await groupedAnchors(q, now);
+  const { rows: grouped, refreshAt } = await groupedAnchors(q, now);
   const start = after ? grouped.findIndex((g) => g.anchor < after!.a || (g.anchor === after!.a && g.gk < after!.g)) : 0;
   const groups: GroupRow[] = (start < 0 ? [] : grouped.slice(start, start + limit + 1)).map((g) => ({ gk: g.gk, anchor_at: new Date(g.anchor) }));
 
@@ -125,7 +152,7 @@ export async function loadTimeline(q: TimelineQuery): Promise<Omit<TimelineRespo
       ? sql<Member[]>`
         SELECT p.story_id, p.fact_id, p.article_id AS id, p.first_party, p.body_mode, p.score, p.timeline_at, p.sort_at FROM publications p
         WHERE (p.story_id IN ${sql(storyIds.length ? storyIds : [0])} OR (p.story_id IS NULL AND p.fact_id IN ${sql(factIds.length ? factIds : [0])}))
-          AND ${selectedCondition(now)} ${filterSql(q)}`
+          AND ${selectedCondition(now)} AND ${ownFactEvidenceCondition()} ${filterSql(q)}`
       : Promise.resolve([] as Member[]),
     groupPool(q, now, storyIds, factIds),
   ]);
@@ -186,15 +213,8 @@ export async function loadTimeline(q: TimelineQuery): Promise<Omit<TimelineRespo
 
   // Day header counts for the days on this page, over the full grouped set.
   const days = new Set(page.map((g) => beijingDate(g.anchor_at)));
-  const dayCounts: Record<string, number> = {};
-  if (days.size) {
-    for (const g of grouped) {
-      const day = beijingDate(g.anchor);
-      if (days.has(day)) dayCounts[day] = (dayCounts[day] ?? 0) + 1;
-    }
-  }
+  const dayCounts = countTimelineDays(grouped, days);
 
-  const refreshAt = await refreshAtRead;
   const last = page[page.length - 1];
   const nextCursor = hasMore && last ? encodeCursor("tl1", { a: last.anchor_at.getTime(), g: last.gk, b: bind }) : null;
   return { filters: { channel: q.channel, category: q.category, tag: q.tag, topic: q.topic ?? null }, cards, nextCursor, refreshAt, dayCounts };
@@ -204,6 +224,6 @@ export async function loadTimeline(q: TimelineQuery): Promise<Omit<TimelineRespo
 export async function nextRelease(q: TimelineQuery, now: Date): Promise<string | null> {
   const [row] = await sql<{ t: Date | null }[]>`
     SELECT min(p.visible_after) AS t FROM publications p
-    WHERE p.visibility = 'public' AND p.selected AND p.visible_after > ${now} ${filterSql(q)}`;
+    WHERE ${pendingReleaseCondition(now)} ${filterSql(q)}`;
   return row?.t ? row.t.toISOString() : null;
 }

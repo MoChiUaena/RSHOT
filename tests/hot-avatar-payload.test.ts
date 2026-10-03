@@ -5,6 +5,8 @@ import { after, test } from 'node:test';
 import { closeDb, sql } from '@aihot/backend/db';
 import { loadHotStrip, rankingExtras, type HotEntry } from '@aihot/backend/events/hot-read';
 import { proxiedImage } from '@aihot/backend/media/imgproxy';
+import { publishArticle } from '@aihot/backend/publication/publish';
+import { stopBoss } from '@aihot/backend/jobs/queue';
 
 const t = `hotfaces-${tag()}`;
 // Listed in the ranking's stored order, which the faces must not follow.
@@ -28,9 +30,11 @@ const storyIds: number[] = [];
 after(async () => {
   if (rankingId !== undefined) await sql`DELETE FROM hot_rankings WHERE id=${rankingId}`;
   if (storyIds.length) await sql`DELETE FROM story_signals WHERE story_id=ANY(${storyIds}::bigint[])`;
+  if (storyIds.length) await sql`DELETE FROM facts WHERE story_id=ANY(${storyIds}::bigint[])`;
   if (storyIds.length) await sql`DELETE FROM stories WHERE id=ANY(${storyIds}::bigint[])`;
   await sql`DELETE FROM articles WHERE source_id LIKE ${t+'%'}`;
   await sql`DELETE FROM sources WHERE id LIKE ${t+'%'}`;
+  await stopBoss();
   await closeDb();
 });
 
@@ -46,6 +50,12 @@ test('faces are 精选组 sources by tier (T1, T1.5, T2), at most 6; 氛围组 o
   for (let i=0;i<3;i++) {
     const [story] = await sql<{id:number;public_id:string}[]>`INSERT INTO stories(public_id,title) VALUES(${randomUUID()},${t}) RETURNING id,public_id`;
     storyIds.push(story!.id);
+    const [fact] = await sql<{id:number}[]>`INSERT INTO facts(public_id,story_id,title)
+      VALUES(${`${t}-fact-${i}`},${story!.id},${t}) RETURNING id`;
+    await sql`INSERT INTO analyses(article_id,input_revision,origin,relevance,category,title_zh,summary_zh)
+      VALUES(${sourceId(2)},1,'rule','pass','rs-tools',${t},'合成遥感报道摘要')`;
+    await sql`INSERT INTO fact_articles(fact_id,article_id,role) VALUES(${fact!.id},${sourceId(2)},'report')`;
+    await publishArticle(sourceId(2));
     for (const [p, person] of inputs.entries()) await sql`INSERT INTO story_signals(story_id,article_id,participant_key,source_id,kind,observed_at)
       VALUES(${story!.id},${sourceId(p)},${sourceId(p)},${sourceId(p)},${person.kind},${at})`;
     entries.push({ rank:i+1,storyId:story!.id,storyPublicId:story!.public_id,title:t,heat:10,trend:'flat',trendPct:0,badges:[],

@@ -80,14 +80,13 @@ const DAILY_INPUT = z.strictObject({
   date: z.string().regex(/^\d{4}-\d{2}-\d{2}$/).optional().describe("Optional real calendar date in YYYY-MM-DD. Omit for the latest daily report."),
 });
 
-// Agents repeat the same calls. Answers are kept 30 s, within the minute the v1 HTTP answers are
-// shared for; a failed read is not kept.
+// Coalesce concurrent calls only: corrections and source demotions apply on the next read.
 const results = new Map<string, { at: number; value: Promise<unknown> }>();
 function recent<T>(key: string, load: () => Promise<T>): Promise<T> {
   const hit = results.get(key);
-  if (hit && Date.now() - hit.at < 30_000) return hit.value as Promise<T>;
+  if (hit) return hit.value as Promise<T>;
   const value = load();
-  value.catch(() => results.delete(key));
+  value.finally(() => { if (results.get(key)?.value === value) results.delete(key); }).catch(() => {});
   if (results.size >= 500) results.delete(results.keys().next().value!);
   results.set(key, { at: Date.now(), value });
   return value;

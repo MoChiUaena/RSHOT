@@ -1,8 +1,56 @@
 // Hot ranking: attention over the last 48 hours from independent participants.
 // Each participant counts once per window (repeat collection does not add heat), decays with a
 // 24-hour half-life, and the source time (not collection time) places evidence in the window.
-import { sql } from "../db.ts";
-import { tierRank, type HotEntry } from "./hot-read.ts";
+import { sql, type Db } from "../db.ts";
+import { evidenceCondition, listedCondition } from "../publication/scope.ts";
+
+/** One entry of a stored ranking; the public read layer (publication/hot.ts) re-checks it before showing it. */
+export interface HotEntry {
+  rank: number;
+  storyId: number;
+  storyPublicId: string;
+  title: string;
+  heat: number;
+  /** "unknown": the earlier participants' sources were behind on collection, so there is no comparison. */
+  trend: "up" | "down" | "flat" | "new" | "unknown";
+  trendPct: number | null;
+  badges: Array<"surge" | "new" | "rising">;
+  participantCount: number;
+  sourceCount: number;
+  signalCount: number;
+  reportCount: number;
+  sourceNames: string[];
+  latestAt: string;
+  firstReportAt: string;
+  representativeItemId: string | null;
+  representativeUrl: string | null;
+  representativeSource: string | null;
+  /** 精选组 first by tier, then 氛围组; tier is absent on rankings from before 2026-09-29. */
+  participants: Array<{ name: string; kind: "editorial" | "signal"; tier?: string }>;
+}
+
+/** Participants in the 精选组 order: T1 before T1.5 before T2, then everything else. */
+const TIER_ORDER = ["T1", "T1_5", "T2"];
+export function tierRank(tier: string | undefined): number {
+  const i = TIER_ORDER.indexOf(tier ?? "");
+  return i < 0 ? TIER_ORDER.length : i;
+}
+
+export interface HotRanking {
+  id: number;
+  computedAt: string;
+  ruleVersion: string;
+  entries: HotEntry[];
+  coverage: Record<string, unknown> | null;
+}
+
+/** Administrative invalidation needs the saved references, including ones already hidden publicly. */
+export async function storedHotRanking(db: Db = sql): Promise<HotRanking | null> {
+  const [row] = await db<{ id: number; computed_at: Date; rule_version: string; entries: HotEntry[]; evidence: Record<string, unknown> | null }[]>`
+    SELECT id, computed_at, rule_version, entries, evidence FROM hot_rankings WHERE published ORDER BY computed_at DESC LIMIT 1`;
+  if (!row) return null;
+  return { id: row.id, computedAt: row.computed_at.toISOString(), ruleVersion: row.rule_version, entries: row.entries, coverage: row.evidence };
+}
 
 export const HOT_RULE_VERSION = "heat-v1-48h-halflife24h";
 const WINDOW_HOURS = 48;
@@ -50,6 +98,19 @@ export function behindSources(clocks: SourceClock[], at: number, grace: boolean)
   return clocks.filter((c) => c.lastOk === null || c.lastOk < at - (grace ? c.graceMs : 0)).map((c) => c.id);
 }
 
+/** Current source roles and public evidence govern every heat reader. */
+export const currentSignals = () => sql`(
+  SELECT ss.story_id, ss.article_id, s.id AS source_id, ss.observed_at, s.created_at AS source_since,
+    CASE WHEN s.participation_mode = 'editorial' THEN 'editorial' ELSE 'signal' END AS kind,
+    ss.participant_key
+  FROM story_signals ss JOIN articles a ON a.id = ss.article_id JOIN sources s ON s.id = a.source_id
+  LEFT JOIN publications p ON p.article_id = ss.article_id
+  WHERE s.participation_mode <> 'isolated' AND coalesce(p.visibility, 'public') = 'public'
+    AND NOT EXISTS (SELECT 1 FROM grouping_overrides go WHERE go.article_id = ss.article_id AND go.mode = 'standalone')
+    AND (s.participation_mode <> 'editorial' OR (${listedCondition(new Date())} AND EXISTS (SELECT 1 FROM fact_articles fa JOIN facts f ON f.id = fa.fact_id
+      WHERE fa.article_id = ss.article_id AND f.story_id = ss.story_id AND ${evidenceCondition()})))
+)`;
+
 /** Heat of every story at `at` (defaults to now), from story_signals alone; `behind` marks sources not fully observed. */
 async function heatRows(at: Date, behind: string[] = []): Promise<HeatRow[]> {
   const prev = new Date(at.getTime() - 6 * 3600 * 1000);
@@ -62,7 +123,7 @@ async function heatRows(at: Date, behind: string[] = []): Promise<HeatRow[]> {
              bool_or(kind = 'editorial') AS editorial,
              max(observed_at) FILTER (WHERE observed_at <= ${prev}) AS last_prev,
              bool_or(source_id = ANY(${behind}::text[])) AS behind
-      FROM story_signals
+      FROM ${currentSignals()} cs
       WHERE observed_at > ${at}::timestamptz - make_interval(hours => ${WINDOW_HOURS}) AND observed_at <= ${at}
       GROUP BY story_id, participant_key
     ), agg AS (
@@ -101,15 +162,15 @@ export async function computeHotRanking(at = new Date()): Promise<{ id: number; 
              coalesce(p.published_at, p.discovered_at) AS at
       FROM facts f JOIN fact_articles fa ON fa.fact_id = f.id JOIN publications p ON p.article_id = fa.article_id
       JOIN sources s ON s.id = p.source_id
-      WHERE f.story_id = ${r.story_id} AND p.visibility = 'public' AND p.eligible AND (NOT p.selected OR p.visible_after <= ${at})
+      WHERE f.story_id = ${r.story_id} AND ${evidenceCondition()} AND ${listedCondition(at)} AND s.participation_mode = 'editorial'
       ORDER BY p.article_id`;
     if (reports.length === 0) continue;
     const rep = [...reports].sort((x, y) => Number(y.first_party) - Number(x.first_party) || Number(y.selected) - Number(x.selected) || (Number(y.score ?? 0) - Number(x.score ?? 0)))[0]!;
     const participants = await sql<{ name: string; kind: "editorial" | "signal"; tier: string; at: Date }[]>`
-      SELECT DISTINCT ON (ss.participant_key) s.name, ss.kind, s.tier, ss.observed_at AS at
-      FROM story_signals ss JOIN sources s ON s.id = ss.source_id
-      WHERE ss.story_id = ${r.story_id} AND ss.observed_at > ${at}::timestamptz - make_interval(hours => ${WINDOW_HOURS}) AND ss.observed_at <= ${at}
-      ORDER BY ss.participant_key, (ss.kind = 'editorial') DESC, ss.observed_at DESC`;
+      SELECT DISTINCT ON (cs.participant_key) s.name, cs.kind, s.tier, cs.observed_at AS at
+      FROM ${currentSignals()} cs JOIN sources s ON s.id = cs.source_id
+      WHERE cs.story_id = ${r.story_id} AND cs.observed_at > ${at}::timestamptz - make_interval(hours => ${WINDOW_HOURS}) AND cs.observed_at <= ${at}
+      ORDER BY cs.participant_key, (cs.kind = 'editorial') DESC, cs.observed_at DESC`;
     // The reporting sources of the window, latest first (signal participants are counted separately).
     const reporting = participants.filter((p) => p.kind === "editorial").sort((x, y) => y.at.getTime() - x.at.getTime());
     const heat = heatIndex(Number(r.heat));

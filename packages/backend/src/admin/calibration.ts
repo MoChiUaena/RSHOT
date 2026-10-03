@@ -1,3 +1,4 @@
+import { audit } from "../audit.ts";
 // Human labels are stored separately from publication and never trigger a provider request.
 import { z } from "zod";
 import type { CalibrationBatch, CalibrationBatchSummary, CalibrationCase, CalibrationDecision, CalibrationFocus } from "@aihot/contracts/calibration";
@@ -103,8 +104,9 @@ export async function saveCalibrationLabel(batchId: string, caseId: string, inpu
     const [after] = await tx<StoredCase[]>`UPDATE calibration_cases SET decision=${next.decision},notes=${next.notes},version=version+1,
       labelled_at=${next.decision === null ? null : new Date()},labelled_by=${actor} WHERE batch_id=${batchId} AND case_id=${caseId}
       RETURNING case_id,position,input,decision,notes,version,labelled_at`;
-    await tx`INSERT INTO audit_log (actor,action,subject,reason,before,after) VALUES (${actor},'calibration.label',${`calibration:${batchId}:${caseId}`},'人工核验精选偏好',
-      ${tx.json({ decision: before.decision, notes: before.notes, version: before.version })},${tx.json({ decision: next.decision, notes: next.notes, version: after!.version })})`;
+    await audit(actor, "calibration.label", `calibration:${batchId}:${caseId}`, "人工核验精选偏好",
+      { decision: before.decision, notes: before.notes, version: before.version },
+      { decision: next.decision, notes: next.notes, version: after!.version }, { db: tx });
     return displayCase(after!);
   }) as Promise<CalibrationCase | null>;
 }

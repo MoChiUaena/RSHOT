@@ -150,10 +150,10 @@ test("a withdrawal takes down only the stories citing it, including secondary me
   const other = await article();
   await publishArticle(other, released());
   const unrelated = await storyFor(other);
-  for (const story of stories) {
-    assert.ok((await get(`/api/site/stories/${story}`)).body.includes(id));
-    assert.ok((await get(`/api/v1/stories/${story}`)).body.includes(id));
-  }
+  assert.ok((await get(`/api/site/stories/${stories[0]}`)).body.includes(id));
+  assert.ok((await get(`/api/v1/stories/${stories[0]}`)).body.includes(id));
+  assert.equal((await get(`/api/site/stories/${stories[1]}`)).status, 404, "mention alone cannot prove an event");
+  assert.equal((await get(`/api/v1/stories/${stories[1]}`)).status, 404);
 
   await setVisibility(id, { visibility: "withdrawn", reason: "test", version: 0 }, "test");
   for (const story of stories) {
