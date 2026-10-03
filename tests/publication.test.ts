@@ -87,6 +87,8 @@ test("site reading sends one language while exports retain both, including after
   assert.equal(original.outline[0].text, 'Original heading');
   const md = (await get(`/items/${id}/markdown`)).body;
   assert.ok(md.includes('Original full body') && md.includes('中文完整正文'));
+  const attachment = await app.inject({ method: "GET", url: `/items/${id}/markdown` });
+  assert.equal(attachment.headers["content-disposition"], `attachment; filename="rshot-${id}.md"`);
   await setVisibility(id, { visibility: 'withdrawn', reason: 'test', version: 0 }, 'test');
   assert.equal((await get(`/api/site/items/${id}/original`)).status, 404);
 });

@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { Presence } from "../../components/ui/Presence";
 import { IconClose, IconDownload, IconShare } from "../../components/icons";
+import { SITE } from "@aihot/industry/site";
 
 export default function PosterSheet({ id, title, open, onClose }: { id: string; title: string; open: boolean; onClose: () => void }) {
   const src = `/og/posters/${id}.png`;
@@ -30,7 +31,7 @@ export default function PosterSheet({ id, title, open, onClose }: { id: string; 
   async function share() {
     try {
       const blob = await (await fetch(src)).blob();
-      await navigator.share({ files: [new File([blob], `aihot-${id}.png`, { type: "image/png" })], title });
+      await navigator.share({ files: [new File([blob], `${SITE.mcpPrefix}-${id}.png`, { type: "image/png" })], title });
     } catch {
       // cancelled or unsupported: saving stays available
     }
@@ -71,7 +72,7 @@ export default function PosterSheet({ id, title, open, onClose }: { id: string; 
           <div className="mt-3 flex w-full max-w-[360px] gap-2">
             <a
               href={src}
-              download={`aihot-${id}.png`}
+              download={`${SITE.mcpPrefix}-${id}.png`}
               className="inline-flex h-10 flex-1 items-center justify-center gap-1.5 rounded-full bg-accent text-[13.5px] font-medium text-accent-contrast transition-colors hover:bg-accent-ink"
             >
               <IconDownload size={15} /> 保存图片
