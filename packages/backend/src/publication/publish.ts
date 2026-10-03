@@ -146,12 +146,14 @@ export async function publishArticle(articleId: string, options: PublishOptions 
 }
 
 export async function publishArticleTx(tx: Tx, articleId: string, options: PublishOptions = {}): Promise<PublishResult | null> {
-  const now = options.now ?? new Date();
   const [article] = await tx<ArticleRow[]>`
     SELECT id, source_id, url, title, language, published_at, discovered_at, timeline_at, backfill, body_status,
            body_text, x_post, grouped_at
     FROM articles WHERE id = ${articleId} FOR UPDATE`;
   if (!article) return null;
+  await tx`SELECT pg_advisory_xact_lock_shared(hashtext('report_candidates'))`;
+  // A blocked release belongs to the period when the publication can commit it.
+  const now = options.now ?? new Date();
   const [source] = await tx<SourceFacts[]>`
     SELECT id, name, kind, tier, participation_mode, first_party, site_fulltext, syndicate_fulltext FROM sources WHERE id = ${article.source_id}`;
   if (!source) return null;
@@ -201,13 +203,11 @@ export async function publishArticleTx(tx: Tx, articleId: string, options: Publi
         ? now
         : new Date(now.getTime() + config.selectedVisibleAfterSeconds * 1000);
   } else if (selected && visibleAfter && visibleAfter > now && article.grouped_at && article.grouped_at <= now) {
-    const earliest = new Date(Math.max(selectedReadyAt!.getTime(), article.grouped_at.getTime()));
-    if (earliest < visibleAfter) {
-      visibleAfter = earliest;
+    if (now < visibleAfter) {
+      visibleAfter = now;
       // Released early by grouping: the not-yet-visible sync entry follows, so snapshot and changes
       // show the item when the site does. No client has read past an entry that is not visible yet.
-      const releaseAt = visibleAfter > now ? visibleAfter : now;
-      await tx`UPDATE selected_ledger SET visible_at = ${releaseAt} WHERE article_id = ${articleId} AND visible_at > ${releaseAt}`;
+      await tx`UPDATE selected_ledger SET visible_at = ${now} WHERE article_id = ${articleId} AND visible_at > ${now}`;
     }
   }
 

@@ -33,6 +33,7 @@ export function validateCuratedBundle(input: unknown): CuratedBundle {
 
 async function saveManualReport(kind: "daily" | "weekly" | "monthly", key: string, start: Date, end: Date, content: Record<string, unknown>) {
   return sql.begin(async (tx) => {
+    await tx`SELECT pg_advisory_xact_lock(hashtext(${`report:${kind}:${key}`}))`;
     const [before] = await tx<{ id: number; origin: string; content: unknown; revision: number; generated_at: Date }[]>`SELECT id,origin,content,revision,generated_at FROM reports WHERE kind=${kind} AND key=${key} FOR UPDATE`;
     // An edition importer does not replace an automatically produced issue or another editor's work.
     if (before && (before.origin !== "manual" || (before.content as any)?.generator?.mode !== "curated-edition"
