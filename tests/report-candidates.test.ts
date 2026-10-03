@@ -43,7 +43,7 @@ async function analyzed(label: string, timelineAt: string): Promise<string> {
   });
   assert.equal(backfill, false);
   await sql`INSERT INTO analyses (article_id, input_revision, origin, relevance, category, title_zh, summary_zh, score, selected)
-            VALUES (${articleId}, 1, 'rule', 'pass', 'ai-models', ${`标题 ${label}`}, ${`摘要 ${label}`}, 90, true)`;
+            VALUES (${articleId}, 1, 'rule', 'pass', 'rs-tools', ${`标题 ${label}`}, ${`摘要 ${label}`}, 90, true)`;
   return articleId;
 }
 
@@ -105,7 +105,7 @@ async function waitForBlocked(blocker: number, operation: Promise<unknown>) {
   }
 }
 
-for (const lock of ["article", "report snapshot"] as const) {
+for (const lock of ["article", "story membership", "report snapshot"] as const) {
   test(`a release waiting for the ${lock} lock uses the time after the cutoff`, async (t) => {
     const id = await analyzed(`waiting-${lock}`, "2020-01-01T23:58:00Z");
     await publishArticle(id, { now: new Date("2020-01-01T23:58:00Z") });
@@ -114,6 +114,7 @@ for (const lock of ["article", "report snapshot"] as const) {
     const release = gate();
     const holding = sql.begin(async (tx) => {
       if (lock === "article") await tx`SELECT 1 FROM articles WHERE id = ${id} FOR UPDATE`;
+      else if (lock === "story membership") await tx`SELECT pg_advisory_xact_lock(hashtext('story_content_membership'))`;
       else await tx`SELECT pg_advisory_xact_lock(hashtext('report_candidates'))`;
       const [row] = await tx<{ pid: number }[]>`SELECT pg_backend_pid() AS pid`;
       acquired.open(row!.pid);

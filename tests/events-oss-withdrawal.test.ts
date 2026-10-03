@@ -12,6 +12,7 @@ import { detachFromFact } from "@aihot/backend/admin/content";
 import { updateSource } from "@aihot/backend/admin/sources";
 import { groupArticle } from "@aihot/backend/events/group";
 import { loadStoryDetail } from "@aihot/backend/publication/stories";
+import { publishArticle } from "@aihot/backend/publication/publish";
 import { loadHotStrip } from "@aihot/backend/events/hot-read";
 import { ogEtag } from "../apps/api/src/og/render.ts";
 import { buildApp } from "../apps/api/src/app.ts";
@@ -257,4 +258,41 @@ test("移走成员审计失败时归属、投影和派生文字一起回滚", as
     assert.equal((await sql`SELECT 1 FROM grouping_overrides WHERE article_id=${p.a}`).length, 0);
     assert.deepEqual({ ...(await sql`SELECT title,digest,version FROM stories WHERE id=${p.id}`)[0] }, { ...before });
   } finally { await sql.unsafe("DROP TRIGGER refuse_detach_audit ON audit_log; DROP FUNCTION refuse_detach_audit()"); }
+});
+
+test("兼容迁移的事件和事实标题只采用有效证据，排除优先mention和composite", async () => {
+  const cases = [];
+  for (const kind of ["mention", "composite"]) {
+    const p = await pair(`upgrade-evidence-${kind}`);
+    const preferredSource = await source();
+    await sql`UPDATE sources SET first_party=true WHERE id=${preferredSource}`;
+    const claim = `非证据独有主张-${kind}-${p.publicId}`;
+    const preferred = await article(preferredSource, claim);
+    await sql`INSERT INTO fact_articles(fact_id,article_id,role)
+      VALUES(${p.factId},${preferred},${kind === "mention" ? "mention" : "report"})`;
+    if (kind === "composite") await sql`UPDATE analyses SET output='{"scope":"composite"}'::jsonb WHERE article_id=${preferred}`;
+    await publishArticle(preferred);
+    await sql`UPDATE publications SET visibility='withdrawn' WHERE article_id=${p.a}`;
+    cases.push({ ...p, claim });
+  }
+  const control = await pair("migration-evidence-safe-manual", { origin: "manual" });
+  const [beforeControl] = await sql`SELECT * FROM stories WHERE id=${control.id}`;
+  const migration = await readFile(new URL("../database/migrations/0042_oss_domain_recovery.sql", import.meta.url), "utf8");
+  await sql.begin(tx => tx.unsafe(migration));
+  for (const p of cases) {
+    const [safe] = await sql`SELECT st.title,f.title AS fact_title FROM stories st JOIN facts f ON f.story_id=st.id
+      WHERE st.id=${p.id} AND f.id=${p.factId}`;
+    const [report] = await sql`SELECT title FROM publications WHERE article_id=${p.b}`;
+    assert.equal(safe!.title, report!.title, "story fallback must use the valid report");
+    assert.equal(safe!.fact_title, report!.title, "fact fallback must use the valid report");
+    for (const path of [`/api/site/stories/${p.publicId}`, `/api/v1/stories/${p.publicId}`]) {
+      const response = await get(path);
+      assert.equal(response.statusCode, 200);
+      assert.ok(!response.body.includes(p.claim), "first read after migration cannot expose a non-evidence claim");
+    }
+    const [saved] = await sql`SELECT before FROM audit_log WHERE subject=${`story:${p.id}`}
+      AND reason='升级修复历史失效的事件输入' ORDER BY id DESC LIMIT 1`;
+    assert.ok(JSON.stringify(saved!.before).includes(p.marker), "old story and fact text remains privately audited");
+  }
+  assert.deepEqual({ ...(await sql`SELECT * FROM stories WHERE id=${control.id}`)[0] }, { ...beforeControl });
 });

@@ -44,6 +44,9 @@ LEFT JOIN LATERAL (
   JOIN publications p ON p.article_id=fa.article_id JOIN sources s ON s.id=p.source_id
   WHERE f.story_id=st.id AND p.visibility='public' AND s.participation_mode='editorial'
     AND (NOT p.selected OR p.visible_after<=now())
+    AND fa.role<>'mention' AND NOT EXISTS (
+      SELECT 1 FROM analyses evidence_an WHERE evidence_an.id=p.analysis_id AND evidence_an.output->>'scope'='composite'
+    )
   ORDER BY p.first_party DESC,p.selected DESC,coalesce(p.published_at,p.discovered_at),p.article_id LIMIT 1
 ) rep ON true
 WHERE st.merged_into IS NULL AND st.id IN (SELECT story_id FROM unsafe_stories);
@@ -64,6 +67,9 @@ UPDATE facts f SET title=coalesce((
   JOIN sources s ON s.id=p.source_id
   WHERE fa.fact_id=f.id AND p.visibility='public' AND s.participation_mode='editorial'
     AND (NOT p.selected OR p.visible_after<=now())
+    AND fa.role<>'mention' AND NOT EXISTS (
+      SELECT 1 FROM analyses evidence_an WHERE evidence_an.id=p.analysis_id AND evidence_an.output->>'scope'='composite'
+    )
   ORDER BY p.first_party DESC,p.selected DESC,coalesce(p.published_at,p.discovered_at),p.article_id LIMIT 1
 ),'事件更新中'),subject=NULL,action=NULL,object=NULL,conditions=NULL,occurred_at=NULL,version=f.version+1,updated_at=now()
 WHERE f.story_id IN (SELECT id FROM story_content_repair);

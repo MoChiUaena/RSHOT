@@ -3,7 +3,8 @@ import assert from "node:assert/strict";
 import { after, test } from "node:test";
 import { sql, closeDb } from "@aihot/backend/db";
 import { createSource, listSources, updateSource } from "@aihot/backend/admin/sources";
-import { overrideFields, rerun, searchContent, setSeoIndexed, setVisibility } from "@aihot/backend/admin/content";
+import { detachFromFact, overrideFields, rerun, searchContent, setSeoIndexed, setVisibility } from "@aihot/backend/admin/content";
+import { randomUUID } from "node:crypto";
 import { upsertMaterial } from "@aihot/backend/content/materials";
 import { publishArticle } from "@aihot/backend/publication/publish";
 import { getBoss, stopBoss } from "@aihot/backend/jobs/queue";
@@ -158,3 +159,68 @@ test("a rejected SEO correction leaves both the decision and public indexing unc
   assert.ok(excluded!.seo_excluded_at);
   assert.equal(excluded!.indexable, false);
 });
+
+for (const operation of ["visibility", "correction"] as const) {
+  test(`selected detach and ${operation} share lock order when detach must append an upsert`, async () => {
+    await getBoss();
+    const detached = await article();
+    const corrected = await article();
+    for (const id of [detached, corrected]) {
+      await sql`INSERT INTO analyses(article_id,input_revision,origin,relevance,category,title_zh,summary_zh,score,selected)
+        VALUES(${id},1,'rule','pass','rs-tools','合成遥感标题','合成遥感摘要',90,true)`;
+      await publishArticle(id, { releasedAt: new Date(Date.now() - 60_000) });
+    }
+    const [story] = await sql<{ id: number }[]>`INSERT INTO stories(public_id,title) VALUES(${randomUUID()},'合成事件') RETURNING id`;
+    const [fact] = await sql<{ id: number }[]>`INSERT INTO facts(public_id,story_id,title)
+      VALUES(${randomUUID()},${story!.id},'合成事实') RETURNING id`;
+    await sql`INSERT INTO fact_articles(fact_id,article_id,role) VALUES(${fact!.id},${detached},'report')`;
+    await publishArticle(detached);
+    // An unrepublished source-name change forces detach's projection to append a selected upsert.
+    const sourceName = `未重发的合成来源-${operation}-${T}`;
+    await sql`UPDATE sources SET name=${sourceName} WHERE id=${sourceId}`;
+    const hold = await sql.reserve();
+    const [{ pid: holderPid }] = await hold<{ pid: number }[]>`SELECT pg_backend_pid() AS pid`;
+    const lockKey = 6410201 + Number(operation === "correction");
+    let removal: Promise<PromiseSettledResult<unknown>> | undefined;
+    let edit: Promise<PromiseSettledResult<unknown>> | undefined;
+    const settled = (work: Promise<unknown>): Promise<PromiseSettledResult<unknown>> => work.then(
+      value => ({ status: "fulfilled", value }), reason => ({ status: "rejected", reason }));
+    async function waitForBlocked(blocker: number): Promise<number> {
+      for (let attempt = 0; attempt < 1500; attempt++) {
+        const [waiting] = await sql<{ pid: number }[]>`SELECT pid FROM pg_stat_activity
+          WHERE datname=current_database() AND ${blocker}=ANY(pg_blocking_pids(pid))`;
+        if (waiting) return waiting.pid;
+        await new Promise(resolve => setTimeout(resolve, 10));
+      }
+      throw new Error(`No transaction blocked by backend ${blocker}`);
+    }
+    try {
+      await hold`SELECT pg_advisory_lock(${lockKey})`;
+      await sql.unsafe(`CREATE FUNCTION pause_selected_detach() RETURNS trigger LANGUAGE plpgsql AS $$
+        BEGIN IF NEW.id=${fact!.id} THEN PERFORM pg_advisory_xact_lock(${lockKey}); END IF; RETURN NEW; END $$`);
+      await sql.unsafe("CREATE TRIGGER pause_selected_detach BEFORE UPDATE ON facts FOR EACH ROW EXECUTE FUNCTION pause_selected_detach()");
+      removal = settled(detachFromFact(detached, "合成并发移走", "test"));
+      const detachPid = await waitForBlocked(holderPid!);
+      edit = settled(operation === "visibility"
+        ? setVisibility(corrected, { visibility: "withdrawn", version: 0, reason: "合成并发撤回" }, "test")
+        : overrideFields(corrected, { fields: { title: "并发更正的合成安全标题" }, version: 0, reason: "合成并发更正" }, "test"));
+      await waitForBlocked(detachPid);
+      await hold`SELECT pg_advisory_unlock(${lockKey})`;
+      const results = await Promise.all([removal, edit]);
+      assert.deepEqual(results.map(result => result.status), ["fulfilled", "fulfilled"],
+        results.filter(result => result.status === "rejected").map(result => String(result.reason)).join("; "));
+      const [ledger] = await sql`SELECT op,payload FROM selected_ledger WHERE article_id=${detached} ORDER BY seq DESC LIMIT 1`;
+      assert.equal(ledger!.op, "upsert");
+      assert.equal(ledger!.payload.source.name, sourceName, "the raced detach really appended its changed selected payload");
+      assert.equal((await sql`SELECT 1 FROM fact_articles WHERE article_id=${detached}`).length, 0);
+      const [publicState] = await sql`SELECT visibility,title FROM publications WHERE article_id=${corrected}`;
+      assert.equal(operation === "visibility" ? publicState!.visibility : publicState!.title,
+        operation === "visibility" ? "withdrawn" : "并发更正的合成安全标题");
+    } finally {
+      await hold`SELECT pg_advisory_unlock(${lockKey})`;
+      hold.release();
+      await Promise.all([removal, edit]);
+      await sql.unsafe("DROP TRIGGER IF EXISTS pause_selected_detach ON facts; DROP FUNCTION IF EXISTS pause_selected_detach()");
+    }
+  });
+}

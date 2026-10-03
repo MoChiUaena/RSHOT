@@ -1,4 +1,4 @@
-import { invalidateStoryInputs } from "../events/derived-content.ts";
+import { invalidateStoryInputs, lockStoryMembership } from "../events/derived-content.ts";
 // Publishing: derive the public projection of one article from its material, the latest judgement,
 // manual overrides and grouping, then record selected-set changes in the sync ledger.
 // Rebuilding only re-reads stored results; it never calls a model.
@@ -152,6 +152,9 @@ export async function publishArticleTx(tx: Tx, articleId: string, options: Publi
            body_text, x_post, grouped_at
     FROM articles WHERE id = ${articleId} FOR UPDATE`;
   if (!article) return null;
+  // Detach/grouping already hold membership before their story writes. Every publication must
+  // take it before story invalidation and ledger writes too, so selected edits cannot invert them.
+  await lockStoryMembership(tx);
   await tx`SELECT pg_advisory_xact_lock_shared(hashtext('report_candidates'))`;
   // A blocked release belongs to the period when the publication can commit it.
   const now = options.now ?? new Date();
@@ -298,6 +301,13 @@ export async function publishArticleTx(tx: Tx, articleId: string, options: Publi
     await enqueue(QUEUES.prepareMedia, { articleId }, { singletonKey: `media:${articleId}` }, tx);
   }
 
+  // Invalidate under membership and sorted story locks before taking the selected-ledger lock.
+  // Full-text permission and selection changes preserve still-valid summary prose.
+  if (previous && (previous.visibility === "public" || visibility === "public") &&
+      (previous.visibility !== visibility || previous.eligible !== eligible || previous.title !== next.title || previous.summary !== summary)) {
+    await invalidateStoryInputs(tx, [articleId], now);
+  }
+
   // Selected sync ledger: the public selected set is (selected AND visibility = public).
   const inSet = selected && visibility === "public";
   const [state] = await tx<{ in_set: boolean; payload_hash: string | null }[]>`SELECT in_set, payload_hash FROM selected_state WHERE article_id = ${articleId}`;
@@ -328,11 +338,6 @@ export async function publishArticleTx(tx: Tx, articleId: string, options: Publi
       (previous!.visibility === "public" && visibility !== "public") ||
       (previous!.selected && !selected) ||
       (previous!.body_mode === "full" && bodyMode !== "full"));
-  // 全文许可和精选排序不是摘要撤回；只在事件输入的权限或文字变化时同步失效。
-  if (previous && (previous.visibility === "public" || visibility === "public") &&
-      (previous.visibility !== visibility || previous.eligible !== eligible || previous.title !== next.title || previous.summary !== summary)) {
-    await invalidateStoryInputs(tx, [articleId], now);
-  }
   return { articleId, changed, selected, visibility, ledger, reduced };
 }
 
