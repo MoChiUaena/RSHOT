@@ -34,6 +34,9 @@
     "preview:serve": "node scripts/serve-preview.ts",
     "preview:publish": "node scripts/publish-preview.ts"
   },
+  "overrides": {
+    "fflate": "0.7.5"
+  },
   "devDependencies": {
     "@modelcontextprotocol/client": "2.1.0",
     "@types/node": "26.6.3",
