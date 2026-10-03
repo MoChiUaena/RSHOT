@@ -2,6 +2,8 @@
 import { PgBoss, type SendOptions } from "pg-boss";
 import { config } from "../config.ts";
 import { sql, type Db } from "../db.ts";
+import { shutdownSignal } from "../lib/shutdown.ts";
+export { shutdownSignal } from "../lib/shutdown.ts";
 
 let boss: PgBoss | null = null;
 let starting: Promise<PgBoss> | null = null;
@@ -47,18 +49,21 @@ export async function getBoss(): Promise<PgBoss> {
   starting ??= (async () => {
     const b = new PgBoss({ connectionString: config.databaseUrl, max: 4, schema: "pgboss", application_name: "aihot-jobs" });
     b.on("error", (err) => console.error("[pg-boss]", err));
-    await b.start();
-    boss = b;
-    return b;
+    try {
+      await b.start();
+      boss = b;
+      return b;
+    } catch (error) {
+      await b.stop({ graceful: false }).catch((cleanup) => console.error("[pg-boss] startup cleanup", cleanup));
+      throw error;
+    } finally {
+      // A temporary connection error must not poison subsequent queue calls.
+      starting = null;
+    }
   })();
   return starting;
 }
 
-/**
- * Aborted when the process starts shutting down: long loops stop between items, and a paid call
- * already in flight is allowed to finish, so a deploy does not leave "outcome unknown" receipts.
- */
-export const shutdownSignal = new AbortController();
 /** The longest single paid call (a translation batch, 180 s) plus margin; systemd waits longer. */
 export const STOP_TIMEOUT_MS = 195_000;
 
@@ -86,6 +91,22 @@ export async function enqueue(name: string, data: object, options: SendOptions =
     return b.send(name, data, { ...options, db });
   }
   return b.send(name, data, options);
+}
+
+/** Durable receipt-release audits revive failed jobs only when the release follows their start. */
+export async function retryReleasedReceiptJobs(): Promise<number> {
+  const b = await getBoss();
+  return sql.begin(async (tx) => {
+    const jobs = await tx<{ id: string; name: string }[]>`
+      SELECT j.id, j.name FROM pgboss.job j
+      WHERE j.state = 'failed'
+        AND EXISTS (SELECT 1 FROM audit_log a WHERE a.action = 'receipt.release'
+                    AND a.subject = 'receipt:' || (j.output->>'receiptId') AND a.created_at > j.started_on)
+      ORDER BY j.completed_on LIMIT 200 FOR UPDATE OF j SKIP LOCKED`;
+    const db = { executeSql: async (text: string, values?: unknown[]) => ({ rows: await tx.unsafe(text, (values ?? []) as never[]) }) };
+    for (const job of jobs) await b.retry(job.name, job.id, { db });
+    return jobs.length;
+  });
 }
 
 // ---------------------------------------------------------------------------

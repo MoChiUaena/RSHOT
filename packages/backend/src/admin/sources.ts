@@ -2,6 +2,8 @@
 // duplicate checks, pause/resume and manual collection. Every change is audited.
 import { z } from "zod";
 import { sql } from "../db.ts";
+import { Conflict } from "../audit.ts";
+export { Conflict } from "../audit.ts";
 import { enqueue, QUEUES } from "../jobs/queue.ts";
 import { republishKey } from "../jobs/publication.ts";
 import { normalizeUrl } from "../lib/url.ts";
@@ -12,10 +14,6 @@ import type { SourceRow } from "../sources/types.ts";
 import { fetchWebList } from "../sources/web-list.ts";
 import { fetchXSearch } from "../sources/x.ts";
 import { audit } from "./auth.ts";
-
-export class Conflict extends Error {
-  code = "conflict";
-}
 
 export interface SourceListFilters {
   q?: string;
