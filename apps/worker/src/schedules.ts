@@ -19,12 +19,10 @@ import { monitorTick } from "@aihot/backend/monitor/scan";
 import { dailyRetention } from "@aihot/backend/operations/retention";
 import { submitIndexNow } from "@aihot/backend/operations/indexnow";
 import { checkAlerts, sendDigest } from "@aihot/backend/operations/alerts";
-import { autoReleaseUnknownReceipts } from "@aihot/backend/admin/runs";
+import { recoverStaleWork } from "@aihot/backend/operations/recover";
 import { forwardPendingFeedback } from "@aihot/backend/operations/feedback";
 import { backupConfigured, runBackup } from "@aihot/backend/operations/backup";
 import { sourceHealthWeekly } from "@aihot/backend/operations/reports";
-import { markStalePendingReceipts } from "@aihot/backend/providers/receipts";
-import { markStaleDeliveries } from "@aihot/backend/notify/deliver";
 
 interface Scheduled {
   name: string;
@@ -64,7 +62,7 @@ export const SCHEDULES: Scheduled[] = [
   {
     name: "ops.recover",
     cron: "*/10 * * * *",
-    run: async () => ({ receipts: await markStalePendingReceipts(), released: await autoReleaseUnknownReceipts(), deliveries: await markStaleDeliveries() }),
+    run: recoverStaleWork,
   },
   { name: "ops.alerts", cron: "*/10 * * * *", run: () => checkAlerts() },
   // One message with the follow-ups that do not touch readers (nothing when there are none).

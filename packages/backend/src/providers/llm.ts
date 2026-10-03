@@ -109,7 +109,13 @@ export interface ChatJsonResult<T> {
   usage: Record<string, unknown> | null;
 }
 
-export class ModelOutputError extends Error {}
+export class ModelOutputError extends Error {
+  readonly receiptId: number | null;
+  constructor(message: string, receiptId: number | null = null) {
+    super(message);
+    this.receiptId = receiptId;
+  }
+}
 
 /** GPT-6 Sol uses the reasoning-model output limit. Other configured providers retain their schema. */
 export function completionParameters(model: string, maxTokens: number, temperature: number, extra: Record<string, unknown> = {}): Record<string, unknown> {
@@ -237,7 +243,7 @@ export async function chatJson<S extends z.ZodType>(opts: ChatJsonOptions<S>): P
   } catch (error) {
     // Unusable output: record it and let a later attempt pay for a fresh answer.
     await rejectReceivedResponse(receipt.receiptId, `unusable output: ${String(error).slice(0, 500)}`);
-    throw new ModelOutputError(`Model ${opts.model} returned unusable output for ${opts.subject}: ${String(error).slice(0, 300)}`);
+    throw new ModelOutputError(`Model ${opts.model} returned unusable output for ${opts.subject}: ${String(error).slice(0, 300)}`, receipt.receiptId);
   }
   return { data: parsed, receiptId: receipt.receiptId, reused: receipt.reused, model: spec.key, usage: response.usage ?? null };
 }

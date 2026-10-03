@@ -156,23 +156,28 @@ export async function overrideFields(id: string, input: { fields: unknown; clear
  * the request id, so submitting the same request twice neither enqueues nor pays twice.
  */
 export async function rerun(id: string, step: "extract" | "analyze" | "group", requestId: string, actor: string) {
-  if (!/^[\w-]{8,80}$/.test(requestId)) throw new Error("a stable request id is required");
-  const [a] = await sql`SELECT id FROM articles WHERE id = ${id}`;
-  if (!a) return null;
-  let jobId: string | null;
-  if (step === "group") {
-    // An explicit regroup replaces an earlier manual "keep standalone" decision and the automatic membership.
-    await sql`DELETE FROM grouping_overrides WHERE article_id = ${id}`;
-    jobId = await enqueue(QUEUES.group, { articleId: id, force: true }, { singletonKey: `manual:group:${id}:${requestId}` });
-  } else {
-    await sql`UPDATE articles SET processing_state = 'new', processing_error = NULL, processing_attempts = 0, processing_retry_at = NULL,
-                body_status = CASE WHEN ${step === "extract"} THEN 'pending' ELSE body_status END WHERE id = ${id}`;
-    jobId = step === "analyze"
-      ? await queueProcessing(id, { step: "analyze", attemptTag: `admin:${requestId}` })
-      : await queueProcessing(id, { step: "extract" });
-  }
-  await audit(actor, `content.rerun.${step}`, `content:${id}`, null, null, { jobId, requestId }, requestId);
-  return { jobId };
+  z.enum(["extract", "analyze", "group"]).parse(step);
+  z.string().regex(/^[\w-]{8,80}$/, "a stable request id is required").parse(requestId);
+  return sql.begin(async (tx) => {
+    const [a] = await tx`SELECT id FROM articles WHERE id = ${id} FOR UPDATE`;
+    if (!a) return null;
+    // Queue singleton keys expire when a job completes. The committed command remains in the audit.
+    const [prior] = await tx<{ after: { jobId: string | null } }[]>`
+      SELECT after FROM audit_log WHERE subject = ${`content:${id}`} AND action = ${`content.rerun.${step}`}
+        AND actor = ${actor} AND request_id = ${requestId} ORDER BY id DESC LIMIT 1`;
+    if (prior) return { jobId: prior.after.jobId };
+    let jobId: string | null;
+    if (step === "group") {
+      await tx`DELETE FROM grouping_overrides WHERE article_id = ${id}`;
+      jobId = await enqueue(QUEUES.group, { articleId: id, force: true }, { singletonKey: `manual:group:${id}:${requestId}` }, tx);
+    } else {
+      await tx`UPDATE articles SET processing_state = 'new', processing_error = NULL, processing_attempts = 0, processing_retry_at = NULL,
+                  body_status = CASE WHEN ${step === "extract"} THEN 'pending' ELSE body_status END WHERE id = ${id}`;
+      jobId = await queueProcessing(id, { step, ...(step === "analyze" ? { attemptTag: `admin:${requestId}` } : {}), db: tx });
+    }
+    await audit(actor, `content.rerun.${step}`, `content:${id}`, null, null, { jobId, requestId }, { requestId, db: tx });
+    return { jobId };
+  });
 }
 
 /**

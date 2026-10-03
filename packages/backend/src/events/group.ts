@@ -19,7 +19,7 @@ import { sql, type Db } from "../db.ts";
 import { newShortId, newUuid, sha256 } from "../lib/ids.ts";
 import { chatJson } from "../providers/llm.ts";
 import { BudgetExceededError, ReceiptBusyError, completeReceipt } from "../providers/receipts.ts";
-import { embeddingsAvailable, ensureEmbeddings } from "../providers/embeddings.ts";
+import { embeddingsAvailable, ensureEmbeddings, compatibleEmbedding, EMBEDDING_MODEL, cosine } from "../providers/embeddings.ts";
 import { isHistorical, STALE_ON_DISCOVERY_MS } from "../content/materials.ts";
 import { enqueue, QUEUES } from "../jobs/queue.ts";
 import { publishArticle } from "../publication/publish.ts";
@@ -123,7 +123,7 @@ async function reportTexts(ids: string[]): Promise<Map<string, string>> {
 
 // Vectors of the recall window stay in the worker process; only new or changed texts are embedded
 // (and stored) again. Grouping is serial, so one process holds the whole window.
-const vectorCache = new Map<string, { hash: string; vector: Float32Array }>();
+const vectorCache = new Map<string, { hash: string; model: string; vector: Float32Array }>();
 
 async function vectorsFor(items: Array<{ id: string; text: string }>): Promise<Map<string, Float32Array>> {
   const out = new Map<string, Float32Array>();
@@ -131,7 +131,7 @@ async function vectorsFor(items: Array<{ id: string; text: string }>): Promise<M
   for (const it of items) {
     const hash = sha256(it.text);
     const cached = vectorCache.get(it.id);
-    if (cached && cached.hash === hash) out.set(it.id, cached.vector);
+    if (cached && cached.hash === hash && cached.model === EMBEDDING_MODEL && compatibleEmbedding(Array.from(cached.vector))) out.set(it.id, cached.vector);
     else missing.push({ ...it, hash });
   }
   if (missing.length) {
@@ -140,7 +140,7 @@ async function vectorsFor(items: Array<{ id: string; text: string }>): Promise<M
       const v = got.get(m.id);
       if (!v) continue;
       const vector = Float32Array.from(v);
-      vectorCache.set(m.id, { hash: m.hash, vector });
+      vectorCache.set(m.id, { hash: m.hash, model: EMBEDDING_MODEL, vector });
       out.set(m.id, vector);
     }
   }
@@ -159,9 +159,9 @@ export async function warmRecallWindow(onProgress?: (done: number, total: number
   const ids = [...new Set((await recallPool(true)).map((r) => r.article_id))];
   const texts = await reportTexts(ids);
   const items = ids.map((id) => ({ id, text: texts.get(id) ?? "" })).filter((x) => x.text);
-  const stored = new Set((await sql<{ ref_id: string; text_hash: string }[]>`
-    SELECT ref_id, text_hash FROM embeddings WHERE kind = 'article' AND ref_id = ANY(${items.map((i) => i.id)})`)
-    .map((r) => `${r.ref_id}:${r.text_hash}`));
+  const stored = new Set((await sql<{ ref_id: string; text_hash: string; vector: number[] }[]>`
+    SELECT ref_id, text_hash, vector FROM embeddings WHERE kind = 'article' AND model = ${EMBEDDING_MODEL} AND ref_id = ANY(${items.map((i) => i.id)})`)
+    .filter((r) => compatibleEmbedding(r.vector)).map((r) => `${r.ref_id}:${r.text_hash}`));
   const missing = items.filter((i) => !stored.has(`${i.id}:${sha256(i.text)}`));
   let done = 0;
   for (let i = 0; i < missing.length; i += 100) {
@@ -184,13 +184,7 @@ export async function warmRecallWindow(onProgress?: (done: number, total: number
 }
 
 function cosine32(a: Float32Array, b: Float32Array): number {
-  let dot = 0, na = 0, nb = 0;
-  for (let i = 0; i < a.length; i++) {
-    dot += a[i]! * b[i]!;
-    na += a[i]! * a[i]!;
-    nb += b[i]! * b[i]!;
-  }
-  return na && nb ? dot / Math.sqrt(na * nb) : 0;
+  return cosine(a, b);
 }
 
 /**
@@ -215,7 +209,10 @@ async function recallFacts(queryId: string, queryText: string, minScore: number,
       // Window members already in the cache keep their vector (a later revision of their text is
       // picked up when the cache turns over); only new members and the query are embedded now.
       const ids = [...new Set(pool.map((r) => r.article_id))];
-      const uncached = ids.filter((id) => !vectorCache.has(id));
+      const uncached = ids.filter((id) => {
+        const hit = vectorCache.get(id);
+        return !hit || hit.model !== EMBEDDING_MODEL || !compatibleEmbedding(Array.from(hit.vector));
+      });
       const texts = await reportTexts(uncached);
       const fresh = await vectorsFor([{ id: queryId, text: queryText }, ...uncached.map((id) => ({ id, text: texts.get(id) ?? "" })).filter((x) => x.text)]);
       const mine = fresh.get(queryId);
