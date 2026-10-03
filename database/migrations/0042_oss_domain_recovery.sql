@@ -26,11 +26,22 @@ WITH last_inputs AS (
   LEFT JOIN publications p ON p.article_id=fa.article_id LEFT JOIN sources s ON s.id=p.source_id
   WHERE p.article_id IS NULL OR p.visibility<>'public' OR s.participation_mode<>'editorial'
     OR (p.selected AND (p.visible_after IS NULL OR p.visible_after>now()))
+    OR fa.role='mention' OR EXISTS (
+      SELECT 1 FROM analyses evidence_an WHERE evidence_an.id=p.analysis_id AND evidence_an.output->>'scope'='composite'
+    )
   UNION
   SELECT d.story_id FROM last_inputs d CROSS JOIN LATERAL unnest(d.article_ids) i(article_id)
   LEFT JOIN publications p ON p.article_id=i.article_id LEFT JOIN sources s ON s.id=p.source_id
   WHERE p.article_id IS NULL OR p.visibility<>'public' OR s.participation_mode<>'editorial' OR NOT p.eligible
     OR (p.selected AND (p.visible_after IS NULL OR p.visible_after>now()))
+    -- 旧综述输入还必须是本事件的当前证据；搬走/mention/composite不能支撑遗留文字。
+    OR NOT EXISTS (
+      SELECT 1 FROM fact_articles fa JOIN facts f ON f.id=fa.fact_id
+      WHERE fa.article_id=i.article_id AND f.story_id=d.story_id AND fa.role<>'mention'
+        AND NOT EXISTS (
+          SELECT 1 FROM analyses evidence_an WHERE evidence_an.id=p.analysis_id AND evidence_an.output->>'scope'='composite'
+        )
+    )
   UNION
   SELECT d.story_id FROM detached_inputs d
   LEFT JOIN publications p ON d.subject='content:'||p.article_id LEFT JOIN sources s ON s.id=p.source_id

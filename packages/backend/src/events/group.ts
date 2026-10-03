@@ -373,8 +373,8 @@ async function resetAutomatic(articleId: string): Promise<number[]> {
       WHERE fa.article_id = ${articleId} AND NOT fa.manual AND fa.role IN ('primary', 'report') AND f.story_id IS NOT NULL`;
     const removed = await tx<{ fact_id: number }[]>`DELETE FROM fact_articles WHERE article_id = ${articleId} AND NOT manual RETURNING fact_id`;
     await tx`DELETE FROM story_signals WHERE article_id = ${articleId}`;
-    // 仅失效实际移走的自动归属，保留人工归属及其合法文字。
-    await invalidateStoryInputs(tx, [], new Date(), removed.map(r => r.fact_id));
+    // 旧综述可能记录已搬走的自动输入；人工/独立决定已在上方退出，不被重置。
+    await invalidateStoryInputs(tx, [articleId], new Date(), removed.map(r => r.fact_id));
     return left.map((r) => Number(r.story_id));
   });
 }

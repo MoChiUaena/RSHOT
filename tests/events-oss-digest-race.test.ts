@@ -217,3 +217,56 @@ test("已移走成员的旧综述依赖仍在撤回时失效", async () => {
   assert.ok(current);
   assert.ok(!JSON.stringify(current).includes(p.marker));
 });
+
+for (const operation of ["detach", "reset"] as const) {
+  for (const membership of ["elsewhere", "absent"] as const) {
+    test(`legacy ${operation} repairs recorded inputs with membership ${membership} without a withdrawal or model`, async () => {
+      const p = await pair(`legacy-${operation}-${membership}`);
+      if (operation === "reset") {
+        await sql`UPDATE articles SET backfill=true,published_at=now()-interval '3 days' WHERE id=${p.a}`;
+      }
+      // Directly install pre-upgrade state: no safe detach/reset/withdrawal has run.
+      await sql`DELETE FROM fact_articles WHERE article_id=${p.a}`;
+      const target = membership === "elsewhere" ? await story([{ id: p.a }], "当前另一个合成事件") : null;
+      await sql`UPDATE publications SET fact_id=${target?.factId ?? null},story_id=${target?.id ?? null} WHERE article_id=${p.a}`;
+      const [before] = await sql`SELECT * FROM stories WHERE id=${p.id}`;
+      await sql`INSERT INTO story_digests(story_id,version,digest,latest,article_ids)
+        VALUES(${p.id},${before!.version},${before!.digest},${before!.latest},${[p.a, p.b]})`;
+      assert.ok(JSON.stringify(await loadStoryDetail(p.id)).includes(p.marker), "legacy prose is actually public before correction");
+      const hits = provider.hits();
+      if (operation === "detach") await detachFromFact(p.a, "修复合成继承依赖", "test");
+      else assert.equal((await groupArticle(p.a, { force: true })).verdict, "historical");
+      assert.equal(provider.hits(), hits, "direct correction and historical reset make no model request");
+      const current = (await loadStoryDetail(p.id))!;
+      assert.ok(current);
+      assert.equal(current.title, (await sql`SELECT title FROM publications WHERE article_id=${p.b}`)[0]!.title);
+      assert.ok(!JSON.stringify(current).includes(p.marker), "older readable story is repaired immediately");
+      const [after] = await sql`SELECT version,digest,latest FROM stories WHERE id=${p.id}`;
+      assert.equal(after!.version, before!.version + 1);
+      assert.equal(after!.digest, null);
+      assert.equal(after!.latest, null);
+      const [audit] = await sql`SELECT before FROM audit_log WHERE subject=${`story:${p.id}`}
+        AND action='story.inputs_invalidated' ORDER BY id DESC LIMIT 1`;
+      assert.ok(JSON.stringify(audit!.before).includes(p.marker), "old story and frame remain private");
+      const [job] = await sql`SELECT data FROM pgboss.job WHERE name='events.digest'
+        AND data->>'storyId'=${String(p.id)} AND singleton_key=${`story:${p.id}:inputs:${after!.version}`}`;
+      assert.deepEqual(job!.data, { storyId: p.id, afterCorrection: true });
+      assert.equal((await sql`SELECT 1 FROM fact_articles WHERE article_id=${p.a}`).length, 0);
+    });
+  }
+}
+
+test("legacy reset preserves early manual membership and standalone priority", async () => {
+  for (const kind of ["manual", "standalone"] as const) {
+    const p = await pair(`legacy-priority-${kind}`, { origin: "manual" });
+    if (kind === "manual") await sql`UPDATE fact_articles SET manual=true WHERE article_id=${p.a}`;
+    else await sql`INSERT INTO grouping_overrides(article_id,reason,actor) VALUES(${p.a},'合成独立优先','test')`;
+    const beforeStory = [...await sql`SELECT * FROM stories WHERE id=${p.id}`];
+    const beforeMembership = [...await sql`SELECT * FROM fact_articles WHERE article_id=${p.a}`];
+    const hits = provider.hits();
+    assert.equal((await groupArticle(p.a, { force: true })).verdict, "manual");
+    assert.equal(provider.hits(), hits);
+    assert.deepEqual([...await sql`SELECT * FROM fact_articles WHERE article_id=${p.a}`], beforeMembership);
+    assert.deepEqual([...await sql`SELECT * FROM stories WHERE id=${p.id}`], beforeStory);
+  }
+});

@@ -27,7 +27,7 @@ export async function detachFromFact(id: string, reason: string, actor: string) 
     await tx`INSERT INTO grouping_overrides (article_id, reason, actor) VALUES (${id}, ${reason}, ${actor})
              ON CONFLICT (article_id) DO UPDATE SET reason = EXCLUDED.reason, actor = EXCLUDED.actor, created_at = now()`;
     await tx`UPDATE articles SET grouped_at = now() WHERE id = ${id}`;
-    await invalidateStoryInputs(tx, [], new Date(), factIds);
+    await invalidateStoryInputs(tx, [id], new Date(), factIds);
     await publishArticleTx(tx, id);
     await audit(actor, "content.detach", `content:${id}`, reason, { facts: factIds, stories: storyIds }, null, { db: tx });
     return { facts: factIds, stories: storyIds };

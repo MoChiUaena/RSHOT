@@ -296,3 +296,79 @@ test("兼容迁移的事件和事实标题只采用有效证据，排除优先me
   }
   assert.deepEqual({ ...(await sql`SELECT * FROM stories WHERE id=${control.id}`)[0] }, { ...beforeControl });
 });
+
+test("legacy migration targets public mention/composite dependencies without another permission failure", async () => {
+  const cases = [];
+  for (const kind of ["mention", "composite"]) {
+    for (const recorded of [true, false]) {
+      const p = await pair(`legacy-selector-${kind}-${recorded}`);
+      if (kind === "mention") await sql`UPDATE fact_articles SET role='mention' WHERE article_id=${p.a}`;
+      else await sql`UPDATE analyses SET output='{"scope":"composite"}'::jsonb WHERE article_id=${p.a}`;
+      if (recorded) {
+        const [st] = await sql`SELECT version,digest,latest FROM stories WHERE id=${p.id}`;
+        await sql`INSERT INTO story_digests(story_id,version,digest,latest,article_ids)
+          VALUES(${p.id},${st!.version},${st!.digest},${st!.latest},${[p.a, p.b]})`;
+      }
+      const [input] = await sql`SELECT p.visibility,p.eligible,p.visible_after,s.participation_mode
+        FROM publications p JOIN sources s ON s.id=p.source_id WHERE p.article_id=${p.a}`;
+      assert.equal(input!.visibility, "public");
+      assert.equal(input!.eligible, true);
+      assert.equal(input!.participation_mode, "editorial");
+      assert.ok(input!.visible_after <= new Date(), "release/permission/eligibility cannot cause this repair");
+      const [before] = await sql`SELECT version FROM stories WHERE id=${p.id}`;
+      assert.ok((await get(`/api/site/stories/${p.publicId}`)).body.includes(p.marker));
+      cases.push({ ...p, version: before!.version });
+    }
+  }
+  for (const membership of ["elsewhere", "absent"]) {
+    const p = await pair(`legacy-selector-membership-${membership}`);
+    await sql`DELETE FROM fact_articles WHERE article_id=${p.a}`;
+    if (membership === "elsewhere") await story([{ id: p.a }], "当前另一合成事件");
+    const [st] = await sql`SELECT version,digest,latest FROM stories WHERE id=${p.id}`;
+    await sql`INSERT INTO story_digests(story_id,version,digest,latest,article_ids)
+      VALUES(${p.id},${st!.version},${st!.digest},${st!.latest},${[p.a, p.b]})`;
+    cases.push({ ...p, version: st!.version });
+  }
+  const control = await pair("legacy-selector-safe-manual", { origin: "manual" });
+  await overrideFields(control.b, { fields: { title: "合成USGS安全修订", summary: "合成保留摘要" }, reason: "保留合成人工控制", version: 0 }, "test");
+  await sql`UPDATE stories SET title='安全合成人工事件',digest='安全合成人工综述' WHERE id=${control.id}`;
+  const key = "1987-05-03";
+  const calibrationId = `legacy-selector-calibration-${control.publicId}`;
+  await sql`INSERT INTO reports(kind,key,window_start,window_end,content,generated_at,origin)
+    VALUES('daily',${key},'1987-05-03','1987-05-04','{"title":"安全合成人工日报","sections":[]}'::jsonb,now(),'manual')`;
+  await sql`INSERT INTO calibration_batches(id,label,input_hash) VALUES(${calibrationId},'合成修复控制','synthetic')`;
+  await sql`INSERT INTO calibration_cases(batch_id,case_id,position,input,decision,notes,version)
+    VALUES(${calibrationId},'synthetic',1,'{}'::jsonb,'either','合成安全标注',8)`;
+  const snapshots = {
+    story: [...await sql`SELECT * FROM stories WHERE id=${control.id}`],
+    fact: [...await sql`SELECT * FROM facts WHERE id=${control.factId}`],
+    override: [...await sql`SELECT * FROM editorial_overrides WHERE article_id=${control.b}`],
+    report: [...await sql`SELECT * FROM reports WHERE kind='daily' AND key=${key}`],
+    labels: [...await sql`SELECT * FROM calibration_cases WHERE batch_id=${calibrationId}`],
+  };
+  const migration = await readFile(new URL("../database/migrations/0042_oss_domain_recovery.sql", import.meta.url), "utf8");
+  await sql.begin(tx => tx.unsafe(migration));
+  for (const p of cases) {
+    const [current] = await sql`SELECT title,digest,latest,version FROM stories WHERE id=${p.id}`;
+    assert.equal(current!.title, (await sql`SELECT title FROM publications WHERE article_id=${p.b}`)[0]!.title);
+    assert.equal(current!.digest, null);
+    assert.equal(current!.latest, null);
+    assert.equal(current!.version, p.version + 1);
+    for (const path of [`/api/site/stories/${p.publicId}`, `/api/v1/stories/${p.publicId}`]) {
+      const response = await get(path);
+      assert.equal(response.statusCode, 200);
+      assert.ok(!response.body.includes(p.marker), "first read after migration is already safe");
+    }
+    const [audit] = await sql`SELECT before FROM audit_log WHERE subject=${`story:${p.id}`}
+      AND reason='升级修复历史失效的事件输入' ORDER BY id DESC LIMIT 1`;
+    assert.ok(JSON.stringify(audit!.before).includes(p.marker));
+  }
+  assert.deepEqual([...await sql`SELECT * FROM stories WHERE id=${control.id}`], snapshots.story);
+  assert.deepEqual([...await sql`SELECT * FROM facts WHERE id=${control.factId}`], snapshots.fact);
+  assert.deepEqual([...await sql`SELECT * FROM editorial_overrides WHERE article_id=${control.b}`], snapshots.override);
+  assert.deepEqual([...await sql`SELECT * FROM reports WHERE kind='daily' AND key=${key}`], snapshots.report);
+  assert.deepEqual([...await sql`SELECT * FROM calibration_cases WHERE batch_id=${calibrationId}`], snapshots.labels);
+  await sql`DELETE FROM calibration_cases WHERE batch_id=${calibrationId}`;
+  await sql`DELETE FROM calibration_batches WHERE id=${calibrationId}`;
+  await sql`DELETE FROM reports WHERE kind='daily' AND key=${key}`;
+});
