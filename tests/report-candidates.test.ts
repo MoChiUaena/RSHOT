@@ -8,6 +8,7 @@ import { upsertMaterial } from "@aihot/backend/content/materials";
 import { stopBoss } from "@aihot/backend/jobs/queue";
 import { publishArticle, publishArticleTx } from "@aihot/backend/publication/publish";
 import { candidates, composeDaily } from "@aihot/backend/reports/compose";
+import { updateSource } from "@aihot/backend/admin/sources";
 
 const T = tag();
 const SOURCE = `test-report-boundary-${T}`;
@@ -24,6 +25,7 @@ before(async () => {
             VALUES (${SOURCE}, 'Report boundary test', 'rss', 'T1', 'editorial', '2100-01-01')`;
 });
 after(async () => {
+  console.log(JSON.stringify({ localReportCandidateStubRequests: provider.hits() }));
   await sql`DELETE FROM reports WHERE kind = 'daily' AND key IN ('2020-01-02', '2020-01-03', '2020-01-04', '2020-01-05')`;
   await provider.close();
   await stopBoss();
@@ -53,6 +55,33 @@ async function selected(label: string, timelineAt: string, releasedAt: string): 
   assert.equal(published?.selected, true);
   return articleId;
 }
+
+test("report candidates exclude a real source demotion before asynchronous republishing", async () => {
+  const id = await selected("source-demotion", "2019-01-01T12:00:00Z", "2019-01-01T12:00:00Z");
+  const start = new Date("2019-01-01T00:00:00Z"), end = new Date("2019-01-02T00:00:00Z");
+  assert.equal((await candidates(start, end)).some((c) => c.itemId === id), true);
+  const calls = provider.hits();
+  try {
+    for (const mode of ["hot_signal", "isolated", "editorial"] as const) {
+      const [source] = await sql<{ updated_at: Date }[]>`SELECT updated_at FROM sources WHERE id = ${SOURCE}`;
+      await updateSource(SOURCE, { patch: { participation_mode: mode }, version: source!.updated_at.toISOString() }, "test");
+      assert.equal((await sql`SELECT visibility FROM publications WHERE article_id = ${id}`)[0]!.visibility, "public", "the async projection has not been rebuilt");
+      assert.equal((await candidates(start, end)).some((c) => c.itemId === id), mode === "editorial");
+    }
+  } finally {
+    const [source] = await sql<{ updated_at: Date }[]>`SELECT updated_at FROM sources WHERE id = ${SOURCE}`;
+    await updateSource(SOURCE, { patch: { participation_mode: "editorial" }, version: source!.updated_at.toISOString() }, "test");
+  }
+  assert.equal(provider.hits(), calls, "candidate scope never asks a provider");
+});
+
+test("report candidates exclude selected publications with no release timestamp", async () => {
+  const id = await selected("null-release", "2019-02-01T12:00:00Z", "2019-02-01T12:00:00Z");
+  await sql`UPDATE publications SET visible_after = NULL WHERE article_id = ${id}`;
+  const calls = provider.hits();
+  assert.equal((await candidates(new Date("2019-02-01T00:00:00Z"), new Date("2019-02-02T00:00:00Z"))).some((c) => c.itemId === id), false);
+  assert.equal(provider.hits(), calls, "a missing release timestamp cannot cause a provider call");
+});
 
 test("reports assign delayed and boundary releases to the period readers first see them", async () => {
   const onTime = await selected("on-time", "2020-01-01T23:58:00Z", "2020-01-01T23:59:00Z");

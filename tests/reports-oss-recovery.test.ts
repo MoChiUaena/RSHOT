@@ -108,6 +108,8 @@ test("a correction finishing late cannot replace a newer published correction", 
     finish.open();
     await result;
     assert.deepEqual(await report("daily", "2024-04-02"), saved);
+    assert.deepEqual((await sql`SELECT status FROM receipts WHERE subject = 'report:daily:2024-04-02' ORDER BY id`).map((r) => r.status),
+      ["completed", "failed", "completed"], "the obsolete answer is consumed even when a newer report revision already won");
   } finally { finish.open(); await result; answer = original; }
 });
 

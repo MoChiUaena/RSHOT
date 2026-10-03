@@ -231,6 +231,6 @@ export async function completeReceipt(db: Db, receiptId: number): Promise<void> 
 }
 
 /** Marks a received response that could not be used (e.g. unparsable) so a fresh attempt can be made. */
-export async function rejectReceivedResponse(receiptId: number, reason: string): Promise<void> {
-  await sql`UPDATE receipts SET status = 'failed', error = ${reason.slice(0, 2000)}, updated_at = now() WHERE id = ${receiptId}`;
+export async function rejectReceivedResponse(receiptId: number, reason: string, db: Db = sql): Promise<void> {
+  await db`UPDATE receipts SET status = 'failed', error = ${reason.slice(0, 2000)}, updated_at = now() WHERE id = ${receiptId}`;
 }

@@ -139,6 +139,11 @@ export async function updateSource(id: string, input: { patch: unknown; version:
                ON CONFLICT (key) DO UPDATE SET value = EXCLUDED.value, updated_by = EXCLUDED.updated_by, updated_at = now()`;
       await enqueue(QUEUES.republishSource, { sourceId: id }, { singletonKey: id }, tx);
     }
+    if (keys.some((key) => PUBLICATION_FIELDS.includes(key))) {
+      // Commit barrier with final report validation. Take it after resuming article rows and
+      // invalidating story membership, and take no further locks before committing.
+      await tx`SELECT pg_advisory_xact_lock_shared(hashtext('report_candidates'))`;
+    }
     return after;
   });
 }

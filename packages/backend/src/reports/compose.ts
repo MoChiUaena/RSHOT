@@ -7,11 +7,14 @@ import { CATEGORIES } from "@aihot/industry/taxonomy";
 import { promptText, promptVersion } from "../editorial/prompts.ts";
 import { modelFor } from "../editorial/models.ts";
 import { addDays, beijingDate, beijingMidnight, isoWeekLabel, isoWeekRange } from "@aihot/contracts/time";
-import { sql } from "../db.ts";
+import { sql, type Db } from "../db.ts";
 import { Conflict } from "../audit.ts";
 import { chatJson, ModelOutputError } from "../providers/llm.ts";
 import { completeReceipt, rejectReceivedResponse } from "../providers/receipts.ts";
 import { shutdownSignal } from "../jobs/queue.ts";
+import { selectedCondition } from "../publication/scope.ts";
+import { lockStoryMembership } from "../events/derived-content.ts";
+import { stableJson } from "../lib/ids.ts";
 
 export const REPORT_VERSION = promptVersion("report-daily-lead", "report-period");
 
@@ -48,11 +51,16 @@ function roleOf(kind: string, firstParty: boolean): string {
 }
 
 export async function candidates(start: Date, end: Date): Promise<Candidate[]> {
-  const rows = await sql.begin("isolation level read committed", async (tx) => {
+  return sql.begin("isolation level read committed", async (tx) => {
     // Wait for in-flight releases and keep later ones outside this snapshot. The following SELECT
     // gets a fresh READ COMMITTED snapshot; model calls and report writes happen after the lock ends.
     await tx`SELECT pg_advisory_xact_lock(hashtext('report_candidates'))`;
-    return tx<{
+    return readCandidates(tx, start, end);
+  });
+}
+
+async function readCandidates(db: Db, start: Date, end: Date): Promise<Candidate[]> {
+  const rows = await db<{
       id: string; title: string; summary: string | null; url: string; category: string | null; score: number | null; first_party: boolean;
       source_id: string; source_name: string; source_kind: string; fact_public_id: string | null; story_public_id: string | null; at: Date; backfill: boolean;
     }[]>`
@@ -61,10 +69,10 @@ export async function candidates(start: Date, end: Date): Promise<Candidate[]> {
       FROM publications p JOIN sources s ON s.id = p.source_id
       LEFT JOIN facts f ON f.id = p.fact_id LEFT JOIN stories st ON st.id = f.story_id
       -- Attribute each item by the later of arrival and public release.
-      WHERE p.visibility = 'public' AND p.selected AND NOT p.backfill
+      -- Judge release at this issue's cutoff, including historic catch-up and truncated previews.
+      WHERE ${selectedCondition(end)} AND NOT p.backfill
         AND greatest(p.timeline_at, p.visible_after) >= ${start}
         AND greatest(p.timeline_at, p.visible_after) < ${end}`;
-  });
   // One entry per fact: first-party first, then score.
   const byFact = new Map<string, Candidate>();
   for (const r of rows) {
@@ -132,8 +140,8 @@ async function savedReport(kind: ReportKind, key: string) {
   return { revision: row.revision, entries: Number(entries) };
 }
 
-async function saveReport(kind: ReportKind, key: string, start: Date, end: Date, content: Record<string, unknown>, reason: string, model: string, receiptId: number, expectedRevision: number) {
-  await sql.begin(async (tx) => {
+async function saveReport(kind: ReportKind, key: string, start: Date, end: Date, content: Record<string, unknown>, reason: string, model: string, receiptId: number, expectedRevision: number, inputs: Candidate[]) {
+  const stale = await sql.begin("isolation level read committed", async (tx) => {
     // The row may not exist yet. Serialize only the commit; model calls hold no transaction open.
     await tx`SELECT pg_advisory_xact_lock(hashtext(${`report:${kind}:${key}`}))`;
     const [existing] = await tx<{ id: number; revision: number; content: unknown; generated_at: Date }[]>`
@@ -141,6 +149,15 @@ async function saveReport(kind: ReportKind, key: string, start: Date, end: Date,
     if (existing && automatic(reason)) {
       await completeReceipt(tx, receiptId);
       return;
+    }
+    // Publication takes membership before the snapshot lock; source edits join its commit barrier.
+    // Take this same order, no article/source row locks, only through the final report commit.
+    await lockStoryMembership(tx);
+    await tx`SELECT pg_advisory_xact_lock(hashtext('report_candidates'))`;
+    const current = new Map((await readCandidates(tx, start, end)).map((entry) => [entry.itemId, entry]));
+    if (inputs.some((entry) => stableJson(current.get(entry.itemId)) !== stableJson(entry))) {
+      await rejectReceivedResponse(receiptId, "report inputs changed while writing", tx);
+      return true;
     }
     if ((existing?.revision ?? 0) !== expectedRevision) throw new Conflict("报告已有新的修订，请刷新后再纠错");
     if (existing) {
@@ -154,6 +171,8 @@ async function saveReport(kind: ReportKind, key: string, start: Date, end: Date,
     }
     await completeReceipt(tx, receiptId);
   });
+  // Throw after committing the unusable receipt: recovery must ask again, never reuse this prose.
+  if (stale) throw new Error(`${kind} ${key}: report inputs changed while writing; retry with current inputs`);
 }
 
 /** Daily report for Beijing date D covers [D-1 08:00, D 08:00) Beijing time. */
@@ -200,7 +219,8 @@ export async function composeDaily(date: string, reason = "scheduled", options: 
     windowEnd: end.toISOString(),
     generator: { version: REPORT_VERSION, model, repeatsSuppressed: all.length - fresh.length, ...(options.preview ? { preview: true } : {}) },
   };
-  if (!options.preview) await saveReport("daily", date, start, end, content, reason, model, lead!.receiptId, previous?.revision ?? 0);
+  const writtenIds = new Set([...ordered, ...flashes].map((entry) => entry.itemId));
+  if (!options.preview) await saveReport("daily", date, start, end, content, reason, model, lead!.receiptId, previous?.revision ?? 0, fresh.filter((entry) => writtenIds.has(entry.itemId)));
   else if (lead) await completeReceipt(sql, lead.receiptId);
   return { key: date, entries: ordered.length, ...(options.preview ? { content } : {}) };
 }
@@ -267,7 +287,7 @@ async function composePeriod(kind: "weekly" | "monthly", key: string, startDate:
     metrics: { totalStories: themes.reduce((n, t) => n + t.storyRefs.length, 0), selectedCount: all.length, reportsCovered: Number(dailyCount) },
     generator: { version: REPORT_VERSION, model },
   };
-  await saveReport(kind, key, start, end, content, reason, model, res.receiptId, previous?.revision ?? 0);
+  await saveReport(kind, key, start, end, content, reason, model, res.receiptId, previous?.revision ?? 0, top);
   return { key, entries: top.length };
 }
 
