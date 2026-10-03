@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-03T02:30:08.289Z",
+  "generatedAt": "2026-10-03T03:19:45.882Z",
   "categories": [
     {
       "key": "paper",
@@ -103,6 +103,53 @@
   ],
   "items": [
     {
+      "id": "o8400tprggfrtac1ma06jcebm",
+      "title": "Copernicus发布坎帕尼亚雷达影像",
+      "originalTitle": "Campania 🇮🇹 from space! 🛰️ This #CopernicusEU Sentinel-1 radar #ImageOfTheDay captures Mount Vesuvius, the Bay of Naples, Capri, Ischia, Procida &amp; the Amalfi Coast. 🌍 Data support land-use monitoring, ground-motion detection &amp; c",
+      "summary": "来自太空的坎帕尼亚 🇮🇹！\n\n🛰️ 这张 #CopernicusEU Sentinel-1 雷达 #ImageOfTheDay（今日图像）捕捉到了维苏威火山、那不勒斯湾、卡普里岛、伊斯基亚岛、普罗奇达岛和阿马尔菲海岸。\n\n🌍 数据支持土地利用监测、地面运动检测及海岸保护。\n\n🔗 https://t.co/KXibcQhHJ2 https://t.co/Jma2feLzMW",
+      "reason": null,
+      "source": {
+        "name": "Copernicus",
+        "kind": "external",
+        "firstParty": false
+      },
+      "originalUrl": "https://x.com/CopernicusEU/status/2106051713245351942",
+      "publishedAt": "2026-10-02T16:00:31.000Z",
+      "timelineAt": "2026-10-03T02:30:29.995Z",
+      "category": "tip",
+      "tags": [
+        "应用案例",
+        "SAR",
+        "海洋",
+        "Copernicus"
+      ],
+      "score": 12,
+      "selected": false
+    },
+    {
+      "id": "fr7ajaqyq4gt1dkvbhiutstsc",
+      "title": "Copernicus发布欧洲夏季干旱监测报告",
+      "originalTitle": "🚱Our latest #drought monitoring report for Europe is out❗ It looks at how drought conditions evolved across Europe towards the end of summer Read more: https://t.co/GOKij5HrxV https://t.co/IWggCfY1Tz",
+      "summary": "🚱我们最新的欧洲#drought监测报告已发布❗\n\n它回顾了欧洲在夏末的干旱状况演变\n\n阅读更多：https://t.co/GOKij5HrxV https://t.co/IWggCfY1Tz",
+      "reason": null,
+      "source": {
+        "name": "Copernicus EMS",
+        "kind": "external",
+        "firstParty": false
+      },
+      "originalUrl": "https://x.com/CopernicusEMS/status/2105580497623724464",
+      "publishedAt": "2026-10-01T08:48:05.000Z",
+      "timelineAt": "2026-10-03T02:30:29.905Z",
+      "category": "tip",
+      "tags": [
+        "应用案例",
+        "灾害监测",
+        "Copernicus"
+      ],
+      "score": 42,
+      "selected": false
+    },
+    {
       "id": "fus3g13bva5vtm9xnxelbh1zc",
       "title": "CoEvolve：基于双向状态细化的构建到编辑视觉定位方法",
       "originalTitle": "CoEvolve: Construct-to-Edit Visual Grounding with Bidirectional State Refinement",
@@ -197,7 +244,7 @@
       "id": "vr9o2ltcomst76qdrb1lky3pt",
       "title": "USGS 提供基于 Landsat 的全球农田蒸散发 (ET) 按需数据服务",
       "originalTitle": "How much water is an agricultural field using? Find out with Landsat. 🌾💧 Water evaporates from soil and open water, and plants release water through their leaves, called transpiration. Together, this process is called evapotranspiration,",
-      "summary": "USGS EROS 提供全球、临时的 Landsat 蒸散发 (ET) 数据按需访问服务，可估算自 1982 年至今（Landsat 4 至 9）的作物与景观用水。该免费数据以即用格式提供，便于集成到 GIS 和分析工作流中，且近期出版物显示其在不同地区和气候下表现一致。自 2020 年 6 月至 2026 年 8 月，用户已通过 ESPA 请求超过 160 万景 Landsat ET 图像。",
+      "summary": "USGS EROS 提供覆盖全球的 Landsat 蒸散发（ET）暂定版（provisional）数据按需访问服务，可估算自 1982 年至今（Landsat 4 至 9）的作物与景观用水。该免费数据以即用格式提供，便于集成到 GIS 和分析工作流中，且近期出版物显示其在不同地区和气候下表现一致。自 2020 年 6 月至 2026 年 8 月，用户已通过 ESPA 请求超过 160 万景 Landsat ET 图像。",
       "reason": "该推文介绍了 USGS EROS 提供的全球 Landsat ET（蒸散发）按需数据服务，支持从 1982 年至今的 Landsat 4-9 影像，并提及了近期评估其跨景观和气候一致性的出版物。",
       "source": {
         "name": "USGS Landsat",
@@ -270,7 +317,7 @@
       "title": "西非大坝与水库协调数据集发布",
       "originalTitle": "A harmonized dataset for dams and reservoirs in West Africa",
       "summary": "基于论文摘要，Kouassi等人构建并发布了一个西非大坝与水库的协调区域数据集。该数据集包含1429个大坝和1258个水库（最小面积0.57×10⁻³ km²），总库容达2.83032×10¹¹ m³，填补了现有数据在地理参考精度和大小尺度覆盖上的不足。基于流域尺度的实地评估显示，该数据集在大尺度水库上具有强时空一致性，但小尺度基础设施仍存在系统性缺失。",
-      "reason": "该研究通过整合现有数据并补充实地验证，构建了西非地区首个包含大、小尺度水库的协调数据集，解决了既有数据地理参考不准和记录不一致的问题。",
+      "reason": "该研究整合既有记录，发布覆盖西非地区大、小尺度水库的协调数据集，并以流域尺度实地调查评估其质量；改进了数据的地理参考和记录一致性，同时指出小型基础设施仍存在系统性漏记。",
       "source": {
         "name": "Earth System Science Data · 数据论文与讨论稿",
         "kind": "web_list",
@@ -1822,11 +1869,11 @@
       "kind": "daily",
       "key": "2026-10-03",
       "title": "遥感日报 · 2026-10-03",
-      "generatedAt": "2026-10-03T01:51:00.330Z",
-      "editorialMode": "model",
+      "generatedAt": "2026-10-03T03:18:38.432Z",
+      "editorialMode": "manual",
       "lead": {
         "title": "USGS提供Landsat全球农田蒸散发按需数据服务",
-        "leadParagraph": "USGS EROS发布基于Landsat的全球农田蒸散发（ET）按需数据服务，支持估算1982年至今的作物与景观用水。同时，意大利IRIDE计划完成Eaglet II星座部署，24颗卫星全部就位。此外，西非大坝与水库协调数据集及多模态混合专家模型适配方法也相继发布。"
+        "leadParagraph": "USGS Landsat官方账号介绍了USGS EROS已有的全球Landsat蒸散发（ET）按需数据服务，支持估算1982年至今的作物与景观用水，并提及近期对产品的跨区域评估。同时，意大利IRIDE计划完成Eaglet II星座部署，24颗卫星全部就位。此外，西非大坝与水库协调数据集及多模态混合专家模型适配方法也相继发布。"
       },
       "overview": null,
       "sections": [
@@ -1857,7 +1904,7 @@
             {
               "itemId": "vr9o2ltcomst76qdrb1lky3pt",
               "title": "USGS 提供基于 Landsat 的全球农田蒸散发 (ET) 按需数据服务",
-              "summary": "USGS EROS 提供全球、临时的 Landsat 蒸散发 (ET) 数据按需访问服务，可估算自 1982 年至今（Landsat 4 至 9）的作物与景观用水。该免费数据以即用格式提供，便于集成到 GIS 和分析工作流中，且近期出版物显示其在不同地区和气候下表现一致。自 2020 年 6 月至 2026 年 8 月，用户已通过 ESPA 请求超过 160 万景 Landsat ET 图像。",
+              "summary": "USGS EROS 提供覆盖全球的 Landsat 蒸散发（ET）暂定版（provisional）数据按需访问服务，可估算自 1982 年至今（Landsat 4 至 9）的作物与景观用水。该免费数据以即用格式提供，便于集成到 GIS 和分析工作流中，且近期出版物显示其在不同地区和气候下表现一致。自 2020 年 6 月至 2026 年 8 月，用户已通过 ESPA 请求超过 160 万景 Landsat ET 图像。",
               "sourceName": "USGS Landsat",
               "originalUrl": "https://x.com/USGSLandsat/status/2105674247011963219"
             },
@@ -3785,7 +3832,7 @@
     }
   ],
   "hot": {
-    "computedAt": "2026-10-03T02:25:13.881Z",
+    "computedAt": "2026-10-03T03:15:19.788Z",
     "windowHours": 48,
     "entries": []
   }
