@@ -15,6 +15,9 @@ const parser = new XMLParser({
   processEntities: true,
   htmlEntities: true,
   trimValues: true,
+  // XHTML is mixed content: keep its markup and text order for stripTags/sanitizeBody below.
+  // Only XHTML stops parsing; escaped HTML and CDATA retain their existing entity handling.
+  stopNodes: ["feed.entry.title[type=xhtml]", "feed.entry.summary[type=xhtml]", "feed.entry.content[type=xhtml]"],
 });
 
 function text(v: unknown): string {
@@ -44,12 +47,14 @@ function parseDate(v: string): Date | null {
   return Number.isFinite(t2) ? new Date(t2) : null;
 }
 
-function atomLink(links: unknown): string {
+function atomLink(links: unknown, base: string): string {
   const list = arr(links as Record<string, string> | Array<Record<string, string>>);
   const alt = list.find((l) => typeof l === "object" && (!l["@rel"] || l["@rel"] === "alternate"));
-  if (alt && typeof alt === "object") return alt["@href"] ?? "";
-  const first = list[0];
-  return typeof first === "string" ? first : first?.["@href"] ?? "";
+  const link = alt ?? list[0];
+  const href = typeof link === "string" ? link : link?.["@href"];
+  if (!href) return "";
+  const linkBase = typeof link === "object" ? new URL(link["@xml:base"] ?? "", base).toString() : base;
+  return new URL(href, linkBase).toString();
 }
 
 function imagesFrom(html: string, base: string): Array<{ kind: "image"; url: string }> {
@@ -179,15 +184,17 @@ export async function fetchRss(source: SourceRow, opts: { force?: boolean } = {}
 
   const feed = doc.feed;
   if (feed) {
+    // XML Base is inherited; redirects determine the document's base, not the configured URL.
+    const feedBase = new URL(feed["@xml:base"] ?? "", res.url).toString();
     for (const e of arr(feed.entry)) {
-      const link = atomLink(e.link);
+      const entryBase = new URL(e["@xml:base"] ?? "", feedBase).toString();
+      const entryUrl = atomLink(e.link, entryBase);
       const title = collapseWhitespace(stripTags(text(e.title)));
-      if (!link || !title) continue;
+      if (!entryUrl || !title) continue;
       const content = text(e.content);
       const summary = text(e.summary);
       const bodyHtmlRaw = content || (summaryIsBody ? summary : "");
-      const bodyHtml = bodyHtmlRaw ? sanitizeBody(bodyHtmlRaw, link) : null;
-      const entryUrl = new URL(link, url).toString();
+      const bodyHtml = bodyHtmlRaw ? sanitizeBody(bodyHtmlRaw, entryUrl) : null;
       out.push({
         url: entryUrl,
         ...identity(entryUrl),
@@ -196,7 +203,7 @@ export async function fetchRss(source: SourceRow, opts: { force?: boolean } = {}
         publishedAt: parseDate(text(e.published) || text(e.updated)),
         sourceUpdatedAt: parseDate(text(e.updated)),
         ...feedText(bodyHtml, summary, source),
-        media: bodyHtmlRaw ? imagesFrom(bodyHtmlRaw, link) : [],
+        media: bodyHtmlRaw ? imagesFrom(bodyHtmlRaw, entryUrl) : [],
         categories: arr(e.category).map((c: any) => c?.["@term"] ?? text(c)).filter(Boolean),
         raw: { id: text(e.id) || null },
       });
