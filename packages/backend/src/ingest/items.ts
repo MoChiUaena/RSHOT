@@ -24,18 +24,29 @@ interface ItemIn {
   raw?: { _aihot?: { backfill?: boolean; baseline?: boolean } } & Record<string, unknown>;
 }
 
-export async function ingestItems(body: { sourceId?: unknown; sourceName?: unknown; items?: unknown }): Promise<{ ok: true; created: number }> {
+function isObject(value: unknown): value is Record<string, unknown> {
+  return value !== null && typeof value === "object" && !Array.isArray(value);
+}
+
+export async function ingestItems(body: unknown): Promise<{ ok: true; created: number }> {
+  if (!isObject(body)) throw new IngestError(400, "request body must be an object");
   const sourceId = typeof body.sourceId === "string" ? body.sourceId.trim() : "";
   const items = Array.isArray(body.items) ? (body.items as ItemIn[]) : [];
   if (!sourceId || !items.length) throw new IngestError(400, "sourceId and items[] required");
   if (items.length > MAX_ITEMS) throw new IngestError(413, `items[] exceeds max ${MAX_ITEMS} per request`);
+  // Validate the entire batch before even updating its source: a malformed later item must not
+  // leave earlier items stored. Objects missing a title or URL still follow the documented skip.
+  for (const [index, item] of items.entries()) {
+    if (!isObject(item)) throw new IngestError(400, `items[${index}] must be an object`);
+  }
 
   const [source] = await sql<{ id: string; participation_mode: string; enabled: boolean }[]>`
     INSERT INTO sources (id, name, kind, config, tier, participation_mode, interval_minutes, enabled, health, tags)
     VALUES (${sourceId.slice(0, 120)}, ${typeof body.sourceName === "string" && body.sourceName.trim() ? body.sourceName.trim().slice(0, 200) : sourceId.slice(0, 120)},
             'external', '{}'::jsonb, 'T2', 'isolated', 1440, true, 'ok', ${["ingest:auto-created"]})
-    ON CONFLICT (id) DO UPDATE SET last_ok_at = now()
+    ON CONFLICT (id) DO UPDATE SET last_ok_at = now() WHERE sources.enabled
     RETURNING id, participation_mode, enabled`;
+  if (!source) throw new IngestError(409, "source paused");
 
   const seen = new Set<string>();
   let created = 0;
