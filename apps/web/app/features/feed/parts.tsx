@@ -54,13 +54,13 @@ export function StarButton({ item, size = 26, className = "" }: { item: Pick<Fee
       aria-pressed={on}
       aria-label={on ? "取消收藏" : "收藏"}
       title={on ? "取消收藏" : "收藏"}
-      onClick={(e) => {
+      onClick={async (e) => {
         e.preventDefault();
         e.stopPropagation();
-        const added = toggleStar({
+        const added = await toggleStar({
           id: item.id, title: item.title, summary: item.summary, sourceName: item.source.name,
           publishedAt: item.publishedAt, score: item.score, aiSelected: item.selected,
-        });
+        }).catch(() => false);
         if (added) setPulse((p) => p + 1);
       }}
       style={{ width: size, height: size }}

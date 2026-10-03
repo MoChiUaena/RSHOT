@@ -16,14 +16,14 @@ export interface FeedItemProps {
   group?: GroupInfo | null;
   filters?: TimelineFilters;
   read?: boolean;
-  onOpen?: (id: string) => void;
+  onOpen?: (id: string) => void | Promise<void>;
   /** Show category and tags under the text (全部动态, topics, search). */
   showTags?: boolean;
 }
 
 export const FeedItem = memo(function FeedItem({ item, group, filters, read = false, onOpen, showTags = false }: FeedItemProps) {
   const isX = item.channel === "x" && !!item.x;
-  const open = () => onOpen?.(item.id);
+  const open = async () => { try { await onOpen?.(item.id); } catch { /* Read marks must not interrupt navigation. */ } };
   const showSources = !!group && (group.additionalSourceCount > 0 || (group.developmentCount <= 1 && group.reportCount > 1));
   const showDevelopments = !!group?.story && group.developmentCount > 1;
   const tags = showTags ? item.tags.slice(0, 3) : [];
