@@ -307,13 +307,16 @@ function starredUnreadable(): boolean {
   return arrayUnreadable(KEYS.starred);
 }
 
-function arrayUnreadable(key: string): boolean {
+function arrayUnreadable(key: typeof KEYS.starred | typeof KEYS.read): boolean {
   try {
     const local = storage("local");
     if (!local) return true;
     const raw = local.getItem(key);
     if (raw === null) return false;
-    return !Array.isArray(JSON.parse(raw));
+    const parsed: unknown = JSON.parse(raw);
+    return !Array.isArray(parsed) || parsed.some((value) => key === KEYS.starred
+      ? !isStarredItem(value)
+      : typeof value !== "string" || !ID_PATTERN.test(value));
   } catch {
     return true;
   }

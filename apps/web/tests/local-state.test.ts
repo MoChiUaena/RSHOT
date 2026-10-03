@@ -136,3 +136,31 @@ test("unavailable Web Locks fall back to fresh storage, including synchronous de
     await state.markRead("new"); assert.deepEqual(state.getReadIds(), ["new"]);
   }
 });
+
+test("mixed malformed stored bookmark arrays stay untouched by toggle, removal and import", async () => {
+  const old = { id: "old", title: "Legacy bookmark", savedAt: "broken", publishedAt: "broken" };
+  for (const invalid of [42, null, {}, { id: "bad space", title: "Invalid identity" }, { id: "no-title" }]) {
+    const { state, values } = await reader();
+    const raw = JSON.stringify([old, invalid], null, 2);
+    values.set(state.KEYS.starred, raw);
+    assert.equal(state.getStarred()[0]!.title, old.title, "valid legacy entries remain readable");
+    assert.equal(await state.toggleStar({ id: "new", title: "New", summary: null, sourceName: "", publishedAt: null, score: null, aiSelected: false }), false);
+    assert.equal(values.get(state.KEYS.starred), raw);
+    await state.removeStar("old"); assert.equal(values.get(state.KEYS.starred), raw);
+    await assert.rejects(state.importBundle(JSON.stringify({ version: 1, starred: [{ id: "imported", title: "Imported" }] })), /无法读取/);
+    assert.equal(values.get(state.KEYS.starred), raw);
+  }
+});
+
+test("mixed malformed stored read arrays stay untouched by marking and partial import", async () => {
+  for (const invalid of [42, null, {}, "bad space", ""]) {
+    const { state, values } = await reader();
+    const raw = JSON.stringify(["old", invalid], null, 2);
+    values.set(state.KEYS.read, raw);
+    assert.deepEqual(state.getReadIds(), ["old"]);
+    await state.markRead("new"); assert.equal(values.get(state.KEYS.read), raw);
+    const report = await state.importBundle(JSON.stringify({ version: 1, starred: [{ id: "imported", title: "Legacy import" }], read: ["imported"] }));
+    assert.equal(report.starredAdded, 1); assert.equal(report.readFailed, true); assert.equal(report.readAdded, 0);
+    assert.equal(values.get(state.KEYS.read), raw);
+  }
+});
