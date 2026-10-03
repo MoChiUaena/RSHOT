@@ -187,10 +187,11 @@ export async function fetchRss(source: SourceRow, opts: { force?: boolean } = {}
     // XML Base is inherited; redirects determine the document's base, not the configured URL.
     const feedBase = new URL(feed["@xml:base"] ?? "", res.url).toString();
     for (const e of arr(feed.entry)) {
+      const title = collapseWhitespace(stripTags(text(e.title)));
+      if (!title) continue;
       const entryBase = new URL(e["@xml:base"] ?? "", feedBase).toString();
       const entryUrl = atomLink(e.link, entryBase);
-      const title = collapseWhitespace(stripTags(text(e.title)));
-      if (!entryUrl || !title) continue;
+      if (!entryUrl) continue;
       const content = text(e.content);
       const summary = text(e.summary);
       const bodyHtmlRaw = content || (summaryIsBody ? summary : "");

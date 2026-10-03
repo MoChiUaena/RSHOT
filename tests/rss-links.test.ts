@@ -16,6 +16,8 @@ const pages: Record<string, string> = {
   "/absolute": feed(entry('<link rel="self" href="entry.xml"/><link rel="alternate" href="https://publisher.example/article-1"/>'), ' xml:base="https://feed.example/"'),
   "/fallback": feed(entry('<link rel="related" href="article-1"/>')),
   "/missing": feed(entry("") + entry('<link rel="alternate"/>')),
+  "/untitled-malformed": feed('<entry><link href="http://["/></entry>' + entry('<link href="https://publisher.example/valid-sibling"/>')),
+  "/titled-malformed": feed(entry('<link href="http://["/>') + entry('<link href="https://publisher.example/valid-sibling"/>')),
   "/fragments": feed(entry('<link href="notes#first"/>') + entry('<link href="notes#second"/>'), ' xml:base="https://publisher.example/"'),
 };
 const server = http.createServer((req, res) => {
@@ -64,4 +66,15 @@ test("absolute alternate links and the first-link fallback keep working", async 
 test("fragment identities are computed from the resolved Atom article URL", async () => {
   const items = await read("/fragments", true);
   assert.deepEqual(items.map((item) => item.identityKey), ["url:https://publisher.example/notes#first", "url:https://publisher.example/notes#second"]);
+});
+
+test("an untitled Atom entry with a malformed link is skipped before resolving its URL", async () => {
+  const items = await read("/untitled-malformed");
+  assert.deepEqual(items.map((item) => ({ title: item.title, url: item.url })), [
+    { title: "Research update", url: "https://publisher.example/valid-sibling" },
+  ]);
+});
+
+test("a titled Atom entry with a malformed link retains the existing failure policy", async () => {
+  await assert.rejects(read("/titled-malformed"), { name: "TypeError", code: "ERR_INVALID_URL" });
 });
