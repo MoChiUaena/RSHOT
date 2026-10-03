@@ -109,6 +109,7 @@ function mediaView(m: Record<string, any>, mode: "card" | "thumb" | "full" = "th
   return {
     kind: m.kind === "video" ? "video" : "image",
     url,
+    ...(responsive && m.kind !== "video" && mode !== "full" ? { fullUrl: proxiedImage(m.url, "full")! } : {}),
     ...(responsive && proxiedImageSet(m.poster ?? m.url, mode === "full" ? "body" : "card") ? { srcSet: proxiedImageSet(m.poster ?? m.url, mode === "full" ? "body" : "card")! } : {}),
     width: typeof m.width === "number" ? m.width : null,
     height: typeof m.height === "number" ? m.height : null,

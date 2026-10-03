@@ -2,6 +2,7 @@
 import type { PgBoss } from "pg-boss";
 import { pushSelected } from "../notify/selected.ts";
 import { prepareArticleMedia, warmShareImage } from "../media/prepare.ts";
+import { convertAnimated } from "../media/images.ts";
 import { enqueue, ensureQueue, QUEUES } from "./queue.ts";
 
 const MAX_RETRIES = 6;
@@ -21,8 +22,10 @@ export async function registerNotifyJobs(boss: PgBoss) {
   });
 
   await ensureQueue(QUEUES.prepareMedia);
-  await boss.work<{ articleId: string }>(QUEUES.prepareMedia, { localConcurrency: 1, pollingIntervalSeconds: 5 }, async ([job]) => {
+  await boss.work<{ articleId: string } | { url: string; mode: string }>(QUEUES.prepareMedia, { localConcurrency: 1, pollingIntervalSeconds: 5 }, async ([job]) => {
     if (!job) return;
-    return prepareArticleMedia(job.data.articleId);
+    return "articleId" in job.data
+      ? prepareArticleMedia(job.data.articleId)
+      : { animatedSaved: await convertAnimated(job.data.url, job.data.mode) };
   });
 }

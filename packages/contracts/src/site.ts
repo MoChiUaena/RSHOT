@@ -16,6 +16,8 @@ export interface SourceRef {
 export interface MediaView {
   kind: "image" | "video";
   url: string;
+  /** Full image for an on-demand viewer; list previews stay small. */
+  fullUrl?: string;
   width: number | null;
   height: number | null;
   alt: string | null;
