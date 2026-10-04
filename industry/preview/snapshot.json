@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-03T03:19:45.882Z",
+  "generatedAt": "2026-10-04T02:30:12.029Z",
   "categories": [
     {
       "key": "paper",
@@ -29,19 +29,63 @@
   ],
   "sources": [
     {
-      "name": "Qiusheng Wu · giswqs",
+      "name": "Copernicus EMS",
       "kind": "external"
     },
     {
-      "name": "Copernicus",
-      "kind": "external"
+      "name": "Rasterio · 稳定版本发布",
+      "kind": "rss"
     },
     {
       "name": "PySTAC · 稳定版本发布",
       "kind": "rss"
     },
     {
-      "name": "Earth Engine API · 稳定版本发布",
+      "name": "Copernicus Data Space · 数据与平台动态",
+      "kind": "rss"
+    },
+    {
+      "name": "ESA · 对地观测",
+      "kind": "rss"
+    },
+    {
+      "name": "Qiusheng Wu · giswqs",
+      "kind": "external"
+    },
+    {
+      "name": "arXiv · 遥感与地球观测预印本",
+      "kind": "rss"
+    },
+    {
+      "name": "Earth System Science Data · 数据论文与讨论稿",
+      "kind": "web_list"
+    },
+    {
+      "name": "openEO Python Client · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "USGS Landsat",
+      "kind": "external"
+    },
+    {
+      "name": "GDAL · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "NASA Earthdata · 科学数据与工具",
+      "kind": "rss"
+    },
+    {
+      "name": "Copernicus",
+      "kind": "external"
+    },
+    {
+      "name": "TerraTorch · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "Google Earth 与 Earth Engine · 官方博客",
       "kind": "rss"
     },
     {
@@ -53,55 +97,34 @@
       "kind": "web_list"
     },
     {
-      "name": "ESA · 对地观测",
-      "kind": "rss"
-    },
-    {
-      "name": "GDAL · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "Google Earth 与 Earth Engine · 官方博客",
-      "kind": "rss"
-    },
-    {
-      "name": "TerraTorch · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "arXiv · 遥感与地球观测预印本",
-      "kind": "rss"
-    },
-    {
-      "name": "Earth System Science Data · 数据论文与讨论稿",
-      "kind": "web_list"
-    },
-    {
-      "name": "USGS Landsat",
-      "kind": "external"
-    },
-    {
-      "name": "Copernicus EMS",
-      "kind": "external"
-    },
-    {
-      "name": "Copernicus Data Space · 数据与平台动态",
-      "kind": "rss"
-    },
-    {
-      "name": "NASA Earthdata · 科学数据与工具",
-      "kind": "rss"
-    },
-    {
-      "name": "openEO Python Client · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "Rasterio · 稳定版本发布",
+      "name": "Earth Engine API · 稳定版本发布",
       "kind": "rss"
     }
   ],
   "items": [
+    {
+      "id": "zqqq5x9rzj6gpl1v8bjyej6nf",
+      "title": "2026年9月东京创35天连续降雨纪录",
+      "originalTitle": "Record Rainfall Over Central Japan",
+      "summary": "受台风及高压脊影响，东京在2026年8月底至9月28日创下35天连续降雨的新纪录。累计降雨量达629毫米，为正常季节水平的三倍，其中9月21日单日降雨量最高，达156毫米。该数据基于GPM IMERG与VIIRS卫星观测生成。",
+      "reason": null,
+      "source": {
+        "name": "NASA Earthdata · 科学数据与工具",
+        "kind": "rss",
+        "firstParty": true
+      },
+      "originalUrl": "https://www.earthdata.nasa.gov/news/worldview-image-archive/record-rainfall-over-central-japan",
+      "publishedAt": "2026-10-02T18:14:52.000Z",
+      "timelineAt": "2026-10-03T10:53:39.083Z",
+      "category": "tip",
+      "tags": [
+        "应用案例",
+        "灾害监测",
+        "NASA"
+      ],
+      "score": 37,
+      "selected": false
+    },
     {
       "id": "o8400tprggfrtac1ma06jcebm",
       "title": "Copernicus发布坎帕尼亚雷达影像",
@@ -1865,6 +1888,33 @@
     }
   ],
   "reports": [
+    {
+      "kind": "daily",
+      "key": "2026-10-04",
+      "title": "遥感日报 · 2026-10-04",
+      "generatedAt": "2026-10-04T02:15:14.806Z",
+      "editorialMode": "model",
+      "lead": {
+        "title": "CoEvolve框架提升视觉定位精度",
+        "leadParagraph": "研究提出CoEvolve框架，将视觉定位任务解耦为状态构建与编辑两阶段。该方法结合区域演化强化和双向去噪细化器，在自然图像和遥感数据上评估显示其定位精度表现优异。"
+      },
+      "overview": null,
+      "sections": [
+        {
+          "label": "论文与方法",
+          "summary": null,
+          "items": [
+            {
+              "itemId": "fus3g13bva5vtm9xnxelbh1zc",
+              "title": "CoEvolve：基于双向状态细化的构建到编辑视觉定位方法",
+              "summary": "该研究提出 CoEvolve 框架，将视觉定位任务解耦为显式的状态构建与状态编辑两个阶段。基于论文摘要，该方法结合区域演化强化（RER）和双向去噪细化器（BDR），在自然图像和遥感数据上进行了评估；使用 9B 骨干模型时，其定位精度可与高达 241B 参数的模型相媲美，且在受控损坏条件下，单次 BDR 处理能将平均边界框重叠度提升超过 27 个百分点。项目主页已公开。",
+              "sourceName": "arXiv · 遥感与地球观测预印本",
+              "originalUrl": "https://arxiv.org/abs/2610.01710v1"
+            }
+          ]
+        }
+      ]
+    },
     {
       "kind": "daily",
       "key": "2026-10-03",
@@ -3832,7 +3882,7 @@
     }
   ],
   "hot": {
-    "computedAt": "2026-10-03T03:15:19.788Z",
+    "computedAt": "2026-10-04T02:25:12.057Z",
     "windowHours": 48,
     "entries": []
   }
