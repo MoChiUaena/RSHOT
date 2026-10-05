@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-04T02:30:12.029Z",
+  "generatedAt": "2026-10-05T02:30:16.049Z",
   "categories": [
     {
       "key": "paper",
@@ -29,51 +29,11 @@
   ],
   "sources": [
     {
-      "name": "Copernicus EMS",
-      "kind": "external"
-    },
-    {
-      "name": "Rasterio · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "PySTAC · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "Copernicus Data Space · 数据与平台动态",
-      "kind": "rss"
-    },
-    {
-      "name": "ESA · 对地观测",
-      "kind": "rss"
-    },
-    {
-      "name": "Qiusheng Wu · giswqs",
-      "kind": "external"
-    },
-    {
       "name": "arXiv · 遥感与地球观测预印本",
       "kind": "rss"
     },
     {
-      "name": "Earth System Science Data · 数据论文与讨论稿",
-      "kind": "web_list"
-    },
-    {
       "name": "openEO Python Client · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "USGS Landsat",
-      "kind": "external"
-    },
-    {
-      "name": "GDAL · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "NASA Earthdata · 科学数据与工具",
       "kind": "rss"
     },
     {
@@ -81,11 +41,39 @@
       "kind": "external"
     },
     {
-      "name": "TerraTorch · 稳定版本发布",
-      "kind": "rss"
+      "name": "USGS Landsat",
+      "kind": "external"
+    },
+    {
+      "name": "中国科学院空天院 · 科研动态",
+      "kind": "web_list"
+    },
+    {
+      "name": "Earth System Science Data · 数据论文与讨论稿",
+      "kind": "web_list"
     },
     {
       "name": "Google Earth 与 Earth Engine · 官方博客",
+      "kind": "rss"
+    },
+    {
+      "name": "Earth Engine API · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "Copernicus EMS",
+      "kind": "external"
+    },
+    {
+      "name": "PySTAC · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "ESA · 对地观测",
+      "kind": "rss"
+    },
+    {
+      "name": "GDAL · 稳定版本发布",
       "kind": "rss"
     },
     {
@@ -93,15 +81,73 @@
       "kind": "rss"
     },
     {
-      "name": "中国科学院空天院 · 科研动态",
-      "kind": "web_list"
+      "name": "TerraTorch · 稳定版本发布",
+      "kind": "rss"
     },
     {
-      "name": "Earth Engine API · 稳定版本发布",
+      "name": "Qiusheng Wu · giswqs",
+      "kind": "external"
+    },
+    {
+      "name": "Copernicus Data Space · 数据与平台动态",
+      "kind": "rss"
+    },
+    {
+      "name": "NASA Earthdata · 科学数据与工具",
+      "kind": "rss"
+    },
+    {
+      "name": "Rasterio · 稳定版本发布",
       "kind": "rss"
     }
   ],
   "items": [
+    {
+      "id": "kds8j4mwf0t92jqipetrze8v5",
+      "title": "GeoLibre 安卓装机量破万",
+      "originalTitle": "Another small milestone for GeoLibre! GeoLibre has now been installed on 10,000+ Android devices and received 66 five-star reviews. Thank you to everyone who has taken the time to try GeoLibre and leave a review. Your support helps more peo",
+      "summary": "GeoLibre 开源 GIS 平台在 Android 设备上的安装量突破 10,000 次，并获得 66 个五星评价。该平台支持 Web、Windows、macOS、Linux、Android、iOS 及 Jupyter Notebook，数据本地处理且完全免费无广告。移动端额外支持离线底图、野外数据采集和 GPS 追踪功能。",
+      "reason": null,
+      "source": {
+        "name": "Qiusheng Wu · giswqs",
+        "kind": "external",
+        "firstParty": false
+      },
+      "originalUrl": "https://x.com/giswqs/status/2106146818631532560",
+      "publishedAt": "2026-10-02T22:18:26.000Z",
+      "timelineAt": "2026-10-04T02:30:35.459Z",
+      "category": "rs-tools",
+      "tags": [
+        "工具更新",
+        "开源生态",
+        "云端处理"
+      ],
+      "score": 42,
+      "selected": false
+    },
+    {
+      "id": "l251fl9fdi8czkqjal39gth3j",
+      "title": "Copernicus Sentinel-3 喀尔巴阡雪景",
+      "originalTitle": "🏔️❄️ The Carpathians glow red from space! 🛰️ #CopernicusEU Sentinel-3’s infrared bands distinguish snow from clouds &amp; bare ground, revealing snow cover across the Carpathian arc in this 13 March 2026 image. 🔗 https://t.co/KXibcQhHJ2",
+      "summary": "🏔️❄️ 从太空看，喀尔巴阡山脉一片通红！\n\n🛰️ #CopernicusEU Sentinel-3 的红外波段区分了积雪、云层和裸地，在这张 2026 年 3 月 13 日的图像中揭示了喀尔巴阡山弧线的积雪覆盖情况。\n\n🔗 https://t.co/KXibcQhJ2 \n\n#ImageOfTheDay https://t.co/Rr2Dr6ia61",
+      "reason": null,
+      "source": {
+        "name": "Copernicus",
+        "kind": "external",
+        "firstParty": false
+      },
+      "originalUrl": "https://x.com/CopernicusEU/status/2106401888048496702",
+      "publishedAt": "2026-10-03T15:11:59.000Z",
+      "timelineAt": "2026-10-04T02:30:35.366Z",
+      "category": "tip",
+      "tags": [
+        "应用案例",
+        "光学遥感",
+        "Copernicus"
+      ],
+      "score": 12,
+      "selected": false
+    },
     {
       "id": "zqqq5x9rzj6gpl1v8bjyej6nf",
       "title": "2026年9月东京创35天连续降雨纪录",
@@ -2787,6 +2833,135 @@
     },
     {
       "kind": "weekly",
+      "key": "2026-W40",
+      "title": "RSHOT 周报 · 2026-W40",
+      "generatedAt": "2026-10-05T02:00:37.529Z",
+      "editorialMode": "model",
+      "lead": {
+        "title": "全球重力场模型与多源遥感基准数据集发布",
+        "leadParagraph": "本期覆盖2026年9月28日至10月4日的遥感动态。核心进展集中在高精度基础数据产品的更新与发布，包括仅基于卫星数据的GOCO2025s全球重力场模型、涵盖1860-2020年的HaPi人为磷输入历史数据集，以及整合多种阈值定义的MHW-MAD海洋热浪数据库。在方法层面，针对超高分辨率视觉问答、高光谱统一建模及星地协同推理等场景提出了多项高效适配与优化框架。此外，意大利IRIDE计划完成Eaglet II星座部署，EarthCARE卫星观测助力火山灰航空安全决策，体现了从基础数据到应用工程的全面推进。"
+      },
+      "overview": "本期覆盖2026年9月28日至10月4日的遥感动态。核心进展集中在高精度基础数据产品的更新与发布，包括仅基于卫星数据的GOCO2025s全球重力场模型、涵盖1860-2020年的HaPi人为磷输入历史数据集，以及整合多种阈值定义的MHW-MAD海洋热浪数据库。在方法层面，针对超高分辨率视觉问答、高光谱统一建模及星地协同推理等场景提出了多项高效适配与优化框架。此外，意大利IRIDE计划完成Eaglet II星座部署，EarthCARE卫星观测助力火山灰航空安全决策，体现了从基础数据到应用工程的全面推进。",
+      "sections": [
+        {
+          "label": "高精度地球物理与气候基准数据",
+          "summary": "本期发布了多个关键领域的长时序或高精度基准数据集。GOCO2025s利用23年卫星数据推导了最高300阶次的全球重力场模型；HaPi数据集提供了1860至2020年全球陆地生态系统人为磷输入的历史记录；MHW-MAD数据库则基于1982-2024年海表温度数据，构建了包含多种基线和阈值的全球海洋热浪与冷事件指标，为气候变化研究提供了坚实的数据支撑。",
+          "items": [
+            {
+              "itemId": "e4ntmsaa0nfelvtofn1eu4o18",
+              "title": "GOCO2025s：仅基于卫星数据的全球重力场模型",
+              "summary": "基于论文摘要，GOCO2025s是一个最高至300阶次的全球重力场模型，包含最高至200阶次的受约束长期、年变和半年变项。该模型基于23年的卫星数据推导，融合了GOCE、GRACE、GRACE-FO任务以及18颗低轨卫星的运动学轨道和9颗无源大地测量卫星的卫星激光测距观测。",
+              "sourceName": "Earth System Science Data · 数据论文与讨论稿",
+              "originalUrl": "https://essd.copernicus.org/preprints/essd-2026-639/"
+            },
+            {
+              "itemId": "v8c8na0khi2zxw524d8wanamk",
+              "title": "HaPi：1860至2020年陆地生态系统人为磷输入历史数据集",
+              "summary": "基于论文摘要，本研究发布了涵盖1860年至2020年的全球人为磷（P）输入历史数据集（HaPi），空间分辨率为5角分（约10公里），时间步长为年。该数据集整合了化肥、畜禽粪便及大气沉降等七项磷通量组分。",
+              "sourceName": "Earth System Science Data · 数据论文与讨论稿",
+              "originalUrl": "https://essd.copernicus.org/articles/18/7125/2026/"
+            },
+            {
+              "itemId": "y4pplxibxj8g81eqekmdpbyzk",
+              "title": "MHW-MAD：基于卫星海表温度数据的全球多定义海洋热浪与冷事件数据库",
+              "summary": "基于论文摘要，作者发布了一个包含每日海洋热浪（MHW）和海洋冷事件（MCS）指标的全球数据库。该数据库基于1982–2024年的ESA SST CCI及iCDR数据，在0.05°网格上提供多种基线气候、不同百分位阈值（如90th, 95th, 99th）以及去趋势后的SST异常值。数据产品还包括最小持续时间为5天、10天和30天的二值化MHW标志及严重程度分类指数，支持跨时空的极端海洋事件监测与模型评估。",
+              "sourceName": "Earth System Science Data · 数据论文与讨论稿",
+              "originalUrl": "https://essd.copernicus.org/articles/18/7181/2026/"
+            }
+          ]
+        },
+        {
+          "label": "遥感智能处理与高效适配方法",
+          "summary": "多项研究聚焦于提升遥感AI模型的效率与精度。RS-OPSD解决了超高分辨率视觉问答中小目标解析难题；Hyperspectral Image Models统一了55个高光谱模型；NE-LoRA和ExpertLens分别针对星载带宽限制和多模态大模型提出了参数高效适配策略；PAtteRNS则将自注意力机制应用于Sentinel-2时序数据的多维度分析，显著提升了作物分割性能。",
+          "items": [
+            {
+              "itemId": "sqogcqmjoqwzqmgss9j4c0lzd",
+              "title": "RS-OPSD：面向超高分辨率遥感视觉问答的可靠特权在线策略自蒸馏方法",
+              "summary": "基于论文摘要，该研究提出RS-OPSD框架，旨在将放大视觉特权内化到模型中，以解决超高分辨率遥感视觉问答（UHR VQA）中小目标视觉证据解析的问题。作者构建了包含6,750个样本、覆盖七个任务类别且带有证据区域标注的GeoEvidence-6K数据集，并提出上下文保留视觉特权（CPVP）与正确性对齐蒸馏（CAD）机制。",
+              "sourceName": "arXiv · 遥感与地球观测预印本",
+              "originalUrl": "https://arxiv.org/abs/2609.38072v1"
+            },
+            {
+              "itemId": "jdx6khgou842sfra33v2brk0y",
+              "title": "Hyperspectral Image Models：统一55个高光谱遥感模型的模块化框架与技术报告",
+              "summary": "基于论文摘要，该研究提出一个模块化框架，统一了涵盖六种范式的55个代表性高光谱遥感模型，并集成了来自Airborne、Spaceborne、UAV和Mars CRISM传感器的24个基准场景。",
+              "sourceName": "arXiv · 遥感与地球观测预印本",
+              "originalUrl": "https://arxiv.org/abs/2609.39871v1"
+            },
+            {
+              "itemId": "fo0dlax2jigiqe059ml1cxq4w",
+              "title": "面向星载高维数据的资源感知参数高效模型适配方法 NE-LoRA",
+              "summary": "该研究提出了名为 NE-LoRA 的参数高效适配框架，用于解决低轨卫星受限于上行带宽而难以频繁更新星载高光谱模型的问题。基于论文摘要，该方法结合了主低秩分支与非线性辅助分支，并引入了针对多矩阵适配器的差异化训练策略。",
+              "sourceName": "arXiv · 遥感与地球观测预印本",
+              "originalUrl": "https://arxiv.org/abs/2609.33687v1"
+            },
+            {
+              "itemId": "p5f88xen11jwaz776l4l0oorh",
+              "title": "利用多模态混合专家模型中的领域专家实现高效适配",
+              "summary": "基于论文摘要，该研究提出了一种名为 ExpertLens 的无数据方法，用于从预训练模型权重中识别出具有领域专业性的专家。在数学、医学和遥感任务中，通过选择性微调相关专家，该方法在仅更新 21.7% - 47.0% 模型参数的情况下，达到了与全量微调相当或更优的性能，平均训练速度提升了 4.0 倍，并在适配性能和训练效率上优于 LoRA。",
+              "sourceName": "arXiv · 遥感与地球观测预印本",
+              "originalUrl": "https://arxiv.org/abs/2610.02123v1"
+            },
+            {
+              "itemId": "a564xeo15mysgpi7xkexa0iqx",
+              "title": "PAtteRNS：用于卫星影像时序数据作物分割的并行维度注意力网络",
+              "summary": "基于论文摘要，作者提出混合Transformer-卷积模型 PAtteRNS，首次将自注意力机制分别应用于 Sentinel-2 多光谱 SITS 数据的时间、光谱和空间维度。",
+              "sourceName": "arXiv · 遥感与地球观测预印本",
+              "originalUrl": "https://arxiv.org/abs/2609.38165v1"
+            }
+          ]
+        },
+        {
+          "label": "灾害监测与环境变化评估",
+          "summary": "针对自然灾害和环境变化的监测能力得到加强。新发布的2000-2024年全球内陆洪水数据集细化至行政一级与月度尺度，整合了人口密度以评估暴露风险；USGS提供的Landsat蒸散发服务支持全球农田用水估算；针对2020年Creek Fire的研究利用多源GeoAI框架分析了野火对积雪持久性的影响，揭示了火灾后的生态水文反馈机制。",
+          "items": [
+            {
+              "itemId": "obchfpcekgmrwyht0ihawhrcy",
+              "title": "2000-2024年空间与时间细分的全球内陆洪水数据集及洪水指标发布",
+              "summary": "基于论文摘要，作者构建了2000-2024年全球内陆洪水数据集，将4,073个洪水事件细化至行政一级与月度尺度（admin1-month），并整合MODIS地表反射率影像与人口密度数据计算洪泛面积和直接暴露人口。最终数据集包含177个国家、2,375个行政区域的23,334条记录，且基于卫星的洪泛人口估计与报告的影响指标具有相关性。该论文目前处于ESSD期刊审稿阶段，论文页面的 Assets 栏提供模型代码与软件的 Zenodo DOI（10.5281/zenodo.17905100）；数据文件的公开范围仍需按原文核对。",
+              "sourceName": "Earth System Science Data · 数据论文与讨论稿",
+              "originalUrl": "https://essd.copernicus.org/preprints/essd-2026-577/"
+            },
+            {
+              "itemId": "vr9o2ltcomst76qdrb1lky3pt",
+              "title": "USGS 提供基于 Landsat 的全球农田蒸散发 (ET) 按需数据服务",
+              "summary": "USGS EROS 提供覆盖全球的 Landsat 蒸散发（ET）暂定版（provisional）数据按需访问服务，可估算自 1982 年至今（Landsat 4 至 9）的作物与景观用水。该免费数据以即用格式提供，便于集成到 GIS 和分析工作流中，且近期出版物显示其在不同地区和气候下表现一致。自 2020 年 6 月至 2026 年 8 月，用户已通过 ESPA 请求超过 160 万景 Landsat ET 图像。",
+              "sourceName": "USGS Landsat",
+              "originalUrl": "https://x.com/USGSLandsat/status/2105674247011963219"
+            },
+            {
+              "itemId": "ggc32079347hcrldc4wrbskbe",
+              "title": "从野火严重程度到积雪持久性：2020年Creek Fire的多源GeoAI研究",
+              "summary": "基于论文摘要，该研究开发了一个可解释的地理空间人工智能框架，结合多源地球观测、气象信息和匹配的前后对比，以考察2020年加州内华达山脉Creek Fire后的季节性积雪持久性。",
+              "sourceName": "arXiv · 遥感与地球观测预印本",
+              "originalUrl": "https://arxiv.org/abs/2609.36345v1"
+            }
+          ]
+        },
+        {
+          "label": "卫星系统部署与工程应用实践",
+          "summary": "卫星基础设施与应用落地取得实质性进展。意大利IRIDE计划通过SpaceX Transporter-18任务完成了Eaglet II星座全部24颗卫星的部署；EarthCARE卫星利用ATLID载荷获取Anak Krakatau火山喷发羽流垂直剖面，数据被用于验证高空火山灰分布并支持航空安全决策，展示了多载荷协同观测在应急应用中的价值。",
+          "items": [
+            {
+              "itemId": "yr74orfri7d1sqob9wb9mmchl",
+              "title": "意大利 IRIDE 计划完成 Eaglet II 星座部署",
+              "summary": "意大利 IRIDE 地球观测计划的最后一批 Eaglet II 卫星已成功入轨，使该星座的 24 颗卫星全部就位。此次发射于 10 月 1 日通过 SpaceX Transporter-18 拼车任务进行，搭载 Falcon 9 火箭从加州范登堡太空军基地升空。",
+              "sourceName": "ESA · 对地观测",
+              "originalUrl": "https://www.esa.int/Applications/Observing_the_Earth/IRIDE/Italy_s_IRIDE_completes_Eaglet_II_constellation"
+            },
+            {
+              "itemId": "byrnkcxoy2da7fakzivdi7lyr",
+              "title": "EarthCARE 卫星观测 Anak Krakatau 火山喷发羽流助力航空安全",
+              "summary": "ESA 报告了 EarthCARE 卫星利用其大气激光雷达（ATLID）等载荷获取了 Anak Krakatau 火山喷发羽流的垂直剖面数据。这些观测数据被达尔文火山灰咨询中心（Darwin VAAC）用于验证高空火山灰分布，从而支持航空安全决策。同时，多载荷协同观测揭示了不同粒径火山灰和气溶胶的垂直分层特征，为理解火山喷发对气候系统的影响提供了新的科学依据。",
+              "sourceName": "ESA · 对地观测",
+              "originalUrl": "https://www.esa.int/Applications/Observing_the_Earth/FutureEO/EarthCARE/EarthCARE_s_view_of_volcanic_plume_boosts_air_safety"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "weekly",
       "key": "2026-W39",
       "title": "RSHOT 周报 · 2026-W39",
       "generatedAt": "2026-09-29T07:30:47.557Z",
@@ -3882,7 +4057,7 @@
     }
   ],
   "hot": {
-    "computedAt": "2026-10-04T02:25:12.057Z",
+    "computedAt": "2026-10-05T02:30:09.413Z",
     "windowHours": 48,
     "entries": []
   }
