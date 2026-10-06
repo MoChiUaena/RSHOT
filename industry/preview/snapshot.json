@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-05T02:30:16.049Z",
+  "generatedAt": "2026-10-06T02:30:16.557Z",
   "categories": [
     {
       "key": "paper",
@@ -29,28 +29,24 @@
   ],
   "sources": [
     {
+      "name": "TerraTorch · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "Copernicus Data Space · 数据与平台动态",
+      "kind": "rss"
+    },
+    {
       "name": "arXiv · 遥感与地球观测预印本",
       "kind": "rss"
     },
     {
-      "name": "openEO Python Client · 稳定版本发布",
+      "name": "geemap · 稳定版本发布",
       "kind": "rss"
     },
     {
-      "name": "Copernicus",
+      "name": "Copernicus EMS",
       "kind": "external"
-    },
-    {
-      "name": "USGS Landsat",
-      "kind": "external"
-    },
-    {
-      "name": "中国科学院空天院 · 科研动态",
-      "kind": "web_list"
-    },
-    {
-      "name": "Earth System Science Data · 数据论文与讨论稿",
-      "kind": "web_list"
     },
     {
       "name": "Google Earth 与 Earth Engine · 官方博客",
@@ -61,15 +57,19 @@
       "kind": "rss"
     },
     {
-      "name": "Copernicus EMS",
-      "kind": "external"
-    },
-    {
-      "name": "PySTAC · 稳定版本发布",
+      "name": "ESA · 对地观测",
       "kind": "rss"
     },
     {
-      "name": "ESA · 对地观测",
+      "name": "中国科学院空天院 · 科研动态",
+      "kind": "web_list"
+    },
+    {
+      "name": "Copernicus",
+      "kind": "external"
+    },
+    {
+      "name": "NASA Earthdata · 科学数据与工具",
       "kind": "rss"
     },
     {
@@ -77,11 +77,15 @@
       "kind": "rss"
     },
     {
-      "name": "geemap · 稳定版本发布",
+      "name": "USGS Landsat",
+      "kind": "external"
+    },
+    {
+      "name": "Rasterio · 稳定版本发布",
       "kind": "rss"
     },
     {
-      "name": "TerraTorch · 稳定版本发布",
+      "name": "PySTAC · 稳定版本发布",
       "kind": "rss"
     },
     {
@@ -89,19 +93,154 @@
       "kind": "external"
     },
     {
-      "name": "Copernicus Data Space · 数据与平台动态",
+      "name": "openEO Python Client · 稳定版本发布",
       "kind": "rss"
     },
     {
-      "name": "NASA Earthdata · 科学数据与工具",
-      "kind": "rss"
-    },
-    {
-      "name": "Rasterio · 稳定版本发布",
-      "kind": "rss"
+      "name": "Earth System Science Data · 数据论文与讨论稿",
+      "kind": "web_list"
     }
   ],
   "items": [
+    {
+      "id": "qjcy598rfswqukma97vs9nv5n",
+      "title": "Google Earth Engine API v1.7.47 发布",
+      "originalTitle": "v1.7.47",
+      "summary": "Google Earth Engine API 发布稳定版本 v1.7.47。该版本新增支持将 Earth Engine 图像元数据导出至 GeoTiff 文件，并更新了构建产物及依赖项最低版本要求。",
+      "reason": null,
+      "source": {
+        "name": "Earth Engine API · 稳定版本发布",
+        "kind": "rss",
+        "firstParty": true
+      },
+      "originalUrl": "https://github.com/google/earthengine-api/releases/tag/v1.7.47",
+      "publishedAt": "2026-10-05T18:07:02.000Z",
+      "timelineAt": "2026-10-06T01:57:12.886Z",
+      "category": "rs-tools",
+      "tags": [
+        "工具更新",
+        "云端处理",
+        "Google Earth Engine"
+      ],
+      "score": 21,
+      "selected": false
+    },
+    {
+      "id": "rvk98ofs7bzk7j4dzoaudq8tc",
+      "title": "用于加拿大魁北克省圣劳伦斯河口和萨格奈峡湾SWOT验证的水位与波浪基准数据集",
+      "originalTitle": "A benchmark dataset of water levels and waves for SWOT validation in the St. Lawrence Estuary and Saguenay Fjord, Quebec, Canada",
+      "summary": "基于论文摘要，该研究发布了一个自2023年3月起持续收集的水位与波浪参数原位数据集，旨在支持SWOT卫星任务的验证活动。数据集整合了18个气压补偿压力传感器（尽可能利用共址盐度和温度数据进行水密度校正）以及13个GNSS-IR传感器的水位测量，所有数据均通过RTK GNSS校正参考至统一垂直基准，并辅以3个定向波浪浮标提供的表面波浪条件观测。",
+      "reason": "该数据集提供了圣劳伦斯河口和萨格奈峡湾地区迄今最密集的水位与波浪原位观测网络，为SWOT卫星任务的验证及复杂河口环境的水动力模型校准提供了重要的基准数据。",
+      "source": {
+        "name": "Earth System Science Data · 数据论文与讨论稿",
+        "kind": "web_list",
+        "firstParty": true
+      },
+      "originalUrl": "https://essd.copernicus.org/articles/18/7269/2026/",
+      "publishedAt": "2026-10-05T00:00:00.000Z",
+      "timelineAt": "2026-10-05T13:56:31.510Z",
+      "category": "data",
+      "tags": [
+        "数据集/基准",
+        "海洋",
+        "数据质量"
+      ],
+      "score": 80,
+      "selected": true
+    },
+    {
+      "id": "i3yjypuc0ii74jez58izbmwb3",
+      "title": "GMM-SWE v1.0：基于GRACE-气象约束的北半球2003–2022年积雪当量、雪深与雪密度数据集",
+      "originalTitle": "GMM-SWE v1.0: A GRACE–Meteorology-Constrained Dataset of Snow Water Equivalent, Snow Depth, and Snow Density over the Northern Hemisphere, 2003–2022",
+      "summary": "基于论文摘要，Hussein Mohasseb 和 Shuang Yi 提出了 GMM-SWE v1.0，一个用于重建北半球（35°–85° N）2003–2022年积雪当量（SWE）、雪深和雪密度的物理约束数据同化框架。",
+      "reason": "提出了一种结合GRACE重力卫星与ERA5-Land气象强迫的物理约束数据同化框架，通过动态解耦雪质量与体积，克服了传统方法中静态密度假设的局限，为北半球提供了空间连续且物理一致的SWE、雪深和雪密度数据集。",
+      "source": {
+        "name": "Earth System Science Data · 数据论文与讨论稿",
+        "kind": "web_list",
+        "firstParty": true
+      },
+      "originalUrl": "https://essd.copernicus.org/preprints/essd-2026-675/",
+      "publishedAt": "2026-10-05T00:00:00.000Z",
+      "timelineAt": "2026-10-05T10:55:28.633Z",
+      "category": "data",
+      "tags": [
+        "数据集/基准",
+        "数据融合",
+        "定量反演"
+      ],
+      "score": 83,
+      "selected": true
+    },
+    {
+      "id": "isr9832cpnm1spm4t90ipynvg",
+      "title": "PhyEddy-Net：基于多模态测高-涡度-SST融合的亚15公里分辨率每日全球中尺度涡检测数据集",
+      "originalTitle": "PhyEddy-Net: A sub-15-km daily global mesoscale eddy detection dataset from multimodal altimetry–vorticity–SST fusion",
+      "summary": "基于论文摘要，PhyEddy-Net是一个覆盖2010–2021年60°S至60°N无冰洋区的每日全球中尺度涡检测数据集，由多模态物理-数据双驱动深度学习分割框架构建，融合了海平面异常（SLA）、地转相对涡度和海表温度异常（SSTA）。",
+      "reason": "该研究提出了一种多模态物理-数据双驱动深度学习分割框架，将海平面异常、地转相对涡度和海表温度异常相融合，生成了覆盖2010–2021年无冰洋区的每日全球中尺度涡检测数据集。基于论文摘要，作者报告了使用5,176个Argo剖面进行独立验证的结果（命中率87.1%，类型一致率92.1%），并提供了与现有涡度图集的对比，为海洋中尺度涡研究和模型验证提供了新的数据资源。",
+      "source": {
+        "name": "Earth System Science Data · 数据论文与讨论稿",
+        "kind": "web_list",
+        "firstParty": true
+      },
+      "originalUrl": "https://essd.copernicus.org/preprints/essd-2026-670/",
+      "publishedAt": "2026-10-05T00:00:00.000Z",
+      "timelineAt": "2026-10-05T10:55:28.587Z",
+      "category": "data",
+      "tags": [
+        "数据集/基准",
+        "海洋",
+        "语义分割",
+        "数据融合"
+      ],
+      "score": 82,
+      "selected": true
+    },
+    {
+      "id": "ju1ox6zlby2miknn724p90dwv",
+      "title": "Copernicus Data Space 通知 Sentinel-1 On Demand Production 服务升级",
+      "originalTitle": "Upgrade of S-1 On Demand Production service",
+      "summary": "Copernicus Data Space 通知用户，Sentinel-1 On Demand Production (S1-ODP) 服务将于 10 月 8 日进行升级。该服务在 CEST 时间 9:00-12:00 的工作窗口内将不可用。",
+      "reason": null,
+      "source": {
+        "name": "Copernicus Data Space · 数据与平台动态",
+        "kind": "rss",
+        "firstParty": true
+      },
+      "originalUrl": "https://dataspace.copernicus.eu/news/2026-10-5-upgrade-s-1-demand-production-service",
+      "publishedAt": "2026-10-05T08:13:20.000Z",
+      "timelineAt": "2026-10-05T10:55:26.349Z",
+      "category": "rs-tools",
+      "tags": [
+        "工具更新",
+        "SAR",
+        "Copernicus"
+      ],
+      "score": 12,
+      "selected": false
+    },
+    {
+      "id": "luremitew7b34fxhjd8w28wdt",
+      "title": "Copernicus发布青年岛珊瑚礁影像",
+      "originalTitle": "🪸 Cuba is home to some of the Caribbean’s most pristine coral reefs. 🛰️ This #CopernicusEU Sentinel-2 #ImageOfTheDay captures vibrant reefs, sand &amp; seagrass around the Isle of Youth. Sentinel-2 helps map reef habitats &amp; monitor th",
+      "summary": "🪸 古巴拥有加勒比海最原始的珊瑚礁之一。\n\n🛰️ 这张 #CopernicusEU Sentinel-2 #ImageOfTheDay 捕捉到了青年岛周围充满活力的珊瑚礁、沙地和海草。\n\nSentinel-2 有助于绘制珊瑚礁栖息地地图并监测其健康状况。\n\n🔗 https://t.co/KXibcQhHJ2 https://t.co/VQpk1Rs2aq",
+      "reason": null,
+      "source": {
+        "name": "Copernicus",
+        "kind": "external",
+        "firstParty": false
+      },
+      "originalUrl": "https://x.com/CopernicusEU/status/2106677458120384841",
+      "publishedAt": "2026-10-04T09:27:00.000Z",
+      "timelineAt": "2026-10-05T02:30:42.896Z",
+      "category": "tip",
+      "tags": [
+        "应用案例",
+        "海洋",
+        "Copernicus"
+      ],
+      "score": 12,
+      "selected": false
+    },
     {
       "id": "kds8j4mwf0t92jqipetrze8v5",
       "title": "GeoLibre 安卓装机量破万",
@@ -845,29 +984,6 @@
       ],
       "score": 78,
       "selected": true
-    },
-    {
-      "id": "kt3ousrzft950fr0blo61ndgd",
-      "title": "Earth Engine API 1.7.46 扩展客户端字节参数支持",
-      "originalTitle": "v1.7.46",
-      "summary": "基于官方发布说明，Earth Engine API 1.7.46 允许向需要字节参数的算法传递相应参数，并调整 batch.py 实现。该版本记录仅涉及客户端库，后端服务变化需查看另行发布的 Earth Engine Release Notes。",
-      "reason": null,
-      "source": {
-        "name": "Earth Engine API · 稳定版本发布",
-        "kind": "rss",
-        "firstParty": true
-      },
-      "originalUrl": "https://github.com/google/earthengine-api/releases/tag/v1.7.46",
-      "publishedAt": "2026-09-29T00:46:30.000Z",
-      "timelineAt": "2026-09-29T00:46:30.000Z",
-      "category": "rs-tools",
-      "tags": [
-        "工具更新",
-        "Google Earth Engine",
-        "部署/工程"
-      ],
-      "score": null,
-      "selected": false
     },
     {
       "id": "w50vtz3cw1i1m9f0hsudcmep0",
@@ -1934,6 +2050,47 @@
     }
   ],
   "reports": [
+    {
+      "kind": "daily",
+      "key": "2026-10-06",
+      "title": "遥感日报 · 2026-10-06",
+      "generatedAt": "2026-10-06T01:57:29.164Z",
+      "editorialMode": "model",
+      "lead": {
+        "title": "GMM-SWE v1.0发布：北半球2003-2022积雪当量数据集",
+        "leadParagraph": "Hussein Mohasseb和Shuang Yi发布了基于GRACE-气象约束的GMM-SWE v1.0数据集，重建了北半球2003-2022年积雪当量、雪深与雪密度。同日，PhyEddy-Net数据集也推出，提供2010-2021年全球中尺度涡检测数据，融合多模态物理-数据双驱动深度学习分割框架。此外，加拿大魁北克省圣劳伦斯河口和萨格奈峡湾的水位与波浪基准数据集发布，支持SWOT卫星任务验证。"
+      },
+      "overview": null,
+      "sections": [
+        {
+          "label": "数据集与基准",
+          "summary": null,
+          "items": [
+            {
+              "itemId": "i3yjypuc0ii74jez58izbmwb3",
+              "title": "GMM-SWE v1.0：基于GRACE-气象约束的北半球2003–2022年积雪当量、雪深与雪密度数据集",
+              "summary": "基于论文摘要，Hussein Mohasseb 和 Shuang Yi 提出了 GMM-SWE v1.0，一个用于重建北半球（35°–85° N）2003–2022年积雪当量（SWE）、雪深和雪密度的物理约束数据同化框架。",
+              "sourceName": "Earth System Science Data · 数据论文与讨论稿",
+              "originalUrl": "https://essd.copernicus.org/preprints/essd-2026-675/"
+            },
+            {
+              "itemId": "isr9832cpnm1spm4t90ipynvg",
+              "title": "PhyEddy-Net：基于多模态测高-涡度-SST融合的亚15公里分辨率每日全球中尺度涡检测数据集",
+              "summary": "基于论文摘要，PhyEddy-Net是一个覆盖2010–2021年60°S至60°N无冰洋区的每日全球中尺度涡检测数据集，由多模态物理-数据双驱动深度学习分割框架构建，融合了海平面异常（SLA）、地转相对涡度和海表温度异常（SSTA）。",
+              "sourceName": "Earth System Science Data · 数据论文与讨论稿",
+              "originalUrl": "https://essd.copernicus.org/preprints/essd-2026-670/"
+            },
+            {
+              "itemId": "rvk98ofs7bzk7j4dzoaudq8tc",
+              "title": "用于加拿大魁北克省圣劳伦斯河口和萨格奈峡湾SWOT验证的水位与波浪基准数据集",
+              "summary": "基于论文摘要，该研究发布了一个自2023年3月起持续收集的水位与波浪参数原位数据集，旨在支持SWOT卫星任务的验证活动。数据集整合了18个气压补偿压力传感器（尽可能利用共址盐度和温度数据进行水密度校正）以及13个GNSS-IR传感器的水位测量，所有数据均通过RTK GNSS校正参考至统一垂直基准，并辅以3个定向波浪浮标提供的表面波浪条件观测。",
+              "sourceName": "Earth System Science Data · 数据论文与讨论稿",
+              "originalUrl": "https://essd.copernicus.org/articles/18/7269/2026/"
+            }
+          ]
+        }
+      ]
+    },
     {
       "kind": "daily",
       "key": "2026-10-04",
@@ -3834,6 +3991,7 @@
       "group": "field",
       "definition": "追踪语义分割的研究方法、数据、工具与应用实践。",
       "itemIds": [
+        "isr9832cpnm1spm4t90ipynvg",
         "a564xeo15mysgpi7xkexa0iqx",
         "vn45n3xlaau84p3ttgnvw4u1r",
         "jf1b3rwgroucwa9xw0v9snhxb",
@@ -3847,6 +4005,7 @@
       "group": "field",
       "definition": "追踪定量反演的研究方法、数据、工具与应用实践。",
       "itemIds": [
+        "i3yjypuc0ii74jez58izbmwb3",
         "vr9o2ltcomst76qdrb1lky3pt",
         "v8c8na0khi2zxw524d8wanamk",
         "e4ntmsaa0nfelvtofn1eu4o18",
@@ -3981,6 +4140,9 @@
       "group": "genre",
       "definition": "值得关注的遥感数据集与基准，保留原文入口与适用条件。",
       "itemIds": [
+        "rvk98ofs7bzk7j4dzoaudq8tc",
+        "i3yjypuc0ii74jez58izbmwb3",
+        "isr9832cpnm1spm4t90ipynvg",
         "w9gc9h4ly96z69g18pchbvd6q",
         "jdx6khgou842sfra33v2brk0y",
         "dkhncpmrjakdxztgg4umdmfcv",
@@ -4057,7 +4219,7 @@
     }
   ],
   "hot": {
-    "computedAt": "2026-10-05T02:30:09.413Z",
+    "computedAt": "2026-10-06T02:30:12.182Z",
     "windowHours": 48,
     "entries": []
   }
