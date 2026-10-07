@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-07T10:14:52.324Z",
+  "generatedAt": "2026-10-07T12:08:24.230Z",
   "categories": [
     {
       "key": "paper",
@@ -29,6 +29,10 @@
   ],
   "sources": [
     {
+      "name": "STAC FastAPI · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
       "name": "USGS Landsat",
       "kind": "external"
     },
@@ -49,12 +53,28 @@
       "kind": "rss"
     },
     {
+      "name": "earthaccess · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "rioxarray · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
       "name": "Copernicus EMS",
       "kind": "external"
     },
     {
       "name": "中国科学院空天院 · 科研动态",
       "kind": "web_list"
+    },
+    {
+      "name": "TorchGeo · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "EOReader · 稳定版本发布",
+      "kind": "rss"
     },
     {
       "name": "arXiv · 遥感与地球观测预印本",
@@ -192,28 +212,6 @@
         "农业"
       ],
       "score": 82,
-      "selected": true
-    },
-    {
-      "id": "svfbmqg70sbhqunovapksffw6",
-      "title": "基于 Underwater Vision Profiler 5 原位成像的全球一致浮游生物与碎屑数据库",
-      "originalTitle": "A global consistent database of plankton and detritus from in situ imaging by the Underwater Vision Profiler 5",
-      "summary": "基于论文摘要，作者发布了一个包含 3114 个剖面、约 800 万个物体的全球浮游生物与碎屑数据集，数据由 Underwater Vision Profiler 5 (UVP5) 的 SD 和 HD 两个版本在 2008–2018 年间采集并分类至 33 个同质化类别。",
-      "reason": "该研究提供了基于 UVP5 的全球浮游生物与碎屑标准化分类数据集，填补了相关领域缺乏全球尺度、多版本传感器统一分类数据的空白，为生态和气候模型及机器学习训练提供了基础数据。",
-      "source": {
-        "name": "Earth System Science Data · 数据论文与讨论稿",
-        "kind": "web_list",
-        "firstParty": true
-      },
-      "originalUrl": "https://essd.copernicus.org/articles/18/7345/2026/",
-      "publishedAt": "2026-10-06T00:00:00.000Z",
-      "timelineAt": "2026-10-06T14:10:54.283Z",
-      "category": "data",
-      "tags": [
-        "数据集/基准",
-        "海洋"
-      ],
-      "score": 80,
       "selected": true
     },
     {
@@ -937,28 +935,6 @@
       ],
       "score": 52,
       "selected": false
-    },
-    {
-      "id": "dkhncpmrjakdxztgg4umdmfcv",
-      "title": "SHELDA：欧洲亚小时级质量控制海平面数据集发布",
-      "originalTitle": "SHELDA: sub-hourly European quality controlled sea level dataset",
-      "summary": "基于论文摘要，SHELDA数据集发布了257条欧洲及周边地区潮位计记录，采样间隔为1至15分钟，并包含去除潮汐分量后的残差时间序列。数据以NetCDF格式提供，单条记录时长介于1个月至13年之间，采用CC BY 4.0许可协议开放获取。论文详细说明了包括异常值剔除、自动尖峰检测和人工目视检查在内的质量控制流程，同时指出未实施基准面偏移校正。",
-      "reason": "该数据集填补了欧洲沿海高频（1-15分钟）且经过严格质量控制的海平面观测数据空白，支持从分钟级到季节尺度的海平面变化分析。",
-      "source": {
-        "name": "Earth System Science Data · 数据论文与讨论稿",
-        "kind": "web_list",
-        "firstParty": true
-      },
-      "originalUrl": "https://essd.copernicus.org/articles/18/7143/2026/",
-      "publishedAt": "2026-09-30T00:00:00.000Z",
-      "timelineAt": "2026-10-01T01:51:32.724Z",
-      "category": "data",
-      "tags": [
-        "数据集/基准",
-        "海洋"
-      ],
-      "score": 78,
-      "selected": true
     },
     {
       "id": "y4pplxibxj8g81eqekmdpbyzk",
@@ -2331,13 +2307,6 @@
               "originalUrl": "https://essd.copernicus.org/articles/18/7301/2026/"
             },
             {
-              "itemId": "svfbmqg70sbhqunovapksffw6",
-              "title": "基于 Underwater Vision Profiler 5 原位成像的全球一致浮游生物与碎屑数据库",
-              "summary": "基于论文摘要，作者发布了一个包含 3114 个剖面、约 800 万个物体的全球浮游生物与碎屑数据集，数据由 Underwater Vision Profiler 5 (UVP5) 的 SD 和 HD 两个版本在 2008–2018 年间采集并分类至 33 个同质化类别。",
-              "sourceName": "Earth System Science Data · 数据论文与讨论稿",
-              "originalUrl": "https://essd.copernicus.org/articles/18/7345/2026/"
-            },
-            {
               "itemId": "ha4j96ha1tzkjlvay6dx90cfo",
               "title": "Sentinel-3 Level-2 陆表温度数据在 Copernicus Browser 上线",
               "summary": "Sentinel-3 Level-2 陆表温度（LST）NTC 产品现已在 Copernicus Browser 和 Sentinel Hub API 中可用。",
@@ -2525,13 +2494,6 @@
               "summary": "基于论文摘要，作者发布了一个包含每日海洋热浪（MHW）和海洋冷事件（MCS）指标的全球数据库。该数据库基于1982–2024年的ESA SST CCI及iCDR数据，在0.05°网格上提供多种基线气候、不同百分位阈值（如90th, 95th, 99th）以及去趋势后的SST异常值。数据产品还包括最小持续时间为5天、10天和30天的二值化MHW标志及严重程度分类指数，支持跨时空的极端海洋事件监测与模型评估。",
               "sourceName": "Earth System Science Data · 数据论文与讨论稿",
               "originalUrl": "https://essd.copernicus.org/articles/18/7181/2026/"
-            },
-            {
-              "itemId": "dkhncpmrjakdxztgg4umdmfcv",
-              "title": "SHELDA：欧洲亚小时级质量控制海平面数据集发布",
-              "summary": "基于论文摘要，SHELDA数据集发布了257条欧洲及周边地区潮位计记录，采样间隔为1至15分钟，并包含去除潮汐分量后的残差时间序列。数据以NetCDF格式提供，单条记录时长介于1个月至13年之间，采用CC BY 4.0许可协议开放获取。论文详细说明了包括异常值剔除、自动尖峰检测和人工目视检查在内的质量控制流程，同时指出未实施基准面偏移校正。",
-              "sourceName": "Earth System Science Data · 数据论文与讨论稿",
-              "originalUrl": "https://essd.copernicus.org/articles/18/7143/2026/"
             }
           ]
         },
@@ -4453,13 +4415,11 @@
       "itemIds": [
         "k5l8mnix6nygv0m854yxrq1hb",
         "mr5c3yxe99rijf6w50f7ne5rl",
-        "svfbmqg70sbhqunovapksffw6",
         "rvk98ofs7bzk7j4dzoaudq8tc",
         "i3yjypuc0ii74jez58izbmwb3",
         "isr9832cpnm1spm4t90ipynvg",
         "w9gc9h4ly96z69g18pchbvd6q",
         "jdx6khgou842sfra33v2brk0y",
-        "dkhncpmrjakdxztgg4umdmfcv",
         "y4pplxibxj8g81eqekmdpbyzk",
         "v8c8na0khi2zxw524d8wanamk",
         "obchfpcekgmrwyht0ihawhrcy",
@@ -4534,7 +4494,7 @@
     }
   ],
   "hot": {
-    "computedAt": "2026-10-07T10:00:36.139Z",
+    "computedAt": "2026-10-07T11:50:15.415Z",
     "windowHours": 48,
     "entries": []
   }
