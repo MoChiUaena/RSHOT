@@ -153,9 +153,9 @@
       "interval_minutes": 180,
       "site_fulltext": false,
       "syndicate_fulltext": false,
-      "enabled": false,
+      "enabled": true,
       "id": "github-torchgeo",
-      "name": "TorchGeo · 发布订阅（待网络复核）",
+      "name": "TorchGeo · 稳定版本发布",
       "kind": "rss",
       "config": {
         "feedUrl": "https://github.com/torchgeo/torchgeo/releases.atom",
@@ -173,6 +173,86 @@
         }
       },
       "owner_entity_id": "torchgeo"
+    },
+    {
+      "tier": "T1",
+      "first_party": true,
+      "participation_mode": "editorial",
+      "interval_minutes": 180,
+      "site_fulltext": false,
+      "syndicate_fulltext": false,
+      "enabled": true,
+      "id": "github-stac-fastapi",
+      "name": "STAC FastAPI · 稳定版本发布",
+      "kind": "rss",
+      "config": {
+        "feedUrl": "https://github.com/stac-utils/stac-fastapi/releases.atom",
+        "ingestNoiseFilter": {
+          "dropMarkersTitleOnly": ["rc0", "rc1", "-rc", "alpha", "beta"]
+        },
+        "_aihot": { "initialBackfillLimit": 4 }
+      },
+      "owner_entity_id": null
+    },
+    {
+      "tier": "T1",
+      "first_party": true,
+      "participation_mode": "editorial",
+      "interval_minutes": 180,
+      "site_fulltext": false,
+      "syndicate_fulltext": false,
+      "enabled": true,
+      "id": "github-earthaccess",
+      "name": "earthaccess · 稳定版本发布",
+      "kind": "rss",
+      "config": {
+        "feedUrl": "https://github.com/earthaccess-dev/earthaccess/releases.atom",
+        "ingestNoiseFilter": {
+          "dropMarkersTitleOnly": ["rc0", "rc1", "-rc", "alpha", "beta"]
+        },
+        "_aihot": { "initialBackfillLimit": 4 }
+      },
+      "owner_entity_id": null
+    },
+    {
+      "tier": "T1",
+      "first_party": true,
+      "participation_mode": "editorial",
+      "interval_minutes": 180,
+      "site_fulltext": false,
+      "syndicate_fulltext": false,
+      "enabled": true,
+      "id": "github-eoreader",
+      "name": "EOReader · 稳定版本发布",
+      "kind": "rss",
+      "config": {
+        "feedUrl": "https://github.com/sertit/eoreader/releases.atom",
+        "ingestNoiseFilter": {
+          "dropMarkersTitleOnly": ["rc0", "rc1", "-rc", "alpha", "beta"]
+        },
+        "_aihot": { "initialBackfillLimit": 4 }
+      },
+      "owner_entity_id": null
+    },
+    {
+      "tier": "T1",
+      "first_party": true,
+      "participation_mode": "editorial",
+      "interval_minutes": 180,
+      "site_fulltext": false,
+      "syndicate_fulltext": false,
+      "enabled": true,
+      "id": "github-rioxarray",
+      "name": "rioxarray · 稳定版本发布",
+      "kind": "rss",
+      "config": {
+        "feedUrl": "https://github.com/corteva/rioxarray/releases.atom",
+        "ingestNoiseFilter": {
+          "dropMarkersTitleOnly": ["rc0", "rc1", "-rc", "alpha", "beta"]
+        },
+        "_aihot": { "initialBackfillLimit": 4 }
+      },
+      "owner_entity_id": null
     },
     {
       "tier": "T1",
