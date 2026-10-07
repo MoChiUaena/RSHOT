@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-07T02:30:18.717Z",
+  "generatedAt": "2026-10-07T10:14:52.324Z",
   "categories": [
     {
       "key": "paper",
@@ -102,6 +102,52 @@
     }
   ],
   "items": [
+    {
+      "id": "l03cqwbjkyzsnp23epvep18oq",
+      "title": "Sentinel-2 观测荷兰海上风电场",
+      "originalTitle": "⚡ Gemini offshore wind farm 🇳🇱 in the North Sea generates renewable electricity for the Netherlands. 🛰️ #CopernicusEU Sentinel-2 reveals turbines, shadows &amp; sediment patterns caused by their foundations. 🔗 https://t.co/b2jOO3Ui5L #I",
+      "summary": "⚡ 位于北海的 Gemini 海上风电场 🇳🇱 为荷兰提供可再生电力。\n\n🛰️ #CopernicusEU Sentinel-2 揭示了由风机基础引起的涡轮机、阴影及沉积物模式。\n\n🔗 https://t.co/b2jOO3Ui5L\n\n#ImageOfTheDay https://t.co/tVCSSwIEs1",
+      "reason": null,
+      "source": {
+        "name": "Copernicus",
+        "kind": "external",
+        "firstParty": false
+      },
+      "originalUrl": "https://x.com/CopernicusEU/status/2107468143308275990",
+      "publishedAt": "2026-10-06T13:48:54.000Z",
+      "timelineAt": "2026-10-07T02:30:50.434Z",
+      "category": "tip",
+      "tags": [
+        "应用案例",
+        "光学遥感",
+        "Copernicus"
+      ],
+      "score": 12,
+      "selected": false
+    },
+    {
+      "id": "ic0rrn2ocn685226gj7wth6o1",
+      "title": "Copernicus EMS 发布 EFAS 数据征集",
+      "originalTitle": "📢 New call for tender Support #EFAS &amp; #GloFAS 🌊 by operating the #CEMS Meteorological and Hydrological Data Collection Centres, providing quality-controlled in situ data for flood early warning 🗓️ Deadline: 11 November 2026, 16:00 CE",
+      "summary": "📢 新招标公告\n\n通过运营 #CEMS 气象和水文数据中心，为洪水早期预警提供经过质量控制的原位数据，支持 #EFAS &amp; #GloFAS 🌊\n\n🗓️ 截止日期：2026年11月11日，16:00 CET\n\n更多 👇 \nhttps://t.co/erEu1REZcU https://t.co/vSN1RUxoIw",
+      "reason": null,
+      "source": {
+        "name": "Copernicus EMS",
+        "kind": "external",
+        "firstParty": false
+      },
+      "originalUrl": "https://x.com/CopernicusEMS/status/2107468507294191945",
+      "publishedAt": "2026-10-06T13:50:21.000Z",
+      "timelineAt": "2026-10-07T02:30:50.340Z",
+      "category": "industry",
+      "tags": [
+        "行业动态",
+        "数据质量",
+        "Copernicus"
+      ],
+      "score": 12,
+      "selected": false
+    },
     {
       "id": "k5l8mnix6nygv0m854yxrq1hb",
       "title": "基于Sentinel-1 SAR的斯瓦尔巴群岛147个入海冰川十年月度前端消融分析",
@@ -4488,7 +4534,7 @@
     }
   ],
   "hot": {
-    "computedAt": "2026-10-07T02:30:07.730Z",
+    "computedAt": "2026-10-07T10:00:36.139Z",
     "windowHours": 48,
     "entries": []
   }
