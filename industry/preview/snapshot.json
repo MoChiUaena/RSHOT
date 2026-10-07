@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-06T02:30:16.557Z",
+  "generatedAt": "2026-10-07T02:30:18.717Z",
   "categories": [
     {
       "key": "paper",
@@ -29,12 +29,32 @@
   ],
   "sources": [
     {
-      "name": "TerraTorch · 稳定版本发布",
+      "name": "USGS Landsat",
+      "kind": "external"
+    },
+    {
+      "name": "ESA · 对地观测",
       "kind": "rss"
     },
     {
       "name": "Copernicus Data Space · 数据与平台动态",
       "kind": "rss"
+    },
+    {
+      "name": "openEO Python Client · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "TerraTorch · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "Copernicus EMS",
+      "kind": "external"
+    },
+    {
+      "name": "中国科学院空天院 · 科研动态",
+      "kind": "web_list"
     },
     {
       "name": "arXiv · 遥感与地球观测预印本",
@@ -45,8 +65,12 @@
       "kind": "rss"
     },
     {
-      "name": "Copernicus EMS",
+      "name": "Qiusheng Wu · giswqs",
       "kind": "external"
+    },
+    {
+      "name": "Rasterio · 稳定版本发布",
+      "kind": "rss"
     },
     {
       "name": "Google Earth 与 Earth Engine · 官方博客",
@@ -57,19 +81,7 @@
       "kind": "rss"
     },
     {
-      "name": "ESA · 对地观测",
-      "kind": "rss"
-    },
-    {
-      "name": "中国科学院空天院 · 科研动态",
-      "kind": "web_list"
-    },
-    {
-      "name": "Copernicus",
-      "kind": "external"
-    },
-    {
-      "name": "NASA Earthdata · 科学数据与工具",
+      "name": "PySTAC · 稳定版本发布",
       "kind": "rss"
     },
     {
@@ -77,31 +89,249 @@
       "kind": "rss"
     },
     {
-      "name": "USGS Landsat",
-      "kind": "external"
-    },
-    {
-      "name": "Rasterio · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "PySTAC · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "Qiusheng Wu · giswqs",
-      "kind": "external"
-    },
-    {
-      "name": "openEO Python Client · 稳定版本发布",
+      "name": "NASA Earthdata · 科学数据与工具",
       "kind": "rss"
     },
     {
       "name": "Earth System Science Data · 数据论文与讨论稿",
       "kind": "web_list"
+    },
+    {
+      "name": "Copernicus",
+      "kind": "external"
     }
   ],
   "items": [
+    {
+      "id": "k5l8mnix6nygv0m854yxrq1hb",
+      "title": "基于Sentinel-1 SAR的斯瓦尔巴群岛147个入海冰川十年月度前端消融分析",
+      "originalTitle": "A decade of monthly frontal ablation at 147 tidewater glaciers in Svalbard",
+      "summary": "基于论文摘要，该研究发布了2015年1月至2024年12月斯瓦尔巴群岛147个入海冰川盆地的月度前端消融数据集。作者使用多时相深度学习分割模型从Sentinel-1 SAR影像中提取了15647个月度平均崩解前缘位置，并结合ITS_LIVE流速数据库、区域冰厚产品以及MAR区域气候模式的表面质量平衡数据计算得出。",
+      "reason": "该研究利用深度学习分割模型处理Sentinel-1 SAR影像，结合ITS_LIVE流速与MAR气候模式数据，填补了斯瓦尔巴群岛冰架消融在年内和季节尺度上的时间分辨率空白。",
+      "source": {
+        "name": "Earth System Science Data · 数据论文与讨论稿",
+        "kind": "web_list",
+        "firstParty": true
+      },
+      "originalUrl": "https://essd.copernicus.org/articles/18/7319/2026/",
+      "publishedAt": "2026-10-06T00:00:00.000Z",
+      "timelineAt": "2026-10-07T01:58:09.477Z",
+      "category": "data",
+      "tags": [
+        "数据集/基准",
+        "SAR",
+        "海洋"
+      ],
+      "score": 83,
+      "selected": true
+    },
+    {
+      "id": "mr5c3yxe99rijf6w50f7ne5rl",
+      "title": "HyBEAR：用于裸土检测的高光谱基准数据集",
+      "originalTitle": "HyBEAR: a hyperspectral benchmark for bare soil detection",
+      "summary": "基于论文摘要，作者发布了名为 HyBEAR 的裸土检测高光谱基准数据集。该数据集包含1954张地面采样距离为2米的高分辨率航空高光谱图像，总计108,064,591个像素（对应43,225公顷），是目前最大且最具异质性的裸土检测数据集。",
+      "reason": "该研究提出了一个包含108,064,591个像素（约43,225公顷）的大规模高分辨率高光谱裸土检测基准，并提供了验证程序和基线结果，有助于标准化该领域的算法评估。",
+      "source": {
+        "name": "Earth System Science Data · 数据论文与讨论稿",
+        "kind": "web_list",
+        "firstParty": true
+      },
+      "originalUrl": "https://essd.copernicus.org/articles/18/7301/2026/",
+      "publishedAt": "2026-10-06T00:00:00.000Z",
+      "timelineAt": "2026-10-06T14:10:54.310Z",
+      "category": "data",
+      "tags": [
+        "数据集/基准",
+        "高光谱",
+        "农业"
+      ],
+      "score": 82,
+      "selected": true
+    },
+    {
+      "id": "svfbmqg70sbhqunovapksffw6",
+      "title": "基于 Underwater Vision Profiler 5 原位成像的全球一致浮游生物与碎屑数据库",
+      "originalTitle": "A global consistent database of plankton and detritus from in situ imaging by the Underwater Vision Profiler 5",
+      "summary": "基于论文摘要，作者发布了一个包含 3114 个剖面、约 800 万个物体的全球浮游生物与碎屑数据集，数据由 Underwater Vision Profiler 5 (UVP5) 的 SD 和 HD 两个版本在 2008–2018 年间采集并分类至 33 个同质化类别。",
+      "reason": "该研究提供了基于 UVP5 的全球浮游生物与碎屑标准化分类数据集，填补了相关领域缺乏全球尺度、多版本传感器统一分类数据的空白，为生态和气候模型及机器学习训练提供了基础数据。",
+      "source": {
+        "name": "Earth System Science Data · 数据论文与讨论稿",
+        "kind": "web_list",
+        "firstParty": true
+      },
+      "originalUrl": "https://essd.copernicus.org/articles/18/7345/2026/",
+      "publishedAt": "2026-10-06T00:00:00.000Z",
+      "timelineAt": "2026-10-06T14:10:54.283Z",
+      "category": "data",
+      "tags": [
+        "数据集/基准",
+        "海洋"
+      ],
+      "score": 80,
+      "selected": true
+    },
+    {
+      "id": "tuj75u7nv6ts4nuffo8213f3l",
+      "title": "EORestore-Agent：基于保真度引导的智能体遥感复合退化图像恢复方法",
+      "originalTitle": "EORestore-Agent: Fidelity-Guided Agentic Restoration of Remote Sensing Images with Composite Degradations",
+      "summary": "基于论文摘要，EORestore-Agent提出了一种针对包含雾霾、云、噪声等复合退化的遥感图像的无参考智能体恢复框架。该方法利用微调的视觉语言模型识别残余退化类型并决定工具应用顺序，结合相对质量评分器进行逐步验证，在合成Landsat-8基准上将PSNR提升了2.3至3.2 dB。",
+      "reason": "提出了一种无参考、可验证的逐步决策机制，用于处理复合退化遥感图像恢复，并在合成Landsat-8基准上展示了优于单一退化全合一模型的性能。",
+      "source": {
+        "name": "arXiv · 遥感与地球观测预印本",
+        "kind": "rss",
+        "firstParty": true
+      },
+      "originalUrl": "https://arxiv.org/abs/2610.06196v1",
+      "publishedAt": "2026-10-05T12:11:31.000Z",
+      "timelineAt": "2026-10-06T14:10:38.776Z",
+      "category": "paper",
+      "tags": [
+        "论文/研究",
+        "光学遥感",
+        "数据质量"
+      ],
+      "score": 82,
+      "selected": true
+    },
+    {
+      "id": "ha4j96ha1tzkjlvay6dx90cfo",
+      "title": "Sentinel-3 Level-2 陆表温度数据在 Copernicus Browser 上线",
+      "originalTitle": "Sentinel-3 Level-2 Land Surface Temperature now available in Copernicus Browser",
+      "summary": "Sentinel-3 Level-2 陆表温度（LST）NTC 产品现已在 Copernicus Browser 和 Sentinel Hub API 中可用。",
+      "reason": "将 Sentinel-3 SLSTR Level-2 陆表温度产品接入 Copernicus Browser 和 Sentinel Hub API，扩展了该数据集的交互式浏览与获取渠道。",
+      "source": {
+        "name": "Copernicus Data Space · 数据与平台动态",
+        "kind": "rss",
+        "firstParty": true
+      },
+      "originalUrl": "https://dataspace.copernicus.eu/news/2026-10-6-sentinel-3-level-2-land-surface-temperature-now-available-copernicus-browser",
+      "publishedAt": "2026-10-06T07:29:05.000Z",
+      "timelineAt": "2026-10-06T11:10:16.676Z",
+      "category": "data",
+      "tags": [
+        "工具更新",
+        "卫星/传感器",
+        "定量反演",
+        "Copernicus"
+      ],
+      "score": 75,
+      "selected": true
+    },
+    {
+      "id": "vdhnpxqo056l8dw9hdkyj3ysm",
+      "title": "openEO Python Client v0.53.0 发布",
+      "originalTitle": "openEO Python Client v0.53.0",
+      "summary": "openEO Python Client 发布 v0.53.0，移除对 Python 3.8 的支持，最低要求提升至 Python 3.9。该版本将构建配置从 setup.py 迁移至 pyproject.toml，并调整 Xarray 依赖以支持现代版本。",
+      "reason": null,
+      "source": {
+        "name": "openEO Python Client · 稳定版本发布",
+        "kind": "rss",
+        "firstParty": true
+      },
+      "originalUrl": "https://github.com/Open-EO/openeo-python-client/releases/tag/v0.53.0",
+      "publishedAt": "2026-10-06T10:06:47.000Z",
+      "timelineAt": "2026-10-06T11:10:07.205Z",
+      "category": "rs-tools",
+      "tags": [
+        "工具更新",
+        "开源生态"
+      ],
+      "score": 37,
+      "selected": false
+    },
+    {
+      "id": "u3mqll7wsch0l38uhia8cqyr6",
+      "title": "基于多任务部分监督学习的地球观测数据超分辨率与语义分割方法",
+      "originalTitle": "Multi-Task Partially Supervised Learning for Super-Resolution and Semantic Segmentation on Earth Observation data",
+      "summary": "基于论文摘要，该研究针对地球观测数据中联合学习超分辨率和语义分割需要双重标注且成本高昂的问题，提出了多任务部分监督学习范式。作者考察了顺序和共享两种多任务架构变体，并提出了一种混合变体及重投影损失，以利用共享表征并在仅使用语义分割标注训练时强制提升超分辨率的图像质量。实验结果表明该方法在特定设置下取得了优于当前最先进（SOTA）顺序变体的效果，源代码将发布在 GitHub 仓库 munera 中。",
+      "reason": "原文提出混合架构与重投影损失，旨在解决多任务部分监督学习中单一任务标注限制的问题，并报告了优于现有SOTA顺序变体的实验结果。",
+      "source": {
+        "name": "arXiv · 遥感与地球观测预印本",
+        "kind": "rss",
+        "firstParty": true
+      },
+      "originalUrl": "https://arxiv.org/abs/2610.06389v1",
+      "publishedAt": "2026-10-05T14:13:18.000Z",
+      "timelineAt": "2026-10-06T11:10:06.159Z",
+      "category": "paper",
+      "tags": [
+        "论文/研究",
+        "语义分割",
+        "多模态"
+      ],
+      "score": 65,
+      "selected": true
+    },
+    {
+      "id": "gt4dxjtxlv9p8okpmvv48za9q",
+      "title": "基于贝叶斯变支撑模型评估德国东北部森林中LiDAR数据源、预测器分辨率与空间随机效应对蓄积量估算的影响",
+      "originalTitle": "Evaluating LiDAR Data Sources, Predictor Resolution, and Spatial Random Effects in Bayesian Change-of-Support Models for Forest Inventory",
+      "summary": "基于论文摘要，该研究使用贝叶斯变支撑模型比较了公开机载激光扫描（ALS）与新获取的无人机激光扫描（ULS）数据在德国东北部混合林中估算生长蓄积量（GSV）的效果。交叉验证结果显示，ULS模型的均方根预测误差（RMSPE）为68.5 m³/ha，优于ALS模型的79.5 m³/ha，预测误差降低了13.8%。",
+      "reason": "原文提供了ULS与ALS在特定混合林区的对比实验条件及RMSPE等量化结果，可用于评估不同分辨率LiDAR数据源对模型推断的影响。",
+      "source": {
+        "name": "arXiv · 遥感与地球观测预印本",
+        "kind": "rss",
+        "firstParty": true
+      },
+      "originalUrl": "https://arxiv.org/abs/2610.06476v1",
+      "publishedAt": "2026-10-05T15:04:48.000Z",
+      "timelineAt": "2026-10-06T11:10:06.092Z",
+      "category": "paper",
+      "tags": [
+        "论文/研究",
+        "LiDAR",
+        "森林/生态",
+        "定量反演"
+      ],
+      "score": 75,
+      "selected": true
+    },
+    {
+      "id": "j0jpwcavq7j1hbvyr1b2n2cba",
+      "title": "Copernicus发布波兰维斯瓦河卫星影像",
+      "originalTitle": "🇵🇱 The Vistula, Poland’s longest river, winds N from the Carpathians to the Baltic Sea. 🛰️ This false-colour #CopernicusEU Sentinel-2 #ImageOfTheDay shows the river near Gdańsk, contrasting with snow-covered fields &amp; forests. 🔗 http",
+      "summary": "🇵🇱 维斯瓦河是波兰最长的河流，从喀尔巴阡山脉蜿蜒向北流向波罗的海。\n\n🛰️ 这张 #CopernicusEU Sentinel-2 #ImageOfTheDay 假彩色图像展示了格但斯克附近的河流，与积雪覆盖的田野和森林形成对比。\n\n🔗 https://t.co/KXibcQhHJ2 https://t.co/6DZZKPrQp7",
+      "reason": null,
+      "source": {
+        "name": "Copernicus",
+        "kind": "external",
+        "firstParty": false
+      },
+      "originalUrl": "https://x.com/CopernicusEU/status/2107070544830964070",
+      "publishedAt": "2026-10-05T11:29:00.000Z",
+      "timelineAt": "2026-10-06T02:30:42.825Z",
+      "category": "data",
+      "tags": [
+        "数据集/基准",
+        "光学遥感",
+        "Copernicus"
+      ],
+      "score": 12,
+      "selected": false
+    },
+    {
+      "id": "fo4g1q8wpe2j6ovm2a6d8ozbp",
+      "title": "USGS 展示 Landsat 8/9 卫星轨道",
+      "originalTitle": "For Landsat 8 and Landsat 9, every week is space week. 🛰️🌎 This World Space Week, take a spin with Landsat 8 and Landsat 9 as the satellites follow their paths around our planet. Both satellites travel about 438 miles above Earth in sun-s",
+      "summary": "USGS 发布动画展示 Landsat 8 和 Landsat 9 在距地约 438 英里处的太阳同步近极地轨道运行。两颗卫星每 16 天回归同一地面路径，因轨道周期错开 8 天而实现全球陆地表面每 8 天全覆盖。每颗卫星每日采集约 750 景影像，记录地球陆地表面随时间的变化。",
+      "reason": null,
+      "source": {
+        "name": "USGS Landsat",
+        "kind": "external",
+        "firstParty": false
+      },
+      "originalUrl": "https://x.com/USGSLandsat/status/2107108558181470286",
+      "publishedAt": "2026-10-05T14:00:03.000Z",
+      "timelineAt": "2026-10-06T02:30:42.721Z",
+      "category": "satellite",
+      "tags": [
+        "卫星/传感器",
+        "光学遥感",
+        "USGS"
+      ],
+      "score": 18,
+      "selected": false
+    },
     {
       "id": "qjcy598rfswqukma97vs9nv5n",
       "title": "Google Earth Engine API v1.7.47 发布",
@@ -870,29 +1100,6 @@
       "selected": true
     },
     {
-      "id": "jdsfict3t0zbxk2t3rwp162db",
-      "title": "日本夜间灯光强度与多种社会经济统计指标的相关性研究",
-      "originalTitle": "Correlation Between Nighttime Light and Various Statistical Indicators in Japan",
-      "summary": "基于 arXiv 摘要，这份 2026 年上传的稿件是作者 2021 年日文论文的英文翻译和扩展版。作者以日本都道府县与市町村为尺度计算夜间灯光强度，并考察其与 GDP、就业率等公开社会经济指标的关联；作者认为夜间灯光可作为这些指标的代理，并讨论社会突发中断期间快速评估经济影响的可能性。",
-      "reason": null,
-      "source": {
-        "name": "arXiv · 遥感与地球观测预印本",
-        "kind": "rss",
-        "firstParty": true
-      },
-      "originalUrl": "https://arxiv.org/abs/2609.33861v1",
-      "publishedAt": "2026-09-27T19:27:55.000Z",
-      "timelineAt": "2026-09-29T13:55:46.226Z",
-      "category": "paper",
-      "tags": [
-        "论文/研究",
-        "光学遥感",
-        "城市"
-      ],
-      "score": 42,
-      "selected": false
-    },
-    {
       "id": "o3h6p5qukk3psrw68l4pbiewl",
       "title": "面向星地协同推理系统的联合DNN切分与资源分配方法",
       "originalTitle": "Joint DNN Partitioning and Resource Allocation for Satellite-Terrestrial Collaborative Inference Systems",
@@ -914,29 +1121,6 @@
       ],
       "score": 68,
       "selected": true
-    },
-    {
-      "id": "wu6775m8ogiq27j3k1t6k37jz",
-      "title": "夜间灯光影像在详细本地经济分析中的潜力",
-      "originalTitle": "The Potential of Nighttime Light Imagery for Detailed Local Economic Analysis",
-      "summary": "基于论文摘要，这份手稿是2022年日文论文的英文扩展版。研究以日本新潟县汤泽町为例，讨论夜间灯光栅格处理及其与旅游和本地经济统计数据的时空关系。",
-      "reason": null,
-      "source": {
-        "name": "arXiv · 遥感与地球观测预印本",
-        "kind": "rss",
-        "firstParty": true
-      },
-      "originalUrl": "https://arxiv.org/abs/2609.33859v1",
-      "publishedAt": "2026-09-27T19:25:17.000Z",
-      "timelineAt": "2026-09-29T11:01:29.181Z",
-      "category": "paper",
-      "tags": [
-        "论文/研究",
-        "光学遥感",
-        "时序分析"
-      ],
-      "score": 42,
-      "selected": false
     },
     {
       "id": "vn45n3xlaau84p3ttgnvw4u1r",
@@ -2050,6 +2234,74 @@
     }
   ],
   "reports": [
+    {
+      "kind": "daily",
+      "key": "2026-10-07",
+      "title": "遥感日报 · 2026-10-07",
+      "generatedAt": "2026-10-07T01:57:54.686Z",
+      "editorialMode": "model",
+      "lead": {
+        "title": "Sentinel-3 Level-2 陆表温度数据在 Copernicus Browser 上线",
+        "leadParagraph": "Sentinel-3 Level-2 陆表温度（LST）NTC 产品现已在 Copernicus Browser 和 Sentinel Hub API 中可用。此外，EORestore-Agent 提出了一种针对包含雾霾、云、噪声等复合退化的遥感图像的无参考智能体恢复框架，利用微调的视觉语言模型识别残余退化类型并决定工具应用顺序。HyBEAR 发布了名为 HyBEAR 的裸土检测高光谱基准数据集，包含1954张地面采样距离为2米的高分辨率航空高光谱图像，总计108,064,591个像素。"
+      },
+      "overview": null,
+      "sections": [
+        {
+          "label": "论文与方法",
+          "summary": null,
+          "items": [
+            {
+              "itemId": "tuj75u7nv6ts4nuffo8213f3l",
+              "title": "EORestore-Agent：基于保真度引导的智能体遥感复合退化图像恢复方法",
+              "summary": "基于论文摘要，EORestore-Agent提出了一种针对包含雾霾、云、噪声等复合退化的遥感图像的无参考智能体恢复框架。该方法利用微调的视觉语言模型识别残余退化类型并决定工具应用顺序，结合相对质量评分器进行逐步验证，在合成Landsat-8基准上将PSNR提升了2.3至3.2 dB。",
+              "sourceName": "arXiv · 遥感与地球观测预印本",
+              "originalUrl": "https://arxiv.org/abs/2610.06196v1"
+            },
+            {
+              "itemId": "gt4dxjtxlv9p8okpmvv48za9q",
+              "title": "基于贝叶斯变支撑模型评估德国东北部森林中LiDAR数据源、预测器分辨率与空间随机效应对蓄积量估算的影响",
+              "summary": "基于论文摘要，该研究使用贝叶斯变支撑模型比较了公开机载激光扫描（ALS）与新获取的无人机激光扫描（ULS）数据在德国东北部混合林中估算生长蓄积量（GSV）的效果。交叉验证结果显示，ULS模型的均方根预测误差（RMSPE）为68.5 m³/ha，优于ALS模型的79.5 m³/ha，预测误差降低了13.8%。",
+              "sourceName": "arXiv · 遥感与地球观测预印本",
+              "originalUrl": "https://arxiv.org/abs/2610.06476v1"
+            },
+            {
+              "itemId": "u3mqll7wsch0l38uhia8cqyr6",
+              "title": "基于多任务部分监督学习的地球观测数据超分辨率与语义分割方法",
+              "summary": "基于论文摘要，该研究针对地球观测数据中联合学习超分辨率和语义分割需要双重标注且成本高昂的问题，提出了多任务部分监督学习范式。作者考察了顺序和共享两种多任务架构变体，并提出了一种混合变体及重投影损失，以利用共享表征并在仅使用语义分割标注训练时强制提升超分辨率的图像质量。实验结果表明该方法在特定设置下取得了优于当前最先进（SOTA）顺序变体的效果，源代码将发布在 GitHub 仓库 munera 中。",
+              "sourceName": "arXiv · 遥感与地球观测预印本",
+              "originalUrl": "https://arxiv.org/abs/2610.06389v1"
+            }
+          ]
+        },
+        {
+          "label": "数据集与基准",
+          "summary": null,
+          "items": [
+            {
+              "itemId": "mr5c3yxe99rijf6w50f7ne5rl",
+              "title": "HyBEAR：用于裸土检测的高光谱基准数据集",
+              "summary": "基于论文摘要，作者发布了名为 HyBEAR 的裸土检测高光谱基准数据集。该数据集包含1954张地面采样距离为2米的高分辨率航空高光谱图像，总计108,064,591个像素（对应43,225公顷），是目前最大且最具异质性的裸土检测数据集。",
+              "sourceName": "Earth System Science Data · 数据论文与讨论稿",
+              "originalUrl": "https://essd.copernicus.org/articles/18/7301/2026/"
+            },
+            {
+              "itemId": "svfbmqg70sbhqunovapksffw6",
+              "title": "基于 Underwater Vision Profiler 5 原位成像的全球一致浮游生物与碎屑数据库",
+              "summary": "基于论文摘要，作者发布了一个包含 3114 个剖面、约 800 万个物体的全球浮游生物与碎屑数据集，数据由 Underwater Vision Profiler 5 (UVP5) 的 SD 和 HD 两个版本在 2008–2018 年间采集并分类至 33 个同质化类别。",
+              "sourceName": "Earth System Science Data · 数据论文与讨论稿",
+              "originalUrl": "https://essd.copernicus.org/articles/18/7345/2026/"
+            },
+            {
+              "itemId": "ha4j96ha1tzkjlvay6dx90cfo",
+              "title": "Sentinel-3 Level-2 陆表温度数据在 Copernicus Browser 上线",
+              "summary": "Sentinel-3 Level-2 陆表温度（LST）NTC 产品现已在 Copernicus Browser 和 Sentinel Hub API 中可用。",
+              "sourceName": "Copernicus Data Space · 数据与平台动态",
+              "originalUrl": "https://dataspace.copernicus.eu/news/2026-10-6-sentinel-3-level-2-land-surface-temperature-now-available-copernicus-browser"
+            }
+          ]
+        }
+      ]
+    },
     {
       "kind": "daily",
       "key": "2026-10-06",
@@ -3849,6 +4101,7 @@
       "group": "company",
       "definition": "Copernicus 的遥感研究、观测数据与工程动态。",
       "itemIds": [
+        "ha4j96ha1tzkjlvay6dx90cfo",
         "u8apq419zzwq61uwg5741g3uk",
         "ix86l1hfdxof6otboaxyx0wsm",
         "nbzsvoar9nz2386vnpw29cr5s",
@@ -3896,6 +4149,7 @@
       "group": "field",
       "definition": "追踪SAR 与 InSAR的研究方法、数据、工具与应用实践。",
       "itemIds": [
+        "k5l8mnix6nygv0m854yxrq1hb",
         "uqwxxax67xb6hiduqyy4v7bq2",
         "m4tv4f8k7delp5do9vq6vqna9"
       ]
@@ -3915,6 +4169,7 @@
       "group": "field",
       "definition": "追踪高光谱的研究方法、数据、工具与应用实践。",
       "itemIds": [
+        "mr5c3yxe99rijf6w50f7ne5rl",
         "jdx6khgou842sfra33v2brk0y",
         "fo0dlax2jigiqe059ml1cxq4w",
         "wwr6wn7f6fna6shopuoe75gnn"
@@ -3926,6 +4181,7 @@
       "group": "field",
       "definition": "追踪LiDAR的研究方法、数据、工具与应用实践。",
       "itemIds": [
+        "gt4dxjtxlv9p8okpmvv48za9q",
         "uq9cdnxc82eqy8sp8k787i0oq",
         "akatawgify310aboeajv94yd4",
         "z335gzoecu3nax6s720spo1j7",
@@ -3940,6 +4196,7 @@
       "group": "field",
       "definition": "追踪光学遥感的研究方法、数据、工具与应用实践。",
       "itemIds": [
+        "tuj75u7nv6ts4nuffo8213f3l",
         "yr74orfri7d1sqob9wb9mmchl",
         "a564xeo15mysgpi7xkexa0iqx",
         "ggc32079347hcrldc4wrbskbe",
@@ -3991,6 +4248,7 @@
       "group": "field",
       "definition": "追踪语义分割的研究方法、数据、工具与应用实践。",
       "itemIds": [
+        "u3mqll7wsch0l38uhia8cqyr6",
         "isr9832cpnm1spm4t90ipynvg",
         "a564xeo15mysgpi7xkexa0iqx",
         "vn45n3xlaau84p3ttgnvw4u1r",
@@ -4005,6 +4263,8 @@
       "group": "field",
       "definition": "追踪定量反演的研究方法、数据、工具与应用实践。",
       "itemIds": [
+        "ha4j96ha1tzkjlvay6dx90cfo",
+        "gt4dxjtxlv9p8okpmvv48za9q",
         "i3yjypuc0ii74jez58izbmwb3",
         "vr9o2ltcomst76qdrb1lky3pt",
         "v8c8na0khi2zxw524d8wanamk",
@@ -4078,6 +4338,7 @@
       "group": "field",
       "definition": "追踪农业的研究方法、数据、工具与应用实践。",
       "itemIds": [
+        "mr5c3yxe99rijf6w50f7ne5rl",
         "vr9o2ltcomst76qdrb1lky3pt",
         "uq9cdnxc82eqy8sp8k787i0oq",
         "v8c8na0khi2zxw524d8wanamk",
@@ -4091,6 +4352,7 @@
       "group": "field",
       "definition": "追踪森林与生态的研究方法、数据、工具与应用实践。",
       "itemIds": [
+        "gt4dxjtxlv9p8okpmvv48za9q",
         "akatawgify310aboeajv94yd4",
         "tot69cti4mmhv14h9cq9qeqe5",
         "kcsflhx91ghdkbtixxo1yrcgr",
@@ -4103,6 +4365,9 @@
       "group": "genre",
       "definition": "值得关注的遥感论文与研究，保留原文入口与适用条件。",
       "itemIds": [
+        "tuj75u7nv6ts4nuffo8213f3l",
+        "u3mqll7wsch0l38uhia8cqyr6",
+        "gt4dxjtxlv9p8okpmvv48za9q",
         "fus3g13bva5vtm9xnxelbh1zc",
         "rghkj1ufne2y0m3kqbb7terwo",
         "p5f88xen11jwaz776l4l0oorh",
@@ -4140,6 +4405,9 @@
       "group": "genre",
       "definition": "值得关注的遥感数据集与基准，保留原文入口与适用条件。",
       "itemIds": [
+        "k5l8mnix6nygv0m854yxrq1hb",
+        "mr5c3yxe99rijf6w50f7ne5rl",
+        "svfbmqg70sbhqunovapksffw6",
         "rvk98ofs7bzk7j4dzoaudq8tc",
         "i3yjypuc0ii74jez58izbmwb3",
         "isr9832cpnm1spm4t90ipynvg",
@@ -4193,6 +4461,7 @@
       "group": "genre",
       "definition": "值得关注的遥感卫星与传感器，保留原文入口与适用条件。",
       "itemIds": [
+        "ha4j96ha1tzkjlvay6dx90cfo",
         "rghkj1ufne2y0m3kqbb7terwo",
         "byrnkcxoy2da7fakzivdi7lyr",
         "wezhx5xk6gsimqeo7irthqp2j",
@@ -4219,7 +4488,7 @@
     }
   ],
   "hot": {
-    "computedAt": "2026-10-06T02:30:12.182Z",
+    "computedAt": "2026-10-07T02:30:07.730Z",
     "windowHours": 48,
     "entries": []
   }
