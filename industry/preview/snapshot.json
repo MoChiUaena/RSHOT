@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-10T02:30:11.277Z",
+  "generatedAt": "2026-10-11T02:30:11.678Z",
   "categories": [
     {
       "key": "paper",
@@ -29,75 +29,11 @@
   ],
   "sources": [
     {
-      "name": "Earth Engine API · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "Qiusheng Wu · giswqs",
-      "kind": "external"
-    },
-    {
-      "name": "EOReader · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "USGS Landsat",
-      "kind": "external"
-    },
-    {
-      "name": "Copernicus Data Space · 数据与平台动态",
-      "kind": "rss"
-    },
-    {
-      "name": "TerraTorch · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "Rasterio · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "Earth System Science Data · 数据论文与讨论稿",
-      "kind": "web_list"
-    },
-    {
-      "name": "Google Earth 与 Earth Engine · 官方博客",
-      "kind": "rss"
-    },
-    {
-      "name": "earthaccess · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "STAC FastAPI · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "rioxarray · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "Copernicus",
-      "kind": "external"
-    },
-    {
-      "name": "Copernicus EMS",
-      "kind": "external"
-    },
-    {
-      "name": "arXiv · 遥感与地球观测预印本",
-      "kind": "rss"
-    },
-    {
-      "name": "GDAL · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
       "name": "中国科学院空天院 · 科研动态",
       "kind": "web_list"
     },
     {
-      "name": "TorchGeo · 稳定版本发布",
+      "name": "earthaccess · 稳定版本发布",
       "kind": "rss"
     },
     {
@@ -105,23 +41,186 @@
       "kind": "rss"
     },
     {
-      "name": "NASA Earthdata · 科学数据与工具",
-      "kind": "rss"
+      "name": "Copernicus EMS",
+      "kind": "external"
     },
     {
       "name": "PySTAC · 稳定版本发布",
       "kind": "rss"
     },
     {
-      "name": "ESA · 对地观测",
+      "name": "GDAL · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "Copernicus",
+      "kind": "external"
+    },
+    {
+      "name": "TorchGeo · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "Rasterio · 稳定版本发布",
       "kind": "rss"
     },
     {
       "name": "geemap · 稳定版本发布",
       "kind": "rss"
+    },
+    {
+      "name": "STAC FastAPI · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "arXiv · 遥感与地球观测预印本",
+      "kind": "rss"
+    },
+    {
+      "name": "Earth Engine API · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "Copernicus Data Space · 数据与平台动态",
+      "kind": "rss"
+    },
+    {
+      "name": "Earth System Science Data · 数据论文与讨论稿",
+      "kind": "web_list"
+    },
+    {
+      "name": "rioxarray · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "Qiusheng Wu · giswqs",
+      "kind": "external"
+    },
+    {
+      "name": "ESA · 对地观测",
+      "kind": "rss"
+    },
+    {
+      "name": "EOReader · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "NASA Earthdata · 科学数据与工具",
+      "kind": "rss"
+    },
+    {
+      "name": "TerraTorch · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "Google Earth 与 Earth Engine · 官方博客",
+      "kind": "rss"
+    },
+    {
+      "name": "USGS Landsat",
+      "kind": "external"
     }
   ],
   "items": [
+    {
+      "id": "qy93rpyckivmqpkz1vf0331vf",
+      "title": "国家对地观测科学数据中心发布“对地观测科学数据治理智能体”",
+      "originalTitle": "“对地观测科学数据治理智能体——数据汇交与审核智能体”在浦江论坛发布",
+      "summary": "国家对地观测科学数据中心与上海人工智能实验室联合研制并发布了“对地观测科学数据治理智能体——数据汇交与审核智能体”。该系统将数据管理专业知识与AI技术结合，构建了“智能体汇交与审核＋人工裁决”的工作流程。在200项真实任务测试中，单条元信息提取耗时由421秒降至约26秒，批量汇交效率提升10倍以上；质量审核环节的问题召回率较人工基准提升一倍，且能在分钟级完成全量自动初审。",
+      "reason": "该智能体系统针对科学数据汇交与审核流程，通过结合大模型技术与专业规则，实现了元信息提取效率提升10倍以上及问题召回率翻倍，为科学数据中心智能化转型提供了可落地的工程实践。",
+      "source": {
+        "name": "中国科学院空天院 · 科研动态",
+        "kind": "web_list",
+        "firstParty": true
+      },
+      "originalUrl": "https://aircas.cas.cn/dtxw/kydt/202610/t20261010_8291230.html",
+      "publishedAt": "2026-10-09T16:00:00.000Z",
+      "timelineAt": "2026-10-10T10:58:40.794Z",
+      "category": "tip",
+      "tags": [
+        "行业动态",
+        "数据质量",
+        "中国科学院空天院"
+      ],
+      "score": 72,
+      "selected": true
+    },
+    {
+      "id": "dqm2k0qw0wqzoyrsgieut8cxr",
+      "title": "IRIDE Eaglet II 卫星返回首批在轨影像，展示直布罗陀高分辨率观测",
+      "originalTitle": "Gibraltar imaged by IRIDE Eaglet II",
+      "summary": "IRIDE Eaglet II 星座近期发射的最后 8 颗卫星已完成入轨，此前发射的卫星开始回传首批高分辨率地球观测影像。这些由 OHB Italia 位于罗马的控制中心接收的图像验证了平台与光学仪器的在轨性能，展示了包括直布罗陀岩、密集城区、港口设施及机场在内的细节，并可用于港口和机场监测及海上交通监视。该星座每颗卫星均搭载多光谱传感器和自动识别系统，旨在支持海事监测与安全服务。",
+      "reason": "ESA 报道了 IRIDE Eaglet II 星座首批在轨影像的获取，确认了早期轨道阶段（LEOP）的成功及多光谱载荷与自动识别系统的初步运行能力。",
+      "source": {
+        "name": "ESA · 对地观测",
+        "kind": "rss",
+        "firstParty": true
+      },
+      "originalUrl": "https://www.esa.int/ESA_Multimedia/Images/2026/10/Gibraltar_imaged_by_IRIDE_Eaglet_II",
+      "publishedAt": "2026-10-09T09:50:00.000Z",
+      "timelineAt": "2026-10-10T07:59:36.707Z",
+      "category": "satellite",
+      "tags": [
+        "卫星/传感器",
+        "光学遥感",
+        "海洋",
+        "城市",
+        "ESA"
+      ],
+      "score": 62,
+      "selected": true
+    },
+    {
+      "id": "jmjngdlnd6pmbu8bc0589wjf4",
+      "title": "Sentinel-2A 延长运行任务将持续至 2027 年底",
+      "originalTitle": "Sentinel-2A Extension Campaign to Continue Until the End of 2027",
+      "summary": "Copernicus Data Space 宣布 Sentinel-2A 延长运行任务（自 2025 年 3 月开始）将延续至 2027 年 12 月 31 日。在此期间，Sentinel-2A 将继续按照 2025 年引入的特定运行场景工作，相比标准的双星星座配置进一步提升 Sentinel-2 测量的可用性。",
+      "reason": "官方确认 Sentinel-2A 延长运行至 2027 年底，维持 2025 年引入的特定运行场景，有助于评估双星星座之外的数据可用性变化。",
+      "source": {
+        "name": "Copernicus Data Space · 数据与平台动态",
+        "kind": "rss",
+        "firstParty": true
+      },
+      "originalUrl": "https://dataspace.copernicus.eu/news/2026-10-9-sentinel-2a-extension-campaign-continue-until-end-2027",
+      "publishedAt": "2026-10-09T07:22:42.000Z",
+      "timelineAt": "2026-10-10T02:56:38.941Z",
+      "category": "satellite",
+      "tags": [
+        "行业动态",
+        "卫星/传感器",
+        "Copernicus"
+      ],
+      "score": 62,
+      "selected": true
+    },
+    {
+      "id": "k6a5vsrrl6ft361jbe3xhuv6o",
+      "title": "NISAR 与 HLS 数据揭示 2026 年 9 月初 Anak Krakatau 火山喷发后的岛屿扩张",
+      "originalTitle": "Anak Krakatau Grows",
+      "summary": "NISAR 和 HLS 数据显示，2026 年 9 月初的喷发使 Anak Krakatau 西部及西南海岸面积增加 32.8 公顷。该可视化基于 NISAR 辐射地形校正 SAR 后向散射数据，利用其穿透云雾能力监测地表变化。HLS 数据集提供了来自 Sentinel-2A/B 的 30 米表面反射率影像，对比展示了喷发前后的地貌差异。",
+      "reason": null,
+      "source": {
+        "name": "NASA Earthdata · 科学数据与工具",
+        "kind": "rss",
+        "firstParty": true
+      },
+      "originalUrl": "https://www.earthdata.nasa.gov/news/worldview-image-archive/anak-krakatau-grows",
+      "publishedAt": "2026-10-08T20:36:17.000Z",
+      "timelineAt": "2026-10-10T02:56:32.872Z",
+      "category": "tip",
+      "tags": [
+        "应用案例",
+        "SAR",
+        "光学遥感",
+        "数据融合",
+        "灾害监测",
+        "NASA",
+        "ESA",
+        "USGS"
+      ],
+      "score": 38,
+      "selected": false
+    },
     {
       "id": "zdd7h5wkbxgm7pjb3c5mfhpbp",
       "title": "Copernicus Sentinel-2 拍摄纳米比亚埃托沙国家公园最大盐沼",
@@ -983,76 +1082,6 @@
         "Copernicus"
       ],
       "score": 12,
-      "selected": false
-    },
-    {
-      "id": "zqqq5x9rzj6gpl1v8bjyej6nf",
-      "title": "2026年9月东京创35天连续降雨纪录",
-      "originalTitle": "Record Rainfall Over Central Japan",
-      "summary": "受台风及高压脊影响，东京在2026年8月底至9月28日创下35天连续降雨的新纪录。累计降雨量达629毫米，为正常季节水平的三倍，其中9月21日单日降雨量最高，达156毫米。该数据基于GPM IMERG与VIIRS卫星观测生成。",
-      "reason": null,
-      "source": {
-        "name": "NASA Earthdata · 科学数据与工具",
-        "kind": "rss",
-        "firstParty": true
-      },
-      "originalUrl": "https://www.earthdata.nasa.gov/news/worldview-image-archive/record-rainfall-over-central-japan",
-      "publishedAt": "2026-10-02T18:14:52.000Z",
-      "timelineAt": "2026-10-03T10:53:39.083Z",
-      "category": "tip",
-      "tags": [
-        "应用案例",
-        "灾害监测",
-        "NASA"
-      ],
-      "score": 37,
-      "selected": false
-    },
-    {
-      "id": "o8400tprggfrtac1ma06jcebm",
-      "title": "Copernicus发布坎帕尼亚雷达影像",
-      "originalTitle": "Campania 🇮🇹 from space! 🛰️ This #CopernicusEU Sentinel-1 radar #ImageOfTheDay captures Mount Vesuvius, the Bay of Naples, Capri, Ischia, Procida &amp; the Amalfi Coast. 🌍 Data support land-use monitoring, ground-motion detection &amp; c",
-      "summary": "来自太空的坎帕尼亚 🇮🇹！\n\n🛰️ 这张 #CopernicusEU Sentinel-1 雷达 #ImageOfTheDay（今日图像）捕捉到了维苏威火山、那不勒斯湾、卡普里岛、伊斯基亚岛、普罗奇达岛和阿马尔菲海岸。\n\n🌍 数据支持土地利用监测、地面运动检测及海岸保护。\n\n🔗 https://t.co/KXibcQhHJ2 https://t.co/Jma2feLzMW",
-      "reason": null,
-      "source": {
-        "name": "Copernicus",
-        "kind": "external",
-        "firstParty": false
-      },
-      "originalUrl": "https://x.com/CopernicusEU/status/2106051713245351942",
-      "publishedAt": "2026-10-02T16:00:31.000Z",
-      "timelineAt": "2026-10-03T02:30:29.995Z",
-      "category": "tip",
-      "tags": [
-        "应用案例",
-        "SAR",
-        "海洋",
-        "Copernicus"
-      ],
-      "score": 12,
-      "selected": false
-    },
-    {
-      "id": "fr7ajaqyq4gt1dkvbhiutstsc",
-      "title": "Copernicus发布欧洲夏季干旱监测报告",
-      "originalTitle": "🚱Our latest #drought monitoring report for Europe is out❗ It looks at how drought conditions evolved across Europe towards the end of summer Read more: https://t.co/GOKij5HrxV https://t.co/IWggCfY1Tz",
-      "summary": "🚱我们最新的欧洲#drought监测报告已发布❗\n\n它回顾了欧洲在夏末的干旱状况演变\n\n阅读更多：https://t.co/GOKij5HrxV https://t.co/IWggCfY1Tz",
-      "reason": null,
-      "source": {
-        "name": "Copernicus EMS",
-        "kind": "external",
-        "firstParty": false
-      },
-      "originalUrl": "https://x.com/CopernicusEMS/status/2105580497623724464",
-      "publishedAt": "2026-10-01T08:48:05.000Z",
-      "timelineAt": "2026-10-03T02:30:29.905Z",
-      "category": "tip",
-      "tags": [
-        "应用案例",
-        "灾害监测",
-        "Copernicus"
-      ],
-      "score": 42,
       "selected": false
     },
     {
@@ -2563,6 +2592,53 @@
     }
   ],
   "reports": [
+    {
+      "kind": "daily",
+      "key": "2026-10-11",
+      "title": "遥感日报 · 2026-10-11",
+      "generatedAt": "2026-10-11T01:48:18.456Z",
+      "editorialMode": "model",
+      "lead": {
+        "title": "国家对地观测科学数据中心发布数据治理智能体",
+        "leadParagraph": "国家对地观测科学数据中心联合上海人工智能实验室发布了“对地观测科学数据治理智能体”，该系统通过AI技术结合专业知识，构建了智能汇交与审核流程。同时，Sentinel-2A延长运行任务确认将持续至2027年底，IRIDE Eaglet II卫星也成功返回首批高分辨率在轨影像。"
+      },
+      "overview": null,
+      "sections": [
+        {
+          "label": "卫星与传感器",
+          "summary": null,
+          "items": [
+            {
+              "itemId": "jmjngdlnd6pmbu8bc0589wjf4",
+              "title": "Sentinel-2A 延长运行任务将持续至 2027 年底",
+              "summary": "Copernicus Data Space 宣布 Sentinel-2A 延长运行任务（自 2025 年 3 月开始）将延续至 2027 年 12 月 31 日。在此期间，Sentinel-2A 将继续按照 2025 年引入的特定运行场景工作，相比标准的双星星座配置进一步提升 Sentinel-2 测量的可用性。",
+              "sourceName": "Copernicus Data Space · 数据与平台动态",
+              "originalUrl": "https://dataspace.copernicus.eu/news/2026-10-9-sentinel-2a-extension-campaign-continue-until-end-2027"
+            },
+            {
+              "itemId": "dqm2k0qw0wqzoyrsgieut8cxr",
+              "title": "IRIDE Eaglet II 卫星返回首批在轨影像，展示直布罗陀高分辨率观测",
+              "summary": "IRIDE Eaglet II 星座近期发射的最后 8 颗卫星已完成入轨，此前发射的卫星开始回传首批高分辨率地球观测影像。这些由 OHB Italia 位于罗马的控制中心接收的图像验证了平台与光学仪器的在轨性能，展示了包括直布罗陀岩、密集城区、港口设施及机场在内的细节，并可用于港口和机场监测及海上交通监视。该星座每颗卫星均搭载多光谱传感器和自动识别系统，旨在支持海事监测与安全服务。",
+              "sourceName": "ESA · 对地观测",
+              "originalUrl": "https://www.esa.int/ESA_Multimedia/Images/2026/10/Gibraltar_imaged_by_IRIDE_Eaglet_II"
+            }
+          ]
+        },
+        {
+          "label": "应用与工程实践",
+          "summary": null,
+          "items": [
+            {
+              "itemId": "qy93rpyckivmqpkz1vf0331vf",
+              "title": "国家对地观测科学数据中心发布“对地观测科学数据治理智能体”",
+              "summary": "国家对地观测科学数据中心与上海人工智能实验室联合研制并发布了“对地观测科学数据治理智能体——数据汇交与审核智能体”。该系统将数据管理专业知识与AI技术结合，构建了“智能体汇交与审核＋人工裁决”的工作流程。在200项真实任务测试中，单条元信息提取耗时由421秒降至约26秒，批量汇交效率提升10倍以上；质量审核环节的问题召回率较人工基准提升一倍，且能在分钟级完成全量自动初审。",
+              "sourceName": "中国科学院空天院 · 科研动态",
+              "originalUrl": "https://aircas.cas.cn/dtxw/kydt/202610/t20261010_8291230.html"
+            }
+          ]
+        }
+      ]
+    },
     {
       "kind": "daily",
       "key": "2026-10-10",
@@ -4522,6 +4598,7 @@
       "group": "company",
       "definition": "ESA 的遥感研究、观测数据与工程动态。",
       "itemIds": [
+        "dqm2k0qw0wqzoyrsgieut8cxr",
         "ym432mzvh9pvufwdfy7ljlwhj",
         "rfi8dwa72174ozkck11kosahj",
         "k1eyfqhost621es7uxdnohpqj",
@@ -4540,6 +4617,7 @@
       "group": "company",
       "definition": "Copernicus 的遥感研究、观测数据与工程动态。",
       "itemIds": [
+        "jmjngdlnd6pmbu8bc0589wjf4",
         "rfi8dwa72174ozkck11kosahj",
         "ha4j96ha1tzkjlvay6dx90cfo",
         "u8apq419zzwq61uwg5741g3uk",
@@ -4554,6 +4632,7 @@
       "group": "company",
       "definition": "中国科学院空天院 的遥感研究、观测数据与工程动态。",
       "itemIds": [
+        "qy93rpyckivmqpkz1vf0331vf",
         "wetwj260tlvv5owayi3xd3d4l",
         "tot69cti4mmhv14h9cq9qeqe5"
       ]
@@ -4636,6 +4715,7 @@
       "group": "field",
       "definition": "追踪光学遥感的研究方法、数据、工具与应用实践。",
       "itemIds": [
+        "dqm2k0qw0wqzoyrsgieut8cxr",
         "tuj75u7nv6ts4nuffo8213f3l",
         "yr74orfri7d1sqob9wb9mmchl",
         "a564xeo15mysgpi7xkexa0iqx",
@@ -4913,6 +4993,8 @@
       "group": "genre",
       "definition": "值得关注的遥感卫星与传感器，保留原文入口与适用条件。",
       "itemIds": [
+        "dqm2k0qw0wqzoyrsgieut8cxr",
+        "jmjngdlnd6pmbu8bc0589wjf4",
         "rfi8dwa72174ozkck11kosahj",
         "ha4j96ha1tzkjlvay6dx90cfo",
         "rghkj1ufne2y0m3kqbb7terwo",
@@ -4941,7 +5023,7 @@
     }
   ],
   "hot": {
-    "computedAt": "2026-10-10T02:25:32.043Z",
+    "computedAt": "2026-10-11T02:25:33.032Z",
     "windowHours": 48,
     "entries": []
   }
