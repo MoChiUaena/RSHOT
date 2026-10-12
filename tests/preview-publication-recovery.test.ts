@@ -4,7 +4,7 @@ import { execFileSync } from "node:child_process";
 import { mkdtempSync, mkdirSync, readFileSync, rmSync, copyFileSync, writeFileSync, existsSync } from "node:fs";
 import { tmpdir } from "node:os";
 import path from "node:path";
-import { PublicationCommandError, retryStatus, runPublicationCommand } from "../scripts/lib/publication-process.ts";
+import { canPublishWithoutDaily, PublicationCommandError, retryStatus, runPublicationCommand } from "../scripts/lib/publication-process.ts";
 
 function temporary() { return mkdtempSync(path.join(tmpdir(), "rshot-publication-")); }
 function clean(root: string) {
@@ -12,6 +12,13 @@ function clean(root: string) {
   assert.ok(path.basename(root).startsWith("rshot-publication-"));
   rmSync(root, { recursive: true, force: true });
 }
+
+test("an empty issue releases the publication gate only after processing has settled", () => {
+  assert.equal(canPublishWithoutDaily({ workerActive: true, selectedCandidates: 0, pendingArticles: 0 }), true);
+  assert.equal(canPublishWithoutDaily({ workerActive: true, selectedCandidates: 1, pendingArticles: 0 }), false);
+  assert.equal(canPublishWithoutDaily({ workerActive: true, selectedCandidates: 0, pendingArticles: 1 }), false);
+  assert.equal(canPublishWithoutDaily({ workerActive: false, selectedCandidates: 0, pendingArticles: 0 }), false);
+});
 
 test("transient status subprocess failure is retried and recovers", async () => {
   const root = temporary();

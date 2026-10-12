@@ -11,6 +11,9 @@ export interface CommandFailureDetails {
   stdoutBytes: number;
   stderrBytes: number;
 }
+export function canPublishWithoutDaily(input: { workerActive: boolean; selectedCandidates: number; pendingArticles: number }): boolean {
+  return input.workerActive && input.selectedCandidates === 0 && input.pendingArticles === 0;
+}
 export class PublicationCommandError extends Error {
   details: CommandFailureDetails;
   constructor(reason: string, details: CommandFailureDetails) {

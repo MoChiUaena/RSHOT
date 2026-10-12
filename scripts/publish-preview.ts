@@ -5,7 +5,7 @@ import path from "node:path";
 import { setTimeout as delay } from "node:timers/promises";
 import { beijingDate } from "@aihot/contracts/time";
 import { PublicPreviewSchema, type PublicPreview } from "./lib/public-preview.ts";
-import { PublicationCommandError, retryStatus, runPublicationCommand } from "./lib/publication-process.ts";
+import { canPublishWithoutDaily, PublicationCommandError, retryStatus, runPublicationCommand } from "./lib/publication-process.ts";
 
 const root=path.resolve(import.meta.dirname,"..");
 const snapshotPath="industry/preview/snapshot.json";
@@ -65,6 +65,13 @@ async function latestReport(){
   const body=await response.json() as {report?:{date?:string;sections?:Array<{items?:unknown[]}>}};
   return {date:body.report?.date??null,entries:body.report?.sections?.reduce((n,section)=>n+(section.items?.length??0),0)??0};
 }
+function dailyReadiness(){
+  const raw=processOut(process.execPath,["--env-file=.env","scripts/daily-readiness.ts",day],"daily-readiness-unavailable",60000);
+  const value=JSON.parse(raw) as {day:string;workerActive:boolean;selectedCandidates:number;pendingArticles:number};
+  if(value.day!==day||typeof value.workerActive!=="boolean"||!Number.isInteger(value.selectedCandidates)||value.selectedCandidates<0||
+    !Number.isInteger(value.pendingArticles)||value.pendingArticles<0)throw new Error("daily-readiness-invalid");
+  return value;
+}
 async function waitForReport(){
   const hour=Number(new Intl.DateTimeFormat("en-GB",{timeZone:"Asia/Shanghai",hour:"2-digit",hourCycle:"h23"}).format(new Date()));
   if(hour<8)throw new Error("daily-window-not-finished");
@@ -72,6 +79,7 @@ async function waitForReport(){
   do{
     const report=await latestReport();
     if(report.date===day)return report;
+    if(canPublishWithoutDaily(dailyReadiness()))return {date:null,entries:0,emptyDay:true};
     if(Date.now()>=deadline)break;
     await delay(120000);
   }while(true);
