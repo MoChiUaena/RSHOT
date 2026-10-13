@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-12T05:50:05.516Z",
+  "generatedAt": "2026-10-13T02:50:07.172Z",
   "categories": [
     {
       "key": "paper",
@@ -29,59 +29,23 @@
   ],
   "sources": [
     {
-      "name": "Copernicus",
-      "kind": "external"
-    },
-    {
-      "name": "Earth Engine API · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "PySTAC · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "Earth System Science Data · 数据论文与讨论稿",
-      "kind": "web_list"
-    },
-    {
-      "name": "openEO Python Client · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "ESA · 对地观测",
-      "kind": "rss"
-    },
-    {
       "name": "中国科学院空天院 · 科研动态",
       "kind": "web_list"
-    },
-    {
-      "name": "USGS Landsat",
-      "kind": "external"
-    },
-    {
-      "name": "geemap · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "NASA Earthdata · 科学数据与工具",
-      "kind": "rss"
     },
     {
       "name": "TerraTorch · 稳定版本发布",
       "kind": "rss"
     },
     {
-      "name": "Copernicus EMS",
-      "kind": "external"
-    },
-    {
-      "name": "Google Earth 与 Earth Engine · 官方博客",
+      "name": "TorchGeo · 稳定版本发布",
       "kind": "rss"
     },
     {
-      "name": "GDAL · 稳定版本发布",
+      "name": "Earth Engine API · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "rioxarray · 稳定版本发布",
       "kind": "rss"
     },
     {
@@ -89,11 +53,55 @@
       "kind": "rss"
     },
     {
+      "name": "Earth System Science Data · 数据论文与讨论稿",
+      "kind": "web_list"
+    },
+    {
+      "name": "EOReader · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "USGS Landsat",
+      "kind": "external"
+    },
+    {
+      "name": "Copernicus",
+      "kind": "external"
+    },
+    {
       "name": "Qiusheng Wu · giswqs",
       "kind": "external"
     },
     {
-      "name": "STAC FastAPI · 稳定版本发布",
+      "name": "Copernicus EMS",
+      "kind": "external"
+    },
+    {
+      "name": "openEO Python Client · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "geemap · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "Rasterio · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "NASA Earthdata · 科学数据与工具",
+      "kind": "rss"
+    },
+    {
+      "name": "GDAL · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "PySTAC · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "Google Earth 与 Earth Engine · 官方博客",
       "kind": "rss"
     },
     {
@@ -105,23 +113,38 @@
       "kind": "rss"
     },
     {
-      "name": "rioxarray · 稳定版本发布",
+      "name": "STAC FastAPI · 稳定版本发布",
       "kind": "rss"
     },
     {
-      "name": "Rasterio · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "TorchGeo · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "EOReader · 稳定版本发布",
+      "name": "ESA · 对地观测",
       "kind": "rss"
     }
   ],
   "items": [
+    {
+      "id": "h2dtx9gaodd4f3zu020z2jpck",
+      "title": "Google Earth Engine API v1.7.48 发布",
+      "originalTitle": "v1.7.48",
+      "summary": "Google Earth Engine API 发布稳定版本 v1.7.48。该更新包含构建产物更新、CI 测试优化及代码修复，如抑制 ee.data.getDownloadId 中的 weakModuleGet 警告和移除 batch.js 错误信息中的多余引号。同时，新版本还处理了 Pyrefly v1.3.0 的新发现。",
+      "reason": null,
+      "source": {
+        "name": "Earth Engine API · 稳定版本发布",
+        "kind": "rss",
+        "firstParty": true
+      },
+      "originalUrl": "https://github.com/google/earthengine-api/releases/tag/v1.7.48",
+      "publishedAt": "2026-10-12T18:40:47.000Z",
+      "timelineAt": "2026-10-13T01:52:19.253Z",
+      "category": "rs-tools",
+      "tags": [
+        "工具更新",
+        "云端处理",
+        "Google Earth Engine"
+      ],
+      "score": 12,
+      "selected": false
+    },
     {
       "id": "l4qu2dk2oorbvu421z6hc0plh",
       "title": "GeoLibre v3.4.0 发布：新增对象级图像分析与 ICESat-2/GEDI 激光雷达支持",
@@ -993,75 +1016,6 @@
       "selected": true
     },
     {
-      "id": "j0jpwcavq7j1hbvyr1b2n2cba",
-      "title": "Copernicus发布波兰维斯瓦河卫星影像",
-      "originalTitle": "🇵🇱 The Vistula, Poland’s longest river, winds N from the Carpathians to the Baltic Sea. 🛰️ This false-colour #CopernicusEU Sentinel-2 #ImageOfTheDay shows the river near Gdańsk, contrasting with snow-covered fields &amp; forests. 🔗 http",
-      "summary": "🇵🇱 维斯瓦河是波兰最长的河流，从喀尔巴阡山脉蜿蜒向北流向波罗的海。\n\n🛰️ 这张 #CopernicusEU Sentinel-2 #ImageOfTheDay 假彩色图像展示了格但斯克附近的河流，与积雪覆盖的田野和森林形成对比。\n\n🔗 https://t.co/KXibcQhHJ2 https://t.co/6DZZKPrQp7",
-      "reason": null,
-      "source": {
-        "name": "Copernicus",
-        "kind": "external",
-        "firstParty": false
-      },
-      "originalUrl": "https://x.com/CopernicusEU/status/2107070544830964070",
-      "publishedAt": "2026-10-05T11:29:00.000Z",
-      "timelineAt": "2026-10-06T02:30:42.825Z",
-      "category": "data",
-      "tags": [
-        "数据集/基准",
-        "光学遥感",
-        "Copernicus"
-      ],
-      "score": 12,
-      "selected": false
-    },
-    {
-      "id": "fo4g1q8wpe2j6ovm2a6d8ozbp",
-      "title": "USGS 展示 Landsat 8/9 卫星轨道",
-      "originalTitle": "For Landsat 8 and Landsat 9, every week is space week. 🛰️🌎 This World Space Week, take a spin with Landsat 8 and Landsat 9 as the satellites follow their paths around our planet. Both satellites travel about 438 miles above Earth in sun-s",
-      "summary": "USGS 发布动画展示 Landsat 8 和 Landsat 9 在距地约 438 英里处的太阳同步近极地轨道运行。两颗卫星每 16 天回归同一地面路径，因轨道周期错开 8 天而实现全球陆地表面每 8 天全覆盖。每颗卫星每日采集约 750 景影像，记录地球陆地表面随时间的变化。",
-      "reason": null,
-      "source": {
-        "name": "USGS Landsat",
-        "kind": "external",
-        "firstParty": false
-      },
-      "originalUrl": "https://x.com/USGSLandsat/status/2107108558181470286",
-      "publishedAt": "2026-10-05T14:00:03.000Z",
-      "timelineAt": "2026-10-06T02:30:42.721Z",
-      "category": "satellite",
-      "tags": [
-        "卫星/传感器",
-        "光学遥感",
-        "USGS"
-      ],
-      "score": 18,
-      "selected": false
-    },
-    {
-      "id": "qjcy598rfswqukma97vs9nv5n",
-      "title": "Google Earth Engine API v1.7.47 发布",
-      "originalTitle": "v1.7.47",
-      "summary": "Google Earth Engine API 发布稳定版本 v1.7.47。该版本新增支持将 Earth Engine 图像元数据导出至 GeoTiff 文件，并更新了构建产物及依赖项最低版本要求。",
-      "reason": null,
-      "source": {
-        "name": "Earth Engine API · 稳定版本发布",
-        "kind": "rss",
-        "firstParty": true
-      },
-      "originalUrl": "https://github.com/google/earthengine-api/releases/tag/v1.7.47",
-      "publishedAt": "2026-10-05T18:07:02.000Z",
-      "timelineAt": "2026-10-06T01:57:12.886Z",
-      "category": "rs-tools",
-      "tags": [
-        "工具更新",
-        "云端处理",
-        "Google Earth Engine"
-      ],
-      "score": 21,
-      "selected": false
-    },
-    {
       "id": "rvk98ofs7bzk7j4dzoaudq8tc",
       "title": "用于加拿大魁北克省圣劳伦斯河口和萨格奈峡湾SWOT验证的水位与波浪基准数据集",
       "originalTitle": "A benchmark dataset of water levels and waves for SWOT validation in the St. Lawrence Estuary and Saguenay Fjord, Quebec, Canada",
@@ -1130,29 +1084,6 @@
       ],
       "score": 82,
       "selected": true
-    },
-    {
-      "id": "ju1ox6zlby2miknn724p90dwv",
-      "title": "Copernicus Data Space 通知 Sentinel-1 On Demand Production 服务升级",
-      "originalTitle": "Upgrade of S-1 On Demand Production service",
-      "summary": "Copernicus Data Space 通知用户，Sentinel-1 On Demand Production (S1-ODP) 服务将于 10 月 8 日进行升级。该服务在 CEST 时间 9:00-12:00 的工作窗口内将不可用。",
-      "reason": null,
-      "source": {
-        "name": "Copernicus Data Space · 数据与平台动态",
-        "kind": "rss",
-        "firstParty": true
-      },
-      "originalUrl": "https://dataspace.copernicus.eu/news/2026-10-5-upgrade-s-1-demand-production-service",
-      "publishedAt": "2026-10-05T08:13:20.000Z",
-      "timelineAt": "2026-10-05T10:55:26.349Z",
-      "category": "rs-tools",
-      "tags": [
-        "工具更新",
-        "SAR",
-        "Copernicus"
-      ],
-      "score": 12,
-      "selected": false
     },
     {
       "id": "fus3g13bva5vtm9xnxelbh1zc",
@@ -2662,6 +2593,46 @@
     }
   ],
   "reports": [
+    {
+      "kind": "daily",
+      "key": "2026-10-13",
+      "title": "遥感日报 · 2026-10-13",
+      "generatedAt": "2026-10-13T01:52:03.516Z",
+      "editorialMode": "model",
+      "lead": {
+        "title": "TreeMap更新美国48州树级森林数据",
+        "leadParagraph": "TreeMap数据集更新至2023年，覆盖美国本土连续48州并改进物种分布映射。同时，GeoLibre v3.4.0发布，新增对象级图像分析及ICESat-2/GEDI激光雷达支持。"
+      },
+      "overview": null,
+      "sections": [
+        {
+          "label": "数据集与基准",
+          "summary": null,
+          "items": [
+            {
+              "itemId": "r3lto7uxqe418v99dvwnnqhwb",
+              "title": "TreeMap 2020、2022和2023：美国本土连续48州树级森林数据集中改进的物种分布映射（预印本）",
+              "summary": "TreeMap 2020、2022和2023更新了美国本土连续48州的树级森林数据集，改进了物种分布映射。基于论文摘要，作者使用随机森林插值方法将最相似的FIA样地分配给网格化LANDFIRE数据中的每个森林像素，并用Daymet气候变量替换了LANDFIRE生物物理变量。此外，新流程限制了可用于插值的FIA样地池，以减少不合理的物种分配。这三个版本的数据已公开可用。",
+              "sourceName": "Earth System Science Data · 数据论文与讨论稿",
+              "originalUrl": "https://essd.copernicus.org/preprints/essd-2026-633/"
+            }
+          ]
+        },
+        {
+          "label": "模型与开源工具",
+          "summary": null,
+          "items": [
+            {
+              "itemId": "l4qu2dk2oorbvu421z6hc0plh",
+              "title": "GeoLibre v3.4.0 发布：新增对象级图像分析与 ICESat-2/GEDI 激光雷达支持",
+              "summary": "GeoLibre v3.4.0 发布了多项新功能，包括对象级图像分析（OBIA）、ICESat-2 和 GEDI 空间激光雷达数据浏览以及带语音引导的逐步导航。",
+              "sourceName": "Qiusheng Wu · giswqs",
+              "originalUrl": "https://x.com/giswqs/status/2109452085301248297"
+            }
+          ]
+        }
+      ]
+    },
     {
       "kind": "daily",
       "key": "2026-10-11",
@@ -5226,7 +5197,7 @@
     }
   ],
   "hot": {
-    "computedAt": "2026-10-12T05:45:30.306Z",
+    "computedAt": "2026-10-12T18:05:25.269Z",
     "windowHours": 48,
     "entries": []
   }
