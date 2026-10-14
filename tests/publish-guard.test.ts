@@ -1,11 +1,16 @@
 import assert from "node:assert/strict";
 import { test } from "node:test";
-import { mkdtempSync, writeFileSync, mkdirSync, rmSync } from "node:fs";
+import { mkdtempSync, writeFileSync, mkdirSync, rmSync, readFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import path from "node:path";
 import { execFileSync } from "node:child_process";
 import { inspectSecrets, inspectHistory, inspectRepository } from "../scripts/lib/secret-guard.ts";
-import { readLocalModel, internalModelHost } from "../scripts/lib/local-model.ts";
+import { readLocalModel, internalModelHost, workerLaunchArguments } from "../scripts/lib/local-model.ts";
+
+test("local recovery keeps Qwen fast mode and starts other models without Qwen parameters", () => {
+  assert.deepEqual(workerLaunchArguments("qwen3.8-27b"), ["scripts/start-updates.ts", "--live", "--fast"]);
+  assert.deepEqual(workerLaunchArguments("deepseek-v4-flash-0731"), ["scripts/start-updates.ts", "--live"]);
+});
 
 function temporaryRoot() { return mkdtempSync(path.join(tmpdir(), "rshot-guard-")); }
 function removeTemporary(root: string) {
@@ -13,6 +18,53 @@ function removeTemporary(root: string) {
   if (!actual.startsWith(parent + path.sep) || !path.basename(actual).startsWith("rshot-guard-")) throw new Error("Unsafe test cleanup path");
   rmSync(actual, { recursive: true, force: true });
 }
+test("launcher arguments use the selected private profile without exposing its credentials", () => {
+  const root = temporaryRoot();
+  try {
+    const file = path.join(root, "models.env");
+    for (const model of ["qwen3.8-27b", "deepseek-v4-flash-0731"]) {
+      writeFileSync(file, `LLM_BASE_URL=http://127.0.0.1:1/v1\nLLM_MODEL=${model}\nLLM_API_KEY=test-private-model-key\n`);
+      const output = execFileSync(process.execPath, ["scripts/worker-launch-args.ts"], {
+        cwd: path.resolve(import.meta.dirname, ".."), env: { ...process.env, RSHOT_MODEL_FILE: file }, encoding: "utf8",
+      });
+      assert.deepEqual(JSON.parse(output), workerLaunchArguments(model));
+      assert.ok(!output.includes("test-private-model-key"));
+    }
+  } finally { removeTemporary(root); }
+});
+test("Windows PowerShell binds the real recovery argument block to Start-Process", { skip: process.platform !== "win32" }, () => {
+  const root = temporaryRoot();
+  const repo = path.resolve(import.meta.dirname, "..");
+  const file = path.join(root, "models.env");
+  const capture = path.join(root, "arguments.json");
+  const source = readFileSync(path.join(repo, "scripts/resume-local.ps1"), "utf8");
+  const start = source.indexOf("$taskArgsJson =");
+  const end = source.indexOf("$taskDeadline =", start);
+  assert.ok(start >= 0 && end > start);
+  const quote = (value: string) => "'" + value.replaceAll("'", "''") + "'";
+  try {
+    writeFileSync(file, "LLM_BASE_URL=http://127.0.0.1:1/v1\nLLM_MODEL=deepseek-v4-flash-0731\nLLM_API_KEY=test-private-model-key\n");
+    const program = `
+      $ErrorActionPreference = 'Stop'
+      $env:RSHOT_MODEL_FILE = ${quote(file)}
+      $taskNode = ${quote(process.execPath)}
+      $taskRoot = ${quote(repo)}
+      $taskLogDir = ${quote(root)}
+      $taskCapture = ${quote(capture)}
+      Set-Location -LiteralPath $taskRoot
+      function Start-Process {
+        param([string]$FilePath, [string[]]$ArgumentList, [string]$WorkingDirectory, [string]$WindowStyle,
+          [switch]$PassThru, [string]$RedirectStandardOutput, [string]$RedirectStandardError)
+        [System.IO.File]::WriteAllText($taskCapture, ($ArgumentList | ConvertTo-Json -Compress))
+        [pscustomobject]@{Id=1}
+      }
+      ${source.slice(start, end)}
+    `;
+    execFileSync("powershell.exe", ["-NoProfile", "-NonInteractive", "-EncodedCommand", Buffer.from(program, "utf16le").toString("base64")],
+      { timeout: 30000, stdio: ["ignore", "pipe", "pipe"] });
+    assert.deepEqual(JSON.parse(readFileSync(capture, "utf8")), workerLaunchArguments("deepseek-v4-flash-0731"));
+  } finally { removeTemporary(root); }
+});
 test("publishing guard blocks credential files and tokens without printing matched values", () => {
   const token = ["gh", "p_", "Z".repeat(36)].join("");
   const found = inspectSecrets("src/config.ts", `const key = '${token}';`);

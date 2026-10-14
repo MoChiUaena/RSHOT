@@ -10,6 +10,9 @@ export function defaultModelFile(): string {
   return path.join(process.env.LOCALAPPDATA || process.env.XDG_CONFIG_HOME || path.join(homedir(), ".config"), "RSHOT", "models.env");
 }
 const allowed = ["LLM_BASE_URL", "LLM_MODEL", "LLM_API_KEY", "LLM_EXTRA_JSON", "LLM_JSON_MODE", "LLM_VISION"];
+export function workerLaunchArguments(model: string): string[] {
+  return ["scripts/start-updates.ts", "--live", ...(/^qwen/i.test(model) ? ["--fast"] : [])];
+}
 export function internalModelHost(hostname: string): boolean {
   const host = hostname.replace(/^\[|\]$/g, "").toLowerCase();
   if (host === "localhost" || host === "::1") return true;

@@ -85,7 +85,7 @@ if ($taskWorkerRecord -and $taskWorkerRecord.root -eq $taskRoot) {
     $taskChild = Get-CimInstance Win32_Process -Filter "ProcessId=$([int]$taskWorkerRecord.pid)"
     $taskParent = Get-CimInstance Win32_Process -Filter "ProcessId=$([int]$taskWorkerRecord.launcherPid)"
     $taskOwnedWorker = $taskChild -and $taskParent -and $taskChild.ParentProcessId -eq $taskParent.ProcessId -and
-        $taskChild.CommandLine -match 'apps/worker/src/main.ts' -and $taskParent.CommandLine -match 'scripts/start-updates.ts --live --fast'
+        $taskChild.CommandLine -match 'apps/worker/src/main.ts' -and $taskParent.CommandLine -match 'scripts/start-updates\.ts\s+--live(?:\s+--fast)?(?:\s|$)'
 }
 if ($taskOwnedWorker) {
     $taskStatus = & $taskNode '--env-file=.env' 'scripts/updates-status.ts' | ConvertFrom-Json
@@ -100,7 +100,10 @@ while ([DateTime]::UtcNow -lt $taskDeadline) {
     Start-Sleep -Seconds 5
 }
 if ($taskStatus.worker.active) { throw '数据库仍显示旧 worker 心跳；未启动第二个 worker。' }
-$taskLauncher = Start-Process -FilePath $taskNode -ArgumentList 'scripts/start-updates.ts','--live','--fast' -WorkingDirectory $taskRoot `
+$taskArgsJson = & $taskNode 'scripts/worker-launch-args.ts'
+if ($LASTEXITCODE -ne 0) { throw '模型启动参数检查失败。' }
+[string[]]$taskWorkerArgs = ($taskArgsJson | ConvertFrom-Json)
+$taskLauncher = Start-Process -FilePath $taskNode -ArgumentList $taskWorkerArgs -WorkingDirectory $taskRoot `
     -WindowStyle Hidden -PassThru -RedirectStandardOutput (Join-Path $taskLogDir 'updates-autostart.log') `
     -RedirectStandardError (Join-Path $taskLogDir 'updates-autostart-error.log')
 $taskDeadline = [DateTime]::UtcNow.AddSeconds(35)
