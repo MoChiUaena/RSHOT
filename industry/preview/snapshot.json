@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-13T02:50:07.172Z",
+  "generatedAt": "2026-10-14T02:30:10.343Z",
   "categories": [
     {
       "key": "paper",
@@ -29,27 +29,15 @@
   ],
   "sources": [
     {
-      "name": "中国科学院空天院 · 科研动态",
-      "kind": "web_list"
-    },
-    {
-      "name": "TerraTorch · 稳定版本发布",
+      "name": "EOReader · 稳定版本发布",
       "kind": "rss"
     },
     {
-      "name": "TorchGeo · 稳定版本发布",
+      "name": "ESA · 对地观测",
       "kind": "rss"
     },
     {
-      "name": "Earth Engine API · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "rioxarray · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "earthaccess · 稳定版本发布",
+      "name": "NASA Earthdata · 科学数据与工具",
       "kind": "rss"
     },
     {
@@ -57,39 +45,7 @@
       "kind": "web_list"
     },
     {
-      "name": "EOReader · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "USGS Landsat",
-      "kind": "external"
-    },
-    {
-      "name": "Copernicus",
-      "kind": "external"
-    },
-    {
-      "name": "Qiusheng Wu · giswqs",
-      "kind": "external"
-    },
-    {
-      "name": "Copernicus EMS",
-      "kind": "external"
-    },
-    {
-      "name": "openEO Python Client · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "geemap · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
       "name": "Rasterio · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "NASA Earthdata · 科学数据与工具",
       "kind": "rss"
     },
     {
@@ -105,7 +61,11 @@
       "kind": "rss"
     },
     {
-      "name": "Copernicus Data Space · 数据与平台动态",
+      "name": "Copernicus",
+      "kind": "external"
+    },
+    {
+      "name": "Earth Engine API · 稳定版本发布",
       "kind": "rss"
     },
     {
@@ -113,15 +73,173 @@
       "kind": "rss"
     },
     {
+      "name": "Qiusheng Wu · giswqs",
+      "kind": "external"
+    },
+    {
+      "name": "中国科学院空天院 · 科研动态",
+      "kind": "web_list"
+    },
+    {
+      "name": "openEO Python Client · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "Copernicus EMS",
+      "kind": "external"
+    },
+    {
+      "name": "USGS Landsat",
+      "kind": "external"
+    },
+    {
       "name": "STAC FastAPI · 稳定版本发布",
       "kind": "rss"
     },
     {
-      "name": "ESA · 对地观测",
+      "name": "geemap · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "rioxarray · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "earthaccess · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "Copernicus Data Space · 数据与平台动态",
+      "kind": "rss"
+    },
+    {
+      "name": "TerraTorch · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "TorchGeo · 稳定版本发布",
       "kind": "rss"
     }
   ],
   "items": [
+    {
+      "id": "noyy99tnwyst709fto0qtzdq1",
+      "title": "CoASTS与BiOMaP项目的光学重要成分高光谱吸收系数数据集发布",
+      "originalTitle": "Coastal Atmosphere & Sea Time Series (CoASTS) and Bio-Optical mapping of Marine optical Properties (BiOMaP): the hyperspectral absorption coefficients by optically significant constituents",
+      "summary": "CoASTS与BiOMaP项目发布了光学重要成分的高光谱吸收系数数据集。基于论文摘要，该数据集包含400–750 nm区间内色素和非色素颗粒以及350–680 nm区间内有色溶解有机物的吸收系数，光谱分辨率为3 nm，步进为2 nm。数据可通过DOI链接获取。",
+      "reason": "该工作提供了CoASTS和BiOMaP项目中具有3 nm光谱分辨率的高光谱吸收系数数据集，填补了此前多光谱数据研究的空白，为海洋光学应用提供了标准化的现场测量数据。",
+      "source": {
+        "name": "Earth System Science Data · 数据论文与讨论稿",
+        "kind": "web_list",
+        "firstParty": true
+      },
+      "originalUrl": "https://essd.copernicus.org/articles/18/7499/2026/",
+      "publishedAt": "2026-10-13T00:00:00.000Z",
+      "timelineAt": "2026-10-13T11:00:52.103Z",
+      "category": "data",
+      "tags": [
+        "数据集/基准",
+        "高光谱",
+        "海洋"
+      ],
+      "score": 82,
+      "selected": true
+    },
+    {
+      "id": "o6m6v0n586yaii2io8cywt3lw",
+      "title": "Copernicus Data Space Ecosystem 与 Copernicus Marine Service 实现登录互认",
+      "originalTitle": "Copernicus Data Space Ecosystem and Copernicus Marine Service logins mutually accepted",
+      "summary": "Copernicus Data Space Ecosystem (CDSE) 和 Copernicus Marine Service (CMEMS) 现已支持用户通过对方平台的账号直接登录。",
+      "reason": null,
+      "source": {
+        "name": "Copernicus Data Space · 数据与平台动态",
+        "kind": "rss",
+        "firstParty": true
+      },
+      "originalUrl": "https://dataspace.copernicus.eu/news/2026-10-12-copernicus-data-space-ecosystem-and-copernicus-marine-service-logins-mutually",
+      "publishedAt": "2026-10-12T06:56:46.000Z",
+      "timelineAt": "2026-10-13T09:59:46.124Z",
+      "category": "rs-tools",
+      "tags": [
+        "工具更新",
+        "海洋",
+        "数据融合",
+        "Copernicus",
+        "ESA"
+      ],
+      "score": 52,
+      "selected": false
+    },
+    {
+      "id": "xnu7z021vv3xrwd3vbb8ow7w8",
+      "title": "Copernicus Sentinel-5 Precursor (S5P) 产品更新计划",
+      "originalTitle": "Copernicus Sentinel-5 Precursor (S5P) products improvement",
+      "summary": "Copernicus Data Space宣布将于2026年11月10日更新Sentinel-5 Precursor (S5P) 地面处理系统，发布Level-1B v03.01.00、NL-L2 v03.00.00及UPAS v03.00.01版本的处理器。",
+      "reason": "更新了S5P多个L2产品的处理器版本，重点改进了CH4和AER_LH的内部云掩膜算法，并更新了NO2的AMF查找表。",
+      "source": {
+        "name": "Copernicus Data Space · 数据与平台动态",
+        "kind": "rss",
+        "firstParty": true
+      },
+      "originalUrl": "https://dataspace.copernicus.eu/news/2026-10-13-copernicus-sentinel-5-precursor-s5p-products-improvement",
+      "publishedAt": "2026-10-13T09:38:27.000Z",
+      "timelineAt": "2026-10-13T09:59:46.083Z",
+      "category": "data",
+      "tags": [
+        "卫星/传感器",
+        "数据质量",
+        "Copernicus"
+      ],
+      "score": 78,
+      "selected": true
+    },
+    {
+      "id": "njqh7kam6pmzr26jt05kfaqlq",
+      "title": "基于MODIS Aqua的中国与美国沿海高质量遥感反射率数据集发布",
+      "originalTitle": "High-quality remote sensing reflectance products over China and US coast",
+      "summary": "基于论文摘要，作者开发了改进的大气校正处理框架，生成了2003–2022年中国和美国沿海水域的MODIS Aqua高质量遥感反射率（Rrs）数据集。与NASA标准产品相比，该数据集在8个波段上的平均回归斜率恢复至1.00 ± 0.08（原为0.90 ± 0.06），且443 nm波段的区域平均有效数据量在中国沿海增加了56%，在美国沿海增加了18%。",
+      "reason": "提出针对近岸复杂光学环境的改进大气校正框架，显著降低了与NASA标准产品相比的系统偏差并提高了有效数据获取率。",
+      "source": {
+        "name": "Earth System Science Data · 数据论文与讨论稿",
+        "kind": "web_list",
+        "firstParty": true
+      },
+      "originalUrl": "https://essd.copernicus.org/articles/18/7475/2026/",
+      "publishedAt": "2026-10-13T00:00:00.000Z",
+      "timelineAt": "2026-10-13T08:59:31.041Z",
+      "category": "data",
+      "tags": [
+        "数据集/基准",
+        "海洋",
+        "定量反演",
+        "NASA"
+      ],
+      "score": 82,
+      "selected": true
+    },
+    {
+      "id": "vnky7z902w8rdusiib3j7f2su",
+      "title": "OpenSat4Weather：用于降水监测的 Ku 波段卫星链路数据集",
+      "originalTitle": "The OpenSat4Weather dataset: Ku-band satellite link data for precipitation monitoring",
+      "summary": "基于论文摘要，作者发布了 OpenSat4Weather 数据集，这是一个包含法国南部 215 个 SML 传感器在 2022 年 8 月至 12 月期间测量数据的开放集合。",
+      "reason": "该论文填补了公开卫星微波链路（SML）大规模数据集的空白，提供了包含降雨计和雷达数据的综合观测集，为低成本降水监测算法的开发与验证提供了基础。",
+      "source": {
+        "name": "Earth System Science Data · 数据论文与讨论稿",
+        "kind": "web_list",
+        "firstParty": true
+      },
+      "originalUrl": "https://essd.copernicus.org/articles/18/7455/2026/",
+      "publishedAt": "2026-10-12T00:00:00.000Z",
+      "timelineAt": "2026-10-13T02:53:32.480Z",
+      "category": "data",
+      "tags": [
+        "数据集/基准",
+        "定量反演",
+        "数据质量"
+      ],
+      "score": 82,
+      "selected": true
+    },
     {
       "id": "h2dtx9gaodd4f3zu020z2jpck",
       "title": "Google Earth Engine API v1.7.48 发布",
@@ -945,28 +1063,6 @@
       ],
       "score": 75,
       "selected": true
-    },
-    {
-      "id": "vdhnpxqo056l8dw9hdkyj3ysm",
-      "title": "openEO Python Client v0.53.0 发布",
-      "originalTitle": "openEO Python Client v0.53.0",
-      "summary": "openEO Python Client 发布 v0.53.0，移除对 Python 3.8 的支持，最低要求提升至 Python 3.9。该版本将构建配置从 setup.py 迁移至 pyproject.toml，并调整 Xarray 依赖以支持现代版本。",
-      "reason": null,
-      "source": {
-        "name": "openEO Python Client · 稳定版本发布",
-        "kind": "rss",
-        "firstParty": true
-      },
-      "originalUrl": "https://github.com/Open-EO/openeo-python-client/releases/tag/v0.53.0",
-      "publishedAt": "2026-10-06T10:06:47.000Z",
-      "timelineAt": "2026-10-06T11:10:07.205Z",
-      "category": "rs-tools",
-      "tags": [
-        "工具更新",
-        "开源生态"
-      ],
-      "score": 37,
-      "selected": false
     },
     {
       "id": "u3mqll7wsch0l38uhia8cqyr6",
@@ -2593,6 +2689,54 @@
     }
   ],
   "reports": [
+    {
+      "kind": "daily",
+      "key": "2026-10-14",
+      "title": "遥感日报 · 2026-10-14",
+      "generatedAt": "2026-10-14T02:15:28.803Z",
+      "editorialMode": "model",
+      "lead": {
+        "title": "CoASTS与BiOMaP发布高光谱吸收系数数据集",
+        "leadParagraph": "今日遥感领域迎来多项重要数据更新。CoASTS与BiOMaP项目发布了覆盖400-750 nm区间的高光谱吸收系数数据集，为光学研究提供新资源。同时，针对中国与美国沿海水域的MODIS Aqua高质量遥感反射率数据集也正式发布，显著提升了大气校正精度。此外，OpenSat4Weather数据集和Sentinel-5 Precursor产品更新计划也为相关领域带来新动态。"
+      },
+      "overview": null,
+      "sections": [
+        {
+          "label": "数据集与基准",
+          "summary": null,
+          "items": [
+            {
+              "itemId": "vnky7z902w8rdusiib3j7f2su",
+              "title": "OpenSat4Weather：用于降水监测的 Ku 波段卫星链路数据集",
+              "summary": "基于论文摘要，作者发布了 OpenSat4Weather 数据集，这是一个包含法国南部 215 个 SML 传感器在 2022 年 8 月至 12 月期间测量数据的开放集合。",
+              "sourceName": "Earth System Science Data · 数据论文与讨论稿",
+              "originalUrl": "https://essd.copernicus.org/articles/18/7455/2026/"
+            },
+            {
+              "itemId": "njqh7kam6pmzr26jt05kfaqlq",
+              "title": "基于MODIS Aqua的中国与美国沿海高质量遥感反射率数据集发布",
+              "summary": "基于论文摘要，作者开发了改进的大气校正处理框架，生成了2003–2022年中国和美国沿海水域的MODIS Aqua高质量遥感反射率（Rrs）数据集。与NASA标准产品相比，该数据集在8个波段上的平均回归斜率恢复至1.00 ± 0.08（原为0.90 ± 0.06），且443 nm波段的区域平均有效数据量在中国沿海增加了56%，在美国沿海增加了18%。",
+              "sourceName": "Earth System Science Data · 数据论文与讨论稿",
+              "originalUrl": "https://essd.copernicus.org/articles/18/7475/2026/"
+            },
+            {
+              "itemId": "noyy99tnwyst709fto0qtzdq1",
+              "title": "CoASTS与BiOMaP项目的光学重要成分高光谱吸收系数数据集发布",
+              "summary": "CoASTS与BiOMaP项目发布了光学重要成分的高光谱吸收系数数据集。基于论文摘要，该数据集包含400–750 nm区间内色素和非色素颗粒以及350–680 nm区间内有色溶解有机物的吸收系数，光谱分辨率为3 nm，步进为2 nm。数据可通过DOI链接获取。",
+              "sourceName": "Earth System Science Data · 数据论文与讨论稿",
+              "originalUrl": "https://essd.copernicus.org/articles/18/7499/2026/"
+            },
+            {
+              "itemId": "xnu7z021vv3xrwd3vbb8ow7w8",
+              "title": "Copernicus Sentinel-5 Precursor (S5P) 产品更新计划",
+              "summary": "Copernicus Data Space宣布将于2026年11月10日更新Sentinel-5 Precursor (S5P) 地面处理系统，发布Level-1B v03.01.00、NL-L2 v03.00.00及UPAS v03.00.01版本的处理器。",
+              "sourceName": "Copernicus Data Space · 数据与平台动态",
+              "originalUrl": "https://dataspace.copernicus.eu/news/2026-10-13-copernicus-sentinel-5-precursor-s5p-products-improvement"
+            }
+          ]
+        }
+      ]
+    },
     {
       "kind": "daily",
       "key": "2026-10-13",
@@ -4758,6 +4902,7 @@
       "group": "company",
       "definition": "NASA 的遥感研究、观测数据与工程动态。",
       "itemIds": [
+        "njqh7kam6pmzr26jt05kfaqlq",
         "wfsw59u57kt591xhx138wlkkq",
         "pd9ogz0oai2skdxykba7bzymi"
       ]
@@ -4787,6 +4932,7 @@
       "group": "company",
       "definition": "Copernicus 的遥感研究、观测数据与工程动态。",
       "itemIds": [
+        "xnu7z021vv3xrwd3vbb8ow7w8",
         "jmjngdlnd6pmbu8bc0589wjf4",
         "rfi8dwa72174ozkck11kosahj",
         "ha4j96ha1tzkjlvay6dx90cfo",
@@ -4858,6 +5004,7 @@
       "group": "field",
       "definition": "追踪高光谱的研究方法、数据、工具与应用实践。",
       "itemIds": [
+        "noyy99tnwyst709fto0qtzdq1",
         "mr5c3yxe99rijf6w50f7ne5rl",
         "jdx6khgou842sfra33v2brk0y",
         "fo0dlax2jigiqe059ml1cxq4w",
@@ -4957,6 +5104,8 @@
       "group": "field",
       "definition": "追踪定量反演的研究方法、数据、工具与应用实践。",
       "itemIds": [
+        "njqh7kam6pmzr26jt05kfaqlq",
+        "vnky7z902w8rdusiib3j7f2su",
         "easimpoc6rvohr23aiteyx6rt",
         "ha4j96ha1tzkjlvay6dx90cfo",
         "gt4dxjtxlv9p8okpmvv48za9q",
@@ -5111,6 +5260,9 @@
       "group": "genre",
       "definition": "值得关注的遥感数据集与基准，保留原文入口与适用条件。",
       "itemIds": [
+        "noyy99tnwyst709fto0qtzdq1",
+        "njqh7kam6pmzr26jt05kfaqlq",
+        "vnky7z902w8rdusiib3j7f2su",
         "r3lto7uxqe418v99dvwnnqhwb",
         "easimpoc6rvohr23aiteyx6rt",
         "k5l8mnix6nygv0m854yxrq1hb",
@@ -5167,6 +5319,7 @@
       "group": "genre",
       "definition": "值得关注的遥感卫星与传感器，保留原文入口与适用条件。",
       "itemIds": [
+        "xnu7z021vv3xrwd3vbb8ow7w8",
         "dqm2k0qw0wqzoyrsgieut8cxr",
         "jmjngdlnd6pmbu8bc0589wjf4",
         "rfi8dwa72174ozkck11kosahj",
@@ -5197,7 +5350,7 @@
     }
   ],
   "hot": {
-    "computedAt": "2026-10-12T18:05:25.269Z",
+    "computedAt": "2026-10-14T02:25:24.646Z",
     "windowHours": 48,
     "entries": []
   }
