@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-14T02:30:10.343Z",
+  "generatedAt": "2026-10-16T03:13:31.195Z",
   "categories": [
     {
       "key": "paper",
@@ -29,75 +29,11 @@
   ],
   "sources": [
     {
-      "name": "EOReader · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "ESA · 对地观测",
-      "kind": "rss"
-    },
-    {
-      "name": "NASA Earthdata · 科学数据与工具",
-      "kind": "rss"
-    },
-    {
-      "name": "Earth System Science Data · 数据论文与讨论稿",
-      "kind": "web_list"
-    },
-    {
-      "name": "Rasterio · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "GDAL · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "PySTAC · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "Google Earth 与 Earth Engine · 官方博客",
-      "kind": "rss"
-    },
-    {
-      "name": "Copernicus",
-      "kind": "external"
-    },
-    {
-      "name": "Earth Engine API · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "arXiv · 遥感与地球观测预印本",
-      "kind": "rss"
-    },
-    {
-      "name": "Qiusheng Wu · giswqs",
-      "kind": "external"
-    },
-    {
       "name": "中国科学院空天院 · 科研动态",
       "kind": "web_list"
     },
     {
-      "name": "openEO Python Client · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "Copernicus EMS",
-      "kind": "external"
-    },
-    {
-      "name": "USGS Landsat",
-      "kind": "external"
-    },
-    {
-      "name": "STAC FastAPI · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "geemap · 稳定版本发布",
+      "name": "TorchGeo · 稳定版本发布",
       "kind": "rss"
     },
     {
@@ -105,11 +41,43 @@
       "kind": "rss"
     },
     {
-      "name": "earthaccess · 稳定版本发布",
+      "name": "ESA · 对地观测",
       "kind": "rss"
     },
     {
-      "name": "Copernicus Data Space · 数据与平台动态",
+      "name": "Google Earth 与 Earth Engine · 官方博客",
+      "kind": "rss"
+    },
+    {
+      "name": "Earth System Science Data · 数据论文与讨论稿",
+      "kind": "web_list"
+    },
+    {
+      "name": "PySTAC · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "Copernicus EMS",
+      "kind": "external"
+    },
+    {
+      "name": "GDAL · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "USGS Landsat",
+      "kind": "external"
+    },
+    {
+      "name": "arXiv · 遥感与地球观测预印本",
+      "kind": "rss"
+    },
+    {
+      "name": "Copernicus",
+      "kind": "external"
+    },
+    {
+      "name": "NASA Earthdata · 科学数据与工具",
       "kind": "rss"
     },
     {
@@ -117,11 +85,210 @@
       "kind": "rss"
     },
     {
-      "name": "TorchGeo · 稳定版本发布",
+      "name": "STAC FastAPI · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "Copernicus Data Space · 数据与平台动态",
+      "kind": "rss"
+    },
+    {
+      "name": "Rasterio · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "EOReader · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "openEO Python Client · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "Earth Engine API · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "Qiusheng Wu · giswqs",
+      "kind": "external"
+    },
+    {
+      "name": "earthaccess · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "geemap · 稳定版本发布",
       "kind": "rss"
     }
   ],
   "items": [
+    {
+      "id": "llovvtpszjfqol6mdr0ob62ar",
+      "title": "康斯坦茨湖水位告急，Sentinel-2 揭示浅水区",
+      "originalTitle": "🚣 Lake Constance 🇩🇪🇨🇭🇦🇹 is running low! 🌊 Water levels in the Untersee were ~90 cm below avg in early Oct, suspending passenger boat services. 🛰️ #CopernicusEU Sentinel-2 reveals shallow waters &amp; exposed lakebed. 🔗 https://t.c",
+      "summary": "🚣 康斯坦茨湖（🇩🇪🇨🇭🇦🇹）水位告急！\n\n🌊 10 月初，Untersee 水位低于平均值约 90 厘米，客运船服务暂停。\n\n🛰️ #CopernicusEU Sentinel-2 揭示了浅水区及裸露的湖床。\n\n🔗 https://t.co/28gOD2eNcG\n\n#ImageOfTheDay https://t.co/63hiIs85Ri",
+      "reason": null,
+      "source": {
+        "name": "Copernicus",
+        "kind": "external",
+        "firstParty": false
+      },
+      "originalUrl": "https://x.com/CopernicusEU/status/2110759220165398653",
+      "publishedAt": "2026-10-15T15:46:28.000Z",
+      "timelineAt": "2026-10-16T02:30:53.440Z",
+      "category": "tip",
+      "tags": [
+        "应用案例",
+        "灾害监测",
+        "光学遥感",
+        "Copernicus"
+      ],
+      "score": 28,
+      "selected": false
+    },
+    {
+      "id": "w4dhdubg150xcj0h1fx65az1j",
+      "title": "Landsat 影像记录圣海伦斯火山侧向喷发",
+      "originalTitle": "Why did Mount St. Helens erupt sideways instead of straight up? The answer was building underneath the surface for months. 🌋 Magma was pushing upward inside the volcano, but it had nowhere to go. The north side of the mountain bulged outwa",
+      "summary": "圣海伦斯火山于1980年5月18日侧向喷发而非垂直喷发，因岩浆上涌导致北侧山体向外膨胀逾260英尺，成为最薄弱点。Landsat 1（1973年9月15日）与 Landsat 4（1983年5月22日）影像对比显示，喷发后森林被火山灰取代，从438英里高空可见地貌剧变。",
+      "reason": null,
+      "source": {
+        "name": "USGS Landsat",
+        "kind": "external",
+        "firstParty": false
+      },
+      "originalUrl": "https://x.com/USGSLandsat/status/2110747670784446844",
+      "publishedAt": "2026-10-15T15:00:35.000Z",
+      "timelineAt": "2026-10-16T02:30:53.209Z",
+      "category": "tip",
+      "tags": [
+        "应用案例",
+        "光学遥感",
+        "灾害监测",
+        "USGS"
+      ],
+      "score": 40,
+      "selected": false
+    },
+    {
+      "id": "jr09uwcha339allqbqthk6th4",
+      "title": "哥白尼哨兵2号记录尼泊尔山洪前后变化",
+      "originalTitle": "⚠️ Flash floods hit Nepal’s 🇳🇵 Budhi Gandaki River valley on 11 Oct, damaging bridges, homes &amp; trekking routes. 🛰️ #CopernicusEU Sentinel-2 images reveal changes before &amp; after the event, supporting disaster response. 🔗 https://",
+      "summary": "⚠️ 10月11日，山洪袭击尼泊尔🇳🇵布迪甘达基河谷，损毁桥梁、房屋及徒步路线。\n\n🛰️ #CopernicusEU 哨兵2号影像揭示了事件前后的变化，为灾害响应提供支持。\n\n🔗 https://t.co/wlqRRKsb7H\n\n#今日影像 https://t.co/NKlGJzopgI",
+      "reason": null,
+      "source": {
+        "name": "Copernicus",
+        "kind": "external",
+        "firstParty": false
+      },
+      "originalUrl": "https://x.com/CopernicusEU/status/2110300179383341381",
+      "publishedAt": "2026-10-14T09:22:24.000Z",
+      "timelineAt": "2026-10-15T02:30:42.711Z",
+      "category": "tip",
+      "tags": [
+        "应用案例",
+        "灾害监测",
+        "光学遥感",
+        "Copernicus"
+      ],
+      "score": 26,
+      "selected": false
+    },
+    {
+      "id": "ng7am0o7mwhn7hqdzp8s7zn63",
+      "title": "圣海伦斯火山1980年喷发回顾：Landsat持续监测",
+      "originalTitle": "It's Earth Science Week! 🌋 Let's look back at the day Mount St. Helens changed forever. Before May 18, 1980, Mount St. Helens was famous for its near-perfect, symmetrical shape. Its striking profile even earned it the nickname \"Fujiyama of",
+      "summary": "为庆祝地球科学周，USGS回顾了1980年5月18日圣海伦斯火山喷发事件。喷发前数周，该地区发生超1万次地震，火山北侧向外膨胀超260英尺。当日8时32分，5.1级地震触发北侧大规模山体滑坡，引发横向爆炸，火山灰柱升至约15英里高空，灰烬扩散至美国西部大部分地区，远在约250英里外的斯波坎市白昼如夜。Landsat自喷发以来持续观测该火山变化。",
+      "reason": null,
+      "source": {
+        "name": "USGS Landsat",
+        "kind": "external",
+        "firstParty": false
+      },
+      "originalUrl": "https://x.com/USGSLandsat/status/2110385309259063770",
+      "publishedAt": "2026-10-14T15:00:41.000Z",
+      "timelineAt": "2026-10-15T02:30:42.322Z",
+      "category": "tip",
+      "tags": [
+        "应用案例",
+        "灾害监测",
+        "光学遥感",
+        "USGS"
+      ],
+      "score": 28,
+      "selected": false
+    },
+    {
+      "id": "k81w23qd3rhxabhiqg20kw6np",
+      "title": "Copernicus 发布西班牙洪水深度模型",
+      "originalTitle": "🌧️ How can we better prepare for floods? 🛰️ On Disaster Risk Reduction Day, #CopernicusEU maps modelled flood depths in 🇪🇸 Iniesta, helping authorities identify vulnerable areas, assess protective measures &amp; strengthen local resilie",
+      "summary": "🌧️ 我们如何更好地为洪水做准备？\n\n🛰️ 在灾害风险减少日，#CopernicusEU 绘制了西班牙 Iniesta 的模拟洪水深度图，帮助当局识别脆弱区域、评估保护措施并增强当地韧性。\n🔗 https://t.co/2ZTeLm8OgY\n\n#ImageOfTheDay https://t.co/xk1b3uJBZv",
+      "reason": null,
+      "source": {
+        "name": "Copernicus",
+        "kind": "external",
+        "firstParty": false
+      },
+      "originalUrl": "https://x.com/CopernicusEU/status/2110022187545751683",
+      "publishedAt": "2026-10-13T14:57:46.000Z",
+      "timelineAt": "2026-10-14T02:30:37.005Z",
+      "category": "tip",
+      "tags": [
+        "应用案例",
+        "灾害监测",
+        "Copernicus"
+      ],
+      "score": 30,
+      "selected": false
+    },
+    {
+      "id": "ufzfb8a3yaov6uanjfh3x5i3y",
+      "title": "Copernicus团队支持德国洪灾准备",
+      "originalTitle": "In Raubling, #Germany🇩🇪, our #MappingTeam supported disaster preparedness activities with detailed information on #flood hazards, exposed buildings, and potentially affected populations Read more at👇 https://t.co/BAEqSEWcco",
+      "summary": "在德国劳布林，我们的制图团队通过提供关于洪水风险、暴露建筑以及可能受影响人口的详细信息，支持了灾害准备工作。\n\n阅读更多👇\nhttps://t.co/BAEqSEWcco",
+      "reason": null,
+      "source": {
+        "name": "Copernicus EMS",
+        "kind": "external",
+        "firstParty": false
+      },
+      "originalUrl": "https://x.com/CopernicusEMS/status/2109955935963947253",
+      "publishedAt": "2026-10-13T10:34:30.000Z",
+      "timelineAt": "2026-10-14T02:30:36.981Z",
+      "category": "tip",
+      "tags": [
+        "应用案例",
+        "灾害监测",
+        "Copernicus"
+      ],
+      "score": 26,
+      "selected": false
+    },
+    {
+      "id": "coa4892bdkb8zey9lqxqkolmh",
+      "title": "USGS 介绍 Landsat 10 卫星及其搭载的 LandIS 载荷",
+      "originalTitle": "A sharper view of our changing planet is coming. 🛰️🌎 Meet LandIS, the Landsat Instrument Suite that will fly aboard Landsat 10, the next satellite in the Landsat series. With 26 spectral bands spanning visible light to thermal infrared, L",
+      "summary": "USGS 介绍了即将发射的 Landsat 10 卫星及其搭载的 LandIS（Landsat Instrument Suite）载荷。LandIS 包含从可见光到热红外的 26 个光谱波段，是 Landsat 8 和 9 的两倍以上，且可见光、近红外和短波红外观测的空间分辨率为 10 至 20 米。",
+      "reason": "原文提供了 Landsat 10 搭载的 LandIS 载荷在光谱波段数量（26个）和空间分辨率（10-20米）上的具体参数，明确了其相较于 Landsat 8/9 的技术增量与预期应用方向。",
+      "source": {
+        "name": "USGS Landsat",
+        "kind": "external",
+        "firstParty": false
+      },
+      "originalUrl": "https://x.com/USGSLandsat/status/2110037984774918652",
+      "publishedAt": "2026-10-13T16:00:32.000Z",
+      "timelineAt": "2026-10-14T02:30:36.858Z",
+      "category": "satellite",
+      "tags": [
+        "卫星/传感器",
+        "光学遥感",
+        "热红外",
+        "USGS",
+        "NASA"
+      ],
+      "score": 70,
+      "selected": true
+    },
     {
       "id": "noyy99tnwyst709fto0qtzdq1",
       "title": "CoASTS与BiOMaP项目的光学重要成分高光谱吸收系数数据集发布",
@@ -648,170 +815,6 @@
       "selected": true
     },
     {
-      "id": "u4e7zfya0n9mod2y4s3xn7fa8",
-      "title": "Sentinel-3C 卫星发布首批意大利影像",
-      "originalTitle": "🚀 After its recent launch, #CopernicusEU Sentinel-3C has delivered its 1st images capture Italy 🇮🇹 from the Alps to Sicily, showcasing the satellite’s capabilities. 🌍 A major step towards full operational service for monitoring changing",
-      "summary": "🚀 在近期发射后，#CopernicusEU Sentinel-3C 已传回其首批图像，捕捉了从阿尔卑斯山到西西里岛的意大利 🇮🇹 景象，展示了该卫星的能力。\n\n🌍 这是迈向全面运行服务以监测地球变化的重要一步。\n\n🔗 https://t.co/4jVsNbcIEp https://t.co/puG7Ew6fpQ",
-      "reason": null,
-      "source": {
-        "name": "Copernicus",
-        "kind": "external",
-        "firstParty": false
-      },
-      "originalUrl": "https://x.com/CopernicusEU/status/2108213301310091552",
-      "publishedAt": "2026-10-08T15:09:54.000Z",
-      "timelineAt": "2026-10-09T02:30:45.852Z",
-      "category": "satellite",
-      "tags": [
-        "卫星/传感器",
-        "光学遥感",
-        "Copernicus"
-      ],
-      "score": 50,
-      "selected": false
-    },
-    {
-      "id": "hufwllr9bkdhdz8v4it8n77u6",
-      "title": "Copernicus发布伦巴第与巴西利卡塔报告",
-      "originalTitle": "Maggiori informazioni nei nostri report: - Lombardia (EMSR928) https://t.co/KOnxjqoHPB - Basilicata (EMSR930) https://t.co/TnALjWJfAU",
-      "summary": "更多详情见我们的报告：\n- 伦巴第 (EMSR928) https://t.co/KOnxjqoHPB \n- 巴西利卡塔 (EMSR930) https://t.co/TnALjWJfAU",
-      "reason": null,
-      "source": {
-        "name": "Copernicus EMS",
-        "kind": "external",
-        "firstParty": false
-      },
-      "originalUrl": "https://x.com/CopernicusEMS/status/2107846292168642757",
-      "publishedAt": "2026-10-07T14:51:32.000Z",
-      "timelineAt": "2026-10-09T02:30:45.831Z",
-      "category": "industry",
-      "tags": [
-        "行业动态",
-        "灾害监测",
-        "Copernicus"
-      ],
-      "score": 15,
-      "selected": false
-    },
-    {
-      "id": "pbhq02q2p2h4hp28n1tm7vffq",
-      "title": "Copernicus EMS 意大利洪灾应急响应",
-      "originalTitle": "A causa del forte maltempo in #Italia tra fine agosto e inizio settembre, il nostro #MappingTeam è stato attivato due volte per supportare le autorità: 📍 #Lombardia – EMSR928 📍 #Basilicata – EMSR930 I prodotti mostrano numerosi edifici e",
-      "summary": "由于8月底至9月初#意大利遭遇恶劣天气，我们的#MappingTeam 两次启动以支持当局：\n📍 #Lombardia – EMSR928 \n📍 #Basilicata – EMSR930\n\n产品显示大量建筑物和基础设施受损 https://t.co/7rM9os59Km",
-      "reason": null,
-      "source": {
-        "name": "Copernicus EMS",
-        "kind": "external",
-        "firstParty": false
-      },
-      "originalUrl": "https://x.com/CopernicusEMS/status/2107846108688871669",
-      "publishedAt": "2026-10-07T14:50:48.000Z",
-      "timelineAt": "2026-10-09T02:30:45.645Z",
-      "category": "tip",
-      "tags": [
-        "应用案例",
-        "灾害监测",
-        "Copernicus"
-      ],
-      "score": 35,
-      "selected": false
-    },
-    {
-      "id": "eno62wsxd9rmf8wg8mzffprie",
-      "title": "GeoLibre 新增对 ArcGIS Online 和 ArcGIS Enterprise 门户的安全登录支持",
-      "originalTitle": "GeoLibre now supports secure login with ArcGIS Online and ArcGIS Enterprise portals, making it easier to browse and stream layers from your own ArcGIS accounts. Try it out: GeoLibre Web: https://t.co/yieFOljRZN GitHub: https://t.co/VXq8c1o2",
-      "summary": "GeoLibre 现已支持通过 ArcGIS Online 和 ArcGIS Enterprise 门户进行安全登录，方便用户从自己的 ArcGIS 账户中浏览和流式传输图层。作者提供了 GeoLibre Web 端及 GitHub 仓库的链接供用户试用。",
-      "reason": null,
-      "source": {
-        "name": "Qiusheng Wu · giswqs",
-        "kind": "external",
-        "firstParty": false
-      },
-      "originalUrl": "https://x.com/giswqs/status/2107492733929521516",
-      "publishedAt": "2026-10-06T15:26:37.000Z",
-      "timelineAt": "2026-10-08T02:37:40.919Z",
-      "category": "rs-tools",
-      "tags": [
-        "工具更新",
-        "开源生态"
-      ],
-      "score": 57,
-      "selected": false
-    },
-    {
-      "id": "ez3d5rgpcxoih2t3pjl8o1xye",
-      "title": "GeoLibre 推出基于 s2-stac-geoparquet 的 Sentinel-2 Explorer",
-      "originalTitle": "GeoLibre now has a Sentinel-2 Explorer, powered by Chris Holmes' s2-stac-geoparquet project (https://t.co/N4CS3qbLKR). It makes exploring and visualizing satellite imagery much easier. I hope more data vendors adopt this GeoParquet model fo",
-      "summary": "GeoLibre 新增 Sentinel-2 Explorer，由 Chris Holmes 的 s2-stac-geoparquet 项目提供支持，用于探索和可视化卫星影像。作者表示希望更多数据供应商采用 GeoParquet 模型发布卫星数据。该功能可通过 GeoLibre Web 和 GitHub 访问。",
-      "reason": null,
-      "source": {
-        "name": "Qiusheng Wu · giswqs",
-        "kind": "external",
-        "firstParty": false
-      },
-      "originalUrl": "https://x.com/giswqs/status/2107642285303144702",
-      "publishedAt": "2026-10-07T01:20:53.000Z",
-      "timelineAt": "2026-10-08T02:37:40.870Z",
-      "category": "rs-tools",
-      "tags": [
-        "工具更新",
-        "光学遥感",
-        "开源生态"
-      ],
-      "score": 60,
-      "selected": false
-    },
-    {
-      "id": "ahltfmbttk4202qkfzq352apg",
-      "title": "Copernicus发布丹麦林姆峡湾Sentinel-2影像",
-      "originalTitle": "⛵️ The Limfjord 🇩🇰 forms a network of waterways across N Denmark, connecting the North Sea to the Kattegat. 🛰️ This #CopernicusEU Sentinel-2 #ImageOfTheDay reveals the fjord in dark blue, surrounded by vivid green vegetation &amp; agricu",
-      "summary": "⛵️ 丹麦北部的林姆峡湾（Limfjord）形成了一片水道网络，连接北海与卡特加特海峡。\n\n🛰️ 这张 #CopernicusEU Sentinel-2 #ImageOfTheDay 展示了深蓝色的峡湾，周围环绕着翠绿的植被和农田。\n\n🔗 https://t.co/KXibcQhHJ2 https://t.co/ySuauO9vLW",
-      "reason": null,
-      "source": {
-        "name": "Copernicus",
-        "kind": "external",
-        "firstParty": false
-      },
-      "originalUrl": "https://x.com/CopernicusEU/status/2107790614578217017",
-      "publishedAt": "2026-10-07T11:10:18.000Z",
-      "timelineAt": "2026-10-08T02:37:40.791Z",
-      "category": "tip",
-      "tags": [
-        "应用案例",
-        "光学遥感",
-        "Copernicus"
-      ],
-      "score": 12,
-      "selected": false
-    },
-    {
-      "id": "cehee0es0u6ols68hiyvx5wf3",
-      "title": "USGS发布马萨诸塞州Landsat影像",
-      "originalTitle": "Let’s take the scenic route across Massachusetts! 🛰️ Massachusetts ratified the U.S. Constitution on Feb. 6, 1788, becoming the sixth state. As America marks 250 years, the Bay State comes into view in our America from Space journey. Thoug",
-      "summary": "USGS发布马萨诸塞州Landsat 9影像，展示该州海岸、城市与森林景观。数据支持追踪Cape Cod海岸线变化、识别Boston热岛效应及评估October Mountain State Forest碳储量。",
-      "reason": null,
-      "source": {
-        "name": "USGS Landsat",
-        "kind": "external",
-        "firstParty": false
-      },
-      "originalUrl": "https://x.com/USGSLandsat/status/2107848526180888787",
-      "publishedAt": "2026-10-07T15:00:25.000Z",
-      "timelineAt": "2026-10-08T02:37:39.323Z",
-      "category": "tip",
-      "tags": [
-        "应用案例",
-        "光学遥感",
-        "热红外",
-        "城市",
-        "森林/生态",
-        "海洋",
-        "USGS"
-      ],
-      "score": 20,
-      "selected": false
-    },
-    {
       "id": "easimpoc6rvohr23aiteyx6rt",
       "title": "基于LSTM通量尺度扩展的北美净生态系统CO2交换改进估算 (2001–2021)",
       "originalTitle": "Improved estimation of net ecosystem CO2 exchange over North America using LSTM-based flux upscaling (2001–2021)",
@@ -901,75 +904,6 @@
       ],
       "score": 75,
       "selected": true
-    },
-    {
-      "id": "ujjv7cg3p2cstb0ansq5r7at8",
-      "title": "Copernicus Sentinel-5P 2026年10月7日数据不可用",
-      "originalTitle": "Copernicus Sentinel-5P Data Unavailability on 07 October 2026",
-      "summary": "Sentinel-5P 计划于 2026 年 10 月 7 日执行轨道控制机动，导致潜在数据降级。影响详情将在异常发生后的第一个工作日记录在 SentiBoard 事件页面上。",
-      "reason": null,
-      "source": {
-        "name": "Copernicus Data Space · 数据与平台动态",
-        "kind": "rss",
-        "firstParty": true
-      },
-      "originalUrl": "https://dataspace.copernicus.eu/news/2026-10-7-copernicus-sentinel-5p-data-unavailability-07-october-2026",
-      "publishedAt": "2026-10-07T07:26:44.000Z",
-      "timelineAt": "2026-10-07T14:01:13.994Z",
-      "category": "satellite",
-      "tags": [
-        "卫星/传感器",
-        "数据质量",
-        "Copernicus"
-      ],
-      "score": 12,
-      "selected": false
-    },
-    {
-      "id": "l03cqwbjkyzsnp23epvep18oq",
-      "title": "Sentinel-2 观测荷兰海上风电场",
-      "originalTitle": "⚡ Gemini offshore wind farm 🇳🇱 in the North Sea generates renewable electricity for the Netherlands. 🛰️ #CopernicusEU Sentinel-2 reveals turbines, shadows &amp; sediment patterns caused by their foundations. 🔗 https://t.co/b2jOO3Ui5L #I",
-      "summary": "⚡ 位于北海的 Gemini 海上风电场 🇳🇱 为荷兰提供可再生电力。\n\n🛰️ #CopernicusEU Sentinel-2 揭示了由风机基础引起的涡轮机、阴影及沉积物模式。\n\n🔗 https://t.co/b2jOO3Ui5L\n\n#ImageOfTheDay https://t.co/tVCSSwIEs1",
-      "reason": null,
-      "source": {
-        "name": "Copernicus",
-        "kind": "external",
-        "firstParty": false
-      },
-      "originalUrl": "https://x.com/CopernicusEU/status/2107468143308275990",
-      "publishedAt": "2026-10-06T13:48:54.000Z",
-      "timelineAt": "2026-10-07T02:30:50.434Z",
-      "category": "tip",
-      "tags": [
-        "应用案例",
-        "光学遥感",
-        "Copernicus"
-      ],
-      "score": 12,
-      "selected": false
-    },
-    {
-      "id": "ic0rrn2ocn685226gj7wth6o1",
-      "title": "Copernicus EMS 发布 EFAS 数据征集",
-      "originalTitle": "📢 New call for tender Support #EFAS &amp; #GloFAS 🌊 by operating the #CEMS Meteorological and Hydrological Data Collection Centres, providing quality-controlled in situ data for flood early warning 🗓️ Deadline: 11 November 2026, 16:00 CE",
-      "summary": "📢 新招标公告\n\n通过运营 #CEMS 气象和水文数据中心，为洪水早期预警提供经过质量控制的原位数据，支持 #EFAS &amp; #GloFAS 🌊\n\n🗓️ 截止日期：2026年11月11日，16:00 CET\n\n更多 👇 \nhttps://t.co/erEu1REZcU https://t.co/vSN1RUxoIw",
-      "reason": null,
-      "source": {
-        "name": "Copernicus EMS",
-        "kind": "external",
-        "firstParty": false
-      },
-      "originalUrl": "https://x.com/CopernicusEMS/status/2107468507294191945",
-      "publishedAt": "2026-10-06T13:50:21.000Z",
-      "timelineAt": "2026-10-07T02:30:50.340Z",
-      "category": "industry",
-      "tags": [
-        "行业动态",
-        "数据质量",
-        "Copernicus"
-      ],
-      "score": 12,
-      "selected": false
     },
     {
       "id": "k5l8mnix6nygv0m854yxrq1hb",
@@ -4902,6 +4836,7 @@
       "group": "company",
       "definition": "NASA 的遥感研究、观测数据与工程动态。",
       "itemIds": [
+        "coa4892bdkb8zey9lqxqkolmh",
         "njqh7kam6pmzr26jt05kfaqlq",
         "wfsw59u57kt591xhx138wlkkq",
         "pd9ogz0oai2skdxykba7bzymi"
@@ -5033,6 +4968,7 @@
       "group": "field",
       "definition": "追踪光学遥感的研究方法、数据、工具与应用实践。",
       "itemIds": [
+        "coa4892bdkb8zey9lqxqkolmh",
         "dqm2k0qw0wqzoyrsgieut8cxr",
         "tuj75u7nv6ts4nuffo8213f3l",
         "yr74orfri7d1sqob9wb9mmchl",
@@ -5052,6 +4988,7 @@
       "group": "field",
       "definition": "追踪热红外的研究方法、数据、工具与应用实践。",
       "itemIds": [
+        "coa4892bdkb8zey9lqxqkolmh",
         "wkgq0s4ty7v8g4ce3jp7o0m1u"
       ]
     },
@@ -5319,6 +5256,7 @@
       "group": "genre",
       "definition": "值得关注的遥感卫星与传感器，保留原文入口与适用条件。",
       "itemIds": [
+        "coa4892bdkb8zey9lqxqkolmh",
         "xnu7z021vv3xrwd3vbb8ow7w8",
         "dqm2k0qw0wqzoyrsgieut8cxr",
         "jmjngdlnd6pmbu8bc0589wjf4",
@@ -5350,7 +5288,7 @@
     }
   ],
   "hot": {
-    "computedAt": "2026-10-14T02:25:24.646Z",
+    "computedAt": "2026-10-16T03:10:32.217Z",
     "windowHours": 48,
     "entries": []
   }
