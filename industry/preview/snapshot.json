@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-16T03:13:31.195Z",
+  "generatedAt": "2026-10-17T02:52:21.579Z",
   "categories": [
     {
       "key": "paper",
@@ -29,23 +29,11 @@
   ],
   "sources": [
     {
-      "name": "中国科学院空天院 · 科研动态",
-      "kind": "web_list"
+      "name": "Qiusheng Wu · giswqs",
+      "kind": "external"
     },
     {
-      "name": "TorchGeo · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "rioxarray · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "ESA · 对地观测",
-      "kind": "rss"
-    },
-    {
-      "name": "Google Earth 与 Earth Engine · 官方博客",
+      "name": "Copernicus Data Space · 数据与平台动态",
       "kind": "rss"
     },
     {
@@ -53,7 +41,11 @@
       "kind": "web_list"
     },
     {
-      "name": "PySTAC · 稳定版本发布",
+      "name": "arXiv · 遥感与地球观测预印本",
+      "kind": "rss"
+    },
+    {
+      "name": "GDAL · 稳定版本发布",
       "kind": "rss"
     },
     {
@@ -61,43 +53,7 @@
       "kind": "external"
     },
     {
-      "name": "GDAL · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "USGS Landsat",
-      "kind": "external"
-    },
-    {
-      "name": "arXiv · 遥感与地球观测预印本",
-      "kind": "rss"
-    },
-    {
-      "name": "Copernicus",
-      "kind": "external"
-    },
-    {
-      "name": "NASA Earthdata · 科学数据与工具",
-      "kind": "rss"
-    },
-    {
-      "name": "TerraTorch · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "STAC FastAPI · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "Copernicus Data Space · 数据与平台动态",
-      "kind": "rss"
-    },
-    {
-      "name": "Rasterio · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "EOReader · 稳定版本发布",
+      "name": "Earth Engine API · 稳定版本发布",
       "kind": "rss"
     },
     {
@@ -105,23 +61,282 @@
       "kind": "rss"
     },
     {
-      "name": "Earth Engine API · 稳定版本发布",
+      "name": "earthaccess · 稳定版本发布",
       "kind": "rss"
     },
     {
-      "name": "Qiusheng Wu · giswqs",
+      "name": "Copernicus",
       "kind": "external"
     },
     {
-      "name": "earthaccess · 稳定版本发布",
+      "name": "USGS Landsat",
+      "kind": "external"
+    },
+    {
+      "name": "EOReader · 稳定版本发布",
       "kind": "rss"
     },
     {
       "name": "geemap · 稳定版本发布",
       "kind": "rss"
+    },
+    {
+      "name": "TorchGeo · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "NASA Earthdata · 科学数据与工具",
+      "kind": "rss"
+    },
+    {
+      "name": "rioxarray · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "STAC FastAPI · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "PySTAC · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "Rasterio · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "ESA · 对地观测",
+      "kind": "rss"
+    },
+    {
+      "name": "TerraTorch · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "Google Earth 与 Earth Engine · 官方博客",
+      "kind": "rss"
+    },
+    {
+      "name": "中国科学院空天院 · 科研动态",
+      "kind": "web_list"
     }
   ],
   "items": [
+    {
+      "id": "wsbk0ovjw37iq5ly345ffbcl9",
+      "title": "太空俯瞰：西南极洲海冰影像",
+      "originalTitle": "Earth from Space: West Antarctica",
+      "summary": "哥白尼哨兵3号于2026年9月30日拍摄的西南极洲影像显示，南半球冬季即将结束，海冰达到年度最大范围，覆盖南极半岛顶端及威德尔海部分区域。影像覆盖约1200公里乘1700公里区域，可见象岛及多种海冰纹理。据美国国家冰雪数据中心数据，南极冬季海冰最可能已于2026年9月14日达到峰值。",
+      "reason": null,
+      "source": {
+        "name": "ESA · 对地观测",
+        "kind": "rss",
+        "firstParty": true
+      },
+      "originalUrl": "https://www.esa.int/ESA_Multimedia/Images/2026/10/Earth_from_Space_West_Antarctica",
+      "publishedAt": "2026-10-16T08:00:00.000Z",
+      "timelineAt": "2026-10-17T02:50:33.927Z",
+      "category": "satellite",
+      "tags": [
+        "卫星/传感器",
+        "光学遥感",
+        "海洋",
+        "气候",
+        "ESA",
+        "Copernicus"
+      ],
+      "score": 18,
+      "selected": false
+    },
+    {
+      "id": "dw6cmctc5ots4s2t320emorp2",
+      "title": "NASA Worldview 影像显示印尼火灾致东南亚持续烟霾",
+      "originalTitle": "Fires Causing Persistent Haze Across Southeast Asia",
+      "summary": "NASA Worldview 影像显示印尼加里曼丹地区野火持续，产生跨境烟霾，影响马来西亚和新加坡等国空气质量。影像来自 NOAA-21 上的 VIIRS 传感器，叠加了 380nm 气溶胶指数图层，红点表示活跃火点，黄橙色表示烟霾扩散区域；AERONET 地面站点显示坤甸、占碑和新加坡等地气溶胶光学厚度（AOD）较高。厄尔尼诺导致的干旱和降雨延迟加剧了火势。",
+      "reason": null,
+      "source": {
+        "name": "NASA Earthdata · 科学数据与工具",
+        "kind": "rss",
+        "firstParty": true
+      },
+      "originalUrl": "https://www.earthdata.nasa.gov/news/worldview-image-archive/fires-causing-persistent-haze-across-southeast-asia",
+      "publishedAt": "2026-10-16T19:23:29.000Z",
+      "timelineAt": "2026-10-17T02:50:33.474Z",
+      "category": "tip",
+      "tags": [
+        "应用案例",
+        "灾害监测",
+        "NASA"
+      ],
+      "score": 52,
+      "selected": false
+    },
+    {
+      "id": "gdipajs3hcrtcvpip6a1jok9z",
+      "title": "Copernicus Data Space 推出新的 SFEOS STAC 目录端点",
+      "originalTitle": "New SFEOS STAC catalogue endpoint",
+      "summary": "Copernicus Data Space Ecosystem 推出新的 STAC 目录端点 https://stac.opensearch.dataspace.copernicus.eu/v1 及其 STAC Browser，基于 SFEOS（stac-fastapi-elasticsearch-opensearch）后端构建。",
+      "reason": "新端点基于 SFEOS 后端，引入 OpenSearch 数据库、主题化集合结构和新的速率限制，相比旧端点提供性能与功能改进。",
+      "source": {
+        "name": "Copernicus Data Space · 数据与平台动态",
+        "kind": "rss",
+        "firstParty": true
+      },
+      "originalUrl": "https://dataspace.copernicus.eu/news/2026-10-16-new-sfeos-stac-catalogue-endpoint",
+      "publishedAt": "2026-10-16T12:06:51.000Z",
+      "timelineAt": "2026-10-17T02:50:10.006Z",
+      "category": "data",
+      "tags": [
+        "工具更新",
+        "云端处理",
+        "Copernicus",
+        "开源/仓库"
+      ],
+      "score": 67,
+      "selected": true
+    },
+    {
+      "id": "ze7qkbjgh3tced1f3933nbsrc",
+      "title": "空天院CropWatch荣获2026年度联合国粮农组织成就奖",
+      "originalTitle": "空天院荣获联合国粮农组织成就奖",
+      "summary": "中国科学院空天信息创新研究院的全球农情遥感监测平台CropWatch荣获2026年度联合国粮农组织成就奖。该平台将农情监测转化为开放云服务，已支持40多个国家独立开展农情监测，累计培训技术官员500余名，并持续发布《全球农情遥感速报》145期，服务173个国家和地区。",
+      "reason": "材料为官方新闻稿，报道CropWatch获FAO成就奖，未提供技术细节或独立验证，价值在于事件本身及其全球服务规模。",
+      "source": {
+        "name": "中国科学院空天院 · 科研动态",
+        "kind": "web_list",
+        "firstParty": true
+      },
+      "originalUrl": "https://aircas.cas.cn/dtxw/kydt/202610/t20261016_8293092.html",
+      "publishedAt": "2026-10-15T16:00:00.000Z",
+      "timelineAt": "2026-10-17T02:49:50.654Z",
+      "category": "industry",
+      "tags": [
+        "行业动态",
+        "农业",
+        "应用案例",
+        "中国科学院空天院"
+      ],
+      "score": 80,
+      "selected": true
+    },
+    {
+      "id": "p2ohp08inlj86ag4k5jx04haj",
+      "title": "SparK-SAR：面向高分辨率Sentinel-1 GRD SAR表征学习的数据高效ConvNeXt预训练（预印本）",
+      "originalTitle": "Data-Efficient ConvNeXt Pretraining for High-Resolution Sentinel-1 GRD SAR Representation Learning",
+      "summary": "基于论文摘要，SparK-SAR提出一种基于SparK和ConvNeXt的稀疏卷积掩码预训练框架，用于在有限计算下学习S1GRD影像的表征。",
+      "reason": "提出基于卷积的稀疏掩码预训练框架，针对S1GRD数据在有限计算下提升数据效率，并通过多个基准任务验证性能。",
+      "source": {
+        "name": "arXiv · 遥感与地球观测预印本",
+        "kind": "rss",
+        "firstParty": true
+      },
+      "originalUrl": "https://arxiv.org/abs/2610.21993v1",
+      "publishedAt": "2026-10-15T14:40:45.000Z",
+      "timelineAt": "2026-10-16T08:01:51.539Z",
+      "category": "paper",
+      "tags": [
+        "论文/研究",
+        "SAR",
+        "自监督学习",
+        "遥感基础模型"
+      ],
+      "score": 80,
+      "selected": true
+    },
+    {
+      "id": "l3t70jcfj7a2m4kmgp9usgrxp",
+      "title": "CGS01：融合卫星与站点数据的中国日降水数据集（2000–2024）预印本",
+      "originalTitle": "Merge Satellite and Gauge Daily Precipitation Data for Areas with Sparse-Gauge and Rugged Terrain: A High-Accuracy Gridded Dataset CGS01 (2000–2024) across China",
+      "summary": "该预印本提出双薄板样条（TPS）融合方法，结合卫星与站点观测构建中国区域日降水数据集CGS01（2000–2024）。基于论文摘要，作者报告CGS01在年降水误差、流域水平衡误差及与CHM_PRE_V2对比的相关系数、KGE、探测概率和MAE等指标上均有改善，且仅用先前研究27%的站点数。",
+      "reason": "提出双薄板样条融合方法构建中国区域日降水数据集CGS01，以较少站点实现精度提升，并给出与主流产品的定量对比。",
+      "source": {
+        "name": "Earth System Science Data · 数据论文与讨论稿",
+        "kind": "web_list",
+        "firstParty": true
+      },
+      "originalUrl": "https://essd.copernicus.org/preprints/essd-2026-564/",
+      "publishedAt": "2026-10-15T00:00:00.000Z",
+      "timelineAt": "2026-10-16T05:01:35.415Z",
+      "category": "data",
+      "tags": [
+        "论文/研究",
+        "数据集/基准",
+        "定量反演",
+        "数据融合"
+      ],
+      "score": 78,
+      "selected": true
+    },
+    {
+      "id": "rwqu4e6pporawbgw5rgix35f5",
+      "title": "GFED5NRT：基于 VIIRS 的近实时全球火灾排放数据集扩展（数据论文，预印本）",
+      "originalTitle": "Tracking recent extremes and interannual variability of global fire emissions using a near-real-time extension to the Global Fire Emissions Database",
+      "summary": "基于论文摘要，GFED5NRT 是 GFED5 的近实时扩展数据集，利用 VIIRS 主动火点观测和生物群系/区域特定的有效火面积与燃料消耗查找表，提供每日全球燃烧面积及多种痕量气体和气溶胶排放估算。",
+      "reason": "基于论文摘要，GFED5NRT 利用 VIIRS 主动火点观测和 GFED5 查找表，提供与 GFED5 时间序列一致的每日近实时燃烧面积和排放估算，并公开数据集，支持长期分析与近实时监测的衔接。",
+      "source": {
+        "name": "Earth System Science Data · 数据论文与讨论稿",
+        "kind": "web_list",
+        "firstParty": true
+      },
+      "originalUrl": "https://essd.copernicus.org/articles/18/7535/2026/",
+      "publishedAt": "2026-10-15T00:00:00.000Z",
+      "timelineAt": "2026-10-16T04:00:41.473Z",
+      "category": "data",
+      "tags": [
+        "数据集/基准",
+        "时序分析"
+      ],
+      "score": 80,
+      "selected": true
+    },
+    {
+      "id": "o4w5uuyivv04dhtd1pf3upp2d",
+      "title": "openEO 社区示例：利用 Sentinel-1 SAR 相干性检测收获时间",
+      "originalTitle": "New openEO Community Example: Detect Harvest Timing with Sentinel-1 SAR Coherence",
+      "summary": "Copernicus Data Space 发布了一个新的 openEO 社区示例笔记本，演示如何利用 Sentinel-1 SAR 相干性时间序列检测作物收获时间。",
+      "reason": "该教程展示了如何通过 openEO 后端调用 Sentinel-1 SAR 相干性 UDP，将计算密集的相干性生成任务从本地转移到云端，并提供了基于 xarray 的收获时间检测示例，为 SAR 时序分析提供了一种可复现的工作流参考。",
+      "source": {
+        "name": "Copernicus Data Space · 数据与平台动态",
+        "kind": "rss",
+        "firstParty": true
+      },
+      "originalUrl": "https://dataspace.copernicus.eu/news/2026-10-14-new-openeo-community-example-detect-harvest-timing-sentinel-1-sar-coherence",
+      "publishedAt": "2026-10-14T11:47:17.000Z",
+      "timelineAt": "2026-10-16T03:59:34.889Z",
+      "category": "tip",
+      "tags": [
+        "教程/实践",
+        "SAR",
+        "时序分析",
+        "Copernicus"
+      ],
+      "score": 75,
+      "selected": true
+    },
+    {
+      "id": "e79w8p57g0uxmxzlxflxg47az",
+      "title": "openEO 社区示例：利用 Sentinel-1 干涉图分析地震形变",
+      "originalTitle": "New openEO Community Example: Analyse Earthquake-Induced Deformation with Sentinel-1 Interferograms",
+      "summary": "Copernicus Data Space 发布新 openEO 社区示例笔记本，演示利用 Sentinel-1 干涉图分析意大利 Amatrice-Norcia 地震序列引起的地表形变。",
+      "reason": "该教程展示了通过 openEO 后端调用 CWL 封装的 ESA SNAP 干涉处理流程，将计算密集的 InSAR 处理移至数据侧，减少了本地数据下载和处理负担，为云原生 InSAR 分析提供了可复用的工作流示例。",
+      "source": {
+        "name": "Copernicus Data Space · 数据与平台动态",
+        "kind": "rss",
+        "firstParty": true
+      },
+      "originalUrl": "https://dataspace.copernicus.eu/news/2026-10-15-new-openeo-community-example-analyse-earthquake-induced-deformation-sentinel-1",
+      "publishedAt": "2026-10-15T11:16:12.000Z",
+      "timelineAt": "2026-10-16T03:59:34.837Z",
+      "category": "tip",
+      "tags": [
+        "教程/实践",
+        "InSAR",
+        "Copernicus",
+        "灾害监测"
+      ],
+      "score": 78,
+      "selected": true
+    },
     {
       "id": "llovvtpszjfqol6mdr0ob62ar",
       "title": "康斯坦茨湖水位告急，Sentinel-2 揭示浅水区",
@@ -666,53 +881,6 @@
         "USGS"
       ],
       "score": 38,
-      "selected": false
-    },
-    {
-      "id": "zdd7h5wkbxgm7pjb3c5mfhpbp",
-      "title": "Copernicus Sentinel-2 拍摄纳米比亚埃托沙国家公园最大盐沼",
-      "originalTitle": "Earth from Space: Namibia’s biggest salt pan",
-      "summary": "Copernicus Sentinel-2 于 4 月 5 日获取了纳米比亚北部埃托沙国家公园的影像，展示了占地 4760 平方公里的埃托沙盐沼。该假彩色图像利用近红外波段将植被显示为红色，清晰呈现了盐沼、水体及周边的草原与灌木林分布。",
-      "reason": null,
-      "source": {
-        "name": "ESA · 对地观测",
-        "kind": "rss",
-        "firstParty": true
-      },
-      "originalUrl": "https://www.esa.int/ESA_Multimedia/Images/2026/10/Earth_from_Space_Namibia_s_biggest_salt_pan",
-      "publishedAt": "2026-10-09T08:00:00.000Z",
-      "timelineAt": "2026-10-09T08:53:53.133Z",
-      "category": "tip",
-      "tags": [
-        "应用案例",
-        "光学遥感",
-        "ESA",
-        "Copernicus"
-      ],
-      "score": 12,
-      "selected": false
-    },
-    {
-      "id": "zbahj5bstgdbfkdhnae02g5xk",
-      "title": "多模态遥感图像配准：综合综述、挑战与展望",
-      "originalTitle": "Multimodal Remote Sensing Image Registration: A Comprehensive Review, Challenges and Prospects",
-      "summary": "基于论文摘要，该综述系统梳理了多模态遥感图像配准方法，将其划分为基于区域、特征和深度学习三类。文章详细阐述了各类方法的核心原理、代表算法及优劣势，并总结了公开数据集的特性与应用场景。最后指出了高精度配准研究的当前瓶颈，并展望了未来发展趋势，为相关领域研究提供参考。",
-      "reason": null,
-      "source": {
-        "name": "arXiv · 遥感与地球观测预印本",
-        "kind": "rss",
-        "firstParty": true
-      },
-      "originalUrl": "https://arxiv.org/abs/2610.11176v1",
-      "publishedAt": "2026-10-08T03:36:12.000Z",
-      "timelineAt": "2026-10-09T08:53:45.988Z",
-      "category": "paper",
-      "tags": [
-        "论文/研究",
-        "多模态",
-        "数据融合"
-      ],
-      "score": 42,
       "selected": false
     },
     {
@@ -2623,6 +2791,100 @@
     }
   ],
   "reports": [
+    {
+      "kind": "daily",
+      "key": "2026-10-17",
+      "title": "遥感日报 · 2026-10-17",
+      "generatedAt": "2026-10-17T02:49:33.841Z",
+      "editorialMode": "model",
+      "lead": {
+        "title": "SparK-SAR：数据高效ConvNeXt预训练框架发布",
+        "leadParagraph": "今日遥感动态聚焦于SparK-SAR预训练框架，该框架结合SparK与ConvNeXt，在有限计算下高效学习Sentinel-1 GRD影像表征。此外，GFED5NRT近实时火灾排放数据集与CGS01中国日降水数据集相继发布，为环境监测提供新工具。"
+      },
+      "overview": null,
+      "sections": [
+        {
+          "label": "论文与方法",
+          "summary": null,
+          "items": [
+            {
+              "itemId": "p2ohp08inlj86ag4k5jx04haj",
+              "title": "SparK-SAR：面向高分辨率Sentinel-1 GRD SAR表征学习的数据高效ConvNeXt预训练（预印本）",
+              "summary": "基于论文摘要，SparK-SAR提出一种基于SparK和ConvNeXt的稀疏卷积掩码预训练框架，用于在有限计算下学习S1GRD影像的表征。",
+              "sourceName": "arXiv · 遥感与地球观测预印本",
+              "originalUrl": "https://arxiv.org/abs/2610.21993v1"
+            }
+          ]
+        },
+        {
+          "label": "数据集与基准",
+          "summary": null,
+          "items": [
+            {
+              "itemId": "rwqu4e6pporawbgw5rgix35f5",
+              "title": "GFED5NRT：基于 VIIRS 的近实时全球火灾排放数据集扩展（数据论文，预印本）",
+              "summary": "基于论文摘要，GFED5NRT 是 GFED5 的近实时扩展数据集，利用 VIIRS 主动火点观测和生物群系/区域特定的有效火面积与燃料消耗查找表，提供每日全球燃烧面积及多种痕量气体和气溶胶排放估算。",
+              "sourceName": "Earth System Science Data · 数据论文与讨论稿",
+              "originalUrl": "https://essd.copernicus.org/articles/18/7535/2026/"
+            },
+            {
+              "itemId": "l3t70jcfj7a2m4kmgp9usgrxp",
+              "title": "CGS01：融合卫星与站点数据的中国日降水数据集（2000–2024）预印本",
+              "summary": "该预印本提出双薄板样条（TPS）融合方法，结合卫星与站点观测构建中国区域日降水数据集CGS01（2000–2024）。基于论文摘要，作者报告CGS01在年降水误差、流域水平衡误差及与CHM_PRE_V2对比的相关系数、KGE、探测概率和MAE等指标上均有改善，且仅用先前研究27%的站点数。",
+              "sourceName": "Earth System Science Data · 数据论文与讨论稿",
+              "originalUrl": "https://essd.copernicus.org/preprints/essd-2026-564/"
+            }
+          ]
+        },
+        {
+          "label": "应用与工程实践",
+          "summary": null,
+          "items": [
+            {
+              "itemId": "e79w8p57g0uxmxzlxflxg47az",
+              "title": "openEO 社区示例：利用 Sentinel-1 干涉图分析地震形变",
+              "summary": "Copernicus Data Space 发布新 openEO 社区示例笔记本，演示利用 Sentinel-1 干涉图分析意大利 Amatrice-Norcia 地震序列引起的地表形变。",
+              "sourceName": "Copernicus Data Space · 数据与平台动态",
+              "originalUrl": "https://dataspace.copernicus.eu/news/2026-10-15-new-openeo-community-example-analyse-earthquake-induced-deformation-sentinel-1"
+            },
+            {
+              "itemId": "o4w5uuyivv04dhtd1pf3upp2d",
+              "title": "openEO 社区示例：利用 Sentinel-1 SAR 相干性检测收获时间",
+              "summary": "Copernicus Data Space 发布了一个新的 openEO 社区示例笔记本，演示如何利用 Sentinel-1 SAR 相干性时间序列检测作物收获时间。",
+              "sourceName": "Copernicus Data Space · 数据与平台动态",
+              "originalUrl": "https://dataspace.copernicus.eu/news/2026-10-14-new-openeo-community-example-detect-harvest-timing-sentinel-1-sar-coherence"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "daily",
+      "key": "2026-10-15",
+      "title": "遥感日报 · 2026-10-15",
+      "generatedAt": "2026-10-16T03:15:34.969Z",
+      "editorialMode": "model",
+      "lead": {
+        "title": "USGS 公布 Landsat 10 卫星及 LandIS 载荷细节",
+        "leadParagraph": "USGS 今日披露 Landsat 10 卫星及其 LandIS 载荷详情，该载荷拥有 26 个光谱波段，覆盖可见光至热红外，远超 Landsat 8/9 的波段数。此举标志着 Landsat 系列在光谱分辨率上的重大升级。"
+      },
+      "overview": null,
+      "sections": [
+        {
+          "label": "卫星与传感器",
+          "summary": null,
+          "items": [
+            {
+              "itemId": "coa4892bdkb8zey9lqxqkolmh",
+              "title": "USGS 介绍 Landsat 10 卫星及其搭载的 LandIS 载荷",
+              "summary": "USGS 介绍了即将发射的 Landsat 10 卫星及其搭载的 LandIS（Landsat Instrument Suite）载荷。LandIS 包含从可见光到热红外的 26 个光谱波段，是 Landsat 8 和 9 的两倍以上，且可见光、近红外和短波红外观测的空间分辨率为 10 至 20 米。",
+              "sourceName": "USGS Landsat",
+              "originalUrl": "https://x.com/USGSLandsat/status/2110037984774918652"
+            }
+          ]
+        }
+      ]
+    },
     {
       "kind": "daily",
       "key": "2026-10-14",
@@ -4867,6 +5129,9 @@
       "group": "company",
       "definition": "Copernicus 的遥感研究、观测数据与工程动态。",
       "itemIds": [
+        "gdipajs3hcrtcvpip6a1jok9z",
+        "o4w5uuyivv04dhtd1pf3upp2d",
+        "e79w8p57g0uxmxzlxflxg47az",
         "xnu7z021vv3xrwd3vbb8ow7w8",
         "jmjngdlnd6pmbu8bc0589wjf4",
         "rfi8dwa72174ozkck11kosahj",
@@ -4883,6 +5148,7 @@
       "group": "company",
       "definition": "中国科学院空天院 的遥感研究、观测数据与工程动态。",
       "itemIds": [
+        "ze7qkbjgh3tced1f3933nbsrc",
         "qy93rpyckivmqpkz1vf0331vf",
         "wetwj260tlvv5owayi3xd3d4l",
         "tot69cti4mmhv14h9cq9qeqe5"
@@ -4919,6 +5185,8 @@
       "group": "field",
       "definition": "追踪SAR 与 InSAR的研究方法、数据、工具与应用实践。",
       "itemIds": [
+        "p2ohp08inlj86ag4k5jx04haj",
+        "o4w5uuyivv04dhtd1pf3upp2d",
         "k5l8mnix6nygv0m854yxrq1hb",
         "uqwxxax67xb6hiduqyy4v7bq2",
         "m4tv4f8k7delp5do9vq6vqna9"
@@ -4930,6 +5198,7 @@
       "group": "field",
       "definition": "追踪干涉测量的研究方法、数据、工具与应用实践。",
       "itemIds": [
+        "e79w8p57g0uxmxzlxflxg47az",
         "m4tv4f8k7delp5do9vq6vqna9"
       ]
     },
@@ -5041,6 +5310,7 @@
       "group": "field",
       "definition": "追踪定量反演的研究方法、数据、工具与应用实践。",
       "itemIds": [
+        "l3t70jcfj7a2m4kmgp9usgrxp",
         "njqh7kam6pmzr26jt05kfaqlq",
         "vnky7z902w8rdusiib3j7f2su",
         "easimpoc6rvohr23aiteyx6rt",
@@ -5061,6 +5331,7 @@
       "group": "field",
       "definition": "追踪遥感基础模型的研究方法、数据、工具与应用实践。",
       "itemIds": [
+        "p2ohp08inlj86ag4k5jx04haj",
         "ym432mzvh9pvufwdfy7ljlwhj",
         "ot6b4iq57f5gm4idalj4hhl86",
         "f5wgqgc55jz8vqupruks7zqf1",
@@ -5097,6 +5368,7 @@
       "group": "field",
       "definition": "追踪云端处理的研究方法、数据、工具与应用实践。",
       "itemIds": [
+        "gdipajs3hcrtcvpip6a1jok9z",
         "u8apq419zzwq61uwg5741g3uk",
         "ix86l1hfdxof6otboaxyx0wsm",
         "nbzsvoar9nz2386vnpw29cr5s"
@@ -5108,6 +5380,7 @@
       "group": "field",
       "definition": "追踪灾害监测的研究方法、数据、工具与应用实践。",
       "itemIds": [
+        "e79w8p57g0uxmxzlxflxg47az",
         "byrnkcxoy2da7fakzivdi7lyr",
         "ggc32079347hcrldc4wrbskbe",
         "obchfpcekgmrwyht0ihawhrcy",
@@ -5123,6 +5396,7 @@
       "group": "field",
       "definition": "追踪农业的研究方法、数据、工具与应用实践。",
       "itemIds": [
+        "ze7qkbjgh3tced1f3933nbsrc",
         "mr5c3yxe99rijf6w50f7ne5rl",
         "vr9o2ltcomst76qdrb1lky3pt",
         "uq9cdnxc82eqy8sp8k787i0oq",
@@ -5152,6 +5426,8 @@
       "group": "genre",
       "definition": "值得关注的遥感论文与研究，保留原文入口与适用条件。",
       "itemIds": [
+        "p2ohp08inlj86ag4k5jx04haj",
+        "l3t70jcfj7a2m4kmgp9usgrxp",
         "k1eyfqhost621es7uxdnohpqj",
         "ea15xeb1q6gqtcuoq8cb7tgpi",
         "ot6b4iq57f5gm4idalj4hhl86",
@@ -5197,6 +5473,8 @@
       "group": "genre",
       "definition": "值得关注的遥感数据集与基准，保留原文入口与适用条件。",
       "itemIds": [
+        "l3t70jcfj7a2m4kmgp9usgrxp",
+        "rwqu4e6pporawbgw5rgix35f5",
         "noyy99tnwyst709fto0qtzdq1",
         "njqh7kam6pmzr26jt05kfaqlq",
         "vnky7z902w8rdusiib3j7f2su",
@@ -5239,6 +5517,7 @@
       "group": "genre",
       "definition": "值得关注的遥感开源工具与代码，保留原文入口与适用条件。",
       "itemIds": [
+        "gdipajs3hcrtcvpip6a1jok9z",
         "jdx6khgou842sfra33v2brk0y",
         "w50vtz3cw1i1m9f0hsudcmep0",
         "cat4s20nkkzk4cfk080k317e6",
@@ -5275,6 +5554,8 @@
       "group": "genre",
       "definition": "值得关注的遥感教程与实践，保留原文入口与适用条件。",
       "itemIds": [
+        "o4w5uuyivv04dhtd1pf3upp2d",
+        "e79w8p57g0uxmxzlxflxg47az",
         "u8apq419zzwq61uwg5741g3uk",
         "ix86l1hfdxof6otboaxyx0wsm"
       ]
@@ -5288,7 +5569,7 @@
     }
   ],
   "hot": {
-    "computedAt": "2026-10-16T03:10:32.217Z",
+    "computedAt": "2026-10-17T02:50:19.405Z",
     "windowHours": 48,
     "entries": []
   }
