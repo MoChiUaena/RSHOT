@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-17T02:52:21.579Z",
+  "generatedAt": "2026-10-18T02:30:15.144Z",
   "categories": [
     {
       "key": "paper",
@@ -29,6 +29,18 @@
   ],
   "sources": [
     {
+      "name": "geemap · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "PySTAC · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "STAC FastAPI · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
       "name": "Qiusheng Wu · giswqs",
       "kind": "external"
     },
@@ -37,7 +49,35 @@
       "kind": "rss"
     },
     {
+      "name": "ESA · 对地观测",
+      "kind": "rss"
+    },
+    {
+      "name": "rioxarray · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "USGS Landsat",
+      "kind": "external"
+    },
+    {
       "name": "Earth System Science Data · 数据论文与讨论稿",
+      "kind": "web_list"
+    },
+    {
+      "name": "Google Earth 与 Earth Engine · 官方博客",
+      "kind": "rss"
+    },
+    {
+      "name": "EOReader · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "GDAL · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "中国科学院空天院 · 科研动态",
       "kind": "web_list"
     },
     {
@@ -45,7 +85,11 @@
       "kind": "rss"
     },
     {
-      "name": "GDAL · 稳定版本发布",
+      "name": "openEO Python Client · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "TerraTorch · 稳定版本发布",
       "kind": "rss"
     },
     {
@@ -57,27 +101,7 @@
       "kind": "rss"
     },
     {
-      "name": "openEO Python Client · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "earthaccess · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "Copernicus",
-      "kind": "external"
-    },
-    {
-      "name": "USGS Landsat",
-      "kind": "external"
-    },
-    {
-      "name": "EOReader · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "geemap · 稳定版本发布",
+      "name": "Rasterio · 稳定版本发布",
       "kind": "rss"
     },
     {
@@ -85,43 +109,64 @@
       "kind": "rss"
     },
     {
+      "name": "Copernicus",
+      "kind": "external"
+    },
+    {
+      "name": "earthaccess · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
       "name": "NASA Earthdata · 科学数据与工具",
       "kind": "rss"
-    },
-    {
-      "name": "rioxarray · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "STAC FastAPI · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "PySTAC · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "Rasterio · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "ESA · 对地观测",
-      "kind": "rss"
-    },
-    {
-      "name": "TerraTorch · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "Google Earth 与 Earth Engine · 官方博客",
-      "kind": "rss"
-    },
-    {
-      "name": "中国科学院空天院 · 科研动态",
-      "kind": "web_list"
     }
   ],
   "items": [
+    {
+      "id": "psoakgufonb9jhsqiieno8odc",
+      "title": "EXPORT 航次数据论文：2025年1-3月跨大西洋气溶胶传输观测（预印本）",
+      "originalTitle": "Trans-Atlantic aerosol transport from January to March 2025 – measurements from two expeditions on a research vessel",
+      "summary": "基于论文摘要，该预印本数据论文记录了2025年1-3月德国研究船 METEOR 上 M207 和 M208 航次中 EXPORT 实验的气溶胶与气象连续观测数据，覆盖三次撒哈拉沙尘事件。",
+      "reason": "该数据论文提供了2025年1-3月跨大西洋航次中连续的气溶胶与气象观测数据，覆盖三次撒哈拉沙尘事件，包含多种传感器测量，并公开了全部数据集，对沙尘传输研究具有数据补充价值。",
+      "source": {
+        "name": "Earth System Science Data · 数据论文与讨论稿",
+        "kind": "web_list",
+        "firstParty": true
+      },
+      "originalUrl": "https://essd.copernicus.org/preprints/essd-2026-733/",
+      "publishedAt": "2026-10-16T00:00:00.000Z",
+      "timelineAt": "2026-10-17T07:54:23.396Z",
+      "category": "data",
+      "tags": [
+        "数据集/基准",
+        "气候",
+        "灾害监测"
+      ],
+      "score": 78,
+      "selected": true
+    },
+    {
+      "id": "xhy2k5tdmn3bdl6l6mradqw3k",
+      "title": "TORRENT：美国本土山洪研究观测约束的基准就绪社区数据集（预印本）",
+      "originalTitle": "TORRENT: An observation-constrained and benchmark-ready community shared dataset in the contiguous United States for flash-flood research and model intercomparison",
+      "summary": "基于论文摘要，TORRENT 数据集论文提出一个面向美国本土山洪研究的基准就绪社区数据集，整合了 NOAA/NCEI 事件报告、USGS 流量计和流域边界，提供观测流量过程线作为基准目标，并包含高水位标记和质量控制元数据。",
+      "reason": "该数据集论文提出了一个三级结构的山洪观测数据集，整合了事件报告、观测可用性和可复现评估包，并提供了确定性可重跑的构建代码，为山洪模型比较提供了基准。",
+      "source": {
+        "name": "Earth System Science Data · 数据论文与讨论稿",
+        "kind": "web_list",
+        "firstParty": true
+      },
+      "originalUrl": "https://essd.copernicus.org/preprints/essd-2026-695/",
+      "publishedAt": "2026-10-16T00:00:00.000Z",
+      "timelineAt": "2026-10-17T04:52:50.415Z",
+      "category": "data",
+      "tags": [
+        "数据集/基准",
+        "灾害监测"
+      ],
+      "score": 80,
+      "selected": true
+    },
     {
       "id": "wsbk0ovjw37iq5ly345ffbcl9",
       "title": "太空俯瞰：西南极洲海冰影像",
@@ -505,6 +550,31 @@
       "selected": true
     },
     {
+      "id": "vokxv0xhvjdp9w1qhy3qzqeru",
+      "title": "研究提出将任意地球观测任务转化为递归自改进的通用范式（预印本）",
+      "originalTitle": "The Last Remote Sensing Model Built by Humans? Casting Any Earth Observation Task as Recursive Self-Improvement",
+      "summary": "该研究提出一种新范式，将任意地球观测任务转化为递归自改进流程，由通用编码代理自动构建模型并持续优化。基于论文摘要，作者在六个涵盖光学、SAR和多光谱时间序列影像的基准上报告，代理构建的模型均超越现有最优方法，其中土地覆盖制图仅使用11%的训练标签。该范式将少样本学习、跨域适应等问题统一为任务设计选择，但代码和数据可用性未说明。",
+      "reason": "提出将任意地球观测任务转化为递归自改进流程的通用范式，并在六个基准上报告超越现有方法的实验结果，为遥感模型自动化构建提供了新思路。",
+      "source": {
+        "name": "arXiv · 遥感与地球观测预印本",
+        "kind": "rss",
+        "firstParty": true
+      },
+      "originalUrl": "https://arxiv.org/abs/2610.18845v2",
+      "publishedAt": "2026-10-13T17:57:51.000Z",
+      "timelineAt": "2026-10-13T17:57:51.000Z",
+      "category": "paper",
+      "tags": [
+        "论文/研究",
+        "遥感基础模型",
+        "多模态",
+        "自监督学习",
+        "arXiv"
+      ],
+      "score": 75,
+      "selected": true
+    },
+    {
       "id": "noyy99tnwyst709fto0qtzdq1",
       "title": "CoASTS与BiOMaP项目的光学重要成分高光谱吸收系数数据集发布",
       "originalTitle": "Coastal Atmosphere & Sea Time Series (CoASTS) and Bio-Optical mapping of Marine optical Properties (BiOMaP): the hyperspectral absorption coefficients by optically significant constituents",
@@ -854,34 +924,6 @@
       ],
       "score": 62,
       "selected": true
-    },
-    {
-      "id": "k6a5vsrrl6ft361jbe3xhuv6o",
-      "title": "NISAR 与 HLS 数据揭示 2026 年 9 月初 Anak Krakatau 火山喷发后的岛屿扩张",
-      "originalTitle": "Anak Krakatau Grows",
-      "summary": "NISAR 和 HLS 数据显示，2026 年 9 月初的喷发使 Anak Krakatau 西部及西南海岸面积增加 32.8 公顷。该可视化基于 NISAR 辐射地形校正 SAR 后向散射数据，利用其穿透云雾能力监测地表变化。HLS 数据集提供了来自 Sentinel-2A/B 的 30 米表面反射率影像，对比展示了喷发前后的地貌差异。",
-      "reason": null,
-      "source": {
-        "name": "NASA Earthdata · 科学数据与工具",
-        "kind": "rss",
-        "firstParty": true
-      },
-      "originalUrl": "https://www.earthdata.nasa.gov/news/worldview-image-archive/anak-krakatau-grows",
-      "publishedAt": "2026-10-08T20:36:17.000Z",
-      "timelineAt": "2026-10-10T02:56:32.872Z",
-      "category": "tip",
-      "tags": [
-        "应用案例",
-        "SAR",
-        "光学遥感",
-        "数据融合",
-        "灾害监测",
-        "NASA",
-        "ESA",
-        "USGS"
-      ],
-      "score": 38,
-      "selected": false
     },
     {
       "id": "ym432mzvh9pvufwdfy7ljlwhj",
@@ -2791,6 +2833,60 @@
     }
   ],
   "reports": [
+    {
+      "kind": "daily",
+      "key": "2026-10-18",
+      "title": "遥感日报 · 2026-10-18",
+      "generatedAt": "2026-10-18T00:00:23.589Z",
+      "editorialMode": "model",
+      "lead": {
+        "title": "空天院CropWatch荣获2026年度联合国粮农组织成就奖",
+        "leadParagraph": "中国科学院空天信息创新研究院的全球农情遥感监测平台CropWatch荣获2026年度联合国粮农组织成就奖。该平台已支持40多个国家独立开展农情监测，累计培训技术官员500余名，并持续发布《全球农情遥感速报》145期。"
+      },
+      "overview": null,
+      "sections": [
+        {
+          "label": "数据集与基准",
+          "summary": null,
+          "items": [
+            {
+              "itemId": "xhy2k5tdmn3bdl6l6mradqw3k",
+              "title": "TORRENT：美国本土山洪研究观测约束的基准就绪社区数据集（预印本）",
+              "summary": "基于论文摘要，TORRENT 数据集论文提出一个面向美国本土山洪研究的基准就绪社区数据集，整合了 NOAA/NCEI 事件报告、USGS 流量计和流域边界，提供观测流量过程线作为基准目标，并包含高水位标记和质量控制元数据。",
+              "sourceName": "Earth System Science Data · 数据论文与讨论稿",
+              "originalUrl": "https://essd.copernicus.org/preprints/essd-2026-695/"
+            },
+            {
+              "itemId": "psoakgufonb9jhsqiieno8odc",
+              "title": "EXPORT 航次数据论文：2025年1-3月跨大西洋气溶胶传输观测（预印本）",
+              "summary": "基于论文摘要，该预印本数据论文记录了2025年1-3月德国研究船 METEOR 上 M207 和 M208 航次中 EXPORT 实验的气溶胶与气象连续观测数据，覆盖三次撒哈拉沙尘事件。",
+              "sourceName": "Earth System Science Data · 数据论文与讨论稿",
+              "originalUrl": "https://essd.copernicus.org/preprints/essd-2026-733/"
+            },
+            {
+              "itemId": "gdipajs3hcrtcvpip6a1jok9z",
+              "title": "Copernicus Data Space 推出新的 SFEOS STAC 目录端点",
+              "summary": "Copernicus Data Space Ecosystem 推出新的 STAC 目录端点 https://stac.opensearch.dataspace.copernicus.eu/v1 及其 STAC Browser，基于 SFEOS（stac-fastapi-elasticsearch-opensearch）后端构建。",
+              "sourceName": "Copernicus Data Space · 数据与平台动态",
+              "originalUrl": "https://dataspace.copernicus.eu/news/2026-10-16-new-sfeos-stac-catalogue-endpoint"
+            }
+          ]
+        },
+        {
+          "label": "行业与政策",
+          "summary": null,
+          "items": [
+            {
+              "itemId": "ze7qkbjgh3tced1f3933nbsrc",
+              "title": "空天院CropWatch荣获2026年度联合国粮农组织成就奖",
+              "summary": "中国科学院空天信息创新研究院的全球农情遥感监测平台CropWatch荣获2026年度联合国粮农组织成就奖。该平台将农情监测转化为开放云服务，已支持40多个国家独立开展农情监测，累计培训技术官员500余名，并持续发布《全球农情遥感速报》145期，服务173个国家和地区。",
+              "sourceName": "中国科学院空天院 · 科研动态",
+              "originalUrl": "https://aircas.cas.cn/dtxw/kydt/202610/t20261016_8293092.html"
+            }
+          ]
+        }
+      ]
+    },
     {
       "kind": "daily",
       "key": "2026-10-17",
@@ -5332,6 +5428,7 @@
       "definition": "追踪遥感基础模型的研究方法、数据、工具与应用实践。",
       "itemIds": [
         "p2ohp08inlj86ag4k5jx04haj",
+        "vokxv0xhvjdp9w1qhy3qzqeru",
         "ym432mzvh9pvufwdfy7ljlwhj",
         "ot6b4iq57f5gm4idalj4hhl86",
         "f5wgqgc55jz8vqupruks7zqf1",
@@ -5380,6 +5477,8 @@
       "group": "field",
       "definition": "追踪灾害监测的研究方法、数据、工具与应用实践。",
       "itemIds": [
+        "psoakgufonb9jhsqiieno8odc",
+        "xhy2k5tdmn3bdl6l6mradqw3k",
         "e79w8p57g0uxmxzlxflxg47az",
         "byrnkcxoy2da7fakzivdi7lyr",
         "ggc32079347hcrldc4wrbskbe",
@@ -5428,6 +5527,7 @@
       "itemIds": [
         "p2ohp08inlj86ag4k5jx04haj",
         "l3t70jcfj7a2m4kmgp9usgrxp",
+        "vokxv0xhvjdp9w1qhy3qzqeru",
         "k1eyfqhost621es7uxdnohpqj",
         "ea15xeb1q6gqtcuoq8cb7tgpi",
         "ot6b4iq57f5gm4idalj4hhl86",
@@ -5473,6 +5573,8 @@
       "group": "genre",
       "definition": "值得关注的遥感数据集与基准，保留原文入口与适用条件。",
       "itemIds": [
+        "psoakgufonb9jhsqiieno8odc",
+        "xhy2k5tdmn3bdl6l6mradqw3k",
         "l3t70jcfj7a2m4kmgp9usgrxp",
         "rwqu4e6pporawbgw5rgix35f5",
         "noyy99tnwyst709fto0qtzdq1",
@@ -5569,7 +5671,7 @@
     }
   ],
   "hot": {
-    "computedAt": "2026-10-17T02:50:19.405Z",
+    "computedAt": "2026-10-18T02:25:34.538Z",
     "windowHours": 48,
     "entries": []
   }
