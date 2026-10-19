@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-18T02:30:15.144Z",
+  "generatedAt": "2026-10-19T02:31:29.256Z",
   "categories": [
     {
       "key": "paper",
@@ -29,56 +29,12 @@
   ],
   "sources": [
     {
-      "name": "geemap · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "PySTAC · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "STAC FastAPI · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "Qiusheng Wu · giswqs",
-      "kind": "external"
-    },
-    {
-      "name": "Copernicus Data Space · 数据与平台动态",
-      "kind": "rss"
-    },
-    {
-      "name": "ESA · 对地观测",
-      "kind": "rss"
-    },
-    {
-      "name": "rioxarray · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "USGS Landsat",
-      "kind": "external"
-    },
-    {
-      "name": "Earth System Science Data · 数据论文与讨论稿",
-      "kind": "web_list"
-    },
-    {
-      "name": "Google Earth 与 Earth Engine · 官方博客",
-      "kind": "rss"
-    },
-    {
       "name": "EOReader · 稳定版本发布",
       "kind": "rss"
     },
     {
-      "name": "GDAL · 稳定版本发布",
+      "name": "TorchGeo · 稳定版本发布",
       "kind": "rss"
-    },
-    {
-      "name": "中国科学院空天院 · 科研动态",
-      "kind": "web_list"
     },
     {
       "name": "arXiv · 遥感与地球观测预印本",
@@ -89,39 +45,130 @@
       "kind": "rss"
     },
     {
-      "name": "TerraTorch · 稳定版本发布",
+      "name": "中国科学院空天院 · 科研动态",
+      "kind": "web_list"
+    },
+    {
+      "name": "Google Earth 与 Earth Engine · 官方博客",
       "kind": "rss"
-    },
-    {
-      "name": "Copernicus EMS",
-      "kind": "external"
-    },
-    {
-      "name": "Earth Engine API · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "Rasterio · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "TorchGeo · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "Copernicus",
-      "kind": "external"
     },
     {
       "name": "earthaccess · 稳定版本发布",
       "kind": "rss"
     },
     {
+      "name": "rioxarray · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "PySTAC · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "Earth Engine API · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "STAC FastAPI · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "GDAL · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "Qiusheng Wu · giswqs",
+      "kind": "external"
+    },
+    {
+      "name": "Copernicus",
+      "kind": "external"
+    },
+    {
+      "name": "geemap · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "TerraTorch · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "ESA · 对地观测",
+      "kind": "rss"
+    },
+    {
       "name": "NASA Earthdata · 科学数据与工具",
       "kind": "rss"
+    },
+    {
+      "name": "Copernicus Data Space · 数据与平台动态",
+      "kind": "rss"
+    },
+    {
+      "name": "Earth System Science Data · 数据论文与讨论稿",
+      "kind": "web_list"
+    },
+    {
+      "name": "Rasterio · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "USGS Landsat",
+      "kind": "external"
+    },
+    {
+      "name": "Copernicus EMS",
+      "kind": "external"
     }
   ],
   "items": [
+    {
+      "id": "lz727wmrrr33oy7v1tf2g1m2t",
+      "title": "Landsat 十月动态：火灾监测与数据更新",
+      "originalTitle": "What’s new with Landsat this October? 🛰️ This month’s issue starts in north-central Oregon, where Landsat captured the progression and aftermath of summer wildfires. Also in this issue: 🔹 Learn how Landsat data help support water manageme",
+      "summary": "USGS 发布 Landsat 十月通讯，展示俄勒冈州中部夏季野火进展与 aftermath 的卫星影像。本期还介绍 Landsat 数据在全球水资源管理中的应用、Landsat 2 和 Landsat 3 MSS Level-1 再处理产品，以及通过 Amazon SNS 订阅 USGS EROS 档案新增数据的更新方式。",
+      "reason": null,
+      "source": {
+        "name": "USGS Landsat",
+        "kind": "external",
+        "firstParty": false
+      },
+      "originalUrl": "https://x.com/USGSLandsat/status/2111096133644627989",
+      "publishedAt": "2026-10-16T14:05:15.000Z",
+      "timelineAt": "2026-10-18T02:30:36.434Z",
+      "category": "data",
+      "tags": [
+        "数据集/基准",
+        "数据质量",
+        "USGS"
+      ],
+      "score": 28,
+      "selected": false
+    },
+    {
+      "id": "i6rft274pfx7l4y1bli6fns93",
+      "title": "圣海伦斯火山喷发40年：Landsat见证生态恢复",
+      "originalTitle": "The eruption lasted hours. Its effects on rivers and ecosystems are still showing up more than 40 years later. 🌋 When Mount St. Helens erupted, it sent a massive wave of mud, water, and debris downstream, overwhelming the Toutle, Cowlitz,",
+      "summary": "圣海伦斯火山1980年喷发后，泥水碎屑流使图特尔河、考利兹河和哥伦比亚河部分河床抬升近30英尺，至今部分河流输沙量仍为喷发前数十倍。植被和动物恢复速度远超预期，当前生物多样性已超过喷发前。1982年国会设立11万英亩国家火山纪念碑，Landsat持续40余年逐像素记录其恢复过程。",
+      "reason": null,
+      "source": {
+        "name": "USGS Landsat",
+        "kind": "external",
+        "firstParty": false
+      },
+      "originalUrl": "https://x.com/USGSLandsat/status/2111110041159737598",
+      "publishedAt": "2026-10-16T15:00:30.000Z",
+      "timelineAt": "2026-10-18T02:30:36.311Z",
+      "category": "tip",
+      "tags": [
+        "应用案例",
+        "森林/生态",
+        "灾害监测",
+        "USGS"
+      ],
+      "score": 38,
+      "selected": false
+    },
     {
       "id": "psoakgufonb9jhsqiieno8odc",
       "title": "EXPORT 航次数据论文：2025年1-3月跨大西洋气溶胶传输观测（预印本）",
@@ -740,52 +787,6 @@
       "selected": true
     },
     {
-      "id": "h6cylet4j823fdo6skssjx6rd",
-      "title": "Copernicus Sentinel-3 拍摄新西兰海岸",
-      "originalTitle": "🐦 Happy World Migratory Bird Day! 🛰️ #CopernicusEU Sentinel-3 captures 🇳🇿 NZ's coastline, home to migratory shorebirds like the bar-tailed godwit, travelling thousands of kms between Arctic breeding grounds &amp; coastal wetlands. 🔗 ht",
-      "summary": "🐦 世界候鸟日快乐！\n🛰️ #CopernicusEU Sentinel-3 捕捉了 🇳🇿 新西兰的海岸线，这里是斑尾塍鹬等迁徙性涉禽的家园，它们在北极繁殖地与沿海湿地之间飞行数千公里。\n🔗 https://t.co/aMUSLGYSkH\n#ImageOfTheDay https://t.co/yS0nEBnwWD",
-      "reason": null,
-      "source": {
-        "name": "Copernicus",
-        "kind": "external",
-        "firstParty": false
-      },
-      "originalUrl": "https://x.com/CopernicusEU/status/2108944465646006743",
-      "publishedAt": "2026-10-10T15:35:17.000Z",
-      "timelineAt": "2026-10-12T02:30:33.830Z",
-      "category": "tip",
-      "tags": [
-        "应用案例",
-        "森林/生态",
-        "Copernicus"
-      ],
-      "score": 12,
-      "selected": false
-    },
-    {
-      "id": "nnjoy7hjph2lnk2zerxyth8nz",
-      "title": "Copernicus发布南极埃里伯斯火山影像",
-      "originalTitle": "🌋 Mount Erebus 🇦🇶, Antarctica’s southernmost active volcano, casts a ~35 km shadow across sea ice. 🛰️ This #CopernicusEU Sentinel-2 image reveals the snow-covered volcano &amp; Erebus Glacier Tongue. 🔗 https://t.co/KXibcQhHJ2 #ImageOfT",
-      "summary": "🌋 南极洲最南端的活火山——埃里伯斯山（Mount Erebus）🇦🇶，在海冰上投下约35公里的阴影。\n\n🛰️ 这张#CopernicusEU Sentinel-2图像揭示了被雪覆盖的火山及埃里伯斯冰川舌（Erebus Glacier Tongue）。\n\n🔗 https://t.co/KXibcQhHJ2 \n\n#ImageOfTheDay https://t.co/mVA9KESCIy",
-      "reason": null,
-      "source": {
-        "name": "Copernicus",
-        "kind": "external",
-        "firstParty": false
-      },
-      "originalUrl": "https://x.com/CopernicusEU/status/2109292301159641556",
-      "publishedAt": "2026-10-11T14:37:28.000Z",
-      "timelineAt": "2026-10-12T02:30:33.746Z",
-      "category": "tip",
-      "tags": [
-        "应用案例",
-        "光学遥感",
-        "Copernicus"
-      ],
-      "score": 12,
-      "selected": false
-    },
-    {
       "id": "r3lto7uxqe418v99dvwnnqhwb",
       "title": "TreeMap 2020、2022和2023：美国本土连续48州树级森林数据集中改进的物种分布映射（预印本）",
       "originalTitle": "TreeMap 2020, 2022, and 2023: Improved species range mapping in a tree-level forest dataset for the conterminous United States",
@@ -807,52 +808,6 @@
       ],
       "score": 80,
       "selected": true
-    },
-    {
-      "id": "o1vjnb0mowkyfrcweg0mq3zbf",
-      "title": "CEMS数据助力欧洲应对2026野火",
-      "originalTitle": "📢The latest #EUSpace Observer article is out❗ It describes how our #CEMS data and services supported Europe's response to 2026 wildfire season 🔗 https://t.co/mOoijwltEF https://t.co/Da3COGjao2",
-      "summary": "📢最新的 #EUSpace Observer 文章已发布❗\n\n它介绍了我们的 #CEMS 数据和服务如何支持欧洲应对 2026 年野火季\n\n🔗 https://t.co/mOoijwltEF https://t.co/Da3COGjao2",
-      "reason": null,
-      "source": {
-        "name": "Copernicus EMS",
-        "kind": "external",
-        "firstParty": false
-      },
-      "originalUrl": "https://x.com/CopernicusEMS/status/2108490406950277436",
-      "publishedAt": "2026-10-09T09:31:01.000Z",
-      "timelineAt": "2026-10-11T02:30:34.995Z",
-      "category": "tip",
-      "tags": [
-        "应用案例",
-        "灾害监测",
-        "Copernicus"
-      ],
-      "score": 20,
-      "selected": false
-    },
-    {
-      "id": "k0mdw370lcb7m5bq2zbyhpdgf",
-      "title": "Copernicus EMS发布希腊克里特岛洪水监测",
-      "originalTitle": "#EMSR933 #Flood in #Crete, #Greece🇬🇷 Our #MappingTeam delivered new Delineation Monitoring products of the flooded area as the activation continues 📍 Detail from the Tzermiado Area of Interest, as of 8 October 2026 🔗 https://t.co/BZt8jx",
-      "summary": "#EMSR933 #Flood in #Crete, #Greece🇬🇷\n\n随着应急响应持续，我们的#MappingTeam已交付新的洪泛区 delineation 监测产品\n\n📍 Tzermiado 兴趣区详情，截至2026年10月8日\n\n🔗 https://t.co/BZt8jxaz5q https://t.co/FCqK4sOI6s",
-      "reason": null,
-      "source": {
-        "name": "Copernicus EMS",
-        "kind": "external",
-        "firstParty": false
-      },
-      "originalUrl": "https://x.com/CopernicusEMS/status/2108551075766694126",
-      "publishedAt": "2026-10-09T13:32:06.000Z",
-      "timelineAt": "2026-10-11T02:30:34.888Z",
-      "category": "tip",
-      "tags": [
-        "应用案例",
-        "灾害监测",
-        "Copernicus"
-      ],
-      "score": 18,
-      "selected": false
     },
     {
       "id": "qy93rpyckivmqpkz1vf0331vf",
@@ -4231,6 +4186,156 @@
     },
     {
       "kind": "weekly",
+      "key": "2026-W42",
+      "title": "RSHOT 周报 · 2026-W42",
+      "generatedAt": "2026-10-19T02:00:53.026Z",
+      "editorialMode": "model",
+      "lead": {
+        "title": "多源数据集发布与遥感应用深化",
+        "leadParagraph": "本期覆盖2026年10月12日至18日。期间，遥感领域在数据集发布、方法创新与应用拓展方面均取得显著进展。多个高质量数据集相继公开，涵盖降水监测、沿海水色、森林分布、火灾排放、山洪研究及中国区域降水等，为相关研究提供了重要基础。同时，SparK-SAR等新方法展示了数据高效预训练在SAR影像表征学习中的潜力。应用层面，openEO社区新增地震形变与作物收获检测示例，CropWatch平台荣获FAO成就奖，凸显遥感在灾害监测与全球农情服务中的实际价值。此外，Landsat 10卫星及Sentinel-5P产品更新计划为未来数据连续性提供保障。整体来看，本期遥感动态呈现数据开放共享、方法创新与行业应用并进的趋势。"
+      },
+      "overview": "本期覆盖2026年10月12日至18日。期间，遥感领域在数据集发布、方法创新与应用拓展方面均取得显著进展。多个高质量数据集相继公开，涵盖降水监测、沿海水色、森林分布、火灾排放、山洪研究及中国区域降水等，为相关研究提供了重要基础。同时，SparK-SAR等新方法展示了数据高效预训练在SAR影像表征学习中的潜力。应用层面，openEO社区新增地震形变与作物收获检测示例，CropWatch平台荣获FAO成就奖，凸显遥感在灾害监测与全球农情服务中的实际价值。此外，Landsat 10卫星及Sentinel-5P产品更新计划为未来数据连续性提供保障。整体来看，本期遥感动态呈现数据开放共享、方法创新与行业应用并进的趋势。",
+      "sections": [
+        {
+          "label": "多源数据集集中发布",
+          "summary": "本期发布了多个面向不同应用的数据集：OpenSat4Weather利用Ku波段卫星链路监测降水，填补了地面观测空白；MODIS Aqua沿海反射率数据集通过改进大气校正提升了精度；CoASTS与BiOMaP提供高光谱吸收系数；TreeMap更新了美国树级森林物种分布；GFED5NRT实现近实时火灾排放监测；TORRENT整合山洪观测数据；CGS01融合卫星与站点数据生成中国日降水产品。这些数据集覆盖大气、陆地、海洋等领域，为遥感研究提供了丰富的基础数据。",
+          "items": [
+            {
+              "itemId": "vnky7z902w8rdusiib3j7f2su",
+              "title": "OpenSat4Weather：用于降水监测的 Ku 波段卫星链路数据集",
+              "summary": "基于论文摘要，作者发布了 OpenSat4Weather 数据集，这是一个包含法国南部 215 个 SML 传感器在 2022 年 8 月至 12 月期间测量数据的开放集合。",
+              "sourceName": "Earth System Science Data · 数据论文与讨论稿",
+              "originalUrl": "https://essd.copernicus.org/articles/18/7455/2026/"
+            },
+            {
+              "itemId": "njqh7kam6pmzr26jt05kfaqlq",
+              "title": "基于MODIS Aqua的中国与美国沿海高质量遥感反射率数据集发布",
+              "summary": "基于论文摘要，作者开发了改进的大气校正处理框架，生成了2003–2022年中国和美国沿海水域的MODIS Aqua高质量遥感反射率（Rrs）数据集。与NASA标准产品相比，该数据集在8个波段上的平均回归斜率恢复至1.00 ± 0.08（原为0.90 ± 0.06），且443 nm波段的区域平均有效数据量在中国沿海增加了56%，在美国沿海增加了18%。",
+              "sourceName": "Earth System Science Data · 数据论文与讨论稿",
+              "originalUrl": "https://essd.copernicus.org/articles/18/7475/2026/"
+            },
+            {
+              "itemId": "noyy99tnwyst709fto0qtzdq1",
+              "title": "CoASTS与BiOMaP项目的光学重要成分高光谱吸收系数数据集发布",
+              "summary": "CoASTS与BiOMaP项目发布了光学重要成分的高光谱吸收系数数据集。基于论文摘要，该数据集包含400–750 nm区间内色素和非色素颗粒以及350–680 nm区间内有色溶解有机物的吸收系数，光谱分辨率为3 nm，步进为2 nm。数据可通过DOI链接获取。",
+              "sourceName": "Earth System Science Data · 数据论文与讨论稿",
+              "originalUrl": "https://essd.copernicus.org/articles/18/7499/2026/"
+            },
+            {
+              "itemId": "r3lto7uxqe418v99dvwnnqhwb",
+              "title": "TreeMap 2020、2022和2023：美国本土连续48州树级森林数据集中改进的物种分布映射（预印本）",
+              "summary": "TreeMap 2020、2022和2023更新了美国本土连续48州的树级森林数据集，改进了物种分布映射。基于论文摘要，作者使用随机森林插值方法将最相似的FIA样地分配给网格化LANDFIRE数据中的每个森林像素，并用Daymet气候变量替换了LANDFIRE生物物理变量。此外，新流程限制了可用于插值的FIA样地池，以减少不合理的物种分配。这三个版本的数据已公开可用。",
+              "sourceName": "Earth System Science Data · 数据论文与讨论稿",
+              "originalUrl": "https://essd.copernicus.org/preprints/essd-2026-633/"
+            },
+            {
+              "itemId": "rwqu4e6pporawbgw5rgix35f5",
+              "title": "GFED5NRT：基于 VIIRS 的近实时全球火灾排放数据集扩展（数据论文，预印本）",
+              "summary": "基于论文摘要，GFED5NRT 是 GFED5 的近实时扩展数据集，利用 VIIRS 主动火点观测和生物群系/区域特定的有效火面积与燃料消耗查找表，提供每日全球燃烧面积及多种痕量气体和气溶胶排放估算。",
+              "sourceName": "Earth System Science Data · 数据论文与讨论稿",
+              "originalUrl": "https://essd.copernicus.org/articles/18/7535/2026/"
+            },
+            {
+              "itemId": "xhy2k5tdmn3bdl6l6mradqw3k",
+              "title": "TORRENT：美国本土山洪研究观测约束的基准就绪社区数据集（预印本）",
+              "summary": "基于论文摘要，TORRENT 数据集论文提出一个面向美国本土山洪研究的基准就绪社区数据集，整合了 NOAA/NCEI 事件报告、USGS 流量计和流域边界，提供观测流量过程线作为基准目标，并包含高水位标记和质量控制元数据。",
+              "sourceName": "Earth System Science Data · 数据论文与讨论稿",
+              "originalUrl": "https://essd.copernicus.org/preprints/essd-2026-695/"
+            },
+            {
+              "itemId": "l3t70jcfj7a2m4kmgp9usgrxp",
+              "title": "CGS01：融合卫星与站点数据的中国日降水数据集（2000–2024）预印本",
+              "summary": "该预印本提出双薄板样条（TPS）融合方法，结合卫星与站点观测构建中国区域日降水数据集CGS01（2000–2024）。基于论文摘要，作者报告CGS01在年降水误差、流域水平衡误差及与CHM_PRE_V2对比的相关系数、KGE、探测概率和MAE等指标上均有改善，且仅用先前研究27%的站点数。",
+              "sourceName": "Earth System Science Data · 数据论文与讨论稿",
+              "originalUrl": "https://essd.copernicus.org/preprints/essd-2026-564/"
+            }
+          ]
+        },
+        {
+          "label": "方法创新与工具升级",
+          "summary": "SparK-SAR提出基于稀疏卷积掩码的预训练框架，在有限计算下高效学习Sentinel-1 GRD影像表征，为SAR数据应用提供新思路。GeoLibre v3.4.0新增对象级图像分析与ICESat-2/GEDI激光雷达支持，增强了开源工具的处理能力。此外，openEO社区新增两个示例笔记本，分别演示利用Sentinel-1干涉图分析地震形变和利用SAR相干性检测作物收获时间，展示了标准化的云原生处理流程在灾害监测与农业应用中的便捷性。",
+          "items": [
+            {
+              "itemId": "p2ohp08inlj86ag4k5jx04haj",
+              "title": "SparK-SAR：面向高分辨率Sentinel-1 GRD SAR表征学习的数据高效ConvNeXt预训练（预印本）",
+              "summary": "基于论文摘要，SparK-SAR提出一种基于SparK和ConvNeXt的稀疏卷积掩码预训练框架，用于在有限计算下学习S1GRD影像的表征。",
+              "sourceName": "arXiv · 遥感与地球观测预印本",
+              "originalUrl": "https://arxiv.org/abs/2610.21993v1"
+            },
+            {
+              "itemId": "l4qu2dk2oorbvu421z6hc0plh",
+              "title": "GeoLibre v3.4.0 发布：新增对象级图像分析与 ICESat-2/GEDI 激光雷达支持",
+              "summary": "GeoLibre v3.4.0 发布了多项新功能，包括对象级图像分析（OBIA）、ICESat-2 和 GEDI 空间激光雷达数据浏览以及带语音引导的逐步导航。",
+              "sourceName": "Qiusheng Wu · giswqs",
+              "originalUrl": "https://x.com/giswqs/status/2109452085301248297"
+            },
+            {
+              "itemId": "e79w8p57g0uxmxzlxflxg47az",
+              "title": "openEO 社区示例：利用 Sentinel-1 干涉图分析地震形变",
+              "summary": "Copernicus Data Space 发布新 openEO 社区示例笔记本，演示利用 Sentinel-1 干涉图分析意大利 Amatrice-Norcia 地震序列引起的地表形变。",
+              "sourceName": "Copernicus Data Space · 数据与平台动态",
+              "originalUrl": "https://dataspace.copernicus.eu/news/2026-10-15-new-openeo-community-example-analyse-earthquake-induced-deformation-sentinel-1"
+            },
+            {
+              "itemId": "o4w5uuyivv04dhtd1pf3upp2d",
+              "title": "openEO 社区示例：利用 Sentinel-1 SAR 相干性检测收获时间",
+              "summary": "Copernicus Data Space 发布了一个新的 openEO 社区示例笔记本，演示如何利用 Sentinel-1 SAR 相干性时间序列检测作物收获时间。",
+              "sourceName": "Copernicus Data Space · 数据与平台动态",
+              "originalUrl": "https://dataspace.copernicus.eu/news/2026-10-14-new-openeo-community-example-detect-harvest-timing-sentinel-1-sar-coherence"
+            }
+          ]
+        },
+        {
+          "label": "卫星计划与数据服务更新",
+          "summary": "USGS介绍了Landsat 10卫星及其LandIS载荷，其光谱波段数较Landsat 8/9翻倍，空间分辨率提升，预示着未来陆地观测能力的增强。Copernicus Data Space宣布将于2026年11月更新Sentinel-5P地面处理系统，发布多个新版本处理器，以提升大气监测数据质量。同时，新的SFEOS STAC目录端点推出，便于用户发现和访问数据。这些更新保障了遥感数据源的连续性和可获取性。",
+          "items": [
+            {
+              "itemId": "xnu7z021vv3xrwd3vbb8ow7w8",
+              "title": "Copernicus Sentinel-5 Precursor (S5P) 产品更新计划",
+              "summary": "Copernicus Data Space宣布将于2026年11月10日更新Sentinel-5 Precursor (S5P) 地面处理系统，发布Level-1B v03.01.00、NL-L2 v03.00.00及UPAS v03.00.01版本的处理器。",
+              "sourceName": "Copernicus Data Space · 数据与平台动态",
+              "originalUrl": "https://dataspace.copernicus.eu/news/2026-10-13-copernicus-sentinel-5-precursor-s5p-products-improvement"
+            },
+            {
+              "itemId": "coa4892bdkb8zey9lqxqkolmh",
+              "title": "USGS 介绍 Landsat 10 卫星及其搭载的 LandIS 载荷",
+              "summary": "USGS 介绍了即将发射的 Landsat 10 卫星及其搭载的 LandIS（Landsat Instrument Suite）载荷。LandIS 包含从可见光到热红外的 26 个光谱波段，是 Landsat 8 和 9 的两倍以上，且可见光、近红外和短波红外观测的空间分辨率为 10 至 20 米。",
+              "sourceName": "USGS Landsat",
+              "originalUrl": "https://x.com/USGSLandsat/status/2110037984774918652"
+            },
+            {
+              "itemId": "gdipajs3hcrtcvpip6a1jok9z",
+              "title": "Copernicus Data Space 推出新的 SFEOS STAC 目录端点",
+              "summary": "Copernicus Data Space Ecosystem 推出新的 STAC 目录端点 https://stac.opensearch.dataspace.copernicus.eu/v1 及其 STAC Browser，基于 SFEOS（stac-fastapi-elasticsearch-opensearch）后端构建。",
+              "sourceName": "Copernicus Data Space · 数据与平台动态",
+              "originalUrl": "https://dataspace.copernicus.eu/news/2026-10-16-new-sfeos-stac-catalogue-endpoint"
+            }
+          ]
+        },
+        {
+          "label": "遥感应用与行业认可",
+          "summary": "CropWatch全球农情遥感监测平台荣获2026年度联合国粮农组织成就奖，该平台已服务173个国家和地区，支持40多个国家独立开展农情监测，体现了遥感技术在粮食安全领域的重大贡献。EXPORT航次数据记录了跨大西洋气溶胶传输过程，为气溶胶研究提供了珍贵观测。这些应用案例展示了遥感从数据获取到行业服务的完整价值链。",
+          "items": [
+            {
+              "itemId": "ze7qkbjgh3tced1f3933nbsrc",
+              "title": "空天院CropWatch荣获2026年度联合国粮农组织成就奖",
+              "summary": "中国科学院空天信息创新研究院的全球农情遥感监测平台CropWatch荣获2026年度联合国粮农组织成就奖。该平台将农情监测转化为开放云服务，已支持40多个国家独立开展农情监测，累计培训技术官员500余名，并持续发布《全球农情遥感速报》145期，服务173个国家和地区。",
+              "sourceName": "中国科学院空天院 · 科研动态",
+              "originalUrl": "https://aircas.cas.cn/dtxw/kydt/202610/t20261016_8293092.html"
+            },
+            {
+              "itemId": "psoakgufonb9jhsqiieno8odc",
+              "title": "EXPORT 航次数据论文：2025年1-3月跨大西洋气溶胶传输观测（预印本）",
+              "summary": "基于论文摘要，该预印本数据论文记录了2025年1-3月德国研究船 METEOR 上 M207 和 M208 航次中 EXPORT 实验的气溶胶与气象连续观测数据，覆盖三次撒哈拉沙尘事件。",
+              "sourceName": "Earth System Science Data · 数据论文与讨论稿",
+              "originalUrl": "https://essd.copernicus.org/preprints/essd-2026-733/"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "weekly",
       "key": "2026-W41",
       "title": "RSHOT 周报 · 2026-W41",
       "generatedAt": "2026-10-12T02:00:25.530Z",
@@ -5671,7 +5776,7 @@
     }
   ],
   "hot": {
-    "computedAt": "2026-10-18T02:25:34.538Z",
+    "computedAt": "2026-10-19T02:30:20.941Z",
     "windowHours": 48,
     "entries": []
   }
