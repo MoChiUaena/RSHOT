@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-19T02:31:29.256Z",
+  "generatedAt": "2026-10-20T02:30:45.310Z",
   "categories": [
     {
       "key": "paper",
@@ -29,27 +29,7 @@
   ],
   "sources": [
     {
-      "name": "EOReader · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
       "name": "TorchGeo · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "arXiv · 遥感与地球观测预印本",
-      "kind": "rss"
-    },
-    {
-      "name": "openEO Python Client · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "中国科学院空天院 · 科研动态",
-      "kind": "web_list"
-    },
-    {
-      "name": "Google Earth 与 Earth Engine · 官方博客",
       "kind": "rss"
     },
     {
@@ -57,59 +37,19 @@
       "kind": "rss"
     },
     {
-      "name": "rioxarray · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "PySTAC · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
       "name": "Earth Engine API · 稳定版本发布",
       "kind": "rss"
-    },
-    {
-      "name": "STAC FastAPI · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "GDAL · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "Qiusheng Wu · giswqs",
-      "kind": "external"
     },
     {
       "name": "Copernicus",
       "kind": "external"
     },
     {
-      "name": "geemap · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "TerraTorch · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
       "name": "ESA · 对地观测",
       "kind": "rss"
     },
     {
-      "name": "NASA Earthdata · 科学数据与工具",
-      "kind": "rss"
-    },
-    {
-      "name": "Copernicus Data Space · 数据与平台动态",
-      "kind": "rss"
-    },
-    {
-      "name": "Earth System Science Data · 数据论文与讨论稿",
-      "kind": "web_list"
-    },
-    {
-      "name": "Rasterio · 稳定版本发布",
+      "name": "Google Earth 与 Earth Engine · 官方博客",
       "kind": "rss"
     },
     {
@@ -117,11 +57,259 @@
       "kind": "external"
     },
     {
+      "name": "rioxarray · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "geemap · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "openEO Python Client · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "TerraTorch · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "PySTAC · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "NASA Earthdata · 科学数据与工具",
+      "kind": "rss"
+    },
+    {
+      "name": "STAC FastAPI · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "Qiusheng Wu · giswqs",
+      "kind": "external"
+    },
+    {
+      "name": "arXiv · 遥感与地球观测预印本",
+      "kind": "rss"
+    },
+    {
+      "name": "GDAL · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "中国科学院空天院 · 科研动态",
+      "kind": "web_list"
+    },
+    {
+      "name": "Earth System Science Data · 数据论文与讨论稿",
+      "kind": "web_list"
+    },
+    {
+      "name": "Copernicus Data Space · 数据与平台动态",
+      "kind": "rss"
+    },
+    {
+      "name": "Rasterio · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
       "name": "Copernicus EMS",
       "kind": "external"
+    },
+    {
+      "name": "EOReader · 稳定版本发布",
+      "kind": "rss"
     }
   ],
   "items": [
+    {
+      "id": "s088utb7j636260zp4m4jx1lu",
+      "title": "Earth Engine API v1.7.49 发布：新增 loadZarrV2Array 静态定义，停止支持 Python 3.10",
+      "originalTitle": "v1.7.49",
+      "summary": "Earth Engine API 发布 v1.7.49 稳定版，为 ee.Image 和 ee.ImageCollection 新增 loadZarrV2Array 的 Python 静态定义，并清理了客户端文档字符串。该版本还改进了 Colab 自动认证模式下 OAuth 作用域参数的校验，并停止支持 Python 3.10，要求 Python 3.11 及以上版本。",
+      "reason": null,
+      "source": {
+        "name": "Earth Engine API · 稳定版本发布",
+        "kind": "rss",
+        "firstParty": true
+      },
+      "originalUrl": "https://github.com/google/earthengine-api/releases/tag/v1.7.49",
+      "publishedAt": "2026-10-19T21:43:17.000Z",
+      "timelineAt": "2026-10-19T22:22:35.960Z",
+      "category": "rs-tools",
+      "tags": [
+        "工具更新",
+        "开源/仓库",
+        "云端处理",
+        "Google Earth Engine"
+      ],
+      "score": 24,
+      "selected": false
+    },
+    {
+      "id": "t4j0gqzx10z58dig3ebzb1f3o",
+      "title": "Fan等发布1 km分辨率全球地下水储量异常降尺度数据集（2002–2020）",
+      "originalTitle": "High-resolution global groundwater storage anomalies: a 1 km downscaled dataset",
+      "summary": "该研究提出并发布了1 km月尺度全球地下水储量异常（GWSA）数据集，覆盖2002年4月至2020年12月。基于论文摘要，数据集采用奇异谱分析（SSA）填补时间空缺，结合19个高分辨率水文气候与地球物理预测因子，通过含水层分层机器学习降尺度生成，并在XGBoost与深度神经网络（DNN）比较后选用XGBoost。",
+      "reason": "该数据集论文提出基于XGBoost的1 km分辨率全球地下水储量异常降尺度方法，并通过152069口监测井的独立验证和多种GRACE产品对比评估其适用性，为区域尺度地下水变化研究提供了新数据资源。",
+      "source": {
+        "name": "Earth System Science Data · 数据论文与讨论稿",
+        "kind": "web_list",
+        "firstParty": true
+      },
+      "originalUrl": "https://essd.copernicus.org/articles/18/7593/2026/",
+      "publishedAt": "2026-10-19T00:00:00.000Z",
+      "timelineAt": "2026-10-19T10:18:21.814Z",
+      "category": "data",
+      "tags": [
+        "数据集/基准"
+      ],
+      "score": 84,
+      "selected": true
+    },
+    {
+      "id": "exqyqp48ab0reh27g0mjk4jhv",
+      "title": "Sentinel-3C 捕捉飓风 Rachel 影像，可见光通道完成在轨验证",
+      "originalTitle": "Sentinel-3C captures Hurricane Rachel",
+      "summary": "10月2日，Sentinel-3C 的海陆表面温度辐射计可见光通道拍摄到东太平洋飓风 Rachel 影像，标志着这颗 9 月 15 日发射的哥白尼 Sentinel-3 系列第三颗卫星在调试阶段取得又一重要进展。该辐射计以热红外通道测量海陆表面温度为主，可见光通道用于探测云层、支持气溶胶反演与大气校正。",
+      "reason": null,
+      "source": {
+        "name": "ESA · 对地观测",
+        "kind": "rss",
+        "firstParty": true
+      },
+      "originalUrl": "https://www.esa.int/ESA_Multimedia/Images/2026/10/Sentinel-3C_captures_Hurricane_Rachel",
+      "publishedAt": "2026-10-19T10:01:00.000Z",
+      "timelineAt": "2026-10-19T10:16:19.268Z",
+      "category": "satellite",
+      "tags": [
+        "卫星/传感器",
+        "光学遥感",
+        "热红外",
+        "灾害监测",
+        "ESA",
+        "Copernicus"
+      ],
+      "score": 40,
+      "selected": false
+    },
+    {
+      "id": "o1hae7nteq2o9l2zsnfqx2xk8",
+      "title": "SDG中心发布《全球可持续发展数据产品（2025）》",
+      "originalTitle": "《全球可持续发展数据产品（2025）》对外发布",
+      "summary": "可持续发展大数据国际研究中心（SDG中心）发布《全球可持续发展数据产品（2025）》，包含9套数据产品，时间序列最长38年，空间分辨率最高10米，时间分辨率精细至小时级，覆盖陆表、近海与大气，涉及土地利用、水循环、生态修复、海洋养殖、工业活动、人居健康等方向。",
+      "reason": "该数据产品由9套全球尺度的数据集组成，时间跨度最长38年，空间分辨率最高10米，时间分辨率精细至小时级，并覆盖多个可持续发展目标，为全球可持续发展评估提供了标准化、可量化的数据支撑。",
+      "source": {
+        "name": "中国科学院空天院 · 科研动态",
+        "kind": "web_list",
+        "firstParty": true
+      },
+      "originalUrl": "https://aircas.cas.cn/dtxw/kydt/202610/t20261019_8293754.html",
+      "publishedAt": "2026-10-18T16:00:00.000Z",
+      "timelineAt": "2026-10-19T10:13:20.292Z",
+      "category": "data",
+      "tags": [
+        "数据集/基准",
+        "中国科学院空天院"
+      ],
+      "score": 78,
+      "selected": true
+    },
+    {
+      "id": "ggkrevax7wos2efl7otwlzkvy",
+      "title": "郭华东院士获颁国际宇航联合会“名人堂”奖",
+      "originalTitle": null,
+      "summary": "10月9日，可持续发展大数据国际研究中心主任郭华东院士在第77届国际宇航大会闭幕式上获颁2026年度国际宇航联合会“名人堂”奖，该奖项旨在表彰为航天事业作出开创性、终身性贡献的顶尖学者。郭华东主持研制全球首颗可持续发展科学卫星SDGSAT-1，其数据已面向全球开放共享，百余个联合国成员国使用该卫星数据。",
+      "reason": null,
+      "source": {
+        "name": "中国科学院空天院 · 科研动态",
+        "kind": "web_list",
+        "firstParty": true
+      },
+      "originalUrl": "https://aircas.cas.cn/dtxw/kydt/202610/t20261019_8293686.html",
+      "publishedAt": "2026-10-18T16:00:00.000Z",
+      "timelineAt": "2026-10-19T09:13:15.870Z",
+      "category": "industry",
+      "tags": [
+        "行业动态",
+        "观点/分析",
+        "中国科学院空天院"
+      ],
+      "score": 29,
+      "selected": false
+    },
+    {
+      "id": "j2giyk1r7g5hyw8qugseh6jyl",
+      "title": "RustGIS 桌面应用上架 Microsoft Store，支持一键安装与自动更新",
+      "originalTitle": "RustGIS is now on the Microsoft Store! On Windows 10 and 11, you can now install RustGIS from the Microsoft Store in one click. No installer to download, no security warnings, and the Store keeps it up to date with each new release. What yo",
+      "summary": "RustGIS 现已在 Microsoft Store 上架，Windows 10 和 11 用户可一键安装，无需下载安装包，商店会随新版本自动更新。",
+      "reason": null,
+      "source": {
+        "name": "Qiusheng Wu · giswqs",
+        "kind": "external",
+        "firstParty": false
+      },
+      "originalUrl": "https://x.com/giswqs/status/2111434883100750231",
+      "publishedAt": "2026-10-17T12:31:19.000Z",
+      "timelineAt": "2026-10-19T02:32:06.946Z",
+      "category": "rs-tools",
+      "tags": [
+        "工具更新",
+        "开源/仓库",
+        "云端处理",
+        "部署/工程"
+      ],
+      "score": 60,
+      "selected": false
+    },
+    {
+      "id": "sqtbqpojyg60jt30l8u5c5q7a",
+      "title": "伊泰普水库：卫星影像揭示绿带与农田对比",
+      "originalTitle": "🏞️ The Itaipu Reservoir 🇧🇷🇵🇾 is bordered by a green belt of protected forest, helping prevent soil erosion, conserve water &amp; connect habitats. 🛰️ #CopernicusEU Sentinel-2 reveals this striking contrast with surrounding farmland. �",
+      "summary": "🏞️ 伊泰普水库 🇧🇷🇵🇾 四周环绕着受保护森林组成的绿色地带，有助于防止水土流失、涵养水源并连接栖息地。\n\n🛰️ #CopernicusEU 哨兵-2 号卫星揭示了其与周边农田之间的鲜明对比。\n\n🔗 https://t.co/KXibcQhHJ2\n\n#今日影像 https://t.co/PPusUO4gDV",
+      "reason": null,
+      "source": {
+        "name": "Copernicus",
+        "kind": "external",
+        "firstParty": false
+      },
+      "originalUrl": "https://x.com/CopernicusEU/status/2111515399493734472",
+      "publishedAt": "2026-10-17T17:51:15.000Z",
+      "timelineAt": "2026-10-19T02:32:06.911Z",
+      "category": "tip",
+      "tags": [
+        "应用案例",
+        "光学遥感",
+        "森林/生态",
+        "Copernicus"
+      ],
+      "score": 18,
+      "selected": false
+    },
+    {
+      "id": "hqgrcoszswae4jvp6u8uyp53e",
+      "title": "卫星视角下的德里：植被与亚穆纳河",
+      "originalTitle": "🏙️ Delhi 🇮🇳 from space! 🛰️ This false-colour #CopernicusEU Sentinel-2 image reveals the city in purple &amp; magenta, with vegetation in bright green and the Yamuna River winding through the urban landscape. 🔗 https://t.co/KXibcQhHJ2 #",
+      "summary": "🏙️ 太空视角下的德里 🇮🇳！🛰️ 这张 #CopernicusEU 哨兵-2 假彩色影像中，城市呈现紫色与品红色，植被为亮绿色，亚穆纳河蜿蜒穿过城市景观。\n\n🔗 https://t.co/KXibcQhHJ2\n\n#今日影像 https://t.co/SmbwdfKVO5",
+      "reason": null,
+      "source": {
+        "name": "Copernicus",
+        "kind": "external",
+        "firstParty": false
+      },
+      "originalUrl": "https://x.com/CopernicusEU/status/2111878792897610184",
+      "publishedAt": "2026-10-18T17:55:15.000Z",
+      "timelineAt": "2026-10-19T02:32:06.728Z",
+      "category": "tip",
+      "tags": [
+        "应用案例",
+        "光学遥感",
+        "城市",
+        "Copernicus"
+      ],
+      "score": 18,
+      "selected": false
+    },
     {
       "id": "lz727wmrrr33oy7v1tf2g1m2t",
       "title": "Landsat 十月动态：火灾监测与数据更新",
@@ -738,29 +926,6 @@
       ],
       "score": 82,
       "selected": true
-    },
-    {
-      "id": "h2dtx9gaodd4f3zu020z2jpck",
-      "title": "Google Earth Engine API v1.7.48 发布",
-      "originalTitle": "v1.7.48",
-      "summary": "Google Earth Engine API 发布稳定版本 v1.7.48。该更新包含构建产物更新、CI 测试优化及代码修复，如抑制 ee.data.getDownloadId 中的 weakModuleGet 警告和移除 batch.js 错误信息中的多余引号。同时，新版本还处理了 Pyrefly v1.3.0 的新发现。",
-      "reason": null,
-      "source": {
-        "name": "Earth Engine API · 稳定版本发布",
-        "kind": "rss",
-        "firstParty": true
-      },
-      "originalUrl": "https://github.com/google/earthengine-api/releases/tag/v1.7.48",
-      "publishedAt": "2026-10-12T18:40:47.000Z",
-      "timelineAt": "2026-10-13T01:52:19.253Z",
-      "category": "rs-tools",
-      "tags": [
-        "工具更新",
-        "云端处理",
-        "Google Earth Engine"
-      ],
-      "score": 12,
-      "selected": false
     },
     {
       "id": "l4qu2dk2oorbvu421z6hc0plh",
@@ -2788,6 +2953,40 @@
     }
   ],
   "reports": [
+    {
+      "kind": "daily",
+      "key": "2026-10-20",
+      "title": "遥感日报 · 2026-10-20",
+      "generatedAt": "2026-10-20T00:00:36.516Z",
+      "editorialMode": "model",
+      "lead": {
+        "title": "全球地下水储量1km降尺度数据集发布",
+        "leadParagraph": "今日，遥感领域发布两项重要成果：一项1 km分辨率全球地下水储量异常数据集（2002–2020）通过机器学习降尺度填补数据空白；同时，SDG中心推出《全球可持续发展数据产品（2025）》，含9套产品，最高分辨率10米，覆盖陆海气多圈层。"
+      },
+      "overview": null,
+      "sections": [
+        {
+          "label": "数据集与基准",
+          "summary": null,
+          "items": [
+            {
+              "itemId": "t4j0gqzx10z58dig3ebzb1f3o",
+              "title": "Fan等发布1 km分辨率全球地下水储量异常降尺度数据集（2002–2020）",
+              "summary": "该研究提出并发布了1 km月尺度全球地下水储量异常（GWSA）数据集，覆盖2002年4月至2020年12月。基于论文摘要，数据集采用奇异谱分析（SSA）填补时间空缺，结合19个高分辨率水文气候与地球物理预测因子，通过含水层分层机器学习降尺度生成，并在XGBoost与深度神经网络（DNN）比较后选用XGBoost。",
+              "sourceName": "Earth System Science Data · 数据论文与讨论稿",
+              "originalUrl": "https://essd.copernicus.org/articles/18/7593/2026/"
+            },
+            {
+              "itemId": "o1hae7nteq2o9l2zsnfqx2xk8",
+              "title": "SDG中心发布《全球可持续发展数据产品（2025）》",
+              "summary": "可持续发展大数据国际研究中心（SDG中心）发布《全球可持续发展数据产品（2025）》，包含9套数据产品，时间序列最长38年，空间分辨率最高10米，时间分辨率精细至小时级，覆盖陆表、近海与大气，涉及土地利用、水循环、生态修复、海洋养殖、工业活动、人居健康等方向。",
+              "sourceName": "中国科学院空天院 · 科研动态",
+              "originalUrl": "https://aircas.cas.cn/dtxw/kydt/202610/t20261019_8293754.html"
+            }
+          ]
+        }
+      ]
+    },
     {
       "kind": "daily",
       "key": "2026-10-18",
@@ -5349,6 +5548,7 @@
       "group": "company",
       "definition": "中国科学院空天院 的遥感研究、观测数据与工程动态。",
       "itemIds": [
+        "o1hae7nteq2o9l2zsnfqx2xk8",
         "ze7qkbjgh3tced1f3933nbsrc",
         "qy93rpyckivmqpkz1vf0331vf",
         "wetwj260tlvv5owayi3xd3d4l",
@@ -5678,6 +5878,8 @@
       "group": "genre",
       "definition": "值得关注的遥感数据集与基准，保留原文入口与适用条件。",
       "itemIds": [
+        "t4j0gqzx10z58dig3ebzb1f3o",
+        "o1hae7nteq2o9l2zsnfqx2xk8",
         "psoakgufonb9jhsqiieno8odc",
         "xhy2k5tdmn3bdl6l6mradqw3k",
         "l3t70jcfj7a2m4kmgp9usgrxp",
@@ -5776,7 +5978,7 @@
     }
   ],
   "hot": {
-    "computedAt": "2026-10-19T02:30:20.941Z",
+    "computedAt": "2026-10-20T02:30:26.981Z",
     "windowHours": 48,
     "entries": []
   }
