@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-21T02:31:10.324Z",
+  "generatedAt": "2026-10-22T02:30:23.347Z",
   "categories": [
     {
       "key": "paper",
@@ -29,15 +29,27 @@
   ],
   "sources": [
     {
-      "name": "TerraTorch · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "Copernicus EMS",
+      "name": "Copernicus",
       "kind": "external"
     },
     {
-      "name": "Qiusheng Wu · giswqs",
+      "name": "Google Earth 与 Earth Engine · 官方博客",
+      "kind": "rss"
+    },
+    {
+      "name": "Copernicus Data Space · 数据与平台动态",
+      "kind": "rss"
+    },
+    {
+      "name": "STAC FastAPI · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "earthaccess · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "USGS Landsat",
       "kind": "external"
     },
     {
@@ -45,7 +57,11 @@
       "kind": "rss"
     },
     {
-      "name": "openEO Python Client · 稳定版本发布",
+      "name": "ESA · 对地观测",
+      "kind": "rss"
+    },
+    {
+      "name": "arXiv · 遥感与地球观测预印本",
       "kind": "rss"
     },
     {
@@ -53,7 +69,15 @@
       "kind": "rss"
     },
     {
-      "name": "arXiv · 遥感与地球观测预印本",
+      "name": "Qiusheng Wu · giswqs",
+      "kind": "external"
+    },
+    {
+      "name": "Earth System Science Data · 数据论文与讨论稿",
+      "kind": "web_list"
+    },
+    {
+      "name": "Earth Engine API · 稳定版本发布",
       "kind": "rss"
     },
     {
@@ -65,39 +89,15 @@
       "kind": "rss"
     },
     {
-      "name": "ESA · 对地观测",
-      "kind": "rss"
-    },
-    {
-      "name": "Earth Engine API · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "Google Earth 与 Earth Engine · 官方博客",
-      "kind": "rss"
-    },
-    {
-      "name": "Copernicus Data Space · 数据与平台动态",
-      "kind": "rss"
-    },
-    {
-      "name": "Earth System Science Data · 数据论文与讨论稿",
-      "kind": "web_list"
-    },
-    {
-      "name": "PySTAC · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "Copernicus",
+      "name": "Copernicus EMS",
       "kind": "external"
     },
     {
-      "name": "STAC FastAPI · 稳定版本发布",
+      "name": "geemap · 稳定版本发布",
       "kind": "rss"
     },
     {
-      "name": "geemap · 稳定版本发布",
+      "name": "TerraTorch · 稳定版本发布",
       "kind": "rss"
     },
     {
@@ -105,7 +105,7 @@
       "kind": "web_list"
     },
     {
-      "name": "rioxarray · 稳定版本发布",
+      "name": "PySTAC · 稳定版本发布",
       "kind": "rss"
     },
     {
@@ -113,15 +113,109 @@
       "kind": "rss"
     },
     {
-      "name": "USGS Landsat",
-      "kind": "external"
+      "name": "rioxarray · 稳定版本发布",
+      "kind": "rss"
     },
     {
-      "name": "earthaccess · 稳定版本发布",
+      "name": "openEO Python Client · 稳定版本发布",
       "kind": "rss"
     }
   ],
   "items": [
+    {
+      "id": "tnek9f178j0hxattsp1cvv59h",
+      "title": "Copernicus Sentinel-5P OFFL HCHO 和 SO2 v2.8.0 产品重新处理完成，现可在 CDSE 下载",
+      "originalTitle": "Copernicus Sentinel-5P OFFL HCHO and SO2 v2.8.0 products reprocessed - now available on CDSE",
+      "summary": "Copernicus Data Space Ecosystem 宣布，受2025年12月19日通报问题影响的 Sentinel-5P OFFL 甲醛（HCHO）和二氧化硫（SO₂）v2.8.0 产品已成功重新处理。重新处理的产品覆盖2025年11月22日至12月2日（轨道 42023-42173），现可从 Copernicus Data Space Ecosystem（CDSE）下载。",
+      "reason": "针对2025年12月19日通报的HCHO和SO2 v2.8.0产品问题，官方完成了受影响OFFL数据的重新处理并开放下载，属于数据质量修复与更新。",
+      "source": {
+        "name": "Copernicus Data Space · 数据与平台动态",
+        "kind": "rss",
+        "firstParty": true
+      },
+      "originalUrl": "https://dataspace.copernicus.eu/news/2026-10-21-copernicus-sentinel-5p-offl-hcho-and-so2-v280-products-reprocessed-now-available",
+      "publishedAt": "2026-10-21T08:27:55.000Z",
+      "timelineAt": "2026-10-21T09:44:40.368Z",
+      "category": "data",
+      "tags": [
+        "卫星/传感器",
+        "Copernicus"
+      ],
+      "score": 71,
+      "selected": true
+    },
+    {
+      "id": "f643b8gldfq2zmjs86m1mnl6e",
+      "title": "空天院开展列车轨道危情感知单光子雷达车载动态试验",
+      "originalTitle": null,
+      "summary": "空天院联合北京交通大学、同济大学、中车大连在大连旅顺完成单光子雷达列车车载轨道危情感知动态试验，验证了主-被动双模单光子成像系统在列车行驶中的动态三维成像能力。",
+      "reason": "原文报告了单光子雷达在列车车载动态条件下的试验结果，验证了轨道跟踪辅助光轴稳定技术方案，并给出了空间分辨率指标，为车载动态成像提供了实验证据。",
+      "source": {
+        "name": "中国科学院空天院 · 科研动态",
+        "kind": "web_list",
+        "firstParty": true
+      },
+      "originalUrl": "https://aircas.cas.cn/dtxw/kydt/202610/t20261021_8296461.html",
+      "publishedAt": "2026-10-20T16:00:00.000Z",
+      "timelineAt": "2026-10-21T08:39:43.026Z",
+      "category": "tip",
+      "tags": [
+        "论文/研究",
+        "LiDAR",
+        "应用案例",
+        "中国科学院空天院"
+      ],
+      "score": 80,
+      "selected": true
+    },
+    {
+      "id": "jyvgipi90rcqqcnxrfc5u419z",
+      "title": "CSIF-Net：面向光学-SAR目标检测的通道选择性交互融合网络（预印本）",
+      "originalTitle": "Revealing Inter-Channel Modality Discriminability: Channel Selective Interaction Fusion Network for Optical-SAR Object Detection",
+      "summary": "基于论文摘要，CSIF-Net提出通道选择性交互融合网络，用于光学与SAR图像的目标检测。该方法通过频率分解模块构建频率感知的SAR输入，利用交叉注意力通道选择模块建模跨模态通道关系，并动态划分共享与模态特定特征，最终通过双分支融合模块实现跨模态交互与通道重对齐。作者在OGSOD 1.0和M4-SAR数据集上报告，水平与旋转目标检测性能分别提升4.01%和3.18%。",
+      "reason": "提出通道选择性交互融合网络，通过频率分解和跨模态通道选择减少冗余与冲突，在OGSOD 1.0和M4-SAR数据集上报告了水平与旋转目标检测的性能提升。",
+      "source": {
+        "name": "arXiv · 遥感与地球观测预印本",
+        "kind": "rss",
+        "firstParty": true
+      },
+      "originalUrl": "https://arxiv.org/abs/2610.27757v1",
+      "publishedAt": "2026-10-20T07:19:20.000Z",
+      "timelineAt": "2026-10-21T06:42:25.230Z",
+      "category": "paper",
+      "tags": [
+        "论文/研究",
+        "目标检测",
+        "SAR",
+        "光学遥感",
+        "数据融合"
+      ],
+      "score": 72,
+      "selected": true
+    },
+    {
+      "id": "j7abt47v1os0nreiq46q6its3",
+      "title": "SGLDet：面向多光谱航空目标检测的光谱感知全局-局部动态建模框架",
+      "originalTitle": "SGLDet: Spectral-aware Global-Local Dynamic Modeling for Multispectral Aerial Object Detection",
+      "summary": "SGLDet 提出光谱感知的全局-局部动态建模框架，用于多光谱航空目标检测。基于论文摘要，该方法包含光谱驱动全局动态建模、多尺度全局上下文整合和光谱感知输入依赖校准聚合三个模块，在 MODA、HOD3K 和 DroneVehicle 数据集上取得优越性能且计算开销有竞争力。代码已在 GitHub 提供。",
+      "reason": "提出光谱感知的全局-局部动态建模框架，通过三个模块分别处理全局光谱一致性、场景上下文和输入依赖的局部调制，在三个多光谱航空目标检测数据集上验证了性能与计算开销的平衡。",
+      "source": {
+        "name": "arXiv · 遥感与地球观测预印本",
+        "kind": "rss",
+        "firstParty": true
+      },
+      "originalUrl": "https://arxiv.org/abs/2610.27883v1",
+      "publishedAt": "2026-10-20T09:06:09.000Z",
+      "timelineAt": "2026-10-21T05:41:32.681Z",
+      "category": "paper",
+      "tags": [
+        "论文/研究",
+        "目标检测",
+        "多模态"
+      ],
+      "score": 75,
+      "selected": true
+    },
     {
       "id": "u0u9yotsnron8fn6ycqed122b",
       "title": "Google 发布 Earth Timelapse 数据集：1984–2022 年全球年度镶嵌影像开放于 Earth Engine",
@@ -3024,6 +3118,66 @@
   "reports": [
     {
       "kind": "daily",
+      "key": "2026-10-22",
+      "title": "遥感日报 · 2026-10-22",
+      "generatedAt": "2026-10-22T00:00:30.568Z",
+      "editorialMode": "model",
+      "lead": {
+        "title": "空天院完成单光子雷达列车轨道危情感知动态试验",
+        "leadParagraph": "空天院联合多家单位在大连旅顺完成单光子雷达列车车载动态试验，验证了主-被动双模单光子成像系统在行驶中的三维成像能力。该成果为轨道危情感知提供了新技术路径。"
+      },
+      "overview": null,
+      "sections": [
+        {
+          "label": "论文与方法",
+          "summary": null,
+          "items": [
+            {
+              "itemId": "j7abt47v1os0nreiq46q6its3",
+              "title": "SGLDet：面向多光谱航空目标检测的光谱感知全局-局部动态建模框架",
+              "summary": "SGLDet 提出光谱感知的全局-局部动态建模框架，用于多光谱航空目标检测。基于论文摘要，该方法包含光谱驱动全局动态建模、多尺度全局上下文整合和光谱感知输入依赖校准聚合三个模块，在 MODA、HOD3K 和 DroneVehicle 数据集上取得优越性能且计算开销有竞争力。代码已在 GitHub 提供。",
+              "sourceName": "arXiv · 遥感与地球观测预印本",
+              "originalUrl": "https://arxiv.org/abs/2610.27883v1"
+            },
+            {
+              "itemId": "jyvgipi90rcqqcnxrfc5u419z",
+              "title": "CSIF-Net：面向光学-SAR目标检测的通道选择性交互融合网络（预印本）",
+              "summary": "基于论文摘要，CSIF-Net提出通道选择性交互融合网络，用于光学与SAR图像的目标检测。该方法通过频率分解模块构建频率感知的SAR输入，利用交叉注意力通道选择模块建模跨模态通道关系，并动态划分共享与模态特定特征，最终通过双分支融合模块实现跨模态交互与通道重对齐。作者在OGSOD 1.0和M4-SAR数据集上报告，水平与旋转目标检测性能分别提升4.01%和3.18%。",
+              "sourceName": "arXiv · 遥感与地球观测预印本",
+              "originalUrl": "https://arxiv.org/abs/2610.27757v1"
+            }
+          ]
+        },
+        {
+          "label": "数据集与基准",
+          "summary": null,
+          "items": [
+            {
+              "itemId": "tnek9f178j0hxattsp1cvv59h",
+              "title": "Copernicus Sentinel-5P OFFL HCHO 和 SO2 v2.8.0 产品重新处理完成，现可在 CDSE 下载",
+              "summary": "Copernicus Data Space Ecosystem 宣布，受2025年12月19日通报问题影响的 Sentinel-5P OFFL 甲醛（HCHO）和二氧化硫（SO₂）v2.8.0 产品已成功重新处理。重新处理的产品覆盖2025年11月22日至12月2日（轨道 42023-42173），现可从 Copernicus Data Space Ecosystem（CDSE）下载。",
+              "sourceName": "Copernicus Data Space · 数据与平台动态",
+              "originalUrl": "https://dataspace.copernicus.eu/news/2026-10-21-copernicus-sentinel-5p-offl-hcho-and-so2-v280-products-reprocessed-now-available"
+            }
+          ]
+        },
+        {
+          "label": "应用与工程实践",
+          "summary": null,
+          "items": [
+            {
+              "itemId": "f643b8gldfq2zmjs86m1mnl6e",
+              "title": "空天院开展列车轨道危情感知单光子雷达车载动态试验",
+              "summary": "空天院联合北京交通大学、同济大学、中车大连在大连旅顺完成单光子雷达列车车载轨道危情感知动态试验，验证了主-被动双模单光子成像系统在列车行驶中的动态三维成像能力。",
+              "sourceName": "中国科学院空天院 · 科研动态",
+              "originalUrl": "https://aircas.cas.cn/dtxw/kydt/202610/t20261021_8296461.html"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "daily",
       "key": "2026-10-21",
       "title": "遥感日报 · 2026-10-21",
       "generatedAt": "2026-10-21T00:00:32.925Z",
@@ -5659,6 +5813,7 @@
       "group": "company",
       "definition": "Copernicus 的遥感研究、观测数据与工程动态。",
       "itemIds": [
+        "tnek9f178j0hxattsp1cvv59h",
         "gdipajs3hcrtcvpip6a1jok9z",
         "o4w5uuyivv04dhtd1pf3upp2d",
         "e79w8p57g0uxmxzlxflxg47az",
@@ -5678,6 +5833,7 @@
       "group": "company",
       "definition": "中国科学院空天院 的遥感研究、观测数据与工程动态。",
       "itemIds": [
+        "f643b8gldfq2zmjs86m1mnl6e",
         "o1hae7nteq2o9l2zsnfqx2xk8",
         "ze7qkbjgh3tced1f3933nbsrc",
         "qy93rpyckivmqpkz1vf0331vf",
@@ -5717,6 +5873,7 @@
       "group": "field",
       "definition": "追踪SAR 与 InSAR的研究方法、数据、工具与应用实践。",
       "itemIds": [
+        "jyvgipi90rcqqcnxrfc5u419z",
         "p2ohp08inlj86ag4k5jx04haj",
         "o4w5uuyivv04dhtd1pf3upp2d",
         "k5l8mnix6nygv0m854yxrq1hb",
@@ -5753,6 +5910,7 @@
       "group": "field",
       "definition": "追踪LiDAR的研究方法、数据、工具与应用实践。",
       "itemIds": [
+        "f643b8gldfq2zmjs86m1mnl6e",
         "l4qu2dk2oorbvu421z6hc0plh",
         "gt4dxjtxlv9p8okpmvv48za9q",
         "uq9cdnxc82eqy8sp8k787i0oq",
@@ -5769,6 +5927,7 @@
       "group": "field",
       "definition": "追踪光学遥感的研究方法、数据、工具与应用实践。",
       "itemIds": [
+        "jyvgipi90rcqqcnxrfc5u419z",
         "k9us1ebfn0l53ujf97906y7jf",
         "coa4892bdkb8zey9lqxqkolmh",
         "dqm2k0qw0wqzoyrsgieut8cxr",
@@ -5813,6 +5972,8 @@
       "group": "field",
       "definition": "追踪目标检测的研究方法、数据、工具与应用实践。",
       "itemIds": [
+        "jyvgipi90rcqqcnxrfc5u419z",
+        "j7abt47v1os0nreiq46q6its3",
         "k1eyfqhost621es7uxdnohpqj",
         "ea15xeb1q6gqtcuoq8cb7tgpi",
         "fus3g13bva5vtm9xnxelbh1zc",
@@ -5965,6 +6126,9 @@
       "group": "genre",
       "definition": "值得关注的遥感论文与研究，保留原文入口与适用条件。",
       "itemIds": [
+        "f643b8gldfq2zmjs86m1mnl6e",
+        "jyvgipi90rcqqcnxrfc5u419z",
+        "j7abt47v1os0nreiq46q6its3",
         "okip40act3rfd3zggj9he7jt5",
         "k9us1ebfn0l53ujf97906y7jf",
         "p2ohp08inlj86ag4k5jx04haj",
@@ -6083,6 +6247,7 @@
       "group": "genre",
       "definition": "值得关注的遥感卫星与传感器，保留原文入口与适用条件。",
       "itemIds": [
+        "tnek9f178j0hxattsp1cvv59h",
         "pa1zwvy3pentytdpkfrmic14e",
         "coa4892bdkb8zey9lqxqkolmh",
         "xnu7z021vv3xrwd3vbb8ow7w8",
@@ -6118,7 +6283,7 @@
     }
   ],
   "hot": {
-    "computedAt": "2026-10-21T02:30:40.292Z",
+    "computedAt": "2026-10-22T02:30:09.639Z",
     "windowHours": 48,
     "entries": []
   }
