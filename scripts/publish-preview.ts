@@ -23,8 +23,8 @@ function save(){writeFileSync(path.join(privateDir,"latest.json"),JSON.stringify
 function git(args:string[],code:string):string {
   return runPublicationCommand("git",["-C",root,...args],code,{cwd:root,timeoutMs:60000,maxBuffer:1024*1024});
 }
-function processOut(command:string,args:string[],code:string,timeout=120000):string {
-  return runPublicationCommand(command,args,code,{cwd:root,timeoutMs:timeout}).trim();
+function processOut(command:string,args:string[],code:string,timeout=120000,env?:NodeJS.ProcessEnv):string {
+  return runPublicationCommand(command,args,code,{cwd:root,timeoutMs:timeout,env}).trim();
 }
 function localGitTransport():Promise<string[]> {
   return new Promise((resolve)=>{
@@ -115,9 +115,12 @@ function recordEditorialSample(snapshot:PublicPreview){
 }
 async function waitForPages(sha:string){
   const deadline=Date.now()+8*60000;
+  const env=state.gitTransport==="local-proxy"?{HTTPS_PROXY:"http://127.0.0.1:7897",HTTP_PROXY:"http://127.0.0.1:7897"}:undefined;
+  const checks:Array<{attempt:number;reason:string;details:unknown}>=[];
   while(Date.now()<deadline){
-    const output=processOut("gh",["run","list","--repo","MoChiUaena/RSHOT","--workflow","pages.yml","--limit","10",
-      "--json","headSha,status,conclusion"],"pages-status-unavailable",30000);
+    const output=await retryStatus(()=>processOut("gh",["run","list","--repo","MoChiUaena/RSHOT","--workflow","pages.yml","--limit","10",
+      "--json","headSha,status,conclusion"],"pages-status-unavailable",30000,env),
+      (failure)=>{checks.push(failure);state.pagesCheckFailures=checks;save();});
     const runs=JSON.parse(output) as Array<{headSha:string;status:string;conclusion:string}>;
     const run=runs.find((entry)=>entry.headSha===sha);
     if(run?.status==="completed"){

@@ -11,7 +11,7 @@ $taskNode = (Get-Command node).Source
 $taskApi = Start-Process -FilePath $taskNode -ArgumentList '--env-file=.env','apps/api/src/main.ts' -WorkingDirectory $taskRoot -WindowStyle Hidden -PassThru -RedirectStandardOutput (Join-Path $taskLogDir 'api.log') -RedirectStandardError (Join-Path $taskLogDir 'api-error.log')
 $taskWeb = Start-Process -FilePath $taskNode -ArgumentList '--env-file=../../.env','server.ts' -WorkingDirectory (Join-Path $taskRoot 'apps/web') -WindowStyle Hidden -PassThru -RedirectStandardOutput (Join-Path $taskLogDir 'web.log') -RedirectStandardError (Join-Path $taskLogDir 'web-error.log')
 @{ api = $taskApi.Id; web = $taskWeb.Id; startedAt = (Get-Date).ToString('o'); root = $taskRoot } | ConvertTo-Json | Set-Content -LiteralPath (Join-Path $taskRoot '.data/local-processes.json') -Encoding utf8
-$taskDeadline = [DateTime]::UtcNow.AddSeconds(20)
+$taskDeadline = [DateTime]::UtcNow.AddSeconds(60)
 $taskReady = $false
 while ([DateTime]::UtcNow -lt $taskDeadline) {
     $taskApi.Refresh(); $taskWeb.Refresh()
@@ -19,5 +19,5 @@ while ([DateTime]::UtcNow -lt $taskDeadline) {
     try { $taskResponse = Invoke-WebRequest -UseBasicParsing -Uri 'http://127.0.0.1:3000/api/health' -TimeoutSec 2; if ($taskResponse.StatusCode -eq 200) { $taskReady = $true; break } } catch { }
     Start-Sleep -Milliseconds 200
 }
-if (-not $taskReady) { throw '启动未在20秒内就绪，请查看 .data/logs/。' }
+if (-not $taskReady) { throw '启动未在60秒内就绪，请查看 .data/logs/。' }
 Write-Output 'RSHOT 已启动：http://localhost:3000。日志在 .data/logs/。'

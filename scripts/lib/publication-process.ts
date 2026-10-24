@@ -23,13 +23,13 @@ export class PublicationCommandError extends Error {
   }
 }
 export function runPublicationCommand(command: string, args: string[], reason: string,
-  options: { cwd: string; timeoutMs?: number; maxBuffer?: number }): string {
+  options: { cwd: string; timeoutMs?: number; maxBuffer?: number; env?: NodeJS.ProcessEnv }): string {
   const timeoutMs = options.timeoutMs ?? 120000;
   const startedAt = Date.now();
   try {
     return execFileSync(command, args, { cwd: options.cwd, timeout: timeoutMs, maxBuffer: options.maxBuffer ?? 2 * 1024 * 1024,
       encoding: "utf8", stdio: ["ignore", "pipe", "pipe"],
-      env: { ...process.env, COLLECT_ENABLED: "false", MODEL_CALLS_ENABLED: "false" } }).trimEnd();
+      env: { ...process.env, ...options.env, COLLECT_ENABLED: "false", MODEL_CALLS_ENABLED: "false" } }).trimEnd();
   } catch (error) {
     const failure = error as { code?: unknown; status?: unknown; signal?: unknown; stdout?: unknown; stderr?: unknown };
     const bytes = (value: unknown) => Buffer.isBuffer(value) ? value.length : typeof value === "string" ? Buffer.byteLength(value) : 0;
@@ -44,7 +44,7 @@ export function runPublicationCommand(command: string, args: string[], reason: s
   }
 }
 
-// Only the read-only status subprocess is retried; Git mutations are never replayed here.
+// Only read-only status subprocesses are retried; Git mutations are never replayed here.
 export async function retryStatus<T>(read: () => T,
   onFailure: (failure: { attempt: number; reason: string; details: CommandFailureDetails | null }) => void,
   retryDelaysMs: readonly number[] = [15000, 30000]): Promise<T> {

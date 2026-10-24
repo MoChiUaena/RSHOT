@@ -13,6 +13,79 @@ function clean(root: string) {
   rmSync(root, { recursive: true, force: true });
 }
 
+function runTaskWrapper(root: string, recoveryResult = 0, alreadyRunning = false): number {
+  const quote = (value: string) => "'" + value.replaceAll("'", "''") + "'";
+  const program = `
+    $ErrorActionPreference='Stop'
+    $global:recoveryStarted=$false
+    $global:recoveryReads=0
+    $global:testTaskRoot=${quote(root)}
+    function Get-ScheduledTask {
+      param($TaskName)
+      $global:recoveryReads++
+      $state=if (${alreadyRunning ? "$true" : "$false"} -and $global:recoveryReads -eq 1) {'Running'} else {'Ready'}
+      [pscustomobject]@{State=$state;Actions=@([pscustomobject]@{
+        WorkingDirectory=$global:testTaskRoot
+        Arguments='-File "'+(Join-Path $global:testTaskRoot 'scripts/run-resume-task.ps1')+'"'
+      })}
+    }
+    function Get-ScheduledTaskInfo {
+      param($TaskName)
+      [pscustomobject]@{LastRunTime=([datetime]'2026-10-24').AddSeconds([int]$global:recoveryStarted);LastTaskResult=${recoveryResult}}
+    }
+    function Start-ScheduledTask {
+      param($TaskName)
+      $global:recoveryStarted=$true
+      [IO.File]::WriteAllText((Join-Path $global:testTaskRoot 'recovered'), 'ready')
+    }
+    & ${quote(path.join(root, "scripts/run-preview-task.ps1"))}
+    exit $LASTEXITCODE
+  `;
+  try {
+    execFileSync("powershell.exe", ["-NoProfile", "-NonInteractive", "-ExecutionPolicy", "RemoteSigned", "-EncodedCommand",
+      Buffer.from(program, "utf16le").toString("base64")], { timeout: 30000, stdio: ["ignore", "pipe", "pipe"] });
+    return 0;
+  } catch (error) { return (error as { status: number }).status; }
+}
+
+test("publication subprocess uses its scoped proxy and keeps paid calls disabled", () => {
+  const raw = runPublicationCommand(process.execPath, ["-e", "console.log(JSON.stringify({proxy:process.env.HTTPS_PROXY==='http://127.0.0.1:9',models:process.env.MODEL_CALLS_ENABLED,collect:process.env.COLLECT_ENABLED}))"],
+    "status-unavailable", { cwd: process.cwd(), env: { HTTPS_PROXY: "http://127.0.0.1:9", MODEL_CALLS_ENABLED: "true" } });
+  assert.deepEqual(JSON.parse(raw), { proxy: true, models: "false", collect: "false" });
+});
+
+test("scheduled publication restores local services before starting its exporter", { skip: process.platform !== "win32" }, () => {
+  const root = temporary();
+  mkdirSync(path.join(root, "scripts"));
+  copyFileSync(new URL("../scripts/run-preview-task.ps1", import.meta.url), path.join(root, "scripts/run-preview-task.ps1"));
+  writeFileSync(path.join(root, "scripts/publish-preview.ts"), `if(!require('node:fs').existsSync(${JSON.stringify(path.join(root, "recovered"))}))process.exit(9);`);
+  try { assert.equal(runTaskWrapper(root), 0); } finally { clean(root); }
+});
+
+test("failed local recovery stops publication and records a safe reason", { skip: process.platform !== "win32" }, () => {
+  const root = temporary();
+  mkdirSync(path.join(root, "scripts"));
+  copyFileSync(new URL("../scripts/run-preview-task.ps1", import.meta.url), path.join(root, "scripts/run-preview-task.ps1"));
+  const published = path.join(root, "published");
+  writeFileSync(path.join(root, "scripts/publish-preview.ts"), `require('node:fs').writeFileSync(${JSON.stringify(published)},'unexpected');`);
+  try {
+    assert.equal(runTaskWrapper(root, 1), 1);
+    assert.equal(existsSync(published), false);
+    assert.ok(readFileSync(path.join(root, ".data/logs/preview-publication.log"), "utf8").includes("local-recovery-failed"));
+  } finally { clean(root); }
+});
+
+test("publication waits for an existing recovery without launching it twice", { skip: process.platform !== "win32" }, () => {
+  const root = temporary();
+  mkdirSync(path.join(root, "scripts"));
+  copyFileSync(new URL("../scripts/run-preview-task.ps1", import.meta.url), path.join(root, "scripts/run-preview-task.ps1"));
+  writeFileSync(path.join(root, "scripts/publish-preview.ts"), "console.log('ready');");
+  try {
+    assert.equal(runTaskWrapper(root, 0, true), 0);
+    assert.equal(existsSync(path.join(root, "recovered")), false);
+  } finally { clean(root); }
+});
+
 test("an empty issue releases the publication gate only after processing has settled", () => {
   assert.equal(canPublishWithoutDaily({ workerActive: true, selectedCandidates: 0, pendingArticles: 0 }), true);
   assert.equal(canPublishWithoutDaily({ workerActive: true, selectedCandidates: 1, pendingArticles: 0 }), false);
@@ -70,10 +143,7 @@ test("Windows task wrapper retains publisher stderr and its exit code", { skip: 
   copyFileSync(new URL("../scripts/run-preview-task.ps1", import.meta.url), path.join(root, "scripts/run-preview-task.ps1"));
   writeFileSync(path.join(root, "scripts/publish-preview.ts"), "console.error(JSON.stringify({status:'failed',reason:'synthetic-test-failure',secretsPrinted:false}));process.exitCode=7;\n");
   try {
-    let status = 0;
-    try { execFileSync("powershell.exe", ["-NoProfile", "-NonInteractive", "-ExecutionPolicy", "RemoteSigned", "-File", path.join(root, "scripts/run-preview-task.ps1")],
-      { timeout: 30000, stdio: ["ignore", "pipe", "pipe"] }); }
-    catch (error) { status = (error as { status: number }).status; }
+    const status = runTaskWrapper(root);
     assert.equal(status, 7);
     const log = readFileSync(path.join(root, ".data/logs/preview-publication.log"), "utf8");
     assert.ok(log.includes('"reason":"synthetic-test-failure"'));
