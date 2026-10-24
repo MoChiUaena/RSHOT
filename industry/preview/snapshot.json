@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-22T02:30:23.347Z",
+  "generatedAt": "2026-10-24T14:52:10.070Z",
   "categories": [
     {
       "key": "paper",
@@ -29,23 +29,7 @@
   ],
   "sources": [
     {
-      "name": "Copernicus",
-      "kind": "external"
-    },
-    {
-      "name": "Google Earth 与 Earth Engine · 官方博客",
-      "kind": "rss"
-    },
-    {
-      "name": "Copernicus Data Space · 数据与平台动态",
-      "kind": "rss"
-    },
-    {
       "name": "STAC FastAPI · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "earthaccess · 稳定版本发布",
       "kind": "rss"
     },
     {
@@ -57,43 +41,23 @@
       "kind": "rss"
     },
     {
-      "name": "ESA · 对地观测",
-      "kind": "rss"
-    },
-    {
-      "name": "arXiv · 遥感与地球观测预印本",
-      "kind": "rss"
-    },
-    {
-      "name": "Rasterio · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "Qiusheng Wu · giswqs",
-      "kind": "external"
-    },
-    {
       "name": "Earth System Science Data · 数据论文与讨论稿",
       "kind": "web_list"
-    },
-    {
-      "name": "Earth Engine API · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "GDAL · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "NASA Earthdata · 科学数据与工具",
-      "kind": "rss"
     },
     {
       "name": "Copernicus EMS",
       "kind": "external"
     },
     {
-      "name": "geemap · 稳定版本发布",
+      "name": "Rasterio · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "Earth Engine API · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "ESA · 对地观测",
       "kind": "rss"
     },
     {
@@ -101,19 +65,55 @@
       "kind": "rss"
     },
     {
-      "name": "中国科学院空天院 · 科研动态",
-      "kind": "web_list"
+      "name": "EOReader · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "arXiv · 遥感与地球观测预印本",
+      "kind": "rss"
+    },
+    {
+      "name": "Copernicus Data Space · 数据与平台动态",
+      "kind": "rss"
+    },
+    {
+      "name": "rioxarray · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "earthaccess · 稳定版本发布",
+      "kind": "rss"
     },
     {
       "name": "PySTAC · 稳定版本发布",
       "kind": "rss"
     },
     {
-      "name": "EOReader · 稳定版本发布",
+      "name": "Google Earth 与 Earth Engine · 官方博客",
       "kind": "rss"
     },
     {
-      "name": "rioxarray · 稳定版本发布",
+      "name": "geemap · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "GDAL · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "中国科学院空天院 · 科研动态",
+      "kind": "web_list"
+    },
+    {
+      "name": "Qiusheng Wu · giswqs",
+      "kind": "external"
+    },
+    {
+      "name": "Copernicus",
+      "kind": "external"
+    },
+    {
+      "name": "NASA Earthdata · 科学数据与工具",
       "kind": "rss"
     },
     {
@@ -122,6 +122,242 @@
     }
   ],
   "items": [
+    {
+      "id": "ukplqp0z802img9qwzzkrrrzp",
+      "title": "哥白尼哨兵2号捕捉风暴亚当洪水影响",
+      "originalTitle": "🌧️ Storm Adam brought severe flooding to E Spain 🇪🇸, with 663.8 mm of rain recorded in Pego in just 37 hours. 🛰️ #CopernicusEU Sentinel-2 captures sediment plumes along the coast, while emergency mapping supports response efforts. 🔗 ht",
+      "summary": "🌧️ 风暴亚当给西班牙东部🇪🇸带来严重洪灾，佩戈在短短37小时内录得663.8毫米降雨。\n\n🛰️ #CopernicusEU 哨兵2号捕捉到沿海沉积物羽流，应急测绘为响应工作提供支持。\n\n🔗 https://t.co/e7MeYxCG0E\n\n#今日影像 https://t.co/mTLiN7FdxP",
+      "reason": null,
+      "source": {
+        "name": "Copernicus",
+        "kind": "external",
+        "firstParty": false
+      },
+      "originalUrl": "https://x.com/CopernicusEU/status/2113661890991886555",
+      "publishedAt": "2026-10-23T16:00:39.000Z",
+      "timelineAt": "2026-10-24T02:31:13.304Z",
+      "category": "tip",
+      "tags": [
+        "应用案例",
+        "灾害监测",
+        "光学遥感",
+        "Copernicus"
+      ],
+      "score": 23,
+      "selected": false
+    },
+    {
+      "id": "wu6af8p6m0rnq6ww6448ycftp",
+      "title": "Landsat 影像展示马里兰海岸与海湾变化",
+      "originalTitle": "Maryland may be small, but it's often called \"America in Miniature” and from space, it's easy to see why. Maryland became the seventh state to ratify the U.S. Constitution on April 28, 1788. As the United States celebrates 250 years, our sa",
+      "summary": "USGS 发布马里兰州 Landsat 卫星影像拼图，展示其“微缩美国”地貌。Landsat 用于追踪阿萨蒂格岛海滩与盐沼变化、监测冬季覆盖作物减少侵蚀的效果，并绘制安纳波利斯高潮洪水范围。切萨皮克湾土地覆盖数据帮助马里兰及邻州评估 waterways 污染承受力。影像由 Landsat 8（2026年8月24日）与 Landsat 9（2025年9月5日）拍摄。",
+      "reason": null,
+      "source": {
+        "name": "USGS Landsat",
+        "kind": "external",
+        "firstParty": false
+      },
+      "originalUrl": "https://x.com/USGSLandsat/status/2113631698013376521",
+      "publishedAt": "2026-10-23T14:00:40.000Z",
+      "timelineAt": "2026-10-24T02:31:12.093Z",
+      "category": "tip",
+      "tags": [
+        "应用案例",
+        "光学遥感",
+        "灾害监测",
+        "USGS"
+      ],
+      "score": 26,
+      "selected": false
+    },
+    {
+      "id": "euyxxt7gwcj2rcx9th1x5m2xw",
+      "title": "Copernicus EMS 发布西班牙 Gandia 洪水分级产品，逾 900 栋建筑受影响",
+      "originalTitle": "#EMSR935 #Flood in #ComunidadValenciana, #Spain🇪🇸 Our #MappingTeam has delivered a Grading product focused on the built-up areas of the #Gandia AoI ▶️ 900+ buildings affected by the flood 📍 Detail from the most affected area, as of 20 Oc",
+      "summary": "Copernicus EMS 快速制图团队针对西班牙 Comunidad Valenciana 的 Gandia 关注区（AoI）发布了分级产品，聚焦建成区。据其推文，截至 2026 年 10 月 20 日，已有 900 多栋建筑受洪水影响。该产品属于应急响应制图服务，具体数据和方法细节未在推文中说明。",
+      "reason": null,
+      "source": {
+        "name": "Copernicus EMS",
+        "kind": "external",
+        "firstParty": false
+      },
+      "originalUrl": "https://x.com/CopernicusEMS/status/2113213226947051957",
+      "publishedAt": "2026-10-22T10:17:49.000Z",
+      "timelineAt": "2026-10-23T02:30:47.722Z",
+      "category": "tip",
+      "tags": [
+        "应用案例",
+        "灾害监测",
+        "Copernicus"
+      ],
+      "score": 52,
+      "selected": false
+    },
+    {
+      "id": "o28lholu4xhciby1b751y0tlv",
+      "title": "USGS 重新处理约 4.4 万景 Landsat 2/3 MSS 产品以修正亮度值错误",
+      "originalTitle": "Precision matters, even in 47-year-old data. 🛰️ Several Landsat 2 and Landsat 3 Multispectral Sensor (MSS) products were recently reprocessed to correct brightness value errors first identified in early 2025. About 44,000 of these products",
+      "summary": "USGS 近期重新处理了多景 Landsat 2 和 Landsat 3 MSS 产品，以修正 2025 年初发现的亮度值错误。约 4.4 万景产品因 Band 4 和 Band 5 使用了错误的增益与偏移值而显得过亮或过暗；另有约 1,700 景产品因处理缺陷导致每景约 2.7 万像素（约占图像 22%）被误标为云。重新处理后的产品已可从 USGS Landsat Data Access 下载。",
+      "reason": "USGS 对 Landsat 2/3 MSS 历史产品进行重新处理，修正了 Band 4/5 增益与偏移错误及云掩膜误标问题，并开放下载，属于对存档数据质量的重要修正。",
+      "source": {
+        "name": "USGS Landsat",
+        "kind": "external",
+        "firstParty": false
+      },
+      "originalUrl": "https://x.com/USGSLandsat/status/2112906987235102951",
+      "publishedAt": "2026-10-21T14:00:56.000Z",
+      "timelineAt": "2026-10-23T02:30:47.542Z",
+      "category": "data",
+      "tags": [
+        "卫星/传感器",
+        "数据质量",
+        "USGS"
+      ],
+      "score": 78,
+      "selected": true
+    },
+    {
+      "id": "otejirz3poijfti0diwqxbdhz",
+      "title": "南极云团经向输送事件30年卫星气候数据集（预印本）",
+      "originalTitle": "A 30-Year satellite based climatological dataset of Antarctic Cloud Mass Meridional Transport events",
+      "summary": "基于论文摘要，该研究提出一个基于卫星的30年南极云团经向输送事件（CMMT）气候数据集，覆盖1992年11月至2022年12月，利用红外卫星合成影像人工识别并追踪登陆南极七个区域的CMMT。",
+      "reason": "该数据集基于红外卫星合成影像人工识别追踪南极云团经向输送事件，覆盖30年并公开于AMRDC数据仓库，为再分析和天气预报模型验证提供观测基准。",
+      "source": {
+        "name": "Earth System Science Data · 数据论文与讨论稿",
+        "kind": "web_list",
+        "firstParty": true
+      },
+      "originalUrl": "https://essd.copernicus.org/preprints/essd-2026-664/",
+      "publishedAt": "2026-10-22T00:00:00.000Z",
+      "timelineAt": "2026-10-22T11:02:39.224Z",
+      "category": "data",
+      "tags": [
+        "数据集/基准",
+        "气候"
+      ],
+      "score": 78,
+      "selected": true
+    },
+    {
+      "id": "i2sj16xzv36r7gt13cfwvyl4d",
+      "title": "Copernicus Data Space 将于 11 月 5 日升级 Sentinel-1 按需生产服务",
+      "originalTitle": "Upgrade of S-1 On-Demand Production service [2026-11-05]",
+      "summary": "Copernicus Data Space 将于 11 月 5 日 9:00-11:00 CEST 对 Sentinel-1 按需生产（On-Demand Production）服务进行升级。该时段内 S-1 ODP 订单将无法成功处理，用户需提前安排任务。",
+      "reason": null,
+      "source": {
+        "name": "Copernicus Data Space · 数据与平台动态",
+        "kind": "rss",
+        "firstParty": true
+      },
+      "originalUrl": "https://dataspace.copernicus.eu/news/2026-10-22-upgrade-s-1-demand-production-service-2026-11-05",
+      "publishedAt": "2026-10-22T08:57:44.000Z",
+      "timelineAt": "2026-10-22T09:56:32.258Z",
+      "category": "rs-tools",
+      "tags": [
+        "工具更新",
+        "云端处理",
+        "Copernicus"
+      ],
+      "score": 31,
+      "selected": false
+    },
+    {
+      "id": "ghpeljy1jxh5gg2xtvpnvakod",
+      "title": "OpenEarth-OVS44：面向开放词汇分割的多模态遥感数据集（预印本）",
+      "originalTitle": "OpenEarth-OVS44: A Multimodal Remote Sensing Dataset for Open-Vocabulary Segmentation",
+      "summary": "基于论文摘要，OpenEarth-OVS44 是一个多模态遥感基准数据集，包含来自 2,832 张 RGB 影像和 1,341 对严格配准的 RGB-SAR 影像的 290,587 个专家验证分割片段，空间分辨率达亚米级，覆盖法国、日本和美国 40 个城市，采用统一 44 类分类体系（9 个基础类别）。",
+      "reason": "该数据集以统一44类细粒度分类体系覆盖三国40城市，并提供RGB-SAR多模态与跨区域评测轨，实验显示相对训练自由基线在未见类别上提升7.1 mIoU，为开放词汇分割提供新的基准资源。",
+      "source": {
+        "name": "arXiv · 遥感与地球观测预印本",
+        "kind": "rss",
+        "firstParty": true
+      },
+      "originalUrl": "https://arxiv.org/abs/2610.29642v1",
+      "publishedAt": "2026-10-21T12:25:26.000Z",
+      "timelineAt": "2026-10-22T08:58:25.910Z",
+      "category": "data",
+      "tags": [
+        "数据集/基准",
+        "多模态",
+        "语义分割",
+        "SAR",
+        "光学遥感"
+      ],
+      "score": 78,
+      "selected": true
+    },
+    {
+      "id": "djx1yfo2my0y0156fpl2ccq83",
+      "title": "Copernicus Sentinel-1 L1/L2产品推出新处理基线4.1.1",
+      "originalTitle": "Copernicus Sentinel-1 L1 and L2 Products: New Processing Baseline",
+      "summary": "Copernicus Data Space宣布Sentinel-1 L1和L2产品采用新的处理基线，版本标记为4.1.1，于2026年10月21日部署。",
+      "reason": "该处理基线更新涉及L1和L2产品的多项校正与注释改进，包括几何定位异常修正、RFI标注调整及TOPS交叉谱处理优化，对Sentinel-1数据质量有直接影响。",
+      "source": {
+        "name": "Copernicus Data Space · 数据与平台动态",
+        "kind": "rss",
+        "firstParty": true
+      },
+      "originalUrl": "https://dataspace.copernicus.eu/news/2026-10-22-copernicus-sentinel-1-l1-and-l2-products-new-processing-baseline",
+      "publishedAt": "2026-10-22T08:41:02.000Z",
+      "timelineAt": "2026-10-22T08:56:26.572Z",
+      "category": "data",
+      "tags": [
+        "工具更新",
+        "SAR",
+        "卫星/传感器",
+        "Copernicus"
+      ],
+      "score": 62,
+      "selected": true
+    },
+    {
+      "id": "lkml23r48uupsocait0iwjlbe",
+      "title": "CURSE'26演习评估小型无人机灾害损伤评估分类器CLARKE的性能与迁移能力",
+      "originalTitle": "Key Findings for Small UAS for Post-Disaster Damage Assessment from the CURSE'26 Exercise",
+      "summary": "基于论文摘要，该研究将建筑和道路损伤评估AI分类器CLARKE纳入CURSE'26演习，评估其在23个sUAS团队采集的未见正射影像上的表现。结果显示，建筑和道路损伤评估平均运行时间为3.5分钟，建筑损伤评估的Micro F1为0.834，且在佛罗里达和密苏里均表现一致，显示出良好的地理迁移能力；道路损伤评估因对道路地图与影像错位及城市光照环境敏感而表现不佳。",
+      "reason": "基于论文摘要，该研究在CURSE'26演习中评估了CLARKE分类器在23个sUAS团队采集的未见正射影像上的性能，报告了建筑和道路损伤评估的推理时间、Micro F1及地理迁移表现，并总结了五项对sUAS社区有价值的发现。",
+      "source": {
+        "name": "arXiv · 遥感与地球观测预印本",
+        "kind": "rss",
+        "firstParty": true
+      },
+      "originalUrl": "https://arxiv.org/abs/2610.29777v1",
+      "publishedAt": "2026-10-21T14:06:40.000Z",
+      "timelineAt": "2026-10-22T06:58:13.821Z",
+      "category": "paper",
+      "tags": [
+        "论文/研究",
+        "灾害监测",
+        "目标检测",
+        "分类识别",
+        "泛化/迁移"
+      ],
+      "score": 73,
+      "selected": true
+    },
+    {
+      "id": "fnwi2gmypo4ihv0vj7phy8yx8",
+      "title": "BRNCA：基于神经细胞自动机的多类边界细化用于遥感土地覆盖分割（预印本）",
+      "originalTitle": "Multiclass Boundary Refinement with Neural Cellular Automata for Remote Sensing Land Cover Segmentation",
+      "summary": "基于论文摘要，该研究提出边界细化神经细胞自动机（BRNCA），从冻结的预训练分割器输出的类别概率出发，通过迭代应用小型学习规则逐细胞修正边界。该方法将二元rNCA推广到多类情况，利用Aitchison（对数空间）更新保持可见通道在概率单纯形上，并添加自由隐藏通道。",
+      "reason": "提出将神经细胞自动机推广到多类边界细化，通过Aitchison更新保持概率单纯形，并在公开数据集上验证了BIoU提升，为边界误差优化提供了新思路。",
+      "source": {
+        "name": "arXiv · 遥感与地球观测预印本",
+        "kind": "rss",
+        "firstParty": true
+      },
+      "originalUrl": "https://arxiv.org/abs/2610.30007v1",
+      "publishedAt": "2026-10-21T16:41:16.000Z",
+      "timelineAt": "2026-10-22T05:57:25.093Z",
+      "category": "paper",
+      "tags": [
+        "论文/研究",
+        "语义分割",
+        "分类识别"
+      ],
+      "score": 62,
+      "selected": true
+    },
     {
       "id": "tnek9f178j0hxattsp1cvv59h",
       "title": "Copernicus Sentinel-5P OFFL HCHO 和 SO2 v2.8.0 产品重新处理完成，现可在 CDSE 下载",
@@ -637,55 +873,6 @@
       "selected": true
     },
     {
-      "id": "wsbk0ovjw37iq5ly345ffbcl9",
-      "title": "太空俯瞰：西南极洲海冰影像",
-      "originalTitle": "Earth from Space: West Antarctica",
-      "summary": "哥白尼哨兵3号于2026年9月30日拍摄的西南极洲影像显示，南半球冬季即将结束，海冰达到年度最大范围，覆盖南极半岛顶端及威德尔海部分区域。影像覆盖约1200公里乘1700公里区域，可见象岛及多种海冰纹理。据美国国家冰雪数据中心数据，南极冬季海冰最可能已于2026年9月14日达到峰值。",
-      "reason": null,
-      "source": {
-        "name": "ESA · 对地观测",
-        "kind": "rss",
-        "firstParty": true
-      },
-      "originalUrl": "https://www.esa.int/ESA_Multimedia/Images/2026/10/Earth_from_Space_West_Antarctica",
-      "publishedAt": "2026-10-16T08:00:00.000Z",
-      "timelineAt": "2026-10-17T02:50:33.927Z",
-      "category": "satellite",
-      "tags": [
-        "卫星/传感器",
-        "光学遥感",
-        "海洋",
-        "气候",
-        "ESA",
-        "Copernicus"
-      ],
-      "score": 18,
-      "selected": false
-    },
-    {
-      "id": "dw6cmctc5ots4s2t320emorp2",
-      "title": "NASA Worldview 影像显示印尼火灾致东南亚持续烟霾",
-      "originalTitle": "Fires Causing Persistent Haze Across Southeast Asia",
-      "summary": "NASA Worldview 影像显示印尼加里曼丹地区野火持续，产生跨境烟霾，影响马来西亚和新加坡等国空气质量。影像来自 NOAA-21 上的 VIIRS 传感器，叠加了 380nm 气溶胶指数图层，红点表示活跃火点，黄橙色表示烟霾扩散区域；AERONET 地面站点显示坤甸、占碑和新加坡等地气溶胶光学厚度（AOD）较高。厄尔尼诺导致的干旱和降雨延迟加剧了火势。",
-      "reason": null,
-      "source": {
-        "name": "NASA Earthdata · 科学数据与工具",
-        "kind": "rss",
-        "firstParty": true
-      },
-      "originalUrl": "https://www.earthdata.nasa.gov/news/worldview-image-archive/fires-causing-persistent-haze-across-southeast-asia",
-      "publishedAt": "2026-10-16T19:23:29.000Z",
-      "timelineAt": "2026-10-17T02:50:33.474Z",
-      "category": "tip",
-      "tags": [
-        "应用案例",
-        "灾害监测",
-        "NASA"
-      ],
-      "score": 52,
-      "selected": false
-    },
-    {
       "id": "gdipajs3hcrtcvpip6a1jok9z",
       "title": "Copernicus Data Space 推出新的 SFEOS STAC 目录端点",
       "originalTitle": "New SFEOS STAC catalogue endpoint",
@@ -850,102 +1037,6 @@
       ],
       "score": 78,
       "selected": true
-    },
-    {
-      "id": "llovvtpszjfqol6mdr0ob62ar",
-      "title": "康斯坦茨湖水位告急，Sentinel-2 揭示浅水区",
-      "originalTitle": "🚣 Lake Constance 🇩🇪🇨🇭🇦🇹 is running low! 🌊 Water levels in the Untersee were ~90 cm below avg in early Oct, suspending passenger boat services. 🛰️ #CopernicusEU Sentinel-2 reveals shallow waters &amp; exposed lakebed. 🔗 https://t.c",
-      "summary": "🚣 康斯坦茨湖（🇩🇪🇨🇭🇦🇹）水位告急！\n\n🌊 10 月初，Untersee 水位低于平均值约 90 厘米，客运船服务暂停。\n\n🛰️ #CopernicusEU Sentinel-2 揭示了浅水区及裸露的湖床。\n\n🔗 https://t.co/28gOD2eNcG\n\n#ImageOfTheDay https://t.co/63hiIs85Ri",
-      "reason": null,
-      "source": {
-        "name": "Copernicus",
-        "kind": "external",
-        "firstParty": false
-      },
-      "originalUrl": "https://x.com/CopernicusEU/status/2110759220165398653",
-      "publishedAt": "2026-10-15T15:46:28.000Z",
-      "timelineAt": "2026-10-16T02:30:53.440Z",
-      "category": "tip",
-      "tags": [
-        "应用案例",
-        "灾害监测",
-        "光学遥感",
-        "Copernicus"
-      ],
-      "score": 28,
-      "selected": false
-    },
-    {
-      "id": "w4dhdubg150xcj0h1fx65az1j",
-      "title": "Landsat 影像记录圣海伦斯火山侧向喷发",
-      "originalTitle": "Why did Mount St. Helens erupt sideways instead of straight up? The answer was building underneath the surface for months. 🌋 Magma was pushing upward inside the volcano, but it had nowhere to go. The north side of the mountain bulged outwa",
-      "summary": "圣海伦斯火山于1980年5月18日侧向喷发而非垂直喷发，因岩浆上涌导致北侧山体向外膨胀逾260英尺，成为最薄弱点。Landsat 1（1973年9月15日）与 Landsat 4（1983年5月22日）影像对比显示，喷发后森林被火山灰取代，从438英里高空可见地貌剧变。",
-      "reason": null,
-      "source": {
-        "name": "USGS Landsat",
-        "kind": "external",
-        "firstParty": false
-      },
-      "originalUrl": "https://x.com/USGSLandsat/status/2110747670784446844",
-      "publishedAt": "2026-10-15T15:00:35.000Z",
-      "timelineAt": "2026-10-16T02:30:53.209Z",
-      "category": "tip",
-      "tags": [
-        "应用案例",
-        "光学遥感",
-        "灾害监测",
-        "USGS"
-      ],
-      "score": 40,
-      "selected": false
-    },
-    {
-      "id": "jr09uwcha339allqbqthk6th4",
-      "title": "哥白尼哨兵2号记录尼泊尔山洪前后变化",
-      "originalTitle": "⚠️ Flash floods hit Nepal’s 🇳🇵 Budhi Gandaki River valley on 11 Oct, damaging bridges, homes &amp; trekking routes. 🛰️ #CopernicusEU Sentinel-2 images reveal changes before &amp; after the event, supporting disaster response. 🔗 https://",
-      "summary": "⚠️ 10月11日，山洪袭击尼泊尔🇳🇵布迪甘达基河谷，损毁桥梁、房屋及徒步路线。\n\n🛰️ #CopernicusEU 哨兵2号影像揭示了事件前后的变化，为灾害响应提供支持。\n\n🔗 https://t.co/wlqRRKsb7H\n\n#今日影像 https://t.co/NKlGJzopgI",
-      "reason": null,
-      "source": {
-        "name": "Copernicus",
-        "kind": "external",
-        "firstParty": false
-      },
-      "originalUrl": "https://x.com/CopernicusEU/status/2110300179383341381",
-      "publishedAt": "2026-10-14T09:22:24.000Z",
-      "timelineAt": "2026-10-15T02:30:42.711Z",
-      "category": "tip",
-      "tags": [
-        "应用案例",
-        "灾害监测",
-        "光学遥感",
-        "Copernicus"
-      ],
-      "score": 26,
-      "selected": false
-    },
-    {
-      "id": "ng7am0o7mwhn7hqdzp8s7zn63",
-      "title": "圣海伦斯火山1980年喷发回顾：Landsat持续监测",
-      "originalTitle": "It's Earth Science Week! 🌋 Let's look back at the day Mount St. Helens changed forever. Before May 18, 1980, Mount St. Helens was famous for its near-perfect, symmetrical shape. Its striking profile even earned it the nickname \"Fujiyama of",
-      "summary": "为庆祝地球科学周，USGS回顾了1980年5月18日圣海伦斯火山喷发事件。喷发前数周，该地区发生超1万次地震，火山北侧向外膨胀超260英尺。当日8时32分，5.1级地震触发北侧大规模山体滑坡，引发横向爆炸，火山灰柱升至约15英里高空，灰烬扩散至美国西部大部分地区，远在约250英里外的斯波坎市白昼如夜。Landsat自喷发以来持续观测该火山变化。",
-      "reason": null,
-      "source": {
-        "name": "USGS Landsat",
-        "kind": "external",
-        "firstParty": false
-      },
-      "originalUrl": "https://x.com/USGSLandsat/status/2110385309259063770",
-      "publishedAt": "2026-10-14T15:00:41.000Z",
-      "timelineAt": "2026-10-15T02:30:42.322Z",
-      "category": "tip",
-      "tags": [
-        "应用案例",
-        "灾害监测",
-        "光学遥感",
-        "USGS"
-      ],
-      "score": 28,
-      "selected": false
     },
     {
       "id": "coa4892bdkb8zey9lqxqkolmh",
@@ -5813,6 +5904,7 @@
       "group": "company",
       "definition": "Copernicus 的遥感研究、观测数据与工程动态。",
       "itemIds": [
+        "djx1yfo2my0y0156fpl2ccq83",
         "tnek9f178j0hxattsp1cvv59h",
         "gdipajs3hcrtcvpip6a1jok9z",
         "o4w5uuyivv04dhtd1pf3upp2d",
@@ -5873,6 +5965,8 @@
       "group": "field",
       "definition": "追踪SAR 与 InSAR的研究方法、数据、工具与应用实践。",
       "itemIds": [
+        "ghpeljy1jxh5gg2xtvpnvakod",
+        "djx1yfo2my0y0156fpl2ccq83",
         "jyvgipi90rcqqcnxrfc5u419z",
         "p2ohp08inlj86ag4k5jx04haj",
         "o4w5uuyivv04dhtd1pf3upp2d",
@@ -5927,6 +6021,7 @@
       "group": "field",
       "definition": "追踪光学遥感的研究方法、数据、工具与应用实践。",
       "itemIds": [
+        "ghpeljy1jxh5gg2xtvpnvakod",
         "jyvgipi90rcqqcnxrfc5u419z",
         "k9us1ebfn0l53ujf97906y7jf",
         "coa4892bdkb8zey9lqxqkolmh",
@@ -5972,6 +6067,7 @@
       "group": "field",
       "definition": "追踪目标检测的研究方法、数据、工具与应用实践。",
       "itemIds": [
+        "lkml23r48uupsocait0iwjlbe",
         "jyvgipi90rcqqcnxrfc5u419z",
         "j7abt47v1os0nreiq46q6its3",
         "k1eyfqhost621es7uxdnohpqj",
@@ -5988,6 +6084,8 @@
       "group": "field",
       "definition": "追踪语义分割的研究方法、数据、工具与应用实践。",
       "itemIds": [
+        "ghpeljy1jxh5gg2xtvpnvakod",
+        "fnwi2gmypo4ihv0vj7phy8yx8",
         "l4qu2dk2oorbvu421z6hc0plh",
         "u3mqll7wsch0l38uhia8cqyr6",
         "isr9832cpnm1spm4t90ipynvg",
@@ -6053,6 +6151,7 @@
       "group": "field",
       "definition": "追踪泛化与迁移的研究方法、数据、工具与应用实践。",
       "itemIds": [
+        "lkml23r48uupsocait0iwjlbe",
         "g103xoho9pee2j5uo4q74a13z",
         "kysmad78ukt9xnc4cf3kjwv62",
         "o2xctzlxelb023m511owyezo4",
@@ -6077,6 +6176,7 @@
       "group": "field",
       "definition": "追踪灾害监测的研究方法、数据、工具与应用实践。",
       "itemIds": [
+        "lkml23r48uupsocait0iwjlbe",
         "okip40act3rfd3zggj9he7jt5",
         "psoakgufonb9jhsqiieno8odc",
         "xhy2k5tdmn3bdl6l6mradqw3k",
@@ -6126,6 +6226,8 @@
       "group": "genre",
       "definition": "值得关注的遥感论文与研究，保留原文入口与适用条件。",
       "itemIds": [
+        "lkml23r48uupsocait0iwjlbe",
+        "fnwi2gmypo4ihv0vj7phy8yx8",
         "f643b8gldfq2zmjs86m1mnl6e",
         "jyvgipi90rcqqcnxrfc5u419z",
         "j7abt47v1os0nreiq46q6its3",
@@ -6179,6 +6281,8 @@
       "group": "genre",
       "definition": "值得关注的遥感数据集与基准，保留原文入口与适用条件。",
       "itemIds": [
+        "otejirz3poijfti0diwqxbdhz",
+        "ghpeljy1jxh5gg2xtvpnvakod",
         "u0u9yotsnron8fn6ycqed122b",
         "t4j0gqzx10z58dig3ebzb1f3o",
         "o1hae7nteq2o9l2zsnfqx2xk8",
@@ -6247,6 +6351,8 @@
       "group": "genre",
       "definition": "值得关注的遥感卫星与传感器，保留原文入口与适用条件。",
       "itemIds": [
+        "o28lholu4xhciby1b751y0tlv",
+        "djx1yfo2my0y0156fpl2ccq83",
         "tnek9f178j0hxattsp1cvv59h",
         "pa1zwvy3pentytdpkfrmic14e",
         "coa4892bdkb8zey9lqxqkolmh",
@@ -6283,7 +6389,7 @@
     }
   ],
   "hot": {
-    "computedAt": "2026-10-22T02:30:09.639Z",
+    "computedAt": "2026-10-24T14:51:24.630Z",
     "windowHours": 48,
     "entries": []
   }
