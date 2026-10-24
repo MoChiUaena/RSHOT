@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-24T14:52:10.070Z",
+  "generatedAt": "2026-10-24T15:01:35.095Z",
   "categories": [
     {
       "key": "paper",
@@ -122,6 +122,124 @@
     }
   ],
   "items": [
+    {
+      "id": "db0h5k0ymotff04vu0gtbz20t",
+      "title": "超级台风“查皮”逼近台湾与华东：NASA Worldview 影像展示其最强时刻",
+      "originalTitle": "Super Typhoon Champi",
+      "summary": "超级台风“查皮”于2026年10月19-21日多次达到5级等效强度，风速达185英里/小时，阵风达200英里/小时，成为2026年全球最强风暴之一。NASA Worldview 发布的夜间影像由 NOAA-20 上的 VIIRS 于10月21日凌晨拍摄，显示其清晰风眼。台风预计以2或3级强度掠过台湾东北部，随后转向华东并最终朝日本南部移动，周末将为台湾和华东带来强降雨和大风。",
+      "reason": null,
+      "source": {
+        "name": "NASA Earthdata · 科学数据与工具",
+        "kind": "rss",
+        "firstParty": true
+      },
+      "originalUrl": "https://www.earthdata.nasa.gov/news/worldview-image-archive/super-typhoon-champi",
+      "publishedAt": "2026-10-22T19:53:49.000Z",
+      "timelineAt": "2026-10-24T14:51:45.685Z",
+      "category": "tip",
+      "tags": [
+        "应用案例",
+        "灾害监测",
+        "光学遥感",
+        "NASA"
+      ],
+      "score": 23,
+      "selected": false
+    },
+    {
+      "id": "s40l77owbyvw4wyvlfg57mcyl",
+      "title": "CDSE 2026 用户峰会线上演示材料发布",
+      "originalTitle": "Presentations of the CDSE User Summit 2026 online",
+      "summary": "Copernicus 数据空间生态系统（CDSE）于 2026 年 9 月 16 日在慕尼黑 Intergeo 展会期间举办了第三届用户峰会，现已发布演示文稿和会议录像。峰会汇集用户与服务提供商，探讨地球观测创新、协作及最新 EO 数据与服务。演示文稿可通过峰会日程获取，录像可在 CDSE YouTube 频道观看。",
+      "reason": null,
+      "source": {
+        "name": "Copernicus Data Space · 数据与平台动态",
+        "kind": "rss",
+        "firstParty": true
+      },
+      "originalUrl": "https://dataspace.copernicus.eu/news/2026-10-22-presentations-cdse-user-summit-2026-online",
+      "publishedAt": "2026-10-22T14:57:27.000Z",
+      "timelineAt": "2026-10-24T14:51:37.093Z",
+      "category": "industry",
+      "tags": [
+        "行业动态",
+        "云端处理",
+        "Copernicus"
+      ],
+      "score": 23,
+      "selected": false
+    },
+    {
+      "id": "eg9l8hqj5b9616umq20embpyc",
+      "title": "太空俯瞰“粉色之城”：Pleiades Neo 卫星影像展示法国图卢兹",
+      "originalTitle": "Earth from Space: The pink city",
+      "summary": "欧洲航天局（ESA）发布 Pleiades Neo 卫星拍摄的法国图卢兹高清影像，呈现其陶土红瓦屋顶、加龙河及横跨河面的多座桥梁。影像中可见图卢兹体育场、米迪运河、马塔比奥火车站及欧洲最古老大学之一的图卢兹大学。Pleiades Neo 双星自 2021 年运行，分辨率最高 30 厘米，任务隶属 ESA 第三方任务计划。",
+      "reason": null,
+      "source": {
+        "name": "ESA · 对地观测",
+        "kind": "rss",
+        "firstParty": true
+      },
+      "originalUrl": "https://www.esa.int/ESA_Multimedia/Images/2026/10/Earth_from_Space_The_pink_city",
+      "publishedAt": "2026-10-23T08:00:00.000Z",
+      "timelineAt": "2026-10-24T14:51:30.457Z",
+      "category": "satellite",
+      "tags": [
+        "卫星/传感器",
+        "光学遥感",
+        "城市",
+        "ESA"
+      ],
+      "score": 24,
+      "selected": false
+    },
+    {
+      "id": "j94pm0bc8wgvtuggmuo2v6u53",
+      "title": "terrio v0.4.0 发布：纯 Rust 地理空间数据 I/O 库，无需 GDAL 依赖",
+      "originalTitle": "terrio v0.4.0 is here! terrio is a lightweight, open-source geospatial data I/O library written in pure Rust. It reads, writes, converts, and reprojects rasters, vectors, and point clouds without requiring GDAL or C dependencies. Use it fro",
+      "summary": "terrio v0.4.0 发布，这是一个用纯 Rust 编写的轻量级开源地理空间数据 I/O 库，可读写、转换和重投影栅格、矢量及点云数据，无需 GDAL 或 C 依赖。",
+      "reason": "terrio v0.4.0 以纯 Rust 实现栅格、矢量、点云读写转换与重投影，不依赖 GDAL 或 C 依赖，并提供命令行、Python、JavaScript（WebAssembly）和 Rust 接口，CLI 体积小于 15 MB，可快速安装。",
+      "source": {
+        "name": "Qiusheng Wu · giswqs",
+        "kind": "external",
+        "firstParty": false
+      },
+      "originalUrl": "https://x.com/giswqs/status/2113096337252106672",
+      "publishedAt": "2026-10-22T02:33:20.000Z",
+      "timelineAt": "2026-10-24T02:31:13.428Z",
+      "category": "rs-tools",
+      "tags": [
+        "工具更新",
+        "开源/仓库",
+        "云端处理"
+      ],
+      "score": 75,
+      "selected": true
+    },
+    {
+      "id": "vddc471913zzck2cetyrb0ylx",
+      "title": "超强台风Champi达5级 全球最强风速",
+      "originalTitle": "🌀 Super Typhoon Champi (Rosal) reached Cat 5 strength east of the 🇵🇭 Philippines, with winds of 296 km/h - the strongest sustained winds recorded globally (2026). 🛰️ @CMEMS_EU data show waves reaching 10 m near the storm’s centre. 🔗 ht",
+      "summary": "🌀 超强台风Champi（Rosal）在菲律宾以东达到5级强度，风速达296公里/小时——这是全球有记录以来最强的持续风速（2026年）。\n\n🛰️ @CMEMS_EU 数据显示，风暴中心附近海浪高达10米。\n\n🔗 https://t.co/mHcEJIKzEw\n\n#ImageOfTheDay https://t.co/YSlDI2uYwk",
+      "reason": null,
+      "source": {
+        "name": "Copernicus",
+        "kind": "external",
+        "firstParty": false
+      },
+      "originalUrl": "https://x.com/CopernicusEU/status/2113213204956332483",
+      "publishedAt": "2026-10-22T10:17:44.000Z",
+      "timelineAt": "2026-10-24T02:31:13.371Z",
+      "category": "satellite",
+      "tags": [
+        "卫星/传感器",
+        "灾害监测",
+        "海洋",
+        "Copernicus"
+      ],
+      "score": 29,
+      "selected": false
+    },
     {
       "id": "ukplqp0z802img9qwzzkrrrzp",
       "title": "哥白尼哨兵2号捕捉风暴亚当洪水影响",
@@ -6164,6 +6282,7 @@
       "group": "field",
       "definition": "追踪云端处理的研究方法、数据、工具与应用实践。",
       "itemIds": [
+        "j94pm0bc8wgvtuggmuo2v6u53",
         "gdipajs3hcrtcvpip6a1jok9z",
         "u8apq419zzwq61uwg5741g3uk",
         "ix86l1hfdxof6otboaxyx0wsm",
@@ -6332,6 +6451,7 @@
       "group": "genre",
       "definition": "值得关注的遥感开源工具与代码，保留原文入口与适用条件。",
       "itemIds": [
+        "j94pm0bc8wgvtuggmuo2v6u53",
         "u0u9yotsnron8fn6ycqed122b",
         "gdipajs3hcrtcvpip6a1jok9z",
         "jdx6khgou842sfra33v2brk0y",
@@ -6389,7 +6509,7 @@
     }
   ],
   "hot": {
-    "computedAt": "2026-10-24T14:51:24.630Z",
+    "computedAt": "2026-10-24T15:00:40.970Z",
     "windowHours": 48,
     "entries": []
   }
