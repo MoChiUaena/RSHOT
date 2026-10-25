@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-24T15:01:35.095Z",
+  "generatedAt": "2026-10-25T02:33:13.434Z",
   "categories": [
     {
       "key": "paper",
@@ -29,27 +29,7 @@
   ],
   "sources": [
     {
-      "name": "STAC FastAPI · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "USGS Landsat",
-      "kind": "external"
-    },
-    {
-      "name": "TorchGeo · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "Earth System Science Data · 数据论文与讨论稿",
-      "kind": "web_list"
-    },
-    {
-      "name": "Copernicus EMS",
-      "kind": "external"
-    },
-    {
-      "name": "Rasterio · 稳定版本发布",
+      "name": "PySTAC · 稳定版本发布",
       "kind": "rss"
     },
     {
@@ -57,43 +37,19 @@
       "kind": "rss"
     },
     {
-      "name": "ESA · 对地观测",
+      "name": "TorchGeo · 稳定版本发布",
       "kind": "rss"
     },
     {
-      "name": "TerraTorch · 稳定版本发布",
-      "kind": "rss"
+      "name": "USGS Landsat",
+      "kind": "external"
     },
     {
-      "name": "EOReader · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "arXiv · 遥感与地球观测预印本",
-      "kind": "rss"
-    },
-    {
-      "name": "Copernicus Data Space · 数据与平台动态",
-      "kind": "rss"
-    },
-    {
-      "name": "rioxarray · 稳定版本发布",
+      "name": "NASA Earthdata · 科学数据与工具",
       "kind": "rss"
     },
     {
       "name": "earthaccess · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "PySTAC · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "Google Earth 与 Earth Engine · 官方博客",
-      "kind": "rss"
-    },
-    {
-      "name": "geemap · 稳定版本发布",
       "kind": "rss"
     },
     {
@@ -105,23 +61,138 @@
       "kind": "web_list"
     },
     {
-      "name": "Qiusheng Wu · giswqs",
-      "kind": "external"
-    },
-    {
-      "name": "Copernicus",
-      "kind": "external"
-    },
-    {
-      "name": "NASA Earthdata · 科学数据与工具",
+      "name": "EOReader · 稳定版本发布",
       "kind": "rss"
+    },
+    {
+      "name": "STAC FastAPI · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "geemap · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "Copernicus EMS",
+      "kind": "external"
     },
     {
       "name": "openEO Python Client · 稳定版本发布",
       "kind": "rss"
+    },
+    {
+      "name": "Earth System Science Data · 数据论文与讨论稿",
+      "kind": "web_list"
+    },
+    {
+      "name": "Qiusheng Wu · giswqs",
+      "kind": "external"
+    },
+    {
+      "name": "arXiv · 遥感与地球观测预印本",
+      "kind": "rss"
+    },
+    {
+      "name": "TerraTorch · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "Rasterio · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "Google Earth 与 Earth Engine · 官方博客",
+      "kind": "rss"
+    },
+    {
+      "name": "rioxarray · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "Copernicus Data Space · 数据与平台动态",
+      "kind": "rss"
+    },
+    {
+      "name": "ESA · 对地观测",
+      "kind": "rss"
+    },
+    {
+      "name": "Copernicus",
+      "kind": "external"
     }
   ],
   "items": [
+    {
+      "id": "sbhjwwjywo768gvhndiabywg3",
+      "title": "terrio v0.5.0 发布：纯 Rust 地理空间工具新增矢量处理、栅格分析、GRIB 支持及 WebAssembly 多线程",
+      "originalTitle": "terrio v0.5.0 is here! terrio reads, writes, converts and reprojects geospatial rasters, vectors and point clouds in pure Rust, with no GDAL and no C dependencies. Use it from the command line, Python, JavaScript (WebAssembly) or Rust, or l",
+      "summary": "terrio v0.5.0 发布，这是一个用纯 Rust 编写、无 GDAL 和 C 依赖的地理空间库，支持读写、转换和重投影栅格、矢量及点云数据。新版本新增矢量处理（buffer、overlay、dissolve 等）、栅格分析（等高线、分区统计）、独立 SQL 命令、GRIB1/GRIB2 气象数据读取、更多 PDAL 点云过滤器，以及 Zarr 多维数组支持。",
+      "reason": "terrio v0.5.0 新增矢量处理、栅格分析、SQL 命令、GRIB 格式支持及 WebAssembly 多线程优化，扩展了纯 Rust 地理空间工具链的能力。",
+      "source": {
+        "name": "Qiusheng Wu · giswqs",
+        "kind": "external",
+        "firstParty": false
+      },
+      "originalUrl": "https://x.com/giswqs/status/2113980412691149078",
+      "publishedAt": "2026-10-24T13:06:20.000Z",
+      "timelineAt": "2026-10-25T02:31:18.838Z",
+      "category": "rs-tools",
+      "tags": [
+        "工具更新",
+        "开源/仓库",
+        "云端处理",
+        "部署/工程"
+      ],
+      "score": 78,
+      "selected": true
+    },
+    {
+      "id": "asi9cdrbe51z8rhnujc5th5tw",
+      "title": "RustGIS v0.4.0 发布：纯 Rust 开源 GIS 新增无 GDAL 数据读取、3D 地图与 AI 代理",
+      "originalTitle": "RustGIS v0.4.0 is here! RustGIS is a fast, free and open-source GIS in pure Rust for mapping, analyzing and sharing geospatial data. It runs natively on Windows, macOS and Linux, and in your web browser. Your data stays on your machine unle",
+      "summary": "RustGIS v0.4.0 发布，这是一款用纯 Rust 编写的快速、免费开源 GIS，用于地理空间数据的制图、分析和共享。",
+      "reason": "RustGIS v0.4.0 新增无 GDAL 读取 File Geodatabase 和实时 SQL 数据库、3D 地图、时间滑块与数据立方体、空间连接与克里金插值、出版级布局及 AI 代理功能，并汇总 369 个合并请求。",
+      "source": {
+        "name": "Qiusheng Wu · giswqs",
+        "kind": "external",
+        "firstParty": false
+      },
+      "originalUrl": "https://x.com/giswqs/status/2114175796466069523",
+      "publishedAt": "2026-10-25T02:02:44.000Z",
+      "timelineAt": "2026-10-25T02:31:18.821Z",
+      "category": "rs-tools",
+      "tags": [
+        "工具更新",
+        "开源/仓库",
+        "云端处理",
+        "部署/工程"
+      ],
+      "score": 75,
+      "selected": true
+    },
+    {
+      "id": "q32e0ddd63zkj3u6lrx2q67y9",
+      "title": "纳米布沙漠陨石坑：哨兵2号影像揭示罗特卡姆陨石坑",
+      "originalTitle": "☄️ A cosmic impact in the Namib Desert! 🇳🇦 🛰️ #CopernicusEU Sentinel-2 reveals the 2.5 km-wide Roter Kamm Crater, where a meteorite struck millions of years ago, leaving a striking circular mark in the desert. 🔗 https://t.co/KXibcQhHJ2",
+      "summary": "☄️ 纳米布沙漠中的宇宙撞击！🇳🇦\n\n🛰️ #CopernicusEU 哨兵2号揭示了宽2.5公里的罗特卡姆陨石坑，数百万年前一颗陨石在此撞击，在沙漠中留下了醒目的圆形印记。\n\n🔗 https://t.co/KXibcQhHJ2\n\n#今日影像 https://t.co/4WofX0bUW7",
+      "reason": null,
+      "source": {
+        "name": "Copernicus",
+        "kind": "external",
+        "firstParty": false
+      },
+      "originalUrl": "https://x.com/CopernicusEU/status/2114061072273478142",
+      "publishedAt": "2026-10-24T18:26:51.000Z",
+      "timelineAt": "2026-10-25T02:31:18.711Z",
+      "category": "tip",
+      "tags": [
+        "应用案例",
+        "光学遥感",
+        "Copernicus"
+      ],
+      "score": 18,
+      "selected": false
+    },
     {
       "id": "db0h5k0ymotff04vu0gtbz20t",
       "title": "超级台风“查皮”逼近台湾与华东：NASA Worldview 影像展示其最强时刻",
@@ -899,53 +970,6 @@
       "selected": false
     },
     {
-      "id": "lz727wmrrr33oy7v1tf2g1m2t",
-      "title": "Landsat 十月动态：火灾监测与数据更新",
-      "originalTitle": "What’s new with Landsat this October? 🛰️ This month’s issue starts in north-central Oregon, where Landsat captured the progression and aftermath of summer wildfires. Also in this issue: 🔹 Learn how Landsat data help support water manageme",
-      "summary": "USGS 发布 Landsat 十月通讯，展示俄勒冈州中部夏季野火进展与 aftermath 的卫星影像。本期还介绍 Landsat 数据在全球水资源管理中的应用、Landsat 2 和 Landsat 3 MSS Level-1 再处理产品，以及通过 Amazon SNS 订阅 USGS EROS 档案新增数据的更新方式。",
-      "reason": null,
-      "source": {
-        "name": "USGS Landsat",
-        "kind": "external",
-        "firstParty": false
-      },
-      "originalUrl": "https://x.com/USGSLandsat/status/2111096133644627989",
-      "publishedAt": "2026-10-16T14:05:15.000Z",
-      "timelineAt": "2026-10-18T02:30:36.434Z",
-      "category": "data",
-      "tags": [
-        "数据集/基准",
-        "数据质量",
-        "USGS"
-      ],
-      "score": 28,
-      "selected": false
-    },
-    {
-      "id": "i6rft274pfx7l4y1bli6fns93",
-      "title": "圣海伦斯火山喷发40年：Landsat见证生态恢复",
-      "originalTitle": "The eruption lasted hours. Its effects on rivers and ecosystems are still showing up more than 40 years later. 🌋 When Mount St. Helens erupted, it sent a massive wave of mud, water, and debris downstream, overwhelming the Toutle, Cowlitz,",
-      "summary": "圣海伦斯火山1980年喷发后，泥水碎屑流使图特尔河、考利兹河和哥伦比亚河部分河床抬升近30英尺，至今部分河流输沙量仍为喷发前数十倍。植被和动物恢复速度远超预期，当前生物多样性已超过喷发前。1982年国会设立11万英亩国家火山纪念碑，Landsat持续40余年逐像素记录其恢复过程。",
-      "reason": null,
-      "source": {
-        "name": "USGS Landsat",
-        "kind": "external",
-        "firstParty": false
-      },
-      "originalUrl": "https://x.com/USGSLandsat/status/2111110041159737598",
-      "publishedAt": "2026-10-16T15:00:30.000Z",
-      "timelineAt": "2026-10-18T02:30:36.311Z",
-      "category": "tip",
-      "tags": [
-        "应用案例",
-        "森林/生态",
-        "灾害监测",
-        "USGS"
-      ],
-      "score": 38,
-      "selected": false
-    },
-    {
       "id": "psoakgufonb9jhsqiieno8odc",
       "title": "EXPORT 航次数据论文：2025年1-3月跨大西洋气溶胶传输观测（预印本）",
       "originalTitle": "Trans-Atlantic aerosol transport from January to March 2025 – measurements from two expeditions on a research vessel",
@@ -1274,6 +1298,32 @@
         "NASA"
       ],
       "score": 82,
+      "selected": true
+    },
+    {
+      "id": "g6m6rclx3ik3j2dtxf089ohou",
+      "title": "STRATA-S12：面向自监督学习的开放 SAR-光学语料及赤字驱动分层采集算法（预印本）",
+      "originalTitle": "Deficit-Driven Stratified Acquisition for Building STRATA-S12: An Open SAR-Optical Corpus for Self-Supervised Learning",
+      "summary": "基于论文摘要，该研究提出赤字驱动分层采集（DDSA）算法，将 Sentinel-1/Sentinel-2 语料构建建模为受约束的最大覆盖问题，按土地覆盖驱动的（类别×季节×区域）分层在线排序采集。",
+      "reason": "提出基于分层配额的采集算法，将语料构建建模为约束最大覆盖问题，并在自身产出的语料上给出平衡性、缺陷恢复与修复循环的量化评估，对多模态自监督语料构建有方法贡献。",
+      "source": {
+        "name": "arXiv · 遥感与地球观测预印本",
+        "kind": "rss",
+        "firstParty": true
+      },
+      "originalUrl": "https://arxiv.org/abs/2610.17680v3",
+      "publishedAt": "2026-10-13T04:03:57.000Z",
+      "timelineAt": "2026-10-13T04:03:57.000Z",
+      "category": "data",
+      "tags": [
+        "论文/研究",
+        "数据集/基准",
+        "SAR",
+        "光学遥感",
+        "自监督学习",
+        "开源/仓库"
+      ],
+      "score": 80,
       "selected": true
     },
     {
@@ -3325,6 +3375,107 @@
     }
   ],
   "reports": [
+    {
+      "kind": "daily",
+      "key": "2026-10-25",
+      "title": "遥感日报 · 2026-10-25",
+      "generatedAt": "2026-10-25T00:00:15.820Z",
+      "editorialMode": "model",
+      "lead": {
+        "title": "USGS 重新处理 4.4 万景 Landsat MSS 产品修正亮度错误",
+        "leadParagraph": "USGS 近期重新处理了约 4.4 万景 Landsat 2/3 MSS 产品，以修正 2025 年初发现的 Band 4 和 Band 5 亮度值错误，这些产品因增益与偏移值错误而显得过亮或过暗。此次修正将提升历史遥感数据的可用性。"
+      },
+      "overview": null,
+      "sections": [
+        {
+          "label": "数据集与基准",
+          "summary": null,
+          "items": [
+            {
+              "itemId": "o28lholu4xhciby1b751y0tlv",
+              "title": "USGS 重新处理约 4.4 万景 Landsat 2/3 MSS 产品以修正亮度值错误",
+              "summary": "USGS 近期重新处理了多景 Landsat 2 和 Landsat 3 MSS 产品，以修正 2025 年初发现的亮度值错误。约 4.4 万景产品因 Band 4 和 Band 5 使用了错误的增益与偏移值而显得过亮或过暗；另有约 1,700 景产品因处理缺陷导致每景约 2.7 万像素（约占图像 22%）被误标为云。重新处理后的产品已可从 USGS Landsat Data Access 下载。",
+              "sourceName": "USGS Landsat",
+              "originalUrl": "https://x.com/USGSLandsat/status/2112906987235102951"
+            }
+          ]
+        },
+        {
+          "label": "模型与开源工具",
+          "summary": null,
+          "items": [
+            {
+              "itemId": "j94pm0bc8wgvtuggmuo2v6u53",
+              "title": "terrio v0.4.0 发布：纯 Rust 地理空间数据 I/O 库，无需 GDAL 依赖",
+              "summary": "terrio v0.4.0 发布，这是一个用纯 Rust 编写的轻量级开源地理空间数据 I/O 库，可读写、转换和重投影栅格、矢量及点云数据，无需 GDAL 或 C 依赖。",
+              "sourceName": "Qiusheng Wu · giswqs",
+              "originalUrl": "https://x.com/giswqs/status/2113096337252106672"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "daily",
+      "key": "2026-10-23",
+      "title": "遥感日报 · 2026-10-23",
+      "generatedAt": "2026-10-24T15:53:38.341Z",
+      "editorialMode": "model",
+      "lead": {
+        "title": "Sentinel-1新处理基线4.1.1部署",
+        "leadParagraph": "Copernicus Data Space于2026年10月21日部署Sentinel-1 L1/L2产品新处理基线4.1.1，影响全球用户数据质量。同日，OpenEarth-OVS44多模态遥感数据集发布，含29万专家验证分割片段，推动开放词汇分割研究。"
+      },
+      "overview": null,
+      "sections": [
+        {
+          "label": "论文与方法",
+          "summary": null,
+          "items": [
+            {
+              "itemId": "lkml23r48uupsocait0iwjlbe",
+              "title": "CURSE'26演习评估小型无人机灾害损伤评估分类器CLARKE的性能与迁移能力",
+              "summary": "基于论文摘要，该研究将建筑和道路损伤评估AI分类器CLARKE纳入CURSE'26演习，评估其在23个sUAS团队采集的未见正射影像上的表现。结果显示，建筑和道路损伤评估平均运行时间为3.5分钟，建筑损伤评估的Micro F1为0.834，且在佛罗里达和密苏里均表现一致，显示出良好的地理迁移能力；道路损伤评估因对道路地图与影像错位及城市光照环境敏感而表现不佳。",
+              "sourceName": "arXiv · 遥感与地球观测预印本",
+              "originalUrl": "https://arxiv.org/abs/2610.29777v1"
+            },
+            {
+              "itemId": "fnwi2gmypo4ihv0vj7phy8yx8",
+              "title": "BRNCA：基于神经细胞自动机的多类边界细化用于遥感土地覆盖分割（预印本）",
+              "summary": "基于论文摘要，该研究提出边界细化神经细胞自动机（BRNCA），从冻结的预训练分割器输出的类别概率出发，通过迭代应用小型学习规则逐细胞修正边界。该方法将二元rNCA推广到多类情况，利用Aitchison（对数空间）更新保持可见通道在概率单纯形上，并添加自由隐藏通道。",
+              "sourceName": "arXiv · 遥感与地球观测预印本",
+              "originalUrl": "https://arxiv.org/abs/2610.30007v1"
+            }
+          ]
+        },
+        {
+          "label": "数据集与基准",
+          "summary": null,
+          "items": [
+            {
+              "itemId": "ghpeljy1jxh5gg2xtvpnvakod",
+              "title": "OpenEarth-OVS44：面向开放词汇分割的多模态遥感数据集（预印本）",
+              "summary": "基于论文摘要，OpenEarth-OVS44 是一个多模态遥感基准数据集，包含来自 2,832 张 RGB 影像和 1,341 对严格配准的 RGB-SAR 影像的 290,587 个专家验证分割片段，空间分辨率达亚米级，覆盖法国、日本和美国 40 个城市，采用统一 44 类分类体系（9 个基础类别）。",
+              "sourceName": "arXiv · 遥感与地球观测预印本",
+              "originalUrl": "https://arxiv.org/abs/2610.29642v1"
+            },
+            {
+              "itemId": "otejirz3poijfti0diwqxbdhz",
+              "title": "南极云团经向输送事件30年卫星气候数据集（预印本）",
+              "summary": "基于论文摘要，该研究提出一个基于卫星的30年南极云团经向输送事件（CMMT）气候数据集，覆盖1992年11月至2022年12月，利用红外卫星合成影像人工识别并追踪登陆南极七个区域的CMMT。",
+              "sourceName": "Earth System Science Data · 数据论文与讨论稿",
+              "originalUrl": "https://essd.copernicus.org/preprints/essd-2026-664/"
+            },
+            {
+              "itemId": "djx1yfo2my0y0156fpl2ccq83",
+              "title": "Copernicus Sentinel-1 L1/L2产品推出新处理基线4.1.1",
+              "summary": "Copernicus Data Space宣布Sentinel-1 L1和L2产品采用新的处理基线，版本标记为4.1.1，于2026年10月21日部署。",
+              "sourceName": "Copernicus Data Space · 数据与平台动态",
+              "originalUrl": "https://dataspace.copernicus.eu/news/2026-10-22-copernicus-sentinel-1-l1-and-l2-products-new-processing-baseline"
+            }
+          ]
+        }
+      ]
+    },
     {
       "kind": "daily",
       "key": "2026-10-22",
@@ -6088,6 +6239,7 @@
         "jyvgipi90rcqqcnxrfc5u419z",
         "p2ohp08inlj86ag4k5jx04haj",
         "o4w5uuyivv04dhtd1pf3upp2d",
+        "g6m6rclx3ik3j2dtxf089ohou",
         "k5l8mnix6nygv0m854yxrq1hb",
         "uqwxxax67xb6hiduqyy4v7bq2",
         "m4tv4f8k7delp5do9vq6vqna9"
@@ -6143,6 +6295,7 @@
         "jyvgipi90rcqqcnxrfc5u419z",
         "k9us1ebfn0l53ujf97906y7jf",
         "coa4892bdkb8zey9lqxqkolmh",
+        "g6m6rclx3ik3j2dtxf089ohou",
         "dqm2k0qw0wqzoyrsgieut8cxr",
         "tuj75u7nv6ts4nuffo8213f3l",
         "yr74orfri7d1sqob9wb9mmchl",
@@ -6282,6 +6435,8 @@
       "group": "field",
       "definition": "追踪云端处理的研究方法、数据、工具与应用实践。",
       "itemIds": [
+        "sbhjwwjywo768gvhndiabywg3",
+        "asi9cdrbe51z8rhnujc5th5tw",
         "j94pm0bc8wgvtuggmuo2v6u53",
         "gdipajs3hcrtcvpip6a1jok9z",
         "u8apq419zzwq61uwg5741g3uk",
@@ -6355,6 +6510,7 @@
         "p2ohp08inlj86ag4k5jx04haj",
         "l3t70jcfj7a2m4kmgp9usgrxp",
         "vokxv0xhvjdp9w1qhy3qzqeru",
+        "g6m6rclx3ik3j2dtxf089ohou",
         "k1eyfqhost621es7uxdnohpqj",
         "ea15xeb1q6gqtcuoq8cb7tgpi",
         "ot6b4iq57f5gm4idalj4hhl86",
@@ -6411,6 +6567,7 @@
         "rwqu4e6pporawbgw5rgix35f5",
         "noyy99tnwyst709fto0qtzdq1",
         "njqh7kam6pmzr26jt05kfaqlq",
+        "g6m6rclx3ik3j2dtxf089ohou",
         "vnky7z902w8rdusiib3j7f2su",
         "r3lto7uxqe418v99dvwnnqhwb",
         "easimpoc6rvohr23aiteyx6rt",
@@ -6451,9 +6608,12 @@
       "group": "genre",
       "definition": "值得关注的遥感开源工具与代码，保留原文入口与适用条件。",
       "itemIds": [
+        "sbhjwwjywo768gvhndiabywg3",
+        "asi9cdrbe51z8rhnujc5th5tw",
         "j94pm0bc8wgvtuggmuo2v6u53",
         "u0u9yotsnron8fn6ycqed122b",
         "gdipajs3hcrtcvpip6a1jok9z",
+        "g6m6rclx3ik3j2dtxf089ohou",
         "jdx6khgou842sfra33v2brk0y",
         "w50vtz3cw1i1m9f0hsudcmep0",
         "cat4s20nkkzk4cfk080k317e6",
@@ -6509,7 +6669,7 @@
     }
   ],
   "hot": {
-    "computedAt": "2026-10-24T15:00:40.970Z",
+    "computedAt": "2026-10-25T02:30:16.755Z",
     "windowHours": 48,
     "entries": []
   }
