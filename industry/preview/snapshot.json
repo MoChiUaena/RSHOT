@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-25T02:33:13.434Z",
+  "generatedAt": "2026-10-26T02:33:14.052Z",
   "categories": [
     {
       "key": "paper",
@@ -29,43 +29,31 @@
   ],
   "sources": [
     {
-      "name": "PySTAC · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "Earth Engine API · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "TorchGeo · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "USGS Landsat",
+      "name": "Copernicus EMS",
       "kind": "external"
-    },
-    {
-      "name": "NASA Earthdata · 科学数据与工具",
-      "kind": "rss"
-    },
-    {
-      "name": "earthaccess · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "GDAL · 稳定版本发布",
-      "kind": "rss"
     },
     {
       "name": "中国科学院空天院 · 科研动态",
       "kind": "web_list"
     },
     {
-      "name": "EOReader · 稳定版本发布",
+      "name": "openEO Python Client · 稳定版本发布",
       "kind": "rss"
     },
     {
-      "name": "STAC FastAPI · 稳定版本发布",
+      "name": "Copernicus Data Space · 数据与平台动态",
+      "kind": "rss"
+    },
+    {
+      "name": "Rasterio · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "TerraTorch · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "Google Earth 与 Earth Engine · 官方博客",
       "kind": "rss"
     },
     {
@@ -73,11 +61,7 @@
       "kind": "rss"
     },
     {
-      "name": "Copernicus EMS",
-      "kind": "external"
-    },
-    {
-      "name": "openEO Python Client · 稳定版本发布",
+      "name": "GDAL · 稳定版本发布",
       "kind": "rss"
     },
     {
@@ -89,27 +73,27 @@
       "kind": "external"
     },
     {
+      "name": "Copernicus",
+      "kind": "external"
+    },
+    {
+      "name": "Earth Engine API · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
       "name": "arXiv · 遥感与地球观测预印本",
       "kind": "rss"
     },
     {
-      "name": "TerraTorch · 稳定版本发布",
+      "name": "STAC FastAPI · 稳定版本发布",
       "kind": "rss"
     },
     {
-      "name": "Rasterio · 稳定版本发布",
+      "name": "TorchGeo · 稳定版本发布",
       "kind": "rss"
     },
     {
-      "name": "Google Earth 与 Earth Engine · 官方博客",
-      "kind": "rss"
-    },
-    {
-      "name": "rioxarray · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "Copernicus Data Space · 数据与平台动态",
+      "name": "NASA Earthdata · 科学数据与工具",
       "kind": "rss"
     },
     {
@@ -117,11 +101,75 @@
       "kind": "rss"
     },
     {
-      "name": "Copernicus",
+      "name": "earthaccess · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "USGS Landsat",
       "kind": "external"
+    },
+    {
+      "name": "rioxarray · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "EOReader · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "PySTAC · 稳定版本发布",
+      "kind": "rss"
     }
   ],
   "items": [
+    {
+      "id": "os9y43qeiwfyaee629x5z1l6p",
+      "title": "GeoLibre v3.5.0 发布：新增行星网格绘制、ArcGIS 编辑规则支持与交互式故事地图",
+      "originalTitle": "GeoLibre v3.5.0 is here! GeoLibre is a free and open-source, lightweight, cloud-native GIS platform for visualizing, exploring, and analyzing geospatial data. It runs everywhere you do, in the web browser, on the desktop, on mobile, and ins",
+      "summary": "GeoLibre v3.5.0 发布，这是一款免费开源、轻量级、云原生的 GIS 平台，用于可视化、探索和分析地理空间数据，可在网页浏览器、桌面、移动端及 Jupyter 笔记本中运行，并保持数据本地化和隐私性。",
+      "reason": null,
+      "source": {
+        "name": "Qiusheng Wu · giswqs",
+        "kind": "external",
+        "firstParty": false
+      },
+      "originalUrl": "https://x.com/giswqs/status/2114474766564520136",
+      "publishedAt": "2026-10-25T21:50:44.000Z",
+      "timelineAt": "2026-10-26T02:31:32.849Z",
+      "category": "rs-tools",
+      "tags": [
+        "工具更新",
+        "开源/仓库",
+        "云端处理",
+        "部署/工程"
+      ],
+      "score": 60,
+      "selected": false
+    },
+    {
+      "id": "ug2frltwgdpgt2tog2uisdaly",
+      "title": "哨兵2号捕捉瓦斯卡兰热带冰川美景",
+      "originalTitle": "🏔️ 🇵🇪 Cordillera Blanca is home to the world’s largest concentration of tropical glaciers. 🛰️ #CopernicusEU Sentinel-2 captures its dazzling ice, rugged peaks &amp; turquoise lakes - vital to monitoring water resources and glacial hazar",
+      "summary": "🏔️ 🇵🇪 布兰卡山脉拥有世界上最大的热带冰川群。\n\n🛰️ #CopernicusEU 哨兵2号捕捉其耀眼的冰雪、崎岖的山峰和碧绿的湖泊——这对监测水资源和冰川灾害至关重要。\n\n🔗 https://t.co/KXibcQhHJ2\n\n#今日影像 https://t.co/PIIyLFSC9R",
+      "reason": null,
+      "source": {
+        "name": "Copernicus",
+        "kind": "external",
+        "firstParty": false
+      },
+      "originalUrl": "https://x.com/CopernicusEU/status/2114349702204264494",
+      "publishedAt": "2026-10-25T13:33:46.000Z",
+      "timelineAt": "2026-10-26T02:31:32.666Z",
+      "category": "tip",
+      "tags": [
+        "应用案例",
+        "光学遥感",
+        "灾害监测",
+        "Copernicus"
+      ],
+      "score": 18,
+      "selected": false
+    },
     {
       "id": "sbhjwwjywo768gvhndiabywg3",
       "title": "terrio v0.5.0 发布：纯 Rust 地理空间工具新增矢量处理、栅格分析、GRIB 支持及 WebAssembly 多线程",
@@ -895,78 +943,6 @@
         "中国科学院空天院"
       ],
       "score": 29,
-      "selected": false
-    },
-    {
-      "id": "j2giyk1r7g5hyw8qugseh6jyl",
-      "title": "RustGIS 桌面应用上架 Microsoft Store，支持一键安装与自动更新",
-      "originalTitle": "RustGIS is now on the Microsoft Store! On Windows 10 and 11, you can now install RustGIS from the Microsoft Store in one click. No installer to download, no security warnings, and the Store keeps it up to date with each new release. What yo",
-      "summary": "RustGIS 现已在 Microsoft Store 上架，Windows 10 和 11 用户可一键安装，无需下载安装包，商店会随新版本自动更新。",
-      "reason": null,
-      "source": {
-        "name": "Qiusheng Wu · giswqs",
-        "kind": "external",
-        "firstParty": false
-      },
-      "originalUrl": "https://x.com/giswqs/status/2111434883100750231",
-      "publishedAt": "2026-10-17T12:31:19.000Z",
-      "timelineAt": "2026-10-19T02:32:06.946Z",
-      "category": "rs-tools",
-      "tags": [
-        "工具更新",
-        "开源/仓库",
-        "云端处理",
-        "部署/工程"
-      ],
-      "score": 60,
-      "selected": false
-    },
-    {
-      "id": "sqtbqpojyg60jt30l8u5c5q7a",
-      "title": "伊泰普水库：卫星影像揭示绿带与农田对比",
-      "originalTitle": "🏞️ The Itaipu Reservoir 🇧🇷🇵🇾 is bordered by a green belt of protected forest, helping prevent soil erosion, conserve water &amp; connect habitats. 🛰️ #CopernicusEU Sentinel-2 reveals this striking contrast with surrounding farmland. �",
-      "summary": "🏞️ 伊泰普水库 🇧🇷🇵🇾 四周环绕着受保护森林组成的绿色地带，有助于防止水土流失、涵养水源并连接栖息地。\n\n🛰️ #CopernicusEU 哨兵-2 号卫星揭示了其与周边农田之间的鲜明对比。\n\n🔗 https://t.co/KXibcQhHJ2\n\n#今日影像 https://t.co/PPusUO4gDV",
-      "reason": null,
-      "source": {
-        "name": "Copernicus",
-        "kind": "external",
-        "firstParty": false
-      },
-      "originalUrl": "https://x.com/CopernicusEU/status/2111515399493734472",
-      "publishedAt": "2026-10-17T17:51:15.000Z",
-      "timelineAt": "2026-10-19T02:32:06.911Z",
-      "category": "tip",
-      "tags": [
-        "应用案例",
-        "光学遥感",
-        "森林/生态",
-        "Copernicus"
-      ],
-      "score": 18,
-      "selected": false
-    },
-    {
-      "id": "hqgrcoszswae4jvp6u8uyp53e",
-      "title": "卫星视角下的德里：植被与亚穆纳河",
-      "originalTitle": "🏙️ Delhi 🇮🇳 from space! 🛰️ This false-colour #CopernicusEU Sentinel-2 image reveals the city in purple &amp; magenta, with vegetation in bright green and the Yamuna River winding through the urban landscape. 🔗 https://t.co/KXibcQhHJ2 #",
-      "summary": "🏙️ 太空视角下的德里 🇮🇳！🛰️ 这张 #CopernicusEU 哨兵-2 假彩色影像中，城市呈现紫色与品红色，植被为亮绿色，亚穆纳河蜿蜒穿过城市景观。\n\n🔗 https://t.co/KXibcQhHJ2\n\n#今日影像 https://t.co/SmbwdfKVO5",
-      "reason": null,
-      "source": {
-        "name": "Copernicus",
-        "kind": "external",
-        "firstParty": false
-      },
-      "originalUrl": "https://x.com/CopernicusEU/status/2111878792897610184",
-      "publishedAt": "2026-10-18T17:55:15.000Z",
-      "timelineAt": "2026-10-19T02:32:06.728Z",
-      "category": "tip",
-      "tags": [
-        "应用案例",
-        "光学遥感",
-        "城市",
-        "Copernicus"
-      ],
-      "score": 18,
       "selected": false
     },
     {
@@ -3377,6 +3353,40 @@
   "reports": [
     {
       "kind": "daily",
+      "key": "2026-10-26",
+      "title": "遥感日报 · 2026-10-26",
+      "generatedAt": "2026-10-26T02:32:24.587Z",
+      "editorialMode": "model",
+      "lead": {
+        "title": "terrio v0.5.0 发布：纯 Rust 地理空间工具新增矢量与栅格分析",
+        "leadParagraph": "terrio v0.5.0 发布，作为纯 Rust 地理空间库，新增矢量处理、栅格分析、GRIB 支持及 WebAssembly 多线程。RustGIS v0.4.0 同步更新，带来无 GDAL 数据读取、3D 地图与 AI 代理功能。"
+      },
+      "overview": null,
+      "sections": [
+        {
+          "label": "模型与开源工具",
+          "summary": null,
+          "items": [
+            {
+              "itemId": "sbhjwwjywo768gvhndiabywg3",
+              "title": "terrio v0.5.0 发布：纯 Rust 地理空间工具新增矢量处理、栅格分析、GRIB 支持及 WebAssembly 多线程",
+              "summary": "terrio v0.5.0 发布，这是一个用纯 Rust 编写、无 GDAL 和 C 依赖的地理空间库，支持读写、转换和重投影栅格、矢量及点云数据。新版本新增矢量处理（buffer、overlay、dissolve 等）、栅格分析（等高线、分区统计）、独立 SQL 命令、GRIB1/GRIB2 气象数据读取、更多 PDAL 点云过滤器，以及 Zarr 多维数组支持。",
+              "sourceName": "Qiusheng Wu · giswqs",
+              "originalUrl": "https://x.com/giswqs/status/2113980412691149078"
+            },
+            {
+              "itemId": "asi9cdrbe51z8rhnujc5th5tw",
+              "title": "RustGIS v0.4.0 发布：纯 Rust 开源 GIS 新增无 GDAL 数据读取、3D 地图与 AI 代理",
+              "summary": "RustGIS v0.4.0 发布，这是一款用纯 Rust 编写的快速、免费开源 GIS，用于地理空间数据的制图、分析和共享。",
+              "sourceName": "Qiusheng Wu · giswqs",
+              "originalUrl": "https://x.com/giswqs/status/2114175796466069523"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "daily",
       "key": "2026-10-25",
       "title": "遥感日报 · 2026-10-25",
       "generatedAt": "2026-10-25T00:00:15.820Z",
@@ -5028,6 +5038,157 @@
     },
     {
       "kind": "weekly",
+      "key": "2026-W43",
+      "title": "RSHOT 周报 · 2026-W43",
+      "generatedAt": "2026-10-26T02:32:31.169Z",
+      "editorialMode": "model",
+      "lead": {
+        "title": "开放数据潮涌，星上智能提速",
+        "leadParagraph": "2026年10月19日至25日，遥感领域迎来多项重要进展。Google开放1984–2022年全球年度镶嵌影像数据集，SDG中心发布覆盖38年的全球可持续发展数据产品，USGS重新处理约4.4万景Landsat MSS影像，多个新数据集（地下水储量、南极云团、多模态分割）相继公开。模型与方法方面，星上AI处理链、多光谱目标检测、光学-SAR融合等研究推动智能遥感发展。工具链上，纯Rust地理空间库terrio连续发布v0.4.0和v0.5.0，RustGIS也推出新版本，显示轻量级开源GIS生态活跃。此外，Sentinel-5P和Sentinel-1产品更新，MetOp-SG-B1卫星准备发射，基础设施持续完善。"
+      },
+      "overview": "2026年10月19日至25日，遥感领域迎来多项重要进展。Google开放1984–2022年全球年度镶嵌影像数据集，SDG中心发布覆盖38年的全球可持续发展数据产品，USGS重新处理约4.4万景Landsat MSS影像，多个新数据集（地下水储量、南极云团、多模态分割）相继公开。模型与方法方面，星上AI处理链、多光谱目标检测、光学-SAR融合等研究推动智能遥感发展。工具链上，纯Rust地理空间库terrio连续发布v0.4.0和v0.5.0，RustGIS也推出新版本，显示轻量级开源GIS生态活跃。此外，Sentinel-5P和Sentinel-1产品更新，MetOp-SG-B1卫星准备发射，基础设施持续完善。",
+      "sections": [
+        {
+          "label": "开放数据与基准",
+          "summary": "本期多个重量级开放数据集发布：Google Earth Timelapse全球年度镶嵌影像（1984–2022）以CC-BY 4.0许可开放于Earth Engine；SDG中心发布《全球可持续发展数据产品（2025）》含9套产品，时间跨度38年，最高分辨率10米；另有1km全球地下水储量异常降尺度数据集、南极云团经向输送事件30年气候数据集、OpenEarth-OVS44多模态分割基准等。USGS重新处理约4.4万景Landsat 2/3 MSS产品以修正亮度值错误，提升历史数据质量。",
+          "items": [
+            {
+              "itemId": "u0u9yotsnron8fn6ycqed122b",
+              "title": "Google 发布 Earth Timelapse 数据集：1984–2022 年全球年度镶嵌影像开放于 Earth Engine",
+              "summary": "Google 将 Earth Timelapse 背后的全球年度镶嵌影像数据集（1984–2022 年）作为开放数据发布到 Earth Engine Data Catalog，采用 CC-BY 4.0 许可，并同步公开完整技术方法。",
+              "sourceName": "Google Earth 与 Earth Engine · 官方博客",
+              "originalUrl": "https://medium.com/google-earth/four-decades-of-planetary-change-now-open-for-everyone-to-build-on-9b32d6cb8c86?source=rss----a747a9e16c1c---4"
+            },
+            {
+              "itemId": "o1hae7nteq2o9l2zsnfqx2xk8",
+              "title": "SDG中心发布《全球可持续发展数据产品（2025）》",
+              "summary": "可持续发展大数据国际研究中心（SDG中心）发布《全球可持续发展数据产品（2025）》，包含9套数据产品，时间序列最长38年，空间分辨率最高10米，时间分辨率精细至小时级，覆盖陆表、近海与大气，涉及土地利用、水循环、生态修复、海洋养殖、工业活动、人居健康等方向。",
+              "sourceName": "中国科学院空天院 · 科研动态",
+              "originalUrl": "https://aircas.cas.cn/dtxw/kydt/202610/t20261019_8293754.html"
+            },
+            {
+              "itemId": "t4j0gqzx10z58dig3ebzb1f3o",
+              "title": "Fan等发布1 km分辨率全球地下水储量异常降尺度数据集（2002–2020）",
+              "summary": "该研究提出并发布了1 km月尺度全球地下水储量异常（GWSA）数据集，覆盖2002年4月至2020年12月。基于论文摘要，数据集采用奇异谱分析（SSA）填补时间空缺，结合19个高分辨率水文气候与地球物理预测因子，通过含水层分层机器学习降尺度生成，并在XGBoost与深度神经网络（DNN）比较后选用XGBoost。",
+              "sourceName": "Earth System Science Data · 数据论文与讨论稿",
+              "originalUrl": "https://essd.copernicus.org/articles/18/7593/2026/"
+            },
+            {
+              "itemId": "otejirz3poijfti0diwqxbdhz",
+              "title": "南极云团经向输送事件30年卫星气候数据集（预印本）",
+              "summary": "基于论文摘要，该研究提出一个基于卫星的30年南极云团经向输送事件（CMMT）气候数据集，覆盖1992年11月至2022年12月，利用红外卫星合成影像人工识别并追踪登陆南极七个区域的CMMT。",
+              "sourceName": "Earth System Science Data · 数据论文与讨论稿",
+              "originalUrl": "https://essd.copernicus.org/preprints/essd-2026-664/"
+            },
+            {
+              "itemId": "ghpeljy1jxh5gg2xtvpnvakod",
+              "title": "OpenEarth-OVS44：面向开放词汇分割的多模态遥感数据集（预印本）",
+              "summary": "基于论文摘要，OpenEarth-OVS44 是一个多模态遥感基准数据集，包含来自 2,832 张 RGB 影像和 1,341 对严格配准的 RGB-SAR 影像的 290,587 个专家验证分割片段，空间分辨率达亚米级，覆盖法国、日本和美国 40 个城市，采用统一 44 类分类体系（9 个基础类别）。",
+              "sourceName": "arXiv · 遥感与地球观测预印本",
+              "originalUrl": "https://arxiv.org/abs/2610.29642v1"
+            },
+            {
+              "itemId": "o28lholu4xhciby1b751y0tlv",
+              "title": "USGS 重新处理约 4.4 万景 Landsat 2/3 MSS 产品以修正亮度值错误",
+              "summary": "USGS 近期重新处理了多景 Landsat 2 和 Landsat 3 MSS 产品，以修正 2025 年初发现的亮度值错误。约 4.4 万景产品因 Band 4 和 Band 5 使用了错误的增益与偏移值而显得过亮或过暗；另有约 1,700 景产品因处理缺陷导致每景约 2.7 万像素（约占图像 22%）被误标为云。重新处理后的产品已可从 USGS Landsat Data Access 下载。",
+              "sourceName": "USGS Landsat",
+              "originalUrl": "https://x.com/USGSLandsat/status/2112906987235102951"
+            }
+          ]
+        },
+        {
+          "label": "星上智能与融合方法",
+          "summary": "星上AI处理链研究提出通用流程，将卫星作为数据缩减阶段，下传掩膜或检测结果，并在AMD Versal VCK190上实现int8量化部署。SGLDet和CSIF-Net分别针对多光谱和光学-SAR目标检测提出动态建模与通道选择性融合方法，均取得优越性能。BRNCA利用神经细胞自动机细化土地覆盖分割边界，CLARKE分类器在灾害评估演习中验证了迁移能力。这些方法推动遥感解译向高效、鲁棒和边缘部署方向发展。",
+          "items": [
+            {
+              "itemId": "okip40act3rfd3zggj9he7jt5",
+              "title": "论文提出通用星上AI处理链：从应用开发到嵌入式部署与任务级编排",
+              "summary": "基于论文摘要，该研究提出一条通用的星上AI处理链，将卫星作为数据缩减阶段，下传掩膜或检测结果而非全场景数据。处理链包括三个环节：模型调优（波段选择、输入归一化）、int8量化并移植到AMD Versal VCK190，保持分割性能；模块化的分块-推理-拼接工作流将场景级处理应用于不同应用；各步骤打包为unikernel并由云原生编排器ORCHIDE在星上协调。",
+              "sourceName": "arXiv · 遥感与地球观测预印本",
+              "originalUrl": "https://arxiv.org/abs/2610.26340v1"
+            },
+            {
+              "itemId": "j7abt47v1os0nreiq46q6its3",
+              "title": "SGLDet：面向多光谱航空目标检测的光谱感知全局-局部动态建模框架",
+              "summary": "SGLDet 提出光谱感知的全局-局部动态建模框架，用于多光谱航空目标检测。基于论文摘要，该方法包含光谱驱动全局动态建模、多尺度全局上下文整合和光谱感知输入依赖校准聚合三个模块，在 MODA、HOD3K 和 DroneVehicle 数据集上取得优越性能且计算开销有竞争力。代码已在 GitHub 提供。",
+              "sourceName": "arXiv · 遥感与地球观测预印本",
+              "originalUrl": "https://arxiv.org/abs/2610.27883v1"
+            },
+            {
+              "itemId": "jyvgipi90rcqqcnxrfc5u419z",
+              "title": "CSIF-Net：面向光学-SAR目标检测的通道选择性交互融合网络（预印本）",
+              "summary": "基于论文摘要，CSIF-Net提出通道选择性交互融合网络，用于光学与SAR图像的目标检测。该方法通过频率分解模块构建频率感知的SAR输入，利用交叉注意力通道选择模块建模跨模态通道关系，并动态划分共享与模态特定特征，最终通过双分支融合模块实现跨模态交互与通道重对齐。作者在OGSOD 1.0和M4-SAR数据集上报告，水平与旋转目标检测性能分别提升4.01%和3.18%。",
+              "sourceName": "arXiv · 遥感与地球观测预印本",
+              "originalUrl": "https://arxiv.org/abs/2610.27757v1"
+            },
+            {
+              "itemId": "fnwi2gmypo4ihv0vj7phy8yx8",
+              "title": "BRNCA：基于神经细胞自动机的多类边界细化用于遥感土地覆盖分割（预印本）",
+              "summary": "基于论文摘要，该研究提出边界细化神经细胞自动机（BRNCA），从冻结的预训练分割器输出的类别概率出发，通过迭代应用小型学习规则逐细胞修正边界。该方法将二元rNCA推广到多类情况，利用Aitchison（对数空间）更新保持可见通道在概率单纯形上，并添加自由隐藏通道。",
+              "sourceName": "arXiv · 遥感与地球观测预印本",
+              "originalUrl": "https://arxiv.org/abs/2610.30007v1"
+            },
+            {
+              "itemId": "lkml23r48uupsocait0iwjlbe",
+              "title": "CURSE'26演习评估小型无人机灾害损伤评估分类器CLARKE的性能与迁移能力",
+              "summary": "基于论文摘要，该研究将建筑和道路损伤评估AI分类器CLARKE纳入CURSE'26演习，评估其在23个sUAS团队采集的未见正射影像上的表现。结果显示，建筑和道路损伤评估平均运行时间为3.5分钟，建筑损伤评估的Micro F1为0.834，且在佛罗里达和密苏里均表现一致，显示出良好的地理迁移能力；道路损伤评估因对道路地图与影像错位及城市光照环境敏感而表现不佳。",
+              "sourceName": "arXiv · 遥感与地球观测预印本",
+              "originalUrl": "https://arxiv.org/abs/2610.29777v1"
+            }
+          ]
+        },
+        {
+          "label": "工具链与基础设施",
+          "summary": "纯Rust地理空间库terrio在一周内连续发布v0.4.0和v0.5.0，新增矢量处理、栅格分析、GRIB支持及WebAssembly多线程，无需GDAL依赖；RustGIS v0.4.0也带来无GDAL数据读取和3D地图功能，显示轻量级开源GIS生态活跃。基础设施方面，Sentinel-5P OFFL HCHO/SO2 v2.8.0产品完成重新处理，Sentinel-1采用新处理基线4.1.1，MetOp-SG-B1气象卫星运抵欧航港准备年底发射。",
+          "items": [
+            {
+              "itemId": "j94pm0bc8wgvtuggmuo2v6u53",
+              "title": "terrio v0.4.0 发布：纯 Rust 地理空间数据 I/O 库，无需 GDAL 依赖",
+              "summary": "terrio v0.4.0 发布，这是一个用纯 Rust 编写的轻量级开源地理空间数据 I/O 库，可读写、转换和重投影栅格、矢量及点云数据，无需 GDAL 或 C 依赖。",
+              "sourceName": "Qiusheng Wu · giswqs",
+              "originalUrl": "https://x.com/giswqs/status/2113096337252106672"
+            },
+            {
+              "itemId": "sbhjwwjywo768gvhndiabywg3",
+              "title": "terrio v0.5.0 发布：纯 Rust 地理空间工具新增矢量处理、栅格分析、GRIB 支持及 WebAssembly 多线程",
+              "summary": "terrio v0.5.0 发布，这是一个用纯 Rust 编写、无 GDAL 和 C 依赖的地理空间库，支持读写、转换和重投影栅格、矢量及点云数据。新版本新增矢量处理（buffer、overlay、dissolve 等）、栅格分析（等高线、分区统计）、独立 SQL 命令、GRIB1/GRIB2 气象数据读取、更多 PDAL 点云过滤器，以及 Zarr 多维数组支持。",
+              "sourceName": "Qiusheng Wu · giswqs",
+              "originalUrl": "https://x.com/giswqs/status/2113980412691149078"
+            },
+            {
+              "itemId": "asi9cdrbe51z8rhnujc5th5tw",
+              "title": "RustGIS v0.4.0 发布：纯 Rust 开源 GIS 新增无 GDAL 数据读取、3D 地图与 AI 代理",
+              "summary": "RustGIS v0.4.0 发布，这是一款用纯 Rust 编写的快速、免费开源 GIS，用于地理空间数据的制图、分析和共享。",
+              "sourceName": "Qiusheng Wu · giswqs",
+              "originalUrl": "https://x.com/giswqs/status/2114175796466069523"
+            },
+            {
+              "itemId": "tnek9f178j0hxattsp1cvv59h",
+              "title": "Copernicus Sentinel-5P OFFL HCHO 和 SO2 v2.8.0 产品重新处理完成，现可在 CDSE 下载",
+              "summary": "Copernicus Data Space Ecosystem 宣布，受2025年12月19日通报问题影响的 Sentinel-5P OFFL 甲醛（HCHO）和二氧化硫（SO₂）v2.8.0 产品已成功重新处理。重新处理的产品覆盖2025年11月22日至12月2日（轨道 42023-42173），现可从 Copernicus Data Space Ecosystem（CDSE）下载。",
+              "sourceName": "Copernicus Data Space · 数据与平台动态",
+              "originalUrl": "https://dataspace.copernicus.eu/news/2026-10-21-copernicus-sentinel-5p-offl-hcho-and-so2-v280-products-reprocessed-now-available"
+            },
+            {
+              "itemId": "djx1yfo2my0y0156fpl2ccq83",
+              "title": "Copernicus Sentinel-1 L1/L2产品推出新处理基线4.1.1",
+              "summary": "Copernicus Data Space宣布Sentinel-1 L1和L2产品采用新的处理基线，版本标记为4.1.1，于2026年10月21日部署。",
+              "sourceName": "Copernicus Data Space · 数据与平台动态",
+              "originalUrl": "https://dataspace.copernicus.eu/news/2026-10-22-copernicus-sentinel-1-l1-and-l2-products-new-processing-baseline"
+            },
+            {
+              "itemId": "pa1zwvy3pentytdpkfrmic14e",
+              "title": "MetOp-SG-B1 气象卫星运抵欧洲航天港，准备年底 Ariane 6 发射",
+              "summary": "MetOp-SG-B1 气象卫星从法国波尔多经 10 天跨大西洋航行，于 10 月 16 日抵达法属圭亚那欧洲航天港，17 日卸载并入库，预计年底由 Ariane 6 火箭发射。",
+              "sourceName": "ESA · 对地观测",
+              "originalUrl": "https://www.esa.int/Applications/Observing_the_Earth/Meteorological_missions/MetOp_Second_Generation/MetOp-SG-B1_weather_satellite_arrives_at_Europe_s_Spaceport"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "weekly",
       "key": "2026-W42",
       "title": "RSHOT 周报 · 2026-W42",
       "generatedAt": "2026-10-19T02:00:53.026Z",
@@ -6669,7 +6830,7 @@
     }
   ],
   "hot": {
-    "computedAt": "2026-10-25T02:30:16.755Z",
+    "computedAt": "2026-10-25T05:10:21.698Z",
     "windowHours": 48,
     "entries": []
   }
