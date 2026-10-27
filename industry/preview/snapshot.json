@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-26T02:33:14.052Z",
+  "generatedAt": "2026-10-27T02:30:41.331Z",
   "categories": [
     {
       "key": "paper",
@@ -29,75 +29,7 @@
   ],
   "sources": [
     {
-      "name": "Copernicus EMS",
-      "kind": "external"
-    },
-    {
-      "name": "中国科学院空天院 · 科研动态",
-      "kind": "web_list"
-    },
-    {
-      "name": "openEO Python Client · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "Copernicus Data Space · 数据与平台动态",
-      "kind": "rss"
-    },
-    {
-      "name": "Rasterio · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "TerraTorch · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
       "name": "Google Earth 与 Earth Engine · 官方博客",
-      "kind": "rss"
-    },
-    {
-      "name": "geemap · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "GDAL · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "Earth System Science Data · 数据论文与讨论稿",
-      "kind": "web_list"
-    },
-    {
-      "name": "Qiusheng Wu · giswqs",
-      "kind": "external"
-    },
-    {
-      "name": "Copernicus",
-      "kind": "external"
-    },
-    {
-      "name": "Earth Engine API · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "arXiv · 遥感与地球观测预印本",
-      "kind": "rss"
-    },
-    {
-      "name": "STAC FastAPI · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "TorchGeo · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "NASA Earthdata · 科学数据与工具",
-      "kind": "rss"
-    },
-    {
-      "name": "ESA · 对地观测",
       "kind": "rss"
     },
     {
@@ -105,11 +37,43 @@
       "kind": "rss"
     },
     {
+      "name": "Copernicus EMS",
+      "kind": "external"
+    },
+    {
+      "name": "Rasterio · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "TorchGeo · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
       "name": "USGS Landsat",
       "kind": "external"
     },
     {
-      "name": "rioxarray · 稳定版本发布",
+      "name": "openEO Python Client · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "Earth Engine API · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "NASA Earthdata · 科学数据与工具",
+      "kind": "rss"
+    },
+    {
+      "name": "geemap · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "TerraTorch · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "STAC FastAPI · 稳定版本发布",
       "kind": "rss"
     },
     {
@@ -119,6 +83,42 @@
     {
       "name": "PySTAC · 稳定版本发布",
       "kind": "rss"
+    },
+    {
+      "name": "Copernicus",
+      "kind": "external"
+    },
+    {
+      "name": "GDAL · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "rioxarray · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "Copernicus Data Space · 数据与平台动态",
+      "kind": "rss"
+    },
+    {
+      "name": "ESA · 对地观测",
+      "kind": "rss"
+    },
+    {
+      "name": "Earth System Science Data · 数据论文与讨论稿",
+      "kind": "web_list"
+    },
+    {
+      "name": "中国科学院空天院 · 科研动态",
+      "kind": "web_list"
+    },
+    {
+      "name": "arXiv · 遥感与地球观测预印本",
+      "kind": "rss"
+    },
+    {
+      "name": "Qiusheng Wu · giswqs",
+      "kind": "external"
     }
   ],
   "items": [
@@ -830,30 +830,6 @@
       "selected": false
     },
     {
-      "id": "s088utb7j636260zp4m4jx1lu",
-      "title": "Earth Engine API v1.7.49 发布：新增 loadZarrV2Array 静态定义，停止支持 Python 3.10",
-      "originalTitle": "v1.7.49",
-      "summary": "Earth Engine API 发布 v1.7.49 稳定版，为 ee.Image 和 ee.ImageCollection 新增 loadZarrV2Array 的 Python 静态定义，并清理了客户端文档字符串。该版本还改进了 Colab 自动认证模式下 OAuth 作用域参数的校验，并停止支持 Python 3.10，要求 Python 3.11 及以上版本。",
-      "reason": null,
-      "source": {
-        "name": "Earth Engine API · 稳定版本发布",
-        "kind": "rss",
-        "firstParty": true
-      },
-      "originalUrl": "https://github.com/google/earthengine-api/releases/tag/v1.7.49",
-      "publishedAt": "2026-10-19T21:43:17.000Z",
-      "timelineAt": "2026-10-19T22:22:35.960Z",
-      "category": "rs-tools",
-      "tags": [
-        "工具更新",
-        "开源/仓库",
-        "云端处理",
-        "Google Earth Engine"
-      ],
-      "score": 24,
-      "selected": false
-    },
-    {
       "id": "t4j0gqzx10z58dig3ebzb1f3o",
       "title": "Fan等发布1 km分辨率全球地下水储量异常降尺度数据集（2002–2020）",
       "originalTitle": "High-resolution global groundwater storage anomalies: a 1 km downscaled dataset",
@@ -873,32 +849,6 @@
       ],
       "score": 84,
       "selected": true
-    },
-    {
-      "id": "exqyqp48ab0reh27g0mjk4jhv",
-      "title": "Sentinel-3C 捕捉飓风 Rachel 影像，可见光通道完成在轨验证",
-      "originalTitle": "Sentinel-3C captures Hurricane Rachel",
-      "summary": "10月2日，Sentinel-3C 的海陆表面温度辐射计可见光通道拍摄到东太平洋飓风 Rachel 影像，标志着这颗 9 月 15 日发射的哥白尼 Sentinel-3 系列第三颗卫星在调试阶段取得又一重要进展。该辐射计以热红外通道测量海陆表面温度为主，可见光通道用于探测云层、支持气溶胶反演与大气校正。",
-      "reason": null,
-      "source": {
-        "name": "ESA · 对地观测",
-        "kind": "rss",
-        "firstParty": true
-      },
-      "originalUrl": "https://www.esa.int/ESA_Multimedia/Images/2026/10/Sentinel-3C_captures_Hurricane_Rachel",
-      "publishedAt": "2026-10-19T10:01:00.000Z",
-      "timelineAt": "2026-10-19T10:16:19.268Z",
-      "category": "satellite",
-      "tags": [
-        "卫星/传感器",
-        "光学遥感",
-        "热红外",
-        "灾害监测",
-        "ESA",
-        "Copernicus"
-      ],
-      "score": 40,
-      "selected": false
     },
     {
       "id": "o1hae7nteq2o9l2zsnfqx2xk8",
@@ -921,29 +871,6 @@
       ],
       "score": 78,
       "selected": true
-    },
-    {
-      "id": "ggkrevax7wos2efl7otwlzkvy",
-      "title": "郭华东院士获颁国际宇航联合会“名人堂”奖",
-      "originalTitle": null,
-      "summary": "10月9日，可持续发展大数据国际研究中心主任郭华东院士在第77届国际宇航大会闭幕式上获颁2026年度国际宇航联合会“名人堂”奖，该奖项旨在表彰为航天事业作出开创性、终身性贡献的顶尖学者。郭华东主持研制全球首颗可持续发展科学卫星SDGSAT-1，其数据已面向全球开放共享，百余个联合国成员国使用该卫星数据。",
-      "reason": null,
-      "source": {
-        "name": "中国科学院空天院 · 科研动态",
-        "kind": "web_list",
-        "firstParty": true
-      },
-      "originalUrl": "https://aircas.cas.cn/dtxw/kydt/202610/t20261019_8293686.html",
-      "publishedAt": "2026-10-18T16:00:00.000Z",
-      "timelineAt": "2026-10-19T09:13:15.870Z",
-      "category": "industry",
-      "tags": [
-        "行业动态",
-        "观点/分析",
-        "中国科学院空天院"
-      ],
-      "score": 29,
-      "selected": false
     },
     {
       "id": "psoakgufonb9jhsqiieno8odc",
@@ -6830,7 +6757,7 @@
     }
   ],
   "hot": {
-    "computedAt": "2026-10-25T05:10:21.698Z",
+    "computedAt": "2026-10-27T02:30:32.250Z",
     "windowHours": 48,
     "entries": []
   }
