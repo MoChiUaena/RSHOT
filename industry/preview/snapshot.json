@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-27T02:30:41.331Z",
+  "generatedAt": "2026-10-28T02:31:11.455Z",
   "categories": [
     {
       "key": "paper",
@@ -29,20 +29,32 @@
   ],
   "sources": [
     {
+      "name": "Earth Engine API · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "arXiv · 遥感与地球观测预印本",
+      "kind": "rss"
+    },
+    {
+      "name": "Copernicus Data Space · 数据与平台动态",
+      "kind": "rss"
+    },
+    {
       "name": "Google Earth 与 Earth Engine · 官方博客",
       "kind": "rss"
     },
     {
-      "name": "earthaccess · 稳定版本发布",
+      "name": "中国科学院空天院 · 科研动态",
+      "kind": "web_list"
+    },
+    {
+      "name": "rioxarray · 稳定版本发布",
       "kind": "rss"
     },
     {
-      "name": "Copernicus EMS",
-      "kind": "external"
-    },
-    {
-      "name": "Rasterio · 稳定版本发布",
-      "kind": "rss"
+      "name": "Earth System Science Data · 数据论文与讨论稿",
+      "kind": "web_list"
     },
     {
       "name": "TorchGeo · 稳定版本发布",
@@ -53,35 +65,7 @@
       "kind": "external"
     },
     {
-      "name": "openEO Python Client · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "Earth Engine API · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "NASA Earthdata · 科学数据与工具",
-      "kind": "rss"
-    },
-    {
-      "name": "geemap · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "TerraTorch · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "STAC FastAPI · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "EOReader · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "PySTAC · 稳定版本发布",
+      "name": "GDAL · 稳定版本发布",
       "kind": "rss"
     },
     {
@@ -89,15 +73,27 @@
       "kind": "external"
     },
     {
-      "name": "GDAL · 稳定版本发布",
+      "name": "earthaccess · 稳定版本发布",
       "kind": "rss"
     },
     {
-      "name": "rioxarray · 稳定版本发布",
+      "name": "PySTAC · 稳定版本发布",
       "kind": "rss"
     },
     {
-      "name": "Copernicus Data Space · 数据与平台动态",
+      "name": "STAC FastAPI · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "TerraTorch · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "Rasterio · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "NASA Earthdata · 科学数据与工具",
       "kind": "rss"
     },
     {
@@ -105,23 +101,260 @@
       "kind": "rss"
     },
     {
-      "name": "Earth System Science Data · 数据论文与讨论稿",
-      "kind": "web_list"
+      "name": "geemap · 稳定版本发布",
+      "kind": "rss"
     },
     {
-      "name": "中国科学院空天院 · 科研动态",
-      "kind": "web_list"
+      "name": "Copernicus EMS",
+      "kind": "external"
     },
     {
-      "name": "arXiv · 遥感与地球观测预印本",
+      "name": "EOReader · 稳定版本发布",
       "kind": "rss"
     },
     {
       "name": "Qiusheng Wu · giswqs",
       "kind": "external"
+    },
+    {
+      "name": "openEO Python Client · 稳定版本发布",
+      "kind": "rss"
     }
   ],
   "items": [
+    {
+      "id": "j45ubygnkmqyrns82iwevtdlz",
+      "title": "RRBF-KMA：韩国2016–2024年高分辨率雷达–雨量计融合降水数据集发布",
+      "originalTitle": "RRBF-KMA: high-resolution radar–gauge merged precipitation dataset for South Korea (2016–2024)",
+      "summary": "该研究发布韩国高分辨率雷达–雨量计融合降水数据集RRBF-KMA。基于论文摘要，数据集以10分钟时间分辨率和0.5 km空间分辨率覆盖2016–2024年，网格为2305×2881像素；雨量计观测经质量控制后聚合为10分钟累积量，雷达输入来自KMA全国拼图反射率产品。",
+      "reason": "该数据集将全国雷达拼图与稠密雨量计观测融合，采用10分钟更新的偏差校正与残差径向基函数插值，在0.5 km分辨率下提供2016–2024年连续降水场，并公开数据与文档。",
+      "source": {
+        "name": "Earth System Science Data · 数据论文与讨论稿",
+        "kind": "web_list",
+        "firstParty": true
+      },
+      "originalUrl": "https://essd.copernicus.org/articles/18/7679/2026/",
+      "publishedAt": "2026-10-26T00:00:00.000Z",
+      "timelineAt": "2026-10-27T04:32:34.309Z",
+      "category": "data",
+      "tags": [
+        "数据集/基准",
+        "定量反演",
+        "数据融合"
+      ],
+      "score": 80,
+      "selected": true
+    },
+    {
+      "id": "yqijnh8yklczv4gstjv1snxno",
+      "title": "Copernicus DEM View Service 数据集更新至 2024_1 版本",
+      "originalTitle": "Copernicus DEM View Service - Dataset Update",
+      "summary": "Copernicus DEM View Service 已将其数据集替换为最新可用版本，该版本此前已作为 delivery 2024_1 在 Copernicus Browser 的 SEARCH 标签页中提供下载。此次更新确保 View Service 与 CDSE 当前分发的最新 Copernicus DEM 交付版本保持一致。",
+      "reason": null,
+      "source": {
+        "name": "Copernicus Data Space · 数据与平台动态",
+        "kind": "rss",
+        "firstParty": true
+      },
+      "originalUrl": "https://dataspace.copernicus.eu/news/2026-10-26-copernicus-dem-view-service-dataset-update",
+      "publishedAt": "2026-10-26T12:18:51.000Z",
+      "timelineAt": "2026-10-27T04:32:30.177Z",
+      "category": "data",
+      "tags": [
+        "数据集/基准",
+        "数据质量",
+        "Copernicus"
+      ],
+      "score": 42,
+      "selected": false
+    },
+    {
+      "id": "rmry4evdeuwl0dv2r25ibx9x7",
+      "title": "FineKarstAGB：基于亚米级高分卫星数据与样地调查的西南地区30米分辨率地上生物量数据集",
+      "originalTitle": "FineKarstAGB: a 30 m resolution aboveground biomass dataset for Southwest China derived by upscaling plot-level inventory using sub-meter GaoFen satellite data",
+      "summary": "基于论文摘要，该研究提出冠层结构驱动的多特征融合网络（CSMF-Net），以国家森林清查（NFI）样地数据为真值，融合高分影像、树冠分割水平结构与冠层高度垂直结构，生成2024年覆盖云南、贵州、广西、湖南四省的30米分辨率地上生物量数据集FineKarstAGB。",
+      "reason": "提出CSMF-Net融合高分影像、树冠分割与冠层高度数据，生成30米分辨率西南喀斯特地区AGB数据集，并利用独立NFI样地及UAV LiDAR数据验证，相比现有产品显著提升精度。",
+      "source": {
+        "name": "Earth System Science Data · 数据论文与讨论稿",
+        "kind": "web_list",
+        "firstParty": true
+      },
+      "originalUrl": "https://essd.copernicus.org/articles/18/7719/2026/",
+      "publishedAt": "2026-10-26T00:00:00.000Z",
+      "timelineAt": "2026-10-27T03:31:35.070Z",
+      "category": "data",
+      "tags": [
+        "论文/研究",
+        "数据集/基准",
+        "定量反演",
+        "森林/生态"
+      ],
+      "score": 82,
+      "selected": true
+    },
+    {
+      "id": "t92aocz96mexdmlemv2r13qjd",
+      "title": "HUST-Grace2026s：基于GRACE与GRACE-FO观测（2002–2025）的高分辨率静态重力场模型",
+      "originalTitle": "HUST-Grace2026s: a high-resolution static gravity field product from GRACE and GRACE-FO observations (2002–2025)",
+      "summary": "基于论文摘要，HUST-Grace2026s是华中科技大学利用GRACE及其后继GRACE-FO超过20年观测数据确定的GRACE-only静态重力场模型，最高空间分辨率达180阶/次，用于质量分布监测，并补充了HUST-Grace2024等时变序列。",
+      "reason": "基于论文摘要，该模型利用超过20年GRACE/GRACE-FO观测数据，通过后拟合残差随机模型将180阶累积大地水准面误差降低66%，相比前代模型精度提升超50%，并公开了位系数数据及DOI。",
+      "source": {
+        "name": "Earth System Science Data · 数据论文与讨论稿",
+        "kind": "web_list",
+        "firstParty": true
+      },
+      "originalUrl": "https://essd.copernicus.org/articles/18/7697/2026/",
+      "publishedAt": "2026-10-26T00:00:00.000Z",
+      "timelineAt": "2026-10-27T03:31:35.036Z",
+      "category": "data",
+      "tags": [
+        "论文/研究",
+        "数据集/基准",
+        "卫星/传感器",
+        "定量反演"
+      ],
+      "score": 80,
+      "selected": true
+    },
+    {
+      "id": "y3e9m1yfxcmbnbv1dzbjeahbe",
+      "title": "VHR Europe 2024 Mosaic 数据集现可通过 Copernicus Data Space 下载",
+      "originalTitle": "VHR Europe 2024 Mosaic now available for download",
+      "summary": "VHR Europe 2024 Mosaic 数据集现已在 Copernicus Data Space Ecosystem（CDSE）中开放下载，授权用户可通过 OData 和 S3 接口获取。该数据集包含与 VISUALISE 视图服务相同的产品，后者继续提供对“VHR Europe 2024 Mosaic”集合的视觉访问。下载需满足适用的访问权限和授权要求，具体方法参见 CDSE 文档。",
+      "reason": "VHR Europe 2024 Mosaic 数据集通过 CDSE 的 OData 和 S3 接口开放下载，为授权用户提供高分辨率欧洲影像的批量获取途径。",
+      "source": {
+        "name": "Copernicus Data Space · 数据与平台动态",
+        "kind": "rss",
+        "firstParty": true
+      },
+      "originalUrl": "https://dataspace.copernicus.eu/news/2026-10-26-vhr-europe-2024-mosaic-now-available-download",
+      "publishedAt": "2026-10-26T12:23:00.000Z",
+      "timelineAt": "2026-10-27T03:31:29.681Z",
+      "category": "data",
+      "tags": [
+        "数据集/基准",
+        "卫星/传感器",
+        "Copernicus"
+      ],
+      "score": 62,
+      "selected": true
+    },
+    {
+      "id": "jybcu9gok3zcapphanbxmm83i",
+      "title": "S-NPP VIIRS数据停止供应将影响Sentinel-5P TROPOMI L2_NP*产品生产",
+      "originalTitle": "Discontinuation of S-NPP VIIRS data availability - Impact on Sentinel-5P TROPOMI L2_NP* production",
+      "summary": "Copernicus数据空间生态系统通知，由于NOAA OSPO宣布停止S-NPP VIIRS数据供应，VIIRS数据将在2026年11月2日13:00 UTC后不再可用。",
+      "reason": "材料转述了NOAA关于S-NPP VIIRS数据停止供应的公告，并说明了其对Sentinel-5P TROPOMI L2_NP*产品生产的具体影响和时间节点，属于重要的数据供应链变更信息。",
+      "source": {
+        "name": "Copernicus Data Space · 数据与平台动态",
+        "kind": "rss",
+        "firstParty": true
+      },
+      "originalUrl": "https://dataspace.copernicus.eu/news/2026-10-26-discontinuation-s-npp-viirs-data-availability-impact-sentinel-5p-tropomi-l2np",
+      "publishedAt": "2026-10-26T13:12:46.000Z",
+      "timelineAt": "2026-10-27T03:31:29.638Z",
+      "category": "data",
+      "tags": [
+        "行业动态",
+        "卫星/传感器",
+        "Copernicus"
+      ],
+      "score": 62,
+      "selected": true
+    },
+    {
+      "id": "sgmewua42kido31prqbdb0qzs",
+      "title": "CRISTAL冰监测卫星完成装配并进入测试阶段",
+      "originalTitle": "Ice mission CRISTAL opens its wings",
+      "summary": "欧洲新一代冰监测卫星CRISTAL在德国Friedrichshafen完成装配，进入测试阶段，包括首次太阳能翼展开测试和发射适配器验证。项目还进行了中期资格状态审查，卫星将移至荷兰ESA机构进行环境测试。CRISTAL计划于2027年底至2028年初发射，将成为哥白尼哨兵扩展任务中首个入轨的卫星，搭载双频雷达高度计和微波辐射计，用于监测海冰厚度、雪深和冰盖高程。",
+      "reason": null,
+      "source": {
+        "name": "ESA · 对地观测",
+        "kind": "rss",
+        "firstParty": true
+      },
+      "originalUrl": "https://www.esa.int/Applications/Observing_the_Earth/Copernicus/Ice_mission_CRISTAL_opens_its_wings",
+      "publishedAt": "2026-10-26T10:00:00.000Z",
+      "timelineAt": "2026-10-27T02:30:42.452Z",
+      "category": "satellite",
+      "tags": [
+        "行业动态",
+        "卫星/传感器",
+        "ESA",
+        "Copernicus"
+      ],
+      "score": 52,
+      "selected": false
+    },
+    {
+      "id": "k7058pxubdmovvyvx53tnh1no",
+      "title": "Earth Engine API v1.7.50 稳定版发布",
+      "originalTitle": "v1.7.50",
+      "summary": "Earth Engine API 发布 v1.7.50 稳定版，更新构建产物并修复多处问题。本次更新包含 algorithms.json 与 data.js 的次要修复及 workload 标签语法澄清、Python 类型错误修复、JavaScript 次要修复，并支持 Python 3.15，同时提高了 pyproject.toml 中依赖的最低版本要求。",
+      "reason": null,
+      "source": {
+        "name": "Earth Engine API · 稳定版本发布",
+        "kind": "rss",
+        "firstParty": true
+      },
+      "originalUrl": "https://github.com/google/earthengine-api/releases/tag/v1.7.50",
+      "publishedAt": "2026-10-26T21:16:01.000Z",
+      "timelineAt": "2026-10-27T02:30:36.776Z",
+      "category": "rs-tools",
+      "tags": [
+        "工具更新",
+        "云端处理",
+        "Google Earth Engine"
+      ],
+      "score": 26,
+      "selected": false
+    },
+    {
+      "id": "j7l0hbpkyotav1fwhe2f37e2n",
+      "title": "RustGIS 两周获 2000 星，40+ 贡献者加入",
+      "originalTitle": "RustGIS has reached 2,000 GitHub stars and welcomed more than 40 contributors in just two weeks! 🎉 Thank you to everyone who has starred the project, tested the app, reported bugs, suggested features, improved the documentation, or contrib",
+      "summary": "RustGIS 在两周内达到 2000 个 GitHub 星标，并迎来超过 40 位贡献者。这是一款用纯 Rust 编写的免费开源 GIS，支持 Windows、macOS、Linux 及浏览器运行，提供制图、编辑、分析、3D 地形、行星制图和出版布局工具。其采用 Ribbon 风格界面与代理中心架构，几乎所有操作可通过命令完成，便于自动化、脚本编写及 AI 代理交互，目前仍处于早期快速开发阶段。",
+      "reason": null,
+      "source": {
+        "name": "Qiusheng Wu · giswqs",
+        "kind": "external",
+        "firstParty": false
+      },
+      "originalUrl": "https://x.com/giswqs/status/2114739257185095807",
+      "publishedAt": "2026-10-26T15:21:43.000Z",
+      "timelineAt": "2026-10-27T02:30:28.622Z",
+      "category": "rs-tools",
+      "tags": [
+        "工具更新",
+        "开源/仓库",
+        "开源生态"
+      ],
+      "score": 40,
+      "selected": false
+    },
+    {
+      "id": "sivh3z25lwskyj89003e6b8ke",
+      "title": "哨兵2号捕捉阿尔卑斯山初雪",
+      "originalTitle": "❄️ Winter arrives in the Alps! 🏔️🇦🇹🇮🇹🇨🇭 🛰️ #CopernicusEU Sentinel-2 captures the season’s first snowfall across the central Alps, with bright white peaks contrasting against the valleys below. 🔗 https://t.co/XCfeKSoxQM #ImageOfTheD",
+      "summary": "❄️ 冬天降临阿尔卑斯山！🏔️🇦🇹🇮🇹🇨🇭\n\n🛰️ #CopernicusEU 哨兵2号捕捉到中部阿尔卑斯山本季首场降雪，明亮的白色山峰与下方山谷形成鲜明对比。\n\n🔗 https://t.co/XCfeKSoxQM\n\n#今日影像 https://t.co/wk4rIlZUHc",
+      "reason": null,
+      "source": {
+        "name": "Copernicus",
+        "kind": "external",
+        "firstParty": false
+      },
+      "originalUrl": "https://x.com/CopernicusEU/status/2114708234078482790",
+      "publishedAt": "2026-10-26T13:18:27.000Z",
+      "timelineAt": "2026-10-27T02:30:28.455Z",
+      "category": "satellite",
+      "tags": [
+        "卫星/传感器",
+        "光学遥感",
+        "Copernicus"
+      ],
+      "score": 18,
+      "selected": false
+    },
     {
       "id": "os9y43qeiwfyaee629x5z1l6p",
       "title": "GeoLibre v3.5.0 发布：新增行星网格绘制、ArcGIS 编辑规则支持与交互式故事地图",
@@ -737,29 +970,6 @@
       "selected": true
     },
     {
-      "id": "nc3m1kui2u91rocjve0j60g4u",
-      "title": "空天院国家自然科学基金项目获批总数再创新高",
-      "originalTitle": null,
-      "summary": "中国科学院空天信息创新研究院（空天院）在2026年国家自然科学基金集中接收申请项目中获批64项，获批总数再创历史新高。其中，研究员胡斯勒图的“三维云特性遥感”项目获青年科学基金项目（A类）延续资助，为空天院第二次斩获该类项目；副研究员王智睿的“星载多源遥感图像智能处理”项目获青年科学基金项目（B类）资助。",
-      "reason": null,
-      "source": {
-        "name": "中国科学院空天院 · 科研动态",
-        "kind": "web_list",
-        "firstParty": true
-      },
-      "originalUrl": "https://aircas.cas.cn/dtxw/kydt/202610/t20261020_8294237.html",
-      "publishedAt": "2026-10-19T16:00:00.000Z",
-      "timelineAt": "2026-10-20T09:24:33.723Z",
-      "category": "industry",
-      "tags": [
-        "行业动态",
-        "其他",
-        "中国科学院空天院"
-      ],
-      "score": 23,
-      "selected": false
-    },
-    {
       "id": "okip40act3rfd3zggj9he7jt5",
       "title": "论文提出通用星上AI处理链：从应用开发到嵌入式部署与任务级编排",
       "originalTitle": "A Generic On-Board AI Processing Chain for Earth Observation: From Application Development to Embedded Deployment and Mission-Level Orchestration",
@@ -805,29 +1015,6 @@
       ],
       "score": 75,
       "selected": true
-    },
-    {
-      "id": "j3jg8h8fddhzf7urwp3q4oyac",
-      "title": "自振荡光子频率梳用于地球观测系统亚THz本振生成（预印本）",
-      "originalTitle": "Self-Oscillating Photonic Frequency Comb for Sub-THz Local Oscillator Generation in Earth Observation Systems",
-      "summary": "提出一种可重构自振荡微波光子架构，用于地球观测接收机中的本振生成。基于论文摘要，该架构通过级联马赫-曾德尔和相位调制在光电反馈环路中产生增强高阶分量的光频梳，并用带宽约10 GHz的带通滤波器和约3 MHz的窄带双腔布拉格光栅环形谐振器选择所需梳线，再与同一激光器衍生的光参考拍频生成毫米波或亚THz信号。",
-      "reason": null,
-      "source": {
-        "name": "arXiv · 遥感与地球观测预印本",
-        "kind": "rss",
-        "firstParty": true
-      },
-      "originalUrl": "https://arxiv.org/abs/2610.26372v1",
-      "publishedAt": "2026-10-19T13:29:20.000Z",
-      "timelineAt": "2026-10-20T05:26:18.724Z",
-      "category": "paper",
-      "tags": [
-        "论文/研究",
-        "定量反演",
-        "光学遥感"
-      ],
-      "score": 52,
-      "selected": false
     },
     {
       "id": "t4j0gqzx10z58dig3ebzb1f3o",
@@ -3278,6 +3465,61 @@
     }
   ],
   "reports": [
+    {
+      "kind": "daily",
+      "key": "2026-10-28",
+      "title": "遥感日报 · 2026-10-28",
+      "generatedAt": "2026-10-28T00:00:26.313Z",
+      "editorialMode": "model",
+      "lead": {
+        "title": "S-NPP VIIRS数据停供将影响Sentinel-5P产品生产",
+        "leadParagraph": "NOAA宣布自2026年11月起停止供应S-NPP VIIRS数据，这将直接影响Sentinel-5P TROPOMI L2_NP*产品的生产。该变化可能对依赖VIIRS数据的遥感应用造成连锁影响，需提前规划替代方案。"
+      },
+      "overview": null,
+      "sections": [
+        {
+          "label": "数据集与基准",
+          "summary": null,
+          "items": [
+            {
+              "itemId": "rmry4evdeuwl0dv2r25ibx9x7",
+              "title": "FineKarstAGB：基于亚米级高分卫星数据与样地调查的西南地区30米分辨率地上生物量数据集",
+              "summary": "基于论文摘要，该研究提出冠层结构驱动的多特征融合网络（CSMF-Net），以国家森林清查（NFI）样地数据为真值，融合高分影像、树冠分割水平结构与冠层高度垂直结构，生成2024年覆盖云南、贵州、广西、湖南四省的30米分辨率地上生物量数据集FineKarstAGB。",
+              "sourceName": "Earth System Science Data · 数据论文与讨论稿",
+              "originalUrl": "https://essd.copernicus.org/articles/18/7719/2026/"
+            },
+            {
+              "itemId": "t92aocz96mexdmlemv2r13qjd",
+              "title": "HUST-Grace2026s：基于GRACE与GRACE-FO观测（2002–2025）的高分辨率静态重力场模型",
+              "summary": "基于论文摘要，HUST-Grace2026s是华中科技大学利用GRACE及其后继GRACE-FO超过20年观测数据确定的GRACE-only静态重力场模型，最高空间分辨率达180阶/次，用于质量分布监测，并补充了HUST-Grace2024等时变序列。",
+              "sourceName": "Earth System Science Data · 数据论文与讨论稿",
+              "originalUrl": "https://essd.copernicus.org/articles/18/7697/2026/"
+            },
+            {
+              "itemId": "j45ubygnkmqyrns82iwevtdlz",
+              "title": "RRBF-KMA：韩国2016–2024年高分辨率雷达–雨量计融合降水数据集发布",
+              "summary": "该研究发布韩国高分辨率雷达–雨量计融合降水数据集RRBF-KMA。基于论文摘要，数据集以10分钟时间分辨率和0.5 km空间分辨率覆盖2016–2024年，网格为2305×2881像素；雨量计观测经质量控制后聚合为10分钟累积量，雷达输入来自KMA全国拼图反射率产品。",
+              "sourceName": "Earth System Science Data · 数据论文与讨论稿",
+              "originalUrl": "https://essd.copernicus.org/articles/18/7679/2026/"
+            },
+            {
+              "itemId": "jybcu9gok3zcapphanbxmm83i",
+              "title": "S-NPP VIIRS数据停止供应将影响Sentinel-5P TROPOMI L2_NP*产品生产",
+              "summary": "Copernicus数据空间生态系统通知，由于NOAA OSPO宣布停止S-NPP VIIRS数据供应，VIIRS数据将在2026年11月2日13:00 UTC后不再可用。",
+              "sourceName": "Copernicus Data Space · 数据与平台动态",
+              "originalUrl": "https://dataspace.copernicus.eu/news/2026-10-26-discontinuation-s-npp-viirs-data-availability-impact-sentinel-5p-tropomi-l2np"
+            },
+            {
+              "itemId": "y3e9m1yfxcmbnbv1dzbjeahbe",
+              "title": "VHR Europe 2024 Mosaic 数据集现可通过 Copernicus Data Space 下载",
+              "summary": "VHR Europe 2024 Mosaic 数据集现已在 Copernicus Data Space Ecosystem（CDSE）中开放下载，授权用户可通过 OData 和 S3 接口获取。该数据集包含与 VISUALISE 视图服务相同的产品，后者继续提供对“VHR Europe 2024 Mosaic”集合的视觉访问。下载需满足适用的访问权限和授权要求，具体方法参见 CDSE 文档。",
+              "sourceName": "Copernicus Data Space · 数据与平台动态",
+              "originalUrl": "https://dataspace.copernicus.eu/news/2026-10-26-vhr-europe-2024-mosaic-now-available-download"
+            }
+          ]
+        }
+      ]
+    },
     {
       "kind": "daily",
       "key": "2026-10-26",
@@ -6261,6 +6503,8 @@
       "group": "company",
       "definition": "Copernicus 的遥感研究、观测数据与工程动态。",
       "itemIds": [
+        "y3e9m1yfxcmbnbv1dzbjeahbe",
+        "jybcu9gok3zcapphanbxmm83i",
         "djx1yfo2my0y0156fpl2ccq83",
         "tnek9f178j0hxattsp1cvv59h",
         "gdipajs3hcrtcvpip6a1jok9z",
@@ -6461,6 +6705,9 @@
       "group": "field",
       "definition": "追踪定量反演的研究方法、数据、工具与应用实践。",
       "itemIds": [
+        "j45ubygnkmqyrns82iwevtdlz",
+        "rmry4evdeuwl0dv2r25ibx9x7",
+        "t92aocz96mexdmlemv2r13qjd",
         "k9us1ebfn0l53ujf97906y7jf",
         "l3t70jcfj7a2m4kmgp9usgrxp",
         "njqh7kam6pmzr26jt05kfaqlq",
@@ -6573,6 +6820,7 @@
       "group": "field",
       "definition": "追踪森林与生态的研究方法、数据、工具与应用实践。",
       "itemIds": [
+        "rmry4evdeuwl0dv2r25ibx9x7",
         "r3lto7uxqe418v99dvwnnqhwb",
         "easimpoc6rvohr23aiteyx6rt",
         "gt4dxjtxlv9p8okpmvv48za9q",
@@ -6588,6 +6836,8 @@
       "group": "genre",
       "definition": "值得关注的遥感论文与研究，保留原文入口与适用条件。",
       "itemIds": [
+        "rmry4evdeuwl0dv2r25ibx9x7",
+        "t92aocz96mexdmlemv2r13qjd",
         "lkml23r48uupsocait0iwjlbe",
         "fnwi2gmypo4ihv0vj7phy8yx8",
         "f643b8gldfq2zmjs86m1mnl6e",
@@ -6644,6 +6894,10 @@
       "group": "genre",
       "definition": "值得关注的遥感数据集与基准，保留原文入口与适用条件。",
       "itemIds": [
+        "j45ubygnkmqyrns82iwevtdlz",
+        "rmry4evdeuwl0dv2r25ibx9x7",
+        "t92aocz96mexdmlemv2r13qjd",
+        "y3e9m1yfxcmbnbv1dzbjeahbe",
         "otejirz3poijfti0diwqxbdhz",
         "ghpeljy1jxh5gg2xtvpnvakod",
         "u0u9yotsnron8fn6ycqed122b",
@@ -6719,6 +6973,9 @@
       "group": "genre",
       "definition": "值得关注的遥感卫星与传感器，保留原文入口与适用条件。",
       "itemIds": [
+        "t92aocz96mexdmlemv2r13qjd",
+        "y3e9m1yfxcmbnbv1dzbjeahbe",
+        "jybcu9gok3zcapphanbxmm83i",
         "o28lholu4xhciby1b751y0tlv",
         "djx1yfo2my0y0156fpl2ccq83",
         "tnek9f178j0hxattsp1cvv59h",
@@ -6757,7 +7014,7 @@
     }
   ],
   "hot": {
-    "computedAt": "2026-10-27T02:30:32.250Z",
+    "computedAt": "2026-10-28T02:30:31.354Z",
     "windowHours": 48,
     "entries": []
   }
