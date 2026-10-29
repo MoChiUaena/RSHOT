@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-28T02:31:11.455Z",
+  "generatedAt": "2026-10-29T02:31:32.850Z",
   "categories": [
     {
       "key": "paper",
@@ -29,59 +29,7 @@
   ],
   "sources": [
     {
-      "name": "Earth Engine API · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "arXiv · 遥感与地球观测预印本",
-      "kind": "rss"
-    },
-    {
-      "name": "Copernicus Data Space · 数据与平台动态",
-      "kind": "rss"
-    },
-    {
-      "name": "Google Earth 与 Earth Engine · 官方博客",
-      "kind": "rss"
-    },
-    {
-      "name": "中国科学院空天院 · 科研动态",
-      "kind": "web_list"
-    },
-    {
-      "name": "rioxarray · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "Earth System Science Data · 数据论文与讨论稿",
-      "kind": "web_list"
-    },
-    {
-      "name": "TorchGeo · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "USGS Landsat",
-      "kind": "external"
-    },
-    {
-      "name": "GDAL · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "Copernicus",
-      "kind": "external"
-    },
-    {
-      "name": "earthaccess · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "PySTAC · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "STAC FastAPI · 稳定版本发布",
+      "name": "openEO Python Client · 稳定版本发布",
       "kind": "rss"
     },
     {
@@ -89,19 +37,11 @@
       "kind": "rss"
     },
     {
+      "name": "earthaccess · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
       "name": "Rasterio · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "NASA Earthdata · 科学数据与工具",
-      "kind": "rss"
-    },
-    {
-      "name": "ESA · 对地观测",
-      "kind": "rss"
-    },
-    {
-      "name": "geemap · 稳定版本发布",
       "kind": "rss"
     },
     {
@@ -109,7 +49,63 @@
       "kind": "external"
     },
     {
-      "name": "EOReader · 稳定版本发布",
+      "name": "arXiv · 遥感与地球观测预印本",
+      "kind": "rss"
+    },
+    {
+      "name": "geemap · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "STAC FastAPI · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "rioxarray · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "Copernicus Data Space · 数据与平台动态",
+      "kind": "rss"
+    },
+    {
+      "name": "Copernicus",
+      "kind": "external"
+    },
+    {
+      "name": "NASA Earthdata · 科学数据与工具",
+      "kind": "rss"
+    },
+    {
+      "name": "Earth Engine API · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "中国科学院空天院 · 科研动态",
+      "kind": "web_list"
+    },
+    {
+      "name": "TorchGeo · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "Earth System Science Data · 数据论文与讨论稿",
+      "kind": "web_list"
+    },
+    {
+      "name": "Google Earth 与 Earth Engine · 官方博客",
+      "kind": "rss"
+    },
+    {
+      "name": "PySTAC · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "ESA · 对地观测",
+      "kind": "rss"
+    },
+    {
+      "name": "GDAL · 稳定版本发布",
       "kind": "rss"
     },
     {
@@ -117,11 +113,161 @@
       "kind": "external"
     },
     {
-      "name": "openEO Python Client · 稳定版本发布",
+      "name": "EOReader · 稳定版本发布",
       "kind": "rss"
+    },
+    {
+      "name": "USGS Landsat",
+      "kind": "external"
     }
   ],
   "items": [
+    {
+      "id": "v307rm79euh1lxsxitu1pi9x8",
+      "title": "Sentinel-2 北极热喀斯特湖塘水体语义分割数据集（预印本）",
+      "originalTitle": "A Sentinel-2 semantic segmentation dataset for thermokarst-associated lake and pond water surfaces in Arctic permafrost lowlands",
+      "summary": "基于论文摘要，该预印本提出一个基于 Sentinel-2 的语义分割数据集，用于北极多年冻土低地热喀斯特相关湖塘水体识别。",
+      "reason": "该数据集论文提供了面向北极热喀斯特湖塘水体的监督分割图像-掩膜对，并报告了跨分割重叠审计与QA感知损失重训练后的IoU结果，为同类小水体分割基准比较提供了可复现的样本与实验设置。",
+      "source": {
+        "name": "Earth System Science Data · 数据论文与讨论稿",
+        "kind": "web_list",
+        "firstParty": true
+      },
+      "originalUrl": "https://essd.copernicus.org/preprints/essd-2026-581/",
+      "publishedAt": "2026-10-28T00:00:00.000Z",
+      "timelineAt": "2026-10-28T10:52:38.776Z",
+      "category": "data",
+      "tags": [
+        "数据集/基准",
+        "语义分割",
+        "光学遥感",
+        "灾害监测"
+      ],
+      "score": 80,
+      "selected": true
+    },
+    {
+      "id": "rs9juoocm7vxzrjm5vj2mxu7y",
+      "title": "Ground-to-Satellite 知识蒸馏提升作物分类在时间与地理偏移下的鲁棒性（预印本）",
+      "originalTitle": "Ground-to-Satellite Knowledge Distillation for Crop Classification under Temporal and Geographic Shift",
+      "summary": "基于论文摘要，该研究提出利用地面照片作为特权信息，通过知识蒸馏提升基于卫星嵌入的作物分类性能。方法采用冻结的CLIP特征作为教师，监督基于AlphaEarth和TESSERA表示的分类器，照片仅在训练时使用。",
+      "reason": "提出利用地面照片作为特权信息蒸馏到卫星嵌入的作物分类方法，在时间与地理偏移下提升泛化能力，实验验证了冻结CLIP特征作为教师的有效性。",
+      "source": {
+        "name": "arXiv · 遥感与地球观测预印本",
+        "kind": "rss",
+        "firstParty": true
+      },
+      "originalUrl": "https://arxiv.org/abs/2610.37021v1",
+      "publishedAt": "2026-10-27T10:57:49.000Z",
+      "timelineAt": "2026-10-28T05:47:23.855Z",
+      "category": "paper",
+      "tags": [
+        "论文/研究",
+        "分类识别",
+        "泛化/迁移",
+        "数据融合",
+        "arXiv"
+      ],
+      "score": 76,
+      "selected": true
+    },
+    {
+      "id": "s6bh6uceo8ag79knxw3s20wgq",
+      "title": "自监督SAR-光学编码器在商品x86硬件上的量化边缘推理评估（预印本）",
+      "originalTitle": "Quantized Edge Inference of a Self-Supervised SAR-Optical Encoder on Commodity x86 Hardware",
+      "summary": "基于论文摘要，该预印本评估了自监督SAR-光学掩码自编码器编码器在三种商品x86节点上的量化推理性能，涵盖FP32、FP16和INT8精度，并报告了延迟、能耗（RAPL和墙插）及线性探针精度。",
+      "reason": "该预印本系统评估了自监督SAR-光学编码器在商品x86硬件上的量化推理性能，提供了INT8量化对精度和延迟影响的实测数据，对边缘部署具有参考价值。",
+      "source": {
+        "name": "arXiv · 遥感与地球观测预印本",
+        "kind": "rss",
+        "firstParty": true
+      },
+      "originalUrl": "https://arxiv.org/abs/2610.37056v1",
+      "publishedAt": "2026-10-27T11:24:25.000Z",
+      "timelineAt": "2026-10-28T04:47:19.010Z",
+      "category": "paper",
+      "tags": [
+        "论文/研究",
+        "自监督学习",
+        "部署/工程",
+        "SAR",
+        "光学遥感"
+      ],
+      "score": 62,
+      "selected": true
+    },
+    {
+      "id": "wdc2k189egwj1thjfgbdbevhj",
+      "title": "INTR++ 提出可解释 Transformer 改进版，增强跨域适应性与可解释性（预印本）",
+      "originalTitle": "INTR++: INterpretable TRansformer with better Accuracy, Interpretability, and Adaptability",
+      "summary": "INTR++ 提出可解释 Transformer 改进版，通过轻量 Prompt Adapter Module 使提示自适应，提升跨域可解释性与适应性。基于论文摘要，作者在动物、植物、医学影像、显微影像、遥感影像及物体中心数据上报告一致性改进，仅增加少量参数。代码与数据可用性未说明。",
+      "reason": "提出轻量 Prompt Adapter Module 增强可解释 Transformer 的跨域适应性，在多个领域（含遥感影像）上报告一致性改进，为可解释模型泛化提供新方案。",
+      "source": {
+        "name": "arXiv · 遥感与地球观测预印本",
+        "kind": "rss",
+        "firstParty": true
+      },
+      "originalUrl": "https://arxiv.org/abs/2610.37178v1",
+      "publishedAt": "2026-10-27T13:03:27.000Z",
+      "timelineAt": "2026-10-28T04:47:18.967Z",
+      "category": "paper",
+      "tags": [
+        "论文/研究",
+        "遥感基础模型",
+        "多模态",
+        "泛化/迁移"
+      ],
+      "score": 62,
+      "selected": true
+    },
+    {
+      "id": "eepk0epyrdae3l33jc9pifvc9",
+      "title": "Copernicus Sentinel-1D 数据于 2026 年 10 月 26 日起暂时不可用",
+      "originalTitle": "Copernicus Sentinel-1D Data Unavailability on 26 October 2026",
+      "summary": "受卫星问题影响，Copernicus Sentinel-1D 自 2026 年 10 月 26 日起数据暂时不可用，恢复工作正在进行中。具体影响将在异常发生后首个工作日于 Sentinel Operations Dashboard Events Page 公布。",
+      "reason": null,
+      "source": {
+        "name": "Copernicus Data Space · 数据与平台动态",
+        "kind": "rss",
+        "firstParty": true
+      },
+      "originalUrl": "https://dataspace.copernicus.eu/news/2026-10-27-copernicus-sentinel-1d-data-unavailability-26-october-2026",
+      "publishedAt": "2026-10-27T14:53:52.000Z",
+      "timelineAt": "2026-10-28T03:46:11.913Z",
+      "category": "satellite",
+      "tags": [
+        "卫星/传感器",
+        "SAR",
+        "数据质量",
+        "Copernicus"
+      ],
+      "score": 29,
+      "selected": false
+    },
+    {
+      "id": "x21k4kp5kyo7z1m0lp0dj978q",
+      "title": "哥白尼哨兵2号监测莱茵河低水位",
+      "originalTitle": "Low water levels are affecting the River Rhine 🇩🇪 after a dry spring &amp; hot summer. 🛰️ #CopernicusEU Sentinel-2 reveals exposed sandbanks near Kaub, where the gauge read just 0.55 m on 26 October, limiting shipping capacity. 🔗 https:",
+      "summary": "干燥的春季和炎热的夏季过后，低水位正在影响莱茵河🇩🇪。\n\n🛰️ #CopernicusEU 哨兵2号揭示了考布附近裸露的沙洲，10月26日当地水位计读数仅为0.55米，限制了航运能力。\n\n🔗 https://t.co/KXibcQhHJ2\n\n#今日影像 https://t.co/GiO5U17bNs",
+      "reason": null,
+      "source": {
+        "name": "Copernicus",
+        "kind": "external",
+        "firstParty": false
+      },
+      "originalUrl": "https://x.com/CopernicusEU/status/2115096253537136727",
+      "publishedAt": "2026-10-27T15:00:18.000Z",
+      "timelineAt": "2026-10-28T02:31:09.288Z",
+      "category": "tip",
+      "tags": [
+        "应用案例",
+        "灾害监测",
+        "光学遥感",
+        "Copernicus"
+      ],
+      "score": 29,
+      "selected": false
+    },
     {
       "id": "j45ubygnkmqyrns82iwevtdlz",
       "title": "RRBF-KMA：韩国2016–2024年高分辨率雷达–雨量计融合降水数据集发布",
@@ -3467,6 +3613,60 @@
   "reports": [
     {
       "kind": "daily",
+      "key": "2026-10-29",
+      "title": "遥感日报 · 2026-10-29",
+      "generatedAt": "2026-10-29T00:00:29.441Z",
+      "editorialMode": "model",
+      "lead": {
+        "title": "北极热喀斯特湖塘语义分割数据集发布",
+        "leadParagraph": "今日发布一项基于Sentinel-2的北极热喀斯特湖塘水体语义分割数据集，为多年冻土区水体识别提供新资源。同时，多项研究聚焦遥感模型鲁棒性与边缘部署，推动实际应用。"
+      },
+      "overview": null,
+      "sections": [
+        {
+          "label": "论文与方法",
+          "summary": null,
+          "items": [
+            {
+              "itemId": "rs9juoocm7vxzrjm5vj2mxu7y",
+              "title": "Ground-to-Satellite 知识蒸馏提升作物分类在时间与地理偏移下的鲁棒性（预印本）",
+              "summary": "基于论文摘要，该研究提出利用地面照片作为特权信息，通过知识蒸馏提升基于卫星嵌入的作物分类性能。方法采用冻结的CLIP特征作为教师，监督基于AlphaEarth和TESSERA表示的分类器，照片仅在训练时使用。",
+              "sourceName": "arXiv · 遥感与地球观测预印本",
+              "originalUrl": "https://arxiv.org/abs/2610.37021v1"
+            },
+            {
+              "itemId": "wdc2k189egwj1thjfgbdbevhj",
+              "title": "INTR++ 提出可解释 Transformer 改进版，增强跨域适应性与可解释性（预印本）",
+              "summary": "INTR++ 提出可解释 Transformer 改进版，通过轻量 Prompt Adapter Module 使提示自适应，提升跨域可解释性与适应性。基于论文摘要，作者在动物、植物、医学影像、显微影像、遥感影像及物体中心数据上报告一致性改进，仅增加少量参数。代码与数据可用性未说明。",
+              "sourceName": "arXiv · 遥感与地球观测预印本",
+              "originalUrl": "https://arxiv.org/abs/2610.37178v1"
+            },
+            {
+              "itemId": "s6bh6uceo8ag79knxw3s20wgq",
+              "title": "自监督SAR-光学编码器在商品x86硬件上的量化边缘推理评估（预印本）",
+              "summary": "基于论文摘要，该预印本评估了自监督SAR-光学掩码自编码器编码器在三种商品x86节点上的量化推理性能，涵盖FP32、FP16和INT8精度，并报告了延迟、能耗（RAPL和墙插）及线性探针精度。",
+              "sourceName": "arXiv · 遥感与地球观测预印本",
+              "originalUrl": "https://arxiv.org/abs/2610.37056v1"
+            }
+          ]
+        },
+        {
+          "label": "数据集与基准",
+          "summary": null,
+          "items": [
+            {
+              "itemId": "v307rm79euh1lxsxitu1pi9x8",
+              "title": "Sentinel-2 北极热喀斯特湖塘水体语义分割数据集（预印本）",
+              "summary": "基于论文摘要，该预印本提出一个基于 Sentinel-2 的语义分割数据集，用于北极多年冻土低地热喀斯特相关湖塘水体识别。",
+              "sourceName": "Earth System Science Data · 数据论文与讨论稿",
+              "originalUrl": "https://essd.copernicus.org/preprints/essd-2026-581/"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "daily",
       "key": "2026-10-28",
       "title": "遥感日报 · 2026-10-28",
       "generatedAt": "2026-10-28T00:00:26.313Z",
@@ -6566,6 +6766,7 @@
       "group": "field",
       "definition": "追踪SAR 与 InSAR的研究方法、数据、工具与应用实践。",
       "itemIds": [
+        "s6bh6uceo8ag79knxw3s20wgq",
         "ghpeljy1jxh5gg2xtvpnvakod",
         "djx1yfo2my0y0156fpl2ccq83",
         "jyvgipi90rcqqcnxrfc5u419z",
@@ -6623,6 +6824,8 @@
       "group": "field",
       "definition": "追踪光学遥感的研究方法、数据、工具与应用实践。",
       "itemIds": [
+        "v307rm79euh1lxsxitu1pi9x8",
+        "s6bh6uceo8ag79knxw3s20wgq",
         "ghpeljy1jxh5gg2xtvpnvakod",
         "jyvgipi90rcqqcnxrfc5u419z",
         "k9us1ebfn0l53ujf97906y7jf",
@@ -6687,6 +6890,7 @@
       "group": "field",
       "definition": "追踪语义分割的研究方法、数据、工具与应用实践。",
       "itemIds": [
+        "v307rm79euh1lxsxitu1pi9x8",
         "ghpeljy1jxh5gg2xtvpnvakod",
         "fnwi2gmypo4ihv0vj7phy8yx8",
         "l4qu2dk2oorbvu421z6hc0plh",
@@ -6730,6 +6934,7 @@
       "group": "field",
       "definition": "追踪遥感基础模型的研究方法、数据、工具与应用实践。",
       "itemIds": [
+        "wdc2k189egwj1thjfgbdbevhj",
         "okip40act3rfd3zggj9he7jt5",
         "p2ohp08inlj86ag4k5jx04haj",
         "vokxv0xhvjdp9w1qhy3qzqeru",
@@ -6757,6 +6962,8 @@
       "group": "field",
       "definition": "追踪泛化与迁移的研究方法、数据、工具与应用实践。",
       "itemIds": [
+        "rs9juoocm7vxzrjm5vj2mxu7y",
+        "wdc2k189egwj1thjfgbdbevhj",
         "lkml23r48uupsocait0iwjlbe",
         "g103xoho9pee2j5uo4q74a13z",
         "kysmad78ukt9xnc4cf3kjwv62",
@@ -6785,6 +6992,7 @@
       "group": "field",
       "definition": "追踪灾害监测的研究方法、数据、工具与应用实践。",
       "itemIds": [
+        "v307rm79euh1lxsxitu1pi9x8",
         "lkml23r48uupsocait0iwjlbe",
         "okip40act3rfd3zggj9he7jt5",
         "psoakgufonb9jhsqiieno8odc",
@@ -6836,6 +7044,9 @@
       "group": "genre",
       "definition": "值得关注的遥感论文与研究，保留原文入口与适用条件。",
       "itemIds": [
+        "rs9juoocm7vxzrjm5vj2mxu7y",
+        "s6bh6uceo8ag79knxw3s20wgq",
+        "wdc2k189egwj1thjfgbdbevhj",
         "rmry4evdeuwl0dv2r25ibx9x7",
         "t92aocz96mexdmlemv2r13qjd",
         "lkml23r48uupsocait0iwjlbe",
@@ -6894,6 +7105,7 @@
       "group": "genre",
       "definition": "值得关注的遥感数据集与基准，保留原文入口与适用条件。",
       "itemIds": [
+        "v307rm79euh1lxsxitu1pi9x8",
         "j45ubygnkmqyrns82iwevtdlz",
         "rmry4evdeuwl0dv2r25ibx9x7",
         "t92aocz96mexdmlemv2r13qjd",
@@ -7014,7 +7226,7 @@
     }
   ],
   "hot": {
-    "computedAt": "2026-10-28T02:30:31.354Z",
+    "computedAt": "2026-10-29T02:30:34.675Z",
     "windowHours": 48,
     "entries": []
   }
