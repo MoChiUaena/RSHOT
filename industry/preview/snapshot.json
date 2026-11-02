@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-01T11:39:37.835Z",
+  "generatedAt": "2026-11-02T02:30:12.158Z",
   "categories": [
     {
       "key": "paper",
@@ -29,43 +29,7 @@
   ],
   "sources": [
     {
-      "name": "GDAL · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "TorchGeo · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "earthaccess · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "rioxarray · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "Google Earth 与 Earth Engine · 官方博客",
-      "kind": "rss"
-    },
-    {
-      "name": "NASA Earthdata · 科学数据与工具",
-      "kind": "rss"
-    },
-    {
-      "name": "PySTAC · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "Rasterio · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "geemap · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "ESA · 对地观测",
+      "name": "STAC FastAPI · 稳定版本发布",
       "kind": "rss"
     },
     {
@@ -73,7 +37,11 @@
       "kind": "web_list"
     },
     {
-      "name": "openEO Python Client · 稳定版本发布",
+      "name": "earthaccess · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "Rasterio · 稳定版本发布",
       "kind": "rss"
     },
     {
@@ -81,19 +49,7 @@
       "kind": "rss"
     },
     {
-      "name": "Copernicus Data Space · 数据与平台动态",
-      "kind": "rss"
-    },
-    {
-      "name": "STAC FastAPI · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "TerraTorch · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "Earth Engine API · 稳定版本发布",
+      "name": "geemap · 稳定版本发布",
       "kind": "rss"
     },
     {
@@ -101,7 +57,51 @@
       "kind": "web_list"
     },
     {
+      "name": "ESA · 对地观测",
+      "kind": "rss"
+    },
+    {
+      "name": "Earth Engine API · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "PySTAC · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
       "name": "arXiv · 遥感与地球观测预印本",
+      "kind": "rss"
+    },
+    {
+      "name": "GDAL · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "NASA Earthdata · 科学数据与工具",
+      "kind": "rss"
+    },
+    {
+      "name": "Copernicus Data Space · 数据与平台动态",
+      "kind": "rss"
+    },
+    {
+      "name": "TerraTorch · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "Google Earth 与 Earth Engine · 官方博客",
+      "kind": "rss"
+    },
+    {
+      "name": "TorchGeo · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "openEO Python Client · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "rioxarray · 稳定版本发布",
       "kind": "rss"
     }
   ],
@@ -3150,6 +3150,33 @@
   "reports": [
     {
       "kind": "daily",
+      "key": "2026-11-02",
+      "title": "遥感日报 · 2026-11-02",
+      "generatedAt": "2026-11-02T00:24:11.174Z",
+      "editorialMode": "model",
+      "lead": {
+        "title": "Copernicus Sentinel-6B投入业务运行 延续30余年海平面记录",
+        "leadParagraph": "Copernicus Sentinel-6B于2026年10月30日投入业务运行，由EUMETSAT代表欧盟委员会运营。该卫星将在未来数月成为国际公认的高精度海洋测高参考卫星，延续始于1992年TOPEX/Poseidon的30余年全球海平面卫星测高记录。"
+      },
+      "overview": null,
+      "sections": [
+        {
+          "label": "卫星与传感器",
+          "summary": null,
+          "items": [
+            {
+              "itemId": "le9tcuhykbm4yp1xuy7iw5ntj",
+              "title": "Copernicus Sentinel-6B 投入业务运行，延续 30 余年全球海平面卫星测高记录",
+              "summary": "Copernicus Sentinel-6B 于 2026 年 10 月 30 日投入业务运行，由 EUMETSAT 代表欧盟委员会运营，将在未来数月成为国际公认的高精度海洋测高参考卫星，把始于 1992 年 TOPEX/Poseidon 与 Jason 系列的海平面记录延续到 2030 年代。",
+              "sourceName": "ESA · 对地观测",
+              "originalUrl": "https://www.eumetsat.int/sentinel-6b-track-rising-seas-predict-storms-and-aid-forecasts"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "daily",
       "key": "2026-10-29",
       "title": "遥感日报 · 2026-10-29",
       "generatedAt": "2026-11-01T11:07:49.598Z",
@@ -4878,6 +4905,33 @@
               "summary": "ESA 的业务说明列出计划于 2026 年 9 月 21 日切换 Processing Baseline 05.13 的 Sentinel-2A、2B、2C 首批 Datatake 与起始时刻。跨批次分析时应保留处理基线元数据；这份通知本身没有证明某项算法精度提升。",
               "sourceName": "Copernicus Data Space · 数据与平台动态",
               "originalUrl": "https://dataspace.copernicus.eu/news/2026-9-15-activation-copernicus-sentinel-2-processing-baseline-0513-21-september-2026"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "weekly",
+      "key": "2026-W44",
+      "title": "RSHOT 周报 · 2026-W44",
+      "generatedAt": "2026-11-02T02:24:44.730Z",
+      "editorialMode": "model",
+      "lead": {
+        "title": "Sentinel-6B 延续海平面测高记录",
+        "leadParagraph": "本期覆盖 2026-10-26 至 2026-11-01。本期入选动态聚焦海洋观测基础设施：欧盟哥白尼计划 Sentinel-6B 卫星于 2026 年 10 月 30 日投入业务运行，由 EUMETSAT 代表欧盟委员会运营，将在未来数月成为国际公认的高精度海洋测高参考卫星，把始于 1992 年 TOPEX/Poseidon 与 Jason 系列的全球海平面卫星测高记录延续下去，保障 30 余年海平面变化监测数据的连续性。"
+      },
+      "overview": "本期覆盖 2026-10-26 至 2026-11-01。本期入选动态聚焦海洋观测基础设施：欧盟哥白尼计划 Sentinel-6B 卫星于 2026 年 10 月 30 日投入业务运行，由 EUMETSAT 代表欧盟委员会运营，将在未来数月成为国际公认的高精度海洋测高参考卫星，把始于 1992 年 TOPEX/Poseidon 与 Jason 系列的全球海平面卫星测高记录延续下去，保障 30 余年海平面变化监测数据的连续性。",
+      "sections": [
+        {
+          "label": "海平面测高记录延续",
+          "summary": "Copernicus Sentinel-6B 于 2026 年 10 月 30 日投入业务运行，由 EUMETSAT 代表欧盟委员会运营。该星将在未来数月成为国际公认的高精度海洋测高参考卫星，把始于 1992 年 TOPEX/Poseidon 与 Jason 系列的全球海平面卫星测高记录延续至 30 余年之后，确保气候变化研究所需长期观测数据的连续性。",
+          "items": [
+            {
+              "itemId": "le9tcuhykbm4yp1xuy7iw5ntj",
+              "title": "Copernicus Sentinel-6B 投入业务运行，延续 30 余年全球海平面卫星测高记录",
+              "summary": "Copernicus Sentinel-6B 于 2026 年 10 月 30 日投入业务运行，由 EUMETSAT 代表欧盟委员会运营，将在未来数月成为国际公认的高精度海洋测高参考卫星，把始于 1992 年 TOPEX/Poseidon 与 Jason 系列的海平面记录延续到 2030 年代。",
+              "sourceName": "ESA · 对地观测",
+              "originalUrl": "https://www.eumetsat.int/sentinel-6b-track-rising-seas-predict-storms-and-aid-forecasts"
             }
           ]
         }
@@ -7398,7 +7452,7 @@
     }
   ],
   "hot": {
-    "computedAt": "2026-11-01T11:36:08.015Z",
+    "computedAt": "2026-11-01T12:06:00.365Z",
     "windowHours": 48,
     "entries": []
   }
