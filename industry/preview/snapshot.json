@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-02T02:30:12.158Z",
+  "generatedAt": "2026-11-03T02:30:11.709Z",
   "categories": [
     {
       "key": "paper",
@@ -29,43 +29,7 @@
   ],
   "sources": [
     {
-      "name": "STAC FastAPI · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "Earth System Science Data · 数据论文与讨论稿",
-      "kind": "web_list"
-    },
-    {
-      "name": "earthaccess · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "Rasterio · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "EOReader · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "geemap · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "中国科学院空天院 · 科研动态",
-      "kind": "web_list"
-    },
-    {
-      "name": "ESA · 对地观测",
-      "kind": "rss"
-    },
-    {
-      "name": "Earth Engine API · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "PySTAC · 稳定版本发布",
+      "name": "openEO Python Client · 稳定版本发布",
       "kind": "rss"
     },
     {
@@ -73,7 +37,55 @@
       "kind": "rss"
     },
     {
+      "name": "earthaccess · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "geemap · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "Rasterio · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "Earth Engine API · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "rioxarray · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
       "name": "GDAL · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "中国科学院空天院 · 科研动态",
+      "kind": "web_list"
+    },
+    {
+      "name": "STAC FastAPI · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "PySTAC · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "Earth System Science Data · 数据论文与讨论稿",
+      "kind": "web_list"
+    },
+    {
+      "name": "EOReader · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "Google Earth 与 Earth Engine · 官方博客",
+      "kind": "rss"
+    },
+    {
+      "name": "ESA · 对地观测",
       "kind": "rss"
     },
     {
@@ -89,23 +101,130 @@
       "kind": "rss"
     },
     {
-      "name": "Google Earth 与 Earth Engine · 官方博客",
-      "kind": "rss"
-    },
-    {
       "name": "TorchGeo · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "openEO Python Client · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "rioxarray · 稳定版本发布",
       "kind": "rss"
     }
   ],
   "items": [
+    {
+      "id": "l0f5zajqa8eq1xo33utkuw935",
+      "title": "Google Earth Engine Python API v1.7.51 发布",
+      "originalTitle": "v1.7.51",
+      "summary": "Google Earth Engine Python 客户端库发布 v1.7.51，更新构建产物并修正 API 文档中的位运算符说明与拼写错误。本次更新将 CLI 配置文件保存权限限制为 0o600，仅含客户端库变更，后端服务变更见 Earth Engine Release Notes。",
+      "reason": null,
+      "source": {
+        "name": "Earth Engine API · 稳定版本发布",
+        "kind": "rss",
+        "firstParty": true
+      },
+      "originalUrl": "https://github.com/google/earthengine-api/releases/tag/v1.7.51",
+      "publishedAt": "2026-11-02T18:37:49.000Z",
+      "timelineAt": "2026-11-02T18:43:54.138Z",
+      "category": "rs-tools",
+      "tags": [
+        "工具更新",
+        "开源/仓库",
+        "云端处理",
+        "Google Earth Engine"
+      ],
+      "score": 20,
+      "selected": false
+    },
+    {
+      "id": "p0w3jao5ns8qdva1yfz0zb221",
+      "title": "CDSE Marketplace 和 Forum 将于 24/11/2026 进行系统更新",
+      "originalTitle": "System Update Notification – CDSE Marketplace and Forum on 24/11/2026",
+      "summary": "Copernicus Data Space 宣布 CDSE Marketplace 和 Forum 将于 24 November 09:00 CET 进行系统更新，预计持续约 30 分钟，期间两项服务将暂时不可用。此次更新旨在提升服务的稳定性、性能和整体可靠性。",
+      "reason": null,
+      "source": {
+        "name": "Copernicus Data Space · 数据与平台动态",
+        "kind": "rss",
+        "firstParty": true
+      },
+      "originalUrl": "https://dataspace.copernicus.eu/news/2026-11-2-system-update-notification-cdse-marketplace-and-forum-24112026",
+      "publishedAt": "2026-11-02T13:26:25.000Z",
+      "timelineAt": "2026-11-02T15:13:02.277Z",
+      "category": "industry",
+      "tags": [
+        "行业动态",
+        "Copernicus"
+      ],
+      "score": 10,
+      "selected": false
+    },
+    {
+      "id": "czzkxdpznod60jlm5xh59j3zx",
+      "title": "预印本：NH-SDN 发布 1982–2025 年北半球逐日 0.25° 雪密度数据集，基于深度学习构建",
+      "originalTitle": "NH-SDN: A Deep Learning-Derived Daily 0.25° Snow Density Dataset for the Northern Hemisphere from 1982–2025",
+      "summary": "基于论文摘要，该讨论稿提出 SDN-Net 时空框架（结合 vision Transformer 与卷积网络，融合多源环境变量），并据此构建 NH-SDN：1982–2025 年北半球逐日 0.25° 雪密度数据集。",
+      "reason": "摘要给出与再分析数据的分月、分雪类与分海拔 RMSE 对比，并说明数据已在 Zenodo 开放，可用于评估该雪密度数据集的精度改进与可用性。",
+      "source": {
+        "name": "Earth System Science Data · 数据论文与讨论稿",
+        "kind": "web_list",
+        "firstParty": true
+      },
+      "originalUrl": "https://essd.copernicus.org/preprints/essd-2026-689/",
+      "publishedAt": "2026-11-02T00:00:00.000Z",
+      "timelineAt": "2026-11-02T09:41:33.472Z",
+      "category": "data",
+      "tags": [
+        "数据集/基准",
+        "定量反演",
+        "气候",
+        "时序分析"
+      ],
+      "score": 77,
+      "selected": true
+    },
+    {
+      "id": "ehsg00z84knfyyjt53s9ued1m",
+      "title": "ESSD讨论稿：全球岩石冰川编目发布，覆盖19个主要山系38,849平方公里",
+      "originalTitle": "A global inventory of rock glaciers",
+      "summary": "本研究提出了首个在全球统一制图框架下构建的岩石冰川编目（预印本，ESSD讨论稿）。基于论文摘要，作者对高分辨率（约2.4米）卫星影像应用语义分割模型集成，经专家人工后处理与独立视觉评估，在全球19个主要山地和高纬度地区绘制了301,524个岩石冰川多边形，覆盖面积38,849平方公里。",
+      "reason": "首个在全球统一制图框架下构建的岩石冰川编目，结合语义分割模型集成与专家人工后处理，并给出独立视觉评估精度，为山区多年冻土研究提供可比的全球基线数据。",
+      "source": {
+        "name": "Earth System Science Data · 数据论文与讨论稿",
+        "kind": "web_list",
+        "firstParty": true
+      },
+      "originalUrl": "https://essd.copernicus.org/preprints/essd-2026-575/",
+      "publishedAt": "2026-11-02T00:00:00.000Z",
+      "timelineAt": "2026-11-02T09:11:34.994Z",
+      "category": "data",
+      "tags": [
+        "论文/研究",
+        "数据集/基准",
+        "语义分割",
+        "Copernicus"
+      ],
+      "score": 77,
+      "selected": true
+    },
+    {
+      "id": "a3tnf7n4040i9jbqm9ay9wvuj",
+      "title": "空天院研制的“慧眼”植被健康智能体正式发布",
+      "originalTitle": null,
+      "summary": "中国科学院空天信息创新研究院等单位研制的“慧眼”植被健康智能体在第六届植被病虫害遥感大会上正式发布，通过人工智能技术、空天信息与植被健康专业知识结合，将天空地网数据、模型算法和专业知识组织为协同工作的多智能体集群。",
+      "reason": "该发布将植被世界模型、模型工坊与多智能体协同组合为面向植被健康监测的全流程服务体系，材料给出了亚非沙漠蝗监测中提前10天至30天、精度超过85%的应用指标，可作为其应用验证的证据。",
+      "source": {
+        "name": "中国科学院空天院 · 科研动态",
+        "kind": "web_list",
+        "firstParty": true
+      },
+      "originalUrl": "https://aircas.cas.cn/dtxw/kydt/202611/t20261102_8301395.html",
+      "publishedAt": "2026-11-01T16:00:00.000Z",
+      "timelineAt": "2026-11-02T03:39:58.706Z",
+      "category": "rs-tools",
+      "tags": [
+        "行业动态",
+        "农业",
+        "中国科学院空天院",
+        "多模态",
+        "灾害监测"
+      ],
+      "score": 73,
+      "selected": true
+    },
     {
       "id": "bev4mrjewblyddfpetcvb923n",
       "title": "STAC FastAPI 7.1.0 发布",
@@ -279,29 +398,6 @@
       "selected": true
     },
     {
-      "id": "uri4zbsjnfhxhzo70v5xy9vaw",
-      "title": "Earth Engine API v1.7.50 稳定版发布",
-      "originalTitle": "v1.7.50",
-      "summary": "Earth Engine API 发布 v1.7.50 稳定版，更新构建产物并修复多处问题。本次更新包含 algorithms.json 与 data.js 的次要修复及 workload 标签语法澄清、Python 类型错误修复、JavaScript 次要修复，并支持 Python 3.15，同时提高了 pyproject.toml 中依赖的最低版本要求。",
-      "reason": null,
-      "source": {
-        "name": "Earth Engine API · 稳定版本发布",
-        "kind": "rss",
-        "firstParty": true
-      },
-      "originalUrl": "https://github.com/google/earthengine-api/releases/tag/v1.7.50",
-      "publishedAt": "2026-10-26T21:16:01.000Z",
-      "timelineAt": "2026-10-26T21:16:01.000Z",
-      "category": "rs-tools",
-      "tags": [
-        "工具更新",
-        "云端处理",
-        "Google Earth Engine"
-      ],
-      "score": null,
-      "selected": false
-    },
-    {
       "id": "okvkil6pjket6xk8bore74w34",
       "title": "S-NPP VIIRS数据停止供应将影响Sentinel-5P TROPOMI L2_NP*产品生产",
       "originalTitle": "Discontinuation of S-NPP VIIRS data availability - Impact on Sentinel-5P TROPOMI L2_NP* production",
@@ -346,53 +442,6 @@
       ],
       "score": null,
       "selected": true
-    },
-    {
-      "id": "f1mbv96wauwz71e8olvjcx07b",
-      "title": "Copernicus DEM View Service 数据集更新至 2024_1 版本",
-      "originalTitle": "Copernicus DEM View Service - Dataset Update",
-      "summary": "Copernicus DEM View Service 已将其数据集替换为最新可用版本，该版本此前已作为 delivery 2024_1 在 Copernicus Browser 的 SEARCH 标签页中提供下载。此次更新确保 View Service 与 CDSE 当前分发的最新 Copernicus DEM 交付版本保持一致。",
-      "reason": null,
-      "source": {
-        "name": "Copernicus Data Space · 数据与平台动态",
-        "kind": "rss",
-        "firstParty": true
-      },
-      "originalUrl": "https://dataspace.copernicus.eu/news/2026-10-26-copernicus-dem-view-service-dataset-update",
-      "publishedAt": "2026-10-26T12:18:51.000Z",
-      "timelineAt": "2026-10-26T12:18:51.000Z",
-      "category": "data",
-      "tags": [
-        "数据集/基准",
-        "数据质量",
-        "Copernicus"
-      ],
-      "score": null,
-      "selected": false
-    },
-    {
-      "id": "liwmohxalv49bh92d0l5iyplw",
-      "title": "CRISTAL冰监测卫星完成装配并进入测试阶段",
-      "originalTitle": "Ice mission CRISTAL opens its wings",
-      "summary": "欧洲新一代冰监测卫星CRISTAL在德国Friedrichshafen完成装配，进入测试阶段，包括首次太阳能翼展开测试和发射适配器验证。项目还进行了中期资格状态审查，卫星将移至荷兰ESA机构进行环境测试。CRISTAL计划于2027年底至2028年初发射，将成为哥白尼哨兵扩展任务中首个入轨的卫星，搭载双频雷达高度计和微波辐射计，用于监测海冰厚度、雪深和冰盖高程。",
-      "reason": null,
-      "source": {
-        "name": "ESA · 对地观测",
-        "kind": "rss",
-        "firstParty": true
-      },
-      "originalUrl": "https://www.esa.int/Applications/Observing_the_Earth/Copernicus/Ice_mission_CRISTAL_opens_its_wings",
-      "publishedAt": "2026-10-26T10:00:00.000Z",
-      "timelineAt": "2026-10-26T10:00:00.000Z",
-      "category": "satellite",
-      "tags": [
-        "行业动态",
-        "卫星/传感器",
-        "ESA",
-        "Copernicus"
-      ],
-      "score": null,
-      "selected": false
     },
     {
       "id": "cxxutbvhfv8snsuyt1mxrh0yk",
@@ -3148,6 +3197,53 @@
     }
   ],
   "reports": [
+    {
+      "kind": "daily",
+      "key": "2026-11-03",
+      "title": "遥感日报 · 2026-11-03",
+      "generatedAt": "2026-11-03T00:15:20.336Z",
+      "editorialMode": "model",
+      "lead": {
+        "title": "全球岩石冰川编目发布，覆盖19个主要山系",
+        "leadParagraph": "今日入选动态聚焦全球山地冰冻圈与生态遥感数据集建设。首个全球统一框架下的岩石冰川编目发布，覆盖19个主要山系38,849平方公里；同时，1982–2025年北半球逐日雪密度数据集与“慧眼”植被健康智能体也正式亮相。"
+      },
+      "overview": null,
+      "sections": [
+        {
+          "label": "数据集与基准",
+          "summary": null,
+          "items": [
+            {
+              "itemId": "ehsg00z84knfyyjt53s9ued1m",
+              "title": "ESSD讨论稿：全球岩石冰川编目发布，覆盖19个主要山系38,849平方公里",
+              "summary": "本研究提出了首个在全球统一制图框架下构建的岩石冰川编目（预印本，ESSD讨论稿）。基于论文摘要，作者对高分辨率（约2.4米）卫星影像应用语义分割模型集成，经专家人工后处理与独立视觉评估，在全球19个主要山地和高纬度地区绘制了301,524个岩石冰川多边形，覆盖面积38,849平方公里。",
+              "sourceName": "Earth System Science Data · 数据论文与讨论稿",
+              "originalUrl": "https://essd.copernicus.org/preprints/essd-2026-575/"
+            },
+            {
+              "itemId": "czzkxdpznod60jlm5xh59j3zx",
+              "title": "预印本：NH-SDN 发布 1982–2025 年北半球逐日 0.25° 雪密度数据集，基于深度学习构建",
+              "summary": "基于论文摘要，该讨论稿提出 SDN-Net 时空框架（结合 vision Transformer 与卷积网络，融合多源环境变量），并据此构建 NH-SDN：1982–2025 年北半球逐日 0.25° 雪密度数据集。",
+              "sourceName": "Earth System Science Data · 数据论文与讨论稿",
+              "originalUrl": "https://essd.copernicus.org/preprints/essd-2026-689/"
+            }
+          ]
+        },
+        {
+          "label": "模型与开源工具",
+          "summary": null,
+          "items": [
+            {
+              "itemId": "a3tnf7n4040i9jbqm9ay9wvuj",
+              "title": "空天院研制的“慧眼”植被健康智能体正式发布",
+              "summary": "中国科学院空天信息创新研究院等单位研制的“慧眼”植被健康智能体在第六届植被病虫害遥感大会上正式发布，通过人工智能技术、空天信息与植被健康专业知识结合，将天空地网数据、模型算法和专业知识组织为协同工作的多智能体集群。",
+              "sourceName": "中国科学院空天院 · 科研动态",
+              "originalUrl": "https://aircas.cas.cn/dtxw/kydt/202611/t20261102_8301395.html"
+            }
+          ]
+        }
+      ]
+    },
     {
       "kind": "daily",
       "key": "2026-11-02",
@@ -6968,6 +7064,7 @@
       "group": "company",
       "definition": "Copernicus 的遥感研究、观测数据与工程动态。",
       "itemIds": [
+        "ehsg00z84knfyyjt53s9ued1m",
         "le9tcuhykbm4yp1xuy7iw5ntj"
       ]
     },
@@ -6976,7 +7073,9 @@
       "name": "中国科学院空天院",
       "group": "company",
       "definition": "中国科学院空天院 的遥感研究、观测数据与工程动态。",
-      "itemIds": []
+      "itemIds": [
+        "a3tnf7n4040i9jbqm9ay9wvuj"
+      ]
     },
     {
       "slug": "google",
@@ -7126,6 +7225,7 @@
       "group": "field",
       "definition": "追踪语义分割的研究方法、数据、工具与应用实践。",
       "itemIds": [
+        "ehsg00z84knfyyjt53s9ued1m",
         "qu1lqsa9e195gxgaf7yirbikz",
         "leuu5ziafzamw3zm4xbsscjep",
         "mz35y4ps6kg5czd3a5nkrufhy",
@@ -7144,6 +7244,7 @@
       "group": "field",
       "definition": "追踪定量反演的研究方法、数据、工具与应用实践。",
       "itemIds": [
+        "czzkxdpznod60jlm5xh59j3zx",
         "nblgs8ti50in1rpu228bx7gmn",
         "l9wh1bu7yf2rwbzl1ctyftjvt",
         "cxxutbvhfv8snsuyt1mxrh0yk",
@@ -7223,6 +7324,7 @@
       "group": "field",
       "definition": "追踪灾害监测的研究方法、数据、工具与应用实践。",
       "itemIds": [
+        "a3tnf7n4040i9jbqm9ay9wvuj",
         "qu1lqsa9e195gxgaf7yirbikz",
         "qfzw77qdi4u5ufu3hf1pcv6fr",
         "nmyy1v5a37kxt8m0bmyx2s6mn",
@@ -7244,6 +7346,7 @@
       "group": "field",
       "definition": "追踪农业的研究方法、数据、工具与应用实践。",
       "itemIds": [
+        "a3tnf7n4040i9jbqm9ay9wvuj",
         "ezopn0l2pthtc3s089hx2cq6n",
         "ujo5l9tbn2356mu8d05ewf1b5",
         "u22q8estauvoz0jynedxd7tpx",
@@ -7274,6 +7377,7 @@
       "group": "genre",
       "definition": "值得关注的遥感论文与研究，保留原文入口与适用条件。",
       "itemIds": [
+        "ehsg00z84knfyyjt53s9ued1m",
         "t828t333249ygpi7k7u5mq3jv",
         "ab5b4f1zfjjg69yzz94fuxe3c",
         "if1ys10142rm153k3zvemchh5",
@@ -7335,6 +7439,8 @@
       "group": "genre",
       "definition": "值得关注的遥感数据集与基准，保留原文入口与适用条件。",
       "itemIds": [
+        "czzkxdpznod60jlm5xh59j3zx",
+        "ehsg00z84knfyyjt53s9ued1m",
         "qu1lqsa9e195gxgaf7yirbikz",
         "qmekqw169kfntc8gkp35it9jg",
         "nblgs8ti50in1rpu228bx7gmn",
@@ -7452,7 +7558,7 @@
     }
   ],
   "hot": {
-    "computedAt": "2026-11-01T12:06:00.365Z",
+    "computedAt": "2026-11-03T02:30:07.716Z",
     "windowHours": 48,
     "entries": []
   }
