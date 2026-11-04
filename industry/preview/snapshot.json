@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-03T02:30:11.709Z",
+  "generatedAt": "2026-11-04T10:42:13.390Z",
   "categories": [
     {
       "key": "paper",
@@ -29,7 +29,35 @@
   ],
   "sources": [
     {
-      "name": "openEO Python Client · 稳定版本发布",
+      "name": "TorchGeo · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "Copernicus Data Space · 数据与平台动态",
+      "kind": "rss"
+    },
+    {
+      "name": "STAC FastAPI · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "PySTAC · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "rioxarray · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "中国科学院空天院 · 科研动态",
+      "kind": "web_list"
+    },
+    {
+      "name": "GDAL · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "Google Earth 与 Earth Engine · 官方博客",
       "kind": "rss"
     },
     {
@@ -37,7 +65,11 @@
       "kind": "rss"
     },
     {
-      "name": "earthaccess · 稳定版本发布",
+      "name": "EOReader · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "openEO Python Client · 稳定版本发布",
       "kind": "rss"
     },
     {
@@ -49,51 +81,11 @@
       "kind": "rss"
     },
     {
+      "name": "earthaccess · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
       "name": "Earth Engine API · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "rioxarray · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "GDAL · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "中国科学院空天院 · 科研动态",
-      "kind": "web_list"
-    },
-    {
-      "name": "STAC FastAPI · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "PySTAC · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "Earth System Science Data · 数据论文与讨论稿",
-      "kind": "web_list"
-    },
-    {
-      "name": "EOReader · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "Google Earth 与 Earth Engine · 官方博客",
-      "kind": "rss"
-    },
-    {
-      "name": "ESA · 对地观测",
-      "kind": "rss"
-    },
-    {
-      "name": "NASA Earthdata · 科学数据与工具",
-      "kind": "rss"
-    },
-    {
-      "name": "Copernicus Data Space · 数据与平台动态",
       "kind": "rss"
     },
     {
@@ -101,11 +93,213 @@
       "kind": "rss"
     },
     {
-      "name": "TorchGeo · 稳定版本发布",
+      "name": "ESA · 对地观测",
+      "kind": "rss"
+    },
+    {
+      "name": "Earth System Science Data · 数据论文与讨论稿",
+      "kind": "web_list"
+    },
+    {
+      "name": "NASA Earthdata · 科学数据与工具",
       "kind": "rss"
     }
   ],
   "items": [
+    {
+      "id": "wabwu0q6n29slr7hyivkknqep",
+      "title": "Basin2Vec：面向可扩展水文建模的流域中心嵌入学习（预印本）",
+      "originalTitle": "Basin2Vec: Learning Basin-Centric Embeddings for Scalable Hydrological Modeling",
+      "summary": "Basin2Vec 提出一种自监督框架，在无观测径流条件下从水文气候与流域属性数据中学习紧凑的流域表示，用于跨时间及未测流域的径流预测。基于论文摘要，该方法在多种预测架构上于时间泛化任务平均相对提升最高 8.3%，在未见过流域上达到最强基线中位预测性能的 3.5 倍；代码已在 GitHub 仓库提供，许可信息未说明。",
+      "reason": "以流域为中心组织自监督预训练，摘要报告其在时间泛化与零样本空间迁移上优于预定义属性和通用地理空间嵌入，为水文建模表示学习提供对照证据。",
+      "source": {
+        "name": "arXiv · 遥感与地球观测预印本",
+        "kind": "rss",
+        "firstParty": true
+      },
+      "originalUrl": "https://arxiv.org/abs/2611.05164v1",
+      "publishedAt": "2026-11-03T16:36:09.000Z",
+      "timelineAt": "2026-11-04T10:38:19.732Z",
+      "category": "paper",
+      "tags": [
+        "论文/研究",
+        "自监督学习",
+        "泛化/迁移",
+        "遥感基础模型"
+      ],
+      "score": 70,
+      "selected": true
+    },
+    {
+      "id": "garxvkdvueowozii9fapawv78",
+      "title": "预印本：融合地球观测嵌入、星载地形与气象强迫，从高水位标记预测洪水峰值深度",
+      "originalTitle": "Fusing Earth observation embeddings and spaceborne terrain with meteorological forcing for flood peak depth prediction from high-water marks",
+      "summary": "基于论文摘要，该预印本提出用野外实测高水位标记（HWM）监督、在洪峰到来前预测峰值水深的方法：汇集 2011–2025 年 39 场事件、24 个美国州及波多黎各的 5689 个 USGS HWM 调查点。",
+      "reason": "该预印本用 5689 个实测高水位标记（HWM）直接监督峰值水深预测，报告 6 小时提前量下 MAE 0.39 m，并给出归因分解（气象强迫贡献 77%），同时如实报告了 11 个留出事件上 R²=0.03 的泛化失败，为评估观测监督洪水模型的可迁移性提供了对照证据。",
+      "source": {
+        "name": "arXiv · 遥感与地球观测预印本",
+        "kind": "rss",
+        "firstParty": true
+      },
+      "originalUrl": "https://arxiv.org/abs/2611.05220v1",
+      "publishedAt": "2026-11-03T17:05:45.000Z",
+      "timelineAt": "2026-11-04T10:38:19.722Z",
+      "category": "paper",
+      "tags": [
+        "论文/研究",
+        "灾害监测",
+        "数据融合",
+        "遥感基础模型",
+        "USGS",
+        "Copernicus"
+      ],
+      "score": 75,
+      "selected": true
+    },
+    {
+      "id": "stp7chfxrjlrdg3yoywku96yc",
+      "title": "ESA 唤醒 MetOp-SG-B1 气象卫星",
+      "originalTitle": "Time to wake up MetOp-SG-B1 weather satellite",
+      "summary": "MetOp-SG-B1 卫星在运抵法属圭亚那欧洲航天港短暂存放后，已被转移至洁净室并从运输箱中取出，团队正重启这颗卫星并进行发射前检查。该卫星于10月6日从法国波尔多启程、10月16日抵达库鲁，计划年底搭乘 Ariane 6 火箭发射，入轨后将与2025年8月发射的 MetOp-SG-A1 协同工作。",
+      "reason": null,
+      "source": {
+        "name": "ESA · 对地观测",
+        "kind": "rss",
+        "firstParty": true
+      },
+      "originalUrl": "https://www.esa.int/Applications/Observing_the_Earth/Meteorological_missions/MetOp_Second_Generation/Time_to_wake_up_MetOp-SG-B1_weather_satellite",
+      "publishedAt": "2026-11-04T09:10:00.000Z",
+      "timelineAt": "2026-11-04T10:38:15.516Z",
+      "category": "satellite",
+      "tags": [
+        "卫星/传感器",
+        "ESA",
+        "EUMETSAT"
+      ],
+      "score": 33,
+      "selected": false
+    },
+    {
+      "id": "g97gzak3gjq1v2idao8wz3pbx",
+      "title": "标准化土壤湿度-温度复合指数（SSTCI）：1961–2023年全球日尺度数据集与复合干热极端事件目录",
+      "originalTitle": "The Standardized Soil Moisture-Temperature Compound Index (SSTCI): daily scale global data set and event catalogue for compound dry-hot extremes (1961–2023)",
+      "summary": "基于论文摘要，作者提出了标准化土壤湿度-温度复合指数（SSTCI）并构建了1961–2023年全球（除南极洲外）0.1°分辨率的日尺度数据集与复合干热极端事件（CDHE）目录。",
+      "reason": "论文提出了一个基于土壤湿度记忆和温度指数的日尺度全球复合干热极端事件指数及配套事件目录，为相关监测和归因研究提供了新的数据基础。",
+      "source": {
+        "name": "Earth System Science Data · 数据论文与讨论稿",
+        "kind": "web_list",
+        "firstParty": true
+      },
+      "originalUrl": "https://essd.copernicus.org/articles/18/7981/2026/",
+      "publishedAt": "2026-11-03T00:00:00.000Z",
+      "timelineAt": "2026-11-03T09:48:04.423Z",
+      "category": "data",
+      "tags": [
+        "论文/研究",
+        "Copernicus"
+      ],
+      "score": 80,
+      "selected": true
+    },
+    {
+      "id": "mtjkn59nl5sz1b9r5zvif0rsr",
+      "title": "CDSE 案例：FairGrow 基于 Sentinel-2 的精准农业平台",
+      "originalTitle": "CDSE FairGrow Use Case",
+      "summary": "FairGrow（fairgrow.eu）是面向果农、温室、庄园和有机种植者的精准农业平台，基于 Copernicus Data Space Ecosystem（CDSE）处理 Sentinel-2 影像，并结合土壤传感器、气象、地块及作物登记数据。",
+      "reason": null,
+      "source": {
+        "name": "Copernicus Data Space · 数据与平台动态",
+        "kind": "rss",
+        "firstParty": true
+      },
+      "originalUrl": "https://dataspace.copernicus.eu/news/2026-11-3-cdse-fairgrow-use-case",
+      "publishedAt": "2026-11-03T07:12:16.000Z",
+      "timelineAt": "2026-11-03T08:02:23.685Z",
+      "category": "tip",
+      "tags": [
+        "应用案例",
+        "农业",
+        "云端处理",
+        "光学遥感",
+        "Copernicus"
+      ],
+      "score": 35,
+      "selected": false
+    },
+    {
+      "id": "opko1syuju8mmpom9t0hodovk",
+      "title": "预印本论文提出基于 SAM3 的非对称语义-空间学习框架 ASCoR，用于遥感语义分割域泛化",
+      "originalTitle": "ASCoR: Asymmetric Semantic-Spatial Learning for Remote Sensing Domain Generalization",
+      "summary": "基于论文摘要，Zitong Wang 等提出 ASCoR：一个构建于 SAM3 之上的非对称语义-空间框架，用于仅用源域监督的遥感语义分割域泛化。",
+      "reason": "提出在冻结 SAM3 基础上以文本条件语义分支与独立任务分支的不对称结构配合 Probe-Once Dynamic Adaptive LoRA 做源域泛化，并在 ISPRS 六个迁移设置上以 68.61% mIoU 报告较前最佳方法高 2.69 个百分点，为比较 SAM 类基础模型在遥感域泛化中的适配设计提供了实验依据。",
+      "source": {
+        "name": "arXiv · 遥感与地球观测预印本",
+        "kind": "rss",
+        "firstParty": true
+      },
+      "originalUrl": "https://arxiv.org/abs/2611.03382v1",
+      "publishedAt": "2026-11-02T16:23:58.000Z",
+      "timelineAt": "2026-11-03T07:32:09.238Z",
+      "category": "paper",
+      "tags": [
+        "论文/研究",
+        "语义分割",
+        "遥感基础模型",
+        "泛化/迁移"
+      ],
+      "score": 72,
+      "selected": true
+    },
+    {
+      "id": "c425d6h4vof2kjkuf72dnxnui",
+      "title": "预印本：CRFNet——面向多源遥感影像分类的跨层精炼与频率感知融合网络",
+      "originalTitle": "Cross-Layer Refinement and Frequency-aware Fusion Network for Multi-Source Remote Sensing Image Classification",
+      "summary": "作者提出用于多源遥感影像分类的轻量双分支网络 CRFNet，包含跨层精炼注意力（CLRA）模块与傅里叶域的频率感知互补融合（FCF）模块。基于论文摘要，该方法在 Houston 2013 和 Augsburg 数据集上持续优于若干现有先进方法，代码已在 GitHub 公开（许可证未说明）。该论文为 arXiv 预印本（letter），尚未经同行评审。",
+      "reason": null,
+      "source": {
+        "name": "arXiv · 遥感与地球观测预印本",
+        "kind": "rss",
+        "firstParty": true
+      },
+      "originalUrl": "https://arxiv.org/abs/2611.03078v1",
+      "publishedAt": "2026-11-02T13:05:29.000Z",
+      "timelineAt": "2026-11-03T06:31:55.445Z",
+      "category": "paper",
+      "tags": [
+        "论文/研究",
+        "分类识别",
+        "多模态",
+        "数据融合",
+        "高光谱",
+        "arXiv"
+      ],
+      "score": 59,
+      "selected": false
+    },
+    {
+      "id": "l9l95o2obc3pgupdoz35uden2",
+      "title": "预印本提出 KAUSTics-Net：基于扩散的无人机浅水影像复原方法及半合成数据集 KAUSTics",
+      "originalTitle": "KAUSTics-Net: Diffusion-Based Through-Water UAV Restoration with a Semi-Synthetic Dataset",
+      "summary": "基于论文摘要，研究提出 KAUSTics 半合成数据集与像素空间条件扩散框架 KAUSTics-Net，用于复原受折射、焦散和波长相关衰减影响的无人机浅水影像。",
+      "reason": "原文给出半合成数据集构建方式与多组对照及消融实验，可用于比较浅水影像复原中条件扩散方法的设计选择。",
+      "source": {
+        "name": "arXiv · 遥感与地球观测预印本",
+        "kind": "rss",
+        "firstParty": true
+      },
+      "originalUrl": "https://arxiv.org/abs/2611.03120v1",
+      "publishedAt": "2026-11-02T13:36:50.000Z",
+      "timelineAt": "2026-11-03T06:31:55.432Z",
+      "category": "paper",
+      "tags": [
+        "论文/研究",
+        "数据集/基准",
+        "光学遥感",
+        "海洋"
+      ],
+      "score": 68,
+      "selected": true
+    },
     {
       "id": "l0f5zajqa8eq1xo33utkuw935",
       "title": "Google Earth Engine Python API v1.7.51 发布",
@@ -298,30 +492,6 @@
       ],
       "score": null,
       "selected": true
-    },
-    {
-      "id": "w6skt43fzvk35jtpvsjf9p1ru",
-      "title": "Copernicus Sentinel-1D 数据于 2026 年 10 月 26 日起暂时不可用",
-      "originalTitle": "Copernicus Sentinel-1D Data Unavailability on 26 October 2026",
-      "summary": "受卫星问题影响，Copernicus Sentinel-1D 自 2026 年 10 月 26 日起数据暂时不可用，恢复工作正在进行中。具体影响将在异常发生后首个工作日于 Sentinel Operations Dashboard Events Page 公布。",
-      "reason": null,
-      "source": {
-        "name": "Copernicus Data Space · 数据与平台动态",
-        "kind": "rss",
-        "firstParty": true
-      },
-      "originalUrl": "https://dataspace.copernicus.eu/news/2026-10-27-copernicus-sentinel-1d-data-unavailability-26-october-2026",
-      "publishedAt": "2026-10-27T14:53:52.000Z",
-      "timelineAt": "2026-10-27T14:53:52.000Z",
-      "category": "satellite",
-      "tags": [
-        "卫星/传感器",
-        "SAR",
-        "数据质量",
-        "Copernicus"
-      ],
-      "score": null,
-      "selected": false
     },
     {
       "id": "t828t333249ygpi7k7u5mq3jv",
@@ -3197,6 +3367,53 @@
     }
   ],
   "reports": [
+    {
+      "kind": "daily",
+      "key": "2026-11-04",
+      "title": "遥感日报 · 2026-11-04",
+      "generatedAt": "2026-11-04T10:38:32.748Z",
+      "editorialMode": "model",
+      "lead": {
+        "title": "SSTCI 指数发布：1961–2023 全球日尺度干热复合极端事件数据集",
+        "leadParagraph": "今日最重要的进展是标准化土壤湿度-温度复合指数（SSTCI）的提出，研究构建了 1961–2023 年全球（除南极洲外）0.1° 分辨率日尺度数据集及复合干热极端事件目录。此外，预印本领域还有两项新方法：基于 SAM3 的遥感语义分割域泛化框架 ASCoR，以及用于无人机浅水影像复原的扩散模型 KAUSTics-Net 与配套半合成数据集。"
+      },
+      "overview": null,
+      "sections": [
+        {
+          "label": "论文与方法",
+          "summary": null,
+          "items": [
+            {
+              "itemId": "opko1syuju8mmpom9t0hodovk",
+              "title": "预印本论文提出基于 SAM3 的非对称语义-空间学习框架 ASCoR，用于遥感语义分割域泛化",
+              "summary": "基于论文摘要，Zitong Wang 等提出 ASCoR：一个构建于 SAM3 之上的非对称语义-空间框架，用于仅用源域监督的遥感语义分割域泛化。",
+              "sourceName": "arXiv · 遥感与地球观测预印本",
+              "originalUrl": "https://arxiv.org/abs/2611.03382v1"
+            },
+            {
+              "itemId": "l9l95o2obc3pgupdoz35uden2",
+              "title": "预印本提出 KAUSTics-Net：基于扩散的无人机浅水影像复原方法及半合成数据集 KAUSTics",
+              "summary": "基于论文摘要，研究提出 KAUSTics 半合成数据集与像素空间条件扩散框架 KAUSTics-Net，用于复原受折射、焦散和波长相关衰减影响的无人机浅水影像。",
+              "sourceName": "arXiv · 遥感与地球观测预印本",
+              "originalUrl": "https://arxiv.org/abs/2611.03120v1"
+            }
+          ]
+        },
+        {
+          "label": "数据集与基准",
+          "summary": null,
+          "items": [
+            {
+              "itemId": "g97gzak3gjq1v2idao8wz3pbx",
+              "title": "标准化土壤湿度-温度复合指数（SSTCI）：1961–2023年全球日尺度数据集与复合干热极端事件目录",
+              "summary": "基于论文摘要，作者提出了标准化土壤湿度-温度复合指数（SSTCI）并构建了1961–2023年全球（除南极洲外）0.1°分辨率的日尺度数据集与复合干热极端事件（CDHE）目录。",
+              "sourceName": "Earth System Science Data · 数据论文与讨论稿",
+              "originalUrl": "https://essd.copernicus.org/articles/18/7981/2026/"
+            }
+          ]
+        }
+      ]
+    },
     {
       "kind": "daily",
       "key": "2026-11-03",
@@ -7064,6 +7281,8 @@
       "group": "company",
       "definition": "Copernicus 的遥感研究、观测数据与工程动态。",
       "itemIds": [
+        "garxvkdvueowozii9fapawv78",
+        "g97gzak3gjq1v2idao8wz3pbx",
         "ehsg00z84knfyyjt53s9ued1m",
         "le9tcuhykbm4yp1xuy7iw5ntj"
       ]
@@ -7161,6 +7380,7 @@
       "group": "field",
       "definition": "追踪光学遥感的研究方法、数据、工具与应用实践。",
       "itemIds": [
+        "l9l95o2obc3pgupdoz35uden2",
         "qu1lqsa9e195gxgaf7yirbikz",
         "ab5b4f1zfjjg69yzz94fuxe3c",
         "mz35y4ps6kg5czd3a5nkrufhy",
@@ -7225,6 +7445,7 @@
       "group": "field",
       "definition": "追踪语义分割的研究方法、数据、工具与应用实践。",
       "itemIds": [
+        "opko1syuju8mmpom9t0hodovk",
         "ehsg00z84knfyyjt53s9ued1m",
         "qu1lqsa9e195gxgaf7yirbikz",
         "leuu5ziafzamw3zm4xbsscjep",
@@ -7269,6 +7490,9 @@
       "group": "field",
       "definition": "追踪遥感基础模型的研究方法、数据、工具与应用实践。",
       "itemIds": [
+        "wabwu0q6n29slr7hyivkknqep",
+        "garxvkdvueowozii9fapawv78",
+        "opko1syuju8mmpom9t0hodovk",
         "t828t333249ygpi7k7u5mq3jv",
         "nmyy1v5a37kxt8m0bmyx2s6mn",
         "ihje0jyc1n3w7uegjefadgibi",
@@ -7297,6 +7521,8 @@
       "group": "field",
       "definition": "追踪泛化与迁移的研究方法、数据、工具与应用实践。",
       "itemIds": [
+        "wabwu0q6n29slr7hyivkknqep",
+        "opko1syuju8mmpom9t0hodovk",
         "t828t333249ygpi7k7u5mq3jv",
         "if1ys10142rm153k3zvemchh5",
         "qfzw77qdi4u5ufu3hf1pcv6fr",
@@ -7324,6 +7550,7 @@
       "group": "field",
       "definition": "追踪灾害监测的研究方法、数据、工具与应用实践。",
       "itemIds": [
+        "garxvkdvueowozii9fapawv78",
         "a3tnf7n4040i9jbqm9ay9wvuj",
         "qu1lqsa9e195gxgaf7yirbikz",
         "qfzw77qdi4u5ufu3hf1pcv6fr",
@@ -7377,6 +7604,11 @@
       "group": "genre",
       "definition": "值得关注的遥感论文与研究，保留原文入口与适用条件。",
       "itemIds": [
+        "wabwu0q6n29slr7hyivkknqep",
+        "garxvkdvueowozii9fapawv78",
+        "g97gzak3gjq1v2idao8wz3pbx",
+        "opko1syuju8mmpom9t0hodovk",
+        "l9l95o2obc3pgupdoz35uden2",
         "ehsg00z84knfyyjt53s9ued1m",
         "t828t333249ygpi7k7u5mq3jv",
         "ab5b4f1zfjjg69yzz94fuxe3c",
@@ -7439,6 +7671,7 @@
       "group": "genre",
       "definition": "值得关注的遥感数据集与基准，保留原文入口与适用条件。",
       "itemIds": [
+        "l9l95o2obc3pgupdoz35uden2",
         "czzkxdpznod60jlm5xh59j3zx",
         "ehsg00z84knfyyjt53s9ued1m",
         "qu1lqsa9e195gxgaf7yirbikz",
@@ -7558,7 +7791,7 @@
     }
   ],
   "hot": {
-    "computedAt": "2026-11-03T02:30:07.716Z",
+    "computedAt": "2026-11-04T10:40:29.294Z",
     "windowHours": 48,
     "entries": []
   }
