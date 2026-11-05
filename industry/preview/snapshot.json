@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-04T10:42:13.390Z",
+  "generatedAt": "2026-11-05T15:01:07.476Z",
   "categories": [
     {
       "key": "paper",
@@ -29,6 +29,10 @@
   ],
   "sources": [
     {
+      "name": "EOReader · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
       "name": "TorchGeo · 稳定版本发布",
       "kind": "rss"
     },
@@ -37,35 +41,23 @@
       "kind": "rss"
     },
     {
-      "name": "STAC FastAPI · 稳定版本发布",
+      "name": "PySTAC · 稳定版本发布",
       "kind": "rss"
     },
     {
-      "name": "PySTAC · 稳定版本发布",
-      "kind": "rss"
+      "name": "Earth System Science Data · 数据论文与讨论稿",
+      "kind": "web_list"
     },
     {
       "name": "rioxarray · 稳定版本发布",
       "kind": "rss"
     },
     {
-      "name": "中国科学院空天院 · 科研动态",
-      "kind": "web_list"
-    },
-    {
-      "name": "GDAL · 稳定版本发布",
+      "name": "Rasterio · 稳定版本发布",
       "kind": "rss"
     },
     {
-      "name": "Google Earth 与 Earth Engine · 官方博客",
-      "kind": "rss"
-    },
-    {
-      "name": "arXiv · 遥感与地球观测预印本",
-      "kind": "rss"
-    },
-    {
-      "name": "EOReader · 稳定版本发布",
+      "name": "STAC FastAPI · 稳定版本发布",
       "kind": "rss"
     },
     {
@@ -77,15 +69,23 @@
       "kind": "rss"
     },
     {
-      "name": "Rasterio · 稳定版本发布",
+      "name": "ESA · 对地观测",
       "kind": "rss"
+    },
+    {
+      "name": "NASA Earthdata · 科学数据与工具",
+      "kind": "rss"
+    },
+    {
+      "name": "Google Earth 与 Earth Engine · 官方博客",
+      "kind": "rss"
+    },
+    {
+      "name": "中国科学院空天院 · 科研动态",
+      "kind": "web_list"
     },
     {
       "name": "earthaccess · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "Earth Engine API · 稳定版本发布",
       "kind": "rss"
     },
     {
@@ -93,19 +93,113 @@
       "kind": "rss"
     },
     {
-      "name": "ESA · 对地观测",
+      "name": "arXiv · 遥感与地球观测预印本",
       "kind": "rss"
     },
     {
-      "name": "Earth System Science Data · 数据论文与讨论稿",
-      "kind": "web_list"
+      "name": "GDAL · 稳定版本发布",
+      "kind": "rss"
     },
     {
-      "name": "NASA Earthdata · 科学数据与工具",
+      "name": "Earth Engine API · 稳定版本发布",
       "kind": "rss"
     }
   ],
   "items": [
+    {
+      "id": "thgndpg6rbeupti3qlv3oqytv",
+      "title": "TerraTorch v1.2.14 发布",
+      "originalTitle": "v1.2.14",
+      "summary": "TerraTorch v1.2.14 发布，在 v2 engine 中启用对 Terratorch 模型的支持，并将 terratorch 升级至 torchgeo 0.10，同时新增对 vllm 0.33 的支持。",
+      "reason": null,
+      "source": {
+        "name": "TerraTorch · 稳定版本发布",
+        "kind": "rss",
+        "firstParty": true
+      },
+      "originalUrl": "https://github.com/torchgeo/terratorch/releases/tag/v1.2.14",
+      "publishedAt": "2026-11-04T14:51:28.000Z",
+      "timelineAt": "2026-11-05T14:57:37.664Z",
+      "category": "rs-tools",
+      "tags": [
+        "工具更新",
+        "遥感基础模型",
+        "开源生态",
+        "TorchGeo"
+      ],
+      "score": 38,
+      "selected": false
+    },
+    {
+      "id": "kkhn0uah6b3cufr0stn5x08rh",
+      "title": "SDGSAT-1卫星荣获2026年世界互联网大会领先科技奖",
+      "originalTitle": null,
+      "summary": "可持续发展科学卫星1号（SDGSAT-1）在2026年世界互联网大会乌镇峰会上荣获领先科技奖，是从43个国家和地区申报的436项成果中选出的20个获奖项目之一。",
+      "reason": null,
+      "source": {
+        "name": "中国科学院空天院 · 科研动态",
+        "kind": "web_list",
+        "firstParty": true
+      },
+      "originalUrl": "https://aircas.cas.cn/dtxw/kydt/202611/t20261104_8303038.html",
+      "publishedAt": "2026-11-03T16:00:00.000Z",
+      "timelineAt": "2026-11-05T14:57:19.603Z",
+      "category": "satellite",
+      "tags": [
+        "卫星/传感器",
+        "热红外",
+        "中国科学院空天院"
+      ],
+      "score": 45,
+      "selected": false
+    },
+    {
+      "id": "ls6gd42lzvwp1taq81mkjs999",
+      "title": "空天院CASA计划入选2026年“携手构建网络空间命运共同体”实践案例集",
+      "originalTitle": "空天院成果入选“携手构建网络空间命运共同体”实践案例集",
+      "summary": "中国科学院空天院“天基碳观测基础设施的全球化共享与能力赋能——CASA计划实践”11月2日入选2026年“携手构建网络空间命运共同体”实践案例集“网络基础设施建设”类典型案例，从全球80余个国家和地区的360余项申报案例中脱颖而出。",
+      "reason": null,
+      "source": {
+        "name": "中国科学院空天院 · 科研动态",
+        "kind": "web_list",
+        "firstParty": true
+      },
+      "originalUrl": "https://aircas.cas.cn/dtxw/kydt/202611/t20261105_8303764.html",
+      "publishedAt": "2026-11-04T16:00:00.000Z",
+      "timelineAt": "2026-11-05T14:57:19.597Z",
+      "category": "industry",
+      "tags": [
+        "行业动态",
+        "数据质量",
+        "中国科学院空天院"
+      ],
+      "score": 43,
+      "selected": false
+    },
+    {
+      "id": "ld4ooeixkwirpj2agee8uw9k6",
+      "title": "Copernicus 开放未机载 FDBAQ 压缩的 Sentinel-1 SAR 数据集",
+      "originalTitle": "Copernicus Sentinel-1 SAR dataset acquired without onboard FDBAQ compression",
+      "summary": "Copernicus Data Space Ecosystem 发布一套特殊 Sentinel-1 SAR 数据集，采集时关闭常规机载 FDBAQ 有损压缩，保留仪器原生 10-bit 分辨率雷达回波样本。",
+      "reason": "该数据集提供未经机载 FDBAQ 压缩的 Sentinel-1 Level-0 原始回波样本，并配套已建立的压缩性能基准，可用于客观比较压缩与星上处理方法。",
+      "source": {
+        "name": "Copernicus Data Space · 数据与平台动态",
+        "kind": "rss",
+        "firstParty": true
+      },
+      "originalUrl": "https://dataspace.copernicus.eu/news/2026-11-3-copernicus-sentinel-1-sar-dataset-acquired-without-onboard-fdbaq-compression",
+      "publishedAt": "2026-11-03T14:23:15.000Z",
+      "timelineAt": "2026-11-04T10:38:20.543Z",
+      "category": "data",
+      "tags": [
+        "数据集/基准",
+        "SAR",
+        "Copernicus",
+        "数据质量"
+      ],
+      "score": 76,
+      "selected": true
+    },
     {
       "id": "wabwu0q6n29slr7hyivkknqep",
       "title": "Basin2Vec：面向可扩展水文建模的流域中心嵌入学习（预印本）",
@@ -3367,6 +3461,40 @@
     }
   ],
   "reports": [
+    {
+      "kind": "daily",
+      "key": "2026-11-05",
+      "title": "遥感日报 · 2026-11-05",
+      "generatedAt": "2026-11-05T14:57:28.828Z",
+      "editorialMode": "model",
+      "lead": {
+        "title": "预印本：用高水位标记在洪峰前预测峰值水深",
+        "leadParagraph": "今日两条进展都指向“更可迁移的水文预测”。一项研究汇集 2011–2025 年 39 场洪水、5689 个 USGS 高水位标记点，探索融合地球观测嵌入、星载地形与气象强迫，在洪峰到来前预测峰值水深；另一项 Basin2Vec 则以自监督方式学习流域表示，在无观测径流条件下改进跨时间与未测流域径流预测。"
+      },
+      "overview": null,
+      "sections": [
+        {
+          "label": "论文与方法",
+          "summary": null,
+          "items": [
+            {
+              "itemId": "garxvkdvueowozii9fapawv78",
+              "title": "预印本：融合地球观测嵌入、星载地形与气象强迫，从高水位标记预测洪水峰值深度",
+              "summary": "基于论文摘要，该预印本提出用野外实测高水位标记（HWM）监督、在洪峰到来前预测峰值水深的方法：汇集 2011–2025 年 39 场事件、24 个美国州及波多黎各的 5689 个 USGS HWM 调查点。",
+              "sourceName": "arXiv · 遥感与地球观测预印本",
+              "originalUrl": "https://arxiv.org/abs/2611.05220v1"
+            },
+            {
+              "itemId": "wabwu0q6n29slr7hyivkknqep",
+              "title": "Basin2Vec：面向可扩展水文建模的流域中心嵌入学习（预印本）",
+              "summary": "Basin2Vec 提出一种自监督框架，在无观测径流条件下从水文气候与流域属性数据中学习紧凑的流域表示，用于跨时间及未测流域的径流预测。基于论文摘要，该方法在多种预测架构上于时间泛化任务平均相对提升最高 8.3%，在未见过流域上达到最强基线中位预测性能的 3.5 倍；代码已在 GitHub 仓库提供，许可信息未说明。",
+              "sourceName": "arXiv · 遥感与地球观测预印本",
+              "originalUrl": "https://arxiv.org/abs/2611.05164v1"
+            }
+          ]
+        }
+      ]
+    },
     {
       "kind": "daily",
       "key": "2026-11-04",
@@ -7281,6 +7409,7 @@
       "group": "company",
       "definition": "Copernicus 的遥感研究、观测数据与工程动态。",
       "itemIds": [
+        "ld4ooeixkwirpj2agee8uw9k6",
         "garxvkdvueowozii9fapawv78",
         "g97gzak3gjq1v2idao8wz3pbx",
         "ehsg00z84knfyyjt53s9ued1m",
@@ -7323,6 +7452,7 @@
       "group": "field",
       "definition": "追踪SAR 与 InSAR的研究方法、数据、工具与应用实践。",
       "itemIds": [
+        "ld4ooeixkwirpj2agee8uw9k6",
         "ab5b4f1zfjjg69yzz94fuxe3c",
         "svuphuwxy7e08pz8ntgaqlq2k",
         "mz35y4ps6kg5czd3a5nkrufhy",
@@ -7671,6 +7801,7 @@
       "group": "genre",
       "definition": "值得关注的遥感数据集与基准，保留原文入口与适用条件。",
       "itemIds": [
+        "ld4ooeixkwirpj2agee8uw9k6",
         "l9l95o2obc3pgupdoz35uden2",
         "czzkxdpznod60jlm5xh59j3zx",
         "ehsg00z84knfyyjt53s9ued1m",
@@ -7791,7 +7922,7 @@
     }
   ],
   "hot": {
-    "computedAt": "2026-11-04T10:40:29.294Z",
+    "computedAt": "2026-11-05T15:00:25.383Z",
     "windowHours": 48,
     "entries": []
   }
