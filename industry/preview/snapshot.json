@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-05T15:01:07.476Z",
+  "generatedAt": "2026-11-06T02:30:07.672Z",
   "categories": [
     {
       "key": "paper",
@@ -29,20 +29,16 @@
   ],
   "sources": [
     {
-      "name": "EOReader · 稳定版本发布",
+      "name": "STAC FastAPI · 稳定版本发布",
       "kind": "rss"
     },
     {
-      "name": "TorchGeo · 稳定版本发布",
+      "name": "NASA Earthdata · 科学数据与工具",
       "kind": "rss"
     },
     {
-      "name": "Copernicus Data Space · 数据与平台动态",
-      "kind": "rss"
-    },
-    {
-      "name": "PySTAC · 稳定版本发布",
-      "kind": "rss"
+      "name": "中国科学院空天院 · 科研动态",
+      "kind": "web_list"
     },
     {
       "name": "Earth System Science Data · 数据论文与讨论稿",
@@ -57,15 +53,7 @@
       "kind": "rss"
     },
     {
-      "name": "STAC FastAPI · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "openEO Python Client · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "geemap · 稳定版本发布",
+      "name": "Google Earth 与 Earth Engine · 官方博客",
       "kind": "rss"
     },
     {
@@ -73,19 +61,19 @@
       "kind": "rss"
     },
     {
-      "name": "NASA Earthdata · 科学数据与工具",
+      "name": "arXiv · 遥感与地球观测预印本",
       "kind": "rss"
     },
     {
-      "name": "Google Earth 与 Earth Engine · 官方博客",
+      "name": "EOReader · 稳定版本发布",
       "kind": "rss"
     },
     {
-      "name": "中国科学院空天院 · 科研动态",
-      "kind": "web_list"
+      "name": "Copernicus Data Space · 数据与平台动态",
+      "kind": "rss"
     },
     {
-      "name": "earthaccess · 稳定版本发布",
+      "name": "PySTAC · 稳定版本发布",
       "kind": "rss"
     },
     {
@@ -93,7 +81,19 @@
       "kind": "rss"
     },
     {
-      "name": "arXiv · 遥感与地球观测预印本",
+      "name": "TorchGeo · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "Earth Engine API · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "geemap · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "openEO Python Client · 稳定版本发布",
       "kind": "rss"
     },
     {
@@ -101,11 +101,131 @@
       "kind": "rss"
     },
     {
-      "name": "Earth Engine API · 稳定版本发布",
+      "name": "earthaccess · 稳定版本发布",
       "kind": "rss"
     }
   ],
   "items": [
+    {
+      "id": "ajrhbsvd25za2pvolhf81irff",
+      "title": "预印本：CAPE-JEPA 提出跨模态对抗概率嵌入 JEPA 用于 SAR 与多光谱遥感图像检索",
+      "originalTitle": "CAPE-JEPA - Cross-modal Adversarial Probabilistic Embedding JEPA",
+      "summary": "基于论文摘要，CAPE-JEPA 提出一种概率化跨模态 JEPA 架构用于跨模态遥感图像检索（RS-CMIR），在 BEN-14K 与 fMoW 上相对 X-JEPA 分别最高提升 13.74 和 15.59 个百分点。",
+      "reason": "针对跨模态遥感检索，作者用逐块高斯预测器与基于 Epps-Pulley 特征函数检验的跨模态对抗分布对齐替代 X-JEPA 的确定性预测，并在 BEN-14K 与 fMoW 上报告检索精度提升与参数减少。",
+      "source": {
+        "name": "arXiv · 遥感与地球观测预印本",
+        "kind": "rss",
+        "firstParty": true
+      },
+      "originalUrl": "https://arxiv.org/abs/2611.06247v1",
+      "publishedAt": "2026-11-04T09:55:37.000Z",
+      "timelineAt": "2026-11-05T21:59:27.816Z",
+      "category": "paper",
+      "tags": [
+        "论文/研究",
+        "多模态",
+        "自监督学习",
+        "SAR",
+        "光学遥感",
+        "arXiv"
+      ],
+      "score": 75,
+      "selected": true
+    },
+    {
+      "id": "o0bt7pjjc7aj4vsolfuo5bd92",
+      "title": "TOP：面向传输的遥感全色锐化框架",
+      "originalTitle": "TOP: Transmission-Oriented Remote Sensing Pansharpening",
+      "summary": "本文提出首个面向传输的全色锐化框架 TOP，将紧凑潜空间编码、星上全色锐化与高效下传统一于单一星地管线。该方法将观测编码为紧凑二值潜空间，星上轻量模块直接预测融合码，仅下传该码，在高分二号上实现 50 倍压缩比下 31.4 dB 的融合 PSNR。基于论文摘要，代码将开源。",
+      "reason": "TOP 将全色锐化从地面处理重构为星地一体管线，在轨融合与二值潜空间编码结合，仅需下传融合码，相比传统先下传后融合模式显著降低传输负载。",
+      "source": {
+        "name": "arXiv · 遥感与地球观测预印本",
+        "kind": "rss",
+        "firstParty": true
+      },
+      "originalUrl": "https://arxiv.org/abs/2611.06430v1",
+      "publishedAt": "2026-11-04T12:32:02.000Z",
+      "timelineAt": "2026-11-05T20:58:25.456Z",
+      "category": "paper",
+      "tags": [
+        "论文/研究",
+        "数据融合",
+        "高光谱",
+        "光学遥感",
+        "部署/工程"
+      ],
+      "score": 74,
+      "selected": true
+    },
+    {
+      "id": "kmjy3wzpwtr7749qhtfj6w12m",
+      "title": "预印本：面向城市管理的遥感细粒度视觉推理基准 UMBench 及证据优先思维链方法",
+      "originalTitle": "Benchmarking Fine-Grained Visual Reasoning for Remote Sensing in Urban Management",
+      "summary": "该研究构建了基于无人机影像的城市管理细粒度遥感基准 UMBench，覆盖交通监测、城市建设、环境质量和灾害预警等任务，并提出免训练的证据优先思维链方法引导模型检查细粒度视觉证据。基于论文摘要，评测显示当前多模态大模型常依赖场景级先验而忽略细粒度视觉证据，该方法可提升开源和商用模型在 UMBench 上的表现。代码和数据可用性未说明。",
+      "reason": "构建了面向城市管理任务的无人机影像细粒度视觉推理基准，并提出免训练的证据优先思维链方法以缓解模型依赖场景先验的问题。",
+      "source": {
+        "name": "arXiv · 遥感与地球观测预印本",
+        "kind": "rss",
+        "firstParty": true
+      },
+      "originalUrl": "https://arxiv.org/abs/2611.06770v1",
+      "publishedAt": "2026-11-04T16:50:17.000Z",
+      "timelineAt": "2026-11-05T20:58:25.444Z",
+      "category": "data",
+      "tags": [
+        "论文/研究",
+        "数据集/基准",
+        "多模态",
+        "城市"
+      ],
+      "score": 68,
+      "selected": true
+    },
+    {
+      "id": "kq80bfsslud9me8zt3gc33gft",
+      "title": "ESSD 论文：FIREX-AQ 机载采样烟雾年龄的两种估算方法与评估",
+      "originalTitle": "Age of smoke sampled by aircraft during FIREX-AQ: methods and critical evaluation",
+      "summary": "基于论文摘要，该研究为 2019 年 NASA-NOAA FIREX-AQ 外场实验中 DC-8 与 NOAA Chemistry Twin Otter 两架飞机采样的大型烟羽开发了烟雾年龄估算。",
+      "reason": "论文并排构建并交叉验证两种烟云年龄估算方法，给出逐条航迹的不确定性变量，并用地球静止卫星影像过滤轨迹误差，为烟雾老化研究提供可复用的质量控制依据。",
+      "source": {
+        "name": "Earth System Science Data · 数据论文与讨论稿",
+        "kind": "web_list",
+        "firstParty": true
+      },
+      "originalUrl": "https://essd.copernicus.org/articles/18/8107/2026/",
+      "publishedAt": "2026-11-05T00:00:00.000Z",
+      "timelineAt": "2026-11-05T17:59:49.815Z",
+      "category": "paper",
+      "tags": [
+        "数据集/基准",
+        "NASA",
+        "数据质量"
+      ],
+      "score": 71,
+      "selected": true
+    },
+    {
+      "id": "vvsblazz7uimcvjl4mzrj2cn7",
+      "title": "PySTAC v1.16.0 发布",
+      "originalTitle": "v1.16.0",
+      "summary": "PySTAC 发布 v1.16.0，新增 octet-stream 与 zip 媒体类型、获取 JSON schema 的可选允许列表、SpecDeprecationWarning，并支持使用本地扩展 JSON schema 校验。本次更新还修复了 PropertiesExtension._set_property 中属性值递归转换的问题，文档明确 PySTAC 默认写入 STAC v1.1.0。",
+      "reason": null,
+      "source": {
+        "name": "PySTAC · 稳定版本发布",
+        "kind": "rss",
+        "firstParty": true
+      },
+      "originalUrl": "https://github.com/stac-utils/pystac/releases/tag/v1.16.0",
+      "publishedAt": "2026-11-04T16:14:36.000Z",
+      "timelineAt": "2026-11-05T14:57:41.307Z",
+      "category": "rs-tools",
+      "tags": [
+        "工具更新",
+        "开源/仓库"
+      ],
+      "score": 48,
+      "selected": false
+    },
     {
       "id": "thgndpg6rbeupti3qlv3oqytv",
       "title": "TerraTorch v1.2.14 发布",
@@ -3461,6 +3581,67 @@
     }
   ],
   "reports": [
+    {
+      "kind": "daily",
+      "key": "2026-11-06",
+      "title": "遥感日报 · 2026-11-06",
+      "generatedAt": "2026-11-06T00:00:29.605Z",
+      "editorialMode": "model",
+      "lead": {
+        "title": "Copernicus 发布未压缩的 Sentinel-1 SAR 特殊数据集",
+        "leadParagraph": "Copernicus Data Space Ecosystem 发布了一套特殊的 Sentinel-1 SAR 数据集，该数据集采集时关闭了常规机载 FDBAQ 有损压缩，保留了仪器原生 10-bit 分辨率的雷达回波样本。此外，今日动态还包括 CAPE-JEPA 跨模态遥感图像检索方法、TOP 面向传输的全色锐化框架以及 FIREX-AQ 烟雾年龄估算等研究进展。"
+      },
+      "overview": null,
+      "sections": [
+        {
+          "label": "论文与方法",
+          "summary": null,
+          "items": [
+            {
+              "itemId": "ajrhbsvd25za2pvolhf81irff",
+              "title": "预印本：CAPE-JEPA 提出跨模态对抗概率嵌入 JEPA 用于 SAR 与多光谱遥感图像检索",
+              "summary": "基于论文摘要，CAPE-JEPA 提出一种概率化跨模态 JEPA 架构用于跨模态遥感图像检索（RS-CMIR），在 BEN-14K 与 fMoW 上相对 X-JEPA 分别最高提升 13.74 和 15.59 个百分点。",
+              "sourceName": "arXiv · 遥感与地球观测预印本",
+              "originalUrl": "https://arxiv.org/abs/2611.06247v1"
+            },
+            {
+              "itemId": "o0bt7pjjc7aj4vsolfuo5bd92",
+              "title": "TOP：面向传输的遥感全色锐化框架",
+              "summary": "本文提出首个面向传输的全色锐化框架 TOP，将紧凑潜空间编码、星上全色锐化与高效下传统一于单一星地管线。该方法将观测编码为紧凑二值潜空间，星上轻量模块直接预测融合码，仅下传该码，在高分二号上实现 50 倍压缩比下 31.4 dB 的融合 PSNR。基于论文摘要，代码将开源。",
+              "sourceName": "arXiv · 遥感与地球观测预印本",
+              "originalUrl": "https://arxiv.org/abs/2611.06430v1"
+            },
+            {
+              "itemId": "kq80bfsslud9me8zt3gc33gft",
+              "title": "ESSD 论文：FIREX-AQ 机载采样烟雾年龄的两种估算方法与评估",
+              "summary": "基于论文摘要，该研究为 2019 年 NASA-NOAA FIREX-AQ 外场实验中 DC-8 与 NOAA Chemistry Twin Otter 两架飞机采样的大型烟羽开发了烟雾年龄估算。",
+              "sourceName": "Earth System Science Data · 数据论文与讨论稿",
+              "originalUrl": "https://essd.copernicus.org/articles/18/8107/2026/"
+            }
+          ]
+        },
+        {
+          "label": "数据集与基准",
+          "summary": null,
+          "items": [
+            {
+              "itemId": "ld4ooeixkwirpj2agee8uw9k6",
+              "title": "Copernicus 开放未机载 FDBAQ 压缩的 Sentinel-1 SAR 数据集",
+              "summary": "Copernicus Data Space Ecosystem 发布一套特殊 Sentinel-1 SAR 数据集，采集时关闭常规机载 FDBAQ 有损压缩，保留仪器原生 10-bit 分辨率雷达回波样本。",
+              "sourceName": "Copernicus Data Space · 数据与平台动态",
+              "originalUrl": "https://dataspace.copernicus.eu/news/2026-11-3-copernicus-sentinel-1-sar-dataset-acquired-without-onboard-fdbaq-compression"
+            },
+            {
+              "itemId": "kmjy3wzpwtr7749qhtfj6w12m",
+              "title": "预印本：面向城市管理的遥感细粒度视觉推理基准 UMBench 及证据优先思维链方法",
+              "summary": "该研究构建了基于无人机影像的城市管理细粒度遥感基准 UMBench，覆盖交通监测、城市建设、环境质量和灾害预警等任务，并提出免训练的证据优先思维链方法引导模型检查细粒度视觉证据。基于论文摘要，评测显示当前多模态大模型常依赖场景级先验而忽略细粒度视觉证据，该方法可提升开源和商用模型在 UMBench 上的表现。代码和数据可用性未说明。",
+              "sourceName": "arXiv · 遥感与地球观测预印本",
+              "originalUrl": "https://arxiv.org/abs/2611.06770v1"
+            }
+          ]
+        }
+      ]
+    },
     {
       "kind": "daily",
       "key": "2026-11-05",
@@ -7391,6 +7572,7 @@
       "group": "company",
       "definition": "NASA 的遥感研究、观测数据与工程动态。",
       "itemIds": [
+        "kq80bfsslud9me8zt3gc33gft",
         "le9tcuhykbm4yp1xuy7iw5ntj"
       ]
     },
@@ -7452,6 +7634,7 @@
       "group": "field",
       "definition": "追踪SAR 与 InSAR的研究方法、数据、工具与应用实践。",
       "itemIds": [
+        "ajrhbsvd25za2pvolhf81irff",
         "ld4ooeixkwirpj2agee8uw9k6",
         "ab5b4f1zfjjg69yzz94fuxe3c",
         "svuphuwxy7e08pz8ntgaqlq2k",
@@ -7481,6 +7664,7 @@
       "group": "field",
       "definition": "追踪高光谱的研究方法、数据、工具与应用实践。",
       "itemIds": [
+        "o0bt7pjjc7aj4vsolfuo5bd92",
         "u697b1z1qhu2p6w4kr1fvmo3v",
         "ujo5l9tbn2356mu8d05ewf1b5",
         "p8qsc6pjll0ed1bc4euzr4jj4",
@@ -7510,6 +7694,8 @@
       "group": "field",
       "definition": "追踪光学遥感的研究方法、数据、工具与应用实践。",
       "itemIds": [
+        "ajrhbsvd25za2pvolhf81irff",
+        "o0bt7pjjc7aj4vsolfuo5bd92",
         "l9l95o2obc3pgupdoz35uden2",
         "qu1lqsa9e195gxgaf7yirbikz",
         "ab5b4f1zfjjg69yzz94fuxe3c",
@@ -7734,6 +7920,9 @@
       "group": "genre",
       "definition": "值得关注的遥感论文与研究，保留原文入口与适用条件。",
       "itemIds": [
+        "ajrhbsvd25za2pvolhf81irff",
+        "o0bt7pjjc7aj4vsolfuo5bd92",
+        "kmjy3wzpwtr7749qhtfj6w12m",
         "wabwu0q6n29slr7hyivkknqep",
         "garxvkdvueowozii9fapawv78",
         "g97gzak3gjq1v2idao8wz3pbx",
@@ -7801,6 +7990,8 @@
       "group": "genre",
       "definition": "值得关注的遥感数据集与基准，保留原文入口与适用条件。",
       "itemIds": [
+        "kmjy3wzpwtr7749qhtfj6w12m",
+        "kq80bfsslud9me8zt3gc33gft",
         "ld4ooeixkwirpj2agee8uw9k6",
         "l9l95o2obc3pgupdoz35uden2",
         "czzkxdpznod60jlm5xh59j3zx",
@@ -7922,7 +8113,7 @@
     }
   ],
   "hot": {
-    "computedAt": "2026-11-05T15:00:25.383Z",
+    "computedAt": "2026-11-06T02:25:23.987Z",
     "windowHours": 48,
     "entries": []
   }
