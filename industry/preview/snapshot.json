@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-06T02:30:07.672Z",
+  "generatedAt": "2026-11-07T02:30:08.242Z",
   "categories": [
     {
       "key": "paper",
@@ -33,51 +33,7 @@
       "kind": "rss"
     },
     {
-      "name": "NASA Earthdata · 科学数据与工具",
-      "kind": "rss"
-    },
-    {
-      "name": "中国科学院空天院 · 科研动态",
-      "kind": "web_list"
-    },
-    {
-      "name": "Earth System Science Data · 数据论文与讨论稿",
-      "kind": "web_list"
-    },
-    {
-      "name": "rioxarray · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "Rasterio · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "Google Earth 与 Earth Engine · 官方博客",
-      "kind": "rss"
-    },
-    {
-      "name": "ESA · 对地观测",
-      "kind": "rss"
-    },
-    {
-      "name": "arXiv · 遥感与地球观测预印本",
-      "kind": "rss"
-    },
-    {
-      "name": "EOReader · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "Copernicus Data Space · 数据与平台动态",
-      "kind": "rss"
-    },
-    {
       "name": "PySTAC · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "TerraTorch · 稳定版本发布",
       "kind": "rss"
     },
     {
@@ -89,7 +45,11 @@
       "kind": "rss"
     },
     {
-      "name": "geemap · 稳定版本发布",
+      "name": "arXiv · 遥感与地球观测预印本",
+      "kind": "rss"
+    },
+    {
+      "name": "Rasterio · 稳定版本发布",
       "kind": "rss"
     },
     {
@@ -97,15 +57,227 @@
       "kind": "rss"
     },
     {
-      "name": "GDAL · 稳定版本发布",
+      "name": "ESA · 对地观测",
+      "kind": "rss"
+    },
+    {
+      "name": "Copernicus Data Space · 数据与平台动态",
       "kind": "rss"
     },
     {
       "name": "earthaccess · 稳定版本发布",
       "kind": "rss"
+    },
+    {
+      "name": "NASA Earthdata · 科学数据与工具",
+      "kind": "rss"
+    },
+    {
+      "name": "rioxarray · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "Earth System Science Data · 数据论文与讨论稿",
+      "kind": "web_list"
+    },
+    {
+      "name": "GDAL · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "中国科学院空天院 · 科研动态",
+      "kind": "web_list"
+    },
+    {
+      "name": "EOReader · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "TerraTorch · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "Google Earth 与 Earth Engine · 官方博客",
+      "kind": "rss"
+    },
+    {
+      "name": "geemap · 稳定版本发布",
+      "kind": "rss"
     }
   ],
   "items": [
+    {
+      "id": "mq9u0rq1tokp5cfhcjcq5j5to",
+      "title": "预印本：TerraMesh-Masks 面向地球观测的开放词汇分割数据集提出",
+      "originalTitle": "TerraMesh-Masks: Open-Vocabulary Segmentation for Earth Observation",
+      "summary": "基于论文摘要，该预印本提出 TerraMesh-Masks，一个面向地球观测的大规模开放词汇分割数据集，包含与 900 万 TerraMesh 多模态样本对齐的 1600 万二值掩码，语义标注来自 OpenStreetMap 和 Overture 派生数据，并附带 523 个样本、覆盖 200 余类的专家评审评测集。",
+      "reason": "针对开放词汇分割从自然图像迁移到地球观测数据效果不佳的问题，构建了与 TerraMesh 多模态样本对齐的大规模掩码数据集及专家评审评测集，并以 TerraMind 开放词汇版本报告了相对通用模型的 IoU 提升。",
+      "source": {
+        "name": "arXiv · 遥感与地球观测预印本",
+        "kind": "rss",
+        "firstParty": true
+      },
+      "originalUrl": "https://arxiv.org/abs/2611.08081v1",
+      "publishedAt": "2026-11-05T14:31:02.000Z",
+      "timelineAt": "2026-11-06T22:21:32.407Z",
+      "category": "data",
+      "tags": [
+        "论文/研究",
+        "数据集/基准",
+        "语义分割",
+        "遥感基础模型",
+        "多模态",
+        "开源生态",
+        "ESA"
+      ],
+      "score": 75,
+      "selected": true
+    },
+    {
+      "id": "rie3ti24q8g59p0jwdl91j0v3",
+      "title": "ESSD发表1993–2023年全球逐日海面非地转流数据集（物理信息深度学习）",
+      "originalTitle": "Daily global sea surface ageostrophic current dataset from 1993–2023 via physics-informed deep learning",
+      "summary": "基于论文摘要，该数据集论文重建了1993–2023年0.25°分辨率的全球逐日海面环流，采用融合卫星测高与地转平衡、风应力和非线性平流动量约束的物理信息框架，以刻画地转流产品缺失的非地转运动。",
+      "reason": "摘要将融合卫星测高与动量约束的物理信息深度学习框架用于重建非地转流，并给出对独立系泊观测的速度误差对比与动量平衡误差，为评估其相对地转和Ekman校正产品的改进提供依据。",
+      "source": {
+        "name": "Earth System Science Data · 数据论文与讨论稿",
+        "kind": "web_list",
+        "firstParty": true
+      },
+      "originalUrl": "https://essd.copernicus.org/articles/18/8149/2026/",
+      "publishedAt": "2026-11-06T00:00:00.000Z",
+      "timelineAt": "2026-11-06T21:24:33.401Z",
+      "category": "data",
+      "tags": [
+        "数据集/基准",
+        "海洋",
+        "定量反演",
+        "Copernicus"
+      ],
+      "score": 78,
+      "selected": true
+    },
+    {
+      "id": "iuyrnjp0wthooz0sg4zxvky0n",
+      "title": "预印本研究基于高分辨率航空影像与多模态数据绘制瑞士全国树种组成图",
+      "originalTitle": "National-scale mapping of tree species composition in Switzerland from high-resolution aerial imagery and multimodal data",
+      "summary": "该研究在瑞士全国以 30 m 分辨率绘制 10 个主要树种及一个 Other 类的基面积份额图。基于论文摘要，深度学习模型融合 0.1 m 航空 RGB 影像。",
+      "reason": "原文报告了融合 0.1 m 航空影像、ALS、AlphaEarth 嵌入与气候变量在多物种基面积份额制图上的空间交叉验证与独立验证结果，可用于比较多模态森林组成制图的设计与精度。",
+      "source": {
+        "name": "arXiv · 遥感与地球观测预印本",
+        "kind": "rss",
+        "firstParty": true
+      },
+      "originalUrl": "https://arxiv.org/abs/2611.08095v1",
+      "publishedAt": "2026-11-05T14:40:09.000Z",
+      "timelineAt": "2026-11-06T21:20:32.142Z",
+      "category": "paper",
+      "tags": [
+        "论文/研究",
+        "森林/生态",
+        "数据融合",
+        "LiDAR"
+      ],
+      "score": 69,
+      "selected": true
+    },
+    {
+      "id": "xruyou2g1ukxrjwo1sldxqyic",
+      "title": "预印本：机器学习从卫星观测检测天气锋面，再分析数据带来多大提升",
+      "originalTitle": "Detecting Weather Fronts from Satellite Observations: What Does Reanalysis Add?",
+      "summary": "基于论文摘要，该研究比较同一机器学习模型在北大西洋和欧洲区域做像素级锋面分类的两种配置：仅用静止轨道红外卫星观测时 CSI@150 为 0.402，加入 28 个 ERA5 再分析场后提升至 0.575（增加 0.173），前者已落在不同气象机构分析结果之间的一致性范围内。",
+      "reason": "以同一机器学习模型对比仅用静止轨道红外观测与加入 28 个 ERA5 再分析场两种配置，量化了再分析数据对锋面检测 CSI@150 的贡献及风场、湿度变量的作用，为卫星与再分析数据融合设计提供消融证据。",
+      "source": {
+        "name": "arXiv · 遥感与地球观测预印本",
+        "kind": "rss",
+        "firstParty": true
+      },
+      "originalUrl": "https://arxiv.org/abs/2611.08148v1",
+      "publishedAt": "2026-11-05T15:07:10.000Z",
+      "timelineAt": "2026-11-06T21:20:32.130Z",
+      "category": "paper",
+      "tags": [
+        "论文/研究",
+        "分类识别",
+        "定量反演",
+        "数据融合",
+        "气候",
+        "ESA"
+      ],
+      "score": 70,
+      "selected": true
+    },
+    {
+      "id": "c5wj21v9v38e3twthw232hiwh",
+      "title": "earthaccess v0.19.0 发布",
+      "originalTitle": "v0.19.0",
+      "summary": "earthaccess v0.19.0 发布，包含破坏性变更：多个方法改为以属性方式访问，并提供迁移指南。新版增加对 Python 3.14 的支持，改进了 DataServices URL 处理与 S3 URL 生成，修复了特定情况下搜索结果 granule 计数错误等问题，并新增 AI 辅助贡献政策。",
+      "reason": null,
+      "source": {
+        "name": "earthaccess · 稳定版本发布",
+        "kind": "rss",
+        "firstParty": true
+      },
+      "originalUrl": "https://github.com/earthaccess-dev/earthaccess/releases/tag/v0.19.0",
+      "publishedAt": "2026-11-06T17:03:16.000Z",
+      "timelineAt": "2026-11-06T19:12:31.023Z",
+      "category": "rs-tools",
+      "tags": [
+        "工具更新",
+        "开源生态",
+        "NASA"
+      ],
+      "score": 35,
+      "selected": false
+    },
+    {
+      "id": "z5yw5760vfpcaxcvqhui6vs1x",
+      "title": "ESSD 讨论稿：ContrailStruct30——基于 SDGSAT-1 的 30 m 三波段热红外凝结尾迹分割数据集",
+      "originalTitle": "ContrailStruct30: a 30 m three-band thermal-infrared dataset for contrail segmentation",
+      "summary": "基于论文摘要，ContrailStruct30 是一个基于可持续发展科学卫星 1 号（SDGSAT-1）30 m 三波段热红外观测构建的凝结尾迹分割数据集，包含 19,455 个 256×256 像素图块（9,023 个正样本、10,432 个刻意选取的困难负样本），来自 305 个日期的 819 个源场景。",
+      "reason": "原文给出基于 SDGSAT-1 30 m 三波段热红外的 19,455 个像素级标注凝结尾迹样本、场景与日期均隔离的固定数据划分及 MaxViT–U-Net 基线在三个训练种子下的测试 Dice 结果，可为细尺度凝结尾迹分割方法提供可复用的比较基准。",
+      "source": {
+        "name": "Earth System Science Data · 数据论文与讨论稿",
+        "kind": "web_list",
+        "firstParty": true
+      },
+      "originalUrl": "https://essd.copernicus.org/preprints/essd-2026-759/",
+      "publishedAt": "2026-11-05T00:00:00.000Z",
+      "timelineAt": "2026-11-06T18:21:34.691Z",
+      "category": "data",
+      "tags": [
+        "数据集/基准",
+        "热红外",
+        "语义分割",
+        "卫星/传感器",
+        "气候"
+      ],
+      "score": 75,
+      "selected": true
+    },
+    {
+      "id": "f5bikokmqlzd1fj3rg3ws8yvc",
+      "title": "ESSD讨论稿发布巴黎站点2011–2022年NDACC FTIR痕量气体长时间序列",
+      "originalTitle": "Long-term time series of ground-based NDACC FTIR trace gases at Paris between 2011 and 2022",
+      "summary": "基于论文摘要，作者发布巴黎站点（48°50′04″N，2°21′02″E）2011–2022年地基FTIR痕量气体长时间序列，涵盖CH4、N2O、CO、C2H6、H2CO、NO2、OCS、HCl、HF和HCN共十种NDACC-IRWG产品。",
+      "reason": "该讨论稿给出了巴黎站点2011–2022年十种NDACC-IRWG痕量气体的SFIT4反演设置、误差表征与后处理筛选准则，并与PROFFIT9结果对比，数据已存档于NDACC和Zenodo，便于地基FTIR长期观测的复用与比较。",
+      "source": {
+        "name": "Earth System Science Data · 数据论文与讨论稿",
+        "kind": "web_list",
+        "firstParty": true
+      },
+      "originalUrl": "https://essd.copernicus.org/preprints/essd-2026-762/",
+      "publishedAt": "2026-11-06T00:00:00.000Z",
+      "timelineAt": "2026-11-06T18:21:34.681Z",
+      "category": "data",
+      "tags": [
+        "数据集/基准",
+        "定量反演",
+        "气候"
+      ],
+      "score": 72,
+      "selected": true
+    },
     {
       "id": "ajrhbsvd25za2pvolhf81irff",
       "title": "预印本：CAPE-JEPA 提出跨模态对抗概率嵌入 JEPA 用于 SAR 与多光谱遥感图像检索",
@@ -3581,6 +3753,74 @@
     }
   ],
   "reports": [
+    {
+      "kind": "daily",
+      "key": "2026-11-07",
+      "title": "遥感日报 · 2026-11-07",
+      "generatedAt": "2026-11-07T00:00:49.712Z",
+      "editorialMode": "model",
+      "lead": {
+        "title": "全球逐日海面非地转流数据集重建1993–2023年环流",
+        "leadParagraph": "今日最值得关注的是ESSD发表的1993–2023年全球逐日海面非地转流数据集，该数据以0.25°分辨率重建了全球逐日海面环流，通过融合卫星测高与动量约束的物理信息深度学习框架，刻画了传统地转流产品缺失的非地转运动。同期还有多项数据与算法成果发布，包括基于SDGSAT-1的30米凝结尾迹分割数据集、巴黎站点十年FTIR痕量气体序列，以及融合再分析数据显著提升卫星锋面检测的研究。"
+      },
+      "overview": null,
+      "sections": [
+        {
+          "label": "论文与方法",
+          "summary": null,
+          "items": [
+            {
+              "itemId": "xruyou2g1ukxrjwo1sldxqyic",
+              "title": "预印本：机器学习从卫星观测检测天气锋面，再分析数据带来多大提升",
+              "summary": "基于论文摘要，该研究比较同一机器学习模型在北大西洋和欧洲区域做像素级锋面分类的两种配置：仅用静止轨道红外卫星观测时 CSI@150 为 0.402，加入 28 个 ERA5 再分析场后提升至 0.575（增加 0.173），前者已落在不同气象机构分析结果之间的一致性范围内。",
+              "sourceName": "arXiv · 遥感与地球观测预印本",
+              "originalUrl": "https://arxiv.org/abs/2611.08148v1"
+            },
+            {
+              "itemId": "iuyrnjp0wthooz0sg4zxvky0n",
+              "title": "预印本研究基于高分辨率航空影像与多模态数据绘制瑞士全国树种组成图",
+              "summary": "该研究在瑞士全国以 30 m 分辨率绘制 10 个主要树种及一个 Other 类的基面积份额图。基于论文摘要，深度学习模型融合 0.1 m 航空 RGB 影像。",
+              "sourceName": "arXiv · 遥感与地球观测预印本",
+              "originalUrl": "https://arxiv.org/abs/2611.08095v1"
+            }
+          ]
+        },
+        {
+          "label": "数据集与基准",
+          "summary": null,
+          "items": [
+            {
+              "itemId": "rie3ti24q8g59p0jwdl91j0v3",
+              "title": "ESSD发表1993–2023年全球逐日海面非地转流数据集（物理信息深度学习）",
+              "summary": "基于论文摘要，该数据集论文重建了1993–2023年0.25°分辨率的全球逐日海面环流，采用融合卫星测高与地转平衡、风应力和非线性平流动量约束的物理信息框架，以刻画地转流产品缺失的非地转运动。",
+              "sourceName": "Earth System Science Data · 数据论文与讨论稿",
+              "originalUrl": "https://essd.copernicus.org/articles/18/8149/2026/"
+            },
+            {
+              "itemId": "z5yw5760vfpcaxcvqhui6vs1x",
+              "title": "ESSD 讨论稿：ContrailStruct30——基于 SDGSAT-1 的 30 m 三波段热红外凝结尾迹分割数据集",
+              "summary": "基于论文摘要，ContrailStruct30 是一个基于可持续发展科学卫星 1 号（SDGSAT-1）30 m 三波段热红外观测构建的凝结尾迹分割数据集，包含 19,455 个 256×256 像素图块（9,023 个正样本、10,432 个刻意选取的困难负样本），来自 305 个日期的 819 个源场景。",
+              "sourceName": "Earth System Science Data · 数据论文与讨论稿",
+              "originalUrl": "https://essd.copernicus.org/preprints/essd-2026-759/"
+            },
+            {
+              "itemId": "mq9u0rq1tokp5cfhcjcq5j5to",
+              "title": "预印本：TerraMesh-Masks 面向地球观测的开放词汇分割数据集提出",
+              "summary": "基于论文摘要，该预印本提出 TerraMesh-Masks，一个面向地球观测的大规模开放词汇分割数据集，包含与 900 万 TerraMesh 多模态样本对齐的 1600 万二值掩码，语义标注来自 OpenStreetMap 和 Overture 派生数据，并附带 523 个样本、覆盖 200 余类的专家评审评测集。",
+              "sourceName": "arXiv · 遥感与地球观测预印本",
+              "originalUrl": "https://arxiv.org/abs/2611.08081v1"
+            },
+            {
+              "itemId": "f5bikokmqlzd1fj3rg3ws8yvc",
+              "title": "ESSD讨论稿发布巴黎站点2011–2022年NDACC FTIR痕量气体长时间序列",
+              "summary": "基于论文摘要，作者发布巴黎站点（48°50′04″N，2°21′02″E）2011–2022年地基FTIR痕量气体长时间序列，涵盖CH4、N2O、CO、C2H6、H2CO、NO2、OCS、HCl、HF和HCN共十种NDACC-IRWG产品。",
+              "sourceName": "Earth System Science Data · 数据论文与讨论稿",
+              "originalUrl": "https://essd.copernicus.org/preprints/essd-2026-762/"
+            }
+          ]
+        }
+      ]
+    },
     {
       "kind": "daily",
       "key": "2026-11-06",
@@ -7582,6 +7822,8 @@
       "group": "company",
       "definition": "ESA 的遥感研究、观测数据与工程动态。",
       "itemIds": [
+        "mq9u0rq1tokp5cfhcjcq5j5to",
+        "xruyou2g1ukxrjwo1sldxqyic",
         "le9tcuhykbm4yp1xuy7iw5ntj"
       ]
     },
@@ -7591,6 +7833,7 @@
       "group": "company",
       "definition": "Copernicus 的遥感研究、观测数据与工程动态。",
       "itemIds": [
+        "rie3ti24q8g59p0jwdl91j0v3",
         "ld4ooeixkwirpj2agee8uw9k6",
         "garxvkdvueowozii9fapawv78",
         "g97gzak3gjq1v2idao8wz3pbx",
@@ -7678,6 +7921,7 @@
       "group": "field",
       "definition": "追踪LiDAR的研究方法、数据、工具与应用实践。",
       "itemIds": [
+        "iuyrnjp0wthooz0sg4zxvky0n",
         "nmyduvxm54vgtav4batzar5bq",
         "o0fvgpaom7hcnq148rvdbbwr7",
         "u22q8estauvoz0jynedxd7tpx",
@@ -7722,6 +7966,7 @@
       "group": "field",
       "definition": "追踪热红外的研究方法、数据、工具与应用实践。",
       "itemIds": [
+        "z5yw5760vfpcaxcvqhui6vs1x",
         "qmje9yt4fj57jmih6jjgrvfuv"
       ]
     },
@@ -7761,6 +8006,8 @@
       "group": "field",
       "definition": "追踪语义分割的研究方法、数据、工具与应用实践。",
       "itemIds": [
+        "mq9u0rq1tokp5cfhcjcq5j5to",
+        "z5yw5760vfpcaxcvqhui6vs1x",
         "opko1syuju8mmpom9t0hodovk",
         "ehsg00z84knfyyjt53s9ued1m",
         "qu1lqsa9e195gxgaf7yirbikz",
@@ -7781,6 +8028,9 @@
       "group": "field",
       "definition": "追踪定量反演的研究方法、数据、工具与应用实践。",
       "itemIds": [
+        "rie3ti24q8g59p0jwdl91j0v3",
+        "xruyou2g1ukxrjwo1sldxqyic",
+        "f5bikokmqlzd1fj3rg3ws8yvc",
         "czzkxdpznod60jlm5xh59j3zx",
         "nblgs8ti50in1rpu228bx7gmn",
         "l9wh1bu7yf2rwbzl1ctyftjvt",
@@ -7806,6 +8056,7 @@
       "group": "field",
       "definition": "追踪遥感基础模型的研究方法、数据、工具与应用实践。",
       "itemIds": [
+        "mq9u0rq1tokp5cfhcjcq5j5to",
         "wabwu0q6n29slr7hyivkknqep",
         "garxvkdvueowozii9fapawv78",
         "opko1syuju8mmpom9t0hodovk",
@@ -7904,6 +8155,7 @@
       "group": "field",
       "definition": "追踪森林与生态的研究方法、数据、工具与应用实践。",
       "itemIds": [
+        "iuyrnjp0wthooz0sg4zxvky0n",
         "cxxutbvhfv8snsuyt1mxrh0yk",
         "c1ovkgg7jtgf26xdz1tmoych2",
         "jt7ybo515brbhg9kk087knsek",
@@ -7920,6 +8172,9 @@
       "group": "genre",
       "definition": "值得关注的遥感论文与研究，保留原文入口与适用条件。",
       "itemIds": [
+        "mq9u0rq1tokp5cfhcjcq5j5to",
+        "iuyrnjp0wthooz0sg4zxvky0n",
+        "xruyou2g1ukxrjwo1sldxqyic",
         "ajrhbsvd25za2pvolhf81irff",
         "o0bt7pjjc7aj4vsolfuo5bd92",
         "kmjy3wzpwtr7749qhtfj6w12m",
@@ -7990,6 +8245,10 @@
       "group": "genre",
       "definition": "值得关注的遥感数据集与基准，保留原文入口与适用条件。",
       "itemIds": [
+        "mq9u0rq1tokp5cfhcjcq5j5to",
+        "rie3ti24q8g59p0jwdl91j0v3",
+        "z5yw5760vfpcaxcvqhui6vs1x",
+        "f5bikokmqlzd1fj3rg3ws8yvc",
         "kmjy3wzpwtr7749qhtfj6w12m",
         "kq80bfsslud9me8zt3gc33gft",
         "ld4ooeixkwirpj2agee8uw9k6",
@@ -8073,6 +8332,7 @@
       "group": "genre",
       "definition": "值得关注的遥感卫星与传感器，保留原文入口与适用条件。",
       "itemIds": [
+        "z5yw5760vfpcaxcvqhui6vs1x",
         "le9tcuhykbm4yp1xuy7iw5ntj",
         "okvkil6pjket6xk8bore74w34",
         "qmekqw169kfntc8gkp35it9jg",
@@ -8113,7 +8373,7 @@
     }
   ],
   "hot": {
-    "computedAt": "2026-11-06T02:25:23.987Z",
+    "computedAt": "2026-11-07T02:25:46.147Z",
     "windowHours": 48,
     "entries": []
   }
