@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-07T02:30:08.242Z",
+  "generatedAt": "2026-11-08T02:30:08.937Z",
   "categories": [
     {
       "key": "paper",
@@ -29,23 +29,15 @@
   ],
   "sources": [
     {
-      "name": "STAC FastAPI · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "PySTAC · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "TorchGeo · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
       "name": "Earth Engine API · 稳定版本发布",
       "kind": "rss"
     },
     {
-      "name": "arXiv · 遥感与地球观测预印本",
+      "name": "Google Earth 与 Earth Engine · 官方博客",
+      "kind": "rss"
+    },
+    {
+      "name": "TerraTorch · 稳定版本发布",
       "kind": "rss"
     },
     {
@@ -53,19 +45,7 @@
       "kind": "rss"
     },
     {
-      "name": "openEO Python Client · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "ESA · 对地观测",
-      "kind": "rss"
-    },
-    {
-      "name": "Copernicus Data Space · 数据与平台动态",
-      "kind": "rss"
-    },
-    {
-      "name": "earthaccess · 稳定版本发布",
+      "name": "STAC FastAPI · 稳定版本发布",
       "kind": "rss"
     },
     {
@@ -73,12 +53,32 @@
       "kind": "rss"
     },
     {
-      "name": "rioxarray · 稳定版本发布",
+      "name": "ESA · 对地观测",
       "kind": "rss"
     },
     {
-      "name": "Earth System Science Data · 数据论文与讨论稿",
-      "kind": "web_list"
+      "name": "geemap · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "Copernicus Data Space · 数据与平台动态",
+      "kind": "rss"
+    },
+    {
+      "name": "EOReader · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "arXiv · 遥感与地球观测预印本",
+      "kind": "rss"
+    },
+    {
+      "name": "earthaccess · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "PySTAC · 稳定版本发布",
+      "kind": "rss"
     },
     {
       "name": "GDAL · 稳定版本发布",
@@ -89,19 +89,19 @@
       "kind": "web_list"
     },
     {
-      "name": "EOReader · 稳定版本发布",
+      "name": "rioxarray · 稳定版本发布",
       "kind": "rss"
     },
     {
-      "name": "TerraTorch · 稳定版本发布",
+      "name": "TorchGeo · 稳定版本发布",
       "kind": "rss"
     },
     {
-      "name": "Google Earth 与 Earth Engine · 官方博客",
-      "kind": "rss"
+      "name": "Earth System Science Data · 数据论文与讨论稿",
+      "kind": "web_list"
     },
     {
-      "name": "geemap · 稳定版本发布",
+      "name": "openEO Python Client · 稳定版本发布",
       "kind": "rss"
     }
   ],
@@ -8373,7 +8373,7 @@
     }
   ],
   "hot": {
-    "computedAt": "2026-11-07T02:25:46.147Z",
+    "computedAt": "2026-11-08T02:25:22.758Z",
     "windowHours": 48,
     "entries": []
   }
