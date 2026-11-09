@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-08T02:30:08.937Z",
+  "generatedAt": "2026-11-09T02:30:07.301Z",
   "categories": [
     {
       "key": "paper",
@@ -29,7 +29,7 @@
   ],
   "sources": [
     {
-      "name": "Earth Engine API · 稳定版本发布",
+      "name": "earthaccess · 稳定版本发布",
       "kind": "rss"
     },
     {
@@ -37,59 +37,7 @@
       "kind": "rss"
     },
     {
-      "name": "TerraTorch · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "Rasterio · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "STAC FastAPI · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "NASA Earthdata · 科学数据与工具",
-      "kind": "rss"
-    },
-    {
-      "name": "ESA · 对地观测",
-      "kind": "rss"
-    },
-    {
-      "name": "geemap · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "Copernicus Data Space · 数据与平台动态",
-      "kind": "rss"
-    },
-    {
-      "name": "EOReader · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "arXiv · 遥感与地球观测预印本",
-      "kind": "rss"
-    },
-    {
-      "name": "earthaccess · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "PySTAC · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "GDAL · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "中国科学院空天院 · 科研动态",
-      "kind": "web_list"
-    },
-    {
-      "name": "rioxarray · 稳定版本发布",
+      "name": "openEO Python Client · 稳定版本发布",
       "kind": "rss"
     },
     {
@@ -97,11 +45,63 @@
       "kind": "rss"
     },
     {
+      "name": "NASA Earthdata · 科学数据与工具",
+      "kind": "rss"
+    },
+    {
+      "name": "中国科学院空天院 · 科研动态",
+      "kind": "web_list"
+    },
+    {
+      "name": "arXiv · 遥感与地球观测预印本",
+      "kind": "rss"
+    },
+    {
+      "name": "EOReader · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "Earth Engine API · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "GDAL · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "Copernicus Data Space · 数据与平台动态",
+      "kind": "rss"
+    },
+    {
       "name": "Earth System Science Data · 数据论文与讨论稿",
       "kind": "web_list"
     },
     {
-      "name": "openEO Python Client · 稳定版本发布",
+      "name": "rioxarray · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "STAC FastAPI · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "geemap · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "TerraTorch · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "ESA · 对地观测",
+      "kind": "rss"
+    },
+    {
+      "name": "Rasterio · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "PySTAC · 稳定版本发布",
       "kind": "rss"
     }
   ],
@@ -804,28 +804,6 @@
       ],
       "score": 73,
       "selected": true
-    },
-    {
-      "id": "bev4mrjewblyddfpetcvb923n",
-      "title": "STAC FastAPI 7.1.0 发布",
-      "originalTitle": "7.1.0",
-      "summary": "STAC FastAPI 发布 7.1.0 版本，包含四项修复：接受集合 PATCH 的 links 数组与 ItemCollection 创建响应、为 POST item/collection 添加 location header、为越界 datetime 返回稳定错误详情，以及 enable_direct_response 修复。",
-      "reason": null,
-      "source": {
-        "name": "STAC FastAPI · 稳定版本发布",
-        "kind": "rss",
-        "firstParty": true
-      },
-      "originalUrl": "https://github.com/stac-utils/stac-fastapi/releases/tag/7.1.0",
-      "publishedAt": "2026-10-31T21:04:01.000Z",
-      "timelineAt": "2026-11-01T10:53:58.027Z",
-      "category": "rs-tools",
-      "tags": [
-        "工具更新",
-        "开源/仓库"
-      ],
-      "score": 33,
-      "selected": false
     },
     {
       "id": "le9tcuhykbm4yp1xuy7iw5ntj",
@@ -5774,6 +5752,176 @@
     },
     {
       "kind": "weekly",
+      "key": "2026-W45",
+      "title": "RSHOT 周报 · 2026-W45",
+      "generatedAt": "2026-11-09T02:00:51.036Z",
+      "editorialMode": "model",
+      "lead": {
+        "title": "全球环境数据集密集发布，AI遥感方法持续突破",
+        "leadParagraph": "本期覆盖2026年11月2日至11月8日。遥感领域迎来数据集发布高峰：全球土壤湿度-温度复合指数（1961-2023）、海面非地转流（1993-2023）、岩石冰川编目（38,849平方公里）、雪密度数据集（1982-2025）等多项长时序、高分辨率基准相继开放。AI方法创新活跃，涵盖洪水预测、跨模态检索、域泛化分割、传输优化等方向，其中多项研究结合深度学习与物理约束提升精度。星上处理与边缘计算取得进展，全色锐化实现50倍压缩比。此外，瑞士全国树种制图、锋面检测、浅水影像复原等应用研究展示了遥感技术在生态监测、气象预报和水环境管理中的深化应用。"
+      },
+      "overview": "本期覆盖2026年11月2日至11月8日。遥感领域迎来数据集发布高峰：全球土壤湿度-温度复合指数（1961-2023）、海面非地转流（1993-2023）、岩石冰川编目（38,849平方公里）、雪密度数据集（1982-2025）等多项长时序、高分辨率基准相继开放。AI方法创新活跃，涵盖洪水预测、跨模态检索、域泛化分割、传输优化等方向，其中多项研究结合深度学习与物理约束提升精度。星上处理与边缘计算取得进展，全色锐化实现50倍压缩比。此外，瑞士全国树种制图、锋面检测、浅水影像复原等应用研究展示了遥感技术在生态监测、气象预报和水环境管理中的深化应用。",
+      "sections": [
+        {
+          "label": "全球环境数据集",
+          "summary": "本期发布多项覆盖数十年时间跨度的全球或区域数据集：SSTCI提供1961-2023年0.1°日尺度土壤湿度-温度复合指数及干热极端事件目录；ESSD发表1993-2023年0.25°全球逐日海面非地转流数据，采用物理信息深度学习框架；首个全球岩石冰川编目基于2.4米卫星影像绘制19个山系301,524个多边形；NH-SDN发布1982-2025年北半球逐日0.25°雪密度数据。这些数据集为气候变化、海洋环流、冰冻圈和积雪研究提供重要基准。",
+          "items": [
+            {
+              "itemId": "g97gzak3gjq1v2idao8wz3pbx",
+              "title": "标准化土壤湿度-温度复合指数（SSTCI）：1961–2023年全球日尺度数据集与复合干热极端事件目录",
+              "summary": "基于论文摘要，作者提出了标准化土壤湿度-温度复合指数（SSTCI）并构建了1961–2023年全球（除南极洲外）0.1°分辨率的日尺度数据集与复合干热极端事件（CDHE）目录。",
+              "sourceName": "Earth System Science Data · 数据论文与讨论稿",
+              "originalUrl": "https://essd.copernicus.org/articles/18/7981/2026/"
+            },
+            {
+              "itemId": "rie3ti24q8g59p0jwdl91j0v3",
+              "title": "ESSD发表1993–2023年全球逐日海面非地转流数据集（物理信息深度学习）",
+              "summary": "基于论文摘要，该数据集论文重建了1993–2023年0.25°分辨率的全球逐日海面环流，采用融合卫星测高与地转平衡、风应力和非线性平流动量约束的物理信息框架，以刻画地转流产品缺失的非地转运动。",
+              "sourceName": "Earth System Science Data · 数据论文与讨论稿",
+              "originalUrl": "https://essd.copernicus.org/articles/18/8149/2026/"
+            },
+            {
+              "itemId": "ehsg00z84knfyyjt53s9ued1m",
+              "title": "ESSD讨论稿：全球岩石冰川编目发布，覆盖19个主要山系38,849平方公里",
+              "summary": "本研究提出了首个在全球统一制图框架下构建的岩石冰川编目（预印本，ESSD讨论稿）。基于论文摘要，作者对高分辨率（约2.4米）卫星影像应用语义分割模型集成，经专家人工后处理与独立视觉评估，在全球19个主要山地和高纬度地区绘制了301,524个岩石冰川多边形，覆盖面积38,849平方公里。",
+              "sourceName": "Earth System Science Data · 数据论文与讨论稿",
+              "originalUrl": "https://essd.copernicus.org/preprints/essd-2026-575/"
+            },
+            {
+              "itemId": "czzkxdpznod60jlm5xh59j3zx",
+              "title": "预印本：NH-SDN 发布 1982–2025 年北半球逐日 0.25° 雪密度数据集，基于深度学习构建",
+              "summary": "基于论文摘要，该讨论稿提出 SDN-Net 时空框架（结合 vision Transformer 与卷积网络，融合多源环境变量），并据此构建 NH-SDN：1982–2025 年北半球逐日 0.25° 雪密度数据集。",
+              "sourceName": "Earth System Science Data · 数据论文与讨论稿",
+              "originalUrl": "https://essd.copernicus.org/preprints/essd-2026-689/"
+            }
+          ]
+        },
+        {
+          "label": "AI遥感方法创新",
+          "summary": "多项研究提出新型深度学习架构：CAPE-JEPA跨模态对抗概率嵌入框架在SAR与多光谱检索中较X-JEPA提升13.74-15.59个百分点；ASCoR基于SAM3构建非对称语义-空间学习框架用于域泛化分割；TerraMesh-Masks发布包含1600万掩码的开放词汇分割数据集；Basin2Vec自监督框架在无径流观测条件下实现跨流域预测，性能达最强基线3.5倍。这些方法推动了遥感解译的精度与泛化能力。",
+          "items": [
+            {
+              "itemId": "ajrhbsvd25za2pvolhf81irff",
+              "title": "预印本：CAPE-JEPA 提出跨模态对抗概率嵌入 JEPA 用于 SAR 与多光谱遥感图像检索",
+              "summary": "基于论文摘要，CAPE-JEPA 提出一种概率化跨模态 JEPA 架构用于跨模态遥感图像检索（RS-CMIR），在 BEN-14K 与 fMoW 上相对 X-JEPA 分别最高提升 13.74 和 15.59 个百分点。",
+              "sourceName": "arXiv · 遥感与地球观测预印本",
+              "originalUrl": "https://arxiv.org/abs/2611.06247v1"
+            },
+            {
+              "itemId": "opko1syuju8mmpom9t0hodovk",
+              "title": "预印本论文提出基于 SAM3 的非对称语义-空间学习框架 ASCoR，用于遥感语义分割域泛化",
+              "summary": "基于论文摘要，Zitong Wang 等提出 ASCoR：一个构建于 SAM3 之上的非对称语义-空间框架，用于仅用源域监督的遥感语义分割域泛化。",
+              "sourceName": "arXiv · 遥感与地球观测预印本",
+              "originalUrl": "https://arxiv.org/abs/2611.03382v1"
+            },
+            {
+              "itemId": "mq9u0rq1tokp5cfhcjcq5j5to",
+              "title": "预印本：TerraMesh-Masks 面向地球观测的开放词汇分割数据集提出",
+              "summary": "基于论文摘要，该预印本提出 TerraMesh-Masks，一个面向地球观测的大规模开放词汇分割数据集，包含与 900 万 TerraMesh 多模态样本对齐的 1600 万二值掩码，语义标注来自 OpenStreetMap 和 Overture 派生数据，并附带 523 个样本、覆盖 200 余类的专家评审评测集。",
+              "sourceName": "arXiv · 遥感与地球观测预印本",
+              "originalUrl": "https://arxiv.org/abs/2611.08081v1"
+            },
+            {
+              "itemId": "wabwu0q6n29slr7hyivkknqep",
+              "title": "Basin2Vec：面向可扩展水文建模的流域中心嵌入学习（预印本）",
+              "summary": "Basin2Vec 提出一种自监督框架，在无观测径流条件下从水文气候与流域属性数据中学习紧凑的流域表示，用于跨时间及未测流域的径流预测。基于论文摘要，该方法在多种预测架构上于时间泛化任务平均相对提升最高 8.3%，在未见过流域上达到最强基线中位预测性能的 3.5 倍；代码已在 GitHub 仓库提供，许可信息未说明。",
+              "sourceName": "arXiv · 遥感与地球观测预印本",
+              "originalUrl": "https://arxiv.org/abs/2611.05164v1"
+            }
+          ]
+        },
+        {
+          "label": "灾害监测与预警",
+          "summary": "洪水峰值深度预测方法融合地球观测嵌入、星载地形与气象强迫，基于2011-2025年39场事件5689个高水位标记实现洪峰前预测；ContrailStruct30基于SDGSAT-1构建30米热红外凝结尾迹分割数据集，含19,455个图块；UMBench面向城市管理构建细粒度视觉推理基准，覆盖交通、建设、环境、灾害任务。这些研究强化了遥感在应急响应与环境监测中的应用能力。",
+          "items": [
+            {
+              "itemId": "garxvkdvueowozii9fapawv78",
+              "title": "预印本：融合地球观测嵌入、星载地形与气象强迫，从高水位标记预测洪水峰值深度",
+              "summary": "基于论文摘要，该预印本提出用野外实测高水位标记（HWM）监督、在洪峰到来前预测峰值水深的方法：汇集 2011–2025 年 39 场事件、24 个美国州及波多黎各的 5689 个 USGS HWM 调查点。",
+              "sourceName": "arXiv · 遥感与地球观测预印本",
+              "originalUrl": "https://arxiv.org/abs/2611.05220v1"
+            },
+            {
+              "itemId": "z5yw5760vfpcaxcvqhui6vs1x",
+              "title": "ESSD 讨论稿：ContrailStruct30——基于 SDGSAT-1 的 30 m 三波段热红外凝结尾迹分割数据集",
+              "summary": "基于论文摘要，ContrailStruct30 是一个基于可持续发展科学卫星 1 号（SDGSAT-1）30 m 三波段热红外观测构建的凝结尾迹分割数据集，包含 19,455 个 256×256 像素图块（9,023 个正样本、10,432 个刻意选取的困难负样本），来自 305 个日期的 819 个源场景。",
+              "sourceName": "Earth System Science Data · 数据论文与讨论稿",
+              "originalUrl": "https://essd.copernicus.org/preprints/essd-2026-759/"
+            },
+            {
+              "itemId": "kmjy3wzpwtr7749qhtfj6w12m",
+              "title": "预印本：面向城市管理的遥感细粒度视觉推理基准 UMBench 及证据优先思维链方法",
+              "summary": "该研究构建了基于无人机影像的城市管理细粒度遥感基准 UMBench，覆盖交通监测、城市建设、环境质量和灾害预警等任务，并提出免训练的证据优先思维链方法引导模型检查细粒度视觉证据。基于论文摘要，评测显示当前多模态大模型常依赖场景级先验而忽略细粒度视觉证据，该方法可提升开源和商用模型在 UMBench 上的表现。代码和数据可用性未说明。",
+              "sourceName": "arXiv · 遥感与地球观测预印本",
+              "originalUrl": "https://arxiv.org/abs/2611.06770v1"
+            }
+          ]
+        },
+        {
+          "label": "星上处理与传输优化",
+          "summary": "TOP框架首次实现面向传输的全色锐化，将紧凑潜空间编码、星上处理与高效下传统一，在高分二号实现50倍压缩比下31.4 dB融合PSNR；Copernicus开放未机载FDBAQ压缩的Sentinel-1 SAR数据集，保留10-bit原生分辨率。空天院发布\"慧眼\"植被健康智能体，整合天空地网数据与多智能体集群。这些进展推动了星地协同与边缘计算在遥感中的应用。",
+          "items": [
+            {
+              "itemId": "o0bt7pjjc7aj4vsolfuo5bd92",
+              "title": "TOP：面向传输的遥感全色锐化框架",
+              "summary": "本文提出首个面向传输的全色锐化框架 TOP，将紧凑潜空间编码、星上全色锐化与高效下传统一于单一星地管线。该方法将观测编码为紧凑二值潜空间，星上轻量模块直接预测融合码，仅下传该码，在高分二号上实现 50 倍压缩比下 31.4 dB 的融合 PSNR。基于论文摘要，代码将开源。",
+              "sourceName": "arXiv · 遥感与地球观测预印本",
+              "originalUrl": "https://arxiv.org/abs/2611.06430v1"
+            },
+            {
+              "itemId": "ld4ooeixkwirpj2agee8uw9k6",
+              "title": "Copernicus 开放未机载 FDBAQ 压缩的 Sentinel-1 SAR 数据集",
+              "summary": "Copernicus Data Space Ecosystem 发布一套特殊 Sentinel-1 SAR 数据集，采集时关闭常规机载 FDBAQ 有损压缩，保留仪器原生 10-bit 分辨率雷达回波样本。",
+              "sourceName": "Copernicus Data Space · 数据与平台动态",
+              "originalUrl": "https://dataspace.copernicus.eu/news/2026-11-3-copernicus-sentinel-1-sar-dataset-acquired-without-onboard-fdbaq-compression"
+            },
+            {
+              "itemId": "a3tnf7n4040i9jbqm9ay9wvuj",
+              "title": "空天院研制的“慧眼”植被健康智能体正式发布",
+              "summary": "中国科学院空天信息创新研究院等单位研制的“慧眼”植被健康智能体在第六届植被病虫害遥感大会上正式发布，通过人工智能技术、空天信息与植被健康专业知识结合，将天空地网数据、模型算法和专业知识组织为协同工作的多智能体集群。",
+              "sourceName": "中国科学院空天院 · 科研动态",
+              "originalUrl": "https://aircas.cas.cn/dtxw/kydt/202611/t20261102_8301395.html"
+            }
+          ]
+        },
+        {
+          "label": "生态环境遥感应用",
+          "summary": "瑞士全国30米分辨率树种组成图融合0.1米航空影像绘制10个主要树种基面积份额；巴黎站点发布2011-2022年FTIR痕量气体时序，涵盖CH4、N2O等10种NDACC产品；FIREX-AQ开发机载烟雾年龄估算方法；机器学习锋面检测研究显示加入ERA5再分析场后CSI@150从0.402提升至0.575。这些应用展示了遥感在森林资源、大气成分和气象预报中的深化。",
+          "items": [
+            {
+              "itemId": "iuyrnjp0wthooz0sg4zxvky0n",
+              "title": "预印本研究基于高分辨率航空影像与多模态数据绘制瑞士全国树种组成图",
+              "summary": "该研究在瑞士全国以 30 m 分辨率绘制 10 个主要树种及一个 Other 类的基面积份额图。基于论文摘要，深度学习模型融合 0.1 m 航空 RGB 影像。",
+              "sourceName": "arXiv · 遥感与地球观测预印本",
+              "originalUrl": "https://arxiv.org/abs/2611.08095v1"
+            },
+            {
+              "itemId": "f5bikokmqlzd1fj3rg3ws8yvc",
+              "title": "ESSD讨论稿发布巴黎站点2011–2022年NDACC FTIR痕量气体长时间序列",
+              "summary": "基于论文摘要，作者发布巴黎站点（48°50′04″N，2°21′02″E）2011–2022年地基FTIR痕量气体长时间序列，涵盖CH4、N2O、CO、C2H6、H2CO、NO2、OCS、HCl、HF和HCN共十种NDACC-IRWG产品。",
+              "sourceName": "Earth System Science Data · 数据论文与讨论稿",
+              "originalUrl": "https://essd.copernicus.org/preprints/essd-2026-762/"
+            },
+            {
+              "itemId": "kq80bfsslud9me8zt3gc33gft",
+              "title": "ESSD 论文：FIREX-AQ 机载采样烟雾年龄的两种估算方法与评估",
+              "summary": "基于论文摘要，该研究为 2019 年 NASA-NOAA FIREX-AQ 外场实验中 DC-8 与 NOAA Chemistry Twin Otter 两架飞机采样的大型烟羽开发了烟雾年龄估算。",
+              "sourceName": "Earth System Science Data · 数据论文与讨论稿",
+              "originalUrl": "https://essd.copernicus.org/articles/18/8107/2026/"
+            },
+            {
+              "itemId": "xruyou2g1ukxrjwo1sldxqyic",
+              "title": "预印本：机器学习从卫星观测检测天气锋面，再分析数据带来多大提升",
+              "summary": "基于论文摘要，该研究比较同一机器学习模型在北大西洋和欧洲区域做像素级锋面分类的两种配置：仅用静止轨道红外卫星观测时 CSI@150 为 0.402，加入 28 个 ERA5 再分析场后提升至 0.575（增加 0.173），前者已落在不同气象机构分析结果之间的一致性范围内。",
+              "sourceName": "arXiv · 遥感与地球观测预印本",
+              "originalUrl": "https://arxiv.org/abs/2611.08148v1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "weekly",
       "key": "2026-W44",
       "title": "RSHOT 周报 · 2026-W44",
       "generatedAt": "2026-11-02T02:24:44.730Z",
@@ -8373,7 +8521,7 @@
     }
   ],
   "hot": {
-    "computedAt": "2026-11-08T02:25:22.758Z",
+    "computedAt": "2026-11-09T02:25:30.001Z",
     "windowHours": 48,
     "entries": []
   }
