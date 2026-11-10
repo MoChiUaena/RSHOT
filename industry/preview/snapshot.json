@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-09T02:30:07.301Z",
+  "generatedAt": "2026-11-10T02:30:08.684Z",
   "categories": [
     {
       "key": "paper",
@@ -29,23 +29,7 @@
   ],
   "sources": [
     {
-      "name": "earthaccess · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "Google Earth 与 Earth Engine · 官方博客",
-      "kind": "rss"
-    },
-    {
-      "name": "openEO Python Client · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "TorchGeo · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "NASA Earthdata · 科学数据与工具",
+      "name": "GDAL · 稳定版本发布",
       "kind": "rss"
     },
     {
@@ -53,23 +37,7 @@
       "kind": "web_list"
     },
     {
-      "name": "arXiv · 遥感与地球观测预印本",
-      "kind": "rss"
-    },
-    {
       "name": "EOReader · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "Earth Engine API · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "GDAL · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "Copernicus Data Space · 数据与平台动态",
       "kind": "rss"
     },
     {
@@ -77,7 +45,23 @@
       "kind": "web_list"
     },
     {
+      "name": "Rasterio · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "NASA Earthdata · 科学数据与工具",
+      "kind": "rss"
+    },
+    {
       "name": "rioxarray · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "TorchGeo · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "Copernicus Data Space · 数据与平台动态",
       "kind": "rss"
     },
     {
@@ -85,11 +69,11 @@
       "kind": "rss"
     },
     {
-      "name": "geemap · 稳定版本发布",
+      "name": "Google Earth 与 Earth Engine · 官方博客",
       "kind": "rss"
     },
     {
-      "name": "TerraTorch · 稳定版本发布",
+      "name": "geemap · 稳定版本发布",
       "kind": "rss"
     },
     {
@@ -97,15 +81,146 @@
       "kind": "rss"
     },
     {
-      "name": "Rasterio · 稳定版本发布",
+      "name": "PySTAC · 稳定版本发布",
       "kind": "rss"
     },
     {
-      "name": "PySTAC · 稳定版本发布",
+      "name": "arXiv · 遥感与地球观测预印本",
+      "kind": "rss"
+    },
+    {
+      "name": "openEO Python Client · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "earthaccess · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "TerraTorch · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "Earth Engine API · 稳定版本发布",
       "kind": "rss"
     }
   ],
   "items": [
+    {
+      "id": "o128mp087nf1suv4x5qtpdg3y",
+      "title": "Google Earth Engine API v1.7.52 发布",
+      "originalTitle": "v1.7.52",
+      "summary": "Google Earth Engine API 发布 v1.7.52 版本，主要更新了构建产物和算法配置文件。本次更新仅涉及客户端库的变更，后端服务的变更内容可查看 Earth Engine 发布说明。",
+      "reason": null,
+      "source": {
+        "name": "Earth Engine API · 稳定版本发布",
+        "kind": "rss",
+        "firstParty": true
+      },
+      "originalUrl": "https://github.com/google/earthengine-api/releases/tag/v1.7.52",
+      "publishedAt": "2026-11-09T22:54:59.000Z",
+      "timelineAt": "2026-11-09T23:02:26.386Z",
+      "category": "rs-tools",
+      "tags": [
+        "工具更新",
+        "云端处理",
+        "Google Earth Engine"
+      ],
+      "score": 11,
+      "selected": false
+    },
+    {
+      "id": "fyuchou6wwzq3ap9an8c361dh",
+      "title": "智利原生林样地级活立木生物量与碳储量国家尺度数据集（预印本）",
+      "originalTitle": "A national-wide dataset of plot-level living tree biomass and carbon stocks in Chilean native forests",
+      "summary": "该研究发布了智利原生林国家尺度的活立木生物量与碳储量开放数据集。基于论文摘要，作者整合了2024个野外样地中59,408株树木（77个物种）的实测数据，采用物种特异性异速生长方程结合Boosted Regression Trees模型估算样地级地上生物量密度与碳密度。",
+      "reason": "该研究提供了一个覆盖智利全境（约2800公里纬度梯度）的样地级地上生物量与碳储量开放数据集，通过结合树种特异性异速生长方程与Boosted Regression Trees模型，为南美温带森林碳循环研究提供了高分辨率的地面实测基准。",
+      "source": {
+        "name": "Earth System Science Data · 数据论文与讨论稿",
+        "kind": "web_list",
+        "firstParty": true
+      },
+      "originalUrl": "https://essd.copernicus.org/preprints/essd-2026-720/",
+      "publishedAt": "2026-11-09T00:00:00.000Z",
+      "timelineAt": "2026-11-09T18:28:23.530Z",
+      "category": "data",
+      "tags": [
+        "数据集/基准",
+        "森林/生态",
+        "定量反演",
+        "Copernicus"
+      ],
+      "score": 78,
+      "selected": true
+    },
+    {
+      "id": "f037teo53fy1j4wtlv181zlnt",
+      "title": "Copernicus Sentinel-5P 于 11 月 8 日至 9 日出现数据不可用情况",
+      "originalTitle": "Copernicus Sentinel-5P Unavailability on 08 and 09 November 2026",
+      "summary": "因 Sentinel-5P 地面段故障，数据采集从 11 月 8 日 22:19 UTC 延迟至 9 日 06:36 UTC，影响 47011 至 47016 轨道。期间 NRTI 产品不可用，OFFL 产品仍完全可用但可能略有延迟。",
+      "reason": null,
+      "source": {
+        "name": "Copernicus Data Space · 数据与平台动态",
+        "kind": "rss",
+        "firstParty": true
+      },
+      "originalUrl": "https://dataspace.copernicus.eu/news/2026-11-9-copernicus-sentinel-5p-unavailability-08-and-09-november-2026",
+      "publishedAt": "2026-11-09T14:13:44.000Z",
+      "timelineAt": "2026-11-09T14:23:22.180Z",
+      "category": "satellite",
+      "tags": [
+        "行业动态",
+        "卫星/传感器",
+        "数据质量",
+        "Copernicus"
+      ],
+      "score": 35,
+      "selected": false
+    },
+    {
+      "id": "vs7fl98fj8vyhgwteynh8worq",
+      "title": "Copernicus 土地监测服务发布 Protected Areas 2021 保护区土地覆盖数据层",
+      "originalTitle": "New product release: Copernicus Land Monitoring Service Protected Areas 2021",
+      "summary": "Copernicus 土地监测服务发布 Protected Areas 2021 数据层，接替原 N2K 产品，提供 EEA32 及英国范围内 25,011 个陆地 Natura 2000 与 Emerald 站点的高分辨率土地利用/土地覆盖信息，覆盖约 821,000 km²。",
+      "reason": "相比前身 N2K，Protected Areas 2021 将覆盖范围从 4,790 个草地为主的 Natura 2000 站点扩展到 25,011 个陆地站点，主题类别由 55 增至 59，更新周期由六年缩短为三年。",
+      "source": {
+        "name": "Copernicus Data Space · 数据与平台动态",
+        "kind": "rss",
+        "firstParty": true
+      },
+      "originalUrl": "https://dataspace.copernicus.eu/news/2026-11-9-new-product-release-copernicus-land-monitoring-service-protected-areas-2021",
+      "publishedAt": "2026-11-09T08:26:41.000Z",
+      "timelineAt": "2026-11-09T09:19:18.402Z",
+      "category": "data",
+      "tags": [
+        "数据集/基准",
+        "Copernicus",
+        "分类识别"
+      ],
+      "score": 70,
+      "selected": true
+    },
+    {
+      "id": "d8cl5wdd5av4ay50cszgq81hq",
+      "title": "Copernicus Browser 与 Sentinel Hub 服务将于 11 月 10 日至 13 日升级",
+      "originalTitle": "Upgrade of Copernicus Browser and Sentinel Hub services from 10/11/2026 till 13/11/2026",
+      "summary": "Copernicus 通知 CDSE 用户，因 Copernicus Browser 和 Sentinel Hub 服务升级，11 月 10 日至 13 日期间可能出现短时服务中断。",
+      "reason": null,
+      "source": {
+        "name": "Copernicus Data Space · 数据与平台动态",
+        "kind": "rss",
+        "firstParty": true
+      },
+      "originalUrl": "https://dataspace.copernicus.eu/news/2026-11-9-upgrade-copernicus-browser-and-sentinel-hub-services",
+      "publishedAt": "2026-11-09T09:05:41.000Z",
+      "timelineAt": "2026-11-09T09:19:18.388Z",
+      "category": "rs-tools",
+      "tags": [
+        "其他"
+      ],
+      "score": 22,
+      "selected": false
+    },
     {
       "id": "mq9u0rq1tokp5cfhcjcq5j5to",
       "title": "预印本：TerraMesh-Masks 面向地球观测的开放词汇分割数据集提出",
@@ -685,52 +800,6 @@
       ],
       "score": 68,
       "selected": true
-    },
-    {
-      "id": "l0f5zajqa8eq1xo33utkuw935",
-      "title": "Google Earth Engine Python API v1.7.51 发布",
-      "originalTitle": "v1.7.51",
-      "summary": "Google Earth Engine Python 客户端库发布 v1.7.51，更新构建产物并修正 API 文档中的位运算符说明与拼写错误。本次更新将 CLI 配置文件保存权限限制为 0o600，仅含客户端库变更，后端服务变更见 Earth Engine Release Notes。",
-      "reason": null,
-      "source": {
-        "name": "Earth Engine API · 稳定版本发布",
-        "kind": "rss",
-        "firstParty": true
-      },
-      "originalUrl": "https://github.com/google/earthengine-api/releases/tag/v1.7.51",
-      "publishedAt": "2026-11-02T18:37:49.000Z",
-      "timelineAt": "2026-11-02T18:43:54.138Z",
-      "category": "rs-tools",
-      "tags": [
-        "工具更新",
-        "开源/仓库",
-        "云端处理",
-        "Google Earth Engine"
-      ],
-      "score": 20,
-      "selected": false
-    },
-    {
-      "id": "p0w3jao5ns8qdva1yfz0zb221",
-      "title": "CDSE Marketplace 和 Forum 将于 24/11/2026 进行系统更新",
-      "originalTitle": "System Update Notification – CDSE Marketplace and Forum on 24/11/2026",
-      "summary": "Copernicus Data Space 宣布 CDSE Marketplace 和 Forum 将于 24 November 09:00 CET 进行系统更新，预计持续约 30 分钟，期间两项服务将暂时不可用。此次更新旨在提升服务的稳定性、性能和整体可靠性。",
-      "reason": null,
-      "source": {
-        "name": "Copernicus Data Space · 数据与平台动态",
-        "kind": "rss",
-        "firstParty": true
-      },
-      "originalUrl": "https://dataspace.copernicus.eu/news/2026-11-2-system-update-notification-cdse-marketplace-and-forum-24112026",
-      "publishedAt": "2026-11-02T13:26:25.000Z",
-      "timelineAt": "2026-11-02T15:13:02.277Z",
-      "category": "industry",
-      "tags": [
-        "行业动态",
-        "Copernicus"
-      ],
-      "score": 10,
-      "selected": false
     },
     {
       "id": "czzkxdpznod60jlm5xh59j3zx",
@@ -3731,6 +3800,40 @@
     }
   ],
   "reports": [
+    {
+      "kind": "daily",
+      "key": "2026-11-10",
+      "title": "遥感日报 · 2026-11-10",
+      "generatedAt": "2026-11-10T00:00:24.754Z",
+      "editorialMode": "model",
+      "lead": {
+        "title": "智利发布原生林样地级生物量与碳储量国家数据集",
+        "leadParagraph": "智利发布原生林国家尺度活立木生物量与碳储量开放数据集，整合2024个野外样地中59,408株树木的实测数据。Copernicus土地监测服务同步推出Protected Areas 2021数据层，接替原N2K产品，覆盖EEA32及英国范围内25,011个陆地保护站点。"
+      },
+      "overview": null,
+      "sections": [
+        {
+          "label": "数据集与基准",
+          "summary": null,
+          "items": [
+            {
+              "itemId": "fyuchou6wwzq3ap9an8c361dh",
+              "title": "智利原生林样地级活立木生物量与碳储量国家尺度数据集（预印本）",
+              "summary": "该研究发布了智利原生林国家尺度的活立木生物量与碳储量开放数据集。基于论文摘要，作者整合了2024个野外样地中59,408株树木（77个物种）的实测数据，采用物种特异性异速生长方程结合Boosted Regression Trees模型估算样地级地上生物量密度与碳密度。",
+              "sourceName": "Earth System Science Data · 数据论文与讨论稿",
+              "originalUrl": "https://essd.copernicus.org/preprints/essd-2026-720/"
+            },
+            {
+              "itemId": "vs7fl98fj8vyhgwteynh8worq",
+              "title": "Copernicus 土地监测服务发布 Protected Areas 2021 保护区土地覆盖数据层",
+              "summary": "Copernicus 土地监测服务发布 Protected Areas 2021 数据层，接替原 N2K 产品，提供 EEA32 及英国范围内 25,011 个陆地 Natura 2000 与 Emerald 站点的高分辨率土地利用/土地覆盖信息，覆盖约 821,000 km²。",
+              "sourceName": "Copernicus Data Space · 数据与平台动态",
+              "originalUrl": "https://dataspace.copernicus.eu/news/2026-11-9-new-product-release-copernicus-land-monitoring-service-protected-areas-2021"
+            }
+          ]
+        }
+      ]
+    },
     {
       "kind": "daily",
       "key": "2026-11-07",
@@ -7981,6 +8084,8 @@
       "group": "company",
       "definition": "Copernicus 的遥感研究、观测数据与工程动态。",
       "itemIds": [
+        "fyuchou6wwzq3ap9an8c361dh",
+        "vs7fl98fj8vyhgwteynh8worq",
         "rie3ti24q8g59p0jwdl91j0v3",
         "ld4ooeixkwirpj2agee8uw9k6",
         "garxvkdvueowozii9fapawv78",
@@ -8176,6 +8281,7 @@
       "group": "field",
       "definition": "追踪定量反演的研究方法、数据、工具与应用实践。",
       "itemIds": [
+        "fyuchou6wwzq3ap9an8c361dh",
         "rie3ti24q8g59p0jwdl91j0v3",
         "xruyou2g1ukxrjwo1sldxqyic",
         "f5bikokmqlzd1fj3rg3ws8yvc",
@@ -8303,6 +8409,7 @@
       "group": "field",
       "definition": "追踪森林与生态的研究方法、数据、工具与应用实践。",
       "itemIds": [
+        "fyuchou6wwzq3ap9an8c361dh",
         "iuyrnjp0wthooz0sg4zxvky0n",
         "cxxutbvhfv8snsuyt1mxrh0yk",
         "c1ovkgg7jtgf26xdz1tmoych2",
@@ -8393,6 +8500,8 @@
       "group": "genre",
       "definition": "值得关注的遥感数据集与基准，保留原文入口与适用条件。",
       "itemIds": [
+        "fyuchou6wwzq3ap9an8c361dh",
+        "vs7fl98fj8vyhgwteynh8worq",
         "mq9u0rq1tokp5cfhcjcq5j5to",
         "rie3ti24q8g59p0jwdl91j0v3",
         "z5yw5760vfpcaxcvqhui6vs1x",
@@ -8521,7 +8630,7 @@
     }
   ],
   "hot": {
-    "computedAt": "2026-11-09T02:25:30.001Z",
+    "computedAt": "2026-11-10T02:25:22.224Z",
     "windowHours": 48,
     "entries": []
   }
