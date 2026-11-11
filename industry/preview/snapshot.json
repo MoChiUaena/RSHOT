@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-10T02:30:08.684Z",
+  "generatedAt": "2026-11-11T02:30:08.677Z",
   "categories": [
     {
       "key": "paper",
@@ -29,47 +29,11 @@
   ],
   "sources": [
     {
-      "name": "GDAL · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "中国科学院空天院 · 科研动态",
-      "kind": "web_list"
-    },
-    {
-      "name": "EOReader · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "Earth System Science Data · 数据论文与讨论稿",
-      "kind": "web_list"
-    },
-    {
-      "name": "Rasterio · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "NASA Earthdata · 科学数据与工具",
-      "kind": "rss"
-    },
-    {
-      "name": "rioxarray · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "TorchGeo · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
       "name": "Copernicus Data Space · 数据与平台动态",
       "kind": "rss"
     },
     {
-      "name": "STAC FastAPI · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "Google Earth 与 Earth Engine · 官方博客",
+      "name": "Rasterio · 稳定版本发布",
       "kind": "rss"
     },
     {
@@ -77,23 +41,7 @@
       "kind": "rss"
     },
     {
-      "name": "ESA · 对地观测",
-      "kind": "rss"
-    },
-    {
-      "name": "PySTAC · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "arXiv · 遥感与地球观测预印本",
-      "kind": "rss"
-    },
-    {
-      "name": "openEO Python Client · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "earthaccess · 稳定版本发布",
+      "name": "EOReader · 稳定版本发布",
       "kind": "rss"
     },
     {
@@ -101,11 +49,187 @@
       "kind": "rss"
     },
     {
+      "name": "arXiv · 遥感与地球观测预印本",
+      "kind": "rss"
+    },
+    {
+      "name": "STAC FastAPI · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "NASA Earthdata · 科学数据与工具",
+      "kind": "rss"
+    },
+    {
+      "name": "ESA · 对地观测",
+      "kind": "rss"
+    },
+    {
+      "name": "中国科学院空天院 · 科研动态",
+      "kind": "web_list"
+    },
+    {
+      "name": "PySTAC · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "earthaccess · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "openEO Python Client · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "TorchGeo · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
       "name": "Earth Engine API · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "rioxarray · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "Earth System Science Data · 数据论文与讨论稿",
+      "kind": "web_list"
+    },
+    {
+      "name": "GDAL · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "Google Earth 与 Earth Engine · 官方博客",
       "kind": "rss"
     }
   ],
   "items": [
+    {
+      "id": "uw6f97sez0un4l8spgivw3aur",
+      "title": "ESSD 发表 BMAT：覆盖全球 73 个主要城市 2209 万栋建筑的足迹级立面材料数据集",
+      "originalTitle": "BMAT: a footprint-level building facade material dataset for 73 major cities worldwide",
+      "summary": "基于论文摘要，作者发布足迹级建筑立面材料数据集 BMAT，覆盖全球 73 个主要城市的 2209 万栋建筑，逐栋关联建筑足迹与由 1.47 亿张带时间戳街景影像（2007–2025 年间采集）推断的主导可见临街立面材料标签。",
+      "reason": "论文将建筑足迹与街景推断的立面材料标签逐栋关联，给出与 Overture Maps 记录的交叉一致性检验，并公开了带时间戳的街道级材料数据，可用于建筑能耗与城市微气候等研究的属性输入。",
+      "source": {
+        "name": "Earth System Science Data · 数据论文与讨论稿",
+        "kind": "web_list",
+        "firstParty": true
+      },
+      "originalUrl": "https://essd.copernicus.org/articles/18/8191/2026/",
+      "publishedAt": "2026-11-10T00:00:00.000Z",
+      "timelineAt": "2026-11-10T17:50:36.598Z",
+      "category": "data",
+      "tags": [
+        "数据集/基准",
+        "城市",
+        "多模态",
+        "分类识别",
+        "Copernicus"
+      ],
+      "score": 83,
+      "selected": true
+    },
+    {
+      "id": "mkgmst1bpp2irqr3wzsc7fk6z",
+      "title": "预印本：基于 Google AlphaEarth Foundations 嵌入与 Fields of the World 田块边界的摩洛哥全国尺度作物类型制图",
+      "originalTitle": "National-Scale Crop Type Mapping in Morocco Using Google AlphaEarth Foundations Embeddings and the Fields of the World Field Boundary Map",
+      "summary": "基于论文摘要，该研究考察将 Google AlphaEarth Foundations 的 64 维预训练嵌入用于摩洛哥全国尺度作物类型制图，针对冬季谷物、木本作物和其他作物三类，用轻量下游分类器直接处理嵌入而无需原始卫星影像，并借助 Fields of the World 全球田块边界图将预测限定在农业地块。",
+      "reason": "该研究基于论文摘要给出了在摩洛哥利用 Google AlphaEarth Foundations 64 维嵌入结合 Fields of the World 田块边界进行全国尺度作物分类的流程，并报告了独立测试集十次重复运行的平均精度与约五小时的全国推理耗时。",
+      "source": {
+        "name": "arXiv · 遥感与地球观测预印本",
+        "kind": "rss",
+        "firstParty": true
+      },
+      "originalUrl": "https://arxiv.org/abs/2611.12681v1",
+      "publishedAt": "2026-11-09T16:45:47.000Z",
+      "timelineAt": "2026-11-10T07:33:30.583Z",
+      "category": "paper",
+      "tags": [
+        "论文/研究",
+        "农业",
+        "遥感基础模型",
+        "Google Earth Engine"
+      ],
+      "score": 71,
+      "selected": true
+    },
+    {
+      "id": "dwewbn1fy9d8uc4zp7amrzbu6",
+      "title": "GeoScope：预印本提出免训练程序化执行方法，突破超高分辨率遥感问答的计数视域限制",
+      "originalTitle": "GeoScope: Training-Free Program Execution beyond the Counting Horizon for Ultra-High-Resolution Remote Sensing Question Answering",
+      "summary": "基于论文摘要，GeoScope 提出一种免训练方法，用纯文本语言模型把问题解析为带类型的空间程序以固定区域与分辨率，让 VLM 只在其可工作范围内做定位与计数，方向关系由定位框显式计算。",
+      "reason": "论文将 VLM 在超高分辨率影像上的计数失效量化为可测的“计数视域”，并用幂律响应模型决定只在超出该限时才切分视图，相对既有“选定视图后直接信任 VLM 答案”的做法提供了可复现的划分依据。",
+      "source": {
+        "name": "arXiv · 遥感与地球观测预印本",
+        "kind": "rss",
+        "firstParty": true
+      },
+      "originalUrl": "https://arxiv.org/abs/2611.12699v1",
+      "publishedAt": "2026-11-09T16:57:25.000Z",
+      "timelineAt": "2026-11-10T07:33:30.572Z",
+      "category": "paper",
+      "tags": [
+        "论文/研究",
+        "遥感基础模型",
+        "多模态",
+        "目标检测",
+        "arXiv"
+      ],
+      "score": 78,
+      "selected": true
+    },
+    {
+      "id": "zh108gwhpp0sj9bcjfys6o3vr",
+      "title": "《全球碳收支2026》数据论文讨论稿发布：2025年人为CO2排放11.7±0.9 GtC，大气浓度达425.6 ppm",
+      "originalTitle": "Global Carbon Budget 2026",
+      "summary": "基于论文摘要，Friedlingstein 等以讨论稿形式发布 Global Carbon Budget 2026，给出1959–2025年全球碳收支五分量的估计与不确定性。",
+      "reason": "该文为年度更新的全球碳收支数据集论文，基于摘要给出1959–2025年碳收支五分量的一致估计、2025年收支结果及2026年初步数据，并以DOI提供配套数据，可用于追溯方法与数据版本。",
+      "source": {
+        "name": "Earth System Science Data · 数据论文与讨论稿",
+        "kind": "web_list",
+        "firstParty": true
+      },
+      "originalUrl": "https://essd.copernicus.org/preprints/essd-2026-895/",
+      "publishedAt": "2026-11-10T00:00:00.000Z",
+      "timelineAt": "2026-11-10T06:39:37.584Z",
+      "category": "data",
+      "tags": [
+        "论文/研究",
+        "数据集/基准",
+        "气候",
+        "定量反演",
+        "数据质量",
+        "海洋"
+      ],
+      "score": 80,
+      "selected": true
+    },
+    {
+      "id": "r1jqt6tb0qk0fxs0hy5jg8zh4",
+      "title": "预印本提出用稀疏自编码器分解地球观测嵌入（AlphaEarth、Tessera）",
+      "originalTitle": "Decomposing Earth Embeddings with Sparse Autoencoders",
+      "summary": "基于论文摘要，该预印本提出用稀疏自编码器（SAE）将地球观测基础模型产生的全球米级嵌入分解为过完备字典上的稀疏、近似单语义特征，并配套设计了评估协议。",
+      "reason": "针对地球观测基础模型嵌入提出稀疏自编码器分解方法，并给出含匹配稀疏度重建、概念对齐与空间尺度三项指标及冻结随机字典基线的评估协议，为嵌入可解释性比较提供了可操作的检验设置。",
+      "source": {
+        "name": "arXiv · 遥感与地球观测预印本",
+        "kind": "rss",
+        "firstParty": true
+      },
+      "originalUrl": "https://arxiv.org/abs/2611.11398v1",
+      "publishedAt": "2026-11-08T14:07:08.000Z",
+      "timelineAt": "2026-11-10T04:31:27.420Z",
+      "category": "paper",
+      "tags": [
+        "论文/研究",
+        "遥感基础模型",
+        "自监督学习",
+        "arXiv"
+      ],
+      "score": 72,
+      "selected": true
+    },
     {
       "id": "o128mp087nf1suv4x5qtpdg3y",
       "title": "Google Earth Engine API v1.7.52 发布",
@@ -703,31 +827,6 @@
       "selected": true
     },
     {
-      "id": "mtjkn59nl5sz1b9r5zvif0rsr",
-      "title": "CDSE 案例：FairGrow 基于 Sentinel-2 的精准农业平台",
-      "originalTitle": "CDSE FairGrow Use Case",
-      "summary": "FairGrow（fairgrow.eu）是面向果农、温室、庄园和有机种植者的精准农业平台，基于 Copernicus Data Space Ecosystem（CDSE）处理 Sentinel-2 影像，并结合土壤传感器、气象、地块及作物登记数据。",
-      "reason": null,
-      "source": {
-        "name": "Copernicus Data Space · 数据与平台动态",
-        "kind": "rss",
-        "firstParty": true
-      },
-      "originalUrl": "https://dataspace.copernicus.eu/news/2026-11-3-cdse-fairgrow-use-case",
-      "publishedAt": "2026-11-03T07:12:16.000Z",
-      "timelineAt": "2026-11-03T08:02:23.685Z",
-      "category": "tip",
-      "tags": [
-        "应用案例",
-        "农业",
-        "云端处理",
-        "光学遥感",
-        "Copernicus"
-      ],
-      "score": 35,
-      "selected": false
-    },
-    {
       "id": "opko1syuju8mmpom9t0hodovk",
       "title": "预印本论文提出基于 SAM3 的非对称语义-空间学习框架 ASCoR，用于遥感语义分割域泛化",
       "originalTitle": "ASCoR: Asymmetric Semantic-Spatial Learning for Remote Sensing Domain Generalization",
@@ -750,32 +849,6 @@
       ],
       "score": 72,
       "selected": true
-    },
-    {
-      "id": "c425d6h4vof2kjkuf72dnxnui",
-      "title": "预印本：CRFNet——面向多源遥感影像分类的跨层精炼与频率感知融合网络",
-      "originalTitle": "Cross-Layer Refinement and Frequency-aware Fusion Network for Multi-Source Remote Sensing Image Classification",
-      "summary": "作者提出用于多源遥感影像分类的轻量双分支网络 CRFNet，包含跨层精炼注意力（CLRA）模块与傅里叶域的频率感知互补融合（FCF）模块。基于论文摘要，该方法在 Houston 2013 和 Augsburg 数据集上持续优于若干现有先进方法，代码已在 GitHub 公开（许可证未说明）。该论文为 arXiv 预印本（letter），尚未经同行评审。",
-      "reason": null,
-      "source": {
-        "name": "arXiv · 遥感与地球观测预印本",
-        "kind": "rss",
-        "firstParty": true
-      },
-      "originalUrl": "https://arxiv.org/abs/2611.03078v1",
-      "publishedAt": "2026-11-02T13:05:29.000Z",
-      "timelineAt": "2026-11-03T06:31:55.445Z",
-      "category": "paper",
-      "tags": [
-        "论文/研究",
-        "分类识别",
-        "多模态",
-        "数据融合",
-        "高光谱",
-        "arXiv"
-      ],
-      "score": 59,
-      "selected": false
     },
     {
       "id": "l9l95o2obc3pgupdoz35uden2",
@@ -3800,6 +3873,67 @@
     }
   ],
   "reports": [
+    {
+      "kind": "daily",
+      "key": "2026-11-11",
+      "title": "遥感日报 · 2026-11-11",
+      "generatedAt": "2026-11-11T00:00:32.876Z",
+      "editorialMode": "model",
+      "lead": {
+        "title": "BMAT 数据集发布：覆盖全球73城2209万栋建筑立面材料",
+        "leadParagraph": "ESSD 发表 BMAT 数据集，覆盖全球 73 个主要城市的 2209 万栋建筑，基于 1.47 亿张街景影像逐栋标注主导可见临街立面材料。同日《全球碳收支2026》讨论稿发布，估计 2025 年人为 CO2 排放 11.7±0.9 GtC、大气浓度达 425.6 ppm。此外还有多项遥感方法与数据集进展。"
+      },
+      "overview": null,
+      "sections": [
+        {
+          "label": "论文与方法",
+          "summary": null,
+          "items": [
+            {
+              "itemId": "dwewbn1fy9d8uc4zp7amrzbu6",
+              "title": "GeoScope：预印本提出免训练程序化执行方法，突破超高分辨率遥感问答的计数视域限制",
+              "summary": "基于论文摘要，GeoScope 提出一种免训练方法，用纯文本语言模型把问题解析为带类型的空间程序以固定区域与分辨率，让 VLM 只在其可工作范围内做定位与计数，方向关系由定位框显式计算。",
+              "sourceName": "arXiv · 遥感与地球观测预印本",
+              "originalUrl": "https://arxiv.org/abs/2611.12699v1"
+            },
+            {
+              "itemId": "r1jqt6tb0qk0fxs0hy5jg8zh4",
+              "title": "预印本提出用稀疏自编码器分解地球观测嵌入（AlphaEarth、Tessera）",
+              "summary": "基于论文摘要，该预印本提出用稀疏自编码器（SAE）将地球观测基础模型产生的全球米级嵌入分解为过完备字典上的稀疏、近似单语义特征，并配套设计了评估协议。",
+              "sourceName": "arXiv · 遥感与地球观测预印本",
+              "originalUrl": "https://arxiv.org/abs/2611.11398v1"
+            },
+            {
+              "itemId": "mkgmst1bpp2irqr3wzsc7fk6z",
+              "title": "预印本：基于 Google AlphaEarth Foundations 嵌入与 Fields of the World 田块边界的摩洛哥全国尺度作物类型制图",
+              "summary": "基于论文摘要，该研究考察将 Google AlphaEarth Foundations 的 64 维预训练嵌入用于摩洛哥全国尺度作物类型制图，针对冬季谷物、木本作物和其他作物三类，用轻量下游分类器直接处理嵌入而无需原始卫星影像，并借助 Fields of the World 全球田块边界图将预测限定在农业地块。",
+              "sourceName": "arXiv · 遥感与地球观测预印本",
+              "originalUrl": "https://arxiv.org/abs/2611.12681v1"
+            }
+          ]
+        },
+        {
+          "label": "数据集与基准",
+          "summary": null,
+          "items": [
+            {
+              "itemId": "uw6f97sez0un4l8spgivw3aur",
+              "title": "ESSD 发表 BMAT：覆盖全球 73 个主要城市 2209 万栋建筑的足迹级立面材料数据集",
+              "summary": "基于论文摘要，作者发布足迹级建筑立面材料数据集 BMAT，覆盖全球 73 个主要城市的 2209 万栋建筑，逐栋关联建筑足迹与由 1.47 亿张带时间戳街景影像（2007–2025 年间采集）推断的主导可见临街立面材料标签。",
+              "sourceName": "Earth System Science Data · 数据论文与讨论稿",
+              "originalUrl": "https://essd.copernicus.org/articles/18/8191/2026/"
+            },
+            {
+              "itemId": "zh108gwhpp0sj9bcjfys6o3vr",
+              "title": "《全球碳收支2026》数据论文讨论稿发布：2025年人为CO2排放11.7±0.9 GtC，大气浓度达425.6 ppm",
+              "summary": "基于论文摘要，Friedlingstein 等以讨论稿形式发布 Global Carbon Budget 2026，给出1959–2025年全球碳收支五分量的估计与不确定性。",
+              "sourceName": "Earth System Science Data · 数据论文与讨论稿",
+              "originalUrl": "https://essd.copernicus.org/preprints/essd-2026-895/"
+            }
+          ]
+        }
+      ]
+    },
     {
       "kind": "daily",
       "key": "2026-11-10",
@@ -8084,6 +8218,7 @@
       "group": "company",
       "definition": "Copernicus 的遥感研究、观测数据与工程动态。",
       "itemIds": [
+        "uw6f97sez0un4l8spgivw3aur",
         "fyuchou6wwzq3ap9an8c361dh",
         "vs7fl98fj8vyhgwteynh8worq",
         "rie3ti24q8g59p0jwdl91j0v3",
@@ -8108,7 +8243,9 @@
       "name": "Google Earth Engine",
       "group": "company",
       "definition": "Google Earth Engine 的遥感研究、观测数据与工程动态。",
-      "itemIds": []
+      "itemIds": [
+        "mkgmst1bpp2irqr3wzsc7fk6z"
+      ]
     },
     {
       "slug": "torchgeo",
@@ -8242,6 +8379,7 @@
       "group": "field",
       "definition": "追踪目标检测的研究方法、数据、工具与应用实践。",
       "itemIds": [
+        "dwewbn1fy9d8uc4zp7amrzbu6",
         "qfzw77qdi4u5ufu3hf1pcv6fr",
         "zazu2v2g42bi0riwwjvv8uvou",
         "kn7xpvca4mez0n1h9o8z7oeq7",
@@ -8281,6 +8419,7 @@
       "group": "field",
       "definition": "追踪定量反演的研究方法、数据、工具与应用实践。",
       "itemIds": [
+        "zh108gwhpp0sj9bcjfys6o3vr",
         "fyuchou6wwzq3ap9an8c361dh",
         "rie3ti24q8g59p0jwdl91j0v3",
         "xruyou2g1ukxrjwo1sldxqyic",
@@ -8310,6 +8449,9 @@
       "group": "field",
       "definition": "追踪遥感基础模型的研究方法、数据、工具与应用实践。",
       "itemIds": [
+        "mkgmst1bpp2irqr3wzsc7fk6z",
+        "dwewbn1fy9d8uc4zp7amrzbu6",
+        "r1jqt6tb0qk0fxs0hy5jg8zh4",
         "mq9u0rq1tokp5cfhcjcq5j5to",
         "wabwu0q6n29slr7hyivkknqep",
         "garxvkdvueowozii9fapawv78",
@@ -8394,6 +8536,7 @@
       "group": "field",
       "definition": "追踪农业的研究方法、数据、工具与应用实践。",
       "itemIds": [
+        "mkgmst1bpp2irqr3wzsc7fk6z",
         "a3tnf7n4040i9jbqm9ay9wvuj",
         "ezopn0l2pthtc3s089hx2cq6n",
         "ujo5l9tbn2356mu8d05ewf1b5",
@@ -8427,6 +8570,10 @@
       "group": "genre",
       "definition": "值得关注的遥感论文与研究，保留原文入口与适用条件。",
       "itemIds": [
+        "mkgmst1bpp2irqr3wzsc7fk6z",
+        "dwewbn1fy9d8uc4zp7amrzbu6",
+        "zh108gwhpp0sj9bcjfys6o3vr",
+        "r1jqt6tb0qk0fxs0hy5jg8zh4",
         "mq9u0rq1tokp5cfhcjcq5j5to",
         "iuyrnjp0wthooz0sg4zxvky0n",
         "xruyou2g1ukxrjwo1sldxqyic",
@@ -8500,6 +8647,8 @@
       "group": "genre",
       "definition": "值得关注的遥感数据集与基准，保留原文入口与适用条件。",
       "itemIds": [
+        "uw6f97sez0un4l8spgivw3aur",
+        "zh108gwhpp0sj9bcjfys6o3vr",
         "fyuchou6wwzq3ap9an8c361dh",
         "vs7fl98fj8vyhgwteynh8worq",
         "mq9u0rq1tokp5cfhcjcq5j5to",
@@ -8630,7 +8779,7 @@
     }
   ],
   "hot": {
-    "computedAt": "2026-11-10T02:25:22.224Z",
+    "computedAt": "2026-11-11T02:25:29.515Z",
     "windowHours": 48,
     "entries": []
   }
