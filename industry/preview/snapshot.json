@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-11T02:30:08.677Z",
+  "generatedAt": "2026-11-12T02:30:07.465Z",
   "categories": [
     {
       "key": "paper",
@@ -29,63 +29,7 @@
   ],
   "sources": [
     {
-      "name": "Copernicus Data Space · 数据与平台动态",
-      "kind": "rss"
-    },
-    {
-      "name": "Rasterio · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "geemap · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "EOReader · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "TerraTorch · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "arXiv · 遥感与地球观测预印本",
-      "kind": "rss"
-    },
-    {
-      "name": "STAC FastAPI · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "NASA Earthdata · 科学数据与工具",
-      "kind": "rss"
-    },
-    {
-      "name": "ESA · 对地观测",
-      "kind": "rss"
-    },
-    {
-      "name": "中国科学院空天院 · 科研动态",
-      "kind": "web_list"
-    },
-    {
       "name": "PySTAC · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "earthaccess · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "openEO Python Client · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "TorchGeo · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "Earth Engine API · 稳定版本发布",
       "kind": "rss"
     },
     {
@@ -97,7 +41,63 @@
       "kind": "web_list"
     },
     {
+      "name": "Earth Engine API · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
       "name": "GDAL · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "ESA · 对地观测",
+      "kind": "rss"
+    },
+    {
+      "name": "TorchGeo · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "geemap · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "TerraTorch · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "arXiv · 遥感与地球观测预印本",
+      "kind": "rss"
+    },
+    {
+      "name": "EOReader · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "STAC FastAPI · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "openEO Python Client · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "中国科学院空天院 · 科研动态",
+      "kind": "web_list"
+    },
+    {
+      "name": "Rasterio · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "NASA Earthdata · 科学数据与工具",
+      "kind": "rss"
+    },
+    {
+      "name": "Copernicus Data Space · 数据与平台动态",
+      "kind": "rss"
+    },
+    {
+      "name": "earthaccess · 稳定版本发布",
       "kind": "rss"
     },
     {
@@ -106,6 +106,132 @@
     }
   ],
   "items": [
+    {
+      "id": "xp1kywmpe59cxvnq3sswk02qj",
+      "title": "MAESTRO 发布基于 SAFIRE ATR42 飞机的湍流数据集，用于研究边界层相干结构与云组织",
+      "originalTitle": "The MAESTRO turbulence dataset derived from the SAFIRE ATR42 aircraft",
+      "summary": "基于论文摘要，MAESTRO 项目发布了基于 2024 年 8-9 月 SAFIRE ATR42 飞机在北大西洋热带海域（佛得角群岛附近）观测的湍流数据集，包含 40 小时 25 Hz 分辨率的水汽混合比、温度、三维风场时序及其统计矩和积分长度尺度，其中近 13 小时为高质量边界层样本。",
+      "reason": "该数据集通过部署包括新型 FAST-WAVE 湿度计在内的多传感器组合，提供了北大西洋热带海域边界层高分辨率湍流观测，并公开了经过校准和校正的 25 Hz 时序数据及统计特征，支撑云组织与边界层相干结构研究。",
+      "source": {
+        "name": "Earth System Science Data · 数据论文与讨论稿",
+        "kind": "web_list",
+        "firstParty": true
+      },
+      "originalUrl": "https://essd.copernicus.org/articles/18/8229/2026/",
+      "publishedAt": "2026-11-11T00:00:00.000Z",
+      "timelineAt": "2026-11-11T18:14:37.383Z",
+      "category": "data",
+      "tags": [
+        "数据集/基准",
+        "定量反演",
+        "气候",
+        "海洋"
+      ],
+      "score": 75,
+      "selected": true
+    },
+    {
+      "id": "gpzxrh22az2jibzxeyd6uobb7",
+      "title": "预印本：DailyWildfireCAN——加拿大次日野火蔓延预测数据集与基准",
+      "originalTitle": "DailyWildfireCAN: A Dataset and Benchmark for Next-Day Wildfire Spread Prediction in Canada",
+      "summary": "基于论文摘要，作者提出DailyWildfireCAN，一个用于加拿大次日野火蔓延预测的多模态、多时相数据集与基准。数据集覆盖2017–2024年8个火季的2,440起野火事件，空间分辨率90-m、时间分辨率24小时，整合地形、气象、土地覆盖、植被与森林结构、人类影响指数及卫星影像等33个特征。",
+      "reason": "提供了覆盖加拿大2,440起野火、90-m/24小时分辨率的次日蔓延预测数据集与基准，并比较多时相与单时相模型及多维评估框架，弥补了以往研究偏美国数据的空缺。",
+      "source": {
+        "name": "arXiv · 遥感与地球观测预印本",
+        "kind": "rss",
+        "firstParty": true
+      },
+      "originalUrl": "https://arxiv.org/abs/2611.14207v1",
+      "publishedAt": "2026-11-10T15:29:13.000Z",
+      "timelineAt": "2026-11-11T07:54:38.354Z",
+      "category": "data",
+      "tags": [
+        "数据集/基准",
+        "灾害监测",
+        "遥感基础模型",
+        "多模态",
+        "时序分析"
+      ],
+      "score": 70,
+      "selected": true
+    },
+    {
+      "id": "pcrc7uazq9i3q4ihhmonbgfpg",
+      "title": "UniFlow-RS 预印本：单一潜流匹配预测器统一六类遥感任务",
+      "originalTitle": "UniFlow-RS: Unified Generative Prediction for Heterogeneous Remote-Sensing Tasks",
+      "summary": "基于论文摘要，UniFlow-RS 用一个共享的潜流匹配预测器统一六类遥感任务，将任务输出转为公共潜空间中的结构化视觉目标，并以 Task-Modality Adaptive Timestep Sampling 协调多任务优化。",
+      "reason": "摘要指出单一预训练 flow-matching 预测器可将多任务输出映射到公共潜空间，并用 TMAS 动态分配训练时间步，以减少任务特定预测损失并支持跨任务零样本迁移。",
+      "source": {
+        "name": "arXiv · 遥感与地球观测预印本",
+        "kind": "rss",
+        "firstParty": true
+      },
+      "originalUrl": "https://arxiv.org/abs/2611.14281v1",
+      "publishedAt": "2026-11-10T16:23:31.000Z",
+      "timelineAt": "2026-11-11T07:54:38.345Z",
+      "category": "paper",
+      "tags": [
+        "论文/研究",
+        "遥感基础模型",
+        "多模态",
+        "泛化/迁移",
+        "自监督学习"
+      ],
+      "score": 71,
+      "selected": true
+    },
+    {
+      "id": "fg4asx909tjogsekwy68v047x",
+      "title": "北半球多年冻土活动层厚度 1 km 网格数据集（2000–2024）",
+      "originalTitle": "A 1 km gridded dataset of Northern Hemisphere permafrost active layer thickness (2000–2024)",
+      "summary": "基于论文摘要，研究构建了 2000–2024 年北半球多年冻土区 1 km 分辨率逐年活动层厚度（ALT）网格数据集，采用 LightGBM–XGBoost 集成框架重建。",
+      "reason": "摘要给出多种交叉验证设置、逐年适用区图层与重采样不确定度，并明确深融与稀疏代表条件下误差较大，为半球尺度活动层厚度数据集的适用范围提供了可核查依据。",
+      "source": {
+        "name": "Earth System Science Data · 数据论文与讨论稿",
+        "kind": "web_list",
+        "firstParty": true
+      },
+      "originalUrl": "https://essd.copernicus.org/articles/18/8211/2026/",
+      "publishedAt": "2026-11-11T00:00:00.000Z",
+      "timelineAt": "2026-11-11T07:03:41.725Z",
+      "category": "data",
+      "tags": [
+        "论文/研究",
+        "数据集/基准",
+        "定量反演",
+        "气候",
+        "森林/生态",
+        "Copernicus"
+      ],
+      "score": 76,
+      "selected": true
+    },
+    {
+      "id": "w1b7wi4bv0k1xoe97jzh9b586",
+      "title": "RS-JEPA 预印本：基于扫描路径视图的遥感联合嵌入预测架构用于跨传感器影像检索",
+      "originalTitle": "RS-JEPA: Remote Sensing Joint-Embedding Predictive Architecture with Scan-Path Views for Cross-Sensor Image Retrieval",
+      "summary": "基于论文摘要，预印本提出 RS-JEPA，一种基于双传感器共享 Vision Mamba 编码器的紧凑联合嵌入预测框架，将同一影像的两种读取顺序视为扫描路径视图，并用对抗视图耦合（AVC）与邻域一致性损失进行跨传感器检索训练。",
+      "reason": "原文以摘要说明方法将同一影像的两种读取顺序作为自监督视图，并报告在三个跨传感器检索基准上相对十二种复现方法的 F1@5 与参数量对比，可用于评估读序视图设计的检索价值。",
+      "source": {
+        "name": "arXiv · 遥感与地球观测预印本",
+        "kind": "rss",
+        "firstParty": true
+      },
+      "originalUrl": "https://arxiv.org/abs/2611.14496v1",
+      "publishedAt": "2026-11-10T18:51:05.000Z",
+      "timelineAt": "2026-11-11T06:53:38.521Z",
+      "category": "paper",
+      "tags": [
+        "论文/研究",
+        "遥感基础模型",
+        "自监督学习",
+        "SAR",
+        "光学遥感",
+        "多模态"
+      ],
+      "score": 71,
+      "selected": true
+    },
     {
       "id": "uw6f97sez0un4l8spgivw3aur",
       "title": "ESSD 发表 BMAT：覆盖全球 73 个主要城市 2209 万栋建筑的足迹级立面材料数据集",
@@ -780,29 +906,6 @@
       ],
       "score": 75,
       "selected": true
-    },
-    {
-      "id": "stp7chfxrjlrdg3yoywku96yc",
-      "title": "ESA 唤醒 MetOp-SG-B1 气象卫星",
-      "originalTitle": "Time to wake up MetOp-SG-B1 weather satellite",
-      "summary": "MetOp-SG-B1 卫星在运抵法属圭亚那欧洲航天港短暂存放后，已被转移至洁净室并从运输箱中取出，团队正重启这颗卫星并进行发射前检查。该卫星于10月6日从法国波尔多启程、10月16日抵达库鲁，计划年底搭乘 Ariane 6 火箭发射，入轨后将与2025年8月发射的 MetOp-SG-A1 协同工作。",
-      "reason": null,
-      "source": {
-        "name": "ESA · 对地观测",
-        "kind": "rss",
-        "firstParty": true
-      },
-      "originalUrl": "https://www.esa.int/Applications/Observing_the_Earth/Meteorological_missions/MetOp_Second_Generation/Time_to_wake_up_MetOp-SG-B1_weather_satellite",
-      "publishedAt": "2026-11-04T09:10:00.000Z",
-      "timelineAt": "2026-11-04T10:38:15.516Z",
-      "category": "satellite",
-      "tags": [
-        "卫星/传感器",
-        "ESA",
-        "EUMETSAT"
-      ],
-      "score": 33,
-      "selected": false
     },
     {
       "id": "g97gzak3gjq1v2idao8wz3pbx",
@@ -3873,6 +3976,67 @@
     }
   ],
   "reports": [
+    {
+      "kind": "daily",
+      "key": "2026-11-12",
+      "title": "遥感日报 · 2026-11-12",
+      "generatedAt": "2026-11-12T00:00:24.019Z",
+      "editorialMode": "model",
+      "lead": {
+        "title": "北半球多年冻土活动层厚度1公里网格数据集（2000–2024）发布",
+        "leadParagraph": "研究团队构建了2000–2024年北半球多年冻土区1公里分辨率逐年活动层厚度网格数据集，采用LightGBM–XGBoost集成框架重建，为冻土变化监测提供长期连续数据支撑。同日还有MAESTRO湍流数据集、跨传感器检索框架RS-JEPA、多任务统一模型UniFlow-RS及加拿大次日野火蔓延预测数据集DailyWildfireCAN等动态。"
+      },
+      "overview": null,
+      "sections": [
+        {
+          "label": "论文与方法",
+          "summary": null,
+          "items": [
+            {
+              "itemId": "w1b7wi4bv0k1xoe97jzh9b586",
+              "title": "RS-JEPA 预印本：基于扫描路径视图的遥感联合嵌入预测架构用于跨传感器影像检索",
+              "summary": "基于论文摘要，预印本提出 RS-JEPA，一种基于双传感器共享 Vision Mamba 编码器的紧凑联合嵌入预测框架，将同一影像的两种读取顺序视为扫描路径视图，并用对抗视图耦合（AVC）与邻域一致性损失进行跨传感器检索训练。",
+              "sourceName": "arXiv · 遥感与地球观测预印本",
+              "originalUrl": "https://arxiv.org/abs/2611.14496v1"
+            },
+            {
+              "itemId": "pcrc7uazq9i3q4ihhmonbgfpg",
+              "title": "UniFlow-RS 预印本：单一潜流匹配预测器统一六类遥感任务",
+              "summary": "基于论文摘要，UniFlow-RS 用一个共享的潜流匹配预测器统一六类遥感任务，将任务输出转为公共潜空间中的结构化视觉目标，并以 Task-Modality Adaptive Timestep Sampling 协调多任务优化。",
+              "sourceName": "arXiv · 遥感与地球观测预印本",
+              "originalUrl": "https://arxiv.org/abs/2611.14281v1"
+            }
+          ]
+        },
+        {
+          "label": "数据集与基准",
+          "summary": null,
+          "items": [
+            {
+              "itemId": "fg4asx909tjogsekwy68v047x",
+              "title": "北半球多年冻土活动层厚度 1 km 网格数据集（2000–2024）",
+              "summary": "基于论文摘要，研究构建了 2000–2024 年北半球多年冻土区 1 km 分辨率逐年活动层厚度（ALT）网格数据集，采用 LightGBM–XGBoost 集成框架重建。",
+              "sourceName": "Earth System Science Data · 数据论文与讨论稿",
+              "originalUrl": "https://essd.copernicus.org/articles/18/8211/2026/"
+            },
+            {
+              "itemId": "xp1kywmpe59cxvnq3sswk02qj",
+              "title": "MAESTRO 发布基于 SAFIRE ATR42 飞机的湍流数据集，用于研究边界层相干结构与云组织",
+              "summary": "基于论文摘要，MAESTRO 项目发布了基于 2024 年 8-9 月 SAFIRE ATR42 飞机在北大西洋热带海域（佛得角群岛附近）观测的湍流数据集，包含 40 小时 25 Hz 分辨率的水汽混合比、温度、三维风场时序及其统计矩和积分长度尺度，其中近 13 小时为高质量边界层样本。",
+              "sourceName": "Earth System Science Data · 数据论文与讨论稿",
+              "originalUrl": "https://essd.copernicus.org/articles/18/8229/2026/"
+            },
+            {
+              "itemId": "gpzxrh22az2jibzxeyd6uobb7",
+              "title": "预印本：DailyWildfireCAN——加拿大次日野火蔓延预测数据集与基准",
+              "summary": "基于论文摘要，作者提出DailyWildfireCAN，一个用于加拿大次日野火蔓延预测的多模态、多时相数据集与基准。数据集覆盖2017–2024年8个火季的2,440起野火事件，空间分辨率90-m、时间分辨率24小时，整合地形、气象、土地覆盖、植被与森林结构、人类影响指数及卫星影像等33个特征。",
+              "sourceName": "arXiv · 遥感与地球观测预印本",
+              "originalUrl": "https://arxiv.org/abs/2611.14207v1"
+            }
+          ]
+        }
+      ]
+    },
     {
       "kind": "daily",
       "key": "2026-11-11",
@@ -8218,6 +8382,7 @@
       "group": "company",
       "definition": "Copernicus 的遥感研究、观测数据与工程动态。",
       "itemIds": [
+        "fg4asx909tjogsekwy68v047x",
         "uw6f97sez0un4l8spgivw3aur",
         "fyuchou6wwzq3ap9an8c361dh",
         "vs7fl98fj8vyhgwteynh8worq",
@@ -8267,6 +8432,7 @@
       "group": "field",
       "definition": "追踪SAR 与 InSAR的研究方法、数据、工具与应用实践。",
       "itemIds": [
+        "w1b7wi4bv0k1xoe97jzh9b586",
         "ajrhbsvd25za2pvolhf81irff",
         "ld4ooeixkwirpj2agee8uw9k6",
         "ab5b4f1zfjjg69yzz94fuxe3c",
@@ -8328,6 +8494,7 @@
       "group": "field",
       "definition": "追踪光学遥感的研究方法、数据、工具与应用实践。",
       "itemIds": [
+        "w1b7wi4bv0k1xoe97jzh9b586",
         "ajrhbsvd25za2pvolhf81irff",
         "o0bt7pjjc7aj4vsolfuo5bd92",
         "l9l95o2obc3pgupdoz35uden2",
@@ -8419,6 +8586,8 @@
       "group": "field",
       "definition": "追踪定量反演的研究方法、数据、工具与应用实践。",
       "itemIds": [
+        "xp1kywmpe59cxvnq3sswk02qj",
+        "fg4asx909tjogsekwy68v047x",
         "zh108gwhpp0sj9bcjfys6o3vr",
         "fyuchou6wwzq3ap9an8c361dh",
         "rie3ti24q8g59p0jwdl91j0v3",
@@ -8449,6 +8618,9 @@
       "group": "field",
       "definition": "追踪遥感基础模型的研究方法、数据、工具与应用实践。",
       "itemIds": [
+        "gpzxrh22az2jibzxeyd6uobb7",
+        "pcrc7uazq9i3q4ihhmonbgfpg",
+        "w1b7wi4bv0k1xoe97jzh9b586",
         "mkgmst1bpp2irqr3wzsc7fk6z",
         "dwewbn1fy9d8uc4zp7amrzbu6",
         "r1jqt6tb0qk0fxs0hy5jg8zh4",
@@ -8484,6 +8656,7 @@
       "group": "field",
       "definition": "追踪泛化与迁移的研究方法、数据、工具与应用实践。",
       "itemIds": [
+        "pcrc7uazq9i3q4ihhmonbgfpg",
         "wabwu0q6n29slr7hyivkknqep",
         "opko1syuju8mmpom9t0hodovk",
         "t828t333249ygpi7k7u5mq3jv",
@@ -8513,6 +8686,7 @@
       "group": "field",
       "definition": "追踪灾害监测的研究方法、数据、工具与应用实践。",
       "itemIds": [
+        "gpzxrh22az2jibzxeyd6uobb7",
         "garxvkdvueowozii9fapawv78",
         "a3tnf7n4040i9jbqm9ay9wvuj",
         "qu1lqsa9e195gxgaf7yirbikz",
@@ -8552,6 +8726,7 @@
       "group": "field",
       "definition": "追踪森林与生态的研究方法、数据、工具与应用实践。",
       "itemIds": [
+        "fg4asx909tjogsekwy68v047x",
         "fyuchou6wwzq3ap9an8c361dh",
         "iuyrnjp0wthooz0sg4zxvky0n",
         "cxxutbvhfv8snsuyt1mxrh0yk",
@@ -8570,6 +8745,9 @@
       "group": "genre",
       "definition": "值得关注的遥感论文与研究，保留原文入口与适用条件。",
       "itemIds": [
+        "pcrc7uazq9i3q4ihhmonbgfpg",
+        "fg4asx909tjogsekwy68v047x",
+        "w1b7wi4bv0k1xoe97jzh9b586",
         "mkgmst1bpp2irqr3wzsc7fk6z",
         "dwewbn1fy9d8uc4zp7amrzbu6",
         "zh108gwhpp0sj9bcjfys6o3vr",
@@ -8647,6 +8825,9 @@
       "group": "genre",
       "definition": "值得关注的遥感数据集与基准，保留原文入口与适用条件。",
       "itemIds": [
+        "xp1kywmpe59cxvnq3sswk02qj",
+        "gpzxrh22az2jibzxeyd6uobb7",
+        "fg4asx909tjogsekwy68v047x",
         "uw6f97sez0un4l8spgivw3aur",
         "zh108gwhpp0sj9bcjfys6o3vr",
         "fyuchou6wwzq3ap9an8c361dh",
@@ -8779,7 +8960,7 @@
     }
   ],
   "hot": {
-    "computedAt": "2026-11-11T02:25:29.515Z",
+    "computedAt": "2026-11-12T02:25:21.698Z",
     "windowHours": 48,
     "entries": []
   }
