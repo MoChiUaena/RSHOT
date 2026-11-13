@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-12T02:30:07.465Z",
+  "generatedAt": "2026-11-13T02:30:08.246Z",
   "categories": [
     {
       "key": "paper",
@@ -29,27 +29,15 @@
   ],
   "sources": [
     {
-      "name": "PySTAC · 稳定版本发布",
+      "name": "arXiv · 遥感与地球观测预印本",
       "kind": "rss"
     },
     {
-      "name": "rioxarray · 稳定版本发布",
+      "name": "NASA Earthdata · 科学数据与工具",
       "kind": "rss"
     },
     {
-      "name": "Earth System Science Data · 数据论文与讨论稿",
-      "kind": "web_list"
-    },
-    {
-      "name": "Earth Engine API · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "GDAL · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "ESA · 对地观测",
+      "name": "openEO Python Client · 稳定版本发布",
       "kind": "rss"
     },
     {
@@ -61,15 +49,7 @@
       "kind": "rss"
     },
     {
-      "name": "TerraTorch · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "arXiv · 遥感与地球观测预印本",
-      "kind": "rss"
-    },
-    {
-      "name": "EOReader · 稳定版本发布",
+      "name": "Earth Engine API · 稳定版本发布",
       "kind": "rss"
     },
     {
@@ -77,19 +57,7 @@
       "kind": "rss"
     },
     {
-      "name": "openEO Python Client · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "中国科学院空天院 · 科研动态",
-      "kind": "web_list"
-    },
-    {
-      "name": "Rasterio · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "NASA Earthdata · 科学数据与工具",
+      "name": "EOReader · 稳定版本发布",
       "kind": "rss"
     },
     {
@@ -97,15 +65,193 @@
       "kind": "rss"
     },
     {
-      "name": "earthaccess · 稳定版本发布",
+      "name": "GDAL · 稳定版本发布",
       "kind": "rss"
     },
     {
       "name": "Google Earth 与 Earth Engine · 官方博客",
       "kind": "rss"
+    },
+    {
+      "name": "earthaccess · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "Rasterio · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "ESA · 对地观测",
+      "kind": "rss"
+    },
+    {
+      "name": "PySTAC · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "中国科学院空天院 · 科研动态",
+      "kind": "web_list"
+    },
+    {
+      "name": "rioxarray · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "Earth System Science Data · 数据论文与讨论稿",
+      "kind": "web_list"
+    },
+    {
+      "name": "TerraTorch · 稳定版本发布",
+      "kind": "rss"
     }
   ],
   "items": [
+    {
+      "id": "lq9zzraefp3asf68l60lwge6k",
+      "title": "SoMoBench：面向数据驱动土壤湿度建模的准全球基准数据集（预印本）",
+      "originalTitle": "SoMoBench: a quasi-global benchmark dataset for data-driven soil moisture modelling with in situ-derived targets",
+      "summary": "SoMoBench 提出一个准全球基准数据集，整合国际土壤湿度网络与巴西 CEMADEN 网络的原位观测，提供标准化预测变量与土壤湿度目标。基于论文摘要，数据覆盖 2001–2024 年，包含 1,445 个网格单元，按 0.25° 网格和三层土壤深度（0–10、10–30、30–50 cm）组织，并使用 ERA5 气象数据作为预测变量。",
+      "reason": "该预印本提供了标准化的预测变量与土壤湿度目标数据，基于原位观测构建并统一时空分辨率，支持模型间公平比较与可复现性验证。",
+      "source": {
+        "name": "Earth System Science Data · 数据论文与讨论稿",
+        "kind": "web_list",
+        "firstParty": true
+      },
+      "originalUrl": "https://essd.copernicus.org/preprints/essd-2026-620/",
+      "publishedAt": "2026-11-12T00:00:00.000Z",
+      "timelineAt": "2026-11-12T18:35:30.895Z",
+      "category": "data",
+      "tags": [
+        "数据集/基准",
+        "定量反演",
+        "气候",
+        "开源生态",
+        "Copernicus"
+      ],
+      "score": 77,
+      "selected": true
+    },
+    {
+      "id": "n4n96vq4m5rutnroehqgy9bhc",
+      "title": "Sentinel 高层级运行计划（HLOP）更新至 4.0 版本",
+      "originalTitle": "Sentinel High Level Operations Plan updated to version 4.0",
+      "summary": "Copernicus 宣布 Sentinel 高层级运行计划（HLOP）4.0 版本现已在线发布，该文件是 Copernicus Sentinel 系列卫星运行的参考文件，规定了每颗卫星的观测区域、重访频率及成像模式。Sentinel-1 与 Sentinel-2 的详细采集计划也同步在线可查，用户可提前获知卫星数据获取的时间与区域，以便规划实地调查、安排分析并预判新影像可用时间。",
+      "reason": null,
+      "source": {
+        "name": "Copernicus Data Space · 数据与平台动态",
+        "kind": "rss",
+        "firstParty": true
+      },
+      "originalUrl": "https://dataspace.copernicus.eu/news/2026-11-12-sentinel-high-level-operations-plan-updated-version-40",
+      "publishedAt": "2026-11-12T10:05:49.000Z",
+      "timelineAt": "2026-11-12T10:25:29.410Z",
+      "category": "satellite",
+      "tags": [
+        "卫星/传感器",
+        "行业动态",
+        "Copernicus"
+      ],
+      "score": 48,
+      "selected": false
+    },
+    {
+      "id": "bb589jl1403kmvt4hwk0gyox7",
+      "title": "Copernicus Sentinel-5 Precursor（S5P）产品改进：业务化处理系统切换",
+      "originalTitle": "Copernicus Sentinel-5 Precursor (S5P) products improvement - operational switch",
+      "summary": "Copernicus Data Space 宣布 Sentinel-5 Precursor（S5P）业务化地面处理系统更新已于 2026 年 11 月 11 日实施。",
+      "reason": "公告明确了 S5P 地面处理系统切换涉及的处理器版本、产品清单与新数据起始轨道，便于用户定位版本边界。",
+      "source": {
+        "name": "Copernicus Data Space · 数据与平台动态",
+        "kind": "rss",
+        "firstParty": true
+      },
+      "originalUrl": "https://dataspace.copernicus.eu/news/2026-11-12-copernicus-sentinel-5-precursor-s5p-products-improvement-operational-switch",
+      "publishedAt": "2026-11-12T10:11:53.000Z",
+      "timelineAt": "2026-11-12T10:25:29.403Z",
+      "category": "data",
+      "tags": [
+        "卫星/传感器",
+        "数据质量",
+        "Copernicus"
+      ],
+      "score": 64,
+      "selected": true
+    },
+    {
+      "id": "bc3vwkds8rz13ie3fnupf56e8",
+      "title": "预印本提出 PARDIG：从稀疏卫星观测学习全球降水估计",
+      "originalTitle": "PARDIG: Global Precipitation Estimates Learned from Sparse Satellite Observations",
+      "summary": "基于论文摘要，预印本提出 PARDIG，一个基于球面图网格 Transformer 架构的人工智能框架，从稀疏卫星观测学习生成近实时全球降水估计。",
+      "reason": "摘要给出以稀疏星载雷达降水测量为预测目标、密集多模态输入训练的框架，并在三个独立地基雷达网和超过 36,000 个地面站上与 IMERG V07、MSWEP V3、ERA5、HRES 对比，为评估近实时全球降水估计方法提供了可核查的实验依据。",
+      "source": {
+        "name": "arXiv · 遥感与地球观测预印本",
+        "kind": "rss",
+        "firstParty": true
+      },
+      "originalUrl": "https://arxiv.org/abs/2611.13941v1",
+      "publishedAt": "2026-11-10T11:28:50.000Z",
+      "timelineAt": "2026-11-12T09:12:27.691Z",
+      "category": "paper",
+      "tags": [
+        "论文/研究",
+        "定量反演",
+        "多模态",
+        "数据集/基准"
+      ],
+      "score": 82,
+      "selected": true
+    },
+    {
+      "id": "es04cn2axyzenalm7w5ge1qe7",
+      "title": "CroCoMAE：面向SAR-光学遥感数据的跨模态自监督协同表示学习（预印本）",
+      "originalTitle": "CroCoMAE: Cross-modal self-supervised collaborative representation learning for SAR-optical remote sensing data",
+      "summary": "CroCoMAE提出一种面向SAR-光学遥感数据的跨模态自监督学习框架，在ViT架构中统一对比学习与掩码图像建模。基于论文摘要，该方法在图像级通过类Token的模态内对比学习获取全局判别性表示，在补丁级通过掩码建模和跨模态对比目标对齐共享子空间，同时保留模态特定信息。",
+      "reason": "提出CroCoMAE框架，在SAR-光学跨模态自监督学习中结合图像级对比与补丁级掩码建模，并在两个基准上报告了优于现有方法的实验结果。",
+      "source": {
+        "name": "arXiv · 遥感与地球观测预印本",
+        "kind": "rss",
+        "firstParty": true
+      },
+      "originalUrl": "https://arxiv.org/abs/2611.14124v1",
+      "publishedAt": "2026-11-10T14:10:41.000Z",
+      "timelineAt": "2026-11-12T09:12:27.682Z",
+      "category": "paper",
+      "tags": [
+        "论文/研究",
+        "多模态",
+        "自监督学习",
+        "SAR",
+        "光学遥感",
+        "arXiv"
+      ],
+      "score": 74,
+      "selected": true
+    },
+    {
+      "id": "gstlj3nt4qnairh398go4o74v",
+      "title": "State of Wildfires 2025–2026 报告评估全球与区域野火活动并给出未来情景（预印本）",
+      "originalTitle": "State of Wildfires 2025–2026",
+      "summary": "基于论文摘要，State of Wildfires 项目系统追踪 2025 年 3 月–2026 年 2 月全球与区域野火活动，并对三个重点区域开展归因与情景评估。",
+      "reason": "材料给出全球与区域火活动的观测统计、归因与中分辨率情景对比，并新增15个配套数据集，可用于追溯2025–2026年野火极端事件的事实与不确定性。",
+      "source": {
+        "name": "Earth System Science Data · 数据论文与讨论稿",
+        "kind": "web_list",
+        "firstParty": true
+      },
+      "originalUrl": "https://essd.copernicus.org/articles/18/8037/2026/",
+      "publishedAt": "2026-11-11T00:00:00.000Z",
+      "timelineAt": "2026-11-12T07:24:24.282Z",
+      "category": "paper",
+      "tags": [
+        "数据集/基准",
+        "气候",
+        "灾害监测",
+        "森林/生态",
+        "Copernicus"
+      ],
+      "score": 85,
+      "selected": true
+    },
     {
       "id": "xp1kywmpe59cxvnq3sswk02qj",
       "title": "MAESTRO 发布基于 SAFIRE ATR42 飞机的湍流数据集，用于研究边界层相干结构与云组织",
@@ -740,98 +886,6 @@
       ],
       "score": 71,
       "selected": true
-    },
-    {
-      "id": "vvsblazz7uimcvjl4mzrj2cn7",
-      "title": "PySTAC v1.16.0 发布",
-      "originalTitle": "v1.16.0",
-      "summary": "PySTAC 发布 v1.16.0，新增 octet-stream 与 zip 媒体类型、获取 JSON schema 的可选允许列表、SpecDeprecationWarning，并支持使用本地扩展 JSON schema 校验。本次更新还修复了 PropertiesExtension._set_property 中属性值递归转换的问题，文档明确 PySTAC 默认写入 STAC v1.1.0。",
-      "reason": null,
-      "source": {
-        "name": "PySTAC · 稳定版本发布",
-        "kind": "rss",
-        "firstParty": true
-      },
-      "originalUrl": "https://github.com/stac-utils/pystac/releases/tag/v1.16.0",
-      "publishedAt": "2026-11-04T16:14:36.000Z",
-      "timelineAt": "2026-11-05T14:57:41.307Z",
-      "category": "rs-tools",
-      "tags": [
-        "工具更新",
-        "开源/仓库"
-      ],
-      "score": 48,
-      "selected": false
-    },
-    {
-      "id": "thgndpg6rbeupti3qlv3oqytv",
-      "title": "TerraTorch v1.2.14 发布",
-      "originalTitle": "v1.2.14",
-      "summary": "TerraTorch v1.2.14 发布，在 v2 engine 中启用对 Terratorch 模型的支持，并将 terratorch 升级至 torchgeo 0.10，同时新增对 vllm 0.33 的支持。",
-      "reason": null,
-      "source": {
-        "name": "TerraTorch · 稳定版本发布",
-        "kind": "rss",
-        "firstParty": true
-      },
-      "originalUrl": "https://github.com/torchgeo/terratorch/releases/tag/v1.2.14",
-      "publishedAt": "2026-11-04T14:51:28.000Z",
-      "timelineAt": "2026-11-05T14:57:37.664Z",
-      "category": "rs-tools",
-      "tags": [
-        "工具更新",
-        "遥感基础模型",
-        "开源生态",
-        "TorchGeo"
-      ],
-      "score": 38,
-      "selected": false
-    },
-    {
-      "id": "kkhn0uah6b3cufr0stn5x08rh",
-      "title": "SDGSAT-1卫星荣获2026年世界互联网大会领先科技奖",
-      "originalTitle": null,
-      "summary": "可持续发展科学卫星1号（SDGSAT-1）在2026年世界互联网大会乌镇峰会上荣获领先科技奖，是从43个国家和地区申报的436项成果中选出的20个获奖项目之一。",
-      "reason": null,
-      "source": {
-        "name": "中国科学院空天院 · 科研动态",
-        "kind": "web_list",
-        "firstParty": true
-      },
-      "originalUrl": "https://aircas.cas.cn/dtxw/kydt/202611/t20261104_8303038.html",
-      "publishedAt": "2026-11-03T16:00:00.000Z",
-      "timelineAt": "2026-11-05T14:57:19.603Z",
-      "category": "satellite",
-      "tags": [
-        "卫星/传感器",
-        "热红外",
-        "中国科学院空天院"
-      ],
-      "score": 45,
-      "selected": false
-    },
-    {
-      "id": "ls6gd42lzvwp1taq81mkjs999",
-      "title": "空天院CASA计划入选2026年“携手构建网络空间命运共同体”实践案例集",
-      "originalTitle": "空天院成果入选“携手构建网络空间命运共同体”实践案例集",
-      "summary": "中国科学院空天院“天基碳观测基础设施的全球化共享与能力赋能——CASA计划实践”11月2日入选2026年“携手构建网络空间命运共同体”实践案例集“网络基础设施建设”类典型案例，从全球80余个国家和地区的360余项申报案例中脱颖而出。",
-      "reason": null,
-      "source": {
-        "name": "中国科学院空天院 · 科研动态",
-        "kind": "web_list",
-        "firstParty": true
-      },
-      "originalUrl": "https://aircas.cas.cn/dtxw/kydt/202611/t20261105_8303764.html",
-      "publishedAt": "2026-11-04T16:00:00.000Z",
-      "timelineAt": "2026-11-05T14:57:19.597Z",
-      "category": "industry",
-      "tags": [
-        "行业动态",
-        "数据质量",
-        "中国科学院空天院"
-      ],
-      "score": 43,
-      "selected": false
     },
     {
       "id": "ld4ooeixkwirpj2agee8uw9k6",
@@ -3976,6 +4030,67 @@
     }
   ],
   "reports": [
+    {
+      "kind": "daily",
+      "key": "2026-11-13",
+      "title": "遥感日报 · 2026-11-13",
+      "generatedAt": "2026-11-13T00:00:32.020Z",
+      "editorialMode": "model",
+      "lead": {
+        "title": "State of Wildfires 2025–2026 报告评估全球与区域野火活动",
+        "leadParagraph": "State of Wildfires 2025–2026 预印本系统追踪 2025 年 3 月至 2026 年 2 月全球与区域野火活动，并对三个重点区域开展归因与情景评估。同日还有多项方法进展：PARDIG 用球面图网格 Transformer 从稀疏卫星观测生成近实时全球降水估计，SoMoBench 发布准全球土壤湿度基准数据集。"
+      },
+      "overview": null,
+      "sections": [
+        {
+          "label": "论文与方法",
+          "summary": null,
+          "items": [
+            {
+              "itemId": "gstlj3nt4qnairh398go4o74v",
+              "title": "State of Wildfires 2025–2026 报告评估全球与区域野火活动并给出未来情景（预印本）",
+              "summary": "基于论文摘要，State of Wildfires 项目系统追踪 2025 年 3 月–2026 年 2 月全球与区域野火活动，并对三个重点区域开展归因与情景评估。",
+              "sourceName": "Earth System Science Data · 数据论文与讨论稿",
+              "originalUrl": "https://essd.copernicus.org/articles/18/8037/2026/"
+            },
+            {
+              "itemId": "bc3vwkds8rz13ie3fnupf56e8",
+              "title": "预印本提出 PARDIG：从稀疏卫星观测学习全球降水估计",
+              "summary": "基于论文摘要，预印本提出 PARDIG，一个基于球面图网格 Transformer 架构的人工智能框架，从稀疏卫星观测学习生成近实时全球降水估计。",
+              "sourceName": "arXiv · 遥感与地球观测预印本",
+              "originalUrl": "https://arxiv.org/abs/2611.13941v1"
+            },
+            {
+              "itemId": "es04cn2axyzenalm7w5ge1qe7",
+              "title": "CroCoMAE：面向SAR-光学遥感数据的跨模态自监督协同表示学习（预印本）",
+              "summary": "CroCoMAE提出一种面向SAR-光学遥感数据的跨模态自监督学习框架，在ViT架构中统一对比学习与掩码图像建模。基于论文摘要，该方法在图像级通过类Token的模态内对比学习获取全局判别性表示，在补丁级通过掩码建模和跨模态对比目标对齐共享子空间，同时保留模态特定信息。",
+              "sourceName": "arXiv · 遥感与地球观测预印本",
+              "originalUrl": "https://arxiv.org/abs/2611.14124v1"
+            }
+          ]
+        },
+        {
+          "label": "数据集与基准",
+          "summary": null,
+          "items": [
+            {
+              "itemId": "lq9zzraefp3asf68l60lwge6k",
+              "title": "SoMoBench：面向数据驱动土壤湿度建模的准全球基准数据集（预印本）",
+              "summary": "SoMoBench 提出一个准全球基准数据集，整合国际土壤湿度网络与巴西 CEMADEN 网络的原位观测，提供标准化预测变量与土壤湿度目标。基于论文摘要，数据覆盖 2001–2024 年，包含 1,445 个网格单元，按 0.25° 网格和三层土壤深度（0–10、10–30、30–50 cm）组织，并使用 ERA5 气象数据作为预测变量。",
+              "sourceName": "Earth System Science Data · 数据论文与讨论稿",
+              "originalUrl": "https://essd.copernicus.org/preprints/essd-2026-620/"
+            },
+            {
+              "itemId": "bb589jl1403kmvt4hwk0gyox7",
+              "title": "Copernicus Sentinel-5 Precursor（S5P）产品改进：业务化处理系统切换",
+              "summary": "Copernicus Data Space 宣布 Sentinel-5 Precursor（S5P）业务化地面处理系统更新已于 2026 年 11 月 11 日实施。",
+              "sourceName": "Copernicus Data Space · 数据与平台动态",
+              "originalUrl": "https://dataspace.copernicus.eu/news/2026-11-12-copernicus-sentinel-5-precursor-s5p-products-improvement-operational-switch"
+            }
+          ]
+        }
+      ]
+    },
     {
       "kind": "daily",
       "key": "2026-11-12",
@@ -8382,6 +8497,9 @@
       "group": "company",
       "definition": "Copernicus 的遥感研究、观测数据与工程动态。",
       "itemIds": [
+        "lq9zzraefp3asf68l60lwge6k",
+        "bb589jl1403kmvt4hwk0gyox7",
+        "gstlj3nt4qnairh398go4o74v",
         "fg4asx909tjogsekwy68v047x",
         "uw6f97sez0un4l8spgivw3aur",
         "fyuchou6wwzq3ap9an8c361dh",
@@ -8432,6 +8550,7 @@
       "group": "field",
       "definition": "追踪SAR 与 InSAR的研究方法、数据、工具与应用实践。",
       "itemIds": [
+        "es04cn2axyzenalm7w5ge1qe7",
         "w1b7wi4bv0k1xoe97jzh9b586",
         "ajrhbsvd25za2pvolhf81irff",
         "ld4ooeixkwirpj2agee8uw9k6",
@@ -8494,6 +8613,7 @@
       "group": "field",
       "definition": "追踪光学遥感的研究方法、数据、工具与应用实践。",
       "itemIds": [
+        "es04cn2axyzenalm7w5ge1qe7",
         "w1b7wi4bv0k1xoe97jzh9b586",
         "ajrhbsvd25za2pvolhf81irff",
         "o0bt7pjjc7aj4vsolfuo5bd92",
@@ -8586,6 +8706,8 @@
       "group": "field",
       "definition": "追踪定量反演的研究方法、数据、工具与应用实践。",
       "itemIds": [
+        "lq9zzraefp3asf68l60lwge6k",
+        "bc3vwkds8rz13ie3fnupf56e8",
         "xp1kywmpe59cxvnq3sswk02qj",
         "fg4asx909tjogsekwy68v047x",
         "zh108gwhpp0sj9bcjfys6o3vr",
@@ -8686,6 +8808,7 @@
       "group": "field",
       "definition": "追踪灾害监测的研究方法、数据、工具与应用实践。",
       "itemIds": [
+        "gstlj3nt4qnairh398go4o74v",
         "gpzxrh22az2jibzxeyd6uobb7",
         "garxvkdvueowozii9fapawv78",
         "a3tnf7n4040i9jbqm9ay9wvuj",
@@ -8726,6 +8849,7 @@
       "group": "field",
       "definition": "追踪森林与生态的研究方法、数据、工具与应用实践。",
       "itemIds": [
+        "gstlj3nt4qnairh398go4o74v",
         "fg4asx909tjogsekwy68v047x",
         "fyuchou6wwzq3ap9an8c361dh",
         "iuyrnjp0wthooz0sg4zxvky0n",
@@ -8745,6 +8869,8 @@
       "group": "genre",
       "definition": "值得关注的遥感论文与研究，保留原文入口与适用条件。",
       "itemIds": [
+        "bc3vwkds8rz13ie3fnupf56e8",
+        "es04cn2axyzenalm7w5ge1qe7",
         "pcrc7uazq9i3q4ihhmonbgfpg",
         "fg4asx909tjogsekwy68v047x",
         "w1b7wi4bv0k1xoe97jzh9b586",
@@ -8825,6 +8951,9 @@
       "group": "genre",
       "definition": "值得关注的遥感数据集与基准，保留原文入口与适用条件。",
       "itemIds": [
+        "lq9zzraefp3asf68l60lwge6k",
+        "bc3vwkds8rz13ie3fnupf56e8",
+        "gstlj3nt4qnairh398go4o74v",
         "xp1kywmpe59cxvnq3sswk02qj",
         "gpzxrh22az2jibzxeyd6uobb7",
         "fg4asx909tjogsekwy68v047x",
@@ -8919,6 +9048,7 @@
       "group": "genre",
       "definition": "值得关注的遥感卫星与传感器，保留原文入口与适用条件。",
       "itemIds": [
+        "bb589jl1403kmvt4hwk0gyox7",
         "z5yw5760vfpcaxcvqhui6vs1x",
         "le9tcuhykbm4yp1xuy7iw5ntj",
         "okvkil6pjket6xk8bore74w34",
@@ -8960,7 +9090,7 @@
     }
   ],
   "hot": {
-    "computedAt": "2026-11-12T02:25:21.698Z",
+    "computedAt": "2026-11-13T02:25:29.404Z",
     "windowHours": 48,
     "entries": []
   }
