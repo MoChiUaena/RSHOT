@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-13T02:30:08.246Z",
+  "generatedAt": "2026-11-14T02:30:06.213Z",
   "categories": [
     {
       "key": "paper",
@@ -29,47 +29,7 @@
   ],
   "sources": [
     {
-      "name": "arXiv · 遥感与地球观测预印本",
-      "kind": "rss"
-    },
-    {
-      "name": "NASA Earthdata · 科学数据与工具",
-      "kind": "rss"
-    },
-    {
-      "name": "openEO Python Client · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
       "name": "TorchGeo · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "geemap · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "Earth Engine API · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "STAC FastAPI · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "EOReader · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "Copernicus Data Space · 数据与平台动态",
-      "kind": "rss"
-    },
-    {
-      "name": "GDAL · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "Google Earth 与 Earth Engine · 官方博客",
       "kind": "rss"
     },
     {
@@ -81,19 +41,19 @@
       "kind": "rss"
     },
     {
-      "name": "ESA · 对地观测",
+      "name": "Google Earth 与 Earth Engine · 官方博客",
       "kind": "rss"
     },
     {
-      "name": "PySTAC · 稳定版本发布",
+      "name": "Copernicus Data Space · 数据与平台动态",
       "kind": "rss"
     },
     {
-      "name": "中国科学院空天院 · 科研动态",
-      "kind": "web_list"
+      "name": "EOReader · 稳定版本发布",
+      "kind": "rss"
     },
     {
-      "name": "rioxarray · 稳定版本发布",
+      "name": "arXiv · 遥感与地球观测预印本",
       "kind": "rss"
     },
     {
@@ -101,11 +61,241 @@
       "kind": "web_list"
     },
     {
+      "name": "PySTAC · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "STAC FastAPI · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "GDAL · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "openEO Python Client · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
       "name": "TerraTorch · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "NASA Earthdata · 科学数据与工具",
+      "kind": "rss"
+    },
+    {
+      "name": "geemap · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "ESA · 对地观测",
+      "kind": "rss"
+    },
+    {
+      "name": "中国科学院空天院 · 科研动态",
+      "kind": "web_list"
+    },
+    {
+      "name": "Earth Engine API · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "rioxarray · 稳定版本发布",
       "kind": "rss"
     }
   ],
   "items": [
+    {
+      "id": "k5wt3dtlxj5652x5d1rqsop1c",
+      "title": "大气河流季节降临美国太平洋西北地区",
+      "originalTitle": "Atmospheric River Season for the Pacific Northwest",
+      "summary": "大气河流周期性地给美国太平洋西北海岸和加拿大西部带来巨浪、降雨、强风和洪水风险，为经历夏季严重干旱后的该地区带来缓解。源于亚热带海洋上空、常被称为“菠萝快车”的暖湿气流抵达西海岸时通常带来大量雨雪。VIIRS 仪器于2026年11月12日拍摄的图像显示旋涡状云带逼近海岸，GPM IMERG 数据则提供了11月11日至13日每30分钟的降水速率估计。",
+      "reason": null,
+      "source": {
+        "name": "NASA Earthdata · 科学数据与工具",
+        "kind": "rss",
+        "firstParty": true
+      },
+      "originalUrl": "https://www.earthdata.nasa.gov/news/worldview-image-archive/atmospheric-river-season-pacific-northwest",
+      "publishedAt": "2026-11-13T21:14:35.000Z",
+      "timelineAt": "2026-11-13T23:03:37.113Z",
+      "category": "tip",
+      "tags": [
+        "应用案例",
+        "气候",
+        "灾害监测",
+        "NASA"
+      ],
+      "score": 22,
+      "selected": false
+    },
+    {
+      "id": "v8ip3zthrrrlg3cj9z1xwapwe",
+      "title": "预印本：面向陆面模型模拟的涡度协方差站点精细植物功能型归属数据库",
+      "originalTitle": "A database with refined plant functional type attribution at eddy covariance sites for enhanced land surface model simulations",
+      "summary": "基于论文摘要，作者提出了一个为229个FLUXNET及区域网络涡度协方差站点提供植物功能型（PFT）归属的方法与数据库，用于减少陆面模型模拟通量与参数的不确定性。",
+      "reason": "该预印本提出一套结合文献、网络站点信息、卫星影像与300 m土地覆盖图的涡度协方差站点PFT归属方法，并给出置信度、数据覆盖与模型-数据一致性三类标志，可用于比较和复现陆面模型验证站点筛选。",
+      "source": {
+        "name": "Earth System Science Data · 数据论文与讨论稿",
+        "kind": "web_list",
+        "firstParty": true
+      },
+      "originalUrl": "https://essd.copernicus.org/preprints/essd-2026-796/",
+      "publishedAt": "2026-11-13T00:00:00.000Z",
+      "timelineAt": "2026-11-13T18:59:37.660Z",
+      "category": "data",
+      "tags": [
+        "数据集/基准",
+        "遥感基础模型",
+        "Copernicus"
+      ],
+      "score": 75,
+      "selected": true
+    },
+    {
+      "id": "mw7nq274lsmyool4enwur72d9",
+      "title": "Copernicus 免费农业数据网络研讨会",
+      "originalTitle": "Webinar: Introduction to free Copernicus data for farming",
+      "summary": "Copernicus Data Space 举办的网络研讨会将展示如何识别作物、评估长势与活力、解读作物湿度模式，并应用自定义 evalscripts 调用在线知识库。学员学完后可查看田块作物历史、依据湿度指数安排收获顺序，并制作 10 米分辨率 NDVI 图和定量时间序列。",
+      "reason": null,
+      "source": {
+        "name": "Copernicus Data Space · 数据与平台动态",
+        "kind": "rss",
+        "firstParty": true
+      },
+      "originalUrl": "https://dataspace.copernicus.eu/news/2026-11-13-webinar-introduction-free-copernicus-data-farming",
+      "publishedAt": "2026-11-13T15:05:43.000Z",
+      "timelineAt": "2026-11-13T15:54:36.301Z",
+      "category": "tip",
+      "tags": [
+        "教程/实践",
+        "农业",
+        "Copernicus"
+      ],
+      "score": 20,
+      "selected": false
+    },
+    {
+      "id": "vxw73cd0ji6xrmtqrdc7hzvtg",
+      "title": "预印本提出 RICapBench：面向遥感视觉语言模型的细粒度视觉理解基准数据集",
+      "originalTitle": "RICapBench: A Fine-Grained Visual Understanding Benchmark Dataset for Vision-Language Models in Remote Sensing",
+      "summary": "RICapBench 提出面向遥感视觉语言模型的细粒度理解基准，将实例定位与细粒度描述统一评测。基于论文摘要，数据集包含 245,466 条实例级标注与 498,005 个空间关系三元组，覆盖通用遥感、无人机遥感与密集小目标场景，每条标注将旋转框与可见属性及空间关系的自然语言描述配对；作者还提出空间关系解析器、RelCap-F1 指标与复合指标 RICScore。",
+      "reason": "RICapBench 将实例定位与细粒度描述统一为端到端评测，并以 RelCap-F1 与复合指标 RICScore 量化空间关系描述的准确性与完整性，材料显示其对 15 个 VLM 的对比指出实例定位是主要瓶颈。",
+      "source": {
+        "name": "arXiv · 遥感与地球观测预印本",
+        "kind": "rss",
+        "firstParty": true
+      },
+      "originalUrl": "https://arxiv.org/abs/2611.16413v1",
+      "publishedAt": "2026-11-12T07:24:49.000Z",
+      "timelineAt": "2026-11-13T10:36:35.821Z",
+      "category": "data",
+      "tags": [
+        "数据集/基准",
+        "遥感基础模型",
+        "目标检测",
+        "多模态"
+      ],
+      "score": 73,
+      "selected": true
+    },
+    {
+      "id": "d1nb9n3fi0cp4p13cvblxc681",
+      "title": "预印本 SALT：面向遥感单时相跨数据集结构定位的状态对齐低秩迁移框架",
+      "originalTitle": "SALT: State-Aligned Low-Rank Transfer for Single-Temporal Cross-Dataset Structural Localization in Remote Sensing",
+      "summary": "基于论文摘要，SALT 提出一种状态对齐低秩迁移框架，用冻结的 DINOv3 骨干和 0.068M 可训练参数完成遥感单时相跨数据集结构定位。",
+      "reason": "原文给出单时相跨数据集结构定位的方法差异与在 LEVIR-CD、WHU 双向迁移下的共同协议基线对比，可用于比较低秩特征适配的设计选择。",
+      "source": {
+        "name": "arXiv · 遥感与地球观测预印本",
+        "kind": "rss",
+        "firstParty": true
+      },
+      "originalUrl": "https://arxiv.org/abs/2611.17077v1",
+      "publishedAt": "2026-11-12T16:47:59.000Z",
+      "timelineAt": "2026-11-13T09:35:35.198Z",
+      "category": "paper",
+      "tags": [
+        "论文/研究",
+        "变化检测",
+        "遥感基础模型",
+        "泛化/迁移",
+        "自监督学习",
+        "arXiv"
+      ],
+      "score": 65,
+      "selected": true
+    },
+    {
+      "id": "ovm1fdzpu9cnmgdixu9nyrnlj",
+      "title": "SpotDiff：基于基础模型组合的遥感零样本变化检测即插即用框架（预印本）",
+      "originalTitle": "SpotDiff: A Plug-and-Play Framework for Zero-Shot Change Detection in Remote Sensing Imagery",
+      "summary": "基于论文摘要，SpotDiff 提出一种无需训练、即插即用的零样本遥感变化检测框架，通过组合 DINOv3 语义特征、AnyUp 像素级上采样与 SAM 3 文本引导区域提议，在 LEVIR-CD 上达到 82.46 F1。",
+      "reason": "SpotDiff 通过组合 DINOv3、AnyUp 与 SAM 3 提出无需训练的零样本变化检测框架，在 LEVIR-CD 上取得 82.46 F1 并验证跨分辨率迁移能力。",
+      "source": {
+        "name": "arXiv · 遥感与地球观测预印本",
+        "kind": "rss",
+        "firstParty": true
+      },
+      "originalUrl": "https://arxiv.org/abs/2611.17172v1",
+      "publishedAt": "2026-11-12T17:45:37.000Z",
+      "timelineAt": "2026-11-13T09:35:35.184Z",
+      "category": "paper",
+      "tags": [
+        "论文/研究",
+        "变化检测",
+        "遥感基础模型"
+      ],
+      "score": 75,
+      "selected": true
+    },
+    {
+      "id": "sx1jbcp3ihuag0kohvyteobtx",
+      "title": "ESSD发布全球土壤数据集GSDEv2讨论稿：支持地球系统建模的90米分辨率数据",
+      "originalTitle": "A Global Soil Dataset for Earth System Modeling (Version 2, GSDEv2)",
+      "summary": "研究提出GSDEv2，一套用于地球系统建模的全球土壤数据集（预印本）。该数据集提供20项理化性质、6个标准深度层的90米网格预测，融合中国、美国等区域土壤产品；基于论文摘要，其RMSE较GSDEv1、SoilGrids 2.0和HWSD 2.0分别降低22.2%、5.8%和24.6%，并改善CoLM2024表层土壤湿度模拟。数据已通过国家青藏高原科学数据中心和ScienceDB开放获取。",
+      "reason": "与GSDEv1、SoilGrids 2.0和HWSD 2.0相比，该数据集通过融合区域土壤产品降低了RMSE，并在CoLM2024敏感性实验中改善了表层土壤湿度的模拟精度。",
+      "source": {
+        "name": "Earth System Science Data · 数据论文与讨论稿",
+        "kind": "web_list",
+        "firstParty": true
+      },
+      "originalUrl": "https://essd.copernicus.org/preprints/essd-2026-770/",
+      "publishedAt": "2026-11-12T00:00:00.000Z",
+      "timelineAt": "2026-11-13T07:48:36.918Z",
+      "category": "data",
+      "tags": [
+        "数据集/基准",
+        "定量反演",
+        "数据融合",
+        "气候"
+      ],
+      "score": 78,
+      "selected": true
+    },
+    {
+      "id": "d5ffkrmy0sd7bdtqq68cba5cq",
+      "title": "geemap v0.39.0 发布",
+      "originalTitle": "v0.39.0",
+      "summary": "geemap 发布 v0.39.0 稳定版本，核心变化是将默认备用底图改为 OpenStreetMap.HOT，修复了 OSM 地图瓦片损坏问题，并更新测试以兼容 xyzservices 与 PROJ 9。其余更新以类型检查调整（pyrefly 替代 pytype 抑制）、文档字符串参数名修正及大量依赖升级为主。",
+      "reason": null,
+      "source": {
+        "name": "geemap · 稳定版本发布",
+        "kind": "rss",
+        "firstParty": true
+      },
+      "originalUrl": "https://github.com/gee-community/geemap/releases/tag/v0.39.0",
+      "publishedAt": "2026-11-13T01:36:51.000Z",
+      "timelineAt": "2026-11-13T02:37:32.353Z",
+      "category": "rs-tools",
+      "tags": [
+        "工具更新",
+        "开源/仓库",
+        "Google Earth Engine"
+      ],
+      "score": 22,
+      "selected": false
+    },
     {
       "id": "lq9zzraefp3asf68l60lwge6k",
       "title": "SoMoBench：面向数据驱动土壤湿度建模的准全球基准数据集（预印本）",
@@ -717,29 +907,6 @@
       ],
       "score": 70,
       "selected": true
-    },
-    {
-      "id": "c5wj21v9v38e3twthw232hiwh",
-      "title": "earthaccess v0.19.0 发布",
-      "originalTitle": "v0.19.0",
-      "summary": "earthaccess v0.19.0 发布，包含破坏性变更：多个方法改为以属性方式访问，并提供迁移指南。新版增加对 Python 3.14 的支持，改进了 DataServices URL 处理与 S3 URL 生成，修复了特定情况下搜索结果 granule 计数错误等问题，并新增 AI 辅助贡献政策。",
-      "reason": null,
-      "source": {
-        "name": "earthaccess · 稳定版本发布",
-        "kind": "rss",
-        "firstParty": true
-      },
-      "originalUrl": "https://github.com/earthaccess-dev/earthaccess/releases/tag/v0.19.0",
-      "publishedAt": "2026-11-06T17:03:16.000Z",
-      "timelineAt": "2026-11-06T19:12:31.023Z",
-      "category": "rs-tools",
-      "tags": [
-        "工具更新",
-        "开源生态",
-        "NASA"
-      ],
-      "score": 35,
-      "selected": false
     },
     {
       "id": "z5yw5760vfpcaxcvqhui6vs1x",
@@ -4030,6 +4197,67 @@
     }
   ],
   "reports": [
+    {
+      "kind": "daily",
+      "key": "2026-11-14",
+      "title": "遥感日报 · 2026-11-14",
+      "generatedAt": "2026-11-14T00:00:38.808Z",
+      "editorialMode": "model",
+      "lead": {
+        "title": "ESSD发布全球土壤数据集GSDEv2讨论稿：90米分辨率支持地球系统建模",
+        "leadParagraph": "ESSD发布全球土壤数据集GSDEv2讨论稿，提供20项理化性质、6个标准深度层的90米网格预测，融合多国区域土壤产品，精度较GSDEv1、SoilGrids 2.0等有所提升。同日多篇预印本涉及遥感基础模型应用，包括零样本变化检测框架SpotDiff等。"
+      },
+      "overview": null,
+      "sections": [
+        {
+          "label": "论文与方法",
+          "summary": null,
+          "items": [
+            {
+              "itemId": "ovm1fdzpu9cnmgdixu9nyrnlj",
+              "title": "SpotDiff：基于基础模型组合的遥感零样本变化检测即插即用框架（预印本）",
+              "summary": "基于论文摘要，SpotDiff 提出一种无需训练、即插即用的零样本遥感变化检测框架，通过组合 DINOv3 语义特征、AnyUp 像素级上采样与 SAM 3 文本引导区域提议，在 LEVIR-CD 上达到 82.46 F1。",
+              "sourceName": "arXiv · 遥感与地球观测预印本",
+              "originalUrl": "https://arxiv.org/abs/2611.17172v1"
+            },
+            {
+              "itemId": "d1nb9n3fi0cp4p13cvblxc681",
+              "title": "预印本 SALT：面向遥感单时相跨数据集结构定位的状态对齐低秩迁移框架",
+              "summary": "基于论文摘要，SALT 提出一种状态对齐低秩迁移框架，用冻结的 DINOv3 骨干和 0.068M 可训练参数完成遥感单时相跨数据集结构定位。",
+              "sourceName": "arXiv · 遥感与地球观测预印本",
+              "originalUrl": "https://arxiv.org/abs/2611.17077v1"
+            }
+          ]
+        },
+        {
+          "label": "数据集与基准",
+          "summary": null,
+          "items": [
+            {
+              "itemId": "sx1jbcp3ihuag0kohvyteobtx",
+              "title": "ESSD发布全球土壤数据集GSDEv2讨论稿：支持地球系统建模的90米分辨率数据",
+              "summary": "研究提出GSDEv2，一套用于地球系统建模的全球土壤数据集（预印本）。该数据集提供20项理化性质、6个标准深度层的90米网格预测，融合中国、美国等区域土壤产品；基于论文摘要，其RMSE较GSDEv1、SoilGrids 2.0和HWSD 2.0分别降低22.2%、5.8%和24.6%，并改善CoLM2024表层土壤湿度模拟。数据已通过国家青藏高原科学数据中心和ScienceDB开放获取。",
+              "sourceName": "Earth System Science Data · 数据论文与讨论稿",
+              "originalUrl": "https://essd.copernicus.org/preprints/essd-2026-770/"
+            },
+            {
+              "itemId": "v8ip3zthrrrlg3cj9z1xwapwe",
+              "title": "预印本：面向陆面模型模拟的涡度协方差站点精细植物功能型归属数据库",
+              "summary": "基于论文摘要，作者提出了一个为229个FLUXNET及区域网络涡度协方差站点提供植物功能型（PFT）归属的方法与数据库，用于减少陆面模型模拟通量与参数的不确定性。",
+              "sourceName": "Earth System Science Data · 数据论文与讨论稿",
+              "originalUrl": "https://essd.copernicus.org/preprints/essd-2026-796/"
+            },
+            {
+              "itemId": "vxw73cd0ji6xrmtqrdc7hzvtg",
+              "title": "预印本提出 RICapBench：面向遥感视觉语言模型的细粒度视觉理解基准数据集",
+              "summary": "RICapBench 提出面向遥感视觉语言模型的细粒度理解基准，将实例定位与细粒度描述统一评测。基于论文摘要，数据集包含 245,466 条实例级标注与 498,005 个空间关系三元组，覆盖通用遥感、无人机遥感与密集小目标场景，每条标注将旋转框与可见属性及空间关系的自然语言描述配对；作者还提出空间关系解析器、RelCap-F1 指标与复合指标 RICScore。",
+              "sourceName": "arXiv · 遥感与地球观测预印本",
+              "originalUrl": "https://arxiv.org/abs/2611.16413v1"
+            }
+          ]
+        }
+      ]
+    },
     {
       "kind": "daily",
       "key": "2026-11-13",
@@ -8497,6 +8725,7 @@
       "group": "company",
       "definition": "Copernicus 的遥感研究、观测数据与工程动态。",
       "itemIds": [
+        "v8ip3zthrrrlg3cj9z1xwapwe",
         "lq9zzraefp3asf68l60lwge6k",
         "bb589jl1403kmvt4hwk0gyox7",
         "gstlj3nt4qnairh398go4o74v",
@@ -8653,6 +8882,8 @@
       "group": "field",
       "definition": "追踪变化检测的研究方法、数据、工具与应用实践。",
       "itemIds": [
+        "d1nb9n3fi0cp4p13cvblxc681",
+        "ovm1fdzpu9cnmgdixu9nyrnlj",
         "u22q8estauvoz0jynedxd7tpx",
         "bihfi5k2fjxlss8h81ebcg7gh",
         "mxgl25jdcy1wvt2f5bk4umj1d",
@@ -8666,6 +8897,7 @@
       "group": "field",
       "definition": "追踪目标检测的研究方法、数据、工具与应用实践。",
       "itemIds": [
+        "vxw73cd0ji6xrmtqrdc7hzvtg",
         "dwewbn1fy9d8uc4zp7amrzbu6",
         "qfzw77qdi4u5ufu3hf1pcv6fr",
         "zazu2v2g42bi0riwwjvv8uvou",
@@ -8706,6 +8938,7 @@
       "group": "field",
       "definition": "追踪定量反演的研究方法、数据、工具与应用实践。",
       "itemIds": [
+        "sx1jbcp3ihuag0kohvyteobtx",
         "lq9zzraefp3asf68l60lwge6k",
         "bc3vwkds8rz13ie3fnupf56e8",
         "xp1kywmpe59cxvnq3sswk02qj",
@@ -8740,6 +8973,10 @@
       "group": "field",
       "definition": "追踪遥感基础模型的研究方法、数据、工具与应用实践。",
       "itemIds": [
+        "v8ip3zthrrrlg3cj9z1xwapwe",
+        "vxw73cd0ji6xrmtqrdc7hzvtg",
+        "d1nb9n3fi0cp4p13cvblxc681",
+        "ovm1fdzpu9cnmgdixu9nyrnlj",
         "gpzxrh22az2jibzxeyd6uobb7",
         "pcrc7uazq9i3q4ihhmonbgfpg",
         "w1b7wi4bv0k1xoe97jzh9b586",
@@ -8778,6 +9015,7 @@
       "group": "field",
       "definition": "追踪泛化与迁移的研究方法、数据、工具与应用实践。",
       "itemIds": [
+        "d1nb9n3fi0cp4p13cvblxc681",
         "pcrc7uazq9i3q4ihhmonbgfpg",
         "wabwu0q6n29slr7hyivkknqep",
         "opko1syuju8mmpom9t0hodovk",
@@ -8869,6 +9107,8 @@
       "group": "genre",
       "definition": "值得关注的遥感论文与研究，保留原文入口与适用条件。",
       "itemIds": [
+        "d1nb9n3fi0cp4p13cvblxc681",
+        "ovm1fdzpu9cnmgdixu9nyrnlj",
         "bc3vwkds8rz13ie3fnupf56e8",
         "es04cn2axyzenalm7w5ge1qe7",
         "pcrc7uazq9i3q4ihhmonbgfpg",
@@ -8951,6 +9191,9 @@
       "group": "genre",
       "definition": "值得关注的遥感数据集与基准，保留原文入口与适用条件。",
       "itemIds": [
+        "v8ip3zthrrrlg3cj9z1xwapwe",
+        "vxw73cd0ji6xrmtqrdc7hzvtg",
+        "sx1jbcp3ihuag0kohvyteobtx",
         "lq9zzraefp3asf68l60lwge6k",
         "bc3vwkds8rz13ie3fnupf56e8",
         "gstlj3nt4qnairh398go4o74v",
@@ -9090,7 +9333,7 @@
     }
   ],
   "hot": {
-    "computedAt": "2026-11-13T02:25:29.404Z",
+    "computedAt": "2026-11-14T02:25:36.620Z",
     "windowHours": 48,
     "entries": []
   }
