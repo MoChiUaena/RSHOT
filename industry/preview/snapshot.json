@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-15T02:30:08.481Z",
+  "generatedAt": "2026-11-16T02:30:09.310Z",
   "categories": [
     {
       "key": "paper",
@@ -29,59 +29,7 @@
   ],
   "sources": [
     {
-      "name": "NASA Earthdata · 科学数据与工具",
-      "kind": "rss"
-    },
-    {
-      "name": "中国科学院空天院 · 科研动态",
-      "kind": "web_list"
-    },
-    {
-      "name": "Earth System Science Data · 数据论文与讨论稿",
-      "kind": "web_list"
-    },
-    {
       "name": "GDAL · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "STAC FastAPI · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "TerraTorch · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "earthaccess · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "Copernicus Data Space · 数据与平台动态",
-      "kind": "rss"
-    },
-    {
-      "name": "PySTAC · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "Google Earth 与 Earth Engine · 官方博客",
-      "kind": "rss"
-    },
-    {
-      "name": "Earth Engine API · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "openEO Python Client · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "rioxarray · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "TorchGeo · 稳定版本发布",
       "kind": "rss"
     },
     {
@@ -89,11 +37,51 @@
       "kind": "rss"
     },
     {
+      "name": "NASA Earthdata · 科学数据与工具",
+      "kind": "rss"
+    },
+    {
       "name": "arXiv · 遥感与地球观测预印本",
       "kind": "rss"
     },
     {
-      "name": "EOReader · 稳定版本发布",
+      "name": "PySTAC · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "TorchGeo · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "STAC FastAPI · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "Copernicus Data Space · 数据与平台动态",
+      "kind": "rss"
+    },
+    {
+      "name": "中国科学院空天院 · 科研动态",
+      "kind": "web_list"
+    },
+    {
+      "name": "openEO Python Client · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "Google Earth 与 Earth Engine · 官方博客",
+      "kind": "rss"
+    },
+    {
+      "name": "Earth System Science Data · 数据论文与讨论稿",
+      "kind": "web_list"
+    },
+    {
+      "name": "rioxarray · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "TerraTorch · 稳定版本发布",
       "kind": "rss"
     },
     {
@@ -101,7 +89,19 @@
       "kind": "rss"
     },
     {
+      "name": "EOReader · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
       "name": "ESA · 对地观测",
+      "kind": "rss"
+    },
+    {
+      "name": "Earth Engine API · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "earthaccess · 稳定版本发布",
       "kind": "rss"
     }
   ],
@@ -6496,6 +6496,176 @@
     },
     {
       "kind": "weekly",
+      "key": "2026-W46",
+      "title": "RSHOT 周报 · 2026-W46",
+      "generatedAt": "2026-11-16T02:00:21.673Z",
+      "editorialMode": "model",
+      "lead": {
+        "title": "全球碳收支2026与野火评估发布，基础模型方法密集涌现",
+        "leadParagraph": "本期（2026-11-09 至 2026-11-15）遥感领域动态集中在气候监测数据与人工智能方法两条主线。《全球碳收支2026》讨论稿给出2025年人为CO2排放11.7±0.9 GtC、大气浓度425.6 ppm的估计，State of Wildfires 2025–2026 报告则系统评估全球野火活动并给出未来情景。数据方面，BMAT 建筑立面材料数据集、GSDEv2 全球土壤数据集、北半球多年冻土活动层厚度数据集等相继发布；方法方面，GeoScope、SpotDiff、UniFlow-RS 等免训练或统一框架密集涌现，AlphaEarth 等地球观测基础模型嵌入开始被用于作物制图与稀疏分解研究。Copernicus 方面发布保护区土地覆盖数据层并完成 Sentinel-5P 处理系统切换。"
+      },
+      "overview": "本期（2026-11-09 至 2026-11-15）遥感领域动态集中在气候监测数据与人工智能方法两条主线。《全球碳收支2026》讨论稿给出2025年人为CO2排放11.7±0.9 GtC、大气浓度425.6 ppm的估计，State of Wildfires 2025–2026 报告则系统评估全球野火活动并给出未来情景。数据方面，BMAT 建筑立面材料数据集、GSDEv2 全球土壤数据集、北半球多年冻土活动层厚度数据集等相继发布；方法方面，GeoScope、SpotDiff、UniFlow-RS 等免训练或统一框架密集涌现，AlphaEarth 等地球观测基础模型嵌入开始被用于作物制图与稀疏分解研究。Copernicus 方面发布保护区土地覆盖数据层并完成 Sentinel-5P 处理系统切换。",
+      "sections": [
+        {
+          "label": "碳收支与野火监测",
+          "summary": "《全球碳收支2026》讨论稿发布，给出1959–2025年全球碳收支五分量估计，2025年人为CO2排放11.7±0.9 GtC、大气浓度达425.6 ppm。State of Wildfires 2025–2026 报告追踪2025年3月至2026年2月全球与区域野火活动并开展归因与情景评估。DailyWildfireCAN 提供加拿大次日野火蔓延预测基准，覆盖2017–2024年8个火季2440起事件。",
+          "items": [
+            {
+              "itemId": "zh108gwhpp0sj9bcjfys6o3vr",
+              "title": "《全球碳收支2026》数据论文讨论稿发布：2025年人为CO2排放11.7±0.9 GtC，大气浓度达425.6 ppm",
+              "summary": "基于论文摘要，Friedlingstein 等以讨论稿形式发布 Global Carbon Budget 2026，给出1959–2025年全球碳收支五分量的估计与不确定性。",
+              "sourceName": "Earth System Science Data · 数据论文与讨论稿",
+              "originalUrl": "https://essd.copernicus.org/preprints/essd-2026-895/"
+            },
+            {
+              "itemId": "gstlj3nt4qnairh398go4o74v",
+              "title": "State of Wildfires 2025–2026 报告评估全球与区域野火活动并给出未来情景（预印本）",
+              "summary": "基于论文摘要，State of Wildfires 项目系统追踪 2025 年 3 月–2026 年 2 月全球与区域野火活动，并对三个重点区域开展归因与情景评估。",
+              "sourceName": "Earth System Science Data · 数据论文与讨论稿",
+              "originalUrl": "https://essd.copernicus.org/articles/18/8037/2026/"
+            },
+            {
+              "itemId": "gpzxrh22az2jibzxeyd6uobb7",
+              "title": "预印本：DailyWildfireCAN——加拿大次日野火蔓延预测数据集与基准",
+              "summary": "基于论文摘要，作者提出DailyWildfireCAN，一个用于加拿大次日野火蔓延预测的多模态、多时相数据集与基准。数据集覆盖2017–2024年8个火季的2,440起野火事件，空间分辨率90-m、时间分辨率24小时，整合地形、气象、土地覆盖、植被与森林结构、人类影响指数及卫星影像等33个特征。",
+              "sourceName": "arXiv · 遥感与地球观测预印本",
+              "originalUrl": "https://arxiv.org/abs/2611.14207v1"
+            }
+          ]
+        },
+        {
+          "label": "基础模型嵌入应用",
+          "summary": "地球观测基础模型嵌入成为新热点：研究用稀疏自编码器将 AlphaEarth、Tessera 嵌入分解为近似单语义特征；另有工作将 AlphaEarth 64维嵌入与 Fields of the World 田块边界结合，实现摩洛哥全国尺度作物类型制图，无需原始卫星影像。",
+          "items": [
+            {
+              "itemId": "r1jqt6tb0qk0fxs0hy5jg8zh4",
+              "title": "预印本提出用稀疏自编码器分解地球观测嵌入（AlphaEarth、Tessera）",
+              "summary": "基于论文摘要，该预印本提出用稀疏自编码器（SAE）将地球观测基础模型产生的全球米级嵌入分解为过完备字典上的稀疏、近似单语义特征，并配套设计了评估协议。",
+              "sourceName": "arXiv · 遥感与地球观测预印本",
+              "originalUrl": "https://arxiv.org/abs/2611.11398v1"
+            },
+            {
+              "itemId": "mkgmst1bpp2irqr3wzsc7fk6z",
+              "title": "预印本：基于 Google AlphaEarth Foundations 嵌入与 Fields of the World 田块边界的摩洛哥全国尺度作物类型制图",
+              "summary": "基于论文摘要，该研究考察将 Google AlphaEarth Foundations 的 64 维预训练嵌入用于摩洛哥全国尺度作物类型制图，针对冬季谷物、木本作物和其他作物三类，用轻量下游分类器直接处理嵌入而无需原始卫星影像，并借助 Fields of the World 全球田块边界图将预测限定在农业地块。",
+              "sourceName": "arXiv · 遥感与地球观测预印本",
+              "originalUrl": "https://arxiv.org/abs/2611.12681v1"
+            }
+          ]
+        },
+        {
+          "label": "免训练与统一框架",
+          "summary": "多个方法试图降低任务定制成本：GeoScope 以免训练程序化执行突破超高分辨率遥感问答的计数视域限制；SpotDiff 组合 DINOv3、AnyUp 与 SAM 3 实现零样本变化检测，LEVIR-CD 上达 82.46 F1；UniFlow-RS 用单一潜流匹配预测器统一六类遥感任务；SALT 仅用 0.068M 可训练参数完成跨数据集结构定位。",
+          "items": [
+            {
+              "itemId": "dwewbn1fy9d8uc4zp7amrzbu6",
+              "title": "GeoScope：预印本提出免训练程序化执行方法，突破超高分辨率遥感问答的计数视域限制",
+              "summary": "基于论文摘要，GeoScope 提出一种免训练方法，用纯文本语言模型把问题解析为带类型的空间程序以固定区域与分辨率，让 VLM 只在其可工作范围内做定位与计数，方向关系由定位框显式计算。",
+              "sourceName": "arXiv · 遥感与地球观测预印本",
+              "originalUrl": "https://arxiv.org/abs/2611.12699v1"
+            },
+            {
+              "itemId": "ovm1fdzpu9cnmgdixu9nyrnlj",
+              "title": "SpotDiff：基于基础模型组合的遥感零样本变化检测即插即用框架（预印本）",
+              "summary": "基于论文摘要，SpotDiff 提出一种无需训练、即插即用的零样本遥感变化检测框架，通过组合 DINOv3 语义特征、AnyUp 像素级上采样与 SAM 3 文本引导区域提议，在 LEVIR-CD 上达到 82.46 F1。",
+              "sourceName": "arXiv · 遥感与地球观测预印本",
+              "originalUrl": "https://arxiv.org/abs/2611.17172v1"
+            },
+            {
+              "itemId": "pcrc7uazq9i3q4ihhmonbgfpg",
+              "title": "UniFlow-RS 预印本：单一潜流匹配预测器统一六类遥感任务",
+              "summary": "基于论文摘要，UniFlow-RS 用一个共享的潜流匹配预测器统一六类遥感任务，将任务输出转为公共潜空间中的结构化视觉目标，并以 Task-Modality Adaptive Timestep Sampling 协调多任务优化。",
+              "sourceName": "arXiv · 遥感与地球观测预印本",
+              "originalUrl": "https://arxiv.org/abs/2611.14281v1"
+            },
+            {
+              "itemId": "d1nb9n3fi0cp4p13cvblxc681",
+              "title": "预印本 SALT：面向遥感单时相跨数据集结构定位的状态对齐低秩迁移框架",
+              "summary": "基于论文摘要，SALT 提出一种状态对齐低秩迁移框架，用冻结的 DINOv3 骨干和 0.068M 可训练参数完成遥感单时相跨数据集结构定位。",
+              "sourceName": "arXiv · 遥感与地球观测预印本",
+              "originalUrl": "https://arxiv.org/abs/2611.17077v1"
+            }
+          ]
+        },
+        {
+          "label": "地表参量数据集",
+          "summary": "多尺度地表参量数据产品集中发布：BMAT 覆盖全球73个主要城市2209万栋建筑的足迹级立面材料；GSDEv2 提供90米分辨率、6个深度层的20项土壤理化性质；北半球多年冻土活动层厚度数据集覆盖2000–2024年、分辨率1 km；智利原生林生物量与碳储量数据集整合2024个样地近6万株树木。",
+          "items": [
+            {
+              "itemId": "uw6f97sez0un4l8spgivw3aur",
+              "title": "ESSD 发表 BMAT：覆盖全球 73 个主要城市 2209 万栋建筑的足迹级立面材料数据集",
+              "summary": "基于论文摘要，作者发布足迹级建筑立面材料数据集 BMAT，覆盖全球 73 个主要城市的 2209 万栋建筑，逐栋关联建筑足迹与由 1.47 亿张带时间戳街景影像（2007–2025 年间采集）推断的主导可见临街立面材料标签。",
+              "sourceName": "Earth System Science Data · 数据论文与讨论稿",
+              "originalUrl": "https://essd.copernicus.org/articles/18/8191/2026/"
+            },
+            {
+              "itemId": "sx1jbcp3ihuag0kohvyteobtx",
+              "title": "ESSD发布全球土壤数据集GSDEv2讨论稿：支持地球系统建模的90米分辨率数据",
+              "summary": "研究提出GSDEv2，一套用于地球系统建模的全球土壤数据集（预印本）。该数据集提供20项理化性质、6个标准深度层的90米网格预测，融合中国、美国等区域土壤产品；基于论文摘要，其RMSE较GSDEv1、SoilGrids 2.0和HWSD 2.0分别降低22.2%、5.8%和24.6%，并改善CoLM2024表层土壤湿度模拟。数据已通过国家青藏高原科学数据中心和ScienceDB开放获取。",
+              "sourceName": "Earth System Science Data · 数据论文与讨论稿",
+              "originalUrl": "https://essd.copernicus.org/preprints/essd-2026-770/"
+            },
+            {
+              "itemId": "fg4asx909tjogsekwy68v047x",
+              "title": "北半球多年冻土活动层厚度 1 km 网格数据集（2000–2024）",
+              "summary": "基于论文摘要，研究构建了 2000–2024 年北半球多年冻土区 1 km 分辨率逐年活动层厚度（ALT）网格数据集，采用 LightGBM–XGBoost 集成框架重建。",
+              "sourceName": "Earth System Science Data · 数据论文与讨论稿",
+              "originalUrl": "https://essd.copernicus.org/articles/18/8211/2026/"
+            },
+            {
+              "itemId": "fyuchou6wwzq3ap9an8c361dh",
+              "title": "智利原生林样地级活立木生物量与碳储量国家尺度数据集（预印本）",
+              "summary": "该研究发布了智利原生林国家尺度的活立木生物量与碳储量开放数据集。基于论文摘要，作者整合了2024个野外样地中59,408株树木（77个物种）的实测数据，采用物种特异性异速生长方程结合Boosted Regression Trees模型估算样地级地上生物量密度与碳密度。",
+              "sourceName": "Earth System Science Data · 数据论文与讨论稿",
+              "originalUrl": "https://essd.copernicus.org/preprints/essd-2026-720/"
+            }
+          ]
+        },
+        {
+          "label": "基准与表征学习",
+          "summary": "新方法与新基准推动模型能力评测与表征学习：RICapBench 面向遥感视觉语言模型提供24.5万条实例级标注；SoMoBench 整合准全球原位土壤湿度观测；CroCoMAE 实现 SAR-光学跨模态自监督学习；RS-JEPA 基于扫描路径视图进行跨传感器检索；PARDIG 从稀疏卫星观测学习全球降水估计。",
+          "items": [
+            {
+              "itemId": "vxw73cd0ji6xrmtqrdc7hzvtg",
+              "title": "预印本提出 RICapBench：面向遥感视觉语言模型的细粒度视觉理解基准数据集",
+              "summary": "RICapBench 提出面向遥感视觉语言模型的细粒度理解基准，将实例定位与细粒度描述统一评测。基于论文摘要，数据集包含 245,466 条实例级标注与 498,005 个空间关系三元组，覆盖通用遥感、无人机遥感与密集小目标场景，每条标注将旋转框与可见属性及空间关系的自然语言描述配对；作者还提出空间关系解析器、RelCap-F1 指标与复合指标 RICScore。",
+              "sourceName": "arXiv · 遥感与地球观测预印本",
+              "originalUrl": "https://arxiv.org/abs/2611.16413v1"
+            },
+            {
+              "itemId": "lq9zzraefp3asf68l60lwge6k",
+              "title": "SoMoBench：面向数据驱动土壤湿度建模的准全球基准数据集（预印本）",
+              "summary": "SoMoBench 提出一个准全球基准数据集，整合国际土壤湿度网络与巴西 CEMADEN 网络的原位观测，提供标准化预测变量与土壤湿度目标。基于论文摘要，数据覆盖 2001–2024 年，包含 1,445 个网格单元，按 0.25° 网格和三层土壤深度（0–10、10–30、30–50 cm）组织，并使用 ERA5 气象数据作为预测变量。",
+              "sourceName": "Earth System Science Data · 数据论文与讨论稿",
+              "originalUrl": "https://essd.copernicus.org/preprints/essd-2026-620/"
+            },
+            {
+              "itemId": "es04cn2axyzenalm7w5ge1qe7",
+              "title": "CroCoMAE：面向SAR-光学遥感数据的跨模态自监督协同表示学习（预印本）",
+              "summary": "CroCoMAE提出一种面向SAR-光学遥感数据的跨模态自监督学习框架，在ViT架构中统一对比学习与掩码图像建模。基于论文摘要，该方法在图像级通过类Token的模态内对比学习获取全局判别性表示，在补丁级通过掩码建模和跨模态对比目标对齐共享子空间，同时保留模态特定信息。",
+              "sourceName": "arXiv · 遥感与地球观测预印本",
+              "originalUrl": "https://arxiv.org/abs/2611.14124v1"
+            },
+            {
+              "itemId": "w1b7wi4bv0k1xoe97jzh9b586",
+              "title": "RS-JEPA 预印本：基于扫描路径视图的遥感联合嵌入预测架构用于跨传感器影像检索",
+              "summary": "基于论文摘要，预印本提出 RS-JEPA，一种基于双传感器共享 Vision Mamba 编码器的紧凑联合嵌入预测框架，将同一影像的两种读取顺序视为扫描路径视图，并用对抗视图耦合（AVC）与邻域一致性损失进行跨传感器检索训练。",
+              "sourceName": "arXiv · 遥感与地球观测预印本",
+              "originalUrl": "https://arxiv.org/abs/2611.14496v1"
+            },
+            {
+              "itemId": "bc3vwkds8rz13ie3fnupf56e8",
+              "title": "预印本提出 PARDIG：从稀疏卫星观测学习全球降水估计",
+              "summary": "基于论文摘要，预印本提出 PARDIG，一个基于球面图网格 Transformer 架构的人工智能框架，从稀疏卫星观测学习生成近实时全球降水估计。",
+              "sourceName": "arXiv · 遥感与地球观测预印本",
+              "originalUrl": "https://arxiv.org/abs/2611.13941v1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "weekly",
       "key": "2026-W45",
       "title": "RSHOT 周报 · 2026-W45",
       "generatedAt": "2026-11-09T02:00:51.036Z",
@@ -9333,7 +9503,7 @@
     }
   ],
   "hot": {
-    "computedAt": "2026-11-15T02:25:28.755Z",
+    "computedAt": "2026-11-16T02:30:05.117Z",
     "windowHours": 48,
     "entries": []
   }
