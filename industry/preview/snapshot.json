@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-16T02:30:09.310Z",
+  "generatedAt": "2026-11-17T02:30:08.847Z",
   "categories": [
     {
       "key": "paper",
@@ -29,7 +29,27 @@
   ],
   "sources": [
     {
+      "name": "arXiv · 遥感与地球观测预印本",
+      "kind": "rss"
+    },
+    {
+      "name": "EOReader · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "Earth System Science Data · 数据论文与讨论稿",
+      "kind": "web_list"
+    },
+    {
       "name": "GDAL · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "TorchGeo · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "ESA · 对地观测",
       "kind": "rss"
     },
     {
@@ -37,19 +57,23 @@
       "kind": "rss"
     },
     {
-      "name": "NASA Earthdata · 科学数据与工具",
+      "name": "earthaccess · 稳定版本发布",
       "kind": "rss"
     },
     {
-      "name": "arXiv · 遥感与地球观测预印本",
+      "name": "Earth Engine API · 稳定版本发布",
       "kind": "rss"
     },
     {
-      "name": "PySTAC · 稳定版本发布",
+      "name": "TerraTorch · 稳定版本发布",
       "kind": "rss"
     },
     {
-      "name": "TorchGeo · 稳定版本发布",
+      "name": "openEO Python Client · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "Rasterio · 稳定版本发布",
       "kind": "rss"
     },
     {
@@ -61,51 +85,149 @@
       "kind": "rss"
     },
     {
-      "name": "中国科学院空天院 · 科研动态",
-      "kind": "web_list"
+      "name": "NASA Earthdata · 科学数据与工具",
+      "kind": "rss"
     },
     {
-      "name": "openEO Python Client · 稳定版本发布",
+      "name": "PySTAC · 稳定版本发布",
       "kind": "rss"
+    },
+    {
+      "name": "中国科学院空天院 · 科研动态",
+      "kind": "web_list"
     },
     {
       "name": "Google Earth 与 Earth Engine · 官方博客",
       "kind": "rss"
     },
     {
-      "name": "Earth System Science Data · 数据论文与讨论稿",
-      "kind": "web_list"
-    },
-    {
       "name": "rioxarray · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "TerraTorch · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "Rasterio · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "EOReader · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "ESA · 对地观测",
-      "kind": "rss"
-    },
-    {
-      "name": "Earth Engine API · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "earthaccess · 稳定版本发布",
       "kind": "rss"
     }
   ],
   "items": [
+    {
+      "id": "tjw5jhs44tki45qvu7eb9wvl8",
+      "title": "Google Earth Engine API v1.7.53 发布",
+      "originalTitle": "v1.7.53",
+      "summary": "Google Earth Engine API 发布 v1.7.53 版本，NodeJS 包 @google/earthengine 将 xmlhttprequest 依赖替换为 xmlhttprequest-ssl。",
+      "reason": null,
+      "source": {
+        "name": "Earth Engine API · 稳定版本发布",
+        "kind": "rss",
+        "firstParty": true
+      },
+      "originalUrl": "https://github.com/google/earthengine-api/releases/tag/v1.7.53",
+      "publishedAt": "2026-11-16T19:37:44.000Z",
+      "timelineAt": "2026-11-16T20:35:27.366Z",
+      "category": "rs-tools",
+      "tags": [
+        "工具更新",
+        "开源/仓库",
+        "Google Earth Engine"
+      ],
+      "score": 35,
+      "selected": false
+    },
+    {
+      "id": "fo7v639tvs6qhah75jjchyrbl",
+      "title": "ESSD 研究用高斯混合模型与自适应阈值制图全球主产区 2001–2020 年冬小麦动态",
+      "originalTitle": "Mapping 20-years winter wheat dynamics in global primary planting areas using Gaussian mixture models with adaptive thresholds",
+      "summary": "基于论文摘要，作者提出一套基于高斯混合模型与自适应阈值的框架，从 MODIS 地表反射率数据制图 2001–2020 年全球主要种植区 1 km 分辨率冬小麦分数动态。",
+      "reason": "提出基于高斯混合模型与自适应阈值的框架，由 MODIS 反射率反演 1 km 冬小麦分数并生成 2001–2020 年全球主产区分布序列，与 FAO 统计在主要种植区年际 R² 超过 0.81。",
+      "source": {
+        "name": "Earth System Science Data · 数据论文与讨论稿",
+        "kind": "web_list",
+        "firstParty": true
+      },
+      "originalUrl": "https://essd.copernicus.org/articles/18/8311/2026/",
+      "publishedAt": "2026-11-16T00:00:00.000Z",
+      "timelineAt": "2026-11-16T16:03:38.019Z",
+      "category": "data",
+      "tags": [
+        "论文/研究",
+        "数据集/基准",
+        "农业",
+        "定量反演",
+        "时序分析",
+        "Copernicus"
+      ],
+      "score": 80,
+      "selected": true
+    },
+    {
+      "id": "x8h0nff6brw2ly1mvxv3m9wza",
+      "title": "ChinaMet：面向中国的多源融合高分辨率多变量气象数据集（讨论稿）",
+      "originalTitle": "ChinaMet: A multisource integrated high-resolution multi-variable meteorological dataset for China",
+      "summary": "基于论文摘要，ChinaMet发布一个面向中国的多源融合高分辨率多变量气象数据集，覆盖1980–2024年，空间分辨率0.01°（约1 km）。",
+      "reason": "原文给出融合-降尺度框架与多源输入、0.01°分辨率、1980–2024时长及针对青藏高原的ERA5-Land虚拟台站偏差校正，并列出独立台站、地级降水、国家记录与多产品对比的验证设置，可用于评估高分辨率气象驱动数据在复杂地形区的适用性。",
+      "source": {
+        "name": "Earth System Science Data · 数据论文与讨论稿",
+        "kind": "web_list",
+        "firstParty": true
+      },
+      "originalUrl": "https://essd.copernicus.org/preprints/essd-2026-704/",
+      "publishedAt": "2026-11-16T00:00:00.000Z",
+      "timelineAt": "2026-11-16T15:02:27.733Z",
+      "category": "data",
+      "tags": [
+        "数据集/基准",
+        "定量反演",
+        "气候",
+        "农业"
+      ],
+      "score": 81,
+      "selected": true
+    },
+    {
+      "id": "hbtwycfs6lafwj5r69yn9tjdk",
+      "title": "Sentinel-5P NRTI O3 与 CLOUD 产品在 UPAS 3.0.1 升级后出现 QA 值异常",
+      "originalTitle": "Sentinel-5P NRTI O3 and CLOUD Products: QA value issue following the UPAS 3.0.1 upgrade",
+      "summary": "Copernicus Data Space 通报：Sentinel-5P 处理器 UPAS 3.0.1 升级后，NRTI O3 与 CLOUD 产品的 QA 值存在异常，在高云量情形下（尤其南美洲和非洲上空）QA 值可能低于预期；因 NRTI O3 产品使用 CLOUD QA 值作为输入，其 QA 值也相应受影响。",
+      "reason": null,
+      "source": {
+        "name": "Copernicus Data Space · 数据与平台动态",
+        "kind": "rss",
+        "firstParty": true
+      },
+      "originalUrl": "https://dataspace.copernicus.eu/news/2026-11-16-sentinel-5p-nrti-o3-and-cloud-products-qa-value-issue-following-upas-301-upgrade",
+      "publishedAt": "2026-11-16T09:57:02.000Z",
+      "timelineAt": "2026-11-16T10:58:09.825Z",
+      "category": "data",
+      "tags": [
+        "卫星/传感器",
+        "Copernicus",
+        "数据质量",
+        "ESA"
+      ],
+      "score": 57,
+      "selected": false
+    },
+    {
+      "id": "shleywl5qfzrrkir04kkvz67y",
+      "title": "ESSD 讨论稿：基于能量-阻力耦合框架的 2001–2020 年全球 0.05° 逐日潜热通量与阻力数据集",
+      "originalTitle": "A global 0.05° dataset of daily latent heat flux and resistances (2001–2020) derived via the Energy-Resistance-Coupling framework",
+      "summary": "基于论文摘要，作者通过能量-阻力耦合（ERC）迭代框架生成了 2001–2020 年全球 0.05° 逐日数据集，包含潜热通量（LE）、空气动力学阻力（r_ae）、地表阻力（r_s）、解耦系数（Ω）和最大地表相对湿度（h_s,max）。",
+      "reason": "与只提供通量产品的既有工作不同，该数据集同时给出 r_ae、r_s、Ω 与 h_s,max 等阻力相关变量的长时序全球场，并在 244 个通量站点上报告了验证指标，便于复用与比较。",
+      "source": {
+        "name": "Earth System Science Data · 数据论文与讨论稿",
+        "kind": "web_list",
+        "firstParty": true
+      },
+      "originalUrl": "https://essd.copernicus.org/preprints/essd-2026-678/",
+      "publishedAt": "2026-11-16T00:00:00.000Z",
+      "timelineAt": "2026-11-16T09:58:13.776Z",
+      "category": "data",
+      "tags": [
+        "数据集/基准",
+        "定量反演",
+        "时序分析",
+        "气候",
+        "Copernicus"
+      ],
+      "score": 77,
+      "selected": true
+    },
     {
       "id": "k5wt3dtlxj5652x5d1rqsop1c",
       "title": "大气河流季节降临美国太平洋西北地区",
@@ -693,29 +815,6 @@
       "selected": true
     },
     {
-      "id": "o128mp087nf1suv4x5qtpdg3y",
-      "title": "Google Earth Engine API v1.7.52 发布",
-      "originalTitle": "v1.7.52",
-      "summary": "Google Earth Engine API 发布 v1.7.52 版本，主要更新了构建产物和算法配置文件。本次更新仅涉及客户端库的变更，后端服务的变更内容可查看 Earth Engine 发布说明。",
-      "reason": null,
-      "source": {
-        "name": "Earth Engine API · 稳定版本发布",
-        "kind": "rss",
-        "firstParty": true
-      },
-      "originalUrl": "https://github.com/google/earthengine-api/releases/tag/v1.7.52",
-      "publishedAt": "2026-11-09T22:54:59.000Z",
-      "timelineAt": "2026-11-09T23:02:26.386Z",
-      "category": "rs-tools",
-      "tags": [
-        "工具更新",
-        "云端处理",
-        "Google Earth Engine"
-      ],
-      "score": 11,
-      "selected": false
-    },
-    {
       "id": "fyuchou6wwzq3ap9an8c361dh",
       "title": "智利原生林样地级活立木生物量与碳储量国家尺度数据集（预印本）",
       "originalTitle": "A national-wide dataset of plot-level living tree biomass and carbon stocks in Chilean native forests",
@@ -740,30 +839,6 @@
       "selected": true
     },
     {
-      "id": "f037teo53fy1j4wtlv181zlnt",
-      "title": "Copernicus Sentinel-5P 于 11 月 8 日至 9 日出现数据不可用情况",
-      "originalTitle": "Copernicus Sentinel-5P Unavailability on 08 and 09 November 2026",
-      "summary": "因 Sentinel-5P 地面段故障，数据采集从 11 月 8 日 22:19 UTC 延迟至 9 日 06:36 UTC，影响 47011 至 47016 轨道。期间 NRTI 产品不可用，OFFL 产品仍完全可用但可能略有延迟。",
-      "reason": null,
-      "source": {
-        "name": "Copernicus Data Space · 数据与平台动态",
-        "kind": "rss",
-        "firstParty": true
-      },
-      "originalUrl": "https://dataspace.copernicus.eu/news/2026-11-9-copernicus-sentinel-5p-unavailability-08-and-09-november-2026",
-      "publishedAt": "2026-11-09T14:13:44.000Z",
-      "timelineAt": "2026-11-09T14:23:22.180Z",
-      "category": "satellite",
-      "tags": [
-        "行业动态",
-        "卫星/传感器",
-        "数据质量",
-        "Copernicus"
-      ],
-      "score": 35,
-      "selected": false
-    },
-    {
       "id": "vs7fl98fj8vyhgwteynh8worq",
       "title": "Copernicus 土地监测服务发布 Protected Areas 2021 保护区土地覆盖数据层",
       "originalTitle": "New product release: Copernicus Land Monitoring Service Protected Areas 2021",
@@ -785,27 +860,6 @@
       ],
       "score": 70,
       "selected": true
-    },
-    {
-      "id": "d8cl5wdd5av4ay50cszgq81hq",
-      "title": "Copernicus Browser 与 Sentinel Hub 服务将于 11 月 10 日至 13 日升级",
-      "originalTitle": "Upgrade of Copernicus Browser and Sentinel Hub services from 10/11/2026 till 13/11/2026",
-      "summary": "Copernicus 通知 CDSE 用户，因 Copernicus Browser 和 Sentinel Hub 服务升级，11 月 10 日至 13 日期间可能出现短时服务中断。",
-      "reason": null,
-      "source": {
-        "name": "Copernicus Data Space · 数据与平台动态",
-        "kind": "rss",
-        "firstParty": true
-      },
-      "originalUrl": "https://dataspace.copernicus.eu/news/2026-11-9-upgrade-copernicus-browser-and-sentinel-hub-services",
-      "publishedAt": "2026-11-09T09:05:41.000Z",
-      "timelineAt": "2026-11-09T09:19:18.388Z",
-      "category": "rs-tools",
-      "tags": [
-        "其他"
-      ],
-      "score": 22,
-      "selected": false
     },
     {
       "id": "mq9u0rq1tokp5cfhcjcq5j5to",
@@ -4197,6 +4251,47 @@
     }
   ],
   "reports": [
+    {
+      "kind": "daily",
+      "key": "2026-11-17",
+      "title": "遥感日报 · 2026-11-17",
+      "generatedAt": "2026-11-17T00:00:30.068Z",
+      "editorialMode": "model",
+      "lead": {
+        "title": "ChinaMet 发布 1980–2024 年中国 0.01° 多源融合多变量气象数据集",
+        "leadParagraph": "ChinaMet 讨论稿发布面向中国的多源融合高分辨率多变量气象数据集，覆盖 1980–2024 年、空间分辨率 0.01°（约 1 km）。同期 ESSD 研究以高斯混合模型与自适应阈值，基于 MODIS 制图 2001–2020 年全球主产区 1 km 冬小麦动态；另有讨论稿用能量-阻力耦合框架生成 2001–2020 年全球 0.05° 逐日潜热通量与阻力数据集。"
+      },
+      "overview": null,
+      "sections": [
+        {
+          "label": "数据集与基准",
+          "summary": null,
+          "items": [
+            {
+              "itemId": "x8h0nff6brw2ly1mvxv3m9wza",
+              "title": "ChinaMet：面向中国的多源融合高分辨率多变量气象数据集（讨论稿）",
+              "summary": "基于论文摘要，ChinaMet发布一个面向中国的多源融合高分辨率多变量气象数据集，覆盖1980–2024年，空间分辨率0.01°（约1 km）。",
+              "sourceName": "Earth System Science Data · 数据论文与讨论稿",
+              "originalUrl": "https://essd.copernicus.org/preprints/essd-2026-704/"
+            },
+            {
+              "itemId": "fo7v639tvs6qhah75jjchyrbl",
+              "title": "ESSD 研究用高斯混合模型与自适应阈值制图全球主产区 2001–2020 年冬小麦动态",
+              "summary": "基于论文摘要，作者提出一套基于高斯混合模型与自适应阈值的框架，从 MODIS 地表反射率数据制图 2001–2020 年全球主要种植区 1 km 分辨率冬小麦分数动态。",
+              "sourceName": "Earth System Science Data · 数据论文与讨论稿",
+              "originalUrl": "https://essd.copernicus.org/articles/18/8311/2026/"
+            },
+            {
+              "itemId": "shleywl5qfzrrkir04kkvz67y",
+              "title": "ESSD 讨论稿：基于能量-阻力耦合框架的 2001–2020 年全球 0.05° 逐日潜热通量与阻力数据集",
+              "summary": "基于论文摘要，作者通过能量-阻力耦合（ERC）迭代框架生成了 2001–2020 年全球 0.05° 逐日数据集，包含潜热通量（LE）、空气动力学阻力（r_ae）、地表阻力（r_s）、解耦系数（Ω）和最大地表相对湿度（h_s,max）。",
+              "sourceName": "Earth System Science Data · 数据论文与讨论稿",
+              "originalUrl": "https://essd.copernicus.org/preprints/essd-2026-678/"
+            }
+          ]
+        }
+      ]
+    },
     {
       "kind": "daily",
       "key": "2026-11-14",
@@ -8895,6 +8990,8 @@
       "group": "company",
       "definition": "Copernicus 的遥感研究、观测数据与工程动态。",
       "itemIds": [
+        "fo7v639tvs6qhah75jjchyrbl",
+        "shleywl5qfzrrkir04kkvz67y",
         "v8ip3zthrrrlg3cj9z1xwapwe",
         "lq9zzraefp3asf68l60lwge6k",
         "bb589jl1403kmvt4hwk0gyox7",
@@ -9108,6 +9205,9 @@
       "group": "field",
       "definition": "追踪定量反演的研究方法、数据、工具与应用实践。",
       "itemIds": [
+        "fo7v639tvs6qhah75jjchyrbl",
+        "x8h0nff6brw2ly1mvxv3m9wza",
+        "shleywl5qfzrrkir04kkvz67y",
         "sx1jbcp3ihuag0kohvyteobtx",
         "lq9zzraefp3asf68l60lwge6k",
         "bc3vwkds8rz13ie3fnupf56e8",
@@ -9241,6 +9341,8 @@
       "group": "field",
       "definition": "追踪农业的研究方法、数据、工具与应用实践。",
       "itemIds": [
+        "fo7v639tvs6qhah75jjchyrbl",
+        "x8h0nff6brw2ly1mvxv3m9wza",
         "mkgmst1bpp2irqr3wzsc7fk6z",
         "a3tnf7n4040i9jbqm9ay9wvuj",
         "ezopn0l2pthtc3s089hx2cq6n",
@@ -9277,6 +9379,7 @@
       "group": "genre",
       "definition": "值得关注的遥感论文与研究，保留原文入口与适用条件。",
       "itemIds": [
+        "fo7v639tvs6qhah75jjchyrbl",
         "d1nb9n3fi0cp4p13cvblxc681",
         "ovm1fdzpu9cnmgdixu9nyrnlj",
         "bc3vwkds8rz13ie3fnupf56e8",
@@ -9361,6 +9464,9 @@
       "group": "genre",
       "definition": "值得关注的遥感数据集与基准，保留原文入口与适用条件。",
       "itemIds": [
+        "fo7v639tvs6qhah75jjchyrbl",
+        "x8h0nff6brw2ly1mvxv3m9wza",
+        "shleywl5qfzrrkir04kkvz67y",
         "v8ip3zthrrrlg3cj9z1xwapwe",
         "vxw73cd0ji6xrmtqrdc7hzvtg",
         "sx1jbcp3ihuag0kohvyteobtx",
@@ -9503,7 +9609,7 @@
     }
   ],
   "hot": {
-    "computedAt": "2026-11-16T02:30:05.117Z",
+    "computedAt": "2026-11-17T02:25:27.360Z",
     "windowHours": 48,
     "entries": []
   }
