@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-19T02:30:09.341Z",
+  "generatedAt": "2026-11-20T02:30:07.088Z",
   "categories": [
     {
       "key": "paper",
@@ -29,27 +29,7 @@
   ],
   "sources": [
     {
-      "name": "TerraTorch · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "arXiv · 遥感与地球观测预印本",
-      "kind": "rss"
-    },
-    {
-      "name": "Rasterio · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "TorchGeo · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
       "name": "STAC FastAPI · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "openEO Python Client · 稳定版本发布",
       "kind": "rss"
     },
     {
@@ -57,23 +37,7 @@
       "kind": "rss"
     },
     {
-      "name": "Earth System Science Data · 数据论文与讨论稿",
-      "kind": "web_list"
-    },
-    {
-      "name": "ESA · 对地观测",
-      "kind": "rss"
-    },
-    {
       "name": "EOReader · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "GDAL · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "Earth Engine API · 稳定版本发布",
       "kind": "rss"
     },
     {
@@ -81,7 +45,15 @@
       "kind": "rss"
     },
     {
-      "name": "geemap · 稳定版本发布",
+      "name": "PySTAC · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "Earth System Science Data · 数据论文与讨论稿",
+      "kind": "web_list"
+    },
+    {
+      "name": "arXiv · 遥感与地球观测预印本",
       "kind": "rss"
     },
     {
@@ -89,23 +61,195 @@
       "kind": "rss"
     },
     {
-      "name": "PySTAC · 稳定版本发布",
-      "kind": "rss"
+      "name": "中国科学院空天院 · 科研动态",
+      "kind": "web_list"
     },
     {
       "name": "earthaccess · 稳定版本发布",
       "kind": "rss"
     },
     {
-      "name": "中国科学院空天院 · 科研动态",
-      "kind": "web_list"
+      "name": "Earth Engine API · 稳定版本发布",
+      "kind": "rss"
     },
     {
       "name": "Google Earth 与 Earth Engine · 官方博客",
       "kind": "rss"
+    },
+    {
+      "name": "geemap · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "ESA · 对地观测",
+      "kind": "rss"
+    },
+    {
+      "name": "TorchGeo · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "GDAL · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "openEO Python Client · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "TerraTorch · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "Rasterio · 稳定版本发布",
+      "kind": "rss"
     }
   ],
   "items": [
+    {
+      "id": "szm1ke27hsm0ov45xc5drt23p",
+      "title": "PySTAC v1.16.1 发布",
+      "originalTitle": "v1.16.1",
+      "summary": "PySTAC 发布稳定版本 v1.16.1，该版本由 jsignell 于 19 Nov 发布。自上一版本以来，main 分支新增 1 个提交，版本对应提交 e043dd7，提交在 GitHub.com 创建并带有 GitHub 已验证签名。",
+      "reason": null,
+      "source": {
+        "name": "PySTAC · 稳定版本发布",
+        "kind": "rss",
+        "firstParty": true
+      },
+      "originalUrl": "https://github.com/stac-utils/pystac/releases/tag/v1.16.1",
+      "publishedAt": "2026-11-19T15:56:37.000Z",
+      "timelineAt": "2026-11-19T18:24:16.008Z",
+      "category": "rs-tools",
+      "tags": [
+        "工具更新",
+        "开源生态"
+      ],
+      "score": 20,
+      "selected": false
+    },
+    {
+      "id": "wj3lye4n1u4e7ke32hjfv564t",
+      "title": "DigiSylva 数据集讨论稿：整合美国东北部北方—温带交错带 308 个样地的森林清查与机载激光扫描观测",
+      "originalTitle": "DigiSylva: a plot-level dataset of forest attributes integrating field and airborne laser scanning measurements across the boreal-temperate ecotone of the northeastern United States",
+      "summary": "基于论文摘要，Xinyuan Wei 等人在 ESSD 讨论稿中提出 DigiSylva，一个整合样地清查、ALS 点云及配套遥感产品的美国东北部北方—温带交错带森林属性数据库。",
+      "reason": "该数据集将亚米级 GNSS 定位的样地清查、单木测量与多时相 ALS 点云及配套影像共同配准，为混交林属性建模与生物量监测提供可验证的样地级观测基础。",
+      "source": {
+        "name": "Earth System Science Data · 数据论文与讨论稿",
+        "kind": "web_list",
+        "firstParty": true
+      },
+      "originalUrl": "https://essd.copernicus.org/preprints/essd-2026-773/",
+      "publishedAt": "2026-11-19T00:00:00.000Z",
+      "timelineAt": "2026-11-19T16:12:28.155Z",
+      "category": "data",
+      "tags": [
+        "数据集/基准",
+        "LiDAR",
+        "森林/生态",
+        "定量反演",
+        "时序分析"
+      ],
+      "score": 79,
+      "selected": true
+    },
+    {
+      "id": "ktmpjgwcuwkq6npyoq1o2m6v4",
+      "title": "研究发布基于MODIS可见光影像的2000–2024年北冰洋逐日融池与净冰面比例数据集",
+      "originalTitle": "Daily melt pond and net ice surface fractions in the Arctic Ocean from MODIS visible imagery: 2000–2024",
+      "summary": "基于论文摘要，研究基于MODIS Terra v6.1的1、3、4通道反射率，改进既有光谱解混方法，生成2000–2024年6—8月北极海冰逐日融池比例数据集，提供500 m和12.5 km网格分辨率，并给出净冰面比例及浮冰间开阔水面比例。",
+      "reason": "该研究将既有光谱解混方法扩展为2000–2024年逐日产品，并用两类独立高分辨率影像及与MERIS和既有8日MODIS产品的差异比较，量化了海冰融池、开阔水面和冰面比例产品的误差特征。",
+      "source": {
+        "name": "Earth System Science Data · 数据论文与讨论稿",
+        "kind": "web_list",
+        "firstParty": true
+      },
+      "originalUrl": "https://essd.copernicus.org/articles/18/8537/2026/",
+      "publishedAt": "2026-11-19T00:00:00.000Z",
+      "timelineAt": "2026-11-19T11:07:30.116Z",
+      "category": "data",
+      "tags": [
+        "数据集/基准",
+        "光学遥感",
+        "海洋",
+        "定量反演"
+      ],
+      "score": 86,
+      "selected": true
+    },
+    {
+      "id": "dq4fo8fgkky7nvh6bh66jvrck",
+      "title": "预印本：利用地球观测与开放地理空间数据构建次区级经济进展指数（EPI）",
+      "originalTitle": "Developing a Subdistrict-Level Economic Progress Index Using Geospatial Data",
+      "summary": "基于论文摘要，Meenu Mohan 在 arXiv 预印本中提出经济进展指数（EPI），以无监督非负 PCA 加权融合多传感器卫星数据、网格化人口及 OpenStreetMap 道路与设施网络，刻画地方经济的生产和支撑能力及经济空间使用强度。",
+      "reason": "该预印本以非负主成分分析融合多传感器卫星与开放地理空间数据，构建覆盖 357 个次区级单元、46 个季度的无平减指数经济进展指标，并给出与 NFHS-5 财富指数、家庭消费及地区 GDP 的对照验证。",
+      "source": {
+        "name": "arXiv · 遥感与地球观测预印本",
+        "kind": "rss",
+        "firstParty": true
+      },
+      "originalUrl": "https://arxiv.org/abs/2611.23798v1",
+      "publishedAt": "2026-11-18T04:03:08.000Z",
+      "timelineAt": "2026-11-19T08:36:17.312Z",
+      "category": "paper",
+      "tags": [
+        "论文/研究",
+        "数据融合",
+        "时序分析",
+        "多模态"
+      ],
+      "score": 69,
+      "selected": true
+    },
+    {
+      "id": "adys589j1en46fzdj9b99zxq2",
+      "title": "HyGeoBench预印本评测高光谱遥感地质解译可靠性，并提出工具增强框架HyGeoAgent",
+      "originalTitle": "Benchmarking Reasoning Reliability,Prior_Evidence Contrast,and Spectral Discrimination in Remote-Sensing Geological Image Interpretation",
+      "summary": "研究提出包含10,000道问题的高光谱地质影像诊断基准HyGeoBench，并提出工具增强框架HyGeoAgent。基于论文摘要，基准覆盖推理可靠性、先验与证据对比、光谱判别三个维度及十种任务类型，采用选择题和开放式回答；评测显示模型在细粒度识别和基于证据的解译上存在局限。",
+      "reason": "HyGeoBench将高光谱地质解译评测拆分为推理可靠性、先验与证据冲突和光谱判别三个诊断维度，HyGeoAgent则通过自适应调用观测与检索工具测试证据约束解译的改进。",
+      "source": {
+        "name": "arXiv · 遥感与地球观测预印本",
+        "kind": "rss",
+        "firstParty": true
+      },
+      "originalUrl": "https://arxiv.org/abs/2611.24068v1",
+      "publishedAt": "2026-11-18T09:02:08.000Z",
+      "timelineAt": "2026-11-19T07:35:16.350Z",
+      "category": "data",
+      "tags": [
+        "数据集/基准",
+        "高光谱",
+        "遥感基础模型",
+        "多模态",
+        "分类识别"
+      ],
+      "score": 76,
+      "selected": true
+    },
+    {
+      "id": "zm1w1koscn6xb6tdbkzhrgbjs",
+      "title": "预印本提出显式语义锚点 ESA，联合开展遥感变化检测与变化描述生成",
+      "originalTitle": "Anchoring with Visual Evidence: Explicit Semantic Anchors for Joint Change Detection and Captioning",
+      "summary": "Kai Zheng 提出显式语义锚点（ESA），以实体存在、时序外观变化和空间范围为监督条件，联合定位双时相遥感影像中的变化并生成描述。基于论文摘要，预测引导读出结合视觉特征与变化概率，三个因子头估计锚点激活，再分别通过记忆 token 和逐步解码词典偏置引导生成；锚点目标由现有影像及变化标注得到，无需额外锚点级语言标注。",
+      "reason": "ESA 将实体存在、时序外观变化与空间范围作为显式监督语义锚点，并通过上下文记忆 token 和词典偏置两条路径引导变化描述生成，锚点目标无需额外语言标注。",
+      "source": {
+        "name": "arXiv · 遥感与地球观测预印本",
+        "kind": "rss",
+        "firstParty": true
+      },
+      "originalUrl": "https://arxiv.org/abs/2611.24462v1",
+      "publishedAt": "2026-11-18T14:03:23.000Z",
+      "timelineAt": "2026-11-19T07:35:16.334Z",
+      "category": "paper",
+      "tags": [
+        "论文/研究",
+        "变化检测",
+        "多模态",
+        "遥感基础模型"
+      ],
+      "score": 71,
+      "selected": true
+    },
     {
       "id": "u2aje0o81y6xr9ru3kvmj8amq",
       "title": "南海海洋再分析数据集 SCSORA 发布：1/30° 分辨率、覆盖 2001–2024 年",
@@ -710,29 +854,6 @@
       ],
       "score": 77,
       "selected": true
-    },
-    {
-      "id": "n4n96vq4m5rutnroehqgy9bhc",
-      "title": "Sentinel 高层级运行计划（HLOP）更新至 4.0 版本",
-      "originalTitle": "Sentinel High Level Operations Plan updated to version 4.0",
-      "summary": "Copernicus 宣布 Sentinel 高层级运行计划（HLOP）4.0 版本现已在线发布，该文件是 Copernicus Sentinel 系列卫星运行的参考文件，规定了每颗卫星的观测区域、重访频率及成像模式。Sentinel-1 与 Sentinel-2 的详细采集计划也同步在线可查，用户可提前获知卫星数据获取的时间与区域，以便规划实地调查、安排分析并预判新影像可用时间。",
-      "reason": null,
-      "source": {
-        "name": "Copernicus Data Space · 数据与平台动态",
-        "kind": "rss",
-        "firstParty": true
-      },
-      "originalUrl": "https://dataspace.copernicus.eu/news/2026-11-12-sentinel-high-level-operations-plan-updated-version-40",
-      "publishedAt": "2026-11-12T10:05:49.000Z",
-      "timelineAt": "2026-11-12T10:25:29.410Z",
-      "category": "satellite",
-      "tags": [
-        "卫星/传感器",
-        "行业动态",
-        "Copernicus"
-      ],
-      "score": 48,
-      "selected": false
     },
     {
       "id": "bb589jl1403kmvt4hwk0gyox7",
@@ -4519,6 +4640,67 @@
     }
   ],
   "reports": [
+    {
+      "kind": "daily",
+      "key": "2026-11-20",
+      "title": "遥感日报 · 2026-11-20",
+      "generatedAt": "2026-11-20T00:00:35.422Z",
+      "editorialMode": "model",
+      "lead": {
+        "title": "2000–2024年北冰洋逐日融池与净冰面比例数据集发布",
+        "leadParagraph": "今日动态以数据与基准建设为主：基于MODIS可见光影像的北冰洋逐日融池与净冰面比例数据集覆盖2000—2024年，提供500 m和12.5 km网格分辨率。森林清查与机载激光扫描整合数据库、高光谱地质解译评测基准，以及变化检测、次区级经济指数等新方法同步出现。"
+      },
+      "overview": null,
+      "sections": [
+        {
+          "label": "论文与方法",
+          "summary": null,
+          "items": [
+            {
+              "itemId": "zm1w1koscn6xb6tdbkzhrgbjs",
+              "title": "预印本提出显式语义锚点 ESA，联合开展遥感变化检测与变化描述生成",
+              "summary": "Kai Zheng 提出显式语义锚点（ESA），以实体存在、时序外观变化和空间范围为监督条件，联合定位双时相遥感影像中的变化并生成描述。基于论文摘要，预测引导读出结合视觉特征与变化概率，三个因子头估计锚点激活，再分别通过记忆 token 和逐步解码词典偏置引导生成；锚点目标由现有影像及变化标注得到，无需额外锚点级语言标注。",
+              "sourceName": "arXiv · 遥感与地球观测预印本",
+              "originalUrl": "https://arxiv.org/abs/2611.24462v1"
+            },
+            {
+              "itemId": "dq4fo8fgkky7nvh6bh66jvrck",
+              "title": "预印本：利用地球观测与开放地理空间数据构建次区级经济进展指数（EPI）",
+              "summary": "基于论文摘要，Meenu Mohan 在 arXiv 预印本中提出经济进展指数（EPI），以无监督非负 PCA 加权融合多传感器卫星数据、网格化人口及 OpenStreetMap 道路与设施网络，刻画地方经济的生产和支撑能力及经济空间使用强度。",
+              "sourceName": "arXiv · 遥感与地球观测预印本",
+              "originalUrl": "https://arxiv.org/abs/2611.23798v1"
+            }
+          ]
+        },
+        {
+          "label": "数据集与基准",
+          "summary": null,
+          "items": [
+            {
+              "itemId": "ktmpjgwcuwkq6npyoq1o2m6v4",
+              "title": "研究发布基于MODIS可见光影像的2000–2024年北冰洋逐日融池与净冰面比例数据集",
+              "summary": "基于论文摘要，研究基于MODIS Terra v6.1的1、3、4通道反射率，改进既有光谱解混方法，生成2000–2024年6—8月北极海冰逐日融池比例数据集，提供500 m和12.5 km网格分辨率，并给出净冰面比例及浮冰间开阔水面比例。",
+              "sourceName": "Earth System Science Data · 数据论文与讨论稿",
+              "originalUrl": "https://essd.copernicus.org/articles/18/8537/2026/"
+            },
+            {
+              "itemId": "wj3lye4n1u4e7ke32hjfv564t",
+              "title": "DigiSylva 数据集讨论稿：整合美国东北部北方—温带交错带 308 个样地的森林清查与机载激光扫描观测",
+              "summary": "基于论文摘要，Xinyuan Wei 等人在 ESSD 讨论稿中提出 DigiSylva，一个整合样地清查、ALS 点云及配套遥感产品的美国东北部北方—温带交错带森林属性数据库。",
+              "sourceName": "Earth System Science Data · 数据论文与讨论稿",
+              "originalUrl": "https://essd.copernicus.org/preprints/essd-2026-773/"
+            },
+            {
+              "itemId": "adys589j1en46fzdj9b99zxq2",
+              "title": "HyGeoBench预印本评测高光谱遥感地质解译可靠性，并提出工具增强框架HyGeoAgent",
+              "summary": "研究提出包含10,000道问题的高光谱地质影像诊断基准HyGeoBench，并提出工具增强框架HyGeoAgent。基于论文摘要，基准覆盖推理可靠性、先验与证据对比、光谱判别三个维度及十种任务类型，采用选择题和开放式回答；评测显示模型在细粒度识别和基于证据的解译上存在局限。",
+              "sourceName": "arXiv · 遥感与地球观测预印本",
+              "originalUrl": "https://arxiv.org/abs/2611.24068v1"
+            }
+          ]
+        }
+      ]
+    },
     {
       "kind": "daily",
       "key": "2026-11-19",
@@ -9477,6 +9659,7 @@
       "group": "field",
       "definition": "追踪高光谱的研究方法、数据、工具与应用实践。",
       "itemIds": [
+        "adys589j1en46fzdj9b99zxq2",
         "r8h5aw5kmp06pvv35yhym2v15",
         "o0bt7pjjc7aj4vsolfuo5bd92",
         "u697b1z1qhu2p6w4kr1fvmo3v",
@@ -9492,6 +9675,7 @@
       "group": "field",
       "definition": "追踪LiDAR的研究方法、数据、工具与应用实践。",
       "itemIds": [
+        "wj3lye4n1u4e7ke32hjfv564t",
         "iuyrnjp0wthooz0sg4zxvky0n",
         "nmyduvxm54vgtav4batzar5bq",
         "o0fvgpaom7hcnq148rvdbbwr7",
@@ -9509,6 +9693,7 @@
       "group": "field",
       "definition": "追踪光学遥感的研究方法、数据、工具与应用实践。",
       "itemIds": [
+        "ktmpjgwcuwkq6npyoq1o2m6v4",
         "uwez7qusvcy9bbapk5jqdupqo",
         "h2xd4mgsym1jywq4t8e8w77as",
         "es04cn2axyzenalm7w5ge1qe7",
@@ -9552,6 +9737,7 @@
       "group": "field",
       "definition": "追踪变化检测的研究方法、数据、工具与应用实践。",
       "itemIds": [
+        "zm1w1koscn6xb6tdbkzhrgbjs",
         "d1nb9n3fi0cp4p13cvblxc681",
         "ovm1fdzpu9cnmgdixu9nyrnlj",
         "u22q8estauvoz0jynedxd7tpx",
@@ -9610,6 +9796,8 @@
       "group": "field",
       "definition": "追踪定量反演的研究方法、数据、工具与应用实践。",
       "itemIds": [
+        "wj3lye4n1u4e7ke32hjfv564t",
+        "ktmpjgwcuwkq6npyoq1o2m6v4",
         "vtvr1jb9grt27ppy7s70ifcz6",
         "yms4jiqx7bny4zv7kbvaboq7e",
         "fo7v639tvs6qhah75jjchyrbl",
@@ -9650,6 +9838,8 @@
       "group": "field",
       "definition": "追踪遥感基础模型的研究方法、数据、工具与应用实践。",
       "itemIds": [
+        "adys589j1en46fzdj9b99zxq2",
+        "zm1w1koscn6xb6tdbkzhrgbjs",
         "clvmnekvh5hyc7nxa1vncdn1o",
         "o1nwh5moq653ixq0necraf369",
         "v8ip3zthrrrlg3cj9z1xwapwe",
@@ -9771,6 +9961,7 @@
       "group": "field",
       "definition": "追踪森林与生态的研究方法、数据、工具与应用实践。",
       "itemIds": [
+        "wj3lye4n1u4e7ke32hjfv564t",
         "ux0zet2w5onvdxis7xsg1oxe4",
         "gstlj3nt4qnairh398go4o74v",
         "fg4asx909tjogsekwy68v047x",
@@ -9792,6 +9983,8 @@
       "group": "genre",
       "definition": "值得关注的遥感论文与研究，保留原文入口与适用条件。",
       "itemIds": [
+        "dq4fo8fgkky7nvh6bh66jvrck",
+        "zm1w1koscn6xb6tdbkzhrgbjs",
         "uwez7qusvcy9bbapk5jqdupqo",
         "h2xd4mgsym1jywq4t8e8w77as",
         "vtvr1jb9grt27ppy7s70ifcz6",
@@ -9883,6 +10076,9 @@
       "group": "genre",
       "definition": "值得关注的遥感数据集与基准，保留原文入口与适用条件。",
       "itemIds": [
+        "wj3lye4n1u4e7ke32hjfv564t",
+        "ktmpjgwcuwkq6npyoq1o2m6v4",
+        "adys589j1en46fzdj9b99zxq2",
         "u2aje0o81y6xr9ru3kvmj8amq",
         "ux0zet2w5onvdxis7xsg1oxe4",
         "yms4jiqx7bny4zv7kbvaboq7e",
@@ -10032,7 +10228,7 @@
     }
   ],
   "hot": {
-    "computedAt": "2026-11-19T02:25:39.514Z",
+    "computedAt": "2026-11-20T02:25:31.796Z",
     "windowHours": 48,
     "entries": []
   }
