@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-21T02:30:07.851Z",
+  "generatedAt": "2026-11-22T02:30:08.461Z",
   "categories": [
     {
       "key": "paper",
@@ -29,39 +29,11 @@
   ],
   "sources": [
     {
-      "name": "GDAL · 稳定版本发布",
+      "name": "arXiv · 遥感与地球观测预印本",
       "kind": "rss"
     },
     {
-      "name": "Earth Engine API · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "rioxarray · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "TerraTorch · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "Rasterio · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "EOReader · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "STAC FastAPI · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "Earth System Science Data · 数据论文与讨论稿",
-      "kind": "web_list"
-    },
-    {
-      "name": "ESA · 对地观测",
+      "name": "openEO Python Client · 稳定版本发布",
       "kind": "rss"
     },
     {
@@ -69,15 +41,7 @@
       "kind": "rss"
     },
     {
-      "name": "Google Earth 与 Earth Engine · 官方博客",
-      "kind": "rss"
-    },
-    {
-      "name": "arXiv · 遥感与地球观测预印本",
-      "kind": "rss"
-    },
-    {
-      "name": "openEO Python Client · 稳定版本发布",
+      "name": "Rasterio · 稳定版本发布",
       "kind": "rss"
     },
     {
@@ -89,11 +53,15 @@
       "kind": "rss"
     },
     {
-      "name": "TorchGeo · 稳定版本发布",
+      "name": "GDAL · 稳定版本发布",
       "kind": "rss"
     },
     {
-      "name": "PySTAC · 稳定版本发布",
+      "name": "rioxarray · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "Google Earth 与 Earth Engine · 官方博客",
       "kind": "rss"
     },
     {
@@ -101,11 +69,67 @@
       "kind": "web_list"
     },
     {
+      "name": "ESA · 对地观测",
+      "kind": "rss"
+    },
+    {
+      "name": "Earth Engine API · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "PySTAC · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "STAC FastAPI · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "TorchGeo · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
       "name": "NASA Earthdata · 科学数据与工具",
       "kind": "rss"
+    },
+    {
+      "name": "TerraTorch · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "EOReader · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "Earth System Science Data · 数据论文与讨论稿",
+      "kind": "web_list"
     }
   ],
   "items": [
+    {
+      "id": "zw50hvcrhyuft3cx91q8ijqxf",
+      "title": "研究发布1999–2024年南极九个冰架表面损伤数据集",
+      "originalTitle": "A multi-decadal dataset of surface damage on Antarctic ice shelves (1999–2024)",
+      "summary": "基于论文摘要，研究发布基于 Landsat 光学影像的1999–2024年南极九个冰架表面损伤数据集，包含170幅30 m分辨率逐年冰架损伤图。",
+      "reason": "该数据集论文结合深度学习分割与面向南极影像微调的扩散模型修复 Landsat 7 SLC-off 影像，提供九个冰架1999–2024年的170幅30 m表面损伤图，并在两个独立测试集上评估跨空间与跨传感器泛化。",
+      "source": {
+        "name": "Earth System Science Data · 数据论文与讨论稿",
+        "kind": "web_list",
+        "firstParty": true
+      },
+      "originalUrl": "https://essd.copernicus.org/articles/18/8591/2026/",
+      "publishedAt": "2026-11-20T00:00:00.000Z",
+      "timelineAt": "2026-11-21T11:54:39.791Z",
+      "category": "data",
+      "tags": [
+        "数据集/基准",
+        "语义分割",
+        "光学遥感",
+        "时序分析"
+      ],
+      "score": 84,
+      "selected": true
+    },
     {
       "id": "ew58zmd9xi8hqs4f77826z754",
       "title": "VBE-UNet：通过目标证据链验证改进红外小目标检测（预印本）",
@@ -1108,6 +1132,30 @@
         "Copernicus"
       ],
       "score": 83,
+      "selected": true
+    },
+    {
+      "id": "ei0n2eums4n7s981vmhry8ysm",
+      "title": "DailyWildfireCAN：面向加拿大次日野火蔓延预测的数据集与基准（预印本）",
+      "originalTitle": "DailyWildfireCAN: A Dataset and Benchmark for Next-Day Wildfire Spread Prediction in Canada",
+      "summary": "基于论文摘要，DailyWildfireCAN提出面向加拿大次日野火蔓延预测的多模态、多时相数据集与基准，覆盖2017—2024年八个火季的2,440起野火事件，分辨率为90米和24小时，并整合地形、气象、土地覆盖、植被与森林结构、人类影响指数及卫星影像等33项特征。",
+      "reason": "数据集以90米、24小时分辨率覆盖加拿大2,440起野火事件并整合33项多模态特征，基准同时比较单时相与多时相模型并评估不同火灾特征、地区和时间条件下的稳健性。",
+      "source": {
+        "name": "arXiv · 遥感与地球观测预印本",
+        "kind": "rss",
+        "firstParty": true
+      },
+      "originalUrl": "https://arxiv.org/abs/2611.14207v2",
+      "publishedAt": "2026-11-10T15:29:13.000Z",
+      "timelineAt": "2026-11-10T15:29:13.000Z",
+      "category": "data",
+      "tags": [
+        "数据集/基准",
+        "灾害监测",
+        "遥感基础模型",
+        "时序分析"
+      ],
+      "score": 77,
       "selected": true
     },
     {
@@ -4646,6 +4694,33 @@
     }
   ],
   "reports": [
+    {
+      "kind": "daily",
+      "key": "2026-11-22",
+      "title": "遥感日报 · 2026-11-22",
+      "generatedAt": "2026-11-22T00:00:34.171Z",
+      "editorialMode": "model",
+      "lead": {
+        "title": "研究发布1999–2024年南极九冰架表面损伤数据集",
+        "leadParagraph": "一项研究发布了基于 Landsat 光学影像的1999–2024年南极九个冰架表面损伤数据集。数据集包含170幅30 m分辨率的逐年冰架损伤图，为长期跟踪南极冰架表面损伤变化提供了数据基础。"
+      },
+      "overview": null,
+      "sections": [
+        {
+          "label": "数据集与基准",
+          "summary": null,
+          "items": [
+            {
+              "itemId": "zw50hvcrhyuft3cx91q8ijqxf",
+              "title": "研究发布1999–2024年南极九个冰架表面损伤数据集",
+              "summary": "基于论文摘要，研究发布基于 Landsat 光学影像的1999–2024年南极九个冰架表面损伤数据集，包含170幅30 m分辨率逐年冰架损伤图。",
+              "sourceName": "Earth System Science Data · 数据论文与讨论稿",
+              "originalUrl": "https://essd.copernicus.org/articles/18/8591/2026/"
+            }
+          ]
+        }
+      ]
+    },
     {
       "kind": "daily",
       "key": "2026-11-21",
@@ -9740,6 +9815,7 @@
       "group": "field",
       "definition": "追踪光学遥感的研究方法、数据、工具与应用实践。",
       "itemIds": [
+        "zw50hvcrhyuft3cx91q8ijqxf",
         "ktmpjgwcuwkq6npyoq1o2m6v4",
         "uwez7qusvcy9bbapk5jqdupqo",
         "h2xd4mgsym1jywq4t8e8w77as",
@@ -9821,6 +9897,7 @@
       "group": "field",
       "definition": "追踪语义分割的研究方法、数据、工具与应用实践。",
       "itemIds": [
+        "zw50hvcrhyuft3cx91q8ijqxf",
         "r8h5aw5kmp06pvv35yhym2v15",
         "o1nwh5moq653ixq0necraf369",
         "mq9u0rq1tokp5cfhcjcq5j5to",
@@ -9899,6 +9976,7 @@
         "gpzxrh22az2jibzxeyd6uobb7",
         "pcrc7uazq9i3q4ihhmonbgfpg",
         "w1b7wi4bv0k1xoe97jzh9b586",
+        "ei0n2eums4n7s981vmhry8ysm",
         "mkgmst1bpp2irqr3wzsc7fk6z",
         "dwewbn1fy9d8uc4zp7amrzbu6",
         "r1jqt6tb0qk0fxs0hy5jg8zh4",
@@ -9969,6 +10047,7 @@
         "clvmnekvh5hyc7nxa1vncdn1o",
         "gstlj3nt4qnairh398go4o74v",
         "gpzxrh22az2jibzxeyd6uobb7",
+        "ei0n2eums4n7s981vmhry8ysm",
         "garxvkdvueowozii9fapawv78",
         "a3tnf7n4040i9jbqm9ay9wvuj",
         "qu1lqsa9e195gxgaf7yirbikz",
@@ -10130,6 +10209,7 @@
       "group": "genre",
       "definition": "值得关注的遥感数据集与基准，保留原文入口与适用条件。",
       "itemIds": [
+        "zw50hvcrhyuft3cx91q8ijqxf",
         "wj3lye4n1u4e7ke32hjfv564t",
         "ktmpjgwcuwkq6npyoq1o2m6v4",
         "adys589j1en46fzdj9b99zxq2",
@@ -10150,6 +10230,7 @@
         "gpzxrh22az2jibzxeyd6uobb7",
         "fg4asx909tjogsekwy68v047x",
         "uw6f97sez0un4l8spgivw3aur",
+        "ei0n2eums4n7s981vmhry8ysm",
         "zh108gwhpp0sj9bcjfys6o3vr",
         "fyuchou6wwzq3ap9an8c361dh",
         "vs7fl98fj8vyhgwteynh8worq",
@@ -10282,7 +10363,7 @@
     }
   ],
   "hot": {
-    "computedAt": "2026-11-21T02:25:09.195Z",
+    "computedAt": "2026-11-22T02:25:31.638Z",
     "windowHours": 48,
     "entries": []
   }
