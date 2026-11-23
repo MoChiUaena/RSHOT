@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-22T02:30:08.461Z",
+  "generatedAt": "2026-11-23T02:30:08.827Z",
   "categories": [
     {
       "key": "paper",
@@ -29,19 +29,7 @@
   ],
   "sources": [
     {
-      "name": "arXiv · 遥感与地球观测预印本",
-      "kind": "rss"
-    },
-    {
       "name": "openEO Python Client · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "Copernicus Data Space · 数据与平台动态",
-      "kind": "rss"
-    },
-    {
-      "name": "Rasterio · 稳定版本发布",
       "kind": "rss"
     },
     {
@@ -49,43 +37,7 @@
       "kind": "rss"
     },
     {
-      "name": "earthaccess · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
       "name": "GDAL · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "rioxarray · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "Google Earth 与 Earth Engine · 官方博客",
-      "kind": "rss"
-    },
-    {
-      "name": "中国科学院空天院 · 科研动态",
-      "kind": "web_list"
-    },
-    {
-      "name": "ESA · 对地观测",
-      "kind": "rss"
-    },
-    {
-      "name": "Earth Engine API · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "PySTAC · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "STAC FastAPI · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "TorchGeo · 稳定版本发布",
       "kind": "rss"
     },
     {
@@ -93,7 +45,27 @@
       "kind": "rss"
     },
     {
-      "name": "TerraTorch · 稳定版本发布",
+      "name": "arXiv · 遥感与地球观测预印本",
+      "kind": "rss"
+    },
+    {
+      "name": "中国科学院空天院 · 科研动态",
+      "kind": "web_list"
+    },
+    {
+      "name": "Earth System Science Data · 数据论文与讨论稿",
+      "kind": "web_list"
+    },
+    {
+      "name": "TorchGeo · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "earthaccess · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "rioxarray · 稳定版本发布",
       "kind": "rss"
     },
     {
@@ -101,8 +73,36 @@
       "kind": "rss"
     },
     {
-      "name": "Earth System Science Data · 数据论文与讨论稿",
-      "kind": "web_list"
+      "name": "STAC FastAPI · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "Rasterio · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "PySTAC · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "Copernicus Data Space · 数据与平台动态",
+      "kind": "rss"
+    },
+    {
+      "name": "TerraTorch · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "ESA · 对地观测",
+      "kind": "rss"
+    },
+    {
+      "name": "Google Earth 与 Earth Engine · 官方博客",
+      "kind": "rss"
+    },
+    {
+      "name": "Earth Engine API · 稳定版本发布",
+      "kind": "rss"
     }
   ],
   "items": [
@@ -7290,6 +7290,197 @@
     },
     {
       "kind": "weekly",
+      "key": "2026-W47",
+      "title": "RSHOT 周报 · 2026-W47",
+      "generatedAt": "2026-11-23T02:00:27.895Z",
+      "editorialMode": "model",
+      "lead": {
+        "title": "长时序遥感数据集密集发布",
+        "leadParagraph": "本期覆盖2026年11月16日至22日，遥感动态以长时序、多尺度数据集集中发布为主线：MODIS、Landsat等支撑北冰洋融池、南极冰架损伤、全球植物氮同位素、冬小麦与毁林碳排放等新产品，ChinaMet、SCSORA及全球潜热通量数据进一步扩展气象和海洋监测能力。方法侧聚焦证据链与可解释性，涵盖作物分类归因检验、红外小目标验证、分割修订及高光谱地质基准。《地球大数据支撑可持续发展目标报告（2026）》提出SDGs数字指标框架，Copernicus目录服务则公布接口切换安排。"
+      },
+      "overview": "本期覆盖2026年11月16日至22日，遥感动态以长时序、多尺度数据集集中发布为主线：MODIS、Landsat等支撑北冰洋融池、南极冰架损伤、全球植物氮同位素、冬小麦与毁林碳排放等新产品，ChinaMet、SCSORA及全球潜热通量数据进一步扩展气象和海洋监测能力。方法侧聚焦证据链与可解释性，涵盖作物分类归因检验、红外小目标验证、分割修订及高光谱地质基准。《地球大数据支撑可持续发展目标报告（2026）》提出SDGs数字指标框架，Copernicus目录服务则公布接口切换安排。",
+      "sections": [
+        {
+          "label": "长时序数据扩容",
+          "summary": "北冰洋逐日融池与净冰面比例数据覆盖2000—2024年夏季，南极九个冰架形成1999—2024年逐年30米损伤图；Landsat全球δ15N时间序列追溯至1984年，ChinaMet提供1980—2024年约1公里多变量气象数据。全球冬小麦、消费端毁林碳排放及潜热通量产品则覆盖2001—2020年，呈现极地、农业、碳排放与陆气过程多领域扩展。",
+          "items": [
+            {
+              "itemId": "ktmpjgwcuwkq6npyoq1o2m6v4",
+              "title": "研究发布基于MODIS可见光影像的2000–2024年北冰洋逐日融池与净冰面比例数据集",
+              "summary": "基于论文摘要，研究基于MODIS Terra v6.1的1、3、4通道反射率，改进既有光谱解混方法，生成2000–2024年6—8月北极海冰逐日融池比例数据集，提供500 m和12.5 km网格分辨率，并给出净冰面比例及浮冰间开阔水面比例。",
+              "sourceName": "Earth System Science Data · 数据论文与讨论稿",
+              "originalUrl": "https://essd.copernicus.org/articles/18/8537/2026/"
+            },
+            {
+              "itemId": "zw50hvcrhyuft3cx91q8ijqxf",
+              "title": "研究发布1999–2024年南极九个冰架表面损伤数据集",
+              "summary": "基于论文摘要，研究发布基于 Landsat 光学影像的1999–2024年南极九个冰架表面损伤数据集，包含170幅30 m分辨率逐年冰架损伤图。",
+              "sourceName": "Earth System Science Data · 数据论文与讨论稿",
+              "originalUrl": "https://essd.copernicus.org/articles/18/8591/2026/"
+            },
+            {
+              "itemId": "yms4jiqx7bny4zv7kbvaboq7e",
+              "title": "ESSD 讨论稿：基于 Landsat 构建 1984–2023 年全球 30 m 年度氮稳定同位素（δ15N）时间序列图",
+              "summary": "基于论文摘要，Yang 等在 ESSD 讨论稿中提出基于 Landsat 反射率和 Google Earth Engine 计算全球年度植物氮稳定同位素（δ15N）的方法，形成 1984–2023 年 30 m 时间序列图并计划后续更新。",
+              "sourceName": "Earth System Science Data · 数据论文与讨论稿",
+              "originalUrl": "https://essd.copernicus.org/preprints/essd-2026-738/"
+            },
+            {
+              "itemId": "x8h0nff6brw2ly1mvxv3m9wza",
+              "title": "ChinaMet：面向中国的多源融合高分辨率多变量气象数据集（讨论稿）",
+              "summary": "基于论文摘要，ChinaMet发布一个面向中国的多源融合高分辨率多变量气象数据集，覆盖1980–2024年，空间分辨率0.01°（约1 km）。",
+              "sourceName": "Earth System Science Data · 数据论文与讨论稿",
+              "originalUrl": "https://essd.copernicus.org/preprints/essd-2026-704/"
+            },
+            {
+              "itemId": "fo7v639tvs6qhah75jjchyrbl",
+              "title": "ESSD 研究用高斯混合模型与自适应阈值制图全球主产区 2001–2020 年冬小麦动态",
+              "summary": "基于论文摘要，作者提出一套基于高斯混合模型与自适应阈值的框架，从 MODIS 地表反射率数据制图 2001–2020 年全球主要种植区 1 km 分辨率冬小麦分数动态。",
+              "sourceName": "Earth System Science Data · 数据论文与讨论稿",
+              "originalUrl": "https://essd.copernicus.org/articles/18/8311/2026/"
+            },
+            {
+              "itemId": "ux0zet2w5onvdxis7xsg1oxe4",
+              "title": "研究发布2001–2020年全球消费端毁林碳排放及区域热点1 km网格数据集",
+              "summary": "研究发布了2001–2020年全球1 km分辨率的消费端毁林碳排放网格数据集，并分析区域热点。基于论文摘要，数据整合道路网络、毁林和森林碳通量空间信息与国家级全球贸易统计，估计贸易相关毁林排放为39.6 Gt CO2e，占全球毁林排放的31.8%。",
+              "sourceName": "Earth System Science Data · 数据论文与讨论稿",
+              "originalUrl": "https://essd.copernicus.org/articles/18/8345/2026/"
+            },
+            {
+              "itemId": "shleywl5qfzrrkir04kkvz67y",
+              "title": "ESSD 讨论稿：基于能量-阻力耦合框架的 2001–2020 年全球 0.05° 逐日潜热通量与阻力数据集",
+              "summary": "基于论文摘要，作者通过能量-阻力耦合（ERC）迭代框架生成了 2001–2020 年全球 0.05° 逐日数据集，包含潜热通量（LE）、空气动力学阻力（r_ae）、地表阻力（r_s）、解耦系数（Ω）和最大地表相对湿度（h_s,max）。",
+              "sourceName": "Earth System Science Data · 数据论文与讨论稿",
+              "originalUrl": "https://essd.copernicus.org/preprints/essd-2026-678/"
+            }
+          ]
+        },
+        {
+          "label": "证据与可靠性检验",
+          "summary": "多项预印本将可靠性和证据组织置于模型设计核心：PASTIS上的作物分类研究比较三种归因方法，HyGeoBench以一万道问题诊断高光谱地质解译并暴露细粒度识别局限；VBE-UNet引入目标证据链验证，GeoReVis统一修订、候选选择与跨掩膜证据整合，显式语义锚点则联合变化定位与描述生成。",
+          "items": [
+            {
+              "itemId": "adys589j1en46fzdj9b99zxq2",
+              "title": "HyGeoBench预印本评测高光谱遥感地质解译可靠性，并提出工具增强框架HyGeoAgent",
+              "summary": "研究提出包含10,000道问题的高光谱地质影像诊断基准HyGeoBench，并提出工具增强框架HyGeoAgent。基于论文摘要，基准覆盖推理可靠性、先验与证据对比、光谱判别三个维度及十种任务类型，采用选择题和开放式回答；评测显示模型在细粒度识别和基于证据的解译上存在局限。",
+              "sourceName": "arXiv · 遥感与地球观测预印本",
+              "originalUrl": "https://arxiv.org/abs/2611.24068v1"
+            },
+            {
+              "itemId": "r8h5aw5kmp06pvv35yhym2v15",
+              "title": "论文对 Sentinel-2 时序作物分类中的光谱波段归因进行合理性检验（预印本）",
+              "summary": "基于论文摘要，作者在 PASTIS 基准的 Sentinel-2 时序数据上训练 U-TAE 分割模型做作物分类，用 GradientSHAP、Shapley sampling 与 Occlusion 三种归因方法检验波段归因是否识别任务必需特征。",
+              "sourceName": "arXiv · 遥感与地球观测预印本",
+              "originalUrl": "https://arxiv.org/abs/2611.19889v1"
+            },
+            {
+              "itemId": "ew58zmd9xi8hqs4f77826z754",
+              "title": "VBE-UNet：通过目标证据链验证改进红外小目标检测（预印本）",
+              "summary": "VBE-UNet 在响应强度之外引入目标证据链验证，用反事实背景解释建模局部目标证据，并结合跨尺度支持与扰动贡献验证指导特征重组和选择性细化，以增强目标响应、抑制缺乏支持的背景激活。基于论文摘要，该方法面向红外小目标检测，在 IRSTD-1K、NUDT-SIRST 和 NUAA-SIRST 上相比对比方法取得更高检测精度和更低虚警率，消融与证据可靠性分析用于验证框架有效性；代码和数据可用性未说明。",
+              "sourceName": "arXiv · 遥感与地球观测预印本",
+              "originalUrl": "https://arxiv.org/abs/2611.25724v1"
+            },
+            {
+              "itemId": "o1nwh5moq653ixq0necraf369",
+              "title": "预印本：GeoReVis 学习选择性修订与证据整合用于遥感分割",
+              "summary": "基于论文摘要，GeoReVis面向语言引导遥感分割，将执行反馈引导的修订、候选选择与跨掩膜证据整合统一到同一框架，以缓解修订退化与正确证据分散在多个不完美掩膜中的证据碎片化问题。",
+              "sourceName": "arXiv · 遥感与地球观测预印本",
+              "originalUrl": "https://arxiv.org/abs/2611.20183v1"
+            },
+            {
+              "itemId": "zm1w1koscn6xb6tdbkzhrgbjs",
+              "title": "预印本提出显式语义锚点 ESA，联合开展遥感变化检测与变化描述生成",
+              "summary": "Kai Zheng 提出显式语义锚点（ESA），以实体存在、时序外观变化和空间范围为监督条件，联合定位双时相遥感影像中的变化并生成描述。基于论文摘要，预测引导读出结合视觉特征与变化概率，三个因子头估计锚点激活，再分别通过记忆 token 和逐步解码词典偏置引导生成；锚点目标由现有影像及变化标注得到，无需额外锚点级语言标注。",
+              "sourceName": "arXiv · 遥感与地球观测预印本",
+              "originalUrl": "https://arxiv.org/abs/2611.24462v1"
+            }
+          ]
+        },
+        {
+          "label": "多源融合应用",
+          "summary": "DigiSylva整合美国东北部308个样地清查、机载激光扫描点云与配套遥感产品；经济进展指数融合多传感器卫星、人口和开放道路设施数据，Wildfire-SSR结合卫星宏观上下文与街景微观证据开展建筑级野火风险评估。SWIR-cGAN从中巴资源卫星和AMAZONIA-1可见近红外影像合成短波红外波段，SPS-GS探索无需真实多帧序列的任意尺度超分辨率。",
+          "items": [
+            {
+              "itemId": "wj3lye4n1u4e7ke32hjfv564t",
+              "title": "DigiSylva 数据集讨论稿：整合美国东北部北方—温带交错带 308 个样地的森林清查与机载激光扫描观测",
+              "summary": "基于论文摘要，Xinyuan Wei 等人在 ESSD 讨论稿中提出 DigiSylva，一个整合样地清查、ALS 点云及配套遥感产品的美国东北部北方—温带交错带森林属性数据库。",
+              "sourceName": "Earth System Science Data · 数据论文与讨论稿",
+              "originalUrl": "https://essd.copernicus.org/preprints/essd-2026-773/"
+            },
+            {
+              "itemId": "dq4fo8fgkky7nvh6bh66jvrck",
+              "title": "预印本：利用地球观测与开放地理空间数据构建次区级经济进展指数（EPI）",
+              "summary": "基于论文摘要，Meenu Mohan 在 arXiv 预印本中提出经济进展指数（EPI），以无监督非负 PCA 加权融合多传感器卫星数据、网格化人口及 OpenStreetMap 道路与设施网络，刻画地方经济的生产和支撑能力及经济空间使用强度。",
+              "sourceName": "arXiv · 遥感与地球观测预印本",
+              "originalUrl": "https://arxiv.org/abs/2611.23798v1"
+            },
+            {
+              "itemId": "clvmnekvh5hyc7nxa1vncdn1o",
+              "title": "Wildfire-SSR 预印本：面向建筑级野火风险评估的地理定位感知多模态融合框架",
+              "summary": "基于论文摘要，预印本提出 Wildfire-SSR，一种融合卫星宏观上下文与街景微观证据的地理定位感知多模态框架，用于建筑级野火风险评估。",
+              "sourceName": "arXiv · 遥感与地球观测预印本",
+              "originalUrl": "https://arxiv.org/abs/2611.21563v1"
+            },
+            {
+              "itemId": "h2xd4mgsym1jywq4t8e8w77as",
+              "title": "SWIR-cGAN：利用 CBERS 与 AMAZONIA-1 的 WFI VNIR 影像合成 SWIR 波段（预印本）",
+              "summary": "基于论文摘要，SWIR-cGAN 提出带注意力增强 U-net 生成器与多损失目标的 cGAN，从 CBERS-4、CBERS-4A 和 AMAZONIA-1 的 WFI VNIR 输入合成 Sentinel-2/MSI SWIR-1 与 SWIR-2 波段。",
+              "sourceName": "arXiv · 遥感与地球观测预印本",
+              "originalUrl": "https://arxiv.org/abs/2611.22922v1"
+            },
+            {
+              "itemId": "uwez7qusvcy9bbapk5jqdupqo",
+              "title": "预印本提出 SPS-GS：以亚像素位移帧和二维高斯泼溅实现任意尺度遥感超分辨率",
+              "summary": "基于论文摘要，预印本提出 SPS-GS（Sub-Pixel-Shifted Gaussian Splatting），从单幅高分辨率图像合成多相位低分辨率观测，无需真实多帧训练序列即可完成任意尺度遥感超分辨率。",
+              "sourceName": "arXiv · 遥感与地球观测预印本",
+              "originalUrl": "https://arxiv.org/abs/2611.22898v1"
+            }
+          ]
+        },
+        {
+          "label": "指标框架与服务切换",
+          "summary": "《地球大数据支撑可持续发展目标报告（2026）》在联合国网站发布，首次提出覆盖7个SDGs、99项数字指标的三层框架。数据服务方面，Copernicus Catalogue CSV计划于2027年1月20日切换新界面并新增面向自动化和agentic使用的API，旧界面与S3桶将切换移除。",
+          "items": [
+            {
+              "itemId": "mjq868a18m244i0n1skmqf9gx",
+              "title": "《地球大数据支撑可持续发展目标报告（2026）》发布，提出SDGs数字指标框架",
+              "summary": "可持续发展大数据国际研究中心牵头撰写的《地球大数据支撑可持续发展目标报告（2026）》在联合国网站发布，首次提出覆盖7个SDGs、包含99项数字指标的“领域—主题—指标”三层框架。",
+              "sourceName": "中国科学院空天院 · 科研动态",
+              "originalUrl": "https://aircas.cas.cn/dtxw/kydt/202611/t20261120_8312109.html"
+            },
+            {
+              "itemId": "zb5gptdjtpjlcnezo0tgdg44n",
+              "title": "Copernicus Catalogue CSV 新界面将上线并新增 API，旧界面与 S3 桶将于 2027 年 1 月 20 日切换移除",
+              "summary": "Copernicus Data Space Ecosystem 宣布 Copernicus Catalogue CSV 将于 2027 年 1 月 20 日切换至新界面，并新增面向自动化和 agentic 使用的 API。",
+              "sourceName": "Copernicus Data Space · 数据与平台动态",
+              "originalUrl": "https://dataspace.copernicus.eu/news/2026-11-17-new-copernicus-catalogue-csv-interface"
+            }
+          ]
+        },
+        {
+          "label": "观测能力新探索",
+          "summary": "SCSORA以1/30°分辨率提供南海2001—2024年日均温盐流三维场及海表面高度。另一端，Rydberg原子THz辐射计预印本评估地球观测可行性，指出相干转换热辐射与室温工作等条件，但摘要未给出具体性能数值和实验数据，仍属概念性能分析。",
+          "items": [
+            {
+              "itemId": "u2aje0o81y6xr9ru3kvmj8amq",
+              "title": "南海海洋再分析数据集 SCSORA 发布：1/30° 分辨率、覆盖 2001–2024 年",
+              "summary": "基于论文摘要，Zhu 和 Zhang 提出南海海洋再分析数据集 SCSORA，由 SCSOFSv2 生成，以 1/30° 分辨率提供 2001–2024 年日均温度、盐度、流速三维场及海表面高度。",
+              "sourceName": "Earth System Science Data · 数据论文与讨论稿",
+              "originalUrl": "https://essd.copernicus.org/articles/18/8471/2026/"
+            },
+            {
+              "itemId": "vtvr1jb9grt27ppy7s70ifcz6",
+              "title": "Rydberg 原子 THz 辐射计概念性能分析预印本：面向地球观测的可行性评估",
+              "summary": "该预印本评估 Rydberg 原子传感器用于地球观测 THz 辐射测量的可行性。基于论文摘要，材料指出 THz 接收技术位于电子学与光子学之间、实现尚不成熟，所述转换架构已被演示可相干转换热辐射，并提供室温工作、无需输入信号同频本地振荡器的条件；摘要未报告具体性能数值、实验数据、代码或数据可用性。",
+              "sourceName": "arXiv · 遥感与地球观测预印本",
+              "originalUrl": "https://arxiv.org/abs/2611.23193v1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "weekly",
       "key": "2026-W46",
       "title": "RSHOT 周报 · 2026-W46",
       "generatedAt": "2026-11-16T02:00:21.673Z",
@@ -10363,7 +10554,7 @@
     }
   ],
   "hot": {
-    "computedAt": "2026-11-22T02:25:31.638Z",
+    "computedAt": "2026-11-23T02:30:07.940Z",
     "windowHours": 48,
     "entries": []
   }
