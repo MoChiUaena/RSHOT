@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-23T02:30:08.827Z",
+  "generatedAt": "2026-11-24T02:30:06.914Z",
   "categories": [
     {
       "key": "paper",
@@ -29,11 +29,7 @@
   ],
   "sources": [
     {
-      "name": "openEO Python Client · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "geemap · 稳定版本发布",
+      "name": "Rasterio · 稳定版本发布",
       "kind": "rss"
     },
     {
@@ -41,59 +37,11 @@
       "kind": "rss"
     },
     {
-      "name": "NASA Earthdata · 科学数据与工具",
-      "kind": "rss"
-    },
-    {
-      "name": "arXiv · 遥感与地球观测预印本",
-      "kind": "rss"
-    },
-    {
-      "name": "中国科学院空天院 · 科研动态",
-      "kind": "web_list"
-    },
-    {
-      "name": "Earth System Science Data · 数据论文与讨论稿",
-      "kind": "web_list"
-    },
-    {
-      "name": "TorchGeo · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
       "name": "earthaccess · 稳定版本发布",
       "kind": "rss"
     },
     {
-      "name": "rioxarray · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "EOReader · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "STAC FastAPI · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "Rasterio · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "PySTAC · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "Copernicus Data Space · 数据与平台动态",
-      "kind": "rss"
-    },
-    {
-      "name": "TerraTorch · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "ESA · 对地观测",
+      "name": "openEO Python Client · 稳定版本发布",
       "kind": "rss"
     },
     {
@@ -101,11 +49,89 @@
       "kind": "rss"
     },
     {
+      "name": "Earth System Science Data · 数据论文与讨论稿",
+      "kind": "web_list"
+    },
+    {
+      "name": "rioxarray · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
       "name": "Earth Engine API · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "arXiv · 遥感与地球观测预印本",
+      "kind": "rss"
+    },
+    {
+      "name": "TorchGeo · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "PySTAC · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "NASA Earthdata · 科学数据与工具",
+      "kind": "rss"
+    },
+    {
+      "name": "geemap · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "STAC FastAPI · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "Copernicus Data Space · 数据与平台动态",
+      "kind": "rss"
+    },
+    {
+      "name": "ESA · 对地观测",
+      "kind": "rss"
+    },
+    {
+      "name": "TerraTorch · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "中国科学院空天院 · 科研动态",
+      "kind": "web_list"
+    },
+    {
+      "name": "EOReader · 稳定版本发布",
       "kind": "rss"
     }
   ],
   "items": [
+    {
+      "id": "ldyro4e5c422wz3b112rs227o",
+      "title": "空天院团队提出SAR图像开放词汇语义分割框架SOVS-Net",
+      "originalTitle": "空天院研究团队发布SAR图像开放词汇语义分割框架",
+      "summary": "中国科学院空天信息创新研究院王超团队提出SAR图像开放词汇语义分割框架SOVS-Net，相关论文发表于《ISPRS Journal of Photogrammetry and Remote Sensing》。",
+      "reason": "SOVS-Net以SARCLIP预训练模型为基础，引入基于最优传输的跨模态对齐机制，并结合多阶段交互解码与层次化语义约束，用于SAR图像开放词汇语义分割。",
+      "source": {
+        "name": "中国科学院空天院 · 科研动态",
+        "kind": "web_list",
+        "firstParty": true
+      },
+      "originalUrl": "https://aircas.cas.cn/dtxw/kydt/202611/t20261124_8313161.html",
+      "publishedAt": "2026-11-23T16:00:00.000Z",
+      "timelineAt": "2026-11-24T02:00:30.890Z",
+      "category": "paper",
+      "tags": [
+        "论文/研究",
+        "SAR",
+        "语义分割",
+        "多模态",
+        "中国科学院空天院",
+        "ISPRS"
+      ],
+      "score": 73,
+      "selected": true
+    },
     {
       "id": "zw50hvcrhyuft3cx91q8ijqxf",
       "title": "研究发布1999–2024年南极九个冰架表面损伤数据集",
@@ -619,29 +645,6 @@
       "selected": true
     },
     {
-      "id": "tjw5jhs44tki45qvu7eb9wvl8",
-      "title": "Google Earth Engine API v1.7.53 发布",
-      "originalTitle": "v1.7.53",
-      "summary": "Google Earth Engine API 发布 v1.7.53 版本，NodeJS 包 @google/earthengine 将 xmlhttprequest 依赖替换为 xmlhttprequest-ssl。",
-      "reason": null,
-      "source": {
-        "name": "Earth Engine API · 稳定版本发布",
-        "kind": "rss",
-        "firstParty": true
-      },
-      "originalUrl": "https://github.com/google/earthengine-api/releases/tag/v1.7.53",
-      "publishedAt": "2026-11-16T19:37:44.000Z",
-      "timelineAt": "2026-11-16T20:35:27.366Z",
-      "category": "rs-tools",
-      "tags": [
-        "工具更新",
-        "开源/仓库",
-        "Google Earth Engine"
-      ],
-      "score": 35,
-      "selected": false
-    },
-    {
       "id": "fo7v639tvs6qhah75jjchyrbl",
       "title": "ESSD 研究用高斯混合模型与自适应阈值制图全球主产区 2001–2020 年冬小麦动态",
       "originalTitle": "Mapping 20-years winter wheat dynamics in global primary planting areas using Gaussian mixture models with adaptive thresholds",
@@ -690,30 +693,6 @@
       ],
       "score": 81,
       "selected": true
-    },
-    {
-      "id": "hbtwycfs6lafwj5r69yn9tjdk",
-      "title": "Sentinel-5P NRTI O3 与 CLOUD 产品在 UPAS 3.0.1 升级后出现 QA 值异常",
-      "originalTitle": "Sentinel-5P NRTI O3 and CLOUD Products: QA value issue following the UPAS 3.0.1 upgrade",
-      "summary": "Copernicus Data Space 通报：Sentinel-5P 处理器 UPAS 3.0.1 升级后，NRTI O3 与 CLOUD 产品的 QA 值存在异常，在高云量情形下（尤其南美洲和非洲上空）QA 值可能低于预期；因 NRTI O3 产品使用 CLOUD QA 值作为输入，其 QA 值也相应受影响。",
-      "reason": null,
-      "source": {
-        "name": "Copernicus Data Space · 数据与平台动态",
-        "kind": "rss",
-        "firstParty": true
-      },
-      "originalUrl": "https://dataspace.copernicus.eu/news/2026-11-16-sentinel-5p-nrti-o3-and-cloud-products-qa-value-issue-following-upas-301-upgrade",
-      "publishedAt": "2026-11-16T09:57:02.000Z",
-      "timelineAt": "2026-11-16T10:58:09.825Z",
-      "category": "data",
-      "tags": [
-        "卫星/传感器",
-        "Copernicus",
-        "数据质量",
-        "ESA"
-      ],
-      "score": 57,
-      "selected": false
     },
     {
       "id": "shleywl5qfzrrkir04kkvz67y",
@@ -9906,6 +9885,7 @@
       "group": "company",
       "definition": "中国科学院空天院 的遥感研究、观测数据与工程动态。",
       "itemIds": [
+        "ldyro4e5c422wz3b112rs227o",
         "mjq868a18m244i0n1skmqf9gx",
         "a3tnf7n4040i9jbqm9ay9wvuj"
       ]
@@ -9940,6 +9920,7 @@
       "group": "field",
       "definition": "追踪SAR 与 InSAR的研究方法、数据、工具与应用实践。",
       "itemIds": [
+        "ldyro4e5c422wz3b112rs227o",
         "es04cn2axyzenalm7w5ge1qe7",
         "w1b7wi4bv0k1xoe97jzh9b586",
         "ajrhbsvd25za2pvolhf81irff",
@@ -10088,6 +10069,7 @@
       "group": "field",
       "definition": "追踪语义分割的研究方法、数据、工具与应用实践。",
       "itemIds": [
+        "ldyro4e5c422wz3b112rs227o",
         "zw50hvcrhyuft3cx91q8ijqxf",
         "r8h5aw5kmp06pvv35yhym2v15",
         "o1nwh5moq653ixq0necraf369",
@@ -10305,6 +10287,7 @@
       "group": "genre",
       "definition": "值得关注的遥感论文与研究，保留原文入口与适用条件。",
       "itemIds": [
+        "ldyro4e5c422wz3b112rs227o",
         "ew58zmd9xi8hqs4f77826z754",
         "mjq868a18m244i0n1skmqf9gx",
         "dq4fo8fgkky7nvh6bh66jvrck",
@@ -10554,7 +10537,7 @@
     }
   ],
   "hot": {
-    "computedAt": "2026-11-23T02:30:07.940Z",
+    "computedAt": "2026-11-24T02:25:30.188Z",
     "windowHours": 48,
     "entries": []
   }
