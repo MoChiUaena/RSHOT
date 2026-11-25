@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-24T02:30:06.914Z",
+  "generatedAt": "2026-11-25T02:30:07.579Z",
   "categories": [
     {
       "key": "paper",
@@ -33,31 +33,15 @@
       "kind": "rss"
     },
     {
-      "name": "GDAL · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "earthaccess · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "openEO Python Client · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "Google Earth 与 Earth Engine · 官方博客",
-      "kind": "rss"
-    },
-    {
       "name": "Earth System Science Data · 数据论文与讨论稿",
       "kind": "web_list"
     },
     {
-      "name": "rioxarray · 稳定版本发布",
+      "name": "Earth Engine API · 稳定版本发布",
       "kind": "rss"
     },
     {
-      "name": "Earth Engine API · 稳定版本发布",
+      "name": "ESA · 对地观测",
       "kind": "rss"
     },
     {
@@ -65,7 +49,15 @@
       "kind": "rss"
     },
     {
+      "name": "GDAL · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
       "name": "TorchGeo · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "TerraTorch · 稳定版本发布",
       "kind": "rss"
     },
     {
@@ -73,11 +65,19 @@
       "kind": "rss"
     },
     {
-      "name": "NASA Earthdata · 科学数据与工具",
+      "name": "EOReader · 稳定版本发布",
       "kind": "rss"
     },
     {
       "name": "geemap · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "Google Earth 与 Earth Engine · 官方博客",
+      "kind": "rss"
+    },
+    {
+      "name": "earthaccess · 稳定版本发布",
       "kind": "rss"
     },
     {
@@ -89,23 +89,138 @@
       "kind": "rss"
     },
     {
-      "name": "ESA · 对地观测",
-      "kind": "rss"
-    },
-    {
-      "name": "TerraTorch · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
       "name": "中国科学院空天院 · 科研动态",
       "kind": "web_list"
     },
     {
-      "name": "EOReader · 稳定版本发布",
+      "name": "openEO Python Client · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "rioxarray · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "NASA Earthdata · 科学数据与工具",
       "kind": "rss"
     }
   ],
   "items": [
+    {
+      "id": "nufwx9l5i1dzk41e0b5tt17zf",
+      "title": "earthaccess v1.0.0 稳定版发布，默认改用 HTTPS 并更新检索接口",
+      "originalTitle": "v1.0.0",
+      "summary": "earthaccess 发布 v1.0.0 稳定版，open()、download() 和 virtualize() 默认改用 HTTPS，保留旧行为需传入 access=\"s3\"，并移除运行时 AWS us-west-2 检测。",
+      "reason": "v1.0.0 通过可重放查询参数和 GeoPandas 转换增强检索结果处理，同时更改默认访问方式及查询接口命名，现有工作流需按迁移指南适配。",
+      "source": {
+        "name": "earthaccess · 稳定版本发布",
+        "kind": "rss",
+        "firstParty": true
+      },
+      "originalUrl": "https://github.com/earthaccess-dev/earthaccess/releases/tag/v1.0.0",
+      "publishedAt": "2026-11-24T19:44:47.000Z",
+      "timelineAt": "2026-11-25T01:42:11.074Z",
+      "category": "rs-tools",
+      "tags": [
+        "工具更新",
+        "开源生态",
+        "NASA",
+        "云端处理"
+      ],
+      "score": 65,
+      "selected": true
+    },
+    {
+      "id": "fopp09y0d6qbkc9fx9ib8dzxo",
+      "title": "CORA OA 1960–2024发布全球网格化现场温盐数据集，更新客观分析初猜",
+      "originalTitle": "The consistent in-situ global gridded temperature and salinity dataset, CORA OA 1960–2024",
+      "summary": "基于论文摘要，CORA OA 1960–2024提供由Copernicus Marine Service分发的全球网格化月均温盐客观分析场，水平分辨率0.5°、0–5500 m设186个垂向层，并以WOA23年代际温盐气候态时间插值得到的月场更新分析初猜。",
+      "reason": "该版本以WOA23年代际温盐气候态的时间插值月场更新客观分析初猜，并通过多类参考资料比较说明其一致性及对Argo“fast salty drift”影响的限制。",
+      "source": {
+        "name": "Earth System Science Data · 数据论文与讨论稿",
+        "kind": "web_list",
+        "firstParty": true
+      },
+      "originalUrl": "https://essd.copernicus.org/articles/18/8821/2026/",
+      "publishedAt": "2026-11-24T00:00:00.000Z",
+      "timelineAt": "2026-11-24T18:09:39.610Z",
+      "category": "data",
+      "tags": [
+        "数据集/基准",
+        "海洋",
+        "气候",
+        "Copernicus"
+      ],
+      "score": 70,
+      "selected": true
+    },
+    {
+      "id": "b84t125prhg53rrbxzga401ij",
+      "title": "预印本提出 SRCWDNet：面向多标签遥感场景分类的语义关系跨窗口双图网络",
+      "originalTitle": "SRCWDNet: Semantic-Relational Cross-Window Dual-Graph Network for Multi-Label Remote Sensing Scene Classification",
+      "summary": "基于论文摘要，SRCWDNet 结合跨窗口注意力、自适应双标签图和神经分类器链，用于建模多标签遥感场景分类中的视觉上下文与标签依赖。",
+      "reason": "SRCWDNet 将跨窗口注意力、统计共现与语义嵌入双标签图及神经分类器链结合，并在 MLRSNet 和 China-MAS50k 上以五折交叉验证比较多标签场景分类基线。",
+      "source": {
+        "name": "arXiv · 遥感与地球观测预印本",
+        "kind": "rss",
+        "firstParty": true
+      },
+      "originalUrl": "https://arxiv.org/abs/2611.31135v1",
+      "publishedAt": "2026-11-23T18:06:09.000Z",
+      "timelineAt": "2026-11-24T16:18:37.603Z",
+      "category": "paper",
+      "tags": [
+        "论文/研究",
+        "分类识别",
+        "多模态"
+      ],
+      "score": 63,
+      "selected": true
+    },
+    {
+      "id": "eqapbwtr5ckgu4nq813e2xce5",
+      "title": "OCCA-Seg预印本提出对象与通道上下文聚合方法用于遥感影像语义分割",
+      "originalTitle": "OCCA-Seg: Object and Channel Context Aggregation for Semantic Segmentation of Remote Sensing Images",
+      "summary": "Gang Yang在预印本中提出对象与通道上下文聚合方案OCCA，用于遥感影像语义分割。基于论文摘要，OCCA包含对象上下文注意力模块OCAM、通道上下文注意力模块CCAM和聚合模块AM，分别聚合对象级上下文、建模以对象类别为条件的通道上下文依赖，并对对象上下文进行加权和调制。",
+      "reason": "将对象级上下文与通道级上下文结合，并通过聚合模块对对象上下文进行加权和调制，为遥感影像语义分割提供了不同于单一上下文建模的设计。",
+      "source": {
+        "name": "arXiv · 遥感与地球观测预印本",
+        "kind": "rss",
+        "firstParty": true
+      },
+      "originalUrl": "https://arxiv.org/abs/2611.30267v1",
+      "publishedAt": "2026-11-23T08:28:41.000Z",
+      "timelineAt": "2026-11-24T06:14:35.869Z",
+      "category": "paper",
+      "tags": [
+        "论文/研究",
+        "语义分割"
+      ],
+      "score": 60,
+      "selected": true
+    },
+    {
+      "id": "e9ltnkuftkqn56bwxqyg7s2om",
+      "title": "预印本提出基于能量统计的图像流序贯监控方法，直接监测图像边界分布变化",
+      "originalTitle": "Sequential Monitoring of Image Streams Using Energy Statistics",
+      "summary": "该预印本提出一种基于能量距离的非参数 Phase II 图像监控方法，通过滑动窗口比较近期图像边界分布与固定受控参考样本，直接监测边界分布变化。基于论文摘要，该方法旨在保留边缘信息以降低高分辨率图像维度，并减少对平滑灰度变化的敏感性，面向卫星成像与遥感等应用；作者称给出了理论依据，并在数值比较中报告更优表现，代码和数据可用性未说明。",
+      "reason": "方法以图像边界分布的能量距离构造滑动窗口控制统计量，区别于依赖灰度强度变化的监控思路，用于降低对无关紧要对比度或背景强度变化的敏感性。",
+      "source": {
+        "name": "arXiv · 遥感与地球观测预印本",
+        "kind": "rss",
+        "firstParty": true
+      },
+      "originalUrl": "https://arxiv.org/abs/2611.30700v1",
+      "publishedAt": "2026-11-23T13:46:23.000Z",
+      "timelineAt": "2026-11-24T06:14:35.856Z",
+      "category": "paper",
+      "tags": [
+        "论文/研究",
+        "变化检测"
+      ],
+      "score": 73,
+      "selected": true
+    },
     {
       "id": "ldyro4e5c422wz3b112rs227o",
       "title": "空天院团队提出SAR图像开放词汇语义分割框架SOVS-Net",
@@ -543,31 +658,6 @@
       ],
       "score": 82,
       "selected": true
-    },
-    {
-      "id": "eqlwlpa0q7c4384pjxorg2eh6",
-      "title": "Copernicus Sentinel-2C 于 2026 年 11 月 17 日出现数据不可用",
-      "originalTitle": "Copernicus Sentinel-2C Data Unavailability on 17 November 2026",
-      "summary": "Copernicus Sentinel-2C 发生星上异常，导致自 2026 年 11 月 17 日 08:25 UTC 起获取的全部数据不可恢复地丢失。受影响的数据段已列于 Sentinel Operations Dashboard Events 页面，异常持续期间后续数据获取也可能受影响。缓解措施正在实施，待异常解决并恢复正常运行后将发布进一步通报。",
-      "reason": null,
-      "source": {
-        "name": "Copernicus Data Space · 数据与平台动态",
-        "kind": "rss",
-        "firstParty": true
-      },
-      "originalUrl": "https://dataspace.copernicus.eu/news/2026-11-17-copernicus-sentinel-2c-data-unavailability-17-november-2026",
-      "publishedAt": "2026-11-17T15:16:29.000Z",
-      "timelineAt": "2026-11-17T15:22:44.856Z",
-      "category": "satellite",
-      "tags": [
-        "卫星/传感器",
-        "光学遥感",
-        "数据质量",
-        "Copernicus",
-        "ESA"
-      ],
-      "score": 49,
-      "selected": false
     },
     {
       "id": "clvmnekvh5hyc7nxa1vncdn1o",
@@ -4673,6 +4763,67 @@
     }
   ],
   "reports": [
+    {
+      "kind": "daily",
+      "key": "2026-11-25",
+      "title": "遥感日报 · 2026-11-25",
+      "generatedAt": "2026-11-25T00:00:40.002Z",
+      "editorialMode": "model",
+      "lead": {
+        "title": "空天院团队提出SAR图像开放词汇语义分割框架SOVS-Net",
+        "leadParagraph": "中国科学院空天信息创新研究院王超团队提出SAR图像开放词汇语义分割框架SOVS-Net，相关论文发表于《ISPRS Journal of Photogrammetry and Remote Sensing》。同日入选动态还包括CORA OA 1960–2024全球网格化温盐数据集，以及图像流序贯监控、多标签遥感场景分类和遥感影像语义分割新方法。"
+      },
+      "overview": null,
+      "sections": [
+        {
+          "label": "论文与方法",
+          "summary": null,
+          "items": [
+            {
+              "itemId": "ldyro4e5c422wz3b112rs227o",
+              "title": "空天院团队提出SAR图像开放词汇语义分割框架SOVS-Net",
+              "summary": "中国科学院空天信息创新研究院王超团队提出SAR图像开放词汇语义分割框架SOVS-Net，相关论文发表于《ISPRS Journal of Photogrammetry and Remote Sensing》。",
+              "sourceName": "中国科学院空天院 · 科研动态",
+              "originalUrl": "https://aircas.cas.cn/dtxw/kydt/202611/t20261124_8313161.html"
+            },
+            {
+              "itemId": "e9ltnkuftkqn56bwxqyg7s2om",
+              "title": "预印本提出基于能量统计的图像流序贯监控方法，直接监测图像边界分布变化",
+              "summary": "该预印本提出一种基于能量距离的非参数 Phase II 图像监控方法，通过滑动窗口比较近期图像边界分布与固定受控参考样本，直接监测边界分布变化。基于论文摘要，该方法旨在保留边缘信息以降低高分辨率图像维度，并减少对平滑灰度变化的敏感性，面向卫星成像与遥感等应用；作者称给出了理论依据，并在数值比较中报告更优表现，代码和数据可用性未说明。",
+              "sourceName": "arXiv · 遥感与地球观测预印本",
+              "originalUrl": "https://arxiv.org/abs/2611.30700v1"
+            },
+            {
+              "itemId": "b84t125prhg53rrbxzga401ij",
+              "title": "预印本提出 SRCWDNet：面向多标签遥感场景分类的语义关系跨窗口双图网络",
+              "summary": "基于论文摘要，SRCWDNet 结合跨窗口注意力、自适应双标签图和神经分类器链，用于建模多标签遥感场景分类中的视觉上下文与标签依赖。",
+              "sourceName": "arXiv · 遥感与地球观测预印本",
+              "originalUrl": "https://arxiv.org/abs/2611.31135v1"
+            },
+            {
+              "itemId": "eqapbwtr5ckgu4nq813e2xce5",
+              "title": "OCCA-Seg预印本提出对象与通道上下文聚合方法用于遥感影像语义分割",
+              "summary": "Gang Yang在预印本中提出对象与通道上下文聚合方案OCCA，用于遥感影像语义分割。基于论文摘要，OCCA包含对象上下文注意力模块OCAM、通道上下文注意力模块CCAM和聚合模块AM，分别聚合对象级上下文、建模以对象类别为条件的通道上下文依赖，并对对象上下文进行加权和调制。",
+              "sourceName": "arXiv · 遥感与地球观测预印本",
+              "originalUrl": "https://arxiv.org/abs/2611.30267v1"
+            }
+          ]
+        },
+        {
+          "label": "数据集与基准",
+          "summary": null,
+          "items": [
+            {
+              "itemId": "fopp09y0d6qbkc9fx9ib8dzxo",
+              "title": "CORA OA 1960–2024发布全球网格化现场温盐数据集，更新客观分析初猜",
+              "summary": "基于论文摘要，CORA OA 1960–2024提供由Copernicus Marine Service分发的全球网格化月均温盐客观分析场，水平分辨率0.5°、0–5500 m设186个垂向层，并以WOA23年代际温盐气候态时间插值得到的月场更新分析初猜。",
+              "sourceName": "Earth System Science Data · 数据论文与讨论稿",
+              "originalUrl": "https://essd.copernicus.org/articles/18/8821/2026/"
+            }
+          ]
+        }
+      ]
+    },
     {
       "kind": "daily",
       "key": "2026-11-22",
@@ -9838,6 +9989,7 @@
       "group": "company",
       "definition": "NASA 的遥感研究、观测数据与工程动态。",
       "itemIds": [
+        "nufwx9l5i1dzk41e0b5tt17zf",
         "kq80bfsslud9me8zt3gc33gft",
         "le9tcuhykbm4yp1xuy7iw5ntj"
       ]
@@ -9859,6 +10011,7 @@
       "group": "company",
       "definition": "Copernicus 的遥感研究、观测数据与工程动态。",
       "itemIds": [
+        "fopp09y0d6qbkc9fx9ib8dzxo",
         "u2aje0o81y6xr9ru3kvmj8amq",
         "zb5gptdjtpjlcnezo0tgdg44n",
         "fo7v639tvs6qhah75jjchyrbl",
@@ -10033,6 +10186,7 @@
       "group": "field",
       "definition": "追踪变化检测的研究方法、数据、工具与应用实践。",
       "itemIds": [
+        "e9ltnkuftkqn56bwxqyg7s2om",
         "zm1w1koscn6xb6tdbkzhrgbjs",
         "d1nb9n3fi0cp4p13cvblxc681",
         "ovm1fdzpu9cnmgdixu9nyrnlj",
@@ -10069,6 +10223,7 @@
       "group": "field",
       "definition": "追踪语义分割的研究方法、数据、工具与应用实践。",
       "itemIds": [
+        "eqapbwtr5ckgu4nq813e2xce5",
         "ldyro4e5c422wz3b112rs227o",
         "zw50hvcrhyuft3cx91q8ijqxf",
         "r8h5aw5kmp06pvv35yhym2v15",
@@ -10204,6 +10359,7 @@
       "group": "field",
       "definition": "追踪云端处理的研究方法、数据、工具与应用实践。",
       "itemIds": [
+        "nufwx9l5i1dzk41e0b5tt17zf",
         "zb5gptdjtpjlcnezo0tgdg44n",
         "jy00q7c0tobk9xwqwv0umjfvy",
         "e6k689dwph4dv1hh8r53kh0n7",
@@ -10287,6 +10443,9 @@
       "group": "genre",
       "definition": "值得关注的遥感论文与研究，保留原文入口与适用条件。",
       "itemIds": [
+        "b84t125prhg53rrbxzga401ij",
+        "eqapbwtr5ckgu4nq813e2xce5",
+        "e9ltnkuftkqn56bwxqyg7s2om",
         "ldyro4e5c422wz3b112rs227o",
         "ew58zmd9xi8hqs4f77826z754",
         "mjq868a18m244i0n1skmqf9gx",
@@ -10383,6 +10542,7 @@
       "group": "genre",
       "definition": "值得关注的遥感数据集与基准，保留原文入口与适用条件。",
       "itemIds": [
+        "fopp09y0d6qbkc9fx9ib8dzxo",
         "zw50hvcrhyuft3cx91q8ijqxf",
         "wj3lye4n1u4e7ke32hjfv564t",
         "ktmpjgwcuwkq6npyoq1o2m6v4",
@@ -10537,7 +10697,7 @@
     }
   ],
   "hot": {
-    "computedAt": "2026-11-24T02:25:30.188Z",
+    "computedAt": "2026-11-25T02:25:07.946Z",
     "windowHours": 48,
     "entries": []
   }
