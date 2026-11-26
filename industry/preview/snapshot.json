@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-25T02:30:07.579Z",
+  "generatedAt": "2026-11-26T02:30:09.013Z",
   "categories": [
     {
       "key": "paper",
@@ -29,19 +29,19 @@
   ],
   "sources": [
     {
-      "name": "Rasterio · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "Earth System Science Data · 数据论文与讨论稿",
-      "kind": "web_list"
-    },
-    {
       "name": "Earth Engine API · 稳定版本发布",
       "kind": "rss"
     },
     {
-      "name": "ESA · 对地观测",
+      "name": "NASA Earthdata · 科学数据与工具",
+      "kind": "rss"
+    },
+    {
+      "name": "Rasterio · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "STAC FastAPI · 稳定版本发布",
       "kind": "rss"
     },
     {
@@ -49,11 +49,11 @@
       "kind": "rss"
     },
     {
-      "name": "GDAL · 稳定版本发布",
+      "name": "EOReader · 稳定版本发布",
       "kind": "rss"
     },
     {
-      "name": "TorchGeo · 稳定版本发布",
+      "name": "rioxarray · 稳定版本发布",
       "kind": "rss"
     },
     {
@@ -61,15 +61,23 @@
       "kind": "rss"
     },
     {
+      "name": "中国科学院空天院 · 科研动态",
+      "kind": "web_list"
+    },
+    {
+      "name": "geemap · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "Copernicus Data Space · 数据与平台动态",
+      "kind": "rss"
+    },
+    {
       "name": "PySTAC · 稳定版本发布",
       "kind": "rss"
     },
     {
-      "name": "EOReader · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "geemap · 稳定版本发布",
+      "name": "GDAL · 稳定版本发布",
       "kind": "rss"
     },
     {
@@ -81,31 +89,165 @@
       "kind": "rss"
     },
     {
-      "name": "STAC FastAPI · 稳定版本发布",
+      "name": "ESA · 对地观测",
       "kind": "rss"
     },
     {
-      "name": "Copernicus Data Space · 数据与平台动态",
-      "kind": "rss"
-    },
-    {
-      "name": "中国科学院空天院 · 科研动态",
+      "name": "Earth System Science Data · 数据论文与讨论稿",
       "kind": "web_list"
+    },
+    {
+      "name": "TorchGeo · 稳定版本发布",
+      "kind": "rss"
     },
     {
       "name": "openEO Python Client · 稳定版本发布",
       "kind": "rss"
-    },
-    {
-      "name": "rioxarray · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "NASA Earthdata · 科学数据与工具",
-      "kind": "rss"
     }
   ],
   "items": [
+    {
+      "id": "k0ex9qw6mdrq8qipmzjwdjhj3",
+      "title": "rioxarray 0.25.1 发布",
+      "originalTitle": "0.25.1",
+      "summary": "rioxarray 0.25.1 发布，修复了应用新元数据前先移除 convention 元数据的问题，并更新贡献指南。本次更新包含 #966、#957 等贡献，完整变更对比 0.25.0...0.25.1。",
+      "reason": null,
+      "source": {
+        "name": "rioxarray · 稳定版本发布",
+        "kind": "rss",
+        "firstParty": true
+      },
+      "originalUrl": "https://github.com/vylor/rioxarray/releases/tag/0.25.1",
+      "publishedAt": "2026-11-25T19:21:07.000Z",
+      "timelineAt": "2026-11-25T22:48:18.404Z",
+      "category": "rs-tools",
+      "tags": [
+        "工具更新",
+        "开源生态"
+      ],
+      "score": 31,
+      "selected": false
+    },
+    {
+      "id": "rmspwss52fvyrqtddsqh5cqyq",
+      "title": "研究构建澳大利亚太阳辐射评估用空间分布典型气象年数据集 TMY-MER 与 TMY-MER-IDW",
+      "originalTitle": "Developing a spatially distributed typical meteorological year dataset for solar radiation assessment in Australia",
+      "summary": "基于论文摘要，研究开发 TMY-MER 与 TMY-MER-IDW，为澳大利亚以 GHI 为中心的太阳辐射分析提供空间分布典型气象年产品。",
+      "reason": "研究将 MERRA2 逐小时数据构建为澳大利亚 353 个位置的近期典型气象年文件，并以天气类型区分晴空与阴天 GHI 偏差，再以 IDW 插值生成空间分布产品，同时明确评估不等同于多变量全面验证。",
+      "source": {
+        "name": "Earth System Science Data · 数据论文与讨论稿",
+        "kind": "web_list",
+        "firstParty": true
+      },
+      "originalUrl": "https://essd.copernicus.org/articles/18/8923/2026/",
+      "publishedAt": "2026-11-25T00:00:00.000Z",
+      "timelineAt": "2026-11-25T18:31:33.227Z",
+      "category": "data",
+      "tags": [
+        "数据集/基准",
+        "气候"
+      ],
+      "score": 65,
+      "selected": true
+    },
+    {
+      "id": "je0m8ilx35002845a4vb10xf2",
+      "title": "预印本提出 HS-OVSeg：通过异构监督实现遥感多粒度开放词汇语义分割",
+      "originalTitle": "HS-OVSeg: Multi-Granularity Open-Vocabulary Semantic Segmentation in Remote Sensing via Heterogeneous Supervision",
+      "summary": "基于论文摘要，HS-OVSeg 预印本提出统一训练框架，融合场景级、目标级和像素级异构监督，用于遥感开放词汇语义分割。",
+      "reason": "HS-OVSeg 将场景级、目标级与像素级异构标注统一到 SAM3 的 LoRA 微调流程，并在 20 个训练来源数据集和 5 个留出数据集上评估，为比较开放词汇遥感分割的多粒度监督设计提供了依据。",
+      "source": {
+        "name": "arXiv · 遥感与地球观测预印本",
+        "kind": "rss",
+        "firstParty": true
+      },
+      "originalUrl": "https://arxiv.org/abs/2611.32518v1",
+      "publishedAt": "2026-11-24T12:45:09.000Z",
+      "timelineAt": "2026-11-25T16:41:22.778Z",
+      "category": "paper",
+      "tags": [
+        "论文/研究",
+        "语义分割",
+        "遥感基础模型",
+        "开源生态"
+      ],
+      "score": 73,
+      "selected": true
+    },
+    {
+      "id": "e39q5zgnyhrkqqp1l0cl9z28m",
+      "title": "预印本评测十二种零样本开放词汇分割方法的云检测能力与局限",
+      "originalTitle": "On the Capabilities and Limitations of Zero-Shot Open-Vocabulary Cloud Segmentation",
+      "summary": "Jose Sosa 在预印本中评测十二种零样本开放词汇语义分割方法的云检测能力，覆盖六个公开地球观测数据集，且不针对目标数据微调或适配。基于论文摘要，SegEarth-OV3 在其中四个数据集上取得最高的二值云检测表现，而厚云、薄云、云阴影和背景的多类别分割仍更具挑战；受控实验还显示提示词敏感性因模型而异。",
+      "reason": "该预印本在六个公开地球观测数据集上统一比较十二种零样本开放词汇分割方法，并区分云检测、细粒度云分割和提示敏感性，为方法选择提供对照证据。",
+      "source": {
+        "name": "arXiv · 遥感与地球观测预印本",
+        "kind": "rss",
+        "firstParty": true
+      },
+      "originalUrl": "https://arxiv.org/abs/2611.32625v1",
+      "publishedAt": "2026-11-24T13:49:39.000Z",
+      "timelineAt": "2026-11-25T06:32:14.355Z",
+      "category": "paper",
+      "tags": [
+        "论文/研究",
+        "语义分割",
+        "遥感基础模型",
+        "多模态",
+        "泛化/迁移",
+        "arXiv"
+      ],
+      "score": 67,
+      "selected": true
+    },
+    {
+      "id": "y42cq0hbke9e669k36tl7e5hn",
+      "title": "预印本提出 LAMIA-IBDA：以实例自适应视觉—语言对齐开展建筑损伤评估",
+      "originalTitle": "Beyond Static Semantics: Instance-Adaptive Vision-Language Alignment for Building Damage Assessment",
+      "summary": "基于论文摘要，LAMIA-IBDA 提出面向双时相遥感影像实例级建筑损伤评估的视觉—语言框架，使损伤语义适应局部观测和单体建筑。",
+      "reason": "论文提出将共享损伤语义逐步对齐到局部双时相证据与单体建筑的实例自适应原型，并在 xBD 和 BRIGHT 上覆盖光学—光学及光学—SAR 设置进行对比实验。",
+      "source": {
+        "name": "arXiv · 遥感与地球观测预印本",
+        "kind": "rss",
+        "firstParty": true
+      },
+      "originalUrl": "https://arxiv.org/abs/2611.32777v1",
+      "publishedAt": "2026-11-24T15:08:13.000Z",
+      "timelineAt": "2026-11-25T06:32:14.340Z",
+      "category": "paper",
+      "tags": [
+        "论文/研究",
+        "多模态",
+        "SAR",
+        "光学遥感",
+        "arXiv"
+      ],
+      "score": 75,
+      "selected": true
+    },
+    {
+      "id": "nd7aaov4juqhhsrla6tyh8huh",
+      "title": "rioxarray 0.25.0 发布：改进 Zarr 的 CRS 与变换写入",
+      "originalTitle": "0.25.0",
+      "summary": "rioxarray 发布 0.25.0，为 Zarr 的 write_crs 和 write_transform 增加 propagate_to_variables 参数，并修复向 Zarr 写入 WKT2 的问题。此次更新还从 build-system 移除 wheel，修正 write_gcps 参数命名和 Lock 参数传递相关文档；完整变更范围为 0.24.0...0.25.0。",
+      "reason": null,
+      "source": {
+        "name": "rioxarray · 稳定版本发布",
+        "kind": "rss",
+        "firstParty": true
+      },
+      "originalUrl": "https://github.com/vylor/rioxarray/releases/tag/0.25.0",
+      "publishedAt": "2026-11-24T17:59:35.000Z",
+      "timelineAt": "2026-11-25T05:38:17.667Z",
+      "category": "rs-tools",
+      "tags": [
+        "工具更新",
+        "开源生态",
+        "辐射定标"
+      ],
+      "score": 53,
+      "selected": false
+    },
     {
       "id": "nufwx9l5i1dzk41e0b5tt17zf",
       "title": "earthaccess v1.0.0 稳定版发布，默认改用 HTTPS 并更新检索接口",
@@ -4763,6 +4905,73 @@
     }
   ],
   "reports": [
+    {
+      "kind": "daily",
+      "key": "2026-11-26",
+      "title": "遥感日报 · 2026-11-26",
+      "generatedAt": "2026-11-26T00:00:38.092Z",
+      "editorialMode": "model",
+      "lead": {
+        "title": "LAMIA-IBDA 预印本提出实例自适应遥感建筑损伤评估框架",
+        "leadParagraph": "当天动态集中在遥感智能解译与数据工具更新：LAMIA-IBDA 面向双时相影像，以实例自适应视觉—语言对齐开展单体建筑损伤评估；HS-OVSeg 融合场景级、目标级和像素级监督，推进多粒度开放词汇语义分割。另有研究评测十二种零样本方法的云检测能力，earthaccess 则发布 v1.0.0 稳定版并调整默认访问方式。"
+      },
+      "overview": null,
+      "sections": [
+        {
+          "label": "论文与方法",
+          "summary": null,
+          "items": [
+            {
+              "itemId": "y42cq0hbke9e669k36tl7e5hn",
+              "title": "预印本提出 LAMIA-IBDA：以实例自适应视觉—语言对齐开展建筑损伤评估",
+              "summary": "基于论文摘要，LAMIA-IBDA 提出面向双时相遥感影像实例级建筑损伤评估的视觉—语言框架，使损伤语义适应局部观测和单体建筑。",
+              "sourceName": "arXiv · 遥感与地球观测预印本",
+              "originalUrl": "https://arxiv.org/abs/2611.32777v1"
+            },
+            {
+              "itemId": "je0m8ilx35002845a4vb10xf2",
+              "title": "预印本提出 HS-OVSeg：通过异构监督实现遥感多粒度开放词汇语义分割",
+              "summary": "基于论文摘要，HS-OVSeg 预印本提出统一训练框架，融合场景级、目标级和像素级异构监督，用于遥感开放词汇语义分割。",
+              "sourceName": "arXiv · 遥感与地球观测预印本",
+              "originalUrl": "https://arxiv.org/abs/2611.32518v1"
+            },
+            {
+              "itemId": "e39q5zgnyhrkqqp1l0cl9z28m",
+              "title": "预印本评测十二种零样本开放词汇分割方法的云检测能力与局限",
+              "summary": "Jose Sosa 在预印本中评测十二种零样本开放词汇语义分割方法的云检测能力，覆盖六个公开地球观测数据集，且不针对目标数据微调或适配。基于论文摘要，SegEarth-OV3 在其中四个数据集上取得最高的二值云检测表现，而厚云、薄云、云阴影和背景的多类别分割仍更具挑战；受控实验还显示提示词敏感性因模型而异。",
+              "sourceName": "arXiv · 遥感与地球观测预印本",
+              "originalUrl": "https://arxiv.org/abs/2611.32625v1"
+            }
+          ]
+        },
+        {
+          "label": "数据集与基准",
+          "summary": null,
+          "items": [
+            {
+              "itemId": "rmspwss52fvyrqtddsqh5cqyq",
+              "title": "研究构建澳大利亚太阳辐射评估用空间分布典型气象年数据集 TMY-MER 与 TMY-MER-IDW",
+              "summary": "基于论文摘要，研究开发 TMY-MER 与 TMY-MER-IDW，为澳大利亚以 GHI 为中心的太阳辐射分析提供空间分布典型气象年产品。",
+              "sourceName": "Earth System Science Data · 数据论文与讨论稿",
+              "originalUrl": "https://essd.copernicus.org/articles/18/8923/2026/"
+            }
+          ]
+        },
+        {
+          "label": "模型与开源工具",
+          "summary": null,
+          "items": [
+            {
+              "itemId": "nufwx9l5i1dzk41e0b5tt17zf",
+              "title": "earthaccess v1.0.0 稳定版发布，默认改用 HTTPS 并更新检索接口",
+              "summary": "earthaccess 发布 v1.0.0 稳定版，open()、download() 和 virtualize() 默认改用 HTTPS，保留旧行为需传入 access=\"s3\"，并移除运行时 AWS us-west-2 检测。",
+              "sourceName": "earthaccess · 稳定版本发布",
+              "originalUrl": "https://github.com/earthaccess-dev/earthaccess/releases/tag/v1.0.0"
+            }
+          ]
+        }
+      ]
+    },
     {
       "kind": "daily",
       "key": "2026-11-25",
@@ -10073,6 +10282,7 @@
       "group": "field",
       "definition": "追踪SAR 与 InSAR的研究方法、数据、工具与应用实践。",
       "itemIds": [
+        "y42cq0hbke9e669k36tl7e5hn",
         "ldyro4e5c422wz3b112rs227o",
         "es04cn2axyzenalm7w5ge1qe7",
         "w1b7wi4bv0k1xoe97jzh9b586",
@@ -10140,6 +10350,7 @@
       "group": "field",
       "definition": "追踪光学遥感的研究方法、数据、工具与应用实践。",
       "itemIds": [
+        "y42cq0hbke9e669k36tl7e5hn",
         "zw50hvcrhyuft3cx91q8ijqxf",
         "ktmpjgwcuwkq6npyoq1o2m6v4",
         "uwez7qusvcy9bbapk5jqdupqo",
@@ -10223,6 +10434,8 @@
       "group": "field",
       "definition": "追踪语义分割的研究方法、数据、工具与应用实践。",
       "itemIds": [
+        "je0m8ilx35002845a4vb10xf2",
+        "e39q5zgnyhrkqqp1l0cl9z28m",
         "eqapbwtr5ckgu4nq813e2xce5",
         "ldyro4e5c422wz3b112rs227o",
         "zw50hvcrhyuft3cx91q8ijqxf",
@@ -10292,6 +10505,8 @@
       "group": "field",
       "definition": "追踪遥感基础模型的研究方法、数据、工具与应用实践。",
       "itemIds": [
+        "je0m8ilx35002845a4vb10xf2",
+        "e39q5zgnyhrkqqp1l0cl9z28m",
         "ew58zmd9xi8hqs4f77826z754",
         "adys589j1en46fzdj9b99zxq2",
         "zm1w1koscn6xb6tdbkzhrgbjs",
@@ -10340,6 +10555,7 @@
       "group": "field",
       "definition": "追踪泛化与迁移的研究方法、数据、工具与应用实践。",
       "itemIds": [
+        "e39q5zgnyhrkqqp1l0cl9z28m",
         "d1nb9n3fi0cp4p13cvblxc681",
         "pcrc7uazq9i3q4ihhmonbgfpg",
         "wabwu0q6n29slr7hyivkknqep",
@@ -10443,6 +10659,9 @@
       "group": "genre",
       "definition": "值得关注的遥感论文与研究，保留原文入口与适用条件。",
       "itemIds": [
+        "je0m8ilx35002845a4vb10xf2",
+        "e39q5zgnyhrkqqp1l0cl9z28m",
+        "y42cq0hbke9e669k36tl7e5hn",
         "b84t125prhg53rrbxzga401ij",
         "eqapbwtr5ckgu4nq813e2xce5",
         "e9ltnkuftkqn56bwxqyg7s2om",
@@ -10542,6 +10761,7 @@
       "group": "genre",
       "definition": "值得关注的遥感数据集与基准，保留原文入口与适用条件。",
       "itemIds": [
+        "rmspwss52fvyrqtddsqh5cqyq",
         "fopp09y0d6qbkc9fx9ib8dzxo",
         "zw50hvcrhyuft3cx91q8ijqxf",
         "wj3lye4n1u4e7ke32hjfv564t",
@@ -10697,7 +10917,7 @@
     }
   ],
   "hot": {
-    "computedAt": "2026-11-25T02:25:07.946Z",
+    "computedAt": "2026-11-26T02:25:30.976Z",
     "windowHours": 48,
     "entries": []
   }
