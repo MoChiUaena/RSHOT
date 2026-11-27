@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-26T02:30:09.013Z",
+  "generatedAt": "2026-11-27T02:30:09.747Z",
   "categories": [
     {
       "key": "paper",
@@ -29,7 +29,7 @@
   ],
   "sources": [
     {
-      "name": "Earth Engine API · 稳定版本发布",
+      "name": "TerraTorch · 稳定版本发布",
       "kind": "rss"
     },
     {
@@ -37,59 +37,7 @@
       "kind": "rss"
     },
     {
-      "name": "Rasterio · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "STAC FastAPI · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
       "name": "arXiv · 遥感与地球观测预印本",
-      "kind": "rss"
-    },
-    {
-      "name": "EOReader · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "rioxarray · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "TerraTorch · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "中国科学院空天院 · 科研动态",
-      "kind": "web_list"
-    },
-    {
-      "name": "geemap · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "Copernicus Data Space · 数据与平台动态",
-      "kind": "rss"
-    },
-    {
-      "name": "PySTAC · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "GDAL · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "Google Earth 与 Earth Engine · 官方博客",
-      "kind": "rss"
-    },
-    {
-      "name": "earthaccess · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "ESA · 对地观测",
       "kind": "rss"
     },
     {
@@ -97,15 +45,144 @@
       "kind": "web_list"
     },
     {
+      "name": "ESA · 对地观测",
+      "kind": "rss"
+    },
+    {
+      "name": "Google Earth 与 Earth Engine · 官方博客",
+      "kind": "rss"
+    },
+    {
+      "name": "EOReader · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "中国科学院空天院 · 科研动态",
+      "kind": "web_list"
+    },
+    {
       "name": "TorchGeo · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "rioxarray · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "STAC FastAPI · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "geemap · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "Earth Engine API · 稳定版本发布",
       "kind": "rss"
     },
     {
       "name": "openEO Python Client · 稳定版本发布",
       "kind": "rss"
+    },
+    {
+      "name": "earthaccess · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "PySTAC · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "Rasterio · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "Copernicus Data Space · 数据与平台动态",
+      "kind": "rss"
+    },
+    {
+      "name": "GDAL · 稳定版本发布",
+      "kind": "rss"
     }
   ],
   "items": [
+    {
+      "id": "m9cu3s7lxx8xn8d8v0fd71c8k",
+      "title": "预印本评估 AlphaEarth Foundation 嵌入在摩洛哥农业制图中的效用与物理可解释性",
+      "originalTitle": "Assessing the Physical Interpretability of AlphaEarth Foundation Embeddings Through Multi-Sensor Satellite Time-Series Benchmarking for Agricultural Mapping",
+      "summary": "基于论文摘要，该预印本评估 AlphaEarth Foundation Model（AEF）嵌入用于摩洛哥农业 LULC 和灌溉类型制图，并与单日期及时序遥感特征比较。",
+      "reason": "该预印本不仅比较 AlphaEarth Foundation 嵌入与单日期、时序遥感特征在摩洛哥农业制图中的精度，还通过嵌入维度与光谱指数、植被及 SAR 结构的相关性探测提供物理可解释性证据。",
+      "source": {
+        "name": "arXiv · 遥感与地球观测预印本",
+        "kind": "rss",
+        "firstParty": true
+      },
+      "originalUrl": "https://arxiv.org/abs/2611.34019v1",
+      "publishedAt": "2026-11-25T09:07:05.000Z",
+      "timelineAt": "2026-11-26T17:01:39.966Z",
+      "category": "paper",
+      "tags": [
+        "论文/研究",
+        "遥感基础模型",
+        "农业",
+        "时序分析",
+        "分类识别",
+        "多模态"
+      ],
+      "score": 65,
+      "selected": true
+    },
+    {
+      "id": "hmxyje9sn9ozbgqumhpw5h791",
+      "title": "预印本提出 GeOPD：用显式地理上下文标注进行遥感多模态模型的 on-policy 蒸馏",
+      "originalTitle": "Seeing the Right Context: Grounded On-Policy Distillation for Remote Sensing",
+      "summary": "基于论文摘要，Yichang Luo 的预印本提出 GeOPD，并构建含 5,394 个训练对的 GeoContext-5K，将遥感 VQA 中的空间线索、视觉事实和支持区域显式化，用于在保留周边空间参照的条件下进行 on-policy 蒸馏。",
+      "reason": "该预印本将问答答案所依赖的邻域目标与空间参照显式标注进训练样本，并用恢复证据后的师生分布变化筛选蒸馏纠正；其价值在于给出面向遥感 VQA 上下文关系的具体训练信号与五基准对比结果。",
+      "source": {
+        "name": "arXiv · 遥感与地球观测预印本",
+        "kind": "rss",
+        "firstParty": true
+      },
+      "originalUrl": "https://arxiv.org/abs/2611.34700v1",
+      "publishedAt": "2026-11-25T16:58:12.000Z",
+      "timelineAt": "2026-11-26T08:53:39.305Z",
+      "category": "paper",
+      "tags": [
+        "论文/研究",
+        "数据集/基准",
+        "遥感基础模型",
+        "多模态",
+        "自监督学习"
+      ],
+      "score": 73,
+      "selected": true
+    },
+    {
+      "id": "qneqw9033ifhaece9ww9i3anf",
+      "title": "预印本：基于 TerraMind 潜空间表示的 Sentinel-1 船舶检测、定位与类型分类",
+      "originalTitle": "Enhancing Maritime Domain Awareness using Latent Space Representations",
+      "summary": "基于论文摘要，Rikard Vinge 在预印本中提出直接在 TerraMind 压缩潜空间表示上进行线性与非线性探测，以 Sentinel-1 GRD 的 SAR 影像完成船舶检测、定位和表征，减少直接处理原始影像的需求。",
+      "reason": "该预印本检验了直接在 TerraMind 压缩潜空间表示上开展 Sentinel-1 船舶检测、定位和类型分类的可行性，并给出了细粒度海上态势感知任务的具体误差与分类限制。",
+      "source": {
+        "name": "arXiv · 遥感与地球观测预印本",
+        "kind": "rss",
+        "firstParty": true
+      },
+      "originalUrl": "https://arxiv.org/abs/2611.34899v1",
+      "publishedAt": "2026-11-25T18:51:36.000Z",
+      "timelineAt": "2026-11-26T08:53:39.289Z",
+      "category": "paper",
+      "tags": [
+        "论文/研究",
+        "SAR",
+        "遥感基础模型",
+        "目标检测",
+        "分类识别",
+        "海洋"
+      ],
+      "score": 75,
+      "selected": true
+    },
     {
       "id": "k0ex9qw6mdrq8qipmzjwdjhj3",
       "title": "rioxarray 0.25.1 发布",
@@ -488,28 +565,6 @@
       ],
       "score": 78,
       "selected": true
-    },
-    {
-      "id": "szm1ke27hsm0ov45xc5drt23p",
-      "title": "PySTAC v1.16.1 发布",
-      "originalTitle": "v1.16.1",
-      "summary": "PySTAC 发布稳定版本 v1.16.1，该版本由 jsignell 于 19 Nov 发布。自上一版本以来，main 分支新增 1 个提交，版本对应提交 e043dd7，提交在 GitHub.com 创建并带有 GitHub 已验证签名。",
-      "reason": null,
-      "source": {
-        "name": "PySTAC · 稳定版本发布",
-        "kind": "rss",
-        "firstParty": true
-      },
-      "originalUrl": "https://github.com/stac-utils/pystac/releases/tag/v1.16.1",
-      "publishedAt": "2026-11-19T15:56:37.000Z",
-      "timelineAt": "2026-11-19T18:24:16.008Z",
-      "category": "rs-tools",
-      "tags": [
-        "工具更新",
-        "开源生态"
-      ],
-      "score": 20,
-      "selected": false
     },
     {
       "id": "wj3lye4n1u4e7ke32hjfv564t",
@@ -4905,6 +4960,47 @@
     }
   ],
   "reports": [
+    {
+      "kind": "daily",
+      "key": "2026-11-27",
+      "title": "遥感日报 · 2026-11-27",
+      "generatedAt": "2026-11-27T00:00:41.776Z",
+      "editorialMode": "model",
+      "lead": {
+        "title": "预印本提出基于 TerraMind 潜空间的 Sentinel-1 船舶检测方法",
+        "leadParagraph": "预印本提出直接在 TerraMind 压缩潜空间表示上进行探测，以 Sentinel-1 SAR 影像完成船舶检测、定位和类型分类，减少直接处理原始影像的需求。另有预印本提出 GeOPD 及含 5,394 个训练对的 GeoContext-5K，用于遥感多模态模型的 on-policy 蒸馏；还有研究评估 AlphaEarth Foundation 嵌入在摩洛哥农业制图中的效用与物理可解释性。"
+      },
+      "overview": null,
+      "sections": [
+        {
+          "label": "论文与方法",
+          "summary": null,
+          "items": [
+            {
+              "itemId": "qneqw9033ifhaece9ww9i3anf",
+              "title": "预印本：基于 TerraMind 潜空间表示的 Sentinel-1 船舶检测、定位与类型分类",
+              "summary": "基于论文摘要，Rikard Vinge 在预印本中提出直接在 TerraMind 压缩潜空间表示上进行线性与非线性探测，以 Sentinel-1 GRD 的 SAR 影像完成船舶检测、定位和表征，减少直接处理原始影像的需求。",
+              "sourceName": "arXiv · 遥感与地球观测预印本",
+              "originalUrl": "https://arxiv.org/abs/2611.34899v1"
+            },
+            {
+              "itemId": "hmxyje9sn9ozbgqumhpw5h791",
+              "title": "预印本提出 GeOPD：用显式地理上下文标注进行遥感多模态模型的 on-policy 蒸馏",
+              "summary": "基于论文摘要，Yichang Luo 的预印本提出 GeOPD，并构建含 5,394 个训练对的 GeoContext-5K，将遥感 VQA 中的空间线索、视觉事实和支持区域显式化，用于在保留周边空间参照的条件下进行 on-policy 蒸馏。",
+              "sourceName": "arXiv · 遥感与地球观测预印本",
+              "originalUrl": "https://arxiv.org/abs/2611.34700v1"
+            },
+            {
+              "itemId": "m9cu3s7lxx8xn8d8v0fd71c8k",
+              "title": "预印本评估 AlphaEarth Foundation 嵌入在摩洛哥农业制图中的效用与物理可解释性",
+              "summary": "基于论文摘要，该预印本评估 AlphaEarth Foundation Model（AEF）嵌入用于摩洛哥农业 LULC 和灌溉类型制图，并与单日期及时序遥感特征比较。",
+              "sourceName": "arXiv · 遥感与地球观测预印本",
+              "originalUrl": "https://arxiv.org/abs/2611.34019v1"
+            }
+          ]
+        }
+      ]
+    },
     {
       "kind": "daily",
       "key": "2026-11-26",
@@ -10282,6 +10378,7 @@
       "group": "field",
       "definition": "追踪SAR 与 InSAR的研究方法、数据、工具与应用实践。",
       "itemIds": [
+        "qneqw9033ifhaece9ww9i3anf",
         "y42cq0hbke9e669k36tl7e5hn",
         "ldyro4e5c422wz3b112rs227o",
         "es04cn2axyzenalm7w5ge1qe7",
@@ -10414,6 +10511,7 @@
       "group": "field",
       "definition": "追踪目标检测的研究方法、数据、工具与应用实践。",
       "itemIds": [
+        "qneqw9033ifhaece9ww9i3anf",
         "ew58zmd9xi8hqs4f77826z754",
         "vxw73cd0ji6xrmtqrdc7hzvtg",
         "dwewbn1fy9d8uc4zp7amrzbu6",
@@ -10505,6 +10603,9 @@
       "group": "field",
       "definition": "追踪遥感基础模型的研究方法、数据、工具与应用实践。",
       "itemIds": [
+        "m9cu3s7lxx8xn8d8v0fd71c8k",
+        "hmxyje9sn9ozbgqumhpw5h791",
+        "qneqw9033ifhaece9ww9i3anf",
         "je0m8ilx35002845a4vb10xf2",
         "e39q5zgnyhrkqqp1l0cl9z28m",
         "ew58zmd9xi8hqs4f77826z754",
@@ -10616,6 +10717,7 @@
       "group": "field",
       "definition": "追踪农业的研究方法、数据、工具与应用实践。",
       "itemIds": [
+        "m9cu3s7lxx8xn8d8v0fd71c8k",
         "mjq868a18m244i0n1skmqf9gx",
         "r8h5aw5kmp06pvv35yhym2v15",
         "fo7v639tvs6qhah75jjchyrbl",
@@ -10659,6 +10761,9 @@
       "group": "genre",
       "definition": "值得关注的遥感论文与研究，保留原文入口与适用条件。",
       "itemIds": [
+        "m9cu3s7lxx8xn8d8v0fd71c8k",
+        "hmxyje9sn9ozbgqumhpw5h791",
+        "qneqw9033ifhaece9ww9i3anf",
         "je0m8ilx35002845a4vb10xf2",
         "e39q5zgnyhrkqqp1l0cl9z28m",
         "y42cq0hbke9e669k36tl7e5hn",
@@ -10761,6 +10866,7 @@
       "group": "genre",
       "definition": "值得关注的遥感数据集与基准，保留原文入口与适用条件。",
       "itemIds": [
+        "hmxyje9sn9ozbgqumhpw5h791",
         "rmspwss52fvyrqtddsqh5cqyq",
         "fopp09y0d6qbkc9fx9ib8dzxo",
         "zw50hvcrhyuft3cx91q8ijqxf",
@@ -10917,7 +11023,7 @@
     }
   ],
   "hot": {
-    "computedAt": "2026-11-26T02:25:30.976Z",
+    "computedAt": "2026-11-27T02:30:09.117Z",
     "windowHours": 48,
     "entries": []
   }
