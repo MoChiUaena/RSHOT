@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-27T02:30:09.747Z",
+  "generatedAt": "2026-11-28T02:30:07.937Z",
   "categories": [
     {
       "key": "paper",
@@ -29,7 +29,7 @@
   ],
   "sources": [
     {
-      "name": "TerraTorch · 稳定版本发布",
+      "name": "GDAL · 稳定版本发布",
       "kind": "rss"
     },
     {
@@ -37,7 +37,11 @@
       "kind": "rss"
     },
     {
-      "name": "arXiv · 遥感与地球观测预印本",
+      "name": "STAC FastAPI · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "TorchGeo · 稳定版本发布",
       "kind": "rss"
     },
     {
@@ -45,11 +49,31 @@
       "kind": "web_list"
     },
     {
-      "name": "ESA · 对地观测",
+      "name": "PySTAC · 稳定版本发布",
       "kind": "rss"
     },
     {
       "name": "Google Earth 与 Earth Engine · 官方博客",
+      "kind": "rss"
+    },
+    {
+      "name": "Earth Engine API · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "Copernicus Data Space · 数据与平台动态",
+      "kind": "rss"
+    },
+    {
+      "name": "TerraTorch · 稳定版本发布",
+      "kind": "rss"
+    },
+    {
+      "name": "ESA · 对地观测",
+      "kind": "rss"
+    },
+    {
+      "name": "rioxarray · 稳定版本发布",
       "kind": "rss"
     },
     {
@@ -61,27 +85,7 @@
       "kind": "web_list"
     },
     {
-      "name": "TorchGeo · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "rioxarray · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "STAC FastAPI · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "geemap · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "Earth Engine API · 稳定版本发布",
-      "kind": "rss"
-    },
-    {
-      "name": "openEO Python Client · 稳定版本发布",
+      "name": "Rasterio · 稳定版本发布",
       "kind": "rss"
     },
     {
@@ -89,23 +93,92 @@
       "kind": "rss"
     },
     {
-      "name": "PySTAC · 稳定版本发布",
+      "name": "arXiv · 遥感与地球观测预印本",
       "kind": "rss"
     },
     {
-      "name": "Rasterio · 稳定版本发布",
+      "name": "openEO Python Client · 稳定版本发布",
       "kind": "rss"
     },
     {
-      "name": "Copernicus Data Space · 数据与平台动态",
-      "kind": "rss"
-    },
-    {
-      "name": "GDAL · 稳定版本发布",
+      "name": "geemap · 稳定版本发布",
       "kind": "rss"
     }
   ],
   "items": [
+    {
+      "id": "bgqru2ymufacvo0fdm8avh3pk",
+      "title": "UzSolarHeat Weather 预印本发布乌兹别克斯坦170个节点的太阳能长周期调整代表年数据集",
+      "originalTitle": "UzSolarHeat Weather: a long-term-adjusted representative year for solar energy at 170 nodes over Uzbekistan",
+      "summary": "基于论文摘要，UzSolarHeat Weather 构建乌兹别克斯坦全国模拟电网170个节点的逐小时太阳能代表年，以 NSRDB Meteosat-IODC（2017至2019年）提供逐小时变化，并在候选月选择前分别按全球辐射42年、直射辐射25年的气候态统一尺度。",
+      "reason": "材料给出长周期统一尺度校准与留出站点验证，量化了直射辐射偏差及地面校准后的预测误差变化，可用于比较代表年数据集的构建与校准选择。",
+      "source": {
+        "name": "Earth System Science Data · 数据论文与讨论稿",
+        "kind": "web_list",
+        "firstParty": true
+      },
+      "originalUrl": "https://essd.copernicus.org/preprints/essd-2026-896/",
+      "publishedAt": "2026-11-27T00:00:00.000Z",
+      "timelineAt": "2026-11-27T19:17:18.321Z",
+      "category": "data",
+      "tags": [
+        "数据集/基准",
+        "定量反演",
+        "数据质量",
+        "气候",
+        "Copernicus"
+      ],
+      "score": 86,
+      "selected": true
+    },
+    {
+      "id": "f1uyi073xef3fvxn2gcfuxu2p",
+      "title": "用于消除水面以上辐射测量中耀斑扰动的光谱校正因子",
+      "originalTitle": "Spectral correction factors for the removal of glint perturbations in above-water radiometry",
+      "summary": "基于论文摘要，研究提出了用于消除水面以上辐射测量中耀斑扰动的光谱校正因子（ρ-factors）的理论计算方法，覆盖340–1020 nm光谱范围及代表性内陆、沿岸和开阔大洋水体。",
+      "reason": "将高精度平行平面标量辐射传输代码与三维蒙特卡洛水面反射模拟耦合，理论计算了考虑大气依赖性的水面以上辐射测量耀斑校正因子，并区分太阳耀斑与天空耀斑的贡献。",
+      "source": {
+        "name": "Earth System Science Data · 数据论文与讨论稿",
+        "kind": "web_list",
+        "firstParty": true
+      },
+      "originalUrl": "https://essd.copernicus.org/articles/18/8971/2026/",
+      "publishedAt": "2026-11-27T00:00:00.000Z",
+      "timelineAt": "2026-11-27T14:12:38.396Z",
+      "category": "paper",
+      "tags": [
+        "论文/研究",
+        "海洋",
+        "辐射定标",
+        "Copernicus"
+      ],
+      "score": 82,
+      "selected": true
+    },
+    {
+      "id": "pk71zslrbaehq42jud6b4bd93",
+      "title": "openEO 更新：批量任务提速并支持更大范围，改进输出可靠性",
+      "originalTitle": "What's new in openEO: Faster, larger batch jobs and more reliable results",
+      "summary": "Copernicus Data Space 的 openEO 后端上线更新，通过 job tracker 优化与性能、内存改进加快批量任务并支持更大处理范围，示例为单个任务以一整年 Sentinel-2 10 m 数据生成 154×114 km 合成结果，可处理规模仍取决于数据与处理步骤。",
+      "reason": "openEO 后端通过任务追踪与内存优化将单批处理扩展到 100×100 km 及以上，并修复了 Zarr 浮点取整、TIFF 裁剪及 merge_cubes 无效值逻辑，其中部分修复会改变已有工作流的输出数值。",
+      "source": {
+        "name": "Copernicus Data Space · 数据与平台动态",
+        "kind": "rss",
+        "firstParty": true
+      },
+      "originalUrl": "https://dataspace.copernicus.eu/news/2026-11-26-whats-new-openeo-faster-larger-batch-jobs-and-more-reliable-results",
+      "publishedAt": "2026-11-26T08:57:38.000Z",
+      "timelineAt": "2026-11-27T11:02:14.754Z",
+      "category": "rs-tools",
+      "tags": [
+        "工具更新",
+        "云端处理",
+        "部署/工程",
+        "Copernicus"
+      ],
+      "score": 65,
+      "selected": true
+    },
     {
       "id": "m9cu3s7lxx8xn8d8v0fd71c8k",
       "title": "预印本评估 AlphaEarth Foundation 嵌入在摩洛哥农业制图中的效用与物理可解释性",
@@ -515,31 +588,6 @@
       "selected": true
     },
     {
-      "id": "u6ixno9dzhwgeoneh42rtgdf8",
-      "title": "Copernicus Sentinel-2C 于 2026 年 11 月 17 日数据不可用事件更新：异常已解决",
-      "originalTitle": "Copernicus Sentinel-2C Data Unavailability on 17 November 2026 - Update (resolved)",
-      "summary": "Copernicus Sentinel-2C 的星上异常已解决，常规运行于 2026 年 11 月 19 日 13:55 UTC 恢复。受影响期间获取的数据仍无法恢复，受影响的 datatakes 已列在 Sentinel Operations Dashboard Events 页面。",
-      "reason": null,
-      "source": {
-        "name": "Copernicus Data Space · 数据与平台动态",
-        "kind": "rss",
-        "firstParty": true
-      },
-      "originalUrl": "https://dataspace.copernicus.eu/news/2026-11-20-copernicus-sentinel-2c-data-unavailability-17-november-2026-update-resolved",
-      "publishedAt": "2026-11-20T06:31:34.000Z",
-      "timelineAt": "2026-11-20T07:22:35.404Z",
-      "category": "satellite",
-      "tags": [
-        "卫星/传感器",
-        "光学遥感",
-        "数据质量",
-        "Copernicus",
-        "ESA"
-      ],
-      "score": 38,
-      "selected": false
-    },
-    {
       "id": "mjq868a18m244i0n1skmqf9gx",
       "title": "《地球大数据支撑可持续发展目标报告（2026）》发布，提出SDGs数字指标框架",
       "originalTitle": "《地球大数据支撑可持续发展目标报告（2026）》发布",
@@ -929,6 +977,31 @@
         "数据集/基准"
       ],
       "score": 71,
+      "selected": true
+    },
+    {
+      "id": "vfwb96wzjckmrihzvhxc5u88z",
+      "title": "基于 BIOMASS P 波段 SAR 层析数据实现干旱区距离超分辨（预印本）",
+      "originalTitle": "From Very Fine Vertical Resolution to Range Super-Resolution on BIOMASS P-BAND SAR Data",
+      "summary": "基于论文摘要，该预印本在 ESA BIOMASS P 波段 SAR 数据上实现干旱区距离超分辨，将斜距分辨率由约 25 m 提升至优于 2.1 m。",
+      "reason": "将 BIOMASS 层析数据的距离超分辨问题从 SAR tomography 视角重新解释，并显式考虑残余地形误差；利用 2025 年 7–8 月在轨调试期全部 20 景数据给出可核查的分辨率与有效带宽结果。",
+      "source": {
+        "name": "arXiv · 遥感与地球观测预印本",
+        "kind": "rss",
+        "firstParty": true
+      },
+      "originalUrl": "https://arxiv.org/abs/2611.21358v2",
+      "publishedAt": "2026-11-16T16:31:10.000Z",
+      "timelineAt": "2026-11-16T16:31:10.000Z",
+      "category": "paper",
+      "tags": [
+        "论文/研究",
+        "SAR",
+        "InSAR",
+        "ESA",
+        "高光谱"
+      ],
+      "score": 82,
       "selected": true
     },
     {
@@ -4960,6 +5033,59 @@
     }
   ],
   "reports": [
+    {
+      "kind": "daily",
+      "key": "2026-11-28",
+      "title": "遥感日报 · 2026-11-28",
+      "generatedAt": "2026-11-28T00:00:20.579Z",
+      "editorialMode": "model",
+      "lead": {
+        "title": "openEO 更新：批量任务提速并支持更大处理范围",
+        "leadParagraph": "Copernicus Data Space 的 openEO 后端上线更新，加快批量任务处理并支持更大范围，提升输出可靠性。科研方面，UzSolarHeat Weather 发布乌兹别克斯坦170个节点的太阳能代表年数据集，水面以上辐射测量则提出光谱校正因子以消除耀斑扰动。"
+      },
+      "overview": null,
+      "sections": [
+        {
+          "label": "论文与方法",
+          "summary": null,
+          "items": [
+            {
+              "itemId": "f1uyi073xef3fvxn2gcfuxu2p",
+              "title": "用于消除水面以上辐射测量中耀斑扰动的光谱校正因子",
+              "summary": "基于论文摘要，研究提出了用于消除水面以上辐射测量中耀斑扰动的光谱校正因子（ρ-factors）的理论计算方法，覆盖340–1020 nm光谱范围及代表性内陆、沿岸和开阔大洋水体。",
+              "sourceName": "Earth System Science Data · 数据论文与讨论稿",
+              "originalUrl": "https://essd.copernicus.org/articles/18/8971/2026/"
+            }
+          ]
+        },
+        {
+          "label": "数据集与基准",
+          "summary": null,
+          "items": [
+            {
+              "itemId": "bgqru2ymufacvo0fdm8avh3pk",
+              "title": "UzSolarHeat Weather 预印本发布乌兹别克斯坦170个节点的太阳能长周期调整代表年数据集",
+              "summary": "基于论文摘要，UzSolarHeat Weather 构建乌兹别克斯坦全国模拟电网170个节点的逐小时太阳能代表年，以 NSRDB Meteosat-IODC（2017至2019年）提供逐小时变化，并在候选月选择前分别按全球辐射42年、直射辐射25年的气候态统一尺度。",
+              "sourceName": "Earth System Science Data · 数据论文与讨论稿",
+              "originalUrl": "https://essd.copernicus.org/preprints/essd-2026-896/"
+            }
+          ]
+        },
+        {
+          "label": "模型与开源工具",
+          "summary": null,
+          "items": [
+            {
+              "itemId": "pk71zslrbaehq42jud6b4bd93",
+              "title": "openEO 更新：批量任务提速并支持更大范围，改进输出可靠性",
+              "summary": "Copernicus Data Space 的 openEO 后端上线更新，通过 job tracker 优化与性能、内存改进加快批量任务并支持更大处理范围，示例为单个任务以一整年 Sentinel-2 10 m 数据生成 154×114 km 合成结果，可处理规模仍取决于数据与处理步骤。",
+              "sourceName": "Copernicus Data Space · 数据与平台动态",
+              "originalUrl": "https://dataspace.copernicus.eu/news/2026-11-26-whats-new-openeo-faster-larger-batch-jobs-and-more-reliable-results"
+            }
+          ]
+        }
+      ]
+    },
     {
       "kind": "daily",
       "key": "2026-11-27",
@@ -10305,6 +10431,7 @@
       "group": "company",
       "definition": "ESA 的遥感研究、观测数据与工程动态。",
       "itemIds": [
+        "vfwb96wzjckmrihzvhxc5u88z",
         "mq9u0rq1tokp5cfhcjcq5j5to",
         "xruyou2g1ukxrjwo1sldxqyic",
         "le9tcuhykbm4yp1xuy7iw5ntj"
@@ -10316,6 +10443,9 @@
       "group": "company",
       "definition": "Copernicus 的遥感研究、观测数据与工程动态。",
       "itemIds": [
+        "bgqru2ymufacvo0fdm8avh3pk",
+        "f1uyi073xef3fvxn2gcfuxu2p",
+        "pk71zslrbaehq42jud6b4bd93",
         "fopp09y0d6qbkc9fx9ib8dzxo",
         "u2aje0o81y6xr9ru3kvmj8amq",
         "zb5gptdjtpjlcnezo0tgdg44n",
@@ -10381,6 +10511,7 @@
         "qneqw9033ifhaece9ww9i3anf",
         "y42cq0hbke9e669k36tl7e5hn",
         "ldyro4e5c422wz3b112rs227o",
+        "vfwb96wzjckmrihzvhxc5u88z",
         "es04cn2axyzenalm7w5ge1qe7",
         "w1b7wi4bv0k1xoe97jzh9b586",
         "ajrhbsvd25za2pvolhf81irff",
@@ -10403,6 +10534,7 @@
       "group": "field",
       "definition": "追踪干涉测量的研究方法、数据、工具与应用实践。",
       "itemIds": [
+        "vfwb96wzjckmrihzvhxc5u88z",
         "oly7ht74h0ot0mvd61dempnax",
         "ad5lwrpkxedyar3hpvfyhz4df"
       ]
@@ -10415,6 +10547,7 @@
       "itemIds": [
         "adys589j1en46fzdj9b99zxq2",
         "r8h5aw5kmp06pvv35yhym2v15",
+        "vfwb96wzjckmrihzvhxc5u88z",
         "o0bt7pjjc7aj4vsolfuo5bd92",
         "u697b1z1qhu2p6w4kr1fvmo3v",
         "ujo5l9tbn2356mu8d05ewf1b5",
@@ -10561,6 +10694,7 @@
       "group": "field",
       "definition": "追踪定量反演的研究方法、数据、工具与应用实践。",
       "itemIds": [
+        "bgqru2ymufacvo0fdm8avh3pk",
         "wj3lye4n1u4e7ke32hjfv564t",
         "ktmpjgwcuwkq6npyoq1o2m6v4",
         "vtvr1jb9grt27ppy7s70ifcz6",
@@ -10676,6 +10810,7 @@
       "group": "field",
       "definition": "追踪云端处理的研究方法、数据、工具与应用实践。",
       "itemIds": [
+        "pk71zslrbaehq42jud6b4bd93",
         "nufwx9l5i1dzk41e0b5tt17zf",
         "zb5gptdjtpjlcnezo0tgdg44n",
         "jy00q7c0tobk9xwqwv0umjfvy",
@@ -10761,6 +10896,7 @@
       "group": "genre",
       "definition": "值得关注的遥感论文与研究，保留原文入口与适用条件。",
       "itemIds": [
+        "f1uyi073xef3fvxn2gcfuxu2p",
         "m9cu3s7lxx8xn8d8v0fd71c8k",
         "hmxyje9sn9ozbgqumhpw5h791",
         "qneqw9033ifhaece9ww9i3anf",
@@ -10781,6 +10917,7 @@
         "clvmnekvh5hyc7nxa1vncdn1o",
         "r8h5aw5kmp06pvv35yhym2v15",
         "o1nwh5moq653ixq0necraf369",
+        "vfwb96wzjckmrihzvhxc5u88z",
         "fo7v639tvs6qhah75jjchyrbl",
         "d1nb9n3fi0cp4p13cvblxc681",
         "ovm1fdzpu9cnmgdixu9nyrnlj",
@@ -10866,6 +11003,7 @@
       "group": "genre",
       "definition": "值得关注的遥感数据集与基准，保留原文入口与适用条件。",
       "itemIds": [
+        "bgqru2ymufacvo0fdm8avh3pk",
         "hmxyje9sn9ozbgqumhpw5h791",
         "rmspwss52fvyrqtddsqh5cqyq",
         "fopp09y0d6qbkc9fx9ib8dzxo",
@@ -11023,7 +11161,7 @@
     }
   ],
   "hot": {
-    "computedAt": "2026-11-27T02:30:09.117Z",
+    "computedAt": "2026-11-28T02:25:17.079Z",
     "windowHours": 48,
     "entries": []
   }
